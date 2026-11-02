@@ -95,7 +95,7 @@ const config: Config = {
         ...domains.map((d) => ({to: `/${d.slug}`, label: d.label, position: 'left' as const, activeBaseRegex: '^$'})),
         {to: '/tags', label: 'Etiquetas', position: 'left'},
         {href: 'https://alancesar.dev', label: 'alancesar.dev', position: 'right'},
-        {href: 'https://github.com/alancesar/designpatterns', label: 'GitHub', position: 'right'},
+        {href: 'https://github.com/alancesar/design-patterns', label: 'GitHub', position: 'right'},
       ],
     },
     footer: {
