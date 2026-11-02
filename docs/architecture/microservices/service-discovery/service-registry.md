@@ -50,9 +50,9 @@ Opcionalmente, o registro chama a API de health check de cada instância para co
 
 ```mermaid
 flowchart LR
-    I["Instâncias do serviço"] -->|"registram / removem"| R[("Service Registry")]
+    I["Service instances"] -->|"register / deregister"| R[("Service Registry")]
     R -->|"health check"| I
-    C["Cliente ou roteador"] -->|"consulta"| R
+    C["Client or router"] -->|"queries"| R
     C --> I
 ```
 

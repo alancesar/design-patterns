@@ -74,7 +74,7 @@ classDiagram
     Client --> Subject
     Subject <|.. RealObject
     Subject <|.. LazyProxy
-    LazyProxy --> Mapper : carrega no primeiro acesso
+    LazyProxy --> Mapper : loads on first access
     LazyProxy --> RealObject
 ```
 

@@ -61,14 +61,14 @@ sequenceDiagram
     participant Database
     Client->>Mapper: find(42)
     Mapper->>IdentityMap: get(42)
-    alt objeto no mapa
-        IdentityMap-->>Mapper: objeto existente
-    else objeto ausente
+    alt object in the map
+        IdentityMap-->>Mapper: existing object
+    else object missing
         Mapper->>Database: SELECT ... WHERE id = 42
-        Database-->>Mapper: linha
-        Mapper->>IdentityMap: put(42, objeto)
+        Database-->>Mapper: row
+        Mapper->>IdentityMap: put(42, object)
     end
-    Mapper-->>Client: objeto
+    Mapper-->>Client: object
 ```
 
 O `Mapper` consulta o `IdentityMap` antes de ir ao `Database`; se o objeto não existir, carrega a linha, registra no mapa e o devolve. Chamadas seguintes com o mesmo id retornam a mesma instância.

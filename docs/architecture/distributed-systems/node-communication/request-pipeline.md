@@ -54,14 +54,14 @@ O ganho aparece quando o servidor consegue processar algo enquanto outras requis
 
 ```mermaid
 sequenceDiagram
-    participant C as Cliente
-    participant S as Servidor
-    C->>S: Requisicao 1
-    C->>S: Requisicao 2
-    S-->>C: Resposta 1
-    C->>S: Requisicao 3
-    S-->>C: Resposta 2
-    S-->>C: Resposta 3
+    participant C as Client
+    participant S as Server
+    C->>S: Request 1
+    C->>S: Request 2
+    S-->>C: Response 1
+    C->>S: Request 3
+    S-->>C: Response 2
+    S-->>C: Response 3
 ```
 
 O cliente envia as requisições 2 e 3 sem esperar a resposta da requisição 1. As respostas chegam depois e são tratadas por uma linha de execução separada.

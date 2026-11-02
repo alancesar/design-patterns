@@ -65,13 +65,13 @@ Também é conhecido como *pipeline*, *prompt chaining*, *linear delegation* ou,
 ## Diagrama
 
 ```mermaid
-%% Pipeline linear: cada agente consome a saída do anterior
+%% Linear pipeline: each agent consumes the previous agent's output
 flowchart LR
-    E["Entrada"] --> A1["Agente 1"]
-    A1 --> A2["Agente 2"]
-    A2 --> A3["Agente 3"]
-    A3 --> R["Resultado"]
-    S[("Estado comum")] -.- A1
+    E["Input"] --> A1["Agent 1"]
+    A1 --> A2["Agent 2"]
+    A2 --> A3["Agent 3"]
+    A3 --> R["Result"]
+    S[("Shared state")] -.- A1
     S -.- A2
     S -.- A3
 ```

@@ -58,19 +58,19 @@ Considerações adicionais:
 
 ```mermaid
 flowchart LR
-    subgraph core["Núcleo consistente (3 a 5 nós)"]
-        C1["Nó 1 (líder)"]
-        C2["Nó 2"]
-        C3["Nó 3"]
+    subgraph core["Consistent core (3 to 5 nodes)"]
+        C1["Node 1 (leader)"]
+        C2["Node 2"]
+        C3["Node 3"]
         C1 <--> C2
         C1 <--> C3
         C2 <--> C3
     end
-    subgraph data["Cluster de dados (muitos nós)"]
-        D1["Servidor A"]
-        D2["Servidor B"]
-        D3["Servidor C"]
-        D4["Servidor N"]
+    subgraph data["Data cluster (many nodes)"]
+        D1["Server A"]
+        D2["Server B"]
+        D3["Server C"]
+        D4["Server N"]
     end
     D1 --> core
     D2 --> core

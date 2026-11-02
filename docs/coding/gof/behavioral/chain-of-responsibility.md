@@ -73,11 +73,11 @@ classDiagram
         +handle(Request request)
     }
     class Request
-    Client --> Handler : envia requisicao
+    Client --> Handler : sends request
     Handler o--> Handler : next
     Handler <|-- ConcreteHandlerA
     Handler <|-- ConcreteHandlerB
-    Handler ..> Request : processa
+    Handler ..> Request : processes
 ```
 
 O `Client` envia a `Request` ao primeiro `Handler` da cadeia. Cada `ConcreteHandler` decide se trata a requisição ou a repassa ao sucessor referenciado por `next`, formando uma lista encadeada de tratadores.

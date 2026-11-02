@@ -50,11 +50,11 @@ A escolha da saída é controlada por fora, normalmente por mensagens enviadas p
 
 ```mermaid
 flowchart LR
-    A["Origem"] --> D{"Detour"}
+    A["Source"] --> D{"Detour"}
     CB["Control Bus"] -.-> D
-    D -- "desvio desligado" --> Z["Destino"]
-    D -- "desvio ligado" --> S1["Validação ou depuração"]
-    S1 --> S2["Registro detalhado"]
+    D -- "detour off" --> Z["Destination"]
+    D -- "detour on" --> S1["Validation or debugging"]
+    S1 --> S2["Detailed logging"]
     S2 --> Z
 ```
 

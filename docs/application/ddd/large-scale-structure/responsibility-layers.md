@@ -56,9 +56,9 @@ Ao sugerir onde cada novo conceito deve ficar e quem pode depender de quem, a es
 
 ```mermaid
 flowchart TB
-    P["Policy (decisões e regras)"] --> O["Operations (atividades do dia a dia)"]
-    O --> C["Capability (recursos e capacidades)"]
-    C --> PT["Potential (ativos e potencial)"]
+    P["Policy (decisions and rules)"] --> O["Operations (day-to-day activities)"]
+    O --> C["Capability (resources and capabilities)"]
+    C --> PT["Potential (assets and potential)"]
 ```
 
 Cada camada depende apenas das camadas abaixo dela: políticas conhecem operações, operações conhecem capacidades, e assim por diante, nunca no sentido inverso.

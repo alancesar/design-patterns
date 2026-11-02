@@ -51,16 +51,16 @@ A escala é feita alterando o número de contêineres. Como apenas o processo da
 
 ```mermaid
 flowchart LR
-    Build["Pipeline de build"] --> Img["Imagem de contêiner"]
-    Img --> C1["Contêiner - instância 1"]
-    Img --> C2["Contêiner - instância 2"]
-    Img --> C3["Contêiner - instância 3"]
-    subgraph Host["Host com runtime de contêineres"]
+    Build["Build pipeline"] --> Img["Container image"]
+    Img --> C1["Container - instance 1"]
+    Img --> C2["Container - instance 2"]
+    Img --> C3["Container - instance 3"]
+    subgraph Host["Host with container runtime"]
         C1
         C2
         C3
     end
-    LB["Balanceador de carga"] --> C1
+    LB["Load balancer"] --> C1
     LB --> C2
     LB --> C3
 ```

@@ -62,15 +62,15 @@ Com isso, os componentes ficam fracamente acoplados e podem ser adicionados, tro
 
 ```mermaid
 flowchart LR
-    C["Cliente"] -->|"Solicita envio"| I["Serviço de ingestão"]
-    I -->|"Publica: envio solicitado"| B[("Message broker")]
-    B -->|"Evento"| P["Serviço de pacotes"]
-    B -->|"Evento"| D["Agendador de drones"]
-    P -->|"Publica: pacote pronto"| B
-    D -->|"Publica: drone agendado"| B
-    B -->|"Eventos correlacionados"| E["Serviço de entrega"]
-    E -->|"Publica: pacote enviado"| B
-    B -.->|"Falhas"| Q["DLQ e compensações"]
+    C["Client"] -->|"Requests shipment"| I["Ingestion service"]
+    I -->|"Publishes: shipment requested"| B[("Message broker")]
+    B -->|"Event"| P["Package service"]
+    B -->|"Event"| D["Drone scheduler"]
+    P -->|"Publishes: package ready"| B
+    D -->|"Publishes: drone scheduled"| B
+    B -->|"Correlated events"| E["Delivery service"]
+    E -->|"Publishes: package shipped"| B
+    B -.->|"Failures"| Q["DLQ and compensations"]
 ```
 
 Nenhum serviço coordena os demais: cada um reage aos eventos do broker e publica o resultado da sua parte. O serviço de entrega só segue depois de receber os dois eventos (pacote pronto e drone agendado), correlacionados pelo identificador da entrega.

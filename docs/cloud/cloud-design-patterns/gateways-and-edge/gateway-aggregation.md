@@ -63,14 +63,14 @@ A agregação pode morar no próprio gateway (composição leve, como montar e m
 
 ```mermaid
 flowchart LR
-    C["Cliente"] -->|"1. Requisição única"| G["Gateway de agregação"]
-    G -->|"2. Chamada paralela"| S1["Serviço de pedidos"]
-    G -->|"2. Chamada paralela"| S2["Serviço de entregas"]
-    G -->|"2. Chamada paralela"| S3["Serviço de perfil do cliente"]
-    S1 -.->|"3. Resposta"| G
-    S2 -.->|"3. Resposta"| G
-    S3 -.->|"3. Resposta"| G
-    G -.->|"4. Resposta agregada"| C
+    C["Client"] -->|"1. Single request"| G["Aggregation gateway"]
+    G -->|"2. Parallel call"| S1["Order service"]
+    G -->|"2. Parallel call"| S2["Delivery service"]
+    G -->|"2. Parallel call"| S3["Customer profile service"]
+    S1 -.->|"3. Response"| G
+    S2 -.->|"3. Response"| G
+    S3 -.->|"3. Response"| G
+    G -.->|"4. Aggregated response"| C
 ```
 
 O cliente envia uma única requisição ao gateway, que dispara chamadas paralelas aos serviços de back-end, combina os resultados e devolve uma só resposta. Os serviços permanecem ocultos do cliente e as múltiplas chamadas ocorrem dentro da rede de baixa latência.

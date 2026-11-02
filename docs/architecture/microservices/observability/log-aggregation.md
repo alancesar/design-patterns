@@ -52,11 +52,11 @@ Os agentes de coleta devem ser leves para não penalizar os serviços, e os logs
 
 ```mermaid
 flowchart LR
-    A1["Serviço A (instância 1)"] -->|"logs"| C["Serviço de log centralizado"]
-    A2["Serviço A (instância 2)"] -->|"logs"| C
-    B["Serviço B"] -->|"logs"| C
-    C --> S["Busca e análise"]
-    C --> AL["Alertas"]
+    A1["Service A (instance 1)"] -->|"logs"| C["Centralized logging service"]
+    A2["Service A (instance 2)"] -->|"logs"| C
+    B["Service B"] -->|"logs"| C
+    C --> S["Search and analysis"]
+    C --> AL["Alerts"]
 ```
 
 Todas as instâncias enviam seus logs para um serviço central, que oferece busca, análise e alertas.

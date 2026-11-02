@@ -50,11 +50,11 @@ A escala é feita aumentando ou diminuindo o número de VMs, o que plataformas I
 
 ```mermaid
 flowchart LR
-    Build["Pipeline de build"] --> Img["Imagem de VM (AMI)"]
-    Img --> VM1["VM - instância 1"]
-    Img --> VM2["VM - instância 2"]
-    Img --> VM3["VM - instância 3"]
-    LB["Balanceador de carga"] --> VM1
+    Build["Build pipeline"] --> Img["VM image (AMI)"]
+    Img --> VM1["VM - instance 1"]
+    Img --> VM2["VM - instance 2"]
+    Img --> VM3["VM - instance 3"]
+    LB["Load balancer"] --> VM1
     LB --> VM2
     LB --> VM3
 ```

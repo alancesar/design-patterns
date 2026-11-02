@@ -54,10 +54,10 @@ O modelo pertence ao conjunto de aplicações e não a um sistema específico, o
 
 ```mermaid
 flowchart LR
-    A["Aplicação A"] --> TA["Tradutor A"]
-    B["Aplicação B"] --> TB["Tradutor B"]
-    C["Aplicação C"] --> TC["Tradutor C"]
-    TA --> M(("Modelo canônico"))
+    A["Application A"] --> TA["Translator A"]
+    B["Application B"] --> TB["Translator B"]
+    C["Application C"] --> TC["Translator C"]
+    TA --> M(("Canonical model"))
     TB --> M
     TC --> M
 ```

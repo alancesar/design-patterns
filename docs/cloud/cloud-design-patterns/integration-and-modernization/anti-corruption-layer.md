@@ -69,22 +69,22 @@ No contexto de microsserviços (microservices.io), o padrão responde à pergunt
 
 ```mermaid
 flowchart LR
-    subgraph A["Subsistema A (moderno)"]
-        S1[Serviço 1]
-        S2[Serviço 2]
-        S3[Serviço 3]
+    subgraph A["Subsystem A (modern)"]
+        S1[Service 1]
+        S2[Service 2]
+        S3[Service 3]
     end
-    ACL["Anti-Corruption Layer (tradução de modelos e protocolos)"]
-    subgraph B["Subsistema B (legado ou externo)"]
-        L[Sistema legado]
-        DB[(Base de dados legada)]
+    ACL["Anti-Corruption Layer (model and protocol translation)"]
+    subgraph B["Subsystem B (legacy or external)"]
+        L[Legacy system]
+        DB[(Legacy database)]
     end
-    S1 -->|"modelo de A"| ACL
-    S2 -->|"modelo de A"| ACL
-    S3 -->|"modelo de A"| ACL
-    ACL -->|"modelo e protocolo de B"| L
+    S1 -->|"A's model"| ACL
+    S2 -->|"A's model"| ACL
+    S3 -->|"A's model"| ACL
+    ACL -->|"B's model and protocol"| L
     L --> DB
-    ACL -.->|"respostas traduzidas para o modelo de A"| S1
+    ACL -.->|"responses translated to A's model"| S1
 ```
 
 Os serviços do subsistema A falam apenas em seu próprio modelo com a Anti-Corruption Layer, que traduz as chamadas para o modelo e o protocolo do subsistema B e converte as respostas de volta. Nenhum dos lados precisa conhecer a estrutura interna do outro.

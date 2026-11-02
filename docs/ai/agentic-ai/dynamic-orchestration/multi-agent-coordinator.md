@@ -52,14 +52,14 @@ Diferente do [Magentic Orchestration](../../agent-orchestration/dynamic-orchestr
 
 ```mermaid
 flowchart LR
-    U["Usuário"] --> C["Agente coordenador"]
-    C -->|"Status do pedido"| A1["Agente de pedidos"]
-    C -->|"Devolução"| A2["Agente de devoluções"]
-    C -->|"Reembolso"| A3["Agente de reembolsos"]
+    U["User"] --> C["Coordinator agent"]
+    C -->|"Order status"| A1["Orders agent"]
+    C -->|"Return"| A2["Returns agent"]
+    C -->|"Refund"| A3["Refunds agent"]
     A1 --> C
     A2 --> C
     A3 --> C
-    C --> R["Resposta"]
+    C --> R["Response"]
 ```
 
 O coordenador classifica o pedido, roteia para o especialista adequado e consolida o resultado.

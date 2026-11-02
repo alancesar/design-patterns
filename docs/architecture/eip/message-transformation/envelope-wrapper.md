@@ -53,10 +53,10 @@ Em termos gerais, o fluxo tem duas etapas: um wrapper no lado do remetente, que 
 
 ```mermaid
 flowchart LR
-    A["Aplicação origem"] --> W["Wrapper"]
-    W -->|"Mensagem com envelope"| C["Canal de mensagens"]
+    A["Source application"] --> W["Wrapper"]
+    W -->|"Message with envelope"| C["Message channel"]
     C --> U["Unwrapper"]
-    U --> B["Aplicação destino"]
+    U --> B["Target application"]
 ```
 
 O wrapper adiciona o envelope exigido pela infraestrutura e o unwrapper o remove, de modo que as aplicações trabalham apenas com os dados originais.

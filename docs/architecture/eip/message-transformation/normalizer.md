@@ -53,13 +53,13 @@ Com os dados normalizados, todo o processamento posterior trabalha com uma estru
 
 ```mermaid
 flowchart LR
-    A["Parceiro A (CSV)"] --> R["Roteador: detecta o formato"]
-    B["Parceiro B (XML)"] --> R
-    C["Parceiro C (outro formato)"] --> R
-    R --> T1["Tradutor A"]
-    R --> T2["Tradutor B"]
-    R --> T3["Tradutor C"]
-    T1 --> N["Formato comum"]
+    A["Partner A (CSV)"] --> R["Router: detects the format"]
+    B["Partner B (XML)"] --> R
+    C["Partner C (other format)"] --> R
+    R --> T1["Translator A"]
+    R --> T2["Translator B"]
+    R --> T3["Translator C"]
+    T1 --> N["Common format"]
     T2 --> N
     T3 --> N
 ```

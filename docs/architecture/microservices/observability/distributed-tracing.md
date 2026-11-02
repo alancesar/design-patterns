@@ -52,17 +52,17 @@ Essa instrumentação costuma vir de um microservice chassis ou de bibliotecas p
 
 ```mermaid
 sequenceDiagram
-    participant C as Cliente
-    participant A as Serviço A
-    participant B as Serviço B
-    participant T as Serviço de traces
-    C->>A: requisição
-    Note over A: gera ID de trace
-    A->>B: chamada com ID de trace
-    B-->>A: resposta
-    A-->>C: resposta
-    A->>T: spans (tempos)
-    B->>T: spans (tempos)
+    participant C as Client
+    participant A as Service A
+    participant B as Service B
+    participant T as Tracing service
+    C->>A: request
+    Note over A: generates trace ID
+    A->>B: call with trace ID
+    B-->>A: response
+    A-->>C: response
+    A->>T: spans (timings)
+    B->>T: spans (timings)
 ```
 
 O ID gerado na entrada é repassado entre os serviços, e cada um envia seus spans ao serviço central de traces.

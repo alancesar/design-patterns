@@ -52,14 +52,14 @@ Se um seguidor recebe uma mensagem com geração menor que a que já viu, sabe q
 
 ```mermaid
 sequenceDiagram
-    participant Old as Líder antigo (geração 1)
-    participant F as Seguidor
-    participant New as Novo líder (geração 2)
-    New->>F: replica entrada (geração 2)
+    participant Old as Old leader (generation 1)
+    participant F as Follower
+    participant New as New leader (generation 2)
+    New->>F: replicates entry (generation 2)
     F-->>New: ack
-    Old->>F: replica entrada (geração 1)
-    F-->>Old: rejeita, geração atual é 2
-    Note over Old: abdica da liderança
+    Old->>F: replicates entry (generation 1)
+    F-->>Old: rejects, current generation is 2
+    Note over Old: steps down from leadership
 ```
 
 O seguidor já viu a geração 2 e rejeita a mensagem do líder antigo, que descobre que foi destituído.

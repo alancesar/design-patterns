@@ -66,24 +66,24 @@ Como as configurações passam a alterar o comportamento das aplicações em tem
 
 ```mermaid
 flowchart LR
-    subgraph Apps["Aplicações"]
-        A1["Instância A"]
-        A2["Instância B"]
-        A3["Aplicação C"]
+    subgraph Apps["Applications"]
+        A1["Instance A"]
+        A2["Instance B"]
+        A3["Application C"]
     end
-    C["Cache local"]
-    S["Repositório externo de configuração"]
-    DB[("Armazenamento de apoio")]
-    K["Cofre de segredos"]
-    P["Pipeline de implantação"]
+    C["Local cache"]
+    S["External configuration store"]
+    DB[("Backing store")]
+    K["Secrets vault"]
+    P["Deployment pipeline"]
 
     A1 --> C
     A2 --> C
     A3 --> C
-    C -- "lê e atualiza periodicamente" --> S
+    C -- "reads and refreshes periodically" --> S
     S --> DB
-    S -- "referências a segredos" --> K
-    P -- "publica configurações versionadas" --> S
+    S -- "secret references" --> K
+    P -- "publishes versioned configuration" --> S
 ```
 
 As aplicações leem as configurações por meio de um cache local, que é atualizado a partir do repositório externo centralizado; o pipeline publica versões de configuração no repositório, e os segredos permanecem em um cofre dedicado, apenas referenciados.

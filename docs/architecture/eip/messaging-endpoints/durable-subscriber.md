@@ -47,15 +47,15 @@ Sem isso, um assinante que cai, é reiniciado ou está em manutenção perde tud
 
 ```mermaid
 sequenceDiagram
-    participant P as Publicador
+    participant P as Publisher
     participant B as Broker
-    participant S as Assinante durável
-    S->>B: assina (nome durável)
-    S--xB: desconecta
-    P->>B: publica mensagens
-    Note over B: armazena para a assinatura
-    S->>B: reconecta
-    B->>S: entrega mensagens acumuladas
+    participant S as Durable subscriber
+    S->>B: subscribes (durable name)
+    S--xB: disconnects
+    P->>B: publishes messages
+    Note over B: stores them for the subscription
+    S->>B: reconnects
+    B->>S: delivers accumulated messages
 ```
 
 O broker guarda as mensagens enquanto o assinante está ausente e as entrega quando ele volta.

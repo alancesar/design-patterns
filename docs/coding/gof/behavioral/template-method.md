@@ -76,7 +76,7 @@ classDiagram
     class Client
     AbstractClass <|-- ConcreteClassA
     AbstractClass <|-- ConcreteClassB
-    Client --> AbstractClass : chama templateMethod
+    Client --> AbstractClass : calls templateMethod
 ```
 
 `AbstractClass` define o `templateMethod`, que invoca as operações primitivas (abstratas) e o `hook` (opcional) em ordem fixa. `ConcreteClassA` e `ConcreteClassB` implementam os passos variáveis, e o `Client` interage apenas com o método template.

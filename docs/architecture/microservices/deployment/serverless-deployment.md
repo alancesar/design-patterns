@@ -53,12 +53,12 @@ Internamente o provedor usa contêineres ou VMs, mas isso não é gerenciado pel
 
 ```mermaid
 flowchart LR
-    Cli["Cliente HTTP"] --> GW["API Gateway"]
-    Evt["Evento (storage, fila, agendamento)"] --> Plat
+    Cli["HTTP client"] --> GW["API Gateway"]
+    Evt["Event (storage, queue, schedule)"] --> Plat
     GW --> Plat
-    subgraph Plat["Plataforma serverless"]
-        F1["Função - instância 1"]
-        F2["Função - instância 2"]
+    subgraph Plat["Serverless platform"]
+        F1["Function - instance 1"]
+        F2["Function - instance 2"]
     end
 ```
 

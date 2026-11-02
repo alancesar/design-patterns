@@ -59,13 +59,13 @@ A lógica de retry costuma ficar encapsulada em uma política reutilizável (nú
 
 ```mermaid
 flowchart LR
-    A["Aplicação"] -->|"Requisição"| B["Serviço remoto"]
-    B --> C{"Sucesso?"}
-    C -->|"Sim"| D["Retorna resultado"]
-    C -->|"Não"| E{"Falha transitória e tentativas restantes?"}
-    E -->|"Sim"| F["Aguarda intervalo (backoff com jitter)"]
-    F -->|"Nova tentativa"| B
-    E -->|"Não"| G["Trata como exceção"]
+    A["Application"] -->|"Request"| B["Remote service"]
+    B --> C{"Success?"}
+    C -->|"Yes"| D["Returns result"]
+    C -->|"No"| E{"Transient failure and retries left?"}
+    E -->|"Yes"| F["Waits for interval (backoff with jitter)"]
+    F -->|"Retry"| B
+    E -->|"No"| G["Handles as exception"]
 ```
 
 A aplicação repete a requisição após intervalos crescentes enquanto as falhas forem transitórias; se o limite de tentativas for esgotado, a falha deixa de ser mascarada e é tratada como exceção.

@@ -54,8 +54,8 @@ A tradução pode atuar em vários níveis: estrutura de dados (campos, nomes, t
 
 ```mermaid
 flowchart LR
-    A["Aplicação A (formato A)"] --> T["Message Translator"]
-    T --> B["Aplicação B (formato B)"]
+    A["Application A (format A)"] --> T["Message Translator"]
+    T --> B["Application B (format B)"]
 ```
 
 A mensagem sai da aplicação A no seu formato, é convertida pelo tradutor e chega à aplicação B no formato que ela entende.

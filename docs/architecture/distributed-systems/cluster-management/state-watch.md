@@ -55,16 +55,16 @@ Considerações adicionais:
 
 ```mermaid
 sequenceDiagram
-    participant C as Cliente
-    participant S as Servidor
-    participant W as Escritor
-    C->>S: Registra watch na chave config
-    S-->>C: Watch registrado
-    W->>S: Atualiza chave config
-    S-->>W: Escrita confirmada
-    S-->>C: Notifica mudança em config
-    C->>S: Lê novo valor de config
-    S-->>C: Valor atualizado
+    participant C as Client
+    participant S as Server
+    participant W as Writer
+    C->>S: Registers watch on key config
+    S-->>C: Watch registered
+    W->>S: Updates key config
+    S-->>W: Write acknowledged
+    S-->>C: Notifies change in config
+    C->>S: Reads new value of config
+    S-->>C: Updated value
 ```
 
 O cliente registra o interesse uma vez, e o servidor o avisa quando o valor muda, evitando consultas repetidas.

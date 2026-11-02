@@ -51,10 +51,10 @@ Mensageria persistente e assíncrona pode deixar mensagens perdidas no caminho. 
 
 ```mermaid
 flowchart LR
-    P["Produtor"] --> C["Canal"]
-    C --> D["Consumidor"]
-    Op["Operador ou teste"] --> U["Channel Purger"]
-    U -- "remove mensagens" --> C
+    P["Producer"] --> C["Channel"]
+    C --> D["Consumer"]
+    Op["Operator or test"] --> U["Channel Purger"]
+    U -- "removes messages" --> C
 ```
 
 O purger age diretamente sobre o canal, removendo todas as mensagens ou só as que atendem ao critério.

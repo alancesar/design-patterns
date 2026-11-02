@@ -69,18 +69,18 @@ Uma implementação comum usa uma sequência de filas de mensagens como pipes, c
 
 ```mermaid
 flowchart LR
-    S1["Fonte de dados 1"] --> P1(["Pipe"])
-    S2["Fonte de dados 2"] --> P2(["Pipe"])
-    P1 --> F1["Filtro: validar"]
+    S1["Data source 1"] --> P1(["Pipe"])
+    S2["Data source 2"] --> P2(["Pipe"])
+    P1 --> F1["Filter: validate"]
     P2 --> F1
     F1 --> P3(["Pipe"])
-    P3 --> F2a["Filtro: transformar (instância 1)"]
-    P3 --> F2b["Filtro: transformar (instância 2)"]
+    P3 --> F2a["Filter: transform (instance 1)"]
+    P3 --> F2b["Filter: transform (instance 2)"]
     F2a --> P4(["Pipe"])
     F2b --> P4
-    P4 --> F3["Filtro: enriquecer"]
+    P4 --> F3["Filter: enrich"]
     F3 --> P5(["Pipe"])
-    P5 --> D["Destino / lógica de negócio"]
+    P5 --> D["Destination / business logic"]
 ```
 
 Dados de diferentes fontes entram no pipeline e passam por filtros independentes conectados por pipes (por exemplo, filas). O filtro mais lento ("transformar") roda com várias instâncias em paralelo para aumentar a vazão, sem afetar as demais etapas.

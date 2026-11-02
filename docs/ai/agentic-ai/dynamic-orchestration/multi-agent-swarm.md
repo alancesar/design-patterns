@@ -53,15 +53,15 @@ Comparado ao [Group Chat Orchestration](../../agent-orchestration/dynamic-orches
 
 ```mermaid
 flowchart LR
-    U["Usuário"] --> D["Agente despachante"]
-    D --> M["Agente de mercado"]
-    M <--> E["Agente de engenharia"]
-    E <--> F["Agente financeiro"]
+    U["User"] --> D["Dispatcher agent"]
+    D --> M["Market agent"]
+    M <--> E["Engineering agent"]
+    E <--> F["Finance agent"]
     F <--> M
     M --> D
     E --> D
     F --> D
-    D --> R["Especificação final"]
+    D --> R["Final specification"]
 ```
 
 O despachante entrega o pedido a um agente; os agentes debatem entre si e o despachante devolve o resultado ao atingir a condição de saída.

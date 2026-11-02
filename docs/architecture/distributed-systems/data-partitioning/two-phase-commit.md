@@ -56,18 +56,18 @@ Os participantes e o coordenador usam um log durável, como um Write-Ahead Log, 
 
 ```mermaid
 sequenceDiagram
-    participant C as Coordenador
-    participant A as Participante A
-    participant B as Participante B
+    participant C as Coordinator
+    participant A as Participant A
+    participant B as Participant B
     C->>A: prepare
     C->>B: prepare
-    A-->>C: promessa (locks adquiridos)
-    B-->>C: promessa (locks adquiridos)
-    Note over C: Todos prometeram, decisão registrada no log
+    A-->>C: promise (locks acquired)
+    B-->>C: promise (locks acquired)
+    Note over C: All promised, decision recorded in the log
     C->>A: commit
     C->>B: commit
-    A-->>C: confirmado
-    B-->>C: confirmado
+    A-->>C: acknowledged
+    B-->>C: acknowledged
 ```
 
 Se qualquer participante recusar na fase de prepare, o coordenador envia rollback a todos em vez de commit, e os locks são liberados.

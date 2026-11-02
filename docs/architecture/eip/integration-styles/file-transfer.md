@@ -56,9 +56,9 @@ A escolha do formato (texto delimitado, largura fixa, XML, JSON, formatos legado
 
 ```mermaid
 flowchart LR
-    A["Aplicação A (produtora)"] -->|"grava"| F["Arquivo em formato combinado"]
-    F -->|"lê"| T["Conversor de formato"]
-    T --> B["Aplicação B (consumidora)"]
+    A["Application A (producer)"] -->|"writes"| F["File in agreed format"]
+    F -->|"reads"| T["Format converter"]
+    T --> B["Application B (consumer)"]
 ```
 
 A aplicação produtora grava um arquivo periodicamente; um conversor adapta o formato e a aplicação consumidora o lê no seu próprio ritmo.

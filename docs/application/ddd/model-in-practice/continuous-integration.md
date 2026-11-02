@@ -53,11 +53,11 @@ A prática vale apenas dentro de um Bounded Context; entre contextos, a integra�
 
 ```mermaid
 flowchart LR
-    A["Dev A: muda o modelo"] --> I["Integração frequente"]
-    B["Dev B: muda o modelo"] --> I
-    I --> T["Build e testes automatizados"]
-    I --> C["Conversa sobre o modelo"]
-    T --> M["Modelo coeso no Bounded Context"]
+    A["Dev A: changes the model"] --> I["Frequent integration"]
+    B["Dev B: changes the model"] --> I
+    I --> T["Automated build and tests"]
+    I --> C["Conversation about the model"]
+    T --> M["Cohesive model within the Bounded Context"]
     C --> M
 ```
 

@@ -49,13 +49,13 @@ Atenção à confirmação: confirmar automaticamente na entrega, antes de proce
 
 ```mermaid
 sequenceDiagram
-    participant C as Canal
+    participant C as Channel
     participant E as Event-Driven Consumer
-    participant A as Aplicação
-    C->>E: entrega mensagem (callback)
-    E->>A: repassa conteúdo
-    A-->>E: concluído
-    E-->>C: confirma
+    participant A as Application
+    C->>E: delivers message (callback)
+    E->>A: passes content along
+    A-->>E: done
+    E-->>C: acknowledges
 ```
 
 O canal aciona o consumidor, que repassa o conteúdo à aplicação e confirma ao final.

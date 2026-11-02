@@ -54,9 +54,9 @@ Reconhecer um Big Ball of Mud não é aprová-lo, e sim nomear uma realidade par
 
 ```mermaid
 flowchart LR
-    BBM["Big Ball of Mud (legado)"] -->|"modelo confuso"| ACL["Anticorruption Layer"]
-    ACL -->|"modelo traduzido"| N1["Novo contexto de Pedidos"]
-    ACL -->|"modelo traduzido"| N2["Novo contexto de Clientes"]
+    BBM["Big Ball of Mud (legacy)"] -->|"confusing model"| ACL["Anticorruption Layer"]
+    ACL -->|"translated model"| N1["New Orders context"]
+    ACL -->|"translated model"| N2["New Customers context"]
 ```
 
 O legado emaranhado é cercado por uma fronteira, e os contextos novos o acessam apenas por uma camada de tradução.

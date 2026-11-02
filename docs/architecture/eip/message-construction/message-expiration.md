@@ -50,9 +50,9 @@ Muitos sistemas redirecionam mensagens expiradas para um Dead Letter Channel; ou
 
 ```mermaid
 flowchart LR
-    P["Emissor (define o prazo)"] --> Q["Canal"]
-    Q -->|"dentro do prazo"| C["Consumidor"]
-    Q -->|"prazo vencido"| D["Dead Letter Channel ou descarte"]
+    P["Sender (sets the deadline)"] --> Q["Channel"]
+    Q -->|"within the deadline"| C["Consumer"]
+    Q -->|"deadline expired"| D["Dead Letter Channel or discard"]
 ```
 
 Mensagens dentro do prazo vão ao consumidor; as vencidas são descartadas ou desviadas.

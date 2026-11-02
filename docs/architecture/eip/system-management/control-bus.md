@@ -52,13 +52,13 @@ Cada componente da solução se conecta a dois subsistemas: o fluxo de mensagens
 
 ```mermaid
 flowchart LR
-    Admin["Console de administração"] --> CB["Control Bus"]
-    CB --> R["Roteador"]
-    CB --> F["Filtro"]
-    CB --> T["Tradutor"]
-    R -. "métricas e heartbeat" .-> CB
-    F -. "métricas e heartbeat" .-> CB
-    T -. "métricas e heartbeat" .-> CB
+    Admin["Admin console"] --> CB["Control Bus"]
+    CB --> R["Router"]
+    CB --> F["Filter"]
+    CB --> T["Translator"]
+    R -. "metrics and heartbeat" .-> CB
+    F -. "metrics and heartbeat" .-> CB
+    T -. "metrics and heartbeat" .-> CB
 ```
 
 O console envia comandos pelo Control Bus aos componentes, que respondem com métricas e heartbeats pelo mesmo canal, separado do fluxo de dados.

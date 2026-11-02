@@ -55,10 +55,10 @@ A vantagem é a baixa intrusão: o núcleo ganha visibilidade imediata sem a nec
 
 ```mermaid
 flowchart TD
-    A["Modelo completo"] --> B["Conceitos do core"]
-    A --> C["Conceitos de suporte"]
-    D["Documento de destilação"] -.->|"descreve"| B
-    E["Marcações no código e nos diagramas"] -.->|"sinalizam"| B
+    A["Full model"] --> B["Core concepts"]
+    A --> C["Supporting concepts"]
+    D["Distillation document"] -.->|"describes"| B
+    E["Markers in code and diagrams"] -.->|"flag"| B
 ```
 
 O modelo permanece inteiro, mas o documento de destilação e as marcações apontam quais conceitos pertencem ao core.

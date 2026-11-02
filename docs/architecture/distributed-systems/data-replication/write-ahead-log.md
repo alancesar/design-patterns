@@ -55,11 +55,11 @@ O padrão é a base de vários outros do catálogo: o Segmented Log divide o log
 
 ```mermaid
 flowchart LR
-    C["Cliente"] -->|"1. requisição"| S["Servidor"]
-    S -->|"2. acrescenta comando e faz flush"| L[("Log em disco")]
-    S -->|"3. aplica a mudança"| M["Estado em memória"]
-    S -->|"4. responde"| C
-    L -.->|"após queda: reexecuta"| M
+    C["Client"] -->|"1. request"| S["Server"]
+    S -->|"2. appends command and flushes"| L[("On-disk log")]
+    S -->|"3. applies the change"| M["In-memory state"]
+    S -->|"4. responds"| C
+    L -.->|"after crash: replays"| M
 ```
 
 O servidor grava o comando no log em disco antes de alterar o estado em memória e só então responde. Após uma falha, o estado é reconstruído reexecutando o log.

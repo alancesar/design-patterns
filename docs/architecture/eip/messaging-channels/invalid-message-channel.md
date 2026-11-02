@@ -52,11 +52,11 @@ A distinção importante é que a mensagem chegou ao destino, mas é inválida p
 
 ```mermaid
 flowchart LR
-    P["Produtor"] --> C["Canal de entrada"]
-    C --> R{"Receptor valida a mensagem"}
-    R -->|"válida"| OK["Processamento normal"]
-    R -->|"inválida"| I["Invalid Message Channel"]
-    I --> E["Tratamento de erros"]
+    P["Producer"] --> C["Input channel"]
+    C --> R{"Receiver validates the message"}
+    R -->|"valid"| OK["Normal processing"]
+    R -->|"invalid"| I["Invalid Message Channel"]
+    I --> E["Error handling"]
 ```
 
 O receptor valida cada mensagem; as válidas seguem o fluxo normal e as inválidas vão ao canal dedicado, onde um processo de erros as analisa.

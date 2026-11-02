@@ -49,10 +49,10 @@ O roteador guarda essas condições em uma base de regras. Ao chegar uma mensage
 
 ```mermaid
 flowchart LR
-    IN["Mensagens"] --> R{"Dynamic Router"}
-    BR[("Base de regras")] --- R
-    A["Destinatário A"] -->|"registro"| C["Canal de controle"]
-    B["Destinatário B"] -->|"registro"| C
+    IN["Messages"] --> R{"Dynamic Router"}
+    BR[("Rule base")] --- R
+    A["Recipient A"] -->|"registration"| C["Control channel"]
+    B["Recipient B"] -->|"registration"| C
     C --> R
     R --> A
     R --> B

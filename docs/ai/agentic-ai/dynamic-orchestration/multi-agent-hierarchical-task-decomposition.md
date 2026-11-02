@@ -52,14 +52,14 @@ Os agentes se organizam em uma hierarquia de vários níveis. Um agente raiz div
 
 ```mermaid
 flowchart TD
-    U["Usuário"] --> R["Agente raiz"]
-    R --> S1["Coleta de dados"]
-    R --> S2["Análise"]
-    R --> S3["Redação do relatório"]
-    S1 --> W1["Agente trabalhador A"]
-    S1 --> W2["Agente trabalhador B"]
-    S2 --> W3["Agente trabalhador C"]
-    S3 --> W4["Agente trabalhador D"]
+    U["User"] --> R["Root agent"]
+    R --> S1["Data collection"]
+    R --> S2["Analysis"]
+    R --> S3["Report writing"]
+    S1 --> W1["Worker agent A"]
+    S1 --> W2["Worker agent B"]
+    S2 --> W3["Worker agent C"]
+    S3 --> W4["Worker agent D"]
 ```
 
 O agente raiz delega a subagentes intermediários, que decompõem e delegam até os agentes trabalhadores executarem.

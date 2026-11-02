@@ -56,11 +56,11 @@ sequenceDiagram
     participant C as Client
     participant P as Paint
     C->>P: mixIn(other)
-    Note over P: Pre: other nao e nulo
-    P->>P: atualiza color e volume
-    Note over P: Pos: volume = volume anterior + other.volume
-    P-->>C: concluido
-    Note over P: Invariante: volume nunca e negativo
+    Note over P: Pre: other is not null
+    P->>P: updates color and volume
+    Note over P: Post: volume = previous volume + other.volume
+    P-->>C: done
+    Note over P: Invariant: volume is never negative
 ```
 
 A pré-condição, a pós-condição e o invariante são declarados em torno do comando `mixIn`.

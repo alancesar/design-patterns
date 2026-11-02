@@ -82,9 +82,9 @@ classDiagram
     Mediator <|.. ConcreteMediator
     Colleague <|-- ConcreteColleagueA
     Colleague <|-- ConcreteColleagueB
-    Colleague --> Mediator : notifica
-    ConcreteMediator --> ConcreteColleagueA : coordena
-    ConcreteMediator --> ConcreteColleagueB : coordena
+    Colleague --> Mediator : notifies
+    ConcreteMediator --> ConcreteColleagueA : coordinates
+    ConcreteMediator --> ConcreteColleagueB : coordinates
 ```
 
 O `Mediator` define a interface de comunicação usada pelos colleagues. O `ConcreteMediator` conhece os colleagues concretos e implementa a coordenação entre eles. Cada `Colleague` guarda uma referência ao mediador e o notifica em vez de falar diretamente com os demais.

@@ -49,11 +49,11 @@ As exceções devem continuar sendo registradas nos logs, além de reportadas ao
 
 ```mermaid
 flowchart LR
-    S1["Serviço A"] -->|"exceção"| E["Serviço de exception tracking"]
-    S2["Serviço B"] -->|"exceção"| E
+    S1["Service A"] -->|"exception"| E["Exception tracking service"]
+    S2["Service B"] -->|"exception"| E
     S1 -->|"log"| L["Log Aggregation"]
-    E --> G["Agrupamento e de-duplicação"]
-    G --> N["Notificação para desenvolvedores"]
+    E --> G["Grouping and de-duplication"]
+    G --> N["Developer notification"]
 ```
 
 Cada serviço reporta exceções ao serviço central, que as agrupa e notifica a equipe, enquanto os logs seguem para a agregação.

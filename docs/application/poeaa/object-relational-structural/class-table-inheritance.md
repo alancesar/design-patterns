@@ -51,8 +51,8 @@ O esquema espelha o modelo de objetos, mantém o banco normalizado e permite `NO
 
 ```mermaid
 erDiagram
-    PLAYER ||--o| FOOTBALLER : e
-    PLAYER ||--o| CRICKETER : e
+    PLAYER ||--o| FOOTBALLER : is
+    PLAYER ||--o| CRICKETER : is
     PLAYER {
         bigint id PK
         varchar name

@@ -51,9 +51,9 @@ O Resequencer não altera o conteúdo, apenas a ordem. Para que a ordem se mante
 
 ```mermaid
 flowchart LR
-    IN["Mensagens 3, 1, 2"] --> RS["Resequencer"]
+    IN["Messages 3, 1, 2"] --> RS["Resequencer"]
     RS --> B[("Buffer")]
-    RS --> OUT["Mensagens 1, 2, 3"]
+    RS --> OUT["Messages 1, 2, 3"]
 ```
 
 As mensagens chegam fora de ordem, ficam no buffer e saem em sequência.

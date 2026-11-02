@@ -47,8 +47,8 @@ No contexto de microsserviços, é uma terceira opção de comunicação entre p
 
 ```mermaid
 flowchart LR
-    C["Cliente de domínio (ex.: player ou cliente de e-mail)"] -->|"protocolo do domínio (ex.: HLS, SMTP/IMAP)"| S["Serviço do domínio"]
-    S -->|"respostas e fluxos no mesmo protocolo"| C
+    C["Domain client (e.g., media player or email client)"] -->|"domain protocol (e.g., HLS, SMTP/IMAP)"| S["Domain service"]
+    S -->|"responses and streams over the same protocol"| C
 ```
 
 Cliente e serviço conversam diretamente usando um protocolo estabelecido para o domínio, sem camada genérica de RPI ou de mensageria.

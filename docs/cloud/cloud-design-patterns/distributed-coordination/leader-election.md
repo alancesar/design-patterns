@@ -58,20 +58,20 @@ As instâncias subordinadas monitoram o líder por heartbeat, polling ou expira�
 
 ```mermaid
 sequenceDiagram
-    participant A as "Instância A"
-    participant B as "Instância B"
-    participant L as "Serviço de lock distribuído"
-    A->>L: Tenta adquirir lease
-    L-->>A: Lease concedido (líder)
-    B->>L: Tenta adquirir lease
-    L-->>B: Negado (subordinada)
-    loop Enquanto for líder
-        A->>L: Renova lease
-        A->>B: Coordena trabalho
+    participant A as "Instance A"
+    participant B as "Instance B"
+    participant L as "Distributed lock service"
+    A->>L: Tries to acquire lease
+    L-->>A: Lease granted (leader)
+    B->>L: Tries to acquire lease
+    L-->>B: Denied (follower)
+    loop While leader
+        A->>L: Renews lease
+        A->>B: Coordinates work
     end
-    Note over A: Instância A falha
-    B->>L: Tenta adquirir lease após expiração
-    L-->>B: Lease concedido (novo líder)
+    Note over A: Instance A fails
+    B->>L: Tries to acquire lease after expiration
+    L-->>B: Lease granted (new leader)
 ```
 
 As instâncias disputam um lease em um serviço de lock distribuído; quem o obtém vira líder e o renova periodicamente. Se o líder falhar, o lease expira e outra instância assume a liderança.

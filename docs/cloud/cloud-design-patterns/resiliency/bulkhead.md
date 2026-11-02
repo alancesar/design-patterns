@@ -60,12 +60,12 @@ As partições podem ser implementadas com processos, threads, semáforos, cont�
 
 ```mermaid
 flowchart LR
-    W1["Workload 1"] --> PA["Pool de conexões A"]
-    W2["Workload 2"] --> PB["Pool de conexões B"]
-    W2 --> PC["Pool de conexões C"]
-    PA -. "falha isolada" .-> SA["Serviço A (indisponível)"]
-    PB --> SB["Serviço B"]
-    PC --> SC["Serviço C"]
+    W1["Workload 1"] --> PA["Connection pool A"]
+    W2["Workload 2"] --> PB["Connection pool B"]
+    W2 --> PC["Connection pool C"]
+    PA -. "isolated failure" .-> SA["Service A (unavailable)"]
+    PB --> SB["Service B"]
+    PC --> SC["Service C"]
 ```
 
 Cada dependência recebe seu próprio pool de recursos. Quando o Serviço A falha, apenas o pool A se esgota; o Workload 2 continua chamando os Serviços B e C normalmente.

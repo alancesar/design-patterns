@@ -71,17 +71,17 @@ No contexto de microsserviços (microservices.io), o BFF é uma variação do AP
 
 ```mermaid
 flowchart LR
-    W["Cliente web (desktop)"] --> G["Gateway de API"]
-    M["App mobile"] --> G
-    G -.-> I["Provedor de identidade"]
-    G -.-> O["Monitoramento"]
+    W["Web client (desktop)"] --> G["API gateway"]
+    M["Mobile app"] --> G
+    G -.-> I["Identity provider"]
+    G -.-> O["Monitoring"]
     G --> BW["BFF web"]
     G --> BM["BFF mobile"]
-    BW --> S1["Serviço de catálogo"]
-    BW --> S2["Serviço de pedidos"]
+    BW --> S1["Catalog service"]
+    BW --> S2["Order service"]
     BM --> S1
     BM --> S2
-    BW --> S3["Serviço de clientes"]
+    BW --> S3["Customer service"]
 ```
 
 Os clientes passam por um gateway que trata autenticação, autorização e monitoramento e roteia cada requisição ao BFF da sua interface. Cada BFF agrega e adapta as chamadas aos serviços de backend para a necessidade do cliente: o BFF mobile devolve respostas leves e paginadas, e o BFF web pode agregar várias páginas e mais dados em uma única resposta. Em uma implementação no Azure, por exemplo, o gateway poderia ser o API Management e os BFFs poderiam ser Azure Functions.

@@ -65,12 +65,12 @@ Considerações adicionais:
 
 ```mermaid
 flowchart LR
-    T1["Tarefa A"] -- "requisições em taxa variável" --> Q[("Fila de mensagens")]
-    T2["Tarefa B"] --> Q
-    T3["Tarefa C"] --> Q
-    Q -- "consumo em taxa controlada" --> S["Serviço consumidor"]
-    S --> D[("Recurso downstream (ex.: banco de dados)")]
-    Q -. "mensagens com falha persistente" .-> DLQ[("Dead-letter queue")]
+    T1["Task A"] -- "requests at a variable rate" --> Q[("Message queue")]
+    T2["Task B"] --> Q
+    T3["Task C"] --> Q
+    Q -- "consumption at a controlled rate" --> S["Consumer service"]
+    S --> D[("Downstream resource (e.g., database)")]
+    Q -. "persistently failing messages" .-> DLQ[("Dead-letter queue")]
 ```
 
 Várias tarefas publicam mensagens em ritmos irregulares na mesma fila, que absorve os picos; o serviço consome as mensagens no próprio ritmo e protege o recurso downstream, enquanto mensagens que não podem ser processadas são isoladas em uma dead-letter queue.

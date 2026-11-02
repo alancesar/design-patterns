@@ -55,11 +55,11 @@ sequenceDiagram
     participant PageController
     participant Model
     participant View
-    Browser->>PageController: requisicao da pagina
-    PageController->>Model: executa logica de dominio
-    Model-->>PageController: dados
-    PageController->>View: seleciona e preenche
-    View-->>Browser: resposta HTML
+    Browser->>PageController: page request
+    PageController->>Model: runs domain logic
+    Model-->>PageController: data
+    PageController->>View: selects and populates
+    View-->>Browser: HTML response
 ```
 
 O navegador chama diretamente o controller da página; ele consulta o model e entrega os dados à view, que gera a resposta.

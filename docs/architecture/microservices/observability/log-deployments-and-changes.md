@@ -44,10 +44,10 @@ Uma técnica comum é a ferramenta de deploy publicar uma pseudo-métrica a cada
 
 ```mermaid
 flowchart LR
-    P["Pipeline de deploy"] -->|"evento de deploy"| M["Serviço de métricas"]
-    I["Mudanças de infraestrutura"] -->|"trilha de auditoria"| M
-    S["Serviços"] -->|"métricas"| M
-    M --> D["Dashboard: deploys sobre métricas"]
+    P["Deployment pipeline"] -->|"deployment event"| M["Metrics service"]
+    I["Infrastructure changes"] -->|"audit trail"| M
+    S["Services"] -->|"metrics"| M
+    M --> D["Dashboard: deployments over metrics"]
 ```
 
 Eventos de deploy e de mudança são publicados junto das métricas, e o dashboard sobrepõe ambos para correlação.

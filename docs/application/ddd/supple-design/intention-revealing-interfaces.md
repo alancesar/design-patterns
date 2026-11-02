@@ -60,8 +60,8 @@ classDiagram
         +mixIn(Paint other)
         +volume() int
     }
-    note for PaintBefore "Nome nao revela se mistura, substitui ou soma"
-    note for PaintAfter "Nome revela o efeito: a tinta recebe a mistura"
+    note for PaintBefore "Name does not reveal whether it mixes, replaces, or adds"
+    note for PaintAfter "Name reveals the effect: the paint receives the mix"
 ```
 
 Em `PaintBefore`, o método não diz o que acontece com a tinta; em `PaintAfter`, `mixIn` revela a intenção e o efeito.

@@ -49,10 +49,10 @@ Assim, valida-se o comportamento do serviço de ponta a ponta dentro de sua fron
 
 ```mermaid
 flowchart LR
-    T["Teste de componente"] -->|"chama a API"| S["Serviço sob teste"]
-    S -->|"invoca"| D1["Dublê do serviço A"]
-    S -->|"publica/consome"| D2["Dublê de mensageria"]
-    S -->|"persiste"| B[("Banco de teste")]
+    T["Component test"] -->|"calls the API"| S["Service under test"]
+    S -->|"invokes"| D1["Service A test double"]
+    S -->|"publishes/consumes"| D2["Messaging test double"]
+    S -->|"persists"| B[("Test database")]
 ```
 
 O serviço é exercitado pela sua API e suas dependências remotas são substituídas por dublês.

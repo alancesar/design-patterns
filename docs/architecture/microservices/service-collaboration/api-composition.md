@@ -53,17 +53,17 @@ Em geral, o papel de compositor é assumido por um API Gateway, mas pode ser um 
 
 ```mermaid
 sequenceDiagram
-    participant C as Cliente
+    participant C as Client
     participant A as API Composer
-    participant CS as Serviço de clientes
-    participant OS as Serviço de pedidos
-    C->>A: Consultar cliente com pedidos recentes
-    A->>CS: Buscar cliente
-    CS-->>A: Dados do cliente
-    A->>OS: Buscar pedidos do cliente
-    OS-->>A: Lista de pedidos
-    A->>A: Join em memória
-    A-->>C: Resposta combinada
+    participant CS as Customer service
+    participant OS as Order service
+    C->>A: Query customer with recent orders
+    A->>CS: Fetch customer
+    CS-->>A: Customer data
+    A->>OS: Fetch customer's orders
+    OS-->>A: Order list
+    A->>A: In-memory join
+    A-->>C: Combined response
 ```
 
 O compositor chama cada serviço dono dos dados, une os resultados em memória e devolve uma resposta única ao cliente.

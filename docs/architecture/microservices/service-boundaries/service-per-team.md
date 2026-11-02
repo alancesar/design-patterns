@@ -49,9 +49,9 @@ O padrão parte da lei de Conway: a arquitetura reflete a estrutura de comunica�
 
 ```mermaid
 flowchart LR
-    T1["Equipe de Pedidos"] --> S1["Serviço de Pedidos"]
-    T2["Equipe de Catálogo"] --> S2["Serviço de Catálogo"]
-    T3["Equipe de Entrega"] --> S3["Serviço de Entrega"]
+    T1["Orders Team"] --> S1["Order Service"]
+    T2["Catalog Team"] --> S2["Catalog Service"]
+    T3["Delivery Team"] --> S3["Delivery Service"]
     S1 -->|"API"| S2
     S1 -->|"API"| S3
 ```

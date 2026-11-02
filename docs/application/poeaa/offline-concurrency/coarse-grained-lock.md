@@ -67,9 +67,9 @@ classDiagram
     class Payment {
         +id
     }
-    Order --> Version : compartilha
-    OrderLine --> Version : compartilha
-    Payment --> Version : compartilha
+    Order --> Version : shares
+    OrderLine --> Version : shares
+    Payment --> Version : shares
     Order "1" --> "*" OrderLine
     Order "1" --> "*" Payment
 ```

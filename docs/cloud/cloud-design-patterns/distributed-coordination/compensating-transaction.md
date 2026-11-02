@@ -64,14 +64,14 @@ Considerações adicionais:
 
 ```mermaid
 flowchart LR
-    C["Cliente"] -->|"Solicita operação"| O["Orquestrador"]
-    O -->|"Etapa 1: reservar voo"| A["Serviço A (voo)"]
-    O -->|"Grava etapa e ação de desfazer"| L[("Registro de compensação")]
-    O -->|"Etapa 2: reservar hotel"| B["Serviço B (hotel)"]
-    B -->|"Falha após retries"| O
-    L -->|"Lê ações de compensação"| O
-    O -->|"Compensação: cancelar voo"| A
-    O -->|"Operação compensada"| C
+    C["Client"] -->|"Requests operation"| O["Orchestrator"]
+    O -->|"Step 1: book flight"| A["Service A (flight)"]
+    O -->|"Records step and undo action"| L[("Compensation log")]
+    O -->|"Step 2: book hotel"| B["Service B (hotel)"]
+    B -->|"Fails after retries"| O
+    L -->|"Reads compensation actions"| O
+    O -->|"Compensation: cancel flight"| A
+    O -->|"Operation compensated"| C
 ```
 
 O orquestrador executa as etapas e registra, para cada etapa concluída, a ação que a desfaz. Quando a etapa 2 falha de forma irrecuperável, ele lê esse registro e aciona as compensações em ordem inversa, deixando o sistema em um estado consistente.

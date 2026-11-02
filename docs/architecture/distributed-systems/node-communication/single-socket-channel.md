@@ -55,15 +55,15 @@ Se a conexão cai, o remetente a reabre e reenvia o que ainda não foi confirmad
 
 ```mermaid
 sequenceDiagram
-    participant L as Lider
+    participant L as Leader
     participant F as Follower
-    participant Q as Fila de atualizacao unica
-    L->>F: Abre conexao TCP (uma vez)
-    L->>F: Mensagem 1
-    L->>F: Mensagem 2
-    L->>F: Mensagem 3
-    F->>Q: Entrega 1, 2, 3 na ordem de chegada
-    Q-->>F: Aplica uma de cada vez
+    participant Q as Singular update queue
+    L->>F: Opens TCP connection (once)
+    L->>F: Message 1
+    L->>F: Message 2
+    L->>F: Message 3
+    F->>Q: Delivers 1, 2, 3 in arrival order
+    Q-->>F: Applies one at a time
 ```
 
 O líder abre uma conexão única com o follower e envia todas as mensagens por ela. O follower as recebe na ordem e as entrega a uma fila que as aplica sequencialmente.

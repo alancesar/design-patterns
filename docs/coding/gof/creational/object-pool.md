@@ -74,10 +74,10 @@ classDiagram
         +create() Reusable
     }
     Client --> ObjectPool : acquire / release
-    Client ..> Reusable : usa
-    ObjectPool o-- Reusable : gerencia
-    ObjectPool --> ReusableFactory : cria quando vazio
-    ReusableFactory ..> Reusable : instancia
+    Client ..> Reusable : uses
+    ObjectPool o-- Reusable : manages
+    ObjectPool --> ReusableFactory : creates when empty
+    ReusableFactory ..> Reusable : instantiates
 ```
 
 O `Client` obtém um `Reusable` do `ObjectPool` e o devolve ao terminar. O pool mantém as listas de objetos disponíveis e em uso, recorre à `ReusableFactory` quando precisa criar novas instâncias (até `maxSize`) e chama `reset()` ao receber um objeto de volta.

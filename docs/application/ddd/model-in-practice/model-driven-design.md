@@ -53,8 +53,8 @@ O padrão exige que quem modela se envolva com a implementação, o que dá orig
 
 ```mermaid
 flowchart LR
-    N["Negócio e especialistas"] --> M["Modelo de domínio"]
-    M <-->|"expresso por"| C["Código"]
+    N["Business and experts"] --> M["Domain model"]
+    M <-->|"expressed by"| C["Code"]
     C -->|"feedback"| M
     L["Ubiquitous Language"] --- M
     L --- C

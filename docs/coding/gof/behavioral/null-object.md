@@ -69,7 +69,7 @@ classDiagram
     class NullObject {
         +request()
     }
-    Client --> AbstractObject : usa
+    Client --> AbstractObject : uses
     AbstractObject <|.. RealObject
     AbstractObject <|.. NullObject
 ```

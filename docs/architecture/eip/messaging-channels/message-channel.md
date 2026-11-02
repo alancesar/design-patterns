@@ -54,8 +54,8 @@ Na prática, o canal é uma abstração oferecida pelo sistema de mensageria (fi
 
 ```mermaid
 flowchart LR
-    A["Aplicação remetente"] -->|"escreve"| C["Message Channel"]
-    C -->|"lê"| B["Aplicação receptora"]
+    A["Sender application"] -->|"writes"| C["Message Channel"]
+    C -->|"reads"| B["Receiver application"]
 ```
 
 A aplicação remetente escreve mensagens no canal e a receptora as lê, sem que uma conheça diretamente a outra.

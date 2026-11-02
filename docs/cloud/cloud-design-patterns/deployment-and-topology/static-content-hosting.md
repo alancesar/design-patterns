@@ -64,17 +64,17 @@ Considerações adicionais:
 
 ```mermaid
 flowchart LR
-    C["Cliente (navegador)"]
-    A["Aplicação (computação)"]
-    CDN["CDN / proxy reverso"]
-    S["Armazenamento de conteúdo estático"]
-    P["Pipeline de implantação"]
+    C["Client (browser)"]
+    A["Application (compute)"]
+    CDN["CDN / reverse proxy"]
+    S["Static content storage"]
+    P["Deployment pipeline"]
 
-    C -->|"1. Requisição dinâmica"| A
-    A -->|"2. Página com links para os assets"| C
-    C -->|"3. Requisita arquivos estáticos"| CDN
+    C -->|"1. Dynamic request"| A
+    A -->|"2. Page with links to the assets"| C
+    C -->|"3. Requests static files"| CDN
     CDN -->|"Cache miss"| S
-    P -->|"Publica assets versionados"| S
+    P -->|"Publishes versioned assets"| S
 ```
 
 O cliente obtém da aplicação apenas a página dinâmica, que referencia os arquivos estáticos; esses arquivos são buscados diretamente na CDN ou proxy, que recorre ao armazenamento quando não há cópia em cache. O pipeline de implantação publica os assets versionados no armazenamento de forma independente da aplicação.

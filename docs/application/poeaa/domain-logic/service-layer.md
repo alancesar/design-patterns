@@ -56,17 +56,17 @@ O Service Layer encapsula a coordenação do caso de uso, controla transações 
 
 ```mermaid
 sequenceDiagram
-    participant UI as Cliente (web, API, job)
+    participant UI as Client (web, API, job)
     participant S as OrderService
     participant D as Domain Model
-    participant R as Repositorio
-    UI->>S: placeOrder(comando)
-    S->>S: abre transacao
-    S->>R: carrega Customer
-    S->>D: customer.placeOrder(itens)
-    S->>R: salva Order
-    S->>S: confirma transacao
-    S-->>UI: resultado
+    participant R as Repository
+    UI->>S: placeOrder(command)
+    S->>S: begins transaction
+    S->>R: loads Customer
+    S->>D: customer.placeOrder(items)
+    S->>R: saves Order
+    S->>S: commits transaction
+    S-->>UI: result
 ```
 
 O serviço abre a transação, carrega objetos, delega a regra ao domínio, persiste o resultado e devolve a resposta ao cliente.

@@ -67,7 +67,7 @@ classDiagram
         zip
     }
     Employee *-- Address
-    Employee ..> EmployeeTable : mapeado para
+    Employee ..> EmployeeTable : mapped to
 ```
 
 `Address` não tem tabela: seus campos viram colunas de `EmployeeTable`.

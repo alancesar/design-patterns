@@ -66,7 +66,7 @@ classDiagram
         departments_json
     }
     Customer --> Department
-    Customer ..> CustomerTable : serializa o grafo em departments_json
+    Customer ..> CustomerTable : serializes the graph into departments_json
 ```
 
 O grafo de `Department` é serializado em uma única coluna `departments_json` de `CustomerTable`.

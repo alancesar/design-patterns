@@ -72,11 +72,11 @@ classDiagram
     class ConcreteStateB {
         +handle(context: Context)
     }
-    Context o--> State : estado atual
+    Context o--> State : current state
     State <|.. ConcreteStateA
     State <|.. ConcreteStateB
-    ConcreteStateA ..> ConcreteStateB : transita para
-    ConcreteStateB ..> ConcreteStateA : transita para
+    ConcreteStateA ..> ConcreteStateB : transitions to
+    ConcreteStateB ..> ConcreteStateA : transitions to
 ```
 
 O `Context` delega `request()` ao `State` atual. Cada `ConcreteState` implementa o comportamento daquele estado e pode chamar `setState()` no contexto para provocar a transição para outro estado.

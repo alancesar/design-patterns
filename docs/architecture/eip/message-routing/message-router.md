@@ -51,10 +51,10 @@ Esse é o padrão-base da família de roteadores (Content-Based Router, Message 
 
 ```mermaid
 flowchart LR
-    IN["Canal de entrada"] --> R{"Message Router"}
-    R -->|"condição A"| A["Canal A"]
-    R -->|"condição B"| B["Canal B"]
-    R -->|"condição C"| C["Canal C"]
+    IN["Input channel"] --> R{"Message Router"}
+    R -->|"condition A"| A["Channel A"]
+    R -->|"condition B"| B["Channel B"]
+    R -->|"condition C"| C["Channel C"]
 ```
 
 O roteador lê uma mensagem do canal de entrada e a encaminha, sem modificá-la, para o canal cuja condição ela satisfaz.

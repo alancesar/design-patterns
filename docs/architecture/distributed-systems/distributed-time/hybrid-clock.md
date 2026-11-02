@@ -53,14 +53,14 @@ O resultado se comporta como um Lamport Clock, com versões sempre crescentes e 
 
 ```mermaid
 sequenceDiagram
-    participant C as Cliente
-    participant A as No A
-    participant B as No B
-    C->>A: escrever x
-    Note over A: relógio 100, ticks 0
+    participant C as Client
+    participant A as Node A
+    participant B as Node B
+    C->>A: write x
+    Note over A: clock 100, ticks 0
     A-->>C: timestamp (100, 0)
-    C->>B: escrever y com (100, 0)
-    Note over B: relógio local 99, mantém 100 e soma tick
+    C->>B: write y with (100, 0)
+    Note over B: local clock 99, keeps 100 and adds a tick
     B-->>C: timestamp (100, 1)
 ```
 

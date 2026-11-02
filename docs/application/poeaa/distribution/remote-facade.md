@@ -69,7 +69,7 @@ classDiagram
     class Order
     class OrderLine
     class OrderDTO
-    RemoteClient --> OrderRemoteFacade : chamada remota
+    RemoteClient --> OrderRemoteFacade : remote call
     OrderRemoteFacade --> OrderAssembler
     OrderRemoteFacade --> Order
     Order "1" --> "*" OrderLine

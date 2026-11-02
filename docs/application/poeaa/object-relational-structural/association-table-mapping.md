@@ -48,8 +48,8 @@ Se a relação tiver atributos próprios (data, papel), a tabela de associação
 
 ```mermaid
 erDiagram
-    EMPLOYEE ||--o{ EMPLOYEE_SKILL : tem
-    SKILL ||--o{ EMPLOYEE_SKILL : tem
+    EMPLOYEE ||--o{ EMPLOYEE_SKILL : has
+    SKILL ||--o{ EMPLOYEE_SKILL : has
     EMPLOYEE_SKILL {
         bigint employee_id PK
         bigint skill_id PK

@@ -49,14 +49,14 @@ Como as capacidades mudam lentamente, a arquitetura resultante é estável. Cada
 
 ```mermaid
 flowchart LR
-    N["Negócio (loja online)"] --> C1["Capacidade: Catálogo"]
-    N --> C2["Capacidade: Estoque"]
-    N --> C3["Capacidade: Pedidos"]
-    N --> C4["Capacidade: Entrega"]
-    C1 --> S1["Serviço de Catálogo"]
-    C2 --> S2["Serviço de Estoque"]
-    C3 --> S3["Serviço de Pedidos"]
-    C4 --> S4["Serviço de Entrega"]
+    N["Business (online store)"] --> C1["Capability: Catalog"]
+    N --> C2["Capability: Inventory"]
+    N --> C3["Capability: Orders"]
+    N --> C4["Capability: Delivery"]
+    C1 --> S1["Catalog Service"]
+    C2 --> S2["Inventory Service"]
+    C3 --> S3["Order Service"]
+    C4 --> S4["Delivery Service"]
 ```
 
 Cada capacidade de negócio dá origem a um serviço com responsabilidade própria.

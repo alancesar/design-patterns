@@ -53,10 +53,10 @@ Kafka organiza cada partição como uma sequência de segmentos, e Cassandra, Zo
 
 ```mermaid
 flowchart LR
-    S1[("Segmento 1: 0 a 99")] --> S2[("Segmento 2: 100 a 199")]
-    S2 --> S3[("Segmento 3 (ativo): 200 em diante")]
-    W["Escritas"] --> S3
-    R["Leituras por offset"] -.-> S2
+    S1[("Segment 1: 0 to 99")] --> S2[("Segment 2: 100 to 199")]
+    S2 --> S3[("Segment 3 (active): 200 onward")]
+    W["Writes"] --> S3
+    R["Reads by offset"] -.-> S2
 ```
 
 O log é uma sequência de segmentos imutáveis mais um segmento ativo, o único que recebe novas escritas.

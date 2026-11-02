@@ -53,8 +53,8 @@ Mensagens vindas de sistemas externos ou pacotes costumam refletir estruturas no
 
 ```mermaid
 flowchart LR
-    O["Origem"] -->|"Mensagem completa"| F["Content Filter"]
-    F -->|"Mensagem reduzida"| D["Destinatário"]
+    O["Source"] -->|"Full message"| F["Content Filter"]
+    F -->|"Reduced message"| D["Recipient"]
 ```
 
 O filtro recebe a mensagem completa, descarta os campos desnecessários e entrega uma versão simplificada ao destinatário.

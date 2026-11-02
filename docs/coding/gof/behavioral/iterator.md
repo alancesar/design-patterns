@@ -82,8 +82,8 @@ classDiagram
     class Client
     Iterator <|.. ConcreteIterator
     Aggregate <|.. ConcreteAggregate
-    ConcreteAggregate ..> ConcreteIterator : cria
-    ConcreteIterator --> ConcreteAggregate : percorre
+    ConcreteAggregate ..> ConcreteIterator : creates
+    ConcreteIterator --> ConcreteAggregate : traverses
     Client --> Aggregate
     Client --> Iterator
 ```

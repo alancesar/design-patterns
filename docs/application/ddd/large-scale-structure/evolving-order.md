@@ -55,9 +55,9 @@ Na prática, isso significa começar sem estrutura (ou com uma muito leve), obse
 
 ```mermaid
 flowchart LR
-    A["Modelo e código sem estrutura global"] -->|"Padrões se repetem"| B["Estrutura leve adotada"]
-    B -->|"Entendimento do domínio cresce"| C["Estrutura revista ou substituída"]
-    C -->|"Refatoração contínua"| A
+    A["Model and code without global structure"] -->|"Patterns repeat"| B["Lightweight structure adopted"]
+    B -->|"Domain understanding grows"| C["Structure revised or replaced"]
+    C -->|"Continuous refactoring"| A
 ```
 
 O sistema começa sem estrutura global, adota uma versão leve ao perceber padrões recorrentes e a revisa ou substitui conforme o conhecimento do domínio evolui, num ciclo contínuo.

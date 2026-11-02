@@ -75,9 +75,9 @@ classDiagram
     class ConcreteStrategyB {
         +execute(Data data) Result
     }
-    Client --> Context : configura
-    Client ..> ConcreteStrategyA : escolhe
-    Context o--> Strategy : delega
+    Client --> Context : configures
+    Client ..> ConcreteStrategyA : chooses
+    Context o--> Strategy : delegates
     Strategy <|.. ConcreteStrategyA
     Strategy <|.. ConcreteStrategyB
 ```

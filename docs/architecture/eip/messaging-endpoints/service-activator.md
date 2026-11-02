@@ -48,10 +48,10 @@ Como o activator cuida de todos os detalhes de mensageria, o serviço é chamado
 
 ```mermaid
 flowchart LR
-    C[["Canal de requisição"]] --> A["Service Activator"]
-    A -->|"chamada"| S["Serviço da aplicação"]
-    S -->|"resultado"| A
-    A --> R[["Canal de resposta"]]
+    C[["Request channel"]] --> A["Service Activator"]
+    A -->|"call"| S["Application service"]
+    S -->|"result"| A
+    A --> R[["Reply channel"]]
 ```
 
 O activator traduz a mensagem em chamada ao serviço e, se necessário, devolve o resultado por outro canal.

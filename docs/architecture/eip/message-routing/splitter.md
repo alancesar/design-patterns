@@ -51,10 +51,10 @@ Para que as partes possam ser recombinadas depois, é comum que cada mensagem ca
 
 ```mermaid
 flowchart LR
-    M["Pedido com itens"] --> S{"Splitter"}
-    S --> I1["Mensagem do item 1"]
-    S --> I2["Mensagem do item 2"]
-    S --> I3["Mensagem do item 3"]
+    M["Order with items"] --> S{"Splitter"}
+    S --> I1["Item 1 message"]
+    S --> I2["Item 2 message"]
+    S --> I3["Item 3 message"]
 ```
 
 O pedido composto é dividido em uma mensagem por item, prontas para roteamento independente.

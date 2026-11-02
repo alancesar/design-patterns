@@ -80,7 +80,7 @@ classDiagram
     class Client
     Director o--> Builder
     Builder <|.. ConcreteBuilder
-    ConcreteBuilder ..> Product : cria
+    ConcreteBuilder ..> Product : creates
     Client --> Director
     Client --> ConcreteBuilder
 ```

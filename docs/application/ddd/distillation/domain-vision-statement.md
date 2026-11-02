@@ -55,12 +55,12 @@ Quando há vários contextos ou times, o documento ajuda a manter todos alinhado
 
 ```mermaid
 flowchart TD
-    A["Domain Vision Statement"] --> B["Time de desenvolvimento"]
-    A --> C["Especialistas do domínio"]
-    A --> D["Gestão e patrocinadores"]
-    B --> E["Decisões de modelagem alinhadas"]
+    A["Domain Vision Statement"] --> B["Development team"]
+    A --> C["Domain experts"]
+    A --> D["Management and sponsors"]
+    B --> E["Aligned modeling decisions"]
     C --> E
-    D --> F["Priorização de investimento"]
+    D --> F["Investment prioritization"]
 ```
 
 O documento único alimenta diferentes públicos, que passam a decidir e priorizar com base na mesma descrição do valor do core.

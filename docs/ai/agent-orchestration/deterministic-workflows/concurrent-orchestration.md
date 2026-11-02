@@ -64,16 +64,16 @@ Também é conhecido como *parallel*, *fan-out/fan-in*, *scatter-gather*, *map-r
 ## Diagrama
 
 ```mermaid
-%% Fan-out/fan-in: o orquestrador distribui a mesma entrada e agrega os resultados
+%% Fan-out/fan-in: the orchestrator distributes the same input and aggregates the results
 flowchart LR
-    E["Entrada"] --> O["Orquestrador (iniciador)"]
-    O --> A1["Agente 1"]
-    O --> A2["Agente 2"]
-    O --> A3["Agente n"]
-    A1 --> C["Coletor"]
+    E["Input"] --> O["Orchestrator (initiator)"]
+    O --> A1["Agent 1"]
+    O --> A2["Agent 2"]
+    O --> A3["Agent n"]
+    A1 --> C["Collector"]
     A2 --> C
     A3 --> C
-    C --> R["Resultado agregado"]
+    C --> R["Aggregated result"]
 ```
 
 O orquestrador envia a mesma entrada a todos os agentes ao mesmo tempo, e o coletor combina, compara ou seleciona as saídas intermediárias.

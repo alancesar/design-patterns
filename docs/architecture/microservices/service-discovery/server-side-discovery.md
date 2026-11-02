@@ -49,15 +49,15 @@ Assim, a lógica de descoberta sai do cliente e fica na infraestrutura. Exemplos
 
 ```mermaid
 sequenceDiagram
-    participant C as Cliente
-    participant L as Roteador (load balancer)
+    participant C as Client
+    participant L as Router (load balancer)
     participant R as Service Registry
-    participant I as Instância do serviço
-    C->>L: Requisição
-    L->>R: Consulta instâncias
-    R-->>L: Localizações
-    L->>I: Encaminha a requisição
-    I-->>C: Resposta (via roteador)
+    participant I as Service instance
+    C->>L: Request
+    L->>R: Queries instances
+    R-->>L: Locations
+    L->>I: Forwards the request
+    I-->>C: Response (via router)
 ```
 
 O cliente conhece apenas o roteador; ele consulta o registro e escolhe a instância.

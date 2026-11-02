@@ -50,10 +50,10 @@ Na prática, o endpoint é um padrão "guarda-chuva": os demais padrões do grup
 
 ```mermaid
 flowchart LR
-    A["Aplicação"] --> E1["Message Endpoint (envio)"]
+    A["Application"] --> E1["Message Endpoint (send)"]
     E1 --> C[["Message Channel"]]
-    C --> E2["Message Endpoint (recebimento)"]
-    E2 --> B["Aplicação destino"]
+    C --> E2["Message Endpoint (receive)"]
+    E2 --> B["Target application"]
 ```
 
 Cada aplicação acessa o canal por meio de seu endpoint, que traduz entre o mundo da aplicação e o da mensageria.

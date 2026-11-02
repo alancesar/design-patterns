@@ -57,17 +57,17 @@ Considerações adicionais:
 
 ```mermaid
 sequenceDiagram
-    participant A as Nó A
-    participant B as Nó B
-    participant C as Nó C
-    participant D as Nó D
-    Note over A: Aprende que o Nó E entrou
-    A->>B: Gossip com estado atualizado
-    B-->>A: Resumo do que B conhece
-    B->>D: Gossip com estado atualizado
-    A->>C: Gossip com estado atualizado
-    C->>D: Gossip com estado atualizado
-    Note over A,D: Todos convergem para a mesma visão
+    participant A as Node A
+    participant B as Node B
+    participant C as Node C
+    participant D as Node D
+    Note over A: Learns that Node E joined
+    A->>B: Gossip with updated state
+    B-->>A: Digest of what B knows
+    B->>D: Gossip with updated state
+    A->>C: Gossip with updated state
+    C->>D: Gossip with updated state
+    Note over A,D: All converge to the same view
 ```
 
 A informação nasce em um nó e se espalha em rodadas, cada nó repassando a pares escolhidos aleatoriamente.

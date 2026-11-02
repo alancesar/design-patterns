@@ -62,10 +62,10 @@ classDiagram
         +transform(data) String
     }
     class Stylesheet
-    Controller --> DomainData : obtem
-    Controller --> Transformer : invoca
-    Transformer --> Stylesheet : aplica regras
-    Transformer ..> DomainData : le
+    Controller --> DomainData : gets
+    Controller --> Transformer : invokes
+    Transformer --> Stylesheet : applies rules
+    Transformer ..> DomainData : reads
 ```
 
 O `Controller` obtém os dados e invoca o `Transformer`, que aplica as regras da `Stylesheet` a cada elemento e devolve a saída.

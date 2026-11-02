@@ -69,16 +69,16 @@ Considerações adicionais:
 
 ```mermaid
 flowchart LR
-    C[Cliente] -- "HTTPS (TLS do cliente)" --> G
+    C[Client] -- "HTTPS (client TLS)" --> G
     subgraph G["Gateway"]
         direction TB
-        T["Terminação TLS"] --> A["Autenticação e WAF"]
-        A --> R["Throttling, logging e monitoramento"]
-        R --> E["Recriptografia TLS"]
+        T["TLS termination"] --> A["Authentication and WAF"]
+        A --> R["Throttling, logging, and monitoring"]
+        R --> E["TLS re-encryption"]
     end
-    G -- "Nova conexão TLS" --> S1["Serviço 1"]
-    G -- "Nova conexão TLS" --> S2["Serviço 2"]
-    G -- "Nova conexão TLS" --> S3["Serviço 3"]
+    G -- "New TLS connection" --> S1["Service 1"]
+    G -- "New TLS connection" --> S2["Service 2"]
+    G -- "New TLS connection" --> S3["Service 3"]
 ```
 
 O cliente se conecta ao gateway, que termina o TLS, aplica as capacidades compartilhadas (autenticação, inspeção, limitação de taxa, logging) e abre novas conexões criptografadas com os serviços de backend, que ficam livres dessas responsabilidades. Como exemplo pontual, um serviço como o Azure Application Gateway com WAF pode desempenhar esse papel.

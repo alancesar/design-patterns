@@ -73,12 +73,12 @@ Em arquiteturas de microsserviços, esse contexto é ainda mais comum: um servi�
 stateDiagram-v2
     state "Half-Open" as HalfOpen
     [*] --> Closed
-    Closed --> Closed: "Sucesso (zera contador de falhas)"
-    Closed --> Open: "Limite de falhas atingido na janela"
-    Open --> Open: "Requisição falha imediatamente ou usa fallback"
-    Open --> HalfOpen: "Timeout expirou"
-    HalfOpen --> Closed: "Limite de sucessos atingido"
-    HalfOpen --> Open: "Qualquer falha (reinicia timeout)"
+    Closed --> Closed: "Success (resets failure counter)"
+    Closed --> Open: "Failure threshold reached within the window"
+    Open --> Open: "Request fails immediately or uses fallback"
+    Open --> HalfOpen: "Timeout expired"
+    HalfOpen --> Closed: "Success threshold reached"
+    HalfOpen --> Open: "Any failure (restarts timeout)"
 ```
 
 O circuito começa em Closed e abre quando as falhas passam do limite. Em Open, as chamadas falham rápido até o timeout expirar. Em Half-Open, algumas chamadas de teste decidem se o circuito volta a fechar ou se abre de novo.

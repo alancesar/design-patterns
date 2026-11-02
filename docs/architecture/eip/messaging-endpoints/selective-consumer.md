@@ -49,9 +49,9 @@ Com isso, um único canal pode se comportar como vários Datatype Channels, o qu
 
 ```mermaid
 flowchart LR
-    P["Produtor (define valor de seleção)"] --> C[["Canal"]]
-    C -->|"tipo = A"| S1["Consumidor seletivo A"]
-    C -->|"tipo = B"| S2["Consumidor seletivo B"]
+    P["Producer (sets selection value)"] --> C[["Channel"]]
+    C -->|"type = A"| S1["Selective consumer A"]
+    C -->|"type = B"| S2["Selective consumer B"]
 ```
 
 Cada consumidor recebe apenas as mensagens cujo valor de seleção atende a seu critério.

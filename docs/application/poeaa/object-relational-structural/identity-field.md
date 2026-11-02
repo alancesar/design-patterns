@@ -63,7 +63,7 @@ classDiagram
         name
     }
     DomainObject <|-- Customer
-    Customer ..> CustomerTable : mapeado para
+    Customer ..> CustomerTable : mapped to
 ```
 
 O `DomainObject` guarda o campo `id`, que corresponde à chave primária da linha em `CustomerTable`. Os objetos de domínio herdam o campo.

@@ -83,8 +83,8 @@ classDiagram
     Command <|.. ConcreteCommand
     ConcreteCommand --> Receiver
     Invoker o-- Command
-    Client ..> ConcreteCommand : cria
-    Client ..> Receiver : configura
+    Client ..> ConcreteCommand : creates
+    Client ..> Receiver : configures
 ```
 
 O `Client` cria o `ConcreteCommand` e o associa a um `Receiver`; o `Invoker` armazena comandos e chama `execute()` sem conhecer o receptor. O `ConcreteCommand` traduz a chamada em uma ou mais ações sobre o `Receiver` e pode guardar estado para `undo()`.

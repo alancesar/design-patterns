@@ -59,11 +59,11 @@ Muitos brokers oferecem esse comportamento nativamente, por meio de sessões, gr
 
 ```mermaid
 flowchart LR
-    P[Produtor] -->|"mensagens com chave de categoria"| Q[("Fila com sessões")]
-    Q -->|"Categoria A (FIFO)"| CA[Consumidor A]
-    Q -->|"Categoria B (FIFO)"| CB[Consumidor B]
-    Q -->|"Categoria C (FIFO)"| CC[Consumidor C]
-    Q -.->|"mensagens envenenadas"| DLQ[("Dead-letter queue")]
+    P[Producer] -->|"messages with category key"| Q[("Queue with sessions")]
+    Q -->|"Category A (FIFO)"| CA[Consumer A]
+    Q -->|"Category B (FIFO)"| CB[Consumer B]
+    Q -->|"Category C (FIFO)"| CC[Consumer C]
+    Q -.->|"poison messages"| DLQ[("Dead-letter queue")]
 ```
 
 O produtor envia mensagens intercaladas de várias categorias para uma única fila; o broker entrega cada categoria com exclusividade a um consumidor, que a processa em ordem, enquanto categorias diferentes avançam em paralelo.

@@ -51,11 +51,11 @@ O estado compartilhado carrega o resultado de uma volta para a seguinte. O resul
 
 ```mermaid
 flowchart LR
-    S["Entrada"] --> A["Subagente 1"]
-    A --> B["Subagente 2"]
-    B --> C{"Condição de saída atendida?"}
-    C -- "Não" --> A
-    C -- "Sim" --> R["Resultado"]
+    S["Input"] --> A["Subagent 1"]
+    A --> B["Subagent 2"]
+    B --> C{"Exit condition met?"}
+    C -- "No" --> A
+    C -- "Yes" --> R["Result"]
 ```
 
 A sequência de subagentes se repete até que a condição de saída seja satisfeita ou o limite de iterações seja atingido.

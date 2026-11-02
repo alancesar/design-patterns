@@ -49,15 +49,15 @@ Em sistemas amplamente distribuídos, semântica transacional custa caro em dese
 
 ```mermaid
 sequenceDiagram
-    participant R as Receptor
-    participant C as Canal
-    participant S as Aplicação
-    R->>C: inicia transação e recebe mensagem
-    R->>S: processa
-    alt sucesso
-        R->>C: commit (mensagem removida)
-    else falha
-        R->>C: rollback (mensagem volta ao canal)
+    participant R as Receiver
+    participant C as Channel
+    participant S as Application
+    R->>C: begins transaction and receives message
+    R->>S: processes
+    alt success
+        R->>C: commit (message removed)
+    else failure
+        R->>C: rollback (message returns to the channel)
     end
 ```
 

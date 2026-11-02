@@ -63,27 +63,27 @@ Considerações adicionais:
 
 ```mermaid
 flowchart TB
-    U1["Usuários na América"] --> LB["Balanceador de carga global"]
-    U2["Usuários na Europa"] --> LB
-    U3["Usuários na Ásia"] --> LB
+    U1["Users in the Americas"] --> LB["Global load balancer"]
+    U2["Users in Europe"] --> LB
+    U3["Users in Asia"] --> LB
 
     LB --> G1
     LB --> G2
     LB --> G3
 
-    subgraph G1["Geode - Região A"]
-        A1["API / Computação"] --> D1[("Dados locais")]
+    subgraph G1["Geode - Region A"]
+        A1["API / Compute"] --> D1[("Local data")]
     end
-    subgraph G2["Geode - Região B"]
-        A2["API / Computação"] --> D2[("Dados locais")]
+    subgraph G2["Geode - Region B"]
+        A2["API / Compute"] --> D2[("Local data")]
     end
-    subgraph G3["Geode - Região C"]
-        A3["API / Computação"] --> D3[("Dados locais")]
+    subgraph G3["Geode - Region C"]
+        A3["API / Compute"] --> D3[("Local data")]
     end
 
-    D1 <-->|"Replicação"| D2
-    D2 <-->|"Replicação"| D3
-    D1 <-->|"Replicação"| D3
+    D1 <-->|"Replication"| D2
+    D2 <-->|"Replication"| D3
+    D1 <-->|"Replication"| D3
 ```
 
 O balanceador de carga global encaminha cada usuário ao geode mais próximo ou disponível; cada geode é autocontido e processa a requisição com seus próprios dados, enquanto o backplane de replicação mantém os dados idênticos entre todas as regiões, permitindo que qualquer geode atenda qualquer requisição.

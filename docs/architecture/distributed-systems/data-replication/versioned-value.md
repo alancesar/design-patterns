@@ -51,9 +51,9 @@ Aparece em etcd (revisões do MVCC), ZooKeeper (zxid e versão do znode) e Kafka
 
 ```mermaid
 flowchart LR
-    K1["chave x, versão 1: A"] --> K2["chave x, versão 2: B"] --> K3["chave x, versão 3: C"]
-    R1["Leitura da versão 2"] -.-> K2
-    R2["Leitura mais recente"] -.-> K3
+    K1["key x, version 1: A"] --> K2["key x, version 2: B"] --> K3["key x, version 3: C"]
+    R1["Read of version 2"] -.-> K2
+    R2["Latest read"] -.-> K3
 ```
 
 Cada atualização cria uma nova versão da chave, permitindo ler o valor mais recente ou uma versão histórica.

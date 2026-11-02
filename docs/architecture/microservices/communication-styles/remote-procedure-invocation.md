@@ -60,13 +60,13 @@ Considerações adicionais:
 
 ```mermaid
 sequenceDiagram
-    participant C as Cliente
-    participant S as Serviço
-    C->>S: Requisição
+    participant C as Client
+    participant S as Service
+    C->>S: Request
     activate S
-    S-->>C: Resposta
+    S-->>C: Response
     deactivate S
-    Note over C,S: Ambos precisam estar disponíveis durante toda a chamada
+    Note over C,S: Both must be available for the entire call
 ```
 
 O cliente envia a requisição diretamente ao serviço e permanece aguardando a resposta, o que caracteriza o acoplamento em tempo de execução.

@@ -66,22 +66,22 @@ O padrão é útil principalmente quando o cliente não consegue receber callbac
 
 ```mermaid
 sequenceDiagram
-    participant C as Cliente
+    participant C as Client
     participant A as "API"
-    participant Q as "Fila de trabalho"
+    participant Q as "Work queue"
     participant W as "Worker"
-    participant S as "Endpoint de status"
-    participant R as "Recurso de resultado"
-    C->>A: "POST /operacoes"
-    A->>Q: "Enfileira o trabalho"
+    participant S as "Status endpoint"
+    participant R as "Result resource"
+    C->>A: "POST /operations"
+    A->>Q: "Enqueues the work"
     A-->>C: "202 Accepted (Location, Retry-After)"
-    Q->>W: "Entrega a mensagem"
+    Q->>W: "Delivers the message"
     C->>S: "GET status"
-    S-->>C: "200 OK (status: em execução)"
-    W->>R: "Grava o resultado"
+    S-->>C: "200 OK (status: running)"
+    W->>R: "Writes the result"
     C->>S: "GET status"
-    S-->>C: "303 See Other (Location do resultado)"
-    C->>R: "GET resultado"
+    S-->>C: "303 See Other (result Location)"
+    C->>R: "GET result"
     R-->>C: "200 OK"
 ```
 

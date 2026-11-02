@@ -51,15 +51,15 @@ Cada etapa pode ser um agente, uma ferramenta ou uma verificação em código, e
 
 ```mermaid
 flowchart TD
-    U["Consulta do usuário"] --> C["Agente coordenador"]
-    C --> P1["Verificador de compra"]
-    C --> P2["Agente de elegibilidade ao reembolso"]
-    P1 --> D{"Elegível?"}
+    U["User query"] --> C["Coordinator agent"]
+    C --> P1["Purchase verifier"]
+    C --> P2["Refund eligibility agent"]
+    P1 --> D{"Eligible?"}
     P2 --> D
-    D -->|"Sim"| R["Agente de reembolso"]
-    D -->|"Não"| K["Agente de crédito na loja"]
-    K --> K2["Agente de decisão do crédito"]
-    R --> F["Agente de resposta final"]
+    D -->|"Yes"| R["Refund agent"]
+    D -->|"No"| K["Store credit agent"]
+    K --> K2["Credit decision agent"]
+    R --> F["Final response agent"]
     K2 --> F
 ```
 

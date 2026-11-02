@@ -55,20 +55,20 @@ Considerações adicionais:
 
 ```mermaid
 sequenceDiagram
-    participant C as Cliente
-    participant N as Núcleo consistente
-    participant O as Outro cliente
-    C->>N: Solicita lease com TTL de 10s
-    N-->>C: Lease concedido
-    loop Enquanto usa o recurso
-        C->>N: Renova lease (heartbeat)
-        N-->>C: TTL reiniciado
+    participant C as Client
+    participant N as Consistent core
+    participant O as Another client
+    C->>N: Requests lease with 10s TTL
+    N-->>C: Lease granted
+    loop While using the resource
+        C->>N: Renews lease (heartbeat)
+        N-->>C: TTL reset
     end
-    Note over C: Cliente falha ou fica isolado
-    Note over N: TTL expira sem renovação
-    N->>N: Remove chaves ligadas ao lease
-    O->>N: Solicita lease
-    N-->>O: Lease concedido
+    Note over C: Client fails or gets isolated
+    Note over N: TTL expires without renewal
+    N->>N: Removes keys attached to the lease
+    O->>N: Requests lease
+    N-->>O: Lease granted
 ```
 
 O cliente mantém o lease enquanto renova. Quando para de renovar, o núcleo o expira e o recurso pode ser concedido a outro cliente.

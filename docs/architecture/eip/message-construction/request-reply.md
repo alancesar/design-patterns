@@ -53,8 +53,8 @@ Atenção: não confundir com o Asynchronous Request-Reply do Azure, que usa HTT
 ```mermaid
 sequenceDiagram
     participant Req as Requestor
-    participant CReq as Canal de requisição
-    participant CRep as Canal de resposta
+    participant CReq as Request channel
+    participant CRep as Reply channel
     participant Rep as Replier
     Req->>CReq: Request
     CReq->>Rep: Request

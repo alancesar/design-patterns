@@ -64,12 +64,12 @@ Quando os dados de origem mudam, a visão precisa ser atualizada, seja em respos
 
 ```mermaid
 flowchart LR
-    S1[("Armazenamento de origem A")] --> G["Processo de geração da visão"]
-    S2[("Armazenamento de origem B")] --> G
-    E["Eventos de alteração ou agendamento"] -.->|"dispara atualização"| G
-    G -->|"projeta, agrega e transforma"| V[("Visão materializada")]
-    App["Aplicação / Dashboard"] -->|"consulta somente leitura"| V
-    W["Escritas da aplicação"] --> S1
+    S1[("Source store A")] --> G["View generation process"]
+    S2[("Source store B")] --> G
+    E["Change events or schedule"] -.->|"triggers update"| G
+    G -->|"projects, aggregates, and transforms"| V[("Materialized view")]
+    App["Application / Dashboard"] -->|"read-only query"| V
+    W["Application writes"] --> S1
 ```
 
 As escritas continuam indo para os armazenamentos de origem; um processo dedicado, acionado por eventos ou agendamento, gera a visão materializada já no formato da consulta, e as aplicações leem diretamente dela.

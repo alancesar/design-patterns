@@ -51,12 +51,12 @@ Em vez de gerenciar manualmente hosts, VMs ou contêineres, a equipe descreve o 
 
 ```mermaid
 flowchart LR
-    Dev["Equipe"] -->|"Descreve o serviço"| P["Plataforma de implantação"]
-    P --> S["Serviço (grupo nomeado)"]
-    S --> I1["Instância 1"]
-    S --> I2["Instância 2"]
-    S --> I3["Instância 3"]
-    LB["Balanceador de carga"] --> S
+    Dev["Team"] -->|"Describes the service"| P["Deployment platform"]
+    P --> S["Service (named group)"]
+    S --> I1["Instance 1"]
+    S --> I2["Instance 2"]
+    S --> I3["Instance 3"]
+    LB["Load balancer"] --> S
 ```
 
 A equipe declara o serviço e a plataforma mantém as instâncias em execução e balanceadas.

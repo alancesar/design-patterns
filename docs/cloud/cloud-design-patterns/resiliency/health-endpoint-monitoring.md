@@ -69,24 +69,24 @@ Os resultados alimentam alertas, dashboards e ações de remediação controlada
 
 ```mermaid
 flowchart LR
-    M["Monitor / Balanceador de carga"]
-    subgraph APP["Instância da aplicação"]
-        L["Endpoint de liveness: /health/live"]
-        R["Endpoint de readiness: /health/ready"]
+    M["Monitor / Load balancer"]
+    subgraph APP["Application instance"]
+        L["Liveness endpoint: /health/live"]
+        R["Readiness endpoint: /health/ready"]
     end
-    D[("Banco de dados")]
-    S["Serviço externo"]
-    AL["Alertas e dashboards"]
-    RT["Roteamento: remove instância não saudável"]
+    D[("Database")]
+    S["External service"]
+    AL["Alerts and dashboards"]
+    RT["Routing: removes unhealthy instance"]
 
-    M -->|"sondagem periódica"| L
-    M -->|"sondagem periódica"| R
-    L -.->|"200 OK (processo responde)"| M
-    R -->|"checagem com timeout"| D
-    R -->|"checagem com timeout"| S
-    R -.->|"200 OK ou 503 + detalhes"| M
+    M -->|"periodic probe"| L
+    M -->|"periodic probe"| R
+    L -.->|"200 OK (process responds)"| M
+    R -->|"check with timeout"| D
+    R -->|"check with timeout"| S
+    R -.->|"200 OK or 503 + details"| M
     M --> AL
-    M -->|"após limiar de falhas"| RT
+    M -->|"after failure threshold"| RT
 ```
 
 O monitor consulta periodicamente o endpoint de liveness, que não toca dependências, e o de readiness, que verifica as dependências obrigatórias com timeouts. Quando a readiness falha repetidas vezes, o monitor ou balanceador gera alertas e para de mandar tráfego para a instância.

@@ -62,15 +62,15 @@ Uma implementação típica coloca as requisições em um sistema de mensageria 
 
 ```mermaid
 flowchart LR
-    U[Cliente] -->|"lote de 10.000 registros"| API[API]
-    API --> Q[("Fila durável")]
-    Q -->|"100/s"| P1[Processador 1]
-    Q -->|"100/s"| P2[Processador 2]
-    Q -->|"100/s"| P3[Processador 3]
-    L[("Coordenador de capacidade (leases)")] -.->|"concede cota"| P1
-    L -.->|"concede cota"| P2
-    L -.->|"concede cota"| P3
-    P1 --> S["Serviço limitado (300 registros/s)"]
+    U[Client] -->|"batch of 10,000 records"| API[API]
+    API --> Q[("Durable queue")]
+    Q -->|"100/s"| P1[Processor 1]
+    Q -->|"100/s"| P2[Processor 2]
+    Q -->|"100/s"| P3[Processor 3]
+    L[("Capacity coordinator (leases)")] -.->|"grants quota"| P1
+    L -.->|"grants quota"| P2
+    L -.->|"grants quota"| P3
+    P1 --> S["Rate-limited service (300 records/s)"]
     P2 --> S
     P3 --> S
 ```

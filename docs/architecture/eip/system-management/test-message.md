@@ -50,12 +50,12 @@ O padrão tem quatro papéis: um gerador de dados de teste, um injetor que marca
 
 ```mermaid
 flowchart LR
-    G["Gerador de dados de teste"] --> I["Injetor"]
-    I --> C["Componente em teste"]
-    A["Mensagens reais"] --> C
-    C --> S{"Separador"}
-    S -- "mensagens reais" --> D["Destino"]
-    S -- "mensagens de teste" --> V["Verificador"]
+    G["Test data generator"] --> I["Injector"]
+    I --> C["Component under test"]
+    A["Real messages"] --> C
+    C --> S{"Separator"}
+    S -- "real messages" --> D["Destination"]
+    S -- "test messages" --> V["Verifier"]
 ```
 
 O injetor insere mensagens marcadas no fluxo, o separador as desvia da saída e o verificador compara o resultado com o esperado.

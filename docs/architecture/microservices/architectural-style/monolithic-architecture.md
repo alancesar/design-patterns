@@ -57,10 +57,10 @@ O padrão é o ponto de partida natural de muitas aplicações e continua sendo 
 
 ```mermaid
 flowchart LR
-    C[Cliente] --> LB[Balanceador de carga]
-    LB --> I1["Instância 1 (aplicação completa)"]
-    LB --> I2["Instância 2 (aplicação completa)"]
-    I1 --> DB[(Banco de dados único)]
+    C[Client] --> LB[Load balancer]
+    LB --> I1["Instance 1 (full application)"]
+    LB --> I2["Instance 2 (full application)"]
+    I1 --> DB[(Single database)]
     I2 --> DB
 ```
 

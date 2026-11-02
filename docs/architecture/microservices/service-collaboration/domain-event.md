@@ -58,13 +58,13 @@ O padrão em si define o que publicar; a publicação confiável (atômica com a
 
 ```mermaid
 flowchart LR
-    A["Agregado (Pedido)"] -->|"emite"| E["Evento: PedidoCriado"]
-    S["Serviço de pedidos"] --- A
-    S -->|"publica"| B["Mensageria"]
+    A["Aggregate (Order)"] -->|"emits"| E["Event: OrderCreated"]
+    S["Order service"] --- A
+    S -->|"publishes"| B["Messaging"]
     E -.-> B
-    B --> C1["Serviço de clientes (saga)"]
-    B --> C2["Visão CQRS"]
-    B --> C3["Réplica de outro serviço"]
+    B --> C1["Customer service (saga)"]
+    B --> C2["CQRS view"]
+    B --> C3["Another service's replica"]
 ```
 
 O agregado emite o evento, o serviço o publica e diferentes consumidores reagem a ele, cada um à sua maneira.

@@ -73,11 +73,11 @@ classDiagram
     class Square {
         +draw()
     }
-    Client --> ShapeFactory : usa
-    Client --> Shape : usa
-    ShapeFactory ..> Shape : cria
-    ShapeFactory ..> Circle : instancia
-    ShapeFactory ..> Square : instancia
+    Client --> ShapeFactory : uses
+    Client --> Shape : uses
+    ShapeFactory ..> Shape : creates
+    ShapeFactory ..> Circle : instantiates
+    ShapeFactory ..> Square : instantiates
     Shape <|.. Circle
     Shape <|.. Square
 ```

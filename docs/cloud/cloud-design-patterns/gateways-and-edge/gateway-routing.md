@@ -65,14 +65,14 @@ Um proxy reverso comum, como o Nginx, já implementa o padrão. No Azure, por ex
 
 ```mermaid
 flowchart LR
-    C[Cliente] --> G["Gateway (endpoint único)"]
-    G -->|"/busca"| S1[Serviço de busca]
-    G -->|"/carrinho"| S2[Serviço de carrinho]
-    G -->|"/pedidos"| S3[Serviço de pedidos]
-    G -->|"90% do tráfego"| V1["Checkout v1"]
-    G -->|"10% do tráfego (canary)"| V2["Checkout v2"]
-    G -->|"região 1"| R1["Busca - instância região 1"]
-    G -->|"região 2"| R2["Busca - instância região 2"]
+    C[Client] --> G["Gateway (single endpoint)"]
+    G -->|"/search"| S1[Search service]
+    G -->|"/cart"| S2[Cart service]
+    G -->|"/orders"| S3[Order service]
+    G -->|"90% of traffic"| V1["Checkout v1"]
+    G -->|"10% of traffic (canary)"| V2["Checkout v2"]
+    G -->|"region 1"| R1["Search - region 1 instance"]
+    G -->|"region 2"| R2["Search - region 2 instance"]
 ```
 
 O cliente envia todas as requisições para o gateway, que as roteia por caminho para serviços distintos, divide o tráfego entre versões de um mesmo serviço e distribui a carga entre instâncias em regiões diferentes.

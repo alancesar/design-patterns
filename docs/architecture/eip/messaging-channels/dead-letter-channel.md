@@ -53,10 +53,10 @@ Em muitos produtos o mecanismo é automático: depois de um número configurado 
 
 ```mermaid
 flowchart LR
-    P["Produtor"] --> C["Canal de origem"]
-    C --> R["Consumidor"]
-    C -.->|"não entregue ou limite de tentativas"| D["Dead Letter Channel"]
-    D --> O["Operador / reprocessamento"]
+    P["Producer"] --> C["Source channel"]
+    C --> R["Consumer"]
+    C -.->|"undeliverable or retry limit reached"| D["Dead Letter Channel"]
+    D --> O["Operator / reprocessing"]
 ```
 
 Quando a mensagem não pode ser entregue ou excede as tentativas, ela é movida ao canal de mensagens mortas, onde um operador ou processo a analisa.

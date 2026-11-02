@@ -51,12 +51,12 @@ Neste padrão, cada equipe desenvolve um componente de UI no lado do cliente, co
 
 ```mermaid
 flowchart LR
-    N["Navegador (esqueleto da página)"] --> C1[Componente de detalhes]
-    N --> C2[Componente de avaliações]
-    N --> C3[Componente de disponibilidade]
-    C1 --> S1[Serviço de catálogo]
-    C2 --> S2[Serviço de avaliações]
-    C3 --> S3[Serviço de estoque]
+    N["Browser (page skeleton)"] --> C1[Details component]
+    N --> C2[Reviews component]
+    N --> C3[Availability component]
+    C1 --> S1[Catalog service]
+    C2 --> S2[Reviews service]
+    C3 --> S3[Inventory service]
 ```
 
 O esqueleto da página no navegador compõe componentes de UI, e cada um consulta o serviço correspondente.

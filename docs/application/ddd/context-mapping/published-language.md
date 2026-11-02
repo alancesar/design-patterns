@@ -55,9 +55,9 @@ Costuma andar junto ao Open-host Service: o serviço define o protocolo, e a Pub
 
 ```mermaid
 flowchart LR
-    A["Contexto de Vendas"] -->|"traduz para"| PL(("Published Language: OrderPlaced v1"))
-    PL -->|"traduzido por"| B["Contexto de Faturamento"]
-    PL -->|"traduzido por"| C["Contexto de Logística"]
+    A["Sales Context"] -->|"translates to"| PL(("Published Language: OrderPlaced v1"))
+    PL -->|"translated by"| B["Billing Context"]
+    PL -->|"translated by"| C["Logistics Context"]
 ```
 
 Cada contexto traduz entre seu modelo interno e a linguagem publicada, sem conhecer o modelo dos demais.

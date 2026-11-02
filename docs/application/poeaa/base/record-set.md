@@ -65,7 +65,7 @@ classDiagram
     class Database
     UserInterface --> RecordSet
     BusinessLogic --> RecordSet
-    RecordSet ..> Database : carregado de
+    RecordSet ..> Database : loaded from
 ```
 
 A interface e a lógica de negócio operam sobre o mesmo `RecordSet`, que é carregado do `Database`, mas existe em memória de forma independente.

@@ -67,22 +67,22 @@ Como o padrão depende de cópias idênticas da infraestrutura, a infraestrutura
 
 ```mermaid
 flowchart LR
-    U[Clientes] --> G["Roteador global (ponto de entrada)"]
-    G --> R[Serviço de roteamento]
-    R <--> M[("Catálogo tenant → stamp")]
-    subgraph S1["Stamp 1 - Região A (tenants A, B, C)"]
-        A1[Aplicação] --> D1[(Banco de dados)]
+    U[Clients] --> G["Global router (entry point)"]
+    G --> R[Routing service]
+    R <--> M[("Tenant → stamp catalog")]
+    subgraph S1["Stamp 1 - Region A (tenants A, B, C)"]
+        A1[Application] --> D1[(Database)]
     end
-    subgraph S2["Stamp 2 - Região A (tenant D)"]
-        A2[Aplicação] --> D2[(Banco de dados)]
+    subgraph S2["Stamp 2 - Region A (tenant D)"]
+        A2[Application] --> D2[(Database)]
     end
-    subgraph S3["Stamp 3 - Região B (tenants E, F)"]
-        A3[Aplicação] --> D3[(Banco de dados)]
+    subgraph S3["Stamp 3 - Region B (tenants E, F)"]
+        A3[Application] --> D3[(Database)]
     end
     R --> A1
     R --> A2
     R --> A3
-    P["Pipeline de IaC"] -.-> S1
+    P["IaC pipeline"] -.-> S1
     P -.-> S2
     P -.-> S3
 ```

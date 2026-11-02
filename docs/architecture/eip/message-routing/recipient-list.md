@@ -52,10 +52,10 @@ Exemplos: um pedido pequeno consulta uma agência de crédito, mas um pedido gra
 
 ```mermaid
 flowchart LR
-    IN["Mensagem"] --> RL{"Recipient List"}
-    RL -->|"cópia"| A["Destinatário A"]
-    RL -->|"cópia"| C["Destinatário C"]
-    RL -.->|"não selecionado"| B["Destinatário B"]
+    IN["Message"] --> RL{"Recipient List"}
+    RL -->|"copy"| A["Recipient A"]
+    RL -->|"copy"| C["Recipient C"]
+    RL -.->|"not selected"| B["Recipient B"]
 ```
 
 A lista calculada para a mensagem inclui A e C, que recebem cópias; B não é selecionado.

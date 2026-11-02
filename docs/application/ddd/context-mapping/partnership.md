@@ -53,7 +53,7 @@ O padrão não aparece no livro de 2003; foi incluído no DDD Reference como uma
 
 ```mermaid
 flowchart LR
-    A["Contexto de Catálogo"] <-->|"Partnership: planejamento e integração conjuntos"| B["Contexto de Busca"]
+    A["Catalog Context"] <-->|"Partnership: joint planning and integration"| B["Search Context"]
 ```
 
 A seta bidirecional indica que não há upstream nem downstream: ambos os contextos coordenam mudanças e interfaces.

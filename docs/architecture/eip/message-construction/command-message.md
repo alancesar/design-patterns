@@ -50,8 +50,8 @@ Não existe um tipo especial de mensagem para isso. O comando pode ser um objeto
 
 ```mermaid
 flowchart LR
-    A["Aplicação A (emissor)"] -->|"Command Message"| C["Canal ponto a ponto"]
-    C --> B["Aplicação B (executa o procedimento)"]
+    A["Application A (sender)"] -->|"Command Message"| C["Point-to-point channel"]
+    C --> B["Application B (runs the procedure)"]
 ```
 
 A aplicação A envia um comando por um canal e a aplicação B o executa quando o recebe.

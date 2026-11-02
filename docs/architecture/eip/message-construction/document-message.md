@@ -50,8 +50,8 @@ O documento é tratado como uma unidade, ainda que contenha partes menores. O qu
 
 ```mermaid
 flowchart LR
-    A["Aplicação A"] -->|"Document Message (dados)"| C["Canal"]
-    C --> B["Aplicação B (decide o uso)"]
+    A["Application A"] -->|"Document Message (data)"| C["Channel"]
+    C --> B["Application B (decides how to use it)"]
 ```
 
 A aplicação A envia os dados e a aplicação B decide o que fazer com eles.

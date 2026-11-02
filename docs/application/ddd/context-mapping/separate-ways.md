@@ -53,8 +53,8 @@ Como decisão estratégica, deve aparecer no Context Map para que ninguém tente
 
 ```mermaid
 flowchart LR
-    A["Contexto de Fidelidade"] ~~~ B["Contexto de Estoque"]
-    A --- X["sem integração"]
+    A["Loyalty Context"] ~~~ B["Inventory Context"]
+    A --- X["no integration"]
     B --- X
 ```
 

@@ -51,9 +51,9 @@ Muitos brokers implementam o padrão por meio de vínculos entre filas e chaves 
 
 ```mermaid
 flowchart LR
-    IN["Canal de entrada"] --> F{"Message Filter"}
-    F -->|"atende ao critério"| OUT["Canal de saída"]
-    F -->|"não atende"| D["Descartada"]
+    IN["Input channel"] --> F{"Message Filter"}
+    F -->|"meets the criteria"| OUT["Output channel"]
+    F -->|"does not meet"| D["Discarded"]
 ```
 
 O filtro deixa passar somente as mensagens que satisfazem o critério.

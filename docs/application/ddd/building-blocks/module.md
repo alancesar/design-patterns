@@ -59,7 +59,7 @@ flowchart LR
         B1["Invoice"]
         B2["Payment"]
     end
-    Shipping -->|"depende de"| Billing
+    Shipping -->|"depends on"| Billing
 ```
 
 Os módulos `shipping` e `billing` agrupam conceitos coesos, com dependência explícita e unidirecional.

@@ -60,13 +60,13 @@ sequenceDiagram
     participant Client
     participant Server
     participant SessionStore
-    Client->>Server: Requisicao 1
-    Server->>SessionStore: Cria sessao e grava estado
-    Server-->>Client: Resposta + cookie com sessionId
-    Client->>Server: Requisicao 2 + sessionId
-    Server->>SessionStore: Busca estado por sessionId
-    SessionStore-->>Server: Estado serializado
-    Server-->>Client: Resposta
+    Client->>Server: Request 1
+    Server->>SessionStore: Creates session and stores state
+    Server-->>Client: Response + cookie with sessionId
+    Client->>Server: Request 2 + sessionId
+    Server->>SessionStore: Looks up state by sessionId
+    SessionStore-->>Server: Serialized state
+    Server-->>Client: Response
 ```
 
 O `Client` guarda apenas o `sessionId`. O `Server` consulta o `SessionStore` (memória local ou Redis) para recuperar o estado a cada requisição.

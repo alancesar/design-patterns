@@ -53,17 +53,17 @@ A garantia vem ao preço de gravar em disco a cada salto, o que aumenta a latên
 
 ```mermaid
 sequenceDiagram
-    participant S as Remetente
-    participant M1 as Armazenamento local A
-    participant M2 as Armazenamento local B
-    participant R as Receptor
-    S->>M1: envia mensagem
-    M1-->>S: gravada em disco
-    M1->>M2: encaminha mensagem
-    M2-->>M1: gravada em disco
-    M1->>M1: descarta a cópia local
-    M2->>R: entrega mensagem
-    R-->>M2: confirma recebimento
+    participant S as Sender
+    participant M1 as Local store A
+    participant M2 as Local store B
+    participant R as Receiver
+    S->>M1: sends message
+    M1-->>S: written to disk
+    M1->>M2: forwards message
+    M2-->>M1: written to disk
+    M1->>M1: discards the local copy
+    M2->>R: delivers message
+    R-->>M2: acknowledges receipt
 ```
 
 Cada salto grava a mensagem em disco antes de confirmar, e a cópia só é descartada quando o próximo armazenamento a assumiu, até a confirmação do receptor.

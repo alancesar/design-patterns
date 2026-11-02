@@ -52,15 +52,15 @@ O nó devolve o timestamp ao cliente, e o cliente o envia nas requisições segu
 
 ```mermaid
 sequenceDiagram
-    participant C as Cliente
-    participant A as No A
-    participant B as No B
-    C->>A: escrever x (tempo 0)
+    participant C as Client
+    participant A as Node A
+    participant B as Node B
+    C->>A: write x (time 0)
     Note over A: max(0, 0) + 1 = 1
-    A-->>C: versão 1
-    C->>B: escrever y (tempo 1)
+    A-->>C: version 1
+    C->>B: write y (time 1)
     Note over B: max(0, 1) + 1 = 2
-    B-->>C: versão 2
+    B-->>C: version 2
 ```
 
 O cliente leva o timestamp devolvido pelo nó A na requisição ao nó B, e o nó B adota o maior valor e incrementa, garantindo que a segunda escrita fique depois da primeira.

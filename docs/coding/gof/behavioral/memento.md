@@ -71,9 +71,9 @@ classDiagram
         +backup() void
         +undo() void
     }
-    Originator ..> Memento : cria e restaura
-    Caretaker o-- Memento : armazena
-    Caretaker --> Originator : solicita snapshot
+    Originator ..> Memento : creates and restores
+    Caretaker o-- Memento : stores
+    Caretaker --> Originator : requests snapshot
 ```
 
 O Originator cria mementos com seu estado e os usa para se restaurar; o Caretaker mantém o histórico de mementos e aciona salvar/restaurar no Originator sem acessar o conteúdo dos snapshots.

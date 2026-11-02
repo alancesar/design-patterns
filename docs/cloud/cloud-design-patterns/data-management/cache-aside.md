@@ -64,16 +64,16 @@ O padrão serve para caches que não oferecem *read-through* ou *write-through* 
 
 ```mermaid
 flowchart LR
-    App["Aplicação"]
+    App["Application"]
     Cache[("Cache")]
-    Store[("Armazenamento de dados")]
+    Store[("Data store")]
 
-    App -->|"1. Buscar item pela chave"| Cache
-    Cache -.->|"Cache hit: devolve o item"| App
-    App -->|"2. Cache miss: ler da origem"| Store
-    App -->|"3. Gravar item no cache (com TTL)"| Cache
-    App -->|"4. Escrita: atualizar a origem"| Store
-    App -->|"5. Escrita: invalidar a chave"| Cache
+    App -->|"1. Look up item by key"| Cache
+    Cache -.->|"Cache hit: returns the item"| App
+    App -->|"2. Cache miss: read from the source"| Store
+    App -->|"3. Write item to the cache (with TTL)"| Cache
+    App -->|"4. Write: update the source"| Store
+    App -->|"5. Write: invalidate the key"| Cache
 ```
 
 Na leitura, a aplicação consulta o cache primeiro e, em caso de *miss*, busca o item na origem e o grava no cache. Na escrita, atualiza a origem antes de invalidar a entrada no cache, para que a próxima leitura traga o valor novo.

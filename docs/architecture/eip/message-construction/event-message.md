@@ -50,9 +50,9 @@ O foco está no fato de o evento ter ocorrido, e não no volume de dados. Muitos
 
 ```mermaid
 flowchart LR
-    S["Sujeito"] -->|"Event Message"| C["Canal publish-subscribe"]
-    C --> O1["Observador 1"]
-    C --> O2["Observador 2"]
+    S["Subject"] -->|"Event Message"| C["Publish-subscribe channel"]
+    C --> O1["Observer 1"]
+    C --> O2["Observer 2"]
 ```
 
 O sujeito publica o evento uma vez e cada observador o recebe e reage.

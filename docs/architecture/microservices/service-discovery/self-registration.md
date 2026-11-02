@@ -46,13 +46,13 @@ Normalmente um microservice chassis ou biblioteca cliente (por exemplo, o client
 
 ```mermaid
 sequenceDiagram
-    participant I as Instância
+    participant I as Instance
     participant R as Service Registry
-    I->>R: Registra host e IP (início)
-    loop Periodicamente
-        I->>R: Renova o registro (heartbeat)
+    I->>R: Registers host and IP (startup)
+    loop Periodically
+        I->>R: Renews the registration (heartbeat)
     end
-    I->>R: Remove o registro (desligamento)
+    I->>R: Deregisters (shutdown)
 ```
 
 A própria instância gerencia seu ciclo de vida no registro.

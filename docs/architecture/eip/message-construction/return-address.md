@@ -50,9 +50,9 @@ O replier lê o endereço de cada requisição e responde nele, sem precisar con
 sequenceDiagram
     participant Req as Requestor
     participant Rep as Replier
-    participant CRep as Canal de resposta do requestor
-    Req->>Rep: Request com Return Address no cabeçalho
-    Rep->>CRep: Reply enviada ao endereço informado
+    participant CRep as Requestor's reply channel
+    Req->>Rep: Request with Return Address in the header
+    Rep->>CRep: Reply sent to the given address
     CRep->>Req: Reply
 ```
 

@@ -52,10 +52,10 @@ Como o canal entrega cada mensagem a um só consumidor, vários receptores podem
 
 ```mermaid
 flowchart LR
-    S["Remetente"] --> C["Point-to-Point Channel"]
-    C --> R1["Receptor 1"]
-    C --> R2["Receptor 2"]
-    C --> R3["Receptor 3"]
+    S["Sender"] --> C["Point-to-Point Channel"]
+    C --> R1["Receiver 1"]
+    C --> R2["Receiver 2"]
+    C --> R3["Receiver 3"]
 ```
 
 O remetente publica no canal e cada mensagem é entregue a apenas um dos receptores ligados a ele.

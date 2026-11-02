@@ -52,9 +52,9 @@ Em cenários mais sofisticados, o roteador evolui para um mecanismo de regras co
 
 ```mermaid
 flowchart LR
-    P["Pedido validado"] --> R{"Content-Based Router"}
-    R -->|"item do tipo widget"| W["Estoque de widgets"]
-    R -->|"item do tipo gadget"| G["Estoque de gadgets"]
+    P["Validated order"] --> R{"Content-Based Router"}
+    R -->|"widget item"| W["Widget inventory"]
+    R -->|"gadget item"| G["Gadget inventory"]
 ```
 
 O roteador lê o item do pedido e o encaminha ao sistema de estoque responsável por ele.

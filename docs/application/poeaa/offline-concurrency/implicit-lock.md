@@ -66,9 +66,9 @@ classDiagram
     class CustomerMapper {
         +find(id)
     }
-    BusinessLogic --> CustomerMapper : usa
+    BusinessLogic --> CustomerMapper : uses
     CustomerMapper --|> LayerSupertype
-    LayerSupertype --> LockManager : adquire automaticamente
+    LayerSupertype --> LockManager : acquires automatically
 ```
 
 O código de negócio usa apenas o `CustomerMapper`. O `LayerSupertype`, do qual o mapper herda, adquire o bloqueio no `LockManager` sempre que um objeto é carregado ou alterado.

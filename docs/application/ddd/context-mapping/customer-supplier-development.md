@@ -55,8 +55,8 @@ Sem esse acordo, o downstream fica à mercê das prioridades do upstream.
 
 ```mermaid
 flowchart LR
-    U["Contexto de Pedidos (upstream, fornecedor)"] -->|"interface + testes de aceitação"| D["Contexto de Entregas (downstream, cliente)"]
-    D -.->|"necessidades e prioridades"| U
+    U["Orders Context (upstream, supplier)"] -->|"interface + acceptance tests"| D["Deliveries Context (downstream, customer)"]
+    D -.->|"needs and priorities"| U
 ```
 
 A interface flui do fornecedor para o cliente, enquanto as necessidades do cliente retornam como entrada do planejamento do fornecedor.

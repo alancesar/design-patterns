@@ -61,16 +61,16 @@ Diferentemente de um firewall de rede tradicional, o gatekeeper toma decisões o
 
 ```mermaid
 flowchart LR
-    C["Clientes (rede não confiável)"] --> G
-    subgraph Publico["Zona pública - privilégio mínimo"]
-        G["Gatekeeper: valida, sanitiza, autoriza e limita taxa"]
+    C["Clients (untrusted network)"] --> G
+    subgraph Publico["Public zone - least privilege"]
+        G["Gatekeeper: validates, sanitizes, authorizes, and rate-limits"]
     end
-    G -- "Requisição rejeitada" --> X["Resposta de erro"]
-    G -- "Requisição aprovada" --> Q["Endpoint interno, fila ou broker"]
-    subgraph Privado["Zona privada - confiança total"]
-        Q --> T["Host confiável (lógica de negócio)"]
-        T --> S["Serviços"]
-        T --> D[("Armazenamento de dados")]
+    G -- "Request rejected" --> X["Error response"]
+    G -- "Request approved" --> Q["Internal endpoint, queue, or broker"]
+    subgraph Privado["Private zone - full trust"]
+        Q --> T["Trusted host (business logic)"]
+        T --> S["Services"]
+        T --> D[("Data store")]
     end
 ```
 

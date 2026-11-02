@@ -53,16 +53,16 @@ O estado da execução é preservado durante a pausa. Quando o humano responde (
 
 ```mermaid
 sequenceDiagram
-    participant A1 as Agente de anonimização
-    participant S as Sistema de revisão externo
-    actor H as Responsável de conformidade
-    participant A2 as Agente de liberação
-    A1->>A1: Anonimiza o conjunto de dados
-    A1->>S: Pausa no checkpoint e solicita revisão
-    S->>H: Apresenta o resultado para validação
-    H->>S: Aprova, corrige ou rejeita
-    S->>A1: Retoma o fluxo com a decisão
-    A1->>A2: Segue para a liberação, se aprovado
+    participant A1 as Anonymization agent
+    participant S as External review system
+    actor H as Compliance officer
+    participant A2 as Release agent
+    A1->>A1: Anonymizes the dataset
+    A1->>S: Pauses at checkpoint and requests review
+    S->>H: Presents the result for validation
+    H->>S: Approves, corrects, or rejects
+    S->>A1: Resumes the flow with the decision
+    A1->>A2: Proceeds to release, if approved
 ```
 
 O fluxo roda até o checkpoint, entrega o trabalho a um sistema externo de revisão e só continua depois da resposta da pessoa. Exemplo: um agente anonimiza dados de pacientes e um responsável de conformidade valida antes da liberação.

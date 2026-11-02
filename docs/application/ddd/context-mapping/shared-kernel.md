@@ -54,13 +54,13 @@ Exige disciplina: o kernel não pode ser alterado unilateralmente, e sua existê
 
 ```mermaid
 flowchart LR
-    subgraph A["Contexto de Cobrança"]
-        MA["Modelo de Cobrança"]
+    subgraph A["Billing Context"]
+        MA["Billing Model"]
     end
-    subgraph B["Contexto de Assinaturas"]
-        MB["Modelo de Assinaturas"]
+    subgraph B["Subscriptions Context"]
+        MB["Subscriptions Model"]
     end
-    K(("Shared Kernel: Money, Plano, Período"))
+    K(("Shared Kernel: Money, Plan, Period"))
     MA --- K
     MB --- K
 ```

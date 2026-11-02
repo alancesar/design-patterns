@@ -51,11 +51,11 @@ Um único modelo, um conjunto definido de ferramentas e um prompt de sistema det
 
 ```mermaid
 flowchart LR
-    U["Usuário"] --> A["Agente único"]
-    P["Prompt de sistema"] --> A
-    A <--> T1["Ferramenta: banco de dados"]
-    A <--> T2["Ferramenta: API"]
-    A --> R["Resposta"]
+    U["User"] --> A["Single agent"]
+    P["System prompt"] --> A
+    A <--> T1["Tool: database"]
+    A <--> T2["Tool: API"]
+    A --> R["Response"]
 ```
 
 O agente único interpreta o pedido, escolhe entre as ferramentas disponíveis, itera conforme necessário e devolve a resposta.

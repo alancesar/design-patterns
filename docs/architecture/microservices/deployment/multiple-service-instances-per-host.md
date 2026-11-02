@@ -52,12 +52,12 @@ Há duas variações comuns: cada instância roda como um processo independente 
 
 ```mermaid
 flowchart LR
-    subgraph Host["Host (físico ou virtual)"]
-        A["Serviço A - instância 1"]
-        B["Serviço B - instância 1"]
-        C["Serviço C - instância 1"]
+    subgraph Host["Host (physical or virtual)"]
+        A["Service A - instance 1"]
+        B["Service B - instance 1"]
+        C["Service C - instance 1"]
     end
-    LB["Balanceador de carga"] --> A
+    LB["Load balancer"] --> A
     LB --> B
     LB --> C
 ```

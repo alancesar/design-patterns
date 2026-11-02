@@ -52,11 +52,11 @@ Aparece em torno do Write-Ahead Log, para serializar escritas no log, e na aplic
 
 ```mermaid
 flowchart LR
-    C1["Cliente 1"] --> Q["Fila de atualização"]
-    C2["Cliente 2"] --> Q
-    C3["Cliente 3"] --> Q
-    Q --> T["Thread única"]
-    T --> S[("Estado ou log")]
+    C1["Client 1"] --> Q["Update queue"]
+    C2["Client 2"] --> Q
+    C3["Client 3"] --> Q
+    Q --> T["Single thread"]
+    T --> S[("State or log")]
 ```
 
 Vários clientes enfileiram atualizações e uma única thread as aplica ao estado em ordem.

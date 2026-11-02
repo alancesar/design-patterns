@@ -47,15 +47,15 @@ O registrador pode observar a plataforma de implantação ou executar health che
 
 ```mermaid
 sequenceDiagram
-    participant P as Plataforma
-    participant G as Registrador
+    participant P as Platform
+    participant G as Registrar
     participant R as Service Registry
-    participant I as Instância
-    P->>I: Inicia a instância
-    G->>I: Detecta e verifica saúde
-    G->>R: Registra a instância
-    P->>I: Encerra a instância
-    G->>R: Remove a instância
+    participant I as Instance
+    P->>I: Starts the instance
+    G->>I: Detects and health-checks
+    G->>R: Registers the instance
+    P->>I: Terminates the instance
+    G->>R: Deregisters the instance
 ```
 
 Um registrador externo observa as instâncias e mantém o registro.

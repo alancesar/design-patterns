@@ -55,16 +55,16 @@ Quanto menor e mais bem conhecido o limite de erro, menor a espera. Por isso o p
 
 ```mermaid
 sequenceDiagram
-    participant C as Cliente
-    participant N as No lider
-    participant R as Outros nos
-    C->>N: escrever x
-    Note over N: timestamp t = relógio local
-    Note over N: espera até t + erro máximo
-    N->>R: replicar x com timestamp t
-    R-->>N: confirmação
-    N-->>C: escrita confirmada
-    Note over R: qualquer leitura posterior terá timestamp maior que t
+    participant C as Client
+    participant N as Leader node
+    participant R as Other nodes
+    C->>N: write x
+    Note over N: timestamp t = local clock
+    Note over N: waits until t + maximum error
+    N->>R: replicate x with timestamp t
+    R-->>N: acknowledgment
+    N-->>C: write acknowledged
+    Note over R: any later read will have a timestamp greater than t
 ```
 
 A escrita só é confirmada depois que o tempo local passa de t somado ao erro máximo, garantindo que nenhum relógio do cluster ainda esteja antes de t.

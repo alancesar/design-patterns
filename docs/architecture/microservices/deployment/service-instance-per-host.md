@@ -51,17 +51,17 @@ O padrão é um princípio geral de implantação e tem como refinamentos o uso 
 
 ```mermaid
 flowchart LR
-    LB["Balanceador de carga"] --> H1
+    LB["Load balancer"] --> H1
     LB --> H2
     LB --> H3
     subgraph H1["Host 1"]
-        A1["Serviço A - instância 1"]
+        A1["Service A - instance 1"]
     end
     subgraph H2["Host 2"]
-        A2["Serviço A - instância 2"]
+        A2["Service A - instance 2"]
     end
     subgraph H3["Host 3"]
-        B1["Serviço B - instância 1"]
+        B1["Service B - instance 1"]
     end
 ```
 

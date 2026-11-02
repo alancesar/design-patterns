@@ -48,13 +48,13 @@ Uma mensagem tem duas partes. O cabeçalho carrega metadados usados pela infraes
 
 ```mermaid
 flowchart LR
-    P["Produtor"] --> H
-    subgraph M["Mensagem"]
-        H["Cabeçalho (metadados)"]
-        B["Corpo (dados)"]
+    P["Producer"] --> H
+    subgraph M["Message"]
+        H["Header (metadata)"]
+        B["Body (data)"]
     end
-    B --> C["Canal de mensagens"]
-    C --> R["Consumidor"]
+    B --> C["Message channel"]
+    C --> R["Consumer"]
 ```
 
 O produtor empacota o dado em uma mensagem com cabeçalho e corpo e a envia por um canal até o consumidor.

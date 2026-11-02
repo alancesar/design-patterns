@@ -56,9 +56,9 @@ sequenceDiagram
     participant TemplateEngine
     participant Template
     Controller->>TemplateEngine: render(template, model)
-    TemplateEngine->>Template: carrega pagina com marcadores
-    Template-->>TemplateEngine: HTML com placeholders
-    TemplateEngine-->>Controller: HTML final com dados
+    TemplateEngine->>Template: loads page with markers
+    Template-->>TemplateEngine: HTML with placeholders
+    TemplateEngine-->>Controller: final HTML with data
 ```
 
 O controller entrega o model ao motor de templates, que carrega a página com marcadores e devolve o HTML com os valores substituídos.

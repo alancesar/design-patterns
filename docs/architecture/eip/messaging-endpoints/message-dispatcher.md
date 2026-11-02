@@ -49,7 +49,7 @@ Difere do Competing Consumers, em que cada consumidor tem sua própria conexão 
 
 ```mermaid
 flowchart LR
-    C[["Canal"]] --> D["Dispatcher"]
+    C[["Channel"]] --> D["Dispatcher"]
     D --> P1["Performer 1"]
     D --> P2["Performer 2"]
     D --> P3["Performer N"]

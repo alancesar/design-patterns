@@ -52,9 +52,9 @@ Onde o adaptador se liga depende da arquitetura da aplicação e dos dados de qu
 
 ```mermaid
 flowchart LR
-    A["Aplicação existente"] <-->|"API ou dados"| AD["Channel Adapter"]
-    AD -->|"publica"| C1["Canal de saída"]
-    C2["Canal de entrada"] -->|"consome"| AD
+    A["Existing application"] <-->|"API or data"| AD["Channel Adapter"]
+    AD -->|"publishes"| C1["Output channel"]
+    C2["Input channel"] -->|"consumes"| AD
 ```
 
 O adaptador transforma dados ou chamadas da aplicação em mensagens e mensagens em chamadas, ligando a aplicação aos canais.

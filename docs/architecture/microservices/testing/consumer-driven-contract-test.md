@@ -49,10 +49,10 @@ A ênfase está no **lado do provedor**: é o provedor que é validado contra os
 
 ```mermaid
 flowchart LR
-    C["Time consumidor"] -->|"escreve"| K["Contrato"]
-    K -->|"publicado para"| P["Time provedor"]
-    P -->|"executa no build"| T["Teste do provedor"]
-    T -->|"valida"| S["Serviço provedor"]
+    C["Consumer team"] -->|"writes"| K["Contract"]
+    K -->|"published to"| P["Provider team"]
+    P -->|"runs in the build"| T["Provider test"]
+    T -->|"validates"| S["Provider service"]
 ```
 
 O consumidor define o contrato e o provedor o executa contra o próprio serviço, validando-o isoladamente.

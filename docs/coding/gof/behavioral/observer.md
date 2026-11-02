@@ -83,9 +83,9 @@ classDiagram
     Subject <|.. ConcreteSubject
     Observer <|.. ConcreteObserverA
     Observer <|.. ConcreteObserverB
-    ConcreteSubject o-- "0..*" Observer : notifica
-    ConcreteObserverA ..> ConcreteSubject : consulta estado
-    ConcreteObserverB ..> ConcreteSubject : consulta estado
+    ConcreteSubject o-- "0..*" Observer : notifies
+    ConcreteObserverA ..> ConcreteSubject : queries state
+    ConcreteObserverB ..> ConcreteSubject : queries state
 ```
 
 O `ConcreteSubject` guarda seu estado e a lista de `Observer`s registrados, notificando-os a cada mudança. Os observers concretos implementam `update` e, no modelo *pull*, consultam o estado do subject para reagir.

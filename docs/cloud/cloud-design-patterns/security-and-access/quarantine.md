@@ -62,14 +62,14 @@ Se todas as verificações forem aprovadas, o artefato é publicado em um reposi
 
 ```mermaid
 flowchart LR
-    C["Consumidor (time da carga de trabalho)"] -->|"1. Solicita artefato e bloqueia uso"| Q[Processo de quarentena]
-    Q -->|"2. Valida a solicitação e obtém o artefato"| E["Origem externa (não confiável)"]
-    E --> R[Repositório de quarentena isolado]
-    R -->|"3. Verificações: vulnerabilidades, malware, SBOM, assinatura"| V{Aprovado?}
-    V -->|Sim| T["Repositório confiável (com relatório e expiração)"]
-    V -->|Não| D[Artefato descartado e indisponível]
-    T -->|"4. Evento com estado e relatório"| C
-    D -->|"4. Evento com estado e relatório"| C
+    C["Consumer (workload team)"] -->|"1. Requests artifact and blocks usage"| Q[Quarantine process]
+    Q -->|"2. Validates the request and fetches the artifact"| E["External source (untrusted)"]
+    E --> R[Isolated quarantine repository]
+    R -->|"3. Checks: vulnerabilities, malware, SBOM, signature"| V{Approved?}
+    V -->|Yes| T["Trusted repository (with report and expiration)"]
+    V -->|No| D[Artifact discarded and unavailable]
+    T -->|"4. Event with status and report"| C
+    D -->|"4. Event with status and report"| C
 ```
 
 O consumidor solicita um artefato externo, que é copiado para um repositório isolado e submetido às verificações. Somente artefatos aprovados chegam ao repositório confiável, e o consumidor é notificado do resultado em ambos os casos.

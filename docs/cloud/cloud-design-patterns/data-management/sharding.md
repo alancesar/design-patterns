@@ -72,12 +72,12 @@ Também existe a estratégia **geográfica**, que coloca os dados perto dos usu�
 
 ```mermaid
 flowchart LR
-    App1["Instância da aplicação 1"] --> Logic["Lógica de sharding"]
-    App2["Instância da aplicação 2"] --> Logic
-    Logic -. "consulta (lookup)" .-> Map[("Mapa de shards")]
-    Logic -- "chave: tenant 1 a 100 (range)" --> ShardA[("Shard A")]
-    Logic -- "hash(chave) mod N" --> ShardB[("Shard B")]
-    Logic -- "chave mapeada no diretório" --> ShardC[("Shard C")]
+    App1["Application instance 1"] --> Logic["Sharding logic"]
+    App2["Application instance 2"] --> Logic
+    Logic -. "lookup" .-> Map[("Shard map")]
+    Logic -- "key: tenant 1 to 100 (range)" --> ShardA[("Shard A")]
+    Logic -- "hash(key) mod N" --> ShardB[("Shard B")]
+    Logic -- "key mapped in the directory" --> ShardC[("Shard C")]
 ```
 
 As instâncias da aplicação enviam as requisições para a lógica de sharding, que usa a chave de shard para descobrir o destino. Ela pode consultar um mapa (lookup), comparar a chave com intervalos (range) ou calcular um hash. Cada shard guarda um subconjunto distinto dos dados, e todos usam o mesmo esquema.

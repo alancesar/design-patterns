@@ -51,13 +51,13 @@ Usado em ZooKeeper, etcd (Raft), Kafka e Cassandra para detectar falhas de nós 
 
 ```mermaid
 sequenceDiagram
-    participant A as Nó A
-    participant B as Nó B
-    loop a cada intervalo
+    participant A as Node A
+    participant B as Node B
+    loop every interval
         A->>B: HeartBeat
     end
-    Note over B: sem mensagem após o timeout
-    B->>B: marca A como indisponível
+    Note over B: no message after the timeout
+    B->>B: marks A as unavailable
 ```
 
 O nó A envia heartbeats periódicos; quando o nó B deixa de recebê-los dentro do tempo limite, considera A indisponível.

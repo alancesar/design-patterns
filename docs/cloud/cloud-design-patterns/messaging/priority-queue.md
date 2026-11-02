@@ -64,11 +64,11 @@ Considerações adicionais:
 
 ```mermaid
 flowchart LR
-    P["Aplicação (produtor)"] -->|"prioridade = alta"| QA["Fila de alta prioridade"]
-    P -->|"prioridade = baixa"| QB["Fila de baixa prioridade"]
-    QA --> CA["Pool de consumidores de alta prioridade (mais instâncias)"]
-    QB --> CB["Pool de consumidores de baixa prioridade (menos instâncias)"]
-    CA --> S["Serviço / processamento"]
+    P["Application (producer)"] -->|"priority = high"| QA["High-priority queue"]
+    P -->|"priority = low"| QB["Low-priority queue"]
+    QA --> CA["High-priority consumer pool (more instances)"]
+    QB --> CB["Low-priority consumer pool (fewer instances)"]
+    CA --> S["Service / processing"]
     CB --> S
 ```
 

@@ -55,15 +55,15 @@ O custo é uma refatoração significativa. Elementos que servem tanto ao core q
 
 ```mermaid
 flowchart LR
-    subgraph antes["Antes"]
-        A1["Core e suporte misturados"]
+    subgraph antes["Before"]
+        A1["Core and support mixed together"]
     end
-    subgraph depois["Depois"]
+    subgraph depois["After"]
         C["Segregated Core"]
-        S1["Módulo de suporte"]
-        S2["Subdomínio genérico"]
-        S1 -->|"depende de"| C
-        S2 -->|"depende de"| C
+        S1["Supporting module"]
+        S2["Generic subdomain"]
+        S1 -->|"depends on"| C
+        S2 -->|"depends on"| C
     end
     A1 --> C
 ```

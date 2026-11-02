@@ -50,13 +50,13 @@ Quando a resposta chega, o proxy consulta o endereço guardado, usa um roteador 
 
 ```mermaid
 sequenceDiagram
-    participant C as Cliente
+    participant C as Client
     participant P as Smart Proxy
-    participant S as Servico
-    C->>P: requisicao com Return Address do cliente
-    P->>S: requisicao com Return Address do proxy
-    S->>P: resposta
-    P->>C: resposta ao endereço original
+    participant S as Service
+    C->>P: request with the client's Return Address
+    P->>S: request with the proxy's Return Address
+    S->>P: response
+    P->>C: response to the original address
 ```
 
 O proxy troca o endereço de retorno, recebe a resposta e a repassa ao cliente, observando o ciclo completo.

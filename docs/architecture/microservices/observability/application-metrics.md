@@ -51,11 +51,11 @@ As métricas dão uma visão quantitativa e de baixo custo do comportamento do s
 
 ```mermaid
 flowchart LR
-    S1["Serviço A (instrumentado)"]
-    S2["Serviço B (instrumentado)"]
-    M["Serviço de métricas"]
+    S1["Service A (instrumented)"]
+    S2["Service B (instrumented)"]
+    M["Metrics service"]
     D["Dashboards"]
-    AL["Alertas"]
+    AL["Alerts"]
 
     S1 -->|"push"| M
     M -->|"pull"| S2

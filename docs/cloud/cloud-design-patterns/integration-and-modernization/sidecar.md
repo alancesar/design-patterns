@@ -64,16 +64,16 @@ Como o sidecar é independente da linguagem e do runtime da aplicação, uma mes
 
 ```mermaid
 flowchart LR
-    C[Cliente]
-    subgraph H["Host / unidade de implantação"]
-        A["Aplicação principal (lógica de negócio)"]
-        S["Sidecar (proxy, logs, configuração, segurança)"]
-        A <-->|"IPC local"| S
+    C[Client]
+    subgraph H["Host / deployment unit"]
+        A["Main application (business logic)"]
+        S["Sidecar (proxy, logs, configuration, security)"]
+        A <-->|"Local IPC"| S
     end
     C --> S
-    S --> R["Serviços remotos"]
-    S --> M["Plataforma de observabilidade"]
-    S --> K["Armazenamento de configuração e segredos"]
+    S --> R["Remote services"]
+    S --> M["Observability platform"]
+    S --> K["Configuration and secrets store"]
 ```
 
 A aplicação principal e o sidecar rodam lado a lado no mesmo host, compartilhando ciclo de vida e recursos. O sidecar intermedeia o tráfego e trata as preocupações transversais, como chamadas a serviços remotos, envio de telemetria e obtenção de configuração, sem que a aplicação precise conhecer esses detalhes.

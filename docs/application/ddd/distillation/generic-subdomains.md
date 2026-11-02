@@ -55,12 +55,12 @@ Como o modelo é genérico, ele não deve conter conceitos do core, e o core nã
 
 ```mermaid
 flowchart LR
-    A["Core Domain"] -->|"Interface estreita"| B["Identidade e acesso"]
-    A -->|"Interface estreita"| C["Pagamentos"]
-    A -->|"Interface estreita"| D["Notificações"]
-    B --> E["Produto pronto ou biblioteca"]
-    C --> F["Provedor externo"]
-    D --> G["Serviço terceirizado"]
+    A["Core Domain"] -->|"Narrow interface"| B["Identity and access"]
+    A -->|"Narrow interface"| C["Payments"]
+    A -->|"Narrow interface"| D["Notifications"]
+    B --> E["Off-the-shelf product or library"]
+    C --> F["External provider"]
+    D --> G["Outsourced service"]
 ```
 
 O core consome subdomínios genéricos por interfaces estreitas, e cada um deles é atendido por uma solução externa substituível.

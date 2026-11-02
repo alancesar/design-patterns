@@ -54,10 +54,10 @@ Evans trata a metáfora com cautela. Ela é útil quando se ajusta naturalmente 
 
 ```mermaid
 flowchart LR
-    M["Metáfora do sistema"] --> A["Conceitos e nomes do modelo"]
-    M --> B["Responsabilidades das partes"]
-    M --> C["Linguagem da equipe"]
-    A --> D["Design consistente"]
+    M["System metaphor"] --> A["Model concepts and names"]
+    M --> B["Responsibilities of the parts"]
+    M --> C["Team language"]
+    A --> D["Consistent design"]
     B --> D
     C --> D
 ```

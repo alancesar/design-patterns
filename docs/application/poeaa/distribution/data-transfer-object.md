@@ -72,8 +72,8 @@ classDiagram
     class Order
     Client --> RemoteFacade
     RemoteFacade --> OrderAssembler
-    OrderAssembler ..> OrderDTO : cria
-    OrderAssembler --> Order : le e atualiza
+    OrderAssembler ..> OrderDTO : creates
+    OrderAssembler --> Order : reads and updates
 ```
 
 O `Client` recebe um `OrderDTO` da `RemoteFacade`. O `OrderAssembler` é o único que conhece tanto o DTO quanto o `Order` do domínio.

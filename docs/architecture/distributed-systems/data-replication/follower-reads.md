@@ -51,11 +51,11 @@ Aparece em Kafka (consumidores lendo de réplicas), ZooKeeper (leituras em qualq
 
 ```mermaid
 flowchart LR
-    W["Cliente (escrita)"] --> L["Líder"]
-    L -->|"replica"| F1["Seguidor 1 (região A)"]
-    L -->|"replica"| F2["Seguidor 2 (região B)"]
-    R1["Cliente leitor A"] --> F1
-    R2["Cliente leitor B"] --> F2
+    W["Client (write)"] --> L["Leader"]
+    L -->|"replicates"| F1["Follower 1 (region A)"]
+    L -->|"replicates"| F2["Follower 2 (region B)"]
+    R1["Reader client A"] --> F1
+    R2["Reader client B"] --> F2
 ```
 
 As escritas vão ao líder, enquanto os clientes leitores consultam o seguidor mais próximo.

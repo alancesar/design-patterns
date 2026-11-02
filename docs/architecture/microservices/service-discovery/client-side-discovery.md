@@ -50,13 +50,13 @@ Em geral essa lógica é fornecida por um microservice chassis ou biblioteca cli
 
 ```mermaid
 sequenceDiagram
-    participant C as Cliente
+    participant C as Client
     participant R as Service Registry
-    participant I as Instância do serviço
-    C->>R: Consulta instâncias disponíveis
-    R-->>C: Lista de localizações
-    C->>C: Escolhe uma instância (balanceamento)
-    C->>I: Envia a requisição
+    participant I as Service instance
+    C->>R: Queries available instances
+    R-->>C: List of locations
+    C->>C: Picks an instance (load balancing)
+    C->>I: Sends the request
 ```
 
 O cliente consulta o registro, escolhe uma instância e a chama diretamente.

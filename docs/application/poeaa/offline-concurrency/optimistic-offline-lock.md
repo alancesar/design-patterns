@@ -54,16 +54,16 @@ Como a transação de negócio se estende por várias requisições (e, portanto
 
 ```mermaid
 sequenceDiagram
-    participant A as Sessao A
-    participant B as Sessao B
-    participant DB as Banco de dados
-    A->>DB: le registro (versao 1)
-    B->>DB: le registro (versao 1)
-    B->>DB: UPDATE ... WHERE versao = 1
-    DB-->>B: 1 linha afetada (versao 2)
-    A->>DB: UPDATE ... WHERE versao = 1
-    DB-->>A: 0 linhas afetadas
-    Note over A: Conflito detectado: abortar e refazer
+    participant A as Session A
+    participant B as Session B
+    participant DB as Database
+    A->>DB: reads record (version 1)
+    B->>DB: reads record (version 1)
+    B->>DB: UPDATE ... WHERE version = 1
+    DB-->>B: 1 row affected (version 2)
+    A->>DB: UPDATE ... WHERE version = 1
+    DB-->>A: 0 rows affected
+    Note over A: Conflict detected: abort and retry
 ```
 
 A sessão B grava primeiro e incrementa a versão. A sessão A tenta gravar com a versão antiga, não afeta nenhuma linha e detecta o conflito.

@@ -58,13 +58,13 @@ Em dados particionados com chave de shard baseada em hash, a tabela de índice p
 
 ```mermaid
 flowchart LR
-    App["Aplicação"] -->|"1. Consulta por chave secundária (ex.: cidade)"| Idx["Tabela de índice"]
-    Idx -->|"2. Chave primária / chave de shard"| App
-    App -->|"3. Busca pela chave primária"| Fatos["Tabela de fatos (dados de origem)"]
-    App -->|"Escrita"| Fatos
-    Fatos -->|"Alteração capturada de forma durável"| Fila["Change feed / outbox"]
-    Fila --> Worker["Atualizador de índice idempotente"]
-    Worker -->|"Atualiza entradas versionadas"| Idx
+    App["Application"] -->|"1. Query by secondary key (e.g., city)"| Idx["Index table"]
+    Idx -->|"2. Primary key / shard key"| App
+    App -->|"3. Lookup by primary key"| Fatos["Fact table (source data)"]
+    App -->|"Write"| Fatos
+    Fatos -->|"Change durably captured"| Fila["Change feed / outbox"]
+    Fila --> Worker["Idempotent index updater"]
+    Worker -->|"Updates versioned entries"| Idx
 ```
 
 A aplicação consulta a tabela de índice pela chave secundária, obtém a chave primária (ou de shard) e busca o registro completo na tabela de fatos. As escritas na origem são capturadas de forma durável e propagadas de modo assíncrono por um atualizador idempotente que mantém os índices.

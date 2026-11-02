@@ -49,16 +49,16 @@ Há duas formas de obter isso: absorver a funcionalidade necessária como um mó
 
 ```mermaid
 sequenceDiagram
-    participant C as Cliente
-    participant P as Serviço de Pedidos
-    participant R as Réplica local de restaurantes
+    participant C as Client
+    participant P as Order Service
+    participant R as Local restaurant replica
     participant S as Saga
-    C->>P: Criar pedido
-    P->>R: Validar e precificar com dados locais
-    R-->>P: Dados do restaurante
-    P-->>C: Pedido aceito (pendente)
-    P->>S: Iniciar saga
-    S-->>P: Pedido confirmado ou rejeitado
+    C->>P: Create order
+    P->>R: Validate and price with local data
+    R-->>P: Restaurant data
+    P-->>C: Order accepted (pending)
+    P->>S: Start saga
+    S-->>P: Order confirmed or rejected
 ```
 
 O serviço responde sem chamar outros serviços; a conclusão ocorre de forma assíncrona por meio da saga.

@@ -60,7 +60,7 @@ classDiagram
     }
     class OrderItem
     class Customer
-    OrderFactory ..> Order : cria
+    OrderFactory ..> Order : creates
     OrderFactory ..> Customer
     Order "1" *-- "*" OrderItem
 ```

@@ -54,12 +54,12 @@ O padrão aparece em ZooKeeper, etcd, Raft e Paxos para confirmar escritas e ele
 
 ```mermaid
 flowchart TB
-    L["Líder"] --> A["Nó A: ack"]
-    L --> B["Nó B: ack"]
-    L --> C["Nó C: sem resposta"]
-    A --> Q{"Maioria (2 de 3)?"}
+    L["Leader"] --> A["Node A: ack"]
+    L --> B["Node B: ack"]
+    L --> C["Node C: no response"]
+    A --> Q{"Majority (2 of 3)?"}
     B --> Q
-    Q -->|"Sim"| OK["Atualização confirmada"]
+    Q -->|"Yes"| OK["Update committed"]
 ```
 
 Em um cluster de três nós, duas confirmações bastam para considerar a atualização aceita, mesmo com um nó sem resposta.

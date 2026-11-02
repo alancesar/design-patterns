@@ -50,11 +50,11 @@ O envio da cópia é fire-and-forget, para não atrasar o fluxo principal. Em ge
 
 ```mermaid
 flowchart LR
-    P["Produtor"] --> C["Canal"]
-    C --> D["Consumidor"]
-    C -. "cópia" .-> S["Canal secundário"]
+    P["Producer"] --> C["Channel"]
+    C --> D["Consumer"]
+    C -. "copy" .-> S["Secondary channel"]
     S --> M[("Message Store")]
-    M --> R["Relatórios e auditoria"]
+    M --> R["Reports and auditing"]
 ```
 
 Cada mensagem segue ao consumidor e uma cópia chega ao repositório central, de onde saem relatórios.

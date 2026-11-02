@@ -49,16 +49,16 @@ Serve para fluxos que não podem ser fixados de antemão: os passos podem não s
 
 ```mermaid
 sequenceDiagram
-    participant T as Gatilho
+    participant T as Trigger
     participant PM as Process Manager
-    participant A as Etapa A
-    participant B as Etapa B
-    T->>PM: inicia processo
-    PM->>A: executa passo 1
-    A-->>PM: resultado
-    PM->>B: executa passo 2 conforme o resultado
-    B-->>PM: resultado
-    PM-->>T: processo concluído
+    participant A as Step A
+    participant B as Step B
+    T->>PM: starts process
+    PM->>A: runs step 1
+    A-->>PM: result
+    PM->>B: runs step 2 based on the result
+    B-->>PM: result
+    PM-->>T: process completed
 ```
 
 O gerente mantém o estado, envia cada passo e escolhe o seguinte com base nas respostas.

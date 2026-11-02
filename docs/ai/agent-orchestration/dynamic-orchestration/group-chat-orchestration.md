@@ -62,22 +62,22 @@ Também é conhecido como *roundtable*, *collaborative*, *multiagent debate* ou 
 
 ```mermaid
 sequenceDiagram
-    actor U as Usuário
+    actor U as User
     participant M as Chat manager
-    participant A1 as Agente 1
-    participant A2 as Agente 2
-    participant A3 as Agente 3
-    participant T as Thread acumulada
-    U->>M: Tarefa ou proposta
-    loop Até a condição de término
-        M->>A1: Concede a vez
-        A1->>T: Contribuição
-        M->>A2: Concede a vez
-        A2->>T: Contribuição
-        M->>A3: Concede a vez
-        A3->>T: Contribuição
+    participant A1 as Agent 1
+    participant A2 as Agent 2
+    participant A3 as Agent 3
+    participant T as Accumulated thread
+    U->>M: Task or proposal
+    loop Until the termination condition
+        M->>A1: Grants the turn
+        A1->>T: Contribution
+        M->>A2: Grants the turn
+        A2->>T: Contribution
+        M->>A3: Grants the turn
+        A3->>T: Contribution
     end
-    M->>U: Resultado da discussão
+    M->>U: Discussion result
 ```
 
 O chat manager escolhe quem fala a cada turno; todas as contribuições se acumulam na mesma thread, que alimenta os turnos seguintes e produz o resultado.

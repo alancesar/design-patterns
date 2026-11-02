@@ -65,9 +65,9 @@ classDiagram
         +getState()
         +changeState()
     }
-    Controller --> Model : atualiza
-    Controller --> View : seleciona
-    View --> Model : le dados
+    Controller --> Model : updates
+    Controller --> View : selects
+    View --> Model : reads data
 ```
 
 O `Controller` recebe a entrada, altera o `Model` e seleciona a `View`; a `View` lê os dados do `Model` para exibi-los. O `Model` não conhece nenhum dos dois.

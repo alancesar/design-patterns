@@ -50,10 +50,10 @@ Como o gateway é uma interface comum, é fácil trocá-lo por um stub em testes
 
 ```mermaid
 flowchart LR
-    A["Lógica de negócio"] -->|"obterScore(cliente)"| G["Messaging Gateway"]
-    G -->|"mensagem"| C[["Canal de requisição"]]
-    C --> S["Serviço remoto"]
-    S --> R[["Canal de resposta"]]
+    A["Business logic"] -->|"getScore(customer)"| G["Messaging Gateway"]
+    G -->|"message"| C[["Request channel"]]
+    C --> S["Remote service"]
+    S --> R[["Reply channel"]]
     R --> G
     G -->|"score"| A
 ```

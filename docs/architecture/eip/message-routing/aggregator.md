@@ -57,11 +57,11 @@ Estratégias de completude:
 
 ```mermaid
 flowchart LR
-    A["Resposta 1 (chave K)"] --> AG["Aggregator"]
-    B["Resposta 2 (chave K)"] --> AG
-    C["Resposta 3 (chave K)"] --> AG
-    AG --> S[("Armazenamento por chave")]
-    AG -->|"grupo completo"| O["Mensagem agregada"]
+    A["Response 1 (key K)"] --> AG["Aggregator"]
+    B["Response 2 (key K)"] --> AG
+    C["Response 3 (key K)"] --> AG
+    AG --> S[("Storage by key")]
+    AG -->|"complete group"| O["Aggregated message"]
 ```
 
 O Aggregator guarda as mensagens por chave de correlação e publica uma única mensagem quando o grupo satisfaz a condição de completude.

@@ -53,8 +53,8 @@ Em Kafka, o high-water mark da partição define o que os consumidores podem ler
 flowchart LR
     E1["1"] --> E2["2"] --> E3["3"] --> E4["4"] --> E5["5"]
     HW["High-Water Mark = 3"] -.-> E3
-    E3 --- V["Visível aos clientes: 1 a 3"]
-    E5 --- N["Não confirmadas: 4 e 5"]
+    E3 --- V["Visible to clients: 1 to 3"]
+    E5 --- N["Not committed: 4 and 5"]
 ```
 
 As entradas de 1 a 3 já estão na maioria e são visíveis; as entradas 4 e 5 ainda podem ser descartadas.

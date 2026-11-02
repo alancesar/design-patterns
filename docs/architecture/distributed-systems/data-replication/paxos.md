@@ -52,20 +52,20 @@ O Paxos básico decide um único valor; Multi-Paxos repete o processo para uma s
 
 ```mermaid
 sequenceDiagram
-    participant P as Proponente
-    participant A1 as Réplica 1
-    participant A2 as Réplica 2
-    participant A3 as Réplica 3
-    P->>A1: Prepare (geração 5)
-    P->>A2: Prepare (geração 5)
-    P->>A3: Prepare (geração 5)
-    A1-->>P: promessa e valor aceito anterior, se houver
-    A2-->>P: promessa
-    P->>A1: Accept (geração 5, valor v)
-    P->>A2: Accept (geração 5, valor v)
-    A1-->>P: aceito
-    A2-->>P: aceito
-    P->>A3: Commit (valor v)
+    participant P as Proposer
+    participant A1 as Replica 1
+    participant A2 as Replica 2
+    participant A3 as Replica 3
+    P->>A1: Prepare (generation 5)
+    P->>A2: Prepare (generation 5)
+    P->>A3: Prepare (generation 5)
+    A1-->>P: promise and previously accepted value, if any
+    A2-->>P: promise
+    P->>A1: Accept (generation 5, value v)
+    P->>A2: Accept (generation 5, value v)
+    A1-->>P: accepted
+    A2-->>P: accepted
+    P->>A3: Commit (value v)
 ```
 
 O proponente obtém promessas de uma maioria na fase prepare, propõe o valor na fase accept e divulga o resultado na fase commit.

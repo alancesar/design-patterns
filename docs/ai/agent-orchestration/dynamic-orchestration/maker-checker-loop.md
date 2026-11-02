@@ -66,19 +66,19 @@ sequenceDiagram
     participant M as Chat manager
     participant K as Maker
     participant C as Checker
-    actor H as Revisor humano
-    M->>K: Tarefa e requisitos
-    loop Até aprovar ou atingir o limite de iterações
-        K->>C: Proposta
-        C->>C: Avalia contra os critérios de aceitação
-        alt Aprovado
-            C->>M: Aprovação
-        else Reprovado
-            C->>K: Feedback específico
+    actor H as Human reviewer
+    M->>K: Task and requirements
+    loop Until approved or iteration limit reached
+        K->>C: Proposal
+        C->>C: Evaluates against acceptance criteria
+        alt Approved
+            C->>M: Approval
+        else Rejected
+            C->>K: Specific feedback
         end
     end
-    opt Limite de iterações atingido
-        M->>H: Escala com o melhor resultado
+    opt Iteration limit reached
+        M->>H: Escalates with the best result
     end
 ```
 

@@ -51,13 +51,13 @@ Um ou mais agentes trabalham em loop, alterando a cada passada um resultado guar
 
 ```mermaid
 flowchart LR
-    I["Tarefa"] --> E[("Estado da sessão: resultado")]
-    E --> A["Agente: avaliar e criticar"]
-    A --> B["Agente: reescrever"]
+    I["Task"] --> E[("Session state: result")]
+    E --> A["Agent: evaluate and critique"]
+    A --> B["Agent: rewrite"]
     B --> E
-    E --> Q{"Limiar de qualidade ou limite de iterações?"}
-    Q -- "Não" --> A
-    Q -- "Sim" --> R["Resultado final"]
+    E --> Q{"Quality threshold or iteration limit?"}
+    Q -- "No" --> A
+    Q -- "Yes" --> R["Final result"]
 ```
 
 Os agentes atualizam o mesmo resultado no estado da sessão a cada ciclo, até o limiar de qualidade ou o limite de iterações.

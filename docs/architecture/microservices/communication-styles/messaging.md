@@ -59,9 +59,9 @@ Considerações adicionais:
 
 ```mermaid
 flowchart LR
-    A["Serviço remetente"] -->|"publica mensagem"| C["Canal de mensagens (broker)"]
-    C -->|"entrega quando pronto"| B["Serviço consumidor"]
-    B -.->|"resposta opcional"| R["Canal de resposta"]
+    A["Sender service"] -->|"publishes message"| C["Message channel (broker)"]
+    C -->|"delivers when ready"| B["Consumer service"]
+    B -.->|"optional reply"| R["Reply channel"]
     R -.-> A
 ```
 

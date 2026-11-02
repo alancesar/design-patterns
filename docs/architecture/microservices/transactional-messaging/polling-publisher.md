@@ -50,16 +50,16 @@ O Polling Publisher é uma forma de implementar o message relay do Transactional
 
 ```mermaid
 sequenceDiagram
-    participant S as Serviço
-    participant DB as Banco de dados
+    participant S as Service
+    participant DB as Database
     participant P as Polling Publisher
     participant B as Message broker
-    S->>DB: Grava dados e mensagem no outbox (mesma transação)
-    loop A cada intervalo
-        P->>DB: Consulta mensagens pendentes
-        DB-->>P: Mensagens
-        P->>B: Publica mensagens
-        P->>DB: Marca como enviadas ou remove
+    S->>DB: Writes data and message to the outbox (same transaction)
+    loop Every interval
+        P->>DB: Queries pending messages
+        DB-->>P: Messages
+        P->>B: Publishes messages
+        P->>DB: Marks as sent or deletes
     end
 ```
 

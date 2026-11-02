@@ -77,16 +77,16 @@ Em microsserviços, o Event Sourcing resolve um problema central: como atualizar
 
 ```mermaid
 flowchart LR
-    UI["Camada de apresentação"] -- "comandos" --> CH["Manipuladores de comando"]
-    CH -- "lê stream da entidade (rehidratação)" --> ES[("Event store (append-only)")]
-    CH -- "novos eventos" --> Q["Fila / tópico"]
-    Q --> H1["Handler: grava no event store"]
+    UI["Presentation layer"] -- "commands" --> CH["Command handlers"]
+    CH -- "reads entity stream (rehydration)" --> ES[("Event store (append-only)")]
+    CH -- "new events" --> Q["Queue / topic"]
+    Q --> H1["Handler: writes to the event store"]
     H1 --> ES
-    Q --> H2["Handler: atualiza projeções"]
-    H2 --> RS[("Store de leitura / visões materializadas")]
-    Q --> H3["Handler: integrações externas"]
-    H3 --> EXT["Sistemas externos"]
-    UI -- "consultas" --> RS
+    Q --> H2["Handler: updates projections"]
+    H2 --> RS[("Read store / materialized views")]
+    Q --> H3["Handler: external integrations"]
+    H3 --> EXT["External systems"]
+    UI -- "queries" --> RS
 ```
 
 Os manipuladores de comando reconstroem a entidade a partir do seu stream de eventos, aplicam as regras de negócio e publicam novos eventos. Handlers independentes persistem os eventos, atualizam as visões de leitura consultadas pela UI e integram outros sistemas.

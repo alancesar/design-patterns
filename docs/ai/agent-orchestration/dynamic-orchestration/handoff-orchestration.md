@@ -59,18 +59,18 @@ Também é conhecido como *routing*, *triage*, *transfer*, *dispatch* ou *delega
 
 ```mermaid
 sequenceDiagram
-    actor U as Cliente
-    participant T as Agente de triagem
-    participant I as Agente de infraestrutura
-    participant F as Agente financeiro
-    actor H as Atendente humano
-    U->>T: Pedido
-    T->>T: Avalia e tenta resolver
-    T->>I: Handoff (problema de rede)
-    I->>I: Diagnostica
-    I->>F: Handoff (disputa de cobrança)
-    F->>H: Handoff (sem agente capaz)
-    H->>U: Resposta final
+    actor U as Customer
+    participant T as Triage agent
+    participant I as Infrastructure agent
+    participant F as Finance agent
+    actor H as Human agent
+    U->>T: Request
+    T->>T: Evaluates and tries to resolve
+    T->>I: Handoff (network issue)
+    I->>I: Diagnoses
+    I->>F: Handoff (billing dispute)
+    F->>H: Handoff (no capable agent)
+    H->>U: Final response
 ```
 
 Cada agente decide se resolve ou transfere o controle; só um está ativo por vez e a cadeia termina em uma resposta única, eventualmente por um humano.

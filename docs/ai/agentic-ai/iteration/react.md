@@ -50,12 +50,12 @@ Quem decide o próximo passo é o próprio modelo, em tempo de execução, por i
 
 ```mermaid
 flowchart LR
-    U["Usuário"] --> T["Raciocínio (thought)"]
-    T --> D{"Resposta final?"}
-    D -- "Não" --> A["Ação: chamar ferramenta"]
-    A --> O["Observação: resultado da ferramenta"]
+    U["User"] --> T["Reasoning (thought)"]
+    T --> D{"Final answer?"}
+    D -- "No" --> A["Action: call tool"]
+    A --> O["Observation: tool result"]
     O --> T
-    D -- "Sim" --> R["Resposta"]
+    D -- "Yes" --> R["Response"]
 ```
 
 O agente alterna raciocínio, ação e observação até decidir que já tem a resposta ou atingir o limite de iterações.

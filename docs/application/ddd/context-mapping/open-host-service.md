@@ -55,11 +55,11 @@ Em geral o protocolo é descrito em uma Published Language, que serve de formato
 
 ```mermaid
 flowchart LR
-    U["Contexto de Clientes (upstream)"] --> OHS["Open-host Service: API de Clientes"]
+    U["Customers Context (upstream)"] --> OHS["Open-host Service: Customers API"]
     OHS --> C1["Marketing"]
-    OHS --> C2["Faturamento"]
-    OHS --> C3["Suporte"]
-    OHS --> C4["Parceiros externos"]
+    OHS --> C2["Billing"]
+    OHS --> C3["Support"]
+    OHS --> C4["External partners"]
 ```
 
 O contexto de Clientes expõe um único protocolo aberto, consumido por vários contextos sem integrações sob medida.

@@ -59,11 +59,11 @@ sequenceDiagram
     participant Client
     participant ServerA
     participant ServerB
-    Client->>ServerA: Requisicao 1
-    ServerA-->>Client: Resposta + estado (token assinado)
-    Client->>ServerB: Requisicao 2 + estado
-    ServerB->>ServerB: Valida assinatura e le o estado
-    ServerB-->>Client: Resposta + estado atualizado
+    Client->>ServerA: Request 1
+    ServerA-->>Client: Response + state (signed token)
+    Client->>ServerB: Request 2 + state
+    ServerB->>ServerB: Validates signature and reads the state
+    ServerB-->>Client: Response + updated state
 ```
 
 O `Client` guarda o estado e o reenvia a cada chamada. Qualquer servidor valida a assinatura e usa os dados, sem consultar armazenamento compartilhado.

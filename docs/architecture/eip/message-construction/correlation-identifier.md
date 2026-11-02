@@ -53,7 +53,7 @@ sequenceDiagram
     participant Rep as Replier
     Req->>Rep: Request (request ID = 42)
     Rep->>Req: Reply (correlation ID = 42)
-    Note over Req: Associa a resposta à requisição 42
+    Note over Req: Matches the reply to request 42
 ```
 
 O replier devolve o mesmo identificador, e o requestor o usa para encontrar a requisição original.

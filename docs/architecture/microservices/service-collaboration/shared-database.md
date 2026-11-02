@@ -53,11 +53,11 @@ Na visão do Enterprise Integration Patterns (Hohpe e Woolf), Shared Database é
 
 ```mermaid
 flowchart LR
-    OS["Serviço de pedidos"] --> DB[("Banco compartilhado")]
-    CS["Serviço de clientes"] --> DB
-    PS["Serviço de pagamentos"] --> DB
-    DB --- T1["Tabelas de pedidos"]
-    DB --- T2["Tabelas de clientes"]
+    OS["Order service"] --> DB[("Shared database")]
+    CS["Customer service"] --> DB
+    PS["Payment service"] --> DB
+    DB --- T1["Order tables"]
+    DB --- T2["Customer tables"]
 ```
 
 Todos os serviços leem e gravam no mesmo banco, o que simplifica transações e consultas, mas cria acoplamento forte pelo esquema compartilhado.

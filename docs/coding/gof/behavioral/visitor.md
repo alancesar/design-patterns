@@ -91,14 +91,14 @@ classDiagram
     }
     Client --> ObjectStructure
     Client --> Visitor
-    ObjectStructure o--> Element : contem
+    ObjectStructure o--> Element : contains
     Visitor <|.. ConcreteVisitor1
     Visitor <|.. ConcreteVisitor2
     Element <|.. ConcreteElementA
     Element <|.. ConcreteElementB
     Element ..> Visitor : accept
-    Visitor ..> ConcreteElementA : visita
-    Visitor ..> ConcreteElementB : visita
+    Visitor ..> ConcreteElementA : visits
+    Visitor ..> ConcreteElementB : visits
 ```
 
 O `Client` aplica um `ConcreteVisitor` à `ObjectStructure`, que repassa o visitante a cada `Element`. Cada `ConcreteElement` implementa `accept` chamando o método `visit` correspondente ao seu tipo, de modo que a operação executada depende do par visitante/elemento (double dispatch).

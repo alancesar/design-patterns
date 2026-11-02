@@ -49,11 +49,11 @@ Cada mensagem leva três campos: um identificador de sequência, que agrupa as m
 
 ```mermaid
 flowchart LR
-    D["Dado grande"] --> S["Fragmenta"]
-    S --> M1["Msg 1 de 3"]
-    S --> M2["Msg 2 de 3"]
-    S --> M3["Msg 3 de 3"]
-    M1 --> R["Receptor (remonta)"]
+    D["Large data"] --> S["Splits"]
+    S --> M1["Msg 1 of 3"]
+    S --> M2["Msg 2 of 3"]
+    S --> M3["Msg 3 of 3"]
+    M1 --> R["Receiver (reassembles)"]
     M2 --> R
     M3 --> R
 ```

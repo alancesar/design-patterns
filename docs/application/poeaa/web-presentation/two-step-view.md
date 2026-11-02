@@ -55,10 +55,10 @@ sequenceDiagram
     participant Controller
     participant Step1 as LogicalView
     participant Step2 as FinalRenderer
-    Controller->>Step1: dados de dominio
-    Step1-->>Controller: pagina logica generica
-    Controller->>Step2: pagina logica
-    Step2-->>Controller: HTML final com aparencia do site
+    Controller->>Step1: domain data
+    Step1-->>Controller: generic logical page
+    Controller->>Step2: logical page
+    Step2-->>Controller: final HTML with the site's look
 ```
 
 A primeira etapa transforma os dados em uma estrutura lógica de apresentação; a segunda a converte em HTML com a aparência do site.

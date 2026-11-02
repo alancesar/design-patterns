@@ -50,7 +50,7 @@ A carga do objeto referenciado costuma ser adiada com Lazy Load, para evitar car
 
 ```mermaid
 erDiagram
-    ALBUM ||--o{ TRACK : contem
+    ALBUM ||--o{ TRACK : contains
     ALBUM {
         bigint id PK
         varchar title

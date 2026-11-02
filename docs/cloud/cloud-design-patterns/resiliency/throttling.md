@@ -76,12 +76,12 @@ flowchart LR
     TA["Tenant A (5 req/s)"] --> T
     TB["Tenant B (10 req/s)"] --> T
     TC["Tenant C (150 req/s)"] --> T
-    T{"Throttling: medição por tenant e uso de recursos"}
-    T -->|"Dentro da cota"| S["Serviço / aplicação"]
-    T -->|"Acima da cota"| R["Rejeita: HTTP 429 com Retry-After"]
-    T -->|"Sobrecarga geral"| D["Degrada recursos não essenciais ou enfileira trabalho de baixa prioridade"]
-    M["Monitoramento: CPU, memória, fila, latência p99"] -.->|"Ajusta limites"| T
-    S -.->|"Métricas"| M
+    T{"Throttling: per-tenant metering and resource usage"}
+    T -->|"Within quota"| S["Service / application"]
+    T -->|"Over quota"| R["Rejects: HTTP 429 with Retry-After"]
+    T -->|"Overall overload"| D["Degrades non-essential features or queues low-priority work"]
+    M["Monitoring: CPU, memory, queue, p99 latency"] -.->|"Adjusts limits"| T
+    S -.->|"Metrics"| M
 ```
 
 O serviço mede o consumo de cada tenant e o uso global de recursos. Requisições dentro da cota seguem para a aplicação, as que excedem o limite recebem 429 com `Retry-After`, e, em sobrecarga geral, recursos não essenciais são degradados ou o trabalho de baixa prioridade é adiado. O monitoramento retroalimenta e ajusta os limites continuamente.

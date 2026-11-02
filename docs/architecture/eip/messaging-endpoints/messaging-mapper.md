@@ -49,7 +49,7 @@ O desafio é que objetos usam referências e herança, recursos que muitas infra
 
 ```mermaid
 flowchart LR
-    D["Objetos de domínio"] <--> M["Messaging Mapper"]
+    D["Domain objects"] <--> M["Messaging Mapper"]
     M <--> E["Message Endpoint"]
     E <--> C[["Message Channel"]]
 ```

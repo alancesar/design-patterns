@@ -52,11 +52,11 @@ Para escalar, um broker sem estado pode rodar em várias instâncias, consumindo
 
 ```mermaid
 flowchart LR
-    A["Aplicação A"] --> B{"Message Broker"}
-    C["Aplicação C"] --> B
-    B --> D["Aplicação D"]
-    B --> E["Aplicação E"]
-    B --> F["Aplicação F"]
+    A["Application A"] --> B{"Message Broker"}
+    C["Application C"] --> B
+    B --> D["Application D"]
+    B --> E["Application E"]
+    B --> F["Application F"]
 ```
 
 As aplicações enviam mensagens ao broker, que decide o destino de cada uma.

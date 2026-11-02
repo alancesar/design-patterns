@@ -50,10 +50,10 @@ A lógica de análise (monitoramento, auditoria, depuração) fica em um compone
 
 ```mermaid
 flowchart LR
-    P["Produtor"] --> W{"Wire Tap"}
-    W --> C["Consumidor"]
-    W --> S["Canal secundário"]
-    S --> M["Monitoramento e auditoria"]
+    P["Producer"] --> W{"Wire Tap"}
+    W --> C["Consumer"]
+    W --> S["Secondary channel"]
+    S --> M["Monitoring and auditing"]
 ```
 
 O tap entrega a mensagem ao consumidor e uma cópia idêntica ao canal secundário, onde um componente de análise a consome.

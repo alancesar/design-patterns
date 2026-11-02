@@ -53,19 +53,19 @@ O padrão é a opção mais segura quando perder o trabalho do usuário é inace
 
 ```mermaid
 sequenceDiagram
-    participant A as Sessao A
-    participant B as Sessao B
+    participant A as Session A
+    participant B as Session B
     participant LM as Lock Manager
-    participant DB as Banco de dados
-    A->>LM: adquirir bloqueio (pedido 10)
-    LM-->>A: concedido
-    B->>LM: adquirir bloqueio (pedido 10)
-    LM-->>B: negado
-    A->>DB: le e edita pedido 10
-    A->>DB: grava alteracoes
-    A->>LM: liberar bloqueio
-    B->>LM: tentar novamente
-    LM-->>B: concedido
+    participant DB as Database
+    A->>LM: acquire lock (order 10)
+    LM-->>A: granted
+    B->>LM: acquire lock (order 10)
+    LM-->>B: denied
+    A->>DB: reads and edits order 10
+    A->>DB: writes changes
+    A->>LM: release lock
+    B->>LM: retry
+    LM-->>B: granted
 ```
 
 A sessão A obtém o bloqueio e trabalha sem concorrência. A sessão B é recusada até que A libere o recurso.

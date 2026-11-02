@@ -53,7 +53,7 @@ A decisão elimina a complexidade de traduzir entre modelos e dá ao downstream 
 
 ```mermaid
 flowchart LR
-    U["API de Frete do Transportador (upstream)"] -->|"modelo do upstream"| D["Contexto de Checkout (downstream, Conformist)"]
+    U["Carrier Shipping API (upstream)"] -->|"upstream model"| D["Checkout Context (downstream, Conformist)"]
 ```
 
 O contexto de Checkout adota diretamente os conceitos do upstream, sem camada de tradução.

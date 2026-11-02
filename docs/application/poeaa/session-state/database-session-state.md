@@ -61,13 +61,13 @@ sequenceDiagram
     participant ServerA
     participant ServerB
     participant Database
-    Client->>ServerA: Requisicao 1
-    ServerA->>Database: Grava estado da sessao (commit)
-    ServerA-->>Client: Resposta + sessionId
-    Client->>ServerB: Requisicao 2 + sessionId
-    ServerB->>Database: Le estado da sessao
-    Database-->>ServerB: Estado persistido
-    ServerB-->>Client: Resposta
+    Client->>ServerA: Request 1
+    ServerA->>Database: Writes session state (commit)
+    ServerA-->>Client: Response + sessionId
+    Client->>ServerB: Request 2 + sessionId
+    ServerB->>Database: Reads session state
+    Database-->>ServerB: Persisted state
+    ServerB-->>Client: Response
 ```
 
 O `Client` mantém apenas o `sessionId`. Qualquer servidor lê e grava o estado no `Database`, que é a fonte única e durável da sessão.

@@ -53,11 +53,11 @@ Isso não significa que todo mundo faz tudo: arquitetos e analistas podem lidera
 
 ```mermaid
 flowchart LR
-    subgraph Separado ["Papéis separados"]
-        A1["Modelador"] -->|"entrega modelo"| B1["Programador"]
+    subgraph Separado ["Separate roles"]
+        A1["Modeler"] -->|"hands off model"| B1["Programmer"]
     end
     subgraph Hands ["Hands-on Modelers"]
-        A2["Modelador que programa"] <-->|"mesmo modelo e código"| B2["Programador que modela"]
+        A2["Modeler who codes"] <-->|"same model and code"| B2["Programmer who models"]
     end
 ```
 

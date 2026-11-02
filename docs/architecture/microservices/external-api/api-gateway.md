@@ -60,14 +60,14 @@ No catálogo de microservices.io, portanto, o API Gateway reúne em um só padr�
 
 ```mermaid
 flowchart LR
-    W["Aplicação web"] --> G["API Gateway"]
-    M["App mobile"] --> G
-    T["Aplicações de terceiros"] --> G
-    G -->|"roteamento"| S1["Serviço de produtos"]
-    G -->|"composição"| S2["Serviço de preços"]
-    G -->|"composição"| S3["Serviço de estoque"]
-    G -->|"composição"| S4["Serviço de avaliações"]
-    G -.->|"autenticação"| A["Provedor de identidade"]
+    W["Web application"] --> G["API Gateway"]
+    M["Mobile app"] --> G
+    T["Third-party applications"] --> G
+    G -->|"routing"| S1["Product service"]
+    G -->|"composition"| S2["Pricing service"]
+    G -->|"composition"| S3["Inventory service"]
+    G -->|"composition"| S4["Reviews service"]
+    G -.->|"authentication"| A["Identity provider"]
 ```
 
 Os clientes falam apenas com o gateway. Ele roteia algumas requisições diretamente ao serviço responsável, compõe respostas a partir de vários serviços em outras e aplica autenticação antes de encaminhar.

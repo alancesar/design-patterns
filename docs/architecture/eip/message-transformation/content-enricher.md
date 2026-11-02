@@ -54,10 +54,10 @@ Com isso, remetentes não precisam carregar todos os campos que qualquer destina
 
 ```mermaid
 flowchart LR
-    P["Produtor"] -->|"Mensagem incompleta"| E["Content Enricher"]
-    E -->|"Consulta por chave"| F[("Fonte de dados")]
-    F -->|"Dados adicionais"| E
-    E -->|"Mensagem enriquecida"| D["Destinatário"]
+    P["Producer"] -->|"Incomplete message"| E["Content Enricher"]
+    E -->|"Lookup by key"| F[("Data source")]
+    F -->|"Additional data"| E
+    E -->|"Enriched message"| D["Recipient"]
 ```
 
 O enricher usa uma chave da mensagem para buscar os dados ausentes na fonte e entrega ao destinatário a mensagem completa.

@@ -49,10 +49,10 @@ Há três maneiras de construir o marcador: um número de versão, que ambos os 
 
 ```mermaid
 flowchart LR
-    E["Emissor"] -->|"Mensagem com indicador de formato v2"| C["Canal"]
-    C --> R["Receptor"]
-    R -->|"v1"| H1["Tratamento v1"]
-    R -->|"v2"| H2["Tratamento v2"]
+    E["Sender"] -->|"Message with format indicator v2"| C["Channel"]
+    C --> R["Receiver"]
+    R -->|"v1"| H1["v1 handling"]
+    R -->|"v2"| H2["v2 handling"]
 ```
 
 O receptor lê o indicador de formato e escolhe o tratamento adequado.

@@ -49,11 +49,11 @@ Cada componente de processamento é envolvido por um roteador que lê a ficha e 
 
 ```mermaid
 flowchart LR
-    IN["Mensagem"] --> G["Gera a ficha"]
-    G --> E1["Etapa 1"]
-    E1 --> E3["Etapa 3"]
-    E3 --> OUT["Saída"]
-    E1 -.->|"falha"| EX["Canal de exceção"]
+    IN["Message"] --> G["Attaches the slip"]
+    G --> E1["Step 1"]
+    E1 --> E3["Step 3"]
+    E3 --> OUT["Output"]
+    E1 -.->|"failure"| EX["Exception channel"]
 ```
 
 A ficha lista as etapas 1 e 3 (a 2 é pulada) e a mensagem percorre apenas esse caminho.

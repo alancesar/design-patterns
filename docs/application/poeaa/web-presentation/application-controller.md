@@ -64,9 +64,9 @@ classDiagram
         +run()
     }
     class View
-    InputController --> ApplicationController : pergunta
-    ApplicationController --> DomainCommand : localiza
-    ApplicationController --> View : escolhe
+    InputController --> ApplicationController : asks
+    ApplicationController --> DomainCommand : locates
+    ApplicationController --> View : chooses
 ```
 
 O `InputController` consulta o `ApplicationController`, que localiza o `DomainCommand` a executar e escolhe a `View` seguinte conforme o resultado e o estado.

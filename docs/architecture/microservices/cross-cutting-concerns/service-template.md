@@ -52,10 +52,10 @@ O template costuma usar um Microservice Chassis para o código de framework comp
 
 ```mermaid
 flowchart LR
-    T["Service Template (build, preocupações transversais, exemplo)"] -- "cópia ou fork" --> A["Serviço A"]
-    T -- "cópia ou fork" --> B["Serviço B"]
-    T -- "cópia ou fork" --> C["Serviço C"]
-    CH["Microservice Chassis"] -. "dependência compartilhada" .-> T
+    T["Service Template (build, cross-cutting concerns, example)"] -- "copy or fork" --> A["Service A"]
+    T -- "copy or fork" --> B["Service B"]
+    T -- "copy or fork" --> C["Service C"]
+    CH["Microservice Chassis"] -. "shared dependency" .-> T
 ```
 
 Cada novo serviço nasce de uma cópia do template, que pode depender de um chassis para o código compartilhado.

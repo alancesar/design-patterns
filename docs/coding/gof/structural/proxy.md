@@ -77,7 +77,7 @@ classDiagram
     Client --> Subject
     Subject <|.. RealSubject
     Subject <|.. Proxy
-    Proxy --> RealSubject : delega
+    Proxy --> RealSubject : delegates
 ```
 
 O `Client` trabalha apenas com a interface `Subject`. Tanto `RealSubject` quanto `Proxy` a implementam; o `Proxy` mantém uma referência ao `RealSubject` e decide quando e se deve delegar a chamada, aplicando controle de acesso, lazy loading ou cache.

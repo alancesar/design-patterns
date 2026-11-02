@@ -77,13 +77,13 @@ Considerações adicionais:
 
 ```mermaid
 flowchart LR
-    P["Produtor"] -->|"publica mensagem com chave K"| B["Broker (at-least-once)"]
-    B -->|"entrega ou reentrega"| C["Consumidor"]
-    C --> D{"Chave K já processada?"}
-    D -->|"Não"| T["Transação atômica: registra K + efeitos de negócio"]
-    T --> S[("Armazenamento de chaves e dados")]
-    T --> A["Confirma mensagem (ack)"]
-    D -->|"Sim"| X["Descarta duplicata e confirma"]
+    P["Producer"] -->|"publishes message with key K"| B["Broker (at-least-once)"]
+    B -->|"delivers or redelivers"| C["Consumer"]
+    C --> D{"Key K already processed?"}
+    D -->|"No"| T["Atomic transaction: records K + business effects"]
+    T --> S[("Key and data store")]
+    T --> A["Acknowledges message (ack)"]
+    D -->|"Yes"| X["Discards duplicate and acknowledges"]
     X --> A
     A --> B
 ```

@@ -69,13 +69,13 @@ Em microsserviços com Database per Service, o CQRS ganha um papel adicional: é
 
 ```mermaid
 flowchart LR
-    U["Cliente / Interface"] -->|"Command"| CH["Manipulador de commands"]
-    CH --> WM["Modelo de escrita (domínio e validação)"]
-    WM --> WS[("Armazenamento de escrita")]
-    WS -->|"Eventos de alteração"| EB["Barramento de eventos"]
-    EB --> PR["Projetor (consumidor idempotente)"]
-    PR --> RS[("Armazenamento de leitura (visões materializadas)")]
-    U -->|"Query"| QH["Manipulador de queries"]
+    U["Client / UI"] -->|"Command"| CH["Command handler"]
+    CH --> WM["Write model (domain and validation)"]
+    WM --> WS[("Write store")]
+    WS -->|"Change events"| EB["Event bus"]
+    EB --> PR["Projector (idempotent consumer)"]
+    PR --> RS[("Read store (materialized views)")]
+    U -->|"Query"| QH["Query handler"]
     QH --> RS
     QH -->|"DTO"| U
 ```

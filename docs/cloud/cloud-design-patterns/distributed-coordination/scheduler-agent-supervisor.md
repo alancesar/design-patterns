@@ -61,16 +61,16 @@ Os papéis são lógicos e podem ser implementados de várias formas (por exempl
 
 ```mermaid
 flowchart LR
-    App["Aplicação"] -->|"submete tarefa"| S["Scheduler"]
-    S <-->|"registra estado das etapas"| DB[("State store")]
-    S -->|"requisição assíncrona"| A1["Agent 1"]
-    S -->|"requisição assíncrona"| A2["Agent 2"]
-    A1 -->|"resposta"| S
-    A2 -->|"resposta"| S
-    A1 <-->|"chamada com retentativa"| R1["Serviço remoto"]
-    A2 <-->|"acesso"| R2["Recurso remoto"]
-    SUP["Supervisor"] -->|"verifica etapas expiradas ou com falha"| DB
-    SUP -->|"pede nova tentativa ou compensação"| S
+    App["Application"] -->|"submits task"| S["Scheduler"]
+    S <-->|"records step state"| DB[("State store")]
+    S -->|"asynchronous request"| A1["Agent 1"]
+    S -->|"asynchronous request"| A2["Agent 2"]
+    A1 -->|"response"| S
+    A2 -->|"response"| S
+    A1 <-->|"call with retry"| R1["Remote service"]
+    A2 <-->|"access"| R2["Remote resource"]
+    SUP["Supervisor"] -->|"checks timed-out or failed steps"| DB
+    SUP -->|"requests retry or compensation"| S
 ```
 
 O Scheduler executa as etapas, delega chamadas remotas aos Agents e grava o progresso no state store. O Supervisor varre periodicamente esse estado e, ao encontrar etapas que falharam ou excederam o prazo, solicita ao Scheduler uma nova tentativa ou a compensação da tarefa.

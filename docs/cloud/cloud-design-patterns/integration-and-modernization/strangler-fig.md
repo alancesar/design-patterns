@@ -69,13 +69,13 @@ Na visão do microservices.io (Strangler Application), a pergunta é como migrar
 
 ```mermaid
 flowchart LR
-    C[Cliente] --> F["Fachada (proxy)"]
-    F -->|"Funcionalidades ainda não migradas"| L[Sistema legado]
-    F -->|"Funcionalidades migradas"| N[Novo sistema]
-    N <-->|"Camada anticorrupção"| L
-    L --> DBL[("Banco monolítico")]
-    N --> DBN[("Bancos por domínio")]
-    DBL -.->|"ETL inicial e CDC"| DBN
+    C[Client] --> F["Facade (proxy)"]
+    F -->|"Features not yet migrated"| L[Legacy system]
+    F -->|"Migrated features"| N[New system]
+    N <-->|"Anti-corruption layer"| L
+    L --> DBL[("Monolithic database")]
+    N --> DBN[("Per-domain databases")]
+    DBL -.->|"Initial ETL and CDC"| DBN
 ```
 
 O cliente fala apenas com a fachada, que encaminha cada requisição ao legado ou ao novo sistema conforme o estado da migração. Com o tempo, todas as rotas apontam para o novo sistema, os dados são extraídos para bancos por domínio e o legado (e, opcionalmente, a fachada) é desativado.

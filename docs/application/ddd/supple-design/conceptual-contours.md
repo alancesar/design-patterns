@@ -53,11 +53,11 @@ Os contornos raramente são encontrados na primeira tentativa. A equipe os desco
 
 ```mermaid
 flowchart LR
-    A["Antes: Invoice com preco, imposto e entrega"] -->|"mudanca de imposto afeta tudo"| B["Refatoracao"]
+    A["Before: Invoice with price, tax, and shipping"] -->|"tax change affects everything"| B["Refactoring"]
     B --> C["Pricing"]
     B --> D["Tax"]
     B --> E["Shipping"]
-    C -.->|"mudam separados"| F["Mudancas localizadas"]
+    C -.->|"change independently"| F["Localized changes"]
     D -.-> F
     E -.-> F
 ```

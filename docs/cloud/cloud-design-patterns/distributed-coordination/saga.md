@@ -69,20 +69,20 @@ Em microsserviços, a Saga é a consequência direta do padrão Database per Ser
 
 ```mermaid
 flowchart LR
-    subgraph Orquestracao["Orquestração"]
-        O["Orquestrador da saga"] -->|"1. Criar pedido"| P1["Serviço de pedidos"]
-        O -->|"2. Processar pagamento"| P2["Serviço de pagamentos"]
-        O -->|"3. Reservar estoque"| P3["Serviço de estoque"]
-        P3 -.->|"Falha"| O
-        O -.->|"Compensar: estornar pagamento"| P2
-        O -.->|"Compensar: cancelar pedido"| P1
+    subgraph Orquestracao["Orchestration"]
+        O["Saga orchestrator"] -->|"1. Create order"| P1["Order service"]
+        O -->|"2. Process payment"| P2["Payment service"]
+        O -->|"3. Reserve inventory"| P3["Inventory service"]
+        P3 -.->|"Failure"| O
+        O -.->|"Compensate: refund payment"| P2
+        O -.->|"Compensate: cancel order"| P1
     end
 
-    subgraph Coreografia["Coreografia"]
-        C1["Serviço de pedidos"] -->|"Evento: pedido criado"| C2["Serviço de pagamentos"]
-        C2 -->|"Evento: pagamento aprovado"| C3["Serviço de estoque"]
-        C3 -.->|"Evento: estoque indisponível"| C2
-        C2 -.->|"Evento: pagamento estornado"| C1
+    subgraph Coreografia["Choreography"]
+        C1["Order service"] -->|"Event: order created"| C2["Payment service"]
+        C2 -->|"Event: payment approved"| C3["Inventory service"]
+        C3 -.->|"Event: inventory unavailable"| C2
+        C2 -.->|"Event: payment refunded"| C1
     end
 ```
 

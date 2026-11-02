@@ -66,25 +66,25 @@ A escolha do que agrupar é o ponto central: tarefas com escalabilidade, ciclo d
 
 ```mermaid
 flowchart LR
-    subgraph Antes["Antes: uma unidade por tarefa"]
-        U1["Unidade 1"] --- TA["Tarefa A"]
-        U2["Unidade 2"] --- TB["Tarefa B"]
-        U3["Unidade 3"] --- TC["Tarefa C"]
-        U4["Unidade 4"] --- TD["Tarefa D"]
+    subgraph Antes["Before: one unit per task"]
+        U1["Unit 1"] --- TA["Task A"]
+        U2["Unit 2"] --- TB["Task B"]
+        U3["Unit 3"] --- TC["Task C"]
+        U4["Unit 4"] --- TD["Task D"]
     end
 
-    subgraph Depois["Depois: unidades consolidadas"]
-        subgraph UX["Unidade X (perfil CPU + memória)"]
-            XA["Tarefa A (CPU)"]
-            XB["Tarefa B (memória)"]
+    subgraph Depois["After: consolidated units"]
+        subgraph UX["Unit X (CPU + memory profile)"]
+            XA["Task A (CPU)"]
+            XB["Task B (memory)"]
         end
-        subgraph UY["Unidade Y (baixa carga)"]
-            YC["Tarefa C (ociosa)"]
-            YD["Tarefa D (intermitente)"]
+        subgraph UY["Unit Y (low load)"]
+            YC["Task C (idle)"]
+            YD["Task D (intermittent)"]
         end
     end
 
-    Antes -- "Consolidação por perfil de uso" --> Depois
+    Antes -- "Consolidation by usage profile" --> Depois
 ```
 
 Antes, cada tarefa ocupa sua própria unidade computacional, muitas vezes ociosa. Depois da consolidação, tarefas com perfis complementares ou carga baixa passam a compartilhar unidades, reduzindo o número de recursos provisionados e aumentando sua utilização.

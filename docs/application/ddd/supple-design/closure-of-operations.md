@@ -60,8 +60,8 @@ classDiagram
         +intersect(DateRange other) DateRange
         +union(DateRange other) DateRange
     }
-    PigmentColor ..> PigmentColor : retorna o mesmo tipo
-    DateRange ..> DateRange : retorna o mesmo tipo
+    PigmentColor ..> PigmentColor : returns the same type
+    DateRange ..> DateRange : returns the same type
 ```
 
 Em ambas as classes, a operação recebe e devolve o mesmo tipo, de modo que os resultados podem ser encadeados.

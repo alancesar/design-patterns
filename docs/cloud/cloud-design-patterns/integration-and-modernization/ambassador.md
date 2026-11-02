@@ -61,15 +61,15 @@ O ambassador pode ser implantado como um sidecar que acompanha o ciclo de vida d
 ```mermaid
 flowchart LR
     subgraph Host["Host / Pod"]
-        App["Aplicação cliente"]
-        Amb["Ambassador (proxy local)"]
+        App["Client application"]
+        Amb["Ambassador (local proxy)"]
     end
-    Remote["Serviço remoto"]
+    Remote["Remote service"]
 
-    App -->|"1. requisição local"| Amb
-    Amb -->|"2. roteamento, circuit breaker, mTLS, tracing"| Remote
-    Remote -->|"3. resposta"| Amb
-    Amb -->|"4. resposta + logs e métricas"| App
+    App -->|"1. local request"| Amb
+    Amb -->|"2. routing, circuit breaker, mTLS, tracing"| Remote
+    Remote -->|"3. response"| Amb
+    Amb -->|"4. response + logs and metrics"| App
 ```
 
 A aplicação envia suas requisições ao ambassador colocalizado no mesmo host, que resolve o destino, aplica resiliência e segurança, encaminha a chamada ao serviço remoto e devolve a resposta, registrando métricas como a latência. Como exemplo pontual, no Azure Kubernetes Service o ambassador costuma rodar como um contêiner sidecar no mesmo pod da aplicação.

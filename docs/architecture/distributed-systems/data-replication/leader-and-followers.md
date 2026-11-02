@@ -54,16 +54,16 @@ O padrão é a base de sistemas como ZooKeeper (ZAB), etcd (Raft), e das partiç
 
 ```mermaid
 sequenceDiagram
-    participant Cl as Cliente
-    participant L as Líder
-    participant F1 as Seguidor 1
-    participant F2 as Seguidor 2
-    Cl->>L: escrita
-    L->>F1: replica entrada
-    L->>F2: replica entrada
+    participant Cl as Client
+    participant L as Leader
+    participant F1 as Follower 1
+    participant F2 as Follower 2
+    Cl->>L: write
+    L->>F1: replicates entry
+    L->>F2: replicates entry
     F1-->>L: ack
     F2-->>L: ack
-    L-->>Cl: confirmação
+    L-->>Cl: acknowledgment
     L->>F1: HeartBeat
     L->>F2: HeartBeat
 ```

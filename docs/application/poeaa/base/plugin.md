@@ -58,12 +58,12 @@ Com o Plugin, um único arquivo de configuração associa cada interface à impl
 sequenceDiagram
     participant Client
     participant PluginFactory
-    participant Config as Arquivo de configuracao
-    participant Impl as Implementacao
+    participant Config as Configuration file
+    participant Impl as Implementation
     Client->>PluginFactory: getPlugin(IdGenerator)
-    PluginFactory->>Config: ler classe para IdGenerator
+    PluginFactory->>Config: read class for IdGenerator
     Config-->>PluginFactory: SequenceIdGenerator
-    PluginFactory->>Impl: instanciar
+    PluginFactory->>Impl: instantiate
     PluginFactory-->>Client: IdGenerator
 ```
 

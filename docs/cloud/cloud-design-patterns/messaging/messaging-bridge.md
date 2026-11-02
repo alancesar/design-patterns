@@ -68,13 +68,13 @@ Na formulação do Enterprise Integration Patterns (Hohpe e Woolf), a ponte não
 
 ```mermaid
 flowchart LR
-    subgraph A["Infraestrutura de mensageria A (on-premises)"]
-        S["Sistema legado (remetente)"] --> QA["Fila de origem"]
-        QA2["Fila de retorno"] --> S
+    subgraph A["Messaging infrastructure A (on-premises)"]
+        S["Legacy system (sender)"] --> QA["Source queue"]
+        QA2["Return queue"] --> S
     end
-    subgraph B["Infraestrutura de mensageria B (nuvem)"]
-        QB["Fila de destino"] --> R["Novo componente (receptor)"]
-        R --> QB2["Fila de resposta"]
+    subgraph B["Messaging infrastructure B (cloud)"]
+        QB["Destination queue"] --> R["New component (receiver)"]
+        R --> QB2["Reply queue"]
     end
     QA --> BR["Messaging Bridge"]
     BR --> QB

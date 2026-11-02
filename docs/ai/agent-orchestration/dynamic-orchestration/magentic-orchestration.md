@@ -59,16 +59,16 @@ Também é conhecido como *dynamic orchestration*, *task-ledger-based orchestrat
 
 ```mermaid
 flowchart LR
-    U["Usuário"] --> M["Agente gerente"]
+    U["User"] --> M["Manager agent"]
     M <--> L["Task ledger"]
-    M <--> A1["Agente de diagnóstico"]
-    M <--> A2["Agente de infraestrutura"]
-    M <--> A3["Agente de comunicação"]
-    A1 --> S["Sistemas externos"]
+    M <--> A1["Diagnostics agent"]
+    M <--> A2["Infrastructure agent"]
+    M <--> A3["Communication agent"]
+    A1 --> S["External systems"]
     A2 --> S
     A3 --> S
-    M -->|"Estagnação ou fora do escopo"| H["Humano"]
-    M --> R["Resultado"]
+    M -->|"Stalled or out of scope"| H["Human"]
+    M --> R["Result"]
 ```
 
 O gerente constrói e atualiza o task ledger consultando os agentes especializados, que usam ferramentas em sistemas externos; ao travar ou exceder o escopo, escala para um humano.

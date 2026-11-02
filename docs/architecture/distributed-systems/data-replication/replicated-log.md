@@ -53,18 +53,18 @@ Na prática, o líder acrescenta a entrada ao seu log, a replica aos seguidores 
 
 ```mermaid
 sequenceDiagram
-    participant Cl as Cliente
-    participant L as Líder
-    participant F1 as Seguidor 1
-    participant F2 as Seguidor 2
-    Cl->>L: requisição
-    L->>L: acrescenta ao log
+    participant Cl as Client
+    participant L as Leader
+    participant F1 as Follower 1
+    participant F2 as Follower 2
+    Cl->>L: request
+    L->>L: appends to the log
     L->>F1: AppendEntries
     L->>F2: AppendEntries
     F1-->>L: ack
-    L->>L: avança High-Water Mark e aplica
-    L-->>Cl: resposta
-    L->>F2: High-Water Mark atualizado
+    L->>L: advances High-Water Mark and applies
+    L-->>Cl: response
+    L->>F2: updated High-Water Mark
 ```
 
 O líder acrescenta a entrada, a replica, avança o High-Water Mark quando a maioria confirma, aplica a entrada e responde ao cliente.

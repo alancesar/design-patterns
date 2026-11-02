@@ -50,14 +50,14 @@ Há duas variantes. Na de **distribuição**, uma Recipient List envia a requisi
 
 ```mermaid
 flowchart LR
-    Q["Requisição"] --> RL{"Recipient List ou Publish-Subscribe"}
-    RL --> F1["Fornecedor 1"]
-    RL --> F2["Fornecedor 2"]
-    RL --> F3["Fornecedor 3"]
+    Q["Request"] --> RL{"Recipient List or Publish-Subscribe"}
+    RL --> F1["Supplier 1"]
+    RL --> F2["Supplier 2"]
+    RL --> F3["Supplier 3"]
     F1 --> AG["Aggregator"]
     F2 --> AG
     F3 --> AG
-    AG --> R["Melhor resposta"]
+    AG --> R["Best response"]
 ```
 
 A requisição é espalhada aos fornecedores e as respostas são reunidas em um único resultado.

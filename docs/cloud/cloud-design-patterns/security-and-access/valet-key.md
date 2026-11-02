@@ -66,13 +66,13 @@ Com isso, a aplicação mantém o controle de quem acessa o quê e por quanto te
 
 ```mermaid
 flowchart LR
-    C["Cliente"]
-    V["Serviço de chaves (aplicação)"]
-    S["Armazenamento de dados"]
-    C -->|"1. Solicita acesso (autenticado)"| V
-    V -->|"2. Valida e retorna chave restrita (recurso, permissão, prazo)"| C
-    C -->|"3. Upload/download direto com a chave"| S
-    S -.->|"4. Evento de conclusão (opcional)"| V
+    C["Client"]
+    V["Key service (application)"]
+    S["Data store"]
+    C -->|"1. Requests access (authenticated)"| V
+    V -->|"2. Validates and returns restricted key (resource, permission, expiry)"| C
+    C -->|"3. Direct upload/download with the key"| S
+    S -.->|"4. Completion event (optional)"| V
 ```
 
 O cliente obtém da aplicação uma chave com escopo, permissões e prazo limitados e transfere os dados direto com o armazenamento, que valida a chave sozinho. A aplicação só participa da autorização e, se quiser, recebe eventos para auditoria ou revogação.

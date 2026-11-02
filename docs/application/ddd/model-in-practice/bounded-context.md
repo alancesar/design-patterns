@@ -54,17 +54,17 @@ O Bounded Context é o alicerce do design estratégico: é nele que a Ubiquitous
 
 ```mermaid
 flowchart LR
-    subgraph Vendas ["Contexto de Vendas"]
-        V1["Cliente = comprador com carrinho e pedidos"]
+    subgraph Vendas ["Sales Context"]
+        V1["Customer = buyer with cart and orders"]
     end
-    subgraph Suporte ["Contexto de Suporte"]
-        S1["Cliente = solicitante de chamados"]
+    subgraph Suporte ["Support Context"]
+        S1["Customer = ticket requester"]
     end
-    subgraph Cobranca ["Contexto de Cobrança"]
-        C1["Cliente = pagador com contrato e fatura"]
+    subgraph Cobranca ["Billing Context"]
+        C1["Customer = payer with contract and invoice"]
     end
-    Vendas -->|"traduz"| Cobranca
-    Suporte -->|"traduz"| Vendas
+    Vendas -->|"translates"| Cobranca
+    Suporte -->|"translates"| Vendas
 ```
 
 O termo "Cliente" tem um modelo próprio em cada contexto, e as setas indicam pontos de tradução entre eles.

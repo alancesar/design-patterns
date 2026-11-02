@@ -51,16 +51,16 @@ Também costuma ter um tempo limite, para falhar requisições que não alcança
 
 ```mermaid
 sequenceDiagram
-    participant Cl as Cliente
-    participant L as Líder
-    participant W as Lista de espera
-    participant F as Seguidores
-    Cl->>L: requisição
-    L->>W: registra índice e callback
-    L->>F: replica
-    F-->>L: confirmações
-    L->>W: High-Water Mark avançou
-    W-->>Cl: callback responde
+    participant Cl as Client
+    participant L as Leader
+    participant W as Waiting list
+    participant F as Followers
+    Cl->>L: request
+    L->>W: registers index and callback
+    L->>F: replicates
+    F-->>L: acknowledgments
+    L->>W: High-Water Mark advanced
+    W-->>Cl: callback responds
 ```
 
 O líder registra um callback por índice e o dispara quando a replicação alcança o quórum, respondendo ao cliente.

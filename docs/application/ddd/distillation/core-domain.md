@@ -55,12 +55,12 @@ A distilação é o processo de separar o essencial do que é apenas suporte. O 
 
 ```mermaid
 flowchart TD
-    A["Domínio do sistema"] --> B["Core Domain"]
-    A --> C["Subdomínios genéricos"]
-    A --> D["Subdomínios de suporte"]
-    B -->|"Melhores pessoas e design sob medida"| E["Diferencial competitivo"]
-    C -->|"Comprar ou adotar solução pronta"| F["Custo reduzido"]
-    D -->|"Construir de forma simples ou terceirizar"| F
+    A["System domain"] --> B["Core Domain"]
+    A --> C["Generic subdomains"]
+    A --> D["Supporting subdomains"]
+    B -->|"Best people and custom design"| E["Competitive advantage"]
+    C -->|"Buy or adopt an off-the-shelf solution"| F["Reduced cost"]
+    D -->|"Build simply or outsource"| F
 ```
 
 O domínio é dividido por valor estratégico: o core recebe o investimento mais alto, enquanto os demais subdomínios são tratados com custo contido.

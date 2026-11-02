@@ -54,11 +54,11 @@ Para Evans, o Context Map é o artefato central da modelagem estratégica: ele e
 
 ```mermaid
 flowchart LR
-    V["Vendas"] -->|"Open-host Service + Published Language"| F["Faturamento"]
-    V -->|"Customer/Supplier"| E["Estoque"]
-    L["Sistema Legado"] -->|"Conformist"| E
+    V["Sales"] -->|"Open-host Service + Published Language"| F["Billing"]
+    V -->|"Customer/Supplier"| E["Inventory"]
+    L["Legacy System"] -->|"Conformist"| E
     F -->|"Anticorruption Layer"| L
-    P["Pagamentos (terceiro)"] -->|"Open-host Service"| F
+    P["Payments (third party)"] -->|"Open-host Service"| F
 ```
 
 Cada aresta liga um contexto upstream ao seu downstream e é rotulada com o padrão de relacionamento que de fato vigora entre eles.

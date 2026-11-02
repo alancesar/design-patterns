@@ -55,11 +55,11 @@ O mapeamento partição → nó precisa ser conhecido pelos clientes ou pelos n�
 
 ```mermaid
 flowchart LR
-    C["Cliente"] -->|"hash da chave"| P["Partição lógica (1 de 1024)"]
-    P --> T["Tabela partição para nó"]
-    T --> N1["Nó 1"]
-    T --> N2["Nó 2"]
-    T --> N3["Nó 3 (novo)"]
+    C["Client"] -->|"key hash"| P["Logical partition (1 of 1024)"]
+    P --> T["Partition-to-node table"]
+    T --> N1["Node 1"]
+    T --> N2["Node 2"]
+    T --> N3["Node 3 (new)"]
 ```
 
 O hash da chave sempre resulta na mesma partição; só a tabela partição → nó muda quando o cluster é redimensionado, movendo algumas partições para o novo nó.

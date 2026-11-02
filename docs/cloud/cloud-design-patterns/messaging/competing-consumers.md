@@ -70,18 +70,18 @@ Quando o sistema de mensageria oferece leitura transacional ou bloqueio temporá
 
 ```mermaid
 flowchart LR
-    P1["Aplicação (instância 1)"] --> Q[["Fila de mensagens"]]
-    P2["Aplicação (instância 2)"] --> Q
-    P3["Aplicação (instância N)"] --> Q
-    subgraph Pool["Pool de consumidores"]
-        C1["Consumidor 1"]
-        C2["Consumidor 2"]
-        C3["Consumidor N"]
+    P1["Application (instance 1)"] --> Q[["Message queue"]]
+    P2["Application (instance 2)"] --> Q
+    P3["Application (instance N)"] --> Q
+    subgraph Pool["Consumer pool"]
+        C1["Consumer 1"]
+        C2["Consumer 2"]
+        C3["Consumer N"]
     end
-    Q -->|"mensagem A"| C1
-    Q -->|"mensagem B"| C2
-    Q -->|"mensagem C"| C3
-    Q -.->|"falhas repetidas"| DLQ[("Dead-letter queue")]
+    Q -->|"message A"| C1
+    Q -->|"message B"| C2
+    Q -->|"message C"| C3
+    Q -.->|"repeated failures"| DLQ[("Dead-letter queue")]
 ```
 
 Várias instâncias da aplicação publicam mensagens em uma única fila; cada mensagem é entregue a apenas um consumidor do pool, que pode escalar conforme a profundidade da fila. Mensagens que falham repetidamente são desviadas para a *dead-letter queue* para análise.

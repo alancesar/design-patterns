@@ -54,12 +54,12 @@ A entrega do relay é "pelo menos uma vez": ele pode publicar a mesma mensagem m
 
 ```mermaid
 flowchart LR
-    S["Serviço"] -->|"1. Transação única"| DB[("Banco de dados")]
-    DB --- T["Tabelas de negócio"]
+    S["Service"] -->|"1. Single transaction"| DB[("Database")]
+    DB --- T["Business tables"]
     DB --- O["Outbox"]
-    R["Message relay"] -->|"2. Lê mensagens pendentes"| O
-    R -->|"3. Publica"| B["Message broker"]
-    B --> C["Consumidor idempotente"]
+    R["Message relay"] -->|"2. Reads pending messages"| O
+    R -->|"3. Publishes"| B["Message broker"]
+    B --> C["Idempotent consumer"]
 ```
 
 O serviço grava dados e mensagem na mesma transação; o relay lê o outbox e publica no broker, e o consumidor trata possíveis duplicatas.

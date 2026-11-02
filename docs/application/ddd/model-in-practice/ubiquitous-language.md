@@ -52,12 +52,12 @@ A linguagem é válida dentro de um Bounded Context; em contextos diferentes, os
 
 ```mermaid
 flowchart LR
-    E["Especialistas de negócio"] <-->|"conversa"| L(("Ubiquitous Language"))
-    D["Desenvolvedores"] <-->|"conversa"| L
-    L --> M["Modelo de domínio"]
-    L --> C["Código e testes"]
-    L --> Doc["Documentos"]
-    M -->|"refina"| L
+    E["Business experts"] <-->|"conversation"| L(("Ubiquitous Language"))
+    D["Developers"] <-->|"conversation"| L
+    L --> M["Domain model"]
+    L --> C["Code and tests"]
+    L --> Doc["Documents"]
+    M -->|"refines"| L
 ```
 
 A linguagem fica no centro, ligando pessoas, modelo, código e documentos; o uso refina o modelo, e o modelo refina a linguagem.

@@ -49,15 +49,15 @@ O Consumer-side Contract Test verifica que o cliente de um serviço consegue se 
 
 ```mermaid
 sequenceDiagram
-    participant T as Teste do consumidor
-    participant C as Serviço consumidor
-    participant S as Stub do provedor
-    participant K as Contrato
-    K->>S: gera o stub
-    T->>C: dispara o cenário
-    C->>S: requisição
-    S-->>C: resposta definida no contrato
-    C-->>T: resultado verificado
+    participant T as Consumer test
+    participant C as Consumer service
+    participant S as Provider stub
+    participant K as Contract
+    K->>S: generates the stub
+    T->>C: triggers the scenario
+    C->>S: request
+    S-->>C: response defined in the contract
+    C-->>T: verified result
 ```
 
 O consumidor é testado contra um stub derivado do contrato, sem depender do provedor real.

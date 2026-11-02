@@ -62,10 +62,10 @@ classDiagram
     class BookCommand
     class OrderCommand
     class View
-    FrontController --> Command : seleciona e executa
+    FrontController --> Command : selects and executes
     Command <|.. BookCommand
     Command <|.. OrderCommand
-    Command --> View : escolhe
+    Command --> View : chooses
 ```
 
 O `FrontController` recebe todas as requisições, escolhe o `Command` apropriado e delega. O command executa a lógica e seleciona a `View`.

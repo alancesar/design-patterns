@@ -54,11 +54,11 @@ O esforço deve ser dirigido ao Core Domain, onde a diferença competitiva do ne
 
 ```mermaid
 flowchart LR
-    A["Código e linguagem atuais"] --> B["Sinal: termo desajeitado ou regra espalhada"]
-    B --> C["Conversa com especialistas"]
-    C --> D["Novo conceito explícito no modelo"]
-    D --> E["Refatoração do código"]
-    E --> F["Modelo mais profundo e simples"]
+    A["Current code and language"] --> B["Signal: awkward term or scattered rule"]
+    B --> C["Conversation with experts"]
+    C --> D["New explicit concept in the model"]
+    D --> E["Code refactoring"]
+    E --> F["Deeper and simpler model"]
     F --> A
 ```
 

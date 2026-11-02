@@ -56,12 +56,12 @@ Estruturalmente, é o mesmo mecanismo do CQRS: uma cópia derivada alimentada po
 
 ```mermaid
 flowchart LR
-    P["Serviço provedor (restaurantes)"] --> PDB[("Banco do provedor")]
-    P -->|"Eventos de domínio"| B["Mensageria"]
-    B --> C["Serviço de comando (pedidos)"]
-    C --> R[("Réplica somente leitura")]
-    C --> CDB[("Banco do serviço de comando")]
-    CL["Cliente"] -->|"createOrder()"| C
+    P["Provider service (restaurants)"] --> PDB[("Provider database")]
+    P -->|"Domain events"| B["Messaging"]
+    B --> C["Command service (orders)"]
+    C --> R[("Read-only replica")]
+    C --> CDB[("Command service database")]
+    CL["Client"] -->|"createOrder()"| C
 ```
 
 O serviço de comando assina os eventos do provedor para manter a réplica local, que usa para validar o comando sem chamar o provedor.

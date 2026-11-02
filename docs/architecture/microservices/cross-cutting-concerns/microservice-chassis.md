@@ -55,15 +55,15 @@ Quando os requisitos transversais mudam, a equipe responsável publica uma nova 
 ```mermaid
 flowchart TB
     subgraph Chassis["Microservice Chassis"]
-        B["Lógica de build"]
-        C1["Configuração externalizada"]
-        C2["Logging e métricas"]
-        C3["Health checks e tracing"]
-        C4["Segurança e circuit breaker"]
+        B["Build logic"]
+        C1["Externalized configuration"]
+        C2["Logging and metrics"]
+        C3["Health checks and tracing"]
+        C4["Security and circuit breaker"]
     end
-    S1["Serviço A (lógica de negócio)"] --> Chassis
-    S2["Serviço B (lógica de negócio)"] --> Chassis
-    S3["Serviço C (lógica de negócio)"] --> Chassis
+    S1["Service A (business logic)"] --> Chassis
+    S2["Service B (business logic)"] --> Chassis
+    S3["Service C (business logic)"] --> Chassis
 ```
 
 Os serviços contêm apenas lógica de negócio e dependem do chassis, que fornece build e preocupações transversais de forma compartilhada e versionada.

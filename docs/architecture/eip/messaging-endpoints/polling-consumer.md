@@ -49,12 +49,12 @@ As APIs de mensageria costumam oferecer receive bloqueante, que espera até cheg
 
 ```mermaid
 sequenceDiagram
-    participant A as Aplicação
-    participant C as Canal
-    loop enquanto ativo
+    participant A as Application
+    participant C as Channel
+    loop while active
         A->>C: receive
-        C-->>A: mensagem ou vazio
-        A->>A: processa
+        C-->>A: message or empty
+        A->>A: processes
     end
 ```
 
