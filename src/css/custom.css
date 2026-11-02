@@ -237,3 +237,8 @@ pre code,
   outline: 2px solid var(--accent);
   border-color: var(--accent) !important;
 }
+
+/* Tag links in catalog tables: keep each tag on one line */
+.markdown td a[href^='/tags/'] code {
+  white-space: nowrap;
+}
