@@ -138,7 +138,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `© ${new Date().getFullYear()} Alan Cesar. Feito com Docusaurus.`,
+      copyright: `Resumos escritos por Alan Cesar. Os padrões pertencem aos seus autores originais; veja o link da fonte em cada página.<br/>© ${new Date().getFullYear()} Alan Cesar. Conteúdo sob <a href="https://creativecommons.org/licenses/by/4.0/deed.pt-br" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>, código sob MIT. Feito com Docusaurus.`,
     },
     prism: {
       theme: catppuccinLatte,
