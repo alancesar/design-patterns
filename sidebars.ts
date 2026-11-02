@@ -16,6 +16,7 @@ const sidebars: SidebarsConfig = {
         {
           "type": "category",
           "label": "GoF",
+          "key": "gof",
           "link": {
             "type": "doc",
             "id": "coding/gof/index"
@@ -25,6 +26,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Creational",
+              "key": "gof-creational",
               "collapsed": true,
               "items": [
                 "coding/gof/creational/abstract-factory",
@@ -40,6 +42,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Structural",
+              "key": "gof-structural",
               "collapsed": true,
               "items": [
                 "coding/gof/structural/adapter",
@@ -55,6 +58,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Behavioral",
+              "key": "gof-behavioral",
               "collapsed": true,
               "items": [
                 "coding/gof/behavioral/chain-of-responsibility",
@@ -87,6 +91,7 @@ const sidebars: SidebarsConfig = {
         {
           "type": "category",
           "label": "DDD",
+          "key": "ddd",
           "link": {
             "type": "doc",
             "id": "application/ddd/index"
@@ -96,6 +101,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Putting the Model to Work",
+              "key": "ddd-model-in-practice",
               "collapsed": true,
               "items": [
                 "application/ddd/model-in-practice/bounded-context",
@@ -109,6 +115,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Building Blocks",
+              "key": "ddd-building-blocks",
               "collapsed": true,
               "items": [
                 "application/ddd/building-blocks/layered-architecture",
@@ -143,6 +150,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Supple Design",
+              "key": "ddd-supple-design",
               "collapsed": true,
               "items": [
                 "application/ddd/supple-design/intention-revealing-interfaces",
@@ -158,6 +166,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Context Mapping",
+              "key": "ddd-context-mapping",
               "collapsed": true,
               "items": [
                 "application/ddd/context-mapping/context-map",
@@ -181,6 +190,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Distillation",
+              "key": "ddd-distillation",
               "collapsed": true,
               "items": [
                 "application/ddd/distillation/core-domain",
@@ -195,6 +205,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Large-scale Structure",
+              "key": "ddd-large-scale-structure",
               "collapsed": true,
               "items": [
                 "application/ddd/large-scale-structure/evolving-order",
@@ -209,6 +220,7 @@ const sidebars: SidebarsConfig = {
         {
           "type": "category",
           "label": "PoEAA",
+          "key": "poeaa",
           "link": {
             "type": "doc",
             "id": "application/poeaa/index"
@@ -218,6 +230,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Domain Logic",
+              "key": "poeaa-domain-logic",
               "collapsed": true,
               "items": [
                 "application/poeaa/domain-logic/transaction-script",
@@ -229,6 +242,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Data Source Architectural",
+              "key": "poeaa-data-source-architectural",
               "collapsed": true,
               "items": [
                 "application/poeaa/data-source-architectural/table-data-gateway",
@@ -240,6 +254,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Object-Relational Behavioral",
+              "key": "poeaa-object-relational-behavioral",
               "collapsed": true,
               "items": [
                 "application/poeaa/object-relational-behavioral/unit-of-work",
@@ -250,6 +265,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Object-Relational Structural",
+              "key": "poeaa-object-relational-structural",
               "collapsed": true,
               "items": [
                 "application/poeaa/object-relational-structural/identity-field",
@@ -267,6 +283,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Object-Relational Metadata Mapping",
+              "key": "poeaa-object-relational-metadata-mapping",
               "collapsed": true,
               "items": [
                 "application/poeaa/object-relational-metadata-mapping/metadata-mapping",
@@ -277,6 +294,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Web Presentation",
+              "key": "poeaa-web-presentation",
               "collapsed": true,
               "items": [
                 "application/poeaa/web-presentation/model-view-controller",
@@ -291,6 +309,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Distribution",
+              "key": "poeaa-distribution",
               "collapsed": true,
               "items": [
                 "application/poeaa/distribution/remote-facade",
@@ -300,6 +319,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Offline Concurrency",
+              "key": "poeaa-offline-concurrency",
               "collapsed": true,
               "items": [
                 "application/poeaa/offline-concurrency/optimistic-offline-lock",
@@ -311,6 +331,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Session State",
+              "key": "poeaa-session-state",
               "collapsed": true,
               "items": [
                 "application/poeaa/session-state/client-session-state",
@@ -321,6 +342,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Base",
+              "key": "poeaa-base",
               "collapsed": true,
               "items": [
                 "application/poeaa/base/gateway",
@@ -352,6 +374,7 @@ const sidebars: SidebarsConfig = {
         {
           "type": "category",
           "label": "Distributed Systems",
+          "key": "distributed-systems",
           "link": {
             "type": "doc",
             "id": "architecture/distributed-systems/index"
@@ -361,6 +384,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Data Replication",
+              "key": "distributed-systems-data-replication",
               "collapsed": true,
               "items": [
                 "architecture/distributed-systems/data-replication/write-ahead-log",
@@ -390,6 +414,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Data Partitioning",
+              "key": "distributed-systems-data-partitioning",
               "collapsed": true,
               "items": [
                 "architecture/distributed-systems/data-partitioning/fixed-partitions",
@@ -400,6 +425,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Distributed Time",
+              "key": "distributed-systems-distributed-time",
               "collapsed": true,
               "items": [
                 "architecture/distributed-systems/distributed-time/lamport-clock",
@@ -410,6 +436,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Cluster Management",
+              "key": "distributed-systems-cluster-management",
               "collapsed": true,
               "items": [
                 "architecture/distributed-systems/cluster-management/consistent-core",
@@ -422,6 +449,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Communication between Nodes",
+              "key": "distributed-systems-node-communication",
               "collapsed": true,
               "items": [
                 "architecture/distributed-systems/node-communication/single-socket-channel",
@@ -434,6 +462,7 @@ const sidebars: SidebarsConfig = {
         {
           "type": "category",
           "label": "EIP",
+          "key": "eip",
           "link": {
             "type": "doc",
             "id": "architecture/eip/index"
@@ -443,6 +472,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Integration Styles",
+              "key": "eip-integration-styles",
               "collapsed": true,
               "items": [
                 "architecture/eip/integration-styles/file-transfer",
@@ -472,6 +502,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Messaging Channels",
+              "key": "eip-messaging-channels",
               "collapsed": true,
               "items": [
                 "architecture/eip/messaging-channels/message-channel",
@@ -501,6 +532,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Message Construction",
+              "key": "eip-message-construction",
               "collapsed": true,
               "items": [
                 "architecture/eip/message-construction/message",
@@ -518,6 +550,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Message Routing",
+              "key": "eip-message-routing",
               "collapsed": true,
               "items": [
                 {
@@ -545,6 +578,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Message Transformation",
+              "key": "eip-message-transformation",
               "collapsed": true,
               "items": [
                 "architecture/eip/message-transformation/message-translator",
@@ -565,6 +599,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Messaging Endpoints",
+              "key": "eip-messaging-endpoints",
               "collapsed": true,
               "items": [
                 "architecture/eip/messaging-endpoints/message-endpoint",
@@ -596,6 +631,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "System Management",
+              "key": "eip-system-management",
               "collapsed": true,
               "items": [
                 "architecture/eip/system-management/control-bus",
@@ -613,6 +649,7 @@ const sidebars: SidebarsConfig = {
         {
           "type": "category",
           "label": "Microservices",
+          "key": "microservices",
           "link": {
             "type": "doc",
             "id": "architecture/microservices/index"
@@ -622,6 +659,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Architectural Style",
+              "key": "microservices-architectural-style",
               "collapsed": true,
               "items": [
                 "architecture/microservices/architectural-style/monolithic-architecture",
@@ -631,6 +669,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Service Boundaries",
+              "key": "microservices-service-boundaries",
               "collapsed": true,
               "items": [
                 "architecture/microservices/service-boundaries/decompose-by-business-capability",
@@ -642,6 +681,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Refactoring to Services",
+              "key": "microservices-refactoring-to-services",
               "collapsed": true,
               "items": [
                 {
@@ -663,6 +703,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Service Collaboration",
+              "key": "microservices-service-collaboration",
               "collapsed": true,
               "items": [
                 "architecture/microservices/service-collaboration/database-per-service",
@@ -696,6 +737,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Transactional Messaging",
+              "key": "microservices-transactional-messaging",
               "collapsed": true,
               "items": [
                 "architecture/microservices/transactional-messaging/transactional-outbox",
@@ -706,6 +748,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Testing",
+              "key": "microservices-testing",
               "collapsed": true,
               "items": [
                 "architecture/microservices/testing/consumer-driven-contract-test",
@@ -716,6 +759,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Deployment",
+              "key": "microservices-deployment",
               "collapsed": true,
               "items": [
                 "architecture/microservices/deployment/multiple-service-instances-per-host",
@@ -729,6 +773,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Cross-cutting Concerns",
+              "key": "microservices-cross-cutting-concerns",
               "collapsed": true,
               "items": [
                 "architecture/microservices/cross-cutting-concerns/microservice-chassis",
@@ -745,6 +790,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Communication Styles",
+              "key": "microservices-communication-styles",
               "collapsed": true,
               "items": [
                 "architecture/microservices/communication-styles/remote-procedure-invocation",
@@ -762,6 +808,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "External API",
+              "key": "microservices-external-api",
               "collapsed": true,
               "items": [
                 "architecture/microservices/external-api/api-gateway",
@@ -777,6 +824,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Service Discovery",
+              "key": "microservices-service-discovery",
               "collapsed": true,
               "items": [
                 "architecture/microservices/service-discovery/client-side-discovery",
@@ -789,6 +837,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Reliability",
+              "key": "microservices-reliability",
               "collapsed": true,
               "items": [
                 {
@@ -803,6 +852,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Security",
+              "key": "microservices-security",
               "collapsed": true,
               "items": [
                 "architecture/microservices/security/access-token"
@@ -811,6 +861,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Observability",
+              "key": "microservices-observability",
               "collapsed": true,
               "items": [
                 "architecture/microservices/observability/log-aggregation",
@@ -831,6 +882,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "UI Design",
+              "key": "microservices-ui-design",
               "collapsed": true,
               "items": [
                 "architecture/microservices/ui-design/server-side-page-fragment-composition",
@@ -853,6 +905,7 @@ const sidebars: SidebarsConfig = {
         {
           "type": "category",
           "label": "Cloud Design Patterns",
+          "key": "cloud-design-patterns",
           "link": {
             "type": "doc",
             "id": "cloud/cloud-design-patterns/index"
@@ -862,6 +915,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Messaging",
+              "key": "cloud-design-patterns-messaging",
               "collapsed": true,
               "items": [
                 "cloud/cloud-design-patterns/messaging/asynchronous-request-reply",
@@ -879,6 +933,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Data Management",
+              "key": "cloud-design-patterns-data-management",
               "collapsed": true,
               "items": [
                 "cloud/cloud-design-patterns/data-management/cache-aside",
@@ -892,6 +947,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Resiliency",
+              "key": "cloud-design-patterns-resiliency",
               "collapsed": true,
               "items": [
                 "cloud/cloud-design-patterns/resiliency/bulkhead",
@@ -905,6 +961,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Distributed Coordination",
+              "key": "cloud-design-patterns-distributed-coordination",
               "collapsed": true,
               "items": [
                 "cloud/cloud-design-patterns/distributed-coordination/choreography",
@@ -917,6 +974,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Deployment and Topology",
+              "key": "cloud-design-patterns-deployment-and-topology",
               "collapsed": true,
               "items": [
                 "cloud/cloud-design-patterns/deployment-and-topology/compute-resource-consolidation",
@@ -929,6 +987,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Gateways and Edge",
+              "key": "cloud-design-patterns-gateways-and-edge",
               "collapsed": true,
               "items": [
                 "cloud/cloud-design-patterns/gateways-and-edge/backends-for-frontends",
@@ -940,6 +999,7 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Security and Access",
+              "key": "cloud-design-patterns-security-and-access",
               "collapsed": true,
               "items": [
                 "cloud/cloud-design-patterns/security-and-access/federated-identity",
@@ -951,12 +1011,132 @@ const sidebars: SidebarsConfig = {
             {
               "type": "category",
               "label": "Integration and Modernization",
+              "key": "cloud-design-patterns-integration-and-modernization",
               "collapsed": true,
               "items": [
                 "cloud/cloud-design-patterns/integration-and-modernization/ambassador",
                 "cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer",
                 "cloud/cloud-design-patterns/integration-and-modernization/sidecar",
                 "cloud/cloud-design-patterns/integration-and-modernization/strangler-fig"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "AI",
+      "link": {
+        "type": "doc",
+        "id": "ai/index"
+      },
+      "collapsed": false,
+      "items": [
+        {
+          "type": "category",
+          "label": "Agent Orchestration",
+          "key": "agent-orchestration",
+          "link": {
+            "type": "doc",
+            "id": "ai/agent-orchestration/index"
+          },
+          "collapsed": true,
+          "items": [
+            {
+              "type": "category",
+              "label": "Deterministic Workflows",
+              "key": "agent-orchestration-deterministic-workflows",
+              "collapsed": true,
+              "items": [
+                "ai/agent-orchestration/deterministic-workflows/sequential-orchestration",
+                "ai/agent-orchestration/deterministic-workflows/concurrent-orchestration"
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Dynamic Orchestration",
+              "key": "agent-orchestration-dynamic-orchestration",
+              "collapsed": true,
+              "items": [
+                "ai/agent-orchestration/dynamic-orchestration/group-chat-orchestration",
+                "ai/agent-orchestration/dynamic-orchestration/maker-checker-loop",
+                "ai/agent-orchestration/dynamic-orchestration/handoff-orchestration",
+                "ai/agent-orchestration/dynamic-orchestration/magentic-orchestration"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Agentic AI",
+          "key": "agentic-ai",
+          "link": {
+            "type": "doc",
+            "id": "ai/agentic-ai/index"
+          },
+          "collapsed": true,
+          "items": [
+            {
+              "type": "category",
+              "label": "Deterministic Workflows",
+              "key": "agentic-ai-deterministic-workflows",
+              "collapsed": true,
+              "items": [
+                {
+                  "type": "link",
+                  "label": "Multi-Agent Sequential",
+                  "href": "/ai/agent-orchestration/deterministic-workflows/sequential-orchestration?catalogo=agentic-ai",
+                  "className": "sidebar-shared",
+                  "key": "agentic-ai-multi-agent-sequential"
+                },
+                {
+                  "type": "link",
+                  "label": "Multi-Agent Parallel",
+                  "href": "/ai/agent-orchestration/deterministic-workflows/concurrent-orchestration?catalogo=agentic-ai",
+                  "className": "sidebar-shared",
+                  "key": "agentic-ai-multi-agent-parallel"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Dynamic Orchestration",
+              "key": "agentic-ai-dynamic-orchestration",
+              "collapsed": true,
+              "items": [
+                "ai/agentic-ai/dynamic-orchestration/single-agent",
+                "ai/agentic-ai/dynamic-orchestration/multi-agent-coordinator",
+                "ai/agentic-ai/dynamic-orchestration/multi-agent-hierarchical-task-decomposition",
+                "ai/agentic-ai/dynamic-orchestration/multi-agent-swarm"
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Iteration",
+              "key": "agentic-ai-iteration",
+              "collapsed": true,
+              "items": [
+                "ai/agentic-ai/iteration/react",
+                "ai/agentic-ai/iteration/multi-agent-loop",
+                {
+                  "type": "link",
+                  "label": "Multi-Agent Review and Critique",
+                  "href": "/ai/agent-orchestration/dynamic-orchestration/maker-checker-loop?catalogo=agentic-ai",
+                  "className": "sidebar-shared",
+                  "key": "agentic-ai-multi-agent-review-and-critique"
+                },
+                "ai/agentic-ai/iteration/multi-agent-iterative-refinement"
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Special Requirements",
+              "key": "agentic-ai-special-requirements",
+              "collapsed": true,
+              "items": [
+                "ai/agentic-ai/special-requirements/human-in-the-loop",
+                "ai/agentic-ai/special-requirements/custom-logic"
               ]
             }
           ]
