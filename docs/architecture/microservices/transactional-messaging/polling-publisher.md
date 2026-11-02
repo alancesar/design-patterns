@@ -67,10 +67,10 @@ O publicador consulta o outbox periodicamente, envia as mensagens ao broker e at
 
 ## Padrões relacionados
 
-- [Transactional Outbox](./transactional-outbox.md) — cria a necessidade deste padrão
-- [Transaction Log Tailing](./transaction-log-tailing.md) — alternativa que lê o log de transações do banco
-- [Idempotent Consumer](../../../cloud/cloud-design-patterns/messaging/idempotent-consumer.md) — necessário para tolerar mensagens duplicadas
-- [Messaging](../communication-styles/messaging.md) — estilo de comunicação que usa o broker
+- [Transactional Outbox](/architecture/microservices/transactional-messaging/transactional-outbox) — cria a necessidade deste padrão
+- [Transaction Log Tailing](/architecture/microservices/transactional-messaging/transaction-log-tailing) — alternativa que lê o log de transações do banco
+- [Idempotent Consumer](/cloud/cloud-design-patterns/messaging/idempotent-consumer) — necessário para tolerar mensagens duplicadas
+- [Messaging](/architecture/microservices/communication-styles/messaging) — estilo de comunicação que usa o broker
 
 ## Referência
 

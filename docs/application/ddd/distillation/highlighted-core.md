@@ -13,11 +13,11 @@ sidebar_label: "Highlighted Core"
 
 ## Descrição
 
-O Highlighted Core torna o [Core Domain](./core-domain.md) fácil de encontrar dentro de um modelo grande, sem alterar a estrutura do código. Ele combina dois recursos leves: um documento de destilação e marcações explícitas no próprio modelo.
+O Highlighted Core torna o [Core Domain](/application/ddd/distillation/core-domain) fácil de encontrar dentro de um modelo grande, sem alterar a estrutura do código. Ele combina dois recursos leves: um documento de destilação e marcações explícitas no próprio modelo.
 
 O documento de destilação é uma descrição muito curta (de três a sete páginas, no máximo) com os conceitos centrais e as interações entre eles, escrito de forma que qualquer membro da equipe possa lê-lo. As marcações, por sua vez, sinalizam no repositório quais módulos ou classes pertencem ao core, por exemplo com anotações, convenções de nomes ou destaque nos diagramas.
 
-A vantagem é a baixa intrusão: o núcleo ganha visibilidade imediata sem a necessidade de refatorar pacotes. Quando o custo de separar fisicamente é alto, esse é o passo inicial, e a separação estrutural pode vir depois com o [Segregated Core](./segregated-core.md).
+A vantagem é a baixa intrusão: o núcleo ganha visibilidade imediata sem a necessidade de refatorar pacotes. Quando o custo de separar fisicamente é alto, esse é o passo inicial, e a separação estrutural pode vir depois com o [Segregated Core](/application/ddd/distillation/segregated-core).
 
 ## Problemas que resolve
 
@@ -36,7 +36,7 @@ A vantagem é a baixa intrusão: o núcleo ganha visibilidade imediata sem a nec
 
 - Quando o modelo é pequeno e o core é óbvio para todos.
 - Quando o documento de destilação não será mantido, pois ele se descola da realidade rapidamente.
-- Quando o acoplamento entre core e o restante é o verdadeiro problema; marcar não resolve a dependência, e o caso pede um [Segregated Core](./segregated-core.md).
+- Quando o acoplamento entre core e o restante é o verdadeiro problema; marcar não resolve a dependência, e o caso pede um [Segregated Core](/application/ddd/distillation/segregated-core).
 
 ## Trade-offs
 
@@ -71,12 +71,12 @@ A equipe escreve um documento de duas páginas na raiz do repositório, `CORE.md
 
 ## Padrões relacionados
 
-- [Core Domain](./core-domain.md) — o conceito que está sendo destacado.
-- [Domain Vision Statement](./domain-vision-statement.md) — descreve o valor do core, enquanto este padrão aponta onde ele está.
-- [Segregated Core](./segregated-core.md) — alternativa estrutural, mais forte e mais cara.
-- [Abstract Core](./abstract-core.md) — outra forma de resumir o core, com um módulo de conceitos abstratos em vez de documento.
-- [Module](../building-blocks/module.md) — módulos são a unidade natural a destacar.
-- [Context Map](../context-mapping/context-map.md) — também funciona como um destaque de alto nível, entre contextos.
+- [Core Domain](/application/ddd/distillation/core-domain) — o conceito que está sendo destacado.
+- [Domain Vision Statement](/application/ddd/distillation/domain-vision-statement) — descreve o valor do core, enquanto este padrão aponta onde ele está.
+- [Segregated Core](/application/ddd/distillation/segregated-core) — alternativa estrutural, mais forte e mais cara.
+- [Abstract Core](/application/ddd/distillation/abstract-core) — outra forma de resumir o core, com um módulo de conceitos abstratos em vez de documento.
+- [Module](/application/ddd/building-blocks/module) — módulos são a unidade natural a destacar.
+- [Context Map](/application/ddd/context-mapping/context-map) — também funciona como um destaque de alto nível, entre contextos.
 
 ## Referência
 

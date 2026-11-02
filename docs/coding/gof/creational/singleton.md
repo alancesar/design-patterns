@@ -106,14 +106,14 @@ String url = AppConfig.getInstance().get("db.url");
 
 ## Padrões relacionados
 
-- [Abstract Factory](./abstract-factory.md) — fábricas concretas costumam ser implementadas como Singleton.
-- [Builder](./builder.md) — um builder compartilhado ou seu diretor pode ser exposto como Singleton.
-- [Prototype](./prototype.md) — um registro de protótipos pode ser um Singleton.
-- [Object Pool](./object-pool.md) — o pool geralmente é único na aplicação e implementado como Singleton.
-- [Facade](../structural/facade.md) — muitas vezes basta uma única fachada, que pode ser um Singleton.
-- [Flyweight](../structural/flyweight.md) — a fábrica de flyweights normalmente é um Singleton; diferem porque o Flyweight admite várias instâncias compartilhadas.
-- [State](../behavioral/state.md) — objetos de estado sem dados próprios podem ser Singletons.
-- [Null Object](../behavioral/null-object.md) — o objeto nulo costuma ser exposto como instância única.
+- [Abstract Factory](/coding/gof/creational/abstract-factory) — fábricas concretas costumam ser implementadas como Singleton.
+- [Builder](/coding/gof/creational/builder) — um builder compartilhado ou seu diretor pode ser exposto como Singleton.
+- [Prototype](/coding/gof/creational/prototype) — um registro de protótipos pode ser um Singleton.
+- [Object Pool](/coding/gof/creational/object-pool) — o pool geralmente é único na aplicação e implementado como Singleton.
+- [Facade](/coding/gof/structural/facade) — muitas vezes basta uma única fachada, que pode ser um Singleton.
+- [Flyweight](/coding/gof/structural/flyweight) — a fábrica de flyweights normalmente é um Singleton; diferem porque o Flyweight admite várias instâncias compartilhadas.
+- [State](/coding/gof/behavioral/state) — objetos de estado sem dados próprios podem ser Singletons.
+- [Null Object](/coding/gof/behavioral/null-object) — o objeto nulo costuma ser exposto como instância única.
 
 ## Referência
 

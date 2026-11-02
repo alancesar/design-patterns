@@ -92,20 +92,20 @@ O consumidor verifica a chave de deduplicação e, se ela for nova, grava a chav
 
 ## Padrões relacionados
 
-- [Guaranteed Delivery](../../../architecture/eip/messaging-channels/guaranteed-delivery.md) — a entrega garantida do canal é o que torna as duplicatas possíveis e o receptor idempotente necessário (EIP).
-- [Command Message](../../../architecture/eip/message-construction/command-message.md) — comandos reentregues são o caso típico em que a idempotência importa (EIP).
-- [Competing Consumers](./competing-consumers.md) — vários consumidores concorrentes aumentam a chance de duplicatas simultâneas, que o Idempotent Consumer trata com segurança.
-- [Retry](../resiliency/retry.md) — retentativas de produtores e consumidores são uma das principais origens de duplicatas; consumidores idempotentes tornam as retentativas seguras.
-- [Publisher-Subscriber](./publisher-subscriber.md) — cada assinante recebe sua própria cópia e precisa rastrear o processamento de forma independente.
-- [Queue-Based Load Leveling](./queue-based-load-leveling.md) — filas com entrega *at-least-once* exigem consumidores tolerantes a reentrega.
-- [Sequential Convoy](./sequential-convoy.md) — complementa a deduplicação quando o processamento depende de ordem.
-- [Compensating Transaction](../distributed-coordination/compensating-transaction.md) — etapas de compensação também podem ser reexecutadas e devem ser idempotentes.
-- [Saga](../distributed-coordination/saga.md) — passos de uma saga coordenados por mensagens dependem de participantes idempotentes.
-- [Messaging (microservices)](../../../architecture/microservices/communication-styles/messaging.md) — estilo de comunicação assíncrona cujo broker *at-least-once* torna o consumidor idempotente necessário.
-- [Transactional Outbox (microservices)](../../../architecture/microservices/transactional-messaging/transactional-outbox.md) — contraparte do lado produtor; o *Inbox* é a contraparte do lado consumidor.
-- [Replicated Log](../../../architecture/distributed-systems/data-replication/replicated-log.md) — o registro de clientes e as respostas guardadas são replicados no log para sobreviver à troca de líder (Patterns of Distributed Systems).
-- [Request Waiting List](../../../architecture/distributed-systems/data-replication/request-waiting-list.md) — o líder acompanha requisições pendentes enquanto aguarda o commit, e o cliente pode repeti-las (Patterns of Distributed Systems).
-- [Event Sourcing](../data-management/event-sourcing.md) — projeções que reprocessam eventos precisam aplicar cada evento uma única vez.
+- [Guaranteed Delivery](/architecture/eip/messaging-channels/guaranteed-delivery) — a entrega garantida do canal é o que torna as duplicatas possíveis e o receptor idempotente necessário (EIP).
+- [Command Message](/architecture/eip/message-construction/command-message) — comandos reentregues são o caso típico em que a idempotência importa (EIP).
+- [Competing Consumers](/cloud/cloud-design-patterns/messaging/competing-consumers) — vários consumidores concorrentes aumentam a chance de duplicatas simultâneas, que o Idempotent Consumer trata com segurança.
+- [Retry](/cloud/cloud-design-patterns/resiliency/retry) — retentativas de produtores e consumidores são uma das principais origens de duplicatas; consumidores idempotentes tornam as retentativas seguras.
+- [Publisher-Subscriber](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — cada assinante recebe sua própria cópia e precisa rastrear o processamento de forma independente.
+- [Queue-Based Load Leveling](/cloud/cloud-design-patterns/messaging/queue-based-load-leveling) — filas com entrega *at-least-once* exigem consumidores tolerantes a reentrega.
+- [Sequential Convoy](/cloud/cloud-design-patterns/messaging/sequential-convoy) — complementa a deduplicação quando o processamento depende de ordem.
+- [Compensating Transaction](/cloud/cloud-design-patterns/distributed-coordination/compensating-transaction) — etapas de compensação também podem ser reexecutadas e devem ser idempotentes.
+- [Saga](/cloud/cloud-design-patterns/distributed-coordination/saga) — passos de uma saga coordenados por mensagens dependem de participantes idempotentes.
+- [Messaging (microservices)](/architecture/microservices/communication-styles/messaging) — estilo de comunicação assíncrona cujo broker *at-least-once* torna o consumidor idempotente necessário.
+- [Transactional Outbox (microservices)](/architecture/microservices/transactional-messaging/transactional-outbox) — contraparte do lado produtor; o *Inbox* é a contraparte do lado consumidor.
+- [Replicated Log](/architecture/distributed-systems/data-replication/replicated-log) — o registro de clientes e as respostas guardadas são replicados no log para sobreviver à troca de líder (Patterns of Distributed Systems).
+- [Request Waiting List](/architecture/distributed-systems/data-replication/request-waiting-list) — o líder acompanha requisições pendentes enquanto aguarda o commit, e o cliente pode repeti-las (Patterns of Distributed Systems).
+- [Event Sourcing](/cloud/cloud-design-patterns/data-management/event-sourcing) — projeções que reprocessam eventos precisam aplicar cada evento uma única vez.
 
 ## Referência
 

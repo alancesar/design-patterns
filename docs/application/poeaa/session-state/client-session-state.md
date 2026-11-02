@@ -93,10 +93,10 @@ Frameworks como ASP.NET (cookies de autenticação protegidos), Rails (cookie st
 
 ## Padrões relacionados
 
-- [Server Session State](./server-session-state.md) — alternativa que mantém os dados no servidor e envia ao cliente apenas um identificador.
-- [Database Session State](./database-session-state.md) — persiste o estado em banco, em vez de enviá-lo ao cliente.
-- [Data Transfer Object](../distribution/data-transfer-object.md) — o estado enviado ao cliente costuma ser serializado como um objeto de transferência.
-- [Access Token](../../../architecture/microservices/security/access-token.md) — o JWT é a forma mais comum de Client Session State em arquiteturas de microsserviços.
+- [Server Session State](/application/poeaa/session-state/server-session-state) — alternativa que mantém os dados no servidor e envia ao cliente apenas um identificador.
+- [Database Session State](/application/poeaa/session-state/database-session-state) — persiste o estado em banco, em vez de enviá-lo ao cliente.
+- [Data Transfer Object](/application/poeaa/distribution/data-transfer-object) — o estado enviado ao cliente costuma ser serializado como um objeto de transferência.
+- [Access Token](/architecture/microservices/security/access-token) — o JWT é a forma mais comum de Client Session State em arquiteturas de microsserviços.
 
 ## Referência
 

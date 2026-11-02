@@ -102,12 +102,12 @@ public class Paint {
 
 ## Padrões relacionados
 
-- [Value Object](../../poeaa/base/value-object.md) — lugar natural para funções puras, por serem imutáveis.
-- [Entity](../building-blocks/entity.md) — mantém os comandos, delegando o cálculo a valores.
-- [Closure of Operations](./closure-of-operations.md) — operações que devolvem o mesmo tipo combinam bem com funções puras.
-- [Assertions](./assertions.md) — documentam os efeitos dos comandos que sobram.
-- [Intention-Revealing Interfaces](./intention-revealing-interfaces.md) — o nome deve deixar claro se é comando ou consulta.
-- [Money](../../poeaa/base/money.md) (PoEAA) — valor imutável com operações puras.
+- [Value Object](/application/poeaa/base/value-object) — lugar natural para funções puras, por serem imutáveis.
+- [Entity](/application/ddd/building-blocks/entity) — mantém os comandos, delegando o cálculo a valores.
+- [Closure of Operations](/application/ddd/supple-design/closure-of-operations) — operações que devolvem o mesmo tipo combinam bem com funções puras.
+- [Assertions](/application/ddd/supple-design/assertions) — documentam os efeitos dos comandos que sobram.
+- [Intention-Revealing Interfaces](/application/ddd/supple-design/intention-revealing-interfaces) — o nome deve deixar claro se é comando ou consulta.
+- [Money](/application/poeaa/base/money) (PoEAA) — valor imutável com operações puras.
 
 ## Referência
 

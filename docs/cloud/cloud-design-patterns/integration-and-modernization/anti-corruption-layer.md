@@ -125,16 +125,16 @@ O domínio de Pedidos só conhece `CustomerDirectory` e `Customer`; mudanças no
 
 ## Padrões relacionados
 
-- [Database per Service](../../../architecture/microservices/service-collaboration/database-per-service.md) — o novo serviço mantém seu próprio banco, e a camada traduz o acesso aos dados ainda mantidos pelo monólito.
-- [Strangler Fig](./strangler-fig.md) — a camada anticorrupção costuma ser usada durante a substituição incremental de um sistema legado.
-- [Gateway Routing](../gateways-and-edge/gateway-routing.md) — pode direcionar requisições para o sistema novo ou para o legado (via camada) durante a migração.
-- [Ambassador](./ambassador.md) — também é um intermediário entre a aplicação e serviços externos, mas focado em preocupações de conectividade, não em tradução semântica.
-- [Messaging Bridge](../messaging/messaging-bridge.md) — faz a ponte entre sistemas de mensageria incompatíveis, útil quando a camada atua de forma assíncrona.
-- [Backends for Frontends](../gateways-and-edge/backends-for-frontends.md) — outra forma de camada de adaptação, voltada a adequar contratos às necessidades de cada cliente.
-- [Context Map](../../../application/ddd/context-mapping/context-map.md) — onde a camada é registrada como política de relacionamento entre contextos.
-- [Conformist](../../../application/ddd/context-mapping/conformist.md) — alternativa em que o downstream adota o modelo do upstream sem traduzir.
-- [Big Ball of Mud](../../../application/ddd/context-mapping/big-ball-of-mud.md) — região confusa que a camada contém.
-- [Bounded Context](../../../application/ddd/model-in-practice/bounded-context.md) — a fronteira cujo modelo a camada protege.
+- [Database per Service](/architecture/microservices/service-collaboration/database-per-service) — o novo serviço mantém seu próprio banco, e a camada traduz o acesso aos dados ainda mantidos pelo monólito.
+- [Strangler Fig](/cloud/cloud-design-patterns/integration-and-modernization/strangler-fig) — a camada anticorrupção costuma ser usada durante a substituição incremental de um sistema legado.
+- [Gateway Routing](/cloud/cloud-design-patterns/gateways-and-edge/gateway-routing) — pode direcionar requisições para o sistema novo ou para o legado (via camada) durante a migração.
+- [Ambassador](/cloud/cloud-design-patterns/integration-and-modernization/ambassador) — também é um intermediário entre a aplicação e serviços externos, mas focado em preocupações de conectividade, não em tradução semântica.
+- [Messaging Bridge](/cloud/cloud-design-patterns/messaging/messaging-bridge) — faz a ponte entre sistemas de mensageria incompatíveis, útil quando a camada atua de forma assíncrona.
+- [Backends for Frontends](/cloud/cloud-design-patterns/gateways-and-edge/backends-for-frontends) — outra forma de camada de adaptação, voltada a adequar contratos às necessidades de cada cliente.
+- [Context Map](/application/ddd/context-mapping/context-map) — onde a camada é registrada como política de relacionamento entre contextos.
+- [Conformist](/application/ddd/context-mapping/conformist) — alternativa em que o downstream adota o modelo do upstream sem traduzir.
+- [Big Ball of Mud](/application/ddd/context-mapping/big-ball-of-mud) — região confusa que a camada contém.
+- [Bounded Context](/application/ddd/model-in-practice/bounded-context) — a fronteira cujo modelo a camada protege.
 
 ## Referência
 

@@ -63,10 +63,10 @@ A equipe declara o serviço e a plataforma mantém as instâncias em execução 
 
 ## Padrões relacionados
 
-- [Service Registry](../service-discovery/service-registry.md) — fornecido por algumas plataformas.
-- [Server-Side Discovery](../service-discovery/server-side-discovery.md) — também oferecido por algumas plataformas.
-- [Service Instance per Container](./service-instance-per-container.md) — modelo usado internamente por plataformas baseadas em contêineres.
-- [Service Instance per VM](./service-instance-per-vm.md) — modelo que a plataforma pode usar internamente.
+- [Service Registry](/architecture/microservices/service-discovery/service-registry) — fornecido por algumas plataformas.
+- [Server-Side Discovery](/architecture/microservices/service-discovery/server-side-discovery) — também oferecido por algumas plataformas.
+- [Service Instance per Container](/architecture/microservices/deployment/service-instance-per-container) — modelo usado internamente por plataformas baseadas em contêineres.
+- [Service Instance per VM](/architecture/microservices/deployment/service-instance-per-vm) — modelo que a plataforma pode usar internamente.
 
 ## Referência
 

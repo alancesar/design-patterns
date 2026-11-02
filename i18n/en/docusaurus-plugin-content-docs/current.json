@@ -1,0 +1,410 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.catalog.category.Coding": {
+    "message": "Coding",
+    "description": "The label for category 'Coding' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.gof": {
+    "message": "GoF",
+    "description": "The label for category 'GoF' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.gof-creational": {
+    "message": "Creational",
+    "description": "The label for category 'Creational' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.gof-structural": {
+    "message": "Structural",
+    "description": "The label for category 'Structural' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.gof-behavioral": {
+    "message": "Behavioral",
+    "description": "The label for category 'Behavioral' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.Application": {
+    "message": "Application",
+    "description": "The label for category 'Application' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.ddd": {
+    "message": "DDD",
+    "description": "The label for category 'DDD' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.ddd-model-in-practice": {
+    "message": "Putting the Model to Work",
+    "description": "The label for category 'Putting the Model to Work' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.ddd-building-blocks": {
+    "message": "Building Blocks",
+    "description": "The label for category 'Building Blocks' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.ddd-supple-design": {
+    "message": "Supple Design",
+    "description": "The label for category 'Supple Design' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.ddd-context-mapping": {
+    "message": "Context Mapping",
+    "description": "The label for category 'Context Mapping' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.ddd-distillation": {
+    "message": "Distillation",
+    "description": "The label for category 'Distillation' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.ddd-large-scale-structure": {
+    "message": "Large-scale Structure",
+    "description": "The label for category 'Large-scale Structure' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.poeaa": {
+    "message": "PoEAA",
+    "description": "The label for category 'PoEAA' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.poeaa-domain-logic": {
+    "message": "Domain Logic",
+    "description": "The label for category 'Domain Logic' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.poeaa-data-source-architectural": {
+    "message": "Data Source Architectural",
+    "description": "The label for category 'Data Source Architectural' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.poeaa-object-relational-behavioral": {
+    "message": "Object-Relational Behavioral",
+    "description": "The label for category 'Object-Relational Behavioral' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.poeaa-object-relational-structural": {
+    "message": "Object-Relational Structural",
+    "description": "The label for category 'Object-Relational Structural' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.poeaa-object-relational-metadata-mapping": {
+    "message": "Object-Relational Metadata Mapping",
+    "description": "The label for category 'Object-Relational Metadata Mapping' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.poeaa-web-presentation": {
+    "message": "Web Presentation",
+    "description": "The label for category 'Web Presentation' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.poeaa-distribution": {
+    "message": "Distribution",
+    "description": "The label for category 'Distribution' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.poeaa-offline-concurrency": {
+    "message": "Offline Concurrency",
+    "description": "The label for category 'Offline Concurrency' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.poeaa-session-state": {
+    "message": "Session State",
+    "description": "The label for category 'Session State' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.poeaa-base": {
+    "message": "Base",
+    "description": "The label for category 'Base' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.Architecture": {
+    "message": "Architecture",
+    "description": "The label for category 'Architecture' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.distributed-systems": {
+    "message": "Distributed Systems",
+    "description": "The label for category 'Distributed Systems' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.distributed-systems-data-replication": {
+    "message": "Data Replication",
+    "description": "The label for category 'Data Replication' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.distributed-systems-data-partitioning": {
+    "message": "Data Partitioning",
+    "description": "The label for category 'Data Partitioning' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.distributed-systems-distributed-time": {
+    "message": "Distributed Time",
+    "description": "The label for category 'Distributed Time' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.distributed-systems-cluster-management": {
+    "message": "Cluster Management",
+    "description": "The label for category 'Cluster Management' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.distributed-systems-node-communication": {
+    "message": "Communication between Nodes",
+    "description": "The label for category 'Communication between Nodes' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.eip": {
+    "message": "EIP",
+    "description": "The label for category 'EIP' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.eip-integration-styles": {
+    "message": "Integration Styles",
+    "description": "The label for category 'Integration Styles' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.eip-messaging-channels": {
+    "message": "Messaging Channels",
+    "description": "The label for category 'Messaging Channels' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.eip-message-construction": {
+    "message": "Message Construction",
+    "description": "The label for category 'Message Construction' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.eip-message-routing": {
+    "message": "Message Routing",
+    "description": "The label for category 'Message Routing' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.eip-message-transformation": {
+    "message": "Message Transformation",
+    "description": "The label for category 'Message Transformation' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.eip-messaging-endpoints": {
+    "message": "Messaging Endpoints",
+    "description": "The label for category 'Messaging Endpoints' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.eip-system-management": {
+    "message": "System Management",
+    "description": "The label for category 'System Management' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.microservices": {
+    "message": "Microservices",
+    "description": "The label for category 'Microservices' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.microservices-architectural-style": {
+    "message": "Architectural Style",
+    "description": "The label for category 'Architectural Style' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.microservices-service-boundaries": {
+    "message": "Service Boundaries",
+    "description": "The label for category 'Service Boundaries' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.microservices-refactoring-to-services": {
+    "message": "Refactoring to Services",
+    "description": "The label for category 'Refactoring to Services' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.microservices-service-collaboration": {
+    "message": "Service Collaboration",
+    "description": "The label for category 'Service Collaboration' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.microservices-transactional-messaging": {
+    "message": "Transactional Messaging",
+    "description": "The label for category 'Transactional Messaging' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.microservices-testing": {
+    "message": "Testing",
+    "description": "The label for category 'Testing' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.microservices-deployment": {
+    "message": "Deployment",
+    "description": "The label for category 'Deployment' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.microservices-cross-cutting-concerns": {
+    "message": "Cross-cutting Concerns",
+    "description": "The label for category 'Cross-cutting Concerns' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.microservices-communication-styles": {
+    "message": "Communication Styles",
+    "description": "The label for category 'Communication Styles' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.microservices-external-api": {
+    "message": "External API",
+    "description": "The label for category 'External API' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.microservices-service-discovery": {
+    "message": "Service Discovery",
+    "description": "The label for category 'Service Discovery' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.microservices-reliability": {
+    "message": "Reliability",
+    "description": "The label for category 'Reliability' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.microservices-security": {
+    "message": "Security",
+    "description": "The label for category 'Security' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.microservices-observability": {
+    "message": "Observability",
+    "description": "The label for category 'Observability' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.microservices-ui-design": {
+    "message": "UI Design",
+    "description": "The label for category 'UI Design' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.Cloud": {
+    "message": "Cloud",
+    "description": "The label for category 'Cloud' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.cloud-design-patterns": {
+    "message": "Cloud Design Patterns",
+    "description": "The label for category 'Cloud Design Patterns' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.cloud-design-patterns-messaging": {
+    "message": "Messaging",
+    "description": "The label for category 'Messaging' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.cloud-design-patterns-data-management": {
+    "message": "Data Management",
+    "description": "The label for category 'Data Management' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.cloud-design-patterns-resiliency": {
+    "message": "Resiliency",
+    "description": "The label for category 'Resiliency' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.cloud-design-patterns-distributed-coordination": {
+    "message": "Distributed Coordination",
+    "description": "The label for category 'Distributed Coordination' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.cloud-design-patterns-deployment-and-topology": {
+    "message": "Deployment and Topology",
+    "description": "The label for category 'Deployment and Topology' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.cloud-design-patterns-gateways-and-edge": {
+    "message": "Gateways and Edge",
+    "description": "The label for category 'Gateways and Edge' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.cloud-design-patterns-security-and-access": {
+    "message": "Security and Access",
+    "description": "The label for category 'Security and Access' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.cloud-design-patterns-integration-and-modernization": {
+    "message": "Integration and Modernization",
+    "description": "The label for category 'Integration and Modernization' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.AI": {
+    "message": "AI",
+    "description": "The label for category 'AI' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.agent-orchestration": {
+    "message": "Agent Orchestration",
+    "description": "The label for category 'Agent Orchestration' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.agent-orchestration-deterministic-workflows": {
+    "message": "Deterministic Workflows",
+    "description": "The label for category 'Deterministic Workflows' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.agent-orchestration-dynamic-orchestration": {
+    "message": "Dynamic Orchestration",
+    "description": "The label for category 'Dynamic Orchestration' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.agentic-ai": {
+    "message": "Agentic AI",
+    "description": "The label for category 'Agentic AI' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.agentic-ai-deterministic-workflows": {
+    "message": "Deterministic Workflows",
+    "description": "The label for category 'Deterministic Workflows' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.agentic-ai-dynamic-orchestration": {
+    "message": "Dynamic Orchestration",
+    "description": "The label for category 'Dynamic Orchestration' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.agentic-ai-iteration": {
+    "message": "Iteration",
+    "description": "The label for category 'Iteration' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.category.agentic-ai-special-requirements": {
+    "message": "Special Requirements",
+    "description": "The label for category 'Special Requirements' in sidebar 'catalog'"
+  },
+  "sidebar.catalog.link.ddd-value-object": {
+    "message": "Value Object",
+    "description": "The label for link 'Value Object' in sidebar 'catalog', linking to '/application/poeaa/base/value-object?catalogo=ddd'"
+  },
+  "sidebar.catalog.link.ddd-domain-event": {
+    "message": "Domain Event",
+    "description": "The label for link 'Domain Event' in sidebar 'catalog', linking to '/architecture/microservices/service-collaboration/domain-event?catalogo=ddd'"
+  },
+  "sidebar.catalog.link.ddd-repository": {
+    "message": "Repository",
+    "description": "The label for link 'Repository' in sidebar 'catalog', linking to '/application/poeaa/object-relational-metadata-mapping/repository?catalogo=ddd'"
+  },
+  "sidebar.catalog.link.ddd-anticorruption-layer": {
+    "message": "Anti-Corruption Layer",
+    "description": "The label for link 'Anti-Corruption Layer' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer?catalogo=ddd'"
+  },
+  "sidebar.catalog.link.distributed-systems-idempotent-receiver": {
+    "message": "Idempotent Receiver",
+    "description": "The label for link 'Idempotent Receiver' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/messaging/idempotent-consumer?catalogo=distributed-systems'"
+  },
+  "sidebar.catalog.link.eip-shared-database": {
+    "message": "Shared Database",
+    "description": "The label for link 'Shared Database' in sidebar 'catalog', linking to '/architecture/microservices/service-collaboration/shared-database?catalogo=eip'"
+  },
+  "sidebar.catalog.link.eip-remote-procedure-invocation": {
+    "message": "Remote Procedure Invocation",
+    "description": "The label for link 'Remote Procedure Invocation' in sidebar 'catalog', linking to '/architecture/microservices/communication-styles/remote-procedure-invocation?catalogo=eip'"
+  },
+  "sidebar.catalog.link.eip-messaging": {
+    "message": "Messaging",
+    "description": "The label for link 'Messaging' in sidebar 'catalog', linking to '/architecture/microservices/communication-styles/messaging?catalogo=eip'"
+  },
+  "sidebar.catalog.link.eip-publish-subscribe-channel": {
+    "message": "Publish-Subscribe Channel",
+    "description": "The label for link 'Publish-Subscribe Channel' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/messaging/publisher-subscriber?catalogo=eip'"
+  },
+  "sidebar.catalog.link.eip-messaging-bridge": {
+    "message": "Messaging Bridge",
+    "description": "The label for link 'Messaging Bridge' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/messaging/messaging-bridge?catalogo=eip'"
+  },
+  "sidebar.catalog.link.eip-pipes-and-filters": {
+    "message": "Pipes and Filters",
+    "description": "The label for link 'Pipes and Filters' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/messaging/pipes-and-filters?catalogo=eip'"
+  },
+  "sidebar.catalog.link.eip-claim-check": {
+    "message": "Claim Check",
+    "description": "The label for link 'Claim Check' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/messaging/claim-check?catalogo=eip'"
+  },
+  "sidebar.catalog.link.eip-competing-consumers": {
+    "message": "Competing Consumers",
+    "description": "The label for link 'Competing Consumers' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/messaging/competing-consumers?catalogo=eip'"
+  },
+  "sidebar.catalog.link.eip-idempotent-receiver": {
+    "message": "Idempotent Receiver",
+    "description": "The label for link 'Idempotent Receiver' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/messaging/idempotent-consumer?catalogo=eip'"
+  },
+  "sidebar.catalog.link.microservices-strangler-application": {
+    "message": "Strangler Application",
+    "description": "The label for link 'Strangler Application' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/integration-and-modernization/strangler-fig?catalogo=microservices'"
+  },
+  "sidebar.catalog.link.microservices-anti-corruption-layer": {
+    "message": "Anti-Corruption Layer",
+    "description": "The label for link 'Anti-Corruption Layer' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer?catalogo=microservices'"
+  },
+  "sidebar.catalog.link.microservices-saga": {
+    "message": "Saga",
+    "description": "The label for link 'Saga' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/distributed-coordination/saga?catalogo=microservices'"
+  },
+  "sidebar.catalog.link.microservices-cqrs": {
+    "message": "CQRS",
+    "description": "The label for link 'CQRS' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/data-management/cqrs?catalogo=microservices'"
+  },
+  "sidebar.catalog.link.microservices-event-sourcing": {
+    "message": "Event Sourcing",
+    "description": "The label for link 'Event Sourcing' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/data-management/event-sourcing?catalogo=microservices'"
+  },
+  "sidebar.catalog.link.microservices-externalized-configuration": {
+    "message": "Externalized Configuration",
+    "description": "The label for link 'Externalized Configuration' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/deployment-and-topology/external-configuration-store?catalogo=microservices'"
+  },
+  "sidebar.catalog.link.microservices-idempotent-consumer": {
+    "message": "Idempotent Consumer",
+    "description": "The label for link 'Idempotent Consumer' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/messaging/idempotent-consumer?catalogo=microservices'"
+  },
+  "sidebar.catalog.link.microservices-backend-for-front-end": {
+    "message": "Backend for Front-end",
+    "description": "The label for link 'Backend for Front-end' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/gateways-and-edge/backends-for-frontends?catalogo=microservices'"
+  },
+  "sidebar.catalog.link.microservices-circuit-breaker": {
+    "message": "Circuit Breaker",
+    "description": "The label for link 'Circuit Breaker' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/resiliency/circuit-breaker?catalogo=microservices'"
+  },
+  "sidebar.catalog.link.microservices-health-check-api": {
+    "message": "Health Check API",
+    "description": "The label for link 'Health Check API' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring?catalogo=microservices'"
+  },
+  "sidebar.catalog.link.agentic-ai-multi-agent-sequential": {
+    "message": "Multi-Agent Sequential",
+    "description": "The label for link 'Multi-Agent Sequential' in sidebar 'catalog', linking to '/ai/agent-orchestration/deterministic-workflows/sequential-orchestration?catalogo=agentic-ai'"
+  },
+  "sidebar.catalog.link.agentic-ai-multi-agent-parallel": {
+    "message": "Multi-Agent Parallel",
+    "description": "The label for link 'Multi-Agent Parallel' in sidebar 'catalog', linking to '/ai/agent-orchestration/deterministic-workflows/concurrent-orchestration?catalogo=agentic-ai'"
+  },
+  "sidebar.catalog.link.agentic-ai-multi-agent-review-and-critique": {
+    "message": "Multi-Agent Review and Critique",
+    "description": "The label for link 'Multi-Agent Review and Critique' in sidebar 'catalog', linking to '/ai/agent-orchestration/dynamic-orchestration/maker-checker-loop?catalogo=agentic-ai'"
+  }
+}

@@ -59,13 +59,13 @@ O dispatcher lê do canal e distribui cada mensagem a um performer.
 
 ## Padrões relacionados
 
-- [Competing Consumers](../../../cloud/cloud-design-patterns/messaging/competing-consumers.md) — alternativa em que cada consumidor lê do canal.
-- [Selective Consumer](./selective-consumer.md) — filtragem que pode ser feita pelo dispatcher.
-- [Event-Driven Consumer](./event-driven-consumer.md) — forma comum de alimentar o dispatcher.
-- [Polling Consumer](./polling-consumer.md) — outra forma de alimentá-lo.
-- [Message Endpoint](./message-endpoint.md) — o dispatcher é parte do endpoint.
-- [Transactional Client](./transactional-client.md) — cada performer pode ter sua transação.
-- [Datatype Channel](../messaging-channels/datatype-channel.md) — alternativa de separar tipos por canal.
+- [Competing Consumers](/cloud/cloud-design-patterns/messaging/competing-consumers) — alternativa em que cada consumidor lê do canal.
+- [Selective Consumer](/architecture/eip/messaging-endpoints/selective-consumer) — filtragem que pode ser feita pelo dispatcher.
+- [Event-Driven Consumer](/architecture/eip/messaging-endpoints/event-driven-consumer) — forma comum de alimentar o dispatcher.
+- [Polling Consumer](/architecture/eip/messaging-endpoints/polling-consumer) — outra forma de alimentá-lo.
+- [Message Endpoint](/architecture/eip/messaging-endpoints/message-endpoint) — o dispatcher é parte do endpoint.
+- [Transactional Client](/architecture/eip/messaging-endpoints/transactional-client) — cada performer pode ter sua transação.
+- [Datatype Channel](/architecture/eip/messaging-channels/datatype-channel) — alternativa de separar tipos por canal.
 
 ## Referência
 

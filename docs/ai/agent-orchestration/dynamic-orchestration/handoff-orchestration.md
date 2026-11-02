@@ -77,12 +77,12 @@ Cada agente decide se resolve ou transfere o controle; só um está ativo por ve
 
 ## Padrões relacionados
 
-- [Group Chat Orchestration](./group-chat-orchestration.md) — vários agentes numa conversa gerenciada, em vez de um agente ativo por vez.
-- [Magentic Orchestration](./magentic-orchestration.md) — um gerente planeja e delega, em vez de os agentes decidirem a transferência.
-- [Sequential Orchestration](../deterministic-workflows/sequential-orchestration.md) — ordem fixa e predefinida, ao contrário da ordem dinâmica do handoff.
-- [Dynamic Router](../../../architecture/eip/message-routing/dynamic-router.md) — roteamento cuja decisão muda conforme o contexto em tempo de execução.
-- [Content-Based Router](../../../architecture/eip/message-routing/content-based-router.md) — equivalente determinístico quando a rota sai do conteúdo da entrada inicial.
-- [Choreography](../../../cloud/cloud-design-patterns/distributed-coordination/choreography.md) — sem coordenador central, cada participante decide o próximo passo.
+- [Group Chat Orchestration](/ai/agent-orchestration/dynamic-orchestration/group-chat-orchestration) — vários agentes numa conversa gerenciada, em vez de um agente ativo por vez.
+- [Magentic Orchestration](/ai/agent-orchestration/dynamic-orchestration/magentic-orchestration) — um gerente planeja e delega, em vez de os agentes decidirem a transferência.
+- [Sequential Orchestration](/ai/agent-orchestration/deterministic-workflows/sequential-orchestration) — ordem fixa e predefinida, ao contrário da ordem dinâmica do handoff.
+- [Dynamic Router](/architecture/eip/message-routing/dynamic-router) — roteamento cuja decisão muda conforme o contexto em tempo de execução.
+- [Content-Based Router](/architecture/eip/message-routing/content-based-router) — equivalente determinístico quando a rota sai do conteúdo da entrada inicial.
+- [Choreography](/cloud/cloud-design-patterns/distributed-coordination/choreography) — sem coordenador central, cada participante decide o próximo passo.
 
 ## Referência
 

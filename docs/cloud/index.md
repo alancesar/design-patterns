@@ -9,4 +9,4 @@ Aplicações e operação em nuvem e contêineres.
 
 ## Catálogos
 
-- [Cloud Design Patterns](./cloud-design-patterns/index.md): 44 padrões em 8 grupos. Fonte: <https://learn.microsoft.com/en-us/azure/architecture/patterns/>
+- [Cloud Design Patterns](/cloud/cloud-design-patterns): 44 padrões em 8 grupos. Fonte: <https://learn.microsoft.com/en-us/azure/architecture/patterns/>

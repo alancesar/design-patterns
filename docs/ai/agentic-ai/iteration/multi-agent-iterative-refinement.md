@@ -15,7 +15,7 @@ sidebar_label: "Multi-Agent Iterative Refinement"
 
 Um ou mais agentes trabalham em loop, alterando a cada passada um resultado guardado no estado da sessão. Em vez de aprovar ou reprovar uma proposta, os agentes melhoram progressivamente o mesmo artefato (rascunho, plano, código) até ele atingir um limiar de qualidade ou o número máximo de iterações.
 
-É uma implementação do [Multi-Agent Loop](./multi-agent-loop.md). A fonte também o lista entre os workflows determinísticos, para fluxos de caminho previsível, sem orquestração por modelo, que priorizam a qualidade sobre a latência.
+É uma implementação do [Multi-Agent Loop](/ai/agentic-ai/iteration/multi-agent-loop). A fonte também o lista entre os workflows determinísticos, para fluxos de caminho previsível, sem orquestração por modelo, que priorizam a qualidade sobre a latência.
 
 ## Problemas que resolve
 
@@ -44,7 +44,7 @@ Um ou mais agentes trabalham em loop, alterando a cada passada um resultado guar
 | Estado da sessão guarda a evolução do resultado | Condições de saída mal desenhadas causam execução descontrolada |
 
 - **Condições de saída:** o resultado atinge um limiar de qualidade predefinido ou o loop alcança o máximo de iterações.
-- **Diferença para Review and Critique / Maker-Checker:** aqui os agentes modificam o resultado compartilhado no estado da sessão a cada passada, rumo a um limiar de qualidade. No [Review and Critique](../../agent-orchestration/dynamic-orchestration/maker-checker-loop.md), um crítico distinto aprova, rejeita ou devolve feedback a um gerador que produz uma nova versão.
+- **Diferença para Review and Critique / Maker-Checker:** aqui os agentes modificam o resultado compartilhado no estado da sessão a cada passada, rumo a um limiar de qualidade. No [Review and Critique](/ai/agent-orchestration/dynamic-orchestration/maker-checker-loop), um crítico distinto aprova, rejeita ou devolve feedback a um gerador que produz uma nova versão.
 - **Estado:** versione ou registre cada iteração para auditar a evolução.
 
 ## Diagrama
@@ -64,10 +64,10 @@ Os agentes atualizam o mesmo resultado no estado da sessão a cada ciclo, até o
 
 ## Padrões relacionados
 
-- [Multi-Agent Loop](./multi-agent-loop.md) — padrão do qual este é uma implementação.
-- [Multi-Agent Review and Critique](../../agent-orchestration/dynamic-orchestration/maker-checker-loop.md) — outra implementação do loop, com gerador e crítico separados e decisão de aprovação.
-- [Multi-Agent Sequential](../../agent-orchestration/deterministic-workflows/sequential-orchestration.md) — fluxo determinístico sem repetição, quando uma passada basta.
-- [Maker-Checker Loop](../../agent-orchestration/dynamic-orchestration/maker-checker-loop.md) — equivalente no Agent Orchestration (Azure) do Review and Critique.
+- [Multi-Agent Loop](/ai/agentic-ai/iteration/multi-agent-loop) — padrão do qual este é uma implementação.
+- [Multi-Agent Review and Critique](/ai/agent-orchestration/dynamic-orchestration/maker-checker-loop) — outra implementação do loop, com gerador e crítico separados e decisão de aprovação.
+- [Multi-Agent Sequential](/ai/agent-orchestration/deterministic-workflows/sequential-orchestration) — fluxo determinístico sem repetição, quando uma passada basta.
+- [Maker-Checker Loop](/ai/agent-orchestration/dynamic-orchestration/maker-checker-loop) — equivalente no Agent Orchestration (Azure) do Review and Critique.
 
 ## Referência
 

@@ -66,12 +66,12 @@ Uma rede de lojas considera integrar o programa de Fidelidade ao módulo de Gest
 
 ## Padrões relacionados
 
-- [Context Map](./context-map.md) — onde a decisão deve ser registrada.
-- [Bounded Context](../model-in-practice/bounded-context.md) — a fronteira que permite separar os caminhos.
-- [Shared Kernel](./shared-kernel.md) — extremo oposto, com compartilhamento forte.
-- [Partnership](./partnership.md) — extremo oposto, de cooperação estreita.
-- [Conformist](./conformist.md) — alternativa quando a integração é necessária mas não vale a pena traduzir.
-- [Decompose by Subdomain](../../../architecture/microservices/service-boundaries/decompose-by-subdomain.md) — subdomínios independentes favorecem separação.
+- [Context Map](/application/ddd/context-mapping/context-map) — onde a decisão deve ser registrada.
+- [Bounded Context](/application/ddd/model-in-practice/bounded-context) — a fronteira que permite separar os caminhos.
+- [Shared Kernel](/application/ddd/context-mapping/shared-kernel) — extremo oposto, com compartilhamento forte.
+- [Partnership](/application/ddd/context-mapping/partnership) — extremo oposto, de cooperação estreita.
+- [Conformist](/application/ddd/context-mapping/conformist) — alternativa quando a integração é necessária mas não vale a pena traduzir.
+- [Decompose by Subdomain](/architecture/microservices/service-boundaries/decompose-by-subdomain) — subdomínios independentes favorecem separação.
 
 ## Referência
 

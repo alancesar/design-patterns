@@ -93,16 +93,16 @@ Os manipuladores de comando reconstroem a entidade a partir do seu stream de eve
 
 ## Padrões relacionados
 
-- [CQRS](./cqrs.md) — combinação mais comum: o event store atende às escritas e as projeções atendem às leituras, com escala independente.
-- [Materialized View](./materialized-view.md) — projeções otimizadas para consulta geradas a partir dos eventos.
-- [Compensating Transaction](../distributed-coordination/compensating-transaction.md) — desfazer alterações por meio de eventos compensatórios, sem modificar o histórico.
-- [Idempotent Consumer](../messaging/idempotent-consumer.md) — handlers precisam tolerar a entrega duplicada de eventos.
-- [Publisher-Subscriber](../messaging/publisher-subscriber.md) — distribuição dos eventos para múltiplos consumidores desacoplados.
-- [Sharding](./sharding.md) — event stores particionam naturalmente pelo ID da entidade.
-- [Saga](../distributed-coordination/saga.md) — coordenação de processos de negócio entre serviços baseada em eventos.
-- [Domain Event](../../../architecture/microservices/service-collaboration/domain-event.md) — o event store pode ser a fonte de publicação dos eventos de domínio.
-- [Transactional Outbox](../../../architecture/microservices/transactional-messaging/transactional-outbox.md) — alternativa para publicar eventos de forma atômica sem armazenar o estado como eventos.
-- [Audit Logging](../../../architecture/microservices/observability/audit-logging.md) — o log de eventos implementa naturalmente uma trilha de auditoria.
+- [CQRS](/cloud/cloud-design-patterns/data-management/cqrs) — combinação mais comum: o event store atende às escritas e as projeções atendem às leituras, com escala independente.
+- [Materialized View](/cloud/cloud-design-patterns/data-management/materialized-view) — projeções otimizadas para consulta geradas a partir dos eventos.
+- [Compensating Transaction](/cloud/cloud-design-patterns/distributed-coordination/compensating-transaction) — desfazer alterações por meio de eventos compensatórios, sem modificar o histórico.
+- [Idempotent Consumer](/cloud/cloud-design-patterns/messaging/idempotent-consumer) — handlers precisam tolerar a entrega duplicada de eventos.
+- [Publisher-Subscriber](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — distribuição dos eventos para múltiplos consumidores desacoplados.
+- [Sharding](/cloud/cloud-design-patterns/data-management/sharding) — event stores particionam naturalmente pelo ID da entidade.
+- [Saga](/cloud/cloud-design-patterns/distributed-coordination/saga) — coordenação de processos de negócio entre serviços baseada em eventos.
+- [Domain Event](/architecture/microservices/service-collaboration/domain-event) — o event store pode ser a fonte de publicação dos eventos de domínio.
+- [Transactional Outbox](/architecture/microservices/transactional-messaging/transactional-outbox) — alternativa para publicar eventos de forma atômica sem armazenar o estado como eventos.
+- [Audit Logging](/architecture/microservices/observability/audit-logging) — o log de eventos implementa naturalmente uma trilha de auditoria.
 
 ## Referência
 

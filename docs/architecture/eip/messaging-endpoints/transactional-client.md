@@ -65,13 +65,13 @@ A mensagem só deixa o canal no commit; no rollback ela fica disponível para ou
 
 ## Padrões relacionados
 
-- [Message Endpoint](./message-endpoint.md) — o endpoint é quem controla a transação.
-- [Guaranteed Delivery](../messaging-channels/guaranteed-delivery.md) — persistência do canal, complementar às transações.
-- [Dead Letter Channel](../messaging-channels/dead-letter-channel.md) — destino para mensagens que falham repetidamente.
-- [Competing Consumers](../../../cloud/cloud-design-patterns/messaging/competing-consumers.md) — rollback devolve a mensagem a outro consumidor.
-- [Polling Consumer](./polling-consumer.md) — pode receber dentro de uma transação.
-- [Event-Driven Consumer](./event-driven-consumer.md) — idem, com confirmação após o callback.
-- [Transactional Outbox](../../microservices/transactional-messaging/transactional-outbox.md) — alternativa para atomicidade entre banco e mensageria.
+- [Message Endpoint](/architecture/eip/messaging-endpoints/message-endpoint) — o endpoint é quem controla a transação.
+- [Guaranteed Delivery](/architecture/eip/messaging-channels/guaranteed-delivery) — persistência do canal, complementar às transações.
+- [Dead Letter Channel](/architecture/eip/messaging-channels/dead-letter-channel) — destino para mensagens que falham repetidamente.
+- [Competing Consumers](/cloud/cloud-design-patterns/messaging/competing-consumers) — rollback devolve a mensagem a outro consumidor.
+- [Polling Consumer](/architecture/eip/messaging-endpoints/polling-consumer) — pode receber dentro de uma transação.
+- [Event-Driven Consumer](/architecture/eip/messaging-endpoints/event-driven-consumer) — idem, com confirmação após o callback.
+- [Transactional Outbox](/architecture/microservices/transactional-messaging/transactional-outbox) — alternativa para atomicidade entre banco e mensageria.
 
 ## Referência
 

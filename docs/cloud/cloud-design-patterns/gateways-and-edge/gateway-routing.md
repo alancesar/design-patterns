@@ -79,13 +79,13 @@ O cliente envia todas as requisições para o gateway, que as roteia por caminho
 
 ## Padrões relacionados
 
-- [Gateway Aggregation](./gateway-aggregation.md) — também usa um gateway, mas para combinar várias chamadas de backend em uma única requisição.
-- [Gateway Offloading](./gateway-offloading.md) — transfere ao gateway responsabilidades transversais como TLS, autenticação e limitação de taxa.
-- [Backends for Frontends](./backends-for-frontends.md) — cria gateways ou backends dedicados a cada tipo de cliente, cada um com suas regras de roteamento.
-- [Geodes](../deployment-and-topology/geodes.md) — implantação multirregional ativa-ativa que costuma ficar atrás de um gateway global.
-- [Strangler Fig](../integration-and-modernization/strangler-fig.md) — usa roteamento numa fachada para migrar funcionalidades aos poucos de um sistema legado para um novo.
-- [Health Endpoint Monitoring](../resiliency/health-endpoint-monitoring.md) — fornece os sinais de saúde que o gateway usa para enviar tráfego só a instâncias saudáveis.
-- [Gatekeeper](../security-and-access/gatekeeper.md) — põe um host dedicado entre clientes e serviços para validar e higienizar requisições, e pode ser combinado com o roteamento.
+- [Gateway Aggregation](/cloud/cloud-design-patterns/gateways-and-edge/gateway-aggregation) — também usa um gateway, mas para combinar várias chamadas de backend em uma única requisição.
+- [Gateway Offloading](/cloud/cloud-design-patterns/gateways-and-edge/gateway-offloading) — transfere ao gateway responsabilidades transversais como TLS, autenticação e limitação de taxa.
+- [Backends for Frontends](/cloud/cloud-design-patterns/gateways-and-edge/backends-for-frontends) — cria gateways ou backends dedicados a cada tipo de cliente, cada um com suas regras de roteamento.
+- [Geodes](/cloud/cloud-design-patterns/deployment-and-topology/geodes) — implantação multirregional ativa-ativa que costuma ficar atrás de um gateway global.
+- [Strangler Fig](/cloud/cloud-design-patterns/integration-and-modernization/strangler-fig) — usa roteamento numa fachada para migrar funcionalidades aos poucos de um sistema legado para um novo.
+- [Health Endpoint Monitoring](/cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring) — fornece os sinais de saúde que o gateway usa para enviar tráfego só a instâncias saudáveis.
+- [Gatekeeper](/cloud/cloud-design-patterns/security-and-access/gatekeeper) — põe um host dedicado entre clientes e serviços para validar e higienizar requisições, e pode ser combinado com o roteamento.
 
 ## Referência
 

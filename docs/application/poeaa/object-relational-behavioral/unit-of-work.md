@@ -107,11 +107,11 @@ O Hibernate `Session` e o Entity Framework `DbContext` (`SaveChanges`) são impl
 
 ## Padrões relacionados
 
-- [Identity Map](./identity-map.md) — normalmente andam juntos: o Unit of Work usa o mapa para saber quais objetos já foram carregados.
-- [Lazy Load](./lazy-load.md) — carregamento sob demanda opera dentro do escopo do Unit of Work.
-- [Data Mapper](../data-source-architectural/data-mapper.md) — executa as gravações que o Unit of Work coordena.
-- [Repository](../object-relational-metadata-mapping/repository.md) — costuma ser a porta de entrada que registra objetos no Unit of Work.
-- [Optimistic Offline Lock](../offline-concurrency/optimistic-offline-lock.md) — verificado no commit para detectar conflitos.
+- [Identity Map](/application/poeaa/object-relational-behavioral/identity-map) — normalmente andam juntos: o Unit of Work usa o mapa para saber quais objetos já foram carregados.
+- [Lazy Load](/application/poeaa/object-relational-behavioral/lazy-load) — carregamento sob demanda opera dentro do escopo do Unit of Work.
+- [Data Mapper](/application/poeaa/data-source-architectural/data-mapper) — executa as gravações que o Unit of Work coordena.
+- [Repository](/application/poeaa/object-relational-metadata-mapping/repository) — costuma ser a porta de entrada que registra objetos no Unit of Work.
+- [Optimistic Offline Lock](/application/poeaa/offline-concurrency/optimistic-offline-lock) — verificado no commit para detectar conflitos.
 
 ## Referência
 

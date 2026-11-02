@@ -106,11 +106,11 @@ O Hibernate (cache de primeiro nível da `Session`) e o Entity Framework (rastre
 
 ## Padrões relacionados
 
-- [Unit of Work](./unit-of-work.md) — costuma conter o Identity Map e usá-lo para saber quais objetos foram carregados.
-- [Lazy Load](./lazy-load.md) — o carregamento sob demanda consulta o mapa para evitar objetos duplicados.
-- [Identity Field](../object-relational-structural/identity-field.md) — fornece a chave que indexa o mapa.
-- [Data Mapper](../data-source-architectural/data-mapper.md) — consulta o mapa antes de acessar o banco.
-- [Cache-Aside](../../../cloud/cloud-design-patterns/data-management/cache-aside.md) — também evita leituras repetidas, mas como cache compartilhado e não como garantia de identidade.
+- [Unit of Work](/application/poeaa/object-relational-behavioral/unit-of-work) — costuma conter o Identity Map e usá-lo para saber quais objetos foram carregados.
+- [Lazy Load](/application/poeaa/object-relational-behavioral/lazy-load) — o carregamento sob demanda consulta o mapa para evitar objetos duplicados.
+- [Identity Field](/application/poeaa/object-relational-structural/identity-field) — fornece a chave que indexa o mapa.
+- [Data Mapper](/application/poeaa/data-source-architectural/data-mapper) — consulta o mapa antes de acessar o banco.
+- [Cache-Aside](/cloud/cloud-design-patterns/data-management/cache-aside) — também evita leituras repetidas, mas como cache compartilhado e não como garantia de identidade.
 
 ## Referência
 

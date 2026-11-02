@@ -85,15 +85,15 @@ O cliente se conecta ao gateway, que termina o TLS, aplica as capacidades compar
 
 ## Padrões relacionados
 
-- [Gateway Routing](./gateway-routing.md) — usa o mesmo gateway para rotear requisições a múltiplos serviços por um único endpoint.
-- [Gateway Aggregation](./gateway-aggregation.md) — o gateway combina várias chamadas de backend em uma única resposta ao cliente.
-- [Backends for Frontends](./backends-for-frontends.md) — gateways dedicados por tipo de cliente, que também podem concentrar funções transferidas.
-- [Gatekeeper](../security-and-access/gatekeeper.md) — um host dedicado que valida e sanitiza requisições antes de repassá-las, reforçando a segurança na borda.
-- [Throttling](../resiliency/throttling.md) — uma das funcionalidades mais comuns de ser transferida para o gateway.
-- [Rate Limiting](../resiliency/rate-limiting-pattern.md) — controle de taxa de chamadas que pode ser aplicado de forma centralizada.
-- [Federated Identity](../security-and-access/federated-identity.md) — a autenticação delegada a um provedor de identidade costuma ser validada no gateway.
-- [Sidecar](../integration-and-modernization/sidecar.md) — alternativa que transfere preocupações transversais para um processo ao lado de cada serviço, em vez de um ponto central.
-- [Ambassador](../integration-and-modernization/ambassador.md) — proxy que transfere tarefas de conectividade do lado do cliente, complementar ao gateway na borda.
+- [Gateway Routing](/cloud/cloud-design-patterns/gateways-and-edge/gateway-routing) — usa o mesmo gateway para rotear requisições a múltiplos serviços por um único endpoint.
+- [Gateway Aggregation](/cloud/cloud-design-patterns/gateways-and-edge/gateway-aggregation) — o gateway combina várias chamadas de backend em uma única resposta ao cliente.
+- [Backends for Frontends](/cloud/cloud-design-patterns/gateways-and-edge/backends-for-frontends) — gateways dedicados por tipo de cliente, que também podem concentrar funções transferidas.
+- [Gatekeeper](/cloud/cloud-design-patterns/security-and-access/gatekeeper) — um host dedicado que valida e sanitiza requisições antes de repassá-las, reforçando a segurança na borda.
+- [Throttling](/cloud/cloud-design-patterns/resiliency/throttling) — uma das funcionalidades mais comuns de ser transferida para o gateway.
+- [Rate Limiting](/cloud/cloud-design-patterns/resiliency/rate-limiting-pattern) — controle de taxa de chamadas que pode ser aplicado de forma centralizada.
+- [Federated Identity](/cloud/cloud-design-patterns/security-and-access/federated-identity) — a autenticação delegada a um provedor de identidade costuma ser validada no gateway.
+- [Sidecar](/cloud/cloud-design-patterns/integration-and-modernization/sidecar) — alternativa que transfere preocupações transversais para um processo ao lado de cada serviço, em vez de um ponto central.
+- [Ambassador](/cloud/cloud-design-patterns/integration-and-modernization/ambassador) — proxy que transfere tarefas de conectividade do lado do cliente, complementar ao gateway na borda.
 
 ## Referência
 

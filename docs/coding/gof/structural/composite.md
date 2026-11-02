@@ -113,14 +113,14 @@ console.log(root.getSize()); // 170
 
 ## Padrões relacionados
 
-- [Decorator](./decorator.md) — tem estrutura recursiva semelhante, mas um decorador possui um único filho e adiciona responsabilidades, enquanto o Composite agrega vários filhos
-- [Iterator](../behavioral/iterator.md) — usado para percorrer a árvore de componentes sem expor sua estrutura interna
-- [Visitor](../behavioral/visitor.md) — permite aplicar novas operações sobre toda a árvore sem alterar as classes de `Leaf` e `Composite`
-- [Chain of Responsibility](../behavioral/chain-of-responsibility.md) — costuma usar a referência ao pai do componente como sucessor na cadeia
-- [Flyweight](./flyweight.md) — folhas podem ser compartilhadas como flyweights para economizar memória em árvores grandes
-- [Interpreter](../behavioral/interpreter.md) — a árvore sintática abstrata do Interpreter é uma aplicação do Composite
-- [Builder](../creational/builder.md) — pode ser usado para construir árvores Composite complexas passo a passo
-- [Command](../behavioral/command.md) — comandos de macro são compostos de outros comandos
+- [Decorator](/coding/gof/structural/decorator) — tem estrutura recursiva semelhante, mas um decorador possui um único filho e adiciona responsabilidades, enquanto o Composite agrega vários filhos
+- [Iterator](/coding/gof/behavioral/iterator) — usado para percorrer a árvore de componentes sem expor sua estrutura interna
+- [Visitor](/coding/gof/behavioral/visitor) — permite aplicar novas operações sobre toda a árvore sem alterar as classes de `Leaf` e `Composite`
+- [Chain of Responsibility](/coding/gof/behavioral/chain-of-responsibility) — costuma usar a referência ao pai do componente como sucessor na cadeia
+- [Flyweight](/coding/gof/structural/flyweight) — folhas podem ser compartilhadas como flyweights para economizar memória em árvores grandes
+- [Interpreter](/coding/gof/behavioral/interpreter) — a árvore sintática abstrata do Interpreter é uma aplicação do Composite
+- [Builder](/coding/gof/creational/builder) — pode ser usado para construir árvores Composite complexas passo a passo
+- [Command](/coding/gof/behavioral/command) — comandos de macro são compostos de outros comandos
 
 ## Referência
 

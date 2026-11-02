@@ -62,13 +62,13 @@ A lógica de negócio chama um método do domínio; o gateway cuida de montar a 
 
 ## Padrões relacionados
 
-- [Message Endpoint](./message-endpoint.md) — o gateway é uma forma de organizar o endpoint.
-- [Messaging Mapper](./messaging-mapper.md) — frequentemente usado pelo gateway para converter objetos em mensagens.
-- [Request-Reply](../message-construction/request-reply.md) — estilo de interação que o gateway costuma encapsular.
-- [Correlation Identifier](../message-construction/correlation-identifier.md) — usado para casar respostas com requisições.
-- [Service Activator](./service-activator.md) — lado receptor equivalente ao gateway no lado emissor.
-- [Gateway (PoEAA)](../../../application/poeaa/base/gateway.md) — o padrão geral do qual este é a especialização.
-- [Facade (GoF)](../../../coding/gof/structural/facade.md) — também simplifica o acesso a um subsistema complexo.
+- [Message Endpoint](/architecture/eip/messaging-endpoints/message-endpoint) — o gateway é uma forma de organizar o endpoint.
+- [Messaging Mapper](/architecture/eip/messaging-endpoints/messaging-mapper) — frequentemente usado pelo gateway para converter objetos em mensagens.
+- [Request-Reply](/architecture/eip/message-construction/request-reply) — estilo de interação que o gateway costuma encapsular.
+- [Correlation Identifier](/architecture/eip/message-construction/correlation-identifier) — usado para casar respostas com requisições.
+- [Service Activator](/architecture/eip/messaging-endpoints/service-activator) — lado receptor equivalente ao gateway no lado emissor.
+- [Gateway (PoEAA)](/application/poeaa/base/gateway) — o padrão geral do qual este é a especialização.
+- [Facade (GoF)](/coding/gof/structural/facade) — também simplifica o acesso a um subsistema complexo.
 
 ## Referência
 

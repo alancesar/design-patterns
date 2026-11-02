@@ -93,11 +93,11 @@ No EF Core, é o Table-per-Type (TPT).
 
 ## Padrões relacionados
 
-- [Single Table Inheritance](./single-table-inheritance.md) — alternativa com uma tabela só.
-- [Concrete Table Inheritance](./concrete-table-inheritance.md) — alternativa com uma tabela por classe concreta.
-- [Inheritance Mappers](./inheritance-mappers.md) — organiza os mapeadores da hierarquia.
-- [Foreign Key Mapping](./foreign-key-mapping.md) — a ligação entre tabelas usa o mesmo princípio.
-- [Identity Field](./identity-field.md) — a chave compartilhada entre as tabelas.
+- [Single Table Inheritance](/application/poeaa/object-relational-structural/single-table-inheritance) — alternativa com uma tabela só.
+- [Concrete Table Inheritance](/application/poeaa/object-relational-structural/concrete-table-inheritance) — alternativa com uma tabela por classe concreta.
+- [Inheritance Mappers](/application/poeaa/object-relational-structural/inheritance-mappers) — organiza os mapeadores da hierarquia.
+- [Foreign Key Mapping](/application/poeaa/object-relational-structural/foreign-key-mapping) — a ligação entre tabelas usa o mesmo princípio.
+- [Identity Field](/application/poeaa/object-relational-structural/identity-field) — a chave compartilhada entre as tabelas.
 
 ## Referência
 

@@ -17,7 +17,7 @@ O Metadata Mapping mantém os detalhes do mapeamento objeto-relacional em metada
 
 Um código genérico lê esses metadados e executa as operações de leitura, inserção e atualização. Para mapear uma nova classe, basta acrescentar uma entrada de metadados; o código de acesso não muda. A geração de código a partir dos metadados e a reflexão em tempo de execução são as duas formas de implementação mais comuns.
 
-É a base da maioria dos frameworks de ORM, que combinam o padrão com [Data Mapper](../data-source-architectural/data-mapper.md) e [Unit of Work](../object-relational-behavioral/unit-of-work.md).
+É a base da maioria dos frameworks de ORM, que combinam o padrão com [Data Mapper](/application/poeaa/data-source-architectural/data-mapper) e [Unit of Work](/application/poeaa/object-relational-behavioral/unit-of-work).
 
 ## Problemas que resolve
 
@@ -105,11 +105,11 @@ Hibernate, Entity Framework (fluent API) e Doctrine seguem essa abordagem, com a
 
 ## Padrões relacionados
 
-- [Data Mapper](../data-source-architectural/data-mapper.md) — o Metadata Mapping é a forma de implementar um Data Mapper genérico, sem mapeadores escritos à mão.
-- [Query Object](./query-object.md) — usa os metadados para traduzir classes e campos em tabelas e colunas.
-- [Repository](./repository.md) — costuma ser construído sobre um mapeamento orientado por metadados.
-- [Unit of Work](../object-relational-behavioral/unit-of-work.md) — coordena a gravação dos objetos mapeados.
-- [Lazy Load](../object-relational-behavioral/lazy-load.md) — o motor genérico pode inserir proxies a partir dos metadados.
+- [Data Mapper](/application/poeaa/data-source-architectural/data-mapper) — o Metadata Mapping é a forma de implementar um Data Mapper genérico, sem mapeadores escritos à mão.
+- [Query Object](/application/poeaa/object-relational-metadata-mapping/query-object) — usa os metadados para traduzir classes e campos em tabelas e colunas.
+- [Repository](/application/poeaa/object-relational-metadata-mapping/repository) — costuma ser construído sobre um mapeamento orientado por metadados.
+- [Unit of Work](/application/poeaa/object-relational-behavioral/unit-of-work) — coordena a gravação dos objetos mapeados.
+- [Lazy Load](/application/poeaa/object-relational-behavioral/lazy-load) — o motor genérico pode inserir proxies a partir dos metadados.
 
 ## Referência
 

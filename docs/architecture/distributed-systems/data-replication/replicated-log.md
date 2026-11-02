@@ -71,16 +71,16 @@ O líder acrescenta a entrada, a replica, avança o High-Water Mark quando a mai
 
 ## Padrões relacionados
 
-- [Write-Ahead Log](./write-ahead-log.md) — cada nó mantém um WAL local
-- [Leader and Followers](./leader-and-followers.md) — o líder coordena a replicação
-- [High-Water Mark](./high-water-mark.md) — delimita as entradas confirmadas
-- [Majority Quorum](./majority-quorum.md) — define o commit da entrada
-- [Paxos](./paxos.md) — protocolo de consenso para cada entrada
-- [Request Waiting List](./request-waiting-list.md) — acompanha requisições até o commit
-- [Idempotent Receiver](../../../cloud/cloud-design-patterns/messaging/idempotent-consumer.md) — evita aplicar duas vezes requisições repetidas
-- [Consistent Core](../cluster-management/consistent-core.md) — serviço pequeno construído sobre um log replicado
-- [Event Sourcing](../../../cloud/cloud-design-patterns/data-management/event-sourcing.md) — estado derivado de um log de eventos, sem replicação por consenso
-- [Transaction Log Tailing](../../microservices/transactional-messaging/transaction-log-tailing.md) — lê o log de transações para publicar mudanças
+- [Write-Ahead Log](/architecture/distributed-systems/data-replication/write-ahead-log) — cada nó mantém um WAL local
+- [Leader and Followers](/architecture/distributed-systems/data-replication/leader-and-followers) — o líder coordena a replicação
+- [High-Water Mark](/architecture/distributed-systems/data-replication/high-water-mark) — delimita as entradas confirmadas
+- [Majority Quorum](/architecture/distributed-systems/data-replication/majority-quorum) — define o commit da entrada
+- [Paxos](/architecture/distributed-systems/data-replication/paxos) — protocolo de consenso para cada entrada
+- [Request Waiting List](/architecture/distributed-systems/data-replication/request-waiting-list) — acompanha requisições até o commit
+- [Idempotent Receiver](/cloud/cloud-design-patterns/messaging/idempotent-consumer) — evita aplicar duas vezes requisições repetidas
+- [Consistent Core](/architecture/distributed-systems/cluster-management/consistent-core) — serviço pequeno construído sobre um log replicado
+- [Event Sourcing](/cloud/cloud-design-patterns/data-management/event-sourcing) — estado derivado de um log de eventos, sem replicação por consenso
+- [Transaction Log Tailing](/architecture/microservices/transactional-messaging/transaction-log-tailing) — lê o log de transações para publicar mudanças
 
 ## Referência
 

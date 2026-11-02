@@ -123,13 +123,13 @@ notifier.send(user.contact, "Seu pedido foi enviado!");
 
 ## Padrões relacionados
 
-- [Factory Method](./factory-method.md) — em vez de uma única fábrica com condicional, define um método de criação que subclasses sobrescrevem; a decisão sobre a classe concreta é feita por herança/polimorfismo, não por parâmetro. É a evolução natural quando o Simple Factory precisa ser estendido sem modificação.
-- [Abstract Factory](./abstract-factory.md) — fornece uma interface para criar *famílias* de objetos relacionados, com várias fábricas concretas intercambiáveis; o Simple Factory cria um único tipo de produto e tem apenas uma fábrica concreta.
-- [Builder](./builder.md) — foca na construção passo a passo de um objeto complexo, enquanto o Factory devolve o objeto pronto em uma única chamada.
-- [Singleton](./singleton.md) — a fábrica frequentemente é exposta como instância única ou por métodos estáticos.
-- [Prototype](./prototype.md) — uma fábrica pode criar objetos clonando protótipos registrados em vez de chamar construtores.
-- [Object Pool](./object-pool.md) — a fábrica pode reutilizar instâncias de um pool em vez de criar novas a cada chamada.
-- [Strategy](../behavioral/strategy.md) — fábricas são usadas com frequência para selecionar a estratégia concreta com base em configuração.
+- [Factory Method](/coding/gof/creational/factory-method) — em vez de uma única fábrica com condicional, define um método de criação que subclasses sobrescrevem; a decisão sobre a classe concreta é feita por herança/polimorfismo, não por parâmetro. É a evolução natural quando o Simple Factory precisa ser estendido sem modificação.
+- [Abstract Factory](/coding/gof/creational/abstract-factory) — fornece uma interface para criar *famílias* de objetos relacionados, com várias fábricas concretas intercambiáveis; o Simple Factory cria um único tipo de produto e tem apenas uma fábrica concreta.
+- [Builder](/coding/gof/creational/builder) — foca na construção passo a passo de um objeto complexo, enquanto o Factory devolve o objeto pronto em uma única chamada.
+- [Singleton](/coding/gof/creational/singleton) — a fábrica frequentemente é exposta como instância única ou por métodos estáticos.
+- [Prototype](/coding/gof/creational/prototype) — uma fábrica pode criar objetos clonando protótipos registrados em vez de chamar construtores.
+- [Object Pool](/coding/gof/creational/object-pool) — a fábrica pode reutilizar instâncias de um pool em vez de criar novas a cada chamada.
+- [Strategy](/coding/gof/behavioral/strategy) — fábricas são usadas com frequência para selecionar a estratégia concreta com base em configuração.
 
 ## Referência
 

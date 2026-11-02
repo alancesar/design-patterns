@@ -64,11 +64,11 @@ O time de Catálogo e o time de Busca de um marketplace lançam uma nova funcion
 
 ## Padrões relacionados
 
-- [Context Map](./context-map.md) — onde a parceria é registrada.
-- [Shared Kernel](./shared-kernel.md) — pode surgir dentro de uma parceria, para compartilhar parte do modelo.
-- [Customer/Supplier Development](./customer-supplier-development.md) — alternativa quando há dependência unilateral.
-- [Continuous Integration](../model-in-practice/continuous-integration.md) — prática usada pelos times parceiros para manter os modelos alinhados.
-- [Bounded Context](../model-in-practice/bounded-context.md) — contextos que participam da parceria.
+- [Context Map](/application/ddd/context-mapping/context-map) — onde a parceria é registrada.
+- [Shared Kernel](/application/ddd/context-mapping/shared-kernel) — pode surgir dentro de uma parceria, para compartilhar parte do modelo.
+- [Customer/Supplier Development](/application/ddd/context-mapping/customer-supplier-development) — alternativa quando há dependência unilateral.
+- [Continuous Integration](/application/ddd/model-in-practice/continuous-integration) — prática usada pelos times parceiros para manter os modelos alinhados.
+- [Bounded Context](/application/ddd/model-in-practice/bounded-context) — contextos que participam da parceria.
 
 ## Referência
 

@@ -17,7 +17,7 @@ Voltado a problemas abertos e complexos, sem plano de abordagem predeterminado. 
 
 Os agentes costumam ter ferramentas que alteram sistemas externos, então o foco é tanto construir e documentar a abordagem quanto executá-la. O gerente verifica regularmente se o pedido original foi atendido ou travou e ajusta o ledger. O ledger é uma trilha de auditoria e permite que um humano revise o plano antes ou depois da execução. A abordagem é inspirada no Magentic-One.
 
-Também é conhecido como *dynamic orchestration*, *task-ledger-based orchestration* ou *adaptive planning*. Em certo sentido, estende o [Group Chat Orchestration](./group-chat-orchestration.md): em vez de só discutir com conhecimento próprio, o foco é um agente que planeja enquanto os demais agem com ferramentas.
+Também é conhecido como *dynamic orchestration*, *task-ledger-based orchestration* ou *adaptive planning*. Em certo sentido, estende o [Group Chat Orchestration](/ai/agent-orchestration/dynamic-orchestration/group-chat-orchestration): em vez de só discutir com conhecimento próprio, o foco é um agente que planeja enquanto os demais agem com ferramentas.
 
 ## Problemas que resolve
 
@@ -75,12 +75,12 @@ O gerente constrói e atualiza o task ledger consultando os agentes especializad
 
 ## Padrões relacionados
 
-- [Group Chat Orchestration](./group-chat-orchestration.md) — padrão base que este estende, com foco em planejar e agir com ferramentas.
-- [Handoff Orchestration](./handoff-orchestration.md) — delegação dinâmica sem gerente nem plano global.
-- [Maker-Checker Loop](./maker-checker-loop.md) — ciclo de verificação que pode ser usado dentro de uma tarefa do plano.
-- [Sequential Orchestration](../deterministic-workflows/sequential-orchestration.md) — ordem fixa, quando o plano é conhecido de antemão.
-- [Process Manager](../../../architecture/eip/message-routing/process-manager.md) — coordenador central que mantém o estado do processo e decide o próximo passo.
-- [Scheduler Agent Supervisor](../../../cloud/cloud-design-patterns/distributed-coordination/scheduler-agent-supervisor.md) — coordenação e supervisão de tarefas distribuídas com recuperação de falhas.
+- [Group Chat Orchestration](/ai/agent-orchestration/dynamic-orchestration/group-chat-orchestration) — padrão base que este estende, com foco em planejar e agir com ferramentas.
+- [Handoff Orchestration](/ai/agent-orchestration/dynamic-orchestration/handoff-orchestration) — delegação dinâmica sem gerente nem plano global.
+- [Maker-Checker Loop](/ai/agent-orchestration/dynamic-orchestration/maker-checker-loop) — ciclo de verificação que pode ser usado dentro de uma tarefa do plano.
+- [Sequential Orchestration](/ai/agent-orchestration/deterministic-workflows/sequential-orchestration) — ordem fixa, quando o plano é conhecido de antemão.
+- [Process Manager](/architecture/eip/message-routing/process-manager) — coordenador central que mantém o estado do processo e decide o próximo passo.
+- [Scheduler Agent Supervisor](/cloud/cloud-design-patterns/distributed-coordination/scheduler-agent-supervisor) — coordenação e supervisão de tarefas distribuídas com recuperação de falhas.
 
 ## Referência
 

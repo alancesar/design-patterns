@@ -31,7 +31,7 @@ Quando a resposta chega, o proxy consulta o endereço guardado, usa um roteador 
 
 ### Quando evitar
 
-- Se o serviço publica em um canal de saída fixo, dois [Wire Taps](./wire-tap.md) bastam.
+- Se o serviço publica em um canal de saída fixo, dois [Wire Taps](/architecture/eip/system-management/wire-tap) bastam.
 - Quando a latência adicional do proxy não é aceitável.
 - Para comunicação sem resposta (apenas eventos ou comandos).
 
@@ -44,7 +44,7 @@ Quando a resposta chega, o proxy consulta o endereço guardado, usa um roteador 
 | Possibilita métricas por chamada | Mais complexidade para correlacionar respostas e requisições |
 
 - Respostas que nunca chegam deixam entradas pendentes, exigindo expiração do estado.
-- Depende de [Correlation Identifier](../message-construction/correlation-identifier.md) para casar resposta e requisição.
+- Depende de [Correlation Identifier](/architecture/eip/message-construction/correlation-identifier) para casar resposta e requisição.
 
 ## Diagrama
 
@@ -63,11 +63,11 @@ O proxy troca o endereço de retorno, recebe a resposta e a repassa ao cliente, 
 
 ## Padrões relacionados
 
-- [Return Address](../message-construction/return-address.md) — o endereço que o proxy guarda e substitui.
-- [Correlation Identifier](../message-construction/correlation-identifier.md) — associa respostas às requisições.
-- [Request-Reply](../message-construction/request-reply.md) — interação que o proxy intermedia.
-- [Wire Tap](./wire-tap.md) — solução mais simples para canais de saída fixos.
-- [Proxy](../../../coding/gof/structural/proxy.md) — o equivalente em design de classes: um intermediário que controla o acesso ao objeto real.
+- [Return Address](/architecture/eip/message-construction/return-address) — o endereço que o proxy guarda e substitui.
+- [Correlation Identifier](/architecture/eip/message-construction/correlation-identifier) — associa respostas às requisições.
+- [Request-Reply](/architecture/eip/message-construction/request-reply) — interação que o proxy intermedia.
+- [Wire Tap](/architecture/eip/system-management/wire-tap) — solução mais simples para canais de saída fixos.
+- [Proxy](/coding/gof/structural/proxy) — o equivalente em design de classes: um intermediário que controla o acesso ao objeto real.
 
 ## Referência
 

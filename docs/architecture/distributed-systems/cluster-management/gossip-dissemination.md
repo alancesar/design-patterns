@@ -16,7 +16,7 @@ sidebar_label: "Gossip Dissemination"
 
 No Gossip Dissemination, cada nó guarda os metadados que conhece sobre o cluster (membership, estado de nós, informações de partições) e, em intervalos regulares, por exemplo a cada segundo, escolhe um ou poucos nós aleatórios e troca com eles o que sabe. Cada nó que recebe informação nova a repassa nas próximas rodadas, de modo que ela se espalha de forma epidêmica.
 
-Como a escolha dos pares é aleatória, a informação alcança todos os nós em um número de rodadas que cresce de forma logarítmica com o tamanho do cluster, sem depender de um armazenamento central e sem que cada nó fale com todos os outros. Implementações costumam enviar resumos de estado e versões (veja [Version Vector](../data-replication/version-vector.md)) para decidir o que cada lado precisa receber, podendo trabalhar por push, pull ou ambos.
+Como a escolha dos pares é aleatória, a informação alcança todos os nós em um número de rodadas que cresce de forma logarítmica com o tamanho do cluster, sem depender de um armazenamento central e sem que cada nó fale com todos os outros. Implementações costumam enviar resumos de estado e versões (veja [Version Vector](/architecture/distributed-systems/data-replication/version-vector)) para decidir o que cada lado precisa receber, podendo trabalhar por push, pull ou ambos.
 
 É usado por Cassandra, Consul (Serf), Akka Cluster e Riak para propagar membership e detectar falhas.
 
@@ -30,11 +30,11 @@ Como a escolha dos pares é aleatória, a informação alcança todos os nós em
 
 - Clusters grandes e descentralizados, sem líder fixo, que precisam espalhar membership e estado de nós.
 - Sistemas que aceitam consistência eventual para os metadados.
-- Detecção de falhas em escala, combinada com [Heartbeat](../data-replication/heartbeat.md) indireto.
+- Detecção de falhas em escala, combinada com [Heartbeat](/architecture/distributed-systems/data-replication/heartbeat) indireto.
 
 ### Quando evitar
 
-- Decisões que exigem consistência forte ou ordem total (use um [Consistent Core](./consistent-core.md)).
+- Decisões que exigem consistência forte ou ordem total (use um [Consistent Core](/architecture/distributed-systems/cluster-management/consistent-core)).
 - Clusters pequenos, em que enviar a todos é barato e mais simples.
 - Quando a latência de propagação precisa ser limitada de forma estrita e previsível.
 
@@ -74,10 +74,10 @@ A informação nasce em um nó e se espalha em rodadas, cada nó repassando a pa
 
 ## Padrões relacionados
 
-- [Heartbeat](../data-replication/heartbeat.md) — sinais de vida que o gossip pode carregar para detectar falhas.
-- [Version Vector](../data-replication/version-vector.md) — versiona as informações trocadas e resolve conflitos.
-- [Emergent Leader](./emergent-leader.md) — o líder emergente usa a visão de membership espalhada por gossip.
-- [Consistent Core](./consistent-core.md) — alternativa centralizada e fortemente consistente para metadados.
+- [Heartbeat](/architecture/distributed-systems/data-replication/heartbeat) — sinais de vida que o gossip pode carregar para detectar falhas.
+- [Version Vector](/architecture/distributed-systems/data-replication/version-vector) — versiona as informações trocadas e resolve conflitos.
+- [Emergent Leader](/architecture/distributed-systems/cluster-management/emergent-leader) — o líder emergente usa a visão de membership espalhada por gossip.
+- [Consistent Core](/architecture/distributed-systems/cluster-management/consistent-core) — alternativa centralizada e fortemente consistente para metadados.
 
 ## Referência
 

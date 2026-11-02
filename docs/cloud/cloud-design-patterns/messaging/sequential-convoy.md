@@ -70,11 +70,11 @@ O produtor envia mensagens intercaladas de várias categorias para uma única fi
 
 ## Padrões relacionados
 
-- [Competing Consumers](./competing-consumers.md) — escala o consumo em paralelo, mas perde a ordem; o Sequential Convoy fecha essa lacuna particionando por categoria.
-- [Queue-Based Load Leveling](./queue-based-load-leveling.md) — a fila absorve picos de carga; o Sequential Convoy acrescenta particionamento com ordem por categoria.
-- [Priority Queue](./priority-queue.md) — pode ser combinado para manter FIFO dentro de cada nível de prioridade.
-- [Idempotent Consumer](./idempotent-consumer.md) — protege contra reprocessamento quando um bloqueio de sessão expira e a mensagem é entregue novamente.
-- [Retry](../resiliency/retry.md) — define tentativas antes de mover mensagens com falha para a dead-letter queue sem travar o grupo indefinidamente.
+- [Competing Consumers](/cloud/cloud-design-patterns/messaging/competing-consumers) — escala o consumo em paralelo, mas perde a ordem; o Sequential Convoy fecha essa lacuna particionando por categoria.
+- [Queue-Based Load Leveling](/cloud/cloud-design-patterns/messaging/queue-based-load-leveling) — a fila absorve picos de carga; o Sequential Convoy acrescenta particionamento com ordem por categoria.
+- [Priority Queue](/cloud/cloud-design-patterns/messaging/priority-queue) — pode ser combinado para manter FIFO dentro de cada nível de prioridade.
+- [Idempotent Consumer](/cloud/cloud-design-patterns/messaging/idempotent-consumer) — protege contra reprocessamento quando um bloqueio de sessão expira e a mensagem é entregue novamente.
+- [Retry](/cloud/cloud-design-patterns/resiliency/retry) — define tentativas antes de mover mensagens com falha para a dead-letter queue sem travar o grupo indefinidamente.
 
 ## Referência
 

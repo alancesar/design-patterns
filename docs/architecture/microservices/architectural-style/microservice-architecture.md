@@ -73,27 +73,27 @@ Cada serviço é implantado de forma independente, possui seu próprio banco e �
 
 ## Padrões relacionados
 
-- [Monolithic Architecture](./monolithic-architecture.md) — estilo alternativo, com um único componente implantável.
-- [Decompose by Business Capability](../service-boundaries/decompose-by-business-capability.md) — define as fronteiras dos serviços.
-- [Decompose by Subdomain](../service-boundaries/decompose-by-subdomain.md) — define as fronteiras dos serviços a partir do DDD.
-- [Database per Service](../service-collaboration/database-per-service.md) — cada serviço possui seus próprios dados.
-- [Saga](../../../cloud/cloud-design-patterns/distributed-coordination/saga.md) — consistência em operações que atravessam serviços.
-- [API Composition](../service-collaboration/api-composition.md) — consultas que combinam dados de vários serviços.
-- [CQRS](../../../cloud/cloud-design-patterns/data-management/cqrs.md) — consultas eficientes sobre dados distribuídos.
-- [Messaging](../communication-styles/messaging.md) — comunicação assíncrona entre serviços.
-- [Remote Procedure Invocation](../communication-styles/remote-procedure-invocation.md) — comunicação síncrona entre serviços.
-- [Transactional Outbox](../transactional-messaging/transactional-outbox.md) — publicação atômica de mensagens e atualizações de dados.
-- [API Gateway](../external-api/api-gateway.md) — ponto de entrada para os clientes.
-- [Client-side Discovery](../service-discovery/client-side-discovery.md) — localização de instâncias de serviço.
-- [Server-side Discovery](../service-discovery/server-side-discovery.md) — localização de instâncias via roteador.
-- [Circuit Breaker](../../../cloud/cloud-design-patterns/resiliency/circuit-breaker.md) — evita falhas em cascata entre serviços.
-- [Access Token](../security/access-token.md) — propagação da identidade entre serviços.
-- [Log Aggregation](../observability/log-aggregation.md) — observabilidade de sistemas distribuídos.
-- [Distributed Tracing](../observability/distributed-tracing.md) — rastreamento de requisições entre serviços.
-- [Health Check API](../../../cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring.md) — verificação da saúde de cada serviço.
-- [Service Component Test](../testing/service-component-test.md) — teste isolado de cada serviço.
-- [Microservice Chassis](../cross-cutting-concerns/microservice-chassis.md) — preocupações transversais reutilizáveis.
-- [Externalized Configuration](../../../cloud/cloud-design-patterns/deployment-and-topology/external-configuration-store.md) — configuração fora do artefato.
+- [Monolithic Architecture](/architecture/microservices/architectural-style/monolithic-architecture) — estilo alternativo, com um único componente implantável.
+- [Decompose by Business Capability](/architecture/microservices/service-boundaries/decompose-by-business-capability) — define as fronteiras dos serviços.
+- [Decompose by Subdomain](/architecture/microservices/service-boundaries/decompose-by-subdomain) — define as fronteiras dos serviços a partir do DDD.
+- [Database per Service](/architecture/microservices/service-collaboration/database-per-service) — cada serviço possui seus próprios dados.
+- [Saga](/cloud/cloud-design-patterns/distributed-coordination/saga) — consistência em operações que atravessam serviços.
+- [API Composition](/architecture/microservices/service-collaboration/api-composition) — consultas que combinam dados de vários serviços.
+- [CQRS](/cloud/cloud-design-patterns/data-management/cqrs) — consultas eficientes sobre dados distribuídos.
+- [Messaging](/architecture/microservices/communication-styles/messaging) — comunicação assíncrona entre serviços.
+- [Remote Procedure Invocation](/architecture/microservices/communication-styles/remote-procedure-invocation) — comunicação síncrona entre serviços.
+- [Transactional Outbox](/architecture/microservices/transactional-messaging/transactional-outbox) — publicação atômica de mensagens e atualizações de dados.
+- [API Gateway](/architecture/microservices/external-api/api-gateway) — ponto de entrada para os clientes.
+- [Client-side Discovery](/architecture/microservices/service-discovery/client-side-discovery) — localização de instâncias de serviço.
+- [Server-side Discovery](/architecture/microservices/service-discovery/server-side-discovery) — localização de instâncias via roteador.
+- [Circuit Breaker](/cloud/cloud-design-patterns/resiliency/circuit-breaker) — evita falhas em cascata entre serviços.
+- [Access Token](/architecture/microservices/security/access-token) — propagação da identidade entre serviços.
+- [Log Aggregation](/architecture/microservices/observability/log-aggregation) — observabilidade de sistemas distribuídos.
+- [Distributed Tracing](/architecture/microservices/observability/distributed-tracing) — rastreamento de requisições entre serviços.
+- [Health Check API](/cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring) — verificação da saúde de cada serviço.
+- [Service Component Test](/architecture/microservices/testing/service-component-test) — teste isolado de cada serviço.
+- [Microservice Chassis](/architecture/microservices/cross-cutting-concerns/microservice-chassis) — preocupações transversais reutilizáveis.
+- [Externalized Configuration](/cloud/cloud-design-patterns/deployment-and-topology/external-configuration-store) — configuração fora do artefato.
 
 ## Referência
 

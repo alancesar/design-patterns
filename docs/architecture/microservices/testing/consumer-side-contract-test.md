@@ -15,7 +15,7 @@ sidebar_label: "Consumer-side Contract Test"
 
 O Consumer-side Contract Test verifica que o cliente de um serviço consegue se comunicar com ele. O teste roda no **lado do consumidor**: o serviço provedor é substituído por um stub gerado a partir do contrato, e o consumidor é exercitado contra esse stub para confirmar que envia requisições válidas e interpreta corretamente as respostas previstas.
 
-É o espelho do [Consumer-driven Contract Test](./consumer-driven-contract-test.md). Nele, o provedor é validado contra os contratos dos consumidores. Aqui, o consumidor é validado contra os mesmos contratos. Como os dois lados usam o mesmo contrato, ele funciona como ponto de acordo entre os times, sem subir os dois serviços juntos.
+É o espelho do [Consumer-driven Contract Test](/architecture/microservices/testing/consumer-driven-contract-test). Nele, o provedor é validado contra os contratos dos consumidores. Aqui, o consumidor é validado contra os mesmos contratos. Como os dois lados usam o mesmo contrato, ele funciona como ponto de acordo entre os times, sem subir os dois serviços juntos.
 
 ## Problemas que resolve
 
@@ -64,10 +64,10 @@ O consumidor é testado contra um stub derivado do contrato, sem depender do pro
 
 ## Padrões relacionados
 
-- [Consumer-driven Contract Test](./consumer-driven-contract-test.md) — valida o provedor contra os contratos dos consumidores
-- [Service Component Test](./service-component-test.md) — testa um serviço isolado usando dublês das dependências
-- [Remote Procedure Invocation](../communication-styles/remote-procedure-invocation.md) — estilo de comunicação coberto pelos contratos
-- [Messaging](../communication-styles/messaging.md) — contratos também podem descrever mensagens
+- [Consumer-driven Contract Test](/architecture/microservices/testing/consumer-driven-contract-test) — valida o provedor contra os contratos dos consumidores
+- [Service Component Test](/architecture/microservices/testing/service-component-test) — testa um serviço isolado usando dublês das dependências
+- [Remote Procedure Invocation](/architecture/microservices/communication-styles/remote-procedure-invocation) — estilo de comunicação coberto pelos contratos
+- [Messaging](/architecture/microservices/communication-styles/messaging) — contratos também podem descrever mensagens
 
 ## Referência
 

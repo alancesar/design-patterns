@@ -77,14 +77,14 @@ O Scheduler executa as etapas, delega chamadas remotas aos Agents e grava o prog
 
 ## Padrões relacionados
 
-- [Retry](../resiliency/retry.md) — usado pelos Agents para lidar com falhas transitórias dentro do prazo da etapa.
-- [Compensating Transaction](./compensating-transaction.md) — permite desfazer as etapas já concluídas quando a tarefa não pode ser finalizada.
-- [Idempotent Consumer](../messaging/idempotent-consumer.md) — necessário porque uma etapa pode ser executada mais de uma vez após recuperação.
-- [Leader Election](./leader-election.md) — coordena múltiplas instâncias do Supervisor para que não disputem a mesma recuperação.
-- [Asynchronous Request-Reply](../messaging/asynchronous-request-reply.md) — modelo de comunicação entre Scheduler e Agents.
-- [Saga](./saga.md) — abordagem relacionada para manter consistência em transações distribuídas de várias etapas.
-- [Circuit Breaker](../resiliency/circuit-breaker.md) — evita que Agents sobrecarreguem um serviço remoto com falhas persistentes.
-- [Queue-Based Load Leveling](../messaging/queue-based-load-leveling.md) — filas entre Scheduler e Agents absorvem picos e ajudam no controle de admissão.
+- [Retry](/cloud/cloud-design-patterns/resiliency/retry) — usado pelos Agents para lidar com falhas transitórias dentro do prazo da etapa.
+- [Compensating Transaction](/cloud/cloud-design-patterns/distributed-coordination/compensating-transaction) — permite desfazer as etapas já concluídas quando a tarefa não pode ser finalizada.
+- [Idempotent Consumer](/cloud/cloud-design-patterns/messaging/idempotent-consumer) — necessário porque uma etapa pode ser executada mais de uma vez após recuperação.
+- [Leader Election](/cloud/cloud-design-patterns/distributed-coordination/leader-election) — coordena múltiplas instâncias do Supervisor para que não disputem a mesma recuperação.
+- [Asynchronous Request-Reply](/cloud/cloud-design-patterns/messaging/asynchronous-request-reply) — modelo de comunicação entre Scheduler e Agents.
+- [Saga](/cloud/cloud-design-patterns/distributed-coordination/saga) — abordagem relacionada para manter consistência em transações distribuídas de várias etapas.
+- [Circuit Breaker](/cloud/cloud-design-patterns/resiliency/circuit-breaker) — evita que Agents sobrecarreguem um serviço remoto com falhas persistentes.
+- [Queue-Based Load Leveling](/cloud/cloud-design-patterns/messaging/queue-based-load-leveling) — filas entre Scheduler e Agents absorvem picos e ajudam no controle de admissão.
 
 ## Referência
 

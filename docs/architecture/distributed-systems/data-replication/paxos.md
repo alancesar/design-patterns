@@ -72,11 +72,11 @@ O proponente obtém promessas de uma maioria na fase prepare, propõe o valor na
 
 ## Padrões relacionados
 
-- [Generation Clock](./generation-clock.md) — identifica as gerações das propostas
-- [Majority Quorum](./majority-quorum.md) — todas as fases dependem de maioria
-- [Replicated Log](./replicated-log.md) — Multi-Paxos aplica o consenso a cada entrada do log
-- [Leader and Followers](./leader-and-followers.md) — alternativa com líder estável, que simplifica o protocolo
-- [Consistent Core](../cluster-management/consistent-core.md) — serviços de consenso pequenos usam Paxos ou Raft
+- [Generation Clock](/architecture/distributed-systems/data-replication/generation-clock) — identifica as gerações das propostas
+- [Majority Quorum](/architecture/distributed-systems/data-replication/majority-quorum) — todas as fases dependem de maioria
+- [Replicated Log](/architecture/distributed-systems/data-replication/replicated-log) — Multi-Paxos aplica o consenso a cada entrada do log
+- [Leader and Followers](/architecture/distributed-systems/data-replication/leader-and-followers) — alternativa com líder estável, que simplifica o protocolo
+- [Consistent Core](/architecture/distributed-systems/cluster-management/consistent-core) — serviços de consenso pequenos usam Paxos ou Raft
 
 ## Referência
 

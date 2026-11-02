@@ -58,14 +58,14 @@ O mapper fica entre o domínio e o endpoint, convertendo nos dois sentidos.
 
 ## Padrões relacionados
 
-- [Message Endpoint](./message-endpoint.md) — usa o mapper para preencher e ler mensagens.
-- [Messaging Gateway](./messaging-gateway.md) — frequentemente delega a conversão ao mapper.
-- [Message Translator](../message-transformation/message-translator.md) — traduz entre formatos de mensagem, e não entre objetos e mensagens.
-- [Canonical Data Model](../message-transformation/canonical-data-model.md) — formato comum para o qual o mapper pode converter.
-- [Document Message](../message-construction/document-message.md) — tipo de mensagem muitas vezes produzido pelo mapper.
-- [Command Message](../message-construction/command-message.md) — outro tipo de mensagem produzido pelo mapper.
-- [Mapper (PoEAA)](../../../application/poeaa/base/mapper.md) — padrão geral do qual deriva.
-- [Data Mapper (PoEAA)](../../../application/poeaa/data-source-architectural/data-mapper.md) — análogo para persistência.
+- [Message Endpoint](/architecture/eip/messaging-endpoints/message-endpoint) — usa o mapper para preencher e ler mensagens.
+- [Messaging Gateway](/architecture/eip/messaging-endpoints/messaging-gateway) — frequentemente delega a conversão ao mapper.
+- [Message Translator](/architecture/eip/message-transformation/message-translator) — traduz entre formatos de mensagem, e não entre objetos e mensagens.
+- [Canonical Data Model](/architecture/eip/message-transformation/canonical-data-model) — formato comum para o qual o mapper pode converter.
+- [Document Message](/architecture/eip/message-construction/document-message) — tipo de mensagem muitas vezes produzido pelo mapper.
+- [Command Message](/architecture/eip/message-construction/command-message) — outro tipo de mensagem produzido pelo mapper.
+- [Mapper (PoEAA)](/application/poeaa/base/mapper) — padrão geral do qual deriva.
+- [Data Mapper (PoEAA)](/application/poeaa/data-source-architectural/data-mapper) — análogo para persistência.
 
 ## Referência
 

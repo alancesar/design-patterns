@@ -63,9 +63,9 @@ O log é uma sequência de segmentos imutáveis mais um segmento ativo, o único
 
 ## Padrões relacionados
 
-- [Write-Ahead Log](./write-ahead-log.md) — o log que é dividido em segmentos
-- [Low-Water Mark](./low-water-mark.md) — indica quais segmentos antigos podem ser removidos
-- [Replicated Log](./replicated-log.md) — o log replicado costuma ser armazenado de forma segmentada
+- [Write-Ahead Log](/architecture/distributed-systems/data-replication/write-ahead-log) — o log que é dividido em segmentos
+- [Low-Water Mark](/architecture/distributed-systems/data-replication/low-water-mark) — indica quais segmentos antigos podem ser removidos
+- [Replicated Log](/architecture/distributed-systems/data-replication/replicated-log) — o log replicado costuma ser armazenado de forma segmentada
 
 ## Referência
 

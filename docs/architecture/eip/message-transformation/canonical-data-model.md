@@ -66,14 +66,14 @@ Cada aplicação se conecta ao modelo canônico por um único tradutor, em vez d
 
 ## Padrões relacionados
 
-- [Message Translator](./message-translator.md) — realiza a conversão entre o formato da aplicação e o canônico.
-- [Normalizer](./normalizer.md) — converte formatos variados para o formato comum.
-- [Messaging Mapper](../messaging-endpoints/messaging-mapper.md) — liga os dados internos da aplicação ao formato de mensagem.
-- [Format Indicator](../message-construction/format-indicator.md) — identifica a versão ou o formato usado na mensagem.
-- [Message Bus](../messaging-channels/message-bus.md) — a arquitetura de barramento costuma pressupor um modelo canônico.
-- [Message Router](../message-routing/message-router.md) — direciona mensagens no formato comum.
-- [Shared Database](../../microservices/service-collaboration/shared-database.md) — alternativa de integração em que o modelo comum é o esquema compartilhado.
-- [Published Language](../../../application/ddd/context-mapping/published-language.md) — conceito equivalente no DDD: linguagem documentada e compartilhada entre contextos.
+- [Message Translator](/architecture/eip/message-transformation/message-translator) — realiza a conversão entre o formato da aplicação e o canônico.
+- [Normalizer](/architecture/eip/message-transformation/normalizer) — converte formatos variados para o formato comum.
+- [Messaging Mapper](/architecture/eip/messaging-endpoints/messaging-mapper) — liga os dados internos da aplicação ao formato de mensagem.
+- [Format Indicator](/architecture/eip/message-construction/format-indicator) — identifica a versão ou o formato usado na mensagem.
+- [Message Bus](/architecture/eip/messaging-channels/message-bus) — a arquitetura de barramento costuma pressupor um modelo canônico.
+- [Message Router](/architecture/eip/message-routing/message-router) — direciona mensagens no formato comum.
+- [Shared Database](/architecture/microservices/service-collaboration/shared-database) — alternativa de integração em que o modelo comum é o esquema compartilhado.
+- [Published Language](/application/ddd/context-mapping/published-language) — conceito equivalente no DDD: linguagem documentada e compartilhada entre contextos.
 
 ## Referência
 

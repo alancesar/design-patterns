@@ -71,13 +71,13 @@ A escrita só é confirmada depois que o tempo local passa de t somado ao erro m
 
 ## Padrões relacionados
 
-- [Hybrid Clock](./hybrid-clock.md) — fornece os timestamps sobre os quais a espera é aplicada
-- [Lamport Clock](./lamport-clock.md) — ordem causal sem tempo físico, que o Clock-Bound Wait complementa
-- [Versioned Value](../data-replication/versioned-value.md) — valores versionados por timestamp que precisam dessa garantia
-- [Two-Phase Commit](../data-partitioning/two-phase-commit.md) — transações entre partições escolhem o timestamp de commit e podem esperar a incerteza
-- [Version Vector](../data-replication/version-vector.md) — abordagem alternativa que detecta concorrência sem depender de relógios
-- [Message Sequence](../../eip/message-construction/message-sequence.md) (EIP) — ordenação no nível de mensagens
-- [Resequencer](../../eip/message-routing/resequencer.md) (EIP) — reordena mensagens por sequência
+- [Hybrid Clock](/architecture/distributed-systems/distributed-time/hybrid-clock) — fornece os timestamps sobre os quais a espera é aplicada
+- [Lamport Clock](/architecture/distributed-systems/distributed-time/lamport-clock) — ordem causal sem tempo físico, que o Clock-Bound Wait complementa
+- [Versioned Value](/architecture/distributed-systems/data-replication/versioned-value) — valores versionados por timestamp que precisam dessa garantia
+- [Two-Phase Commit](/architecture/distributed-systems/data-partitioning/two-phase-commit) — transações entre partições escolhem o timestamp de commit e podem esperar a incerteza
+- [Version Vector](/architecture/distributed-systems/data-replication/version-vector) — abordagem alternativa que detecta concorrência sem depender de relógios
+- [Message Sequence](/architecture/eip/message-construction/message-sequence) (EIP) — ordenação no nível de mensagens
+- [Resequencer](/architecture/eip/message-routing/resequencer) (EIP) — reordena mensagens por sequência
 
 ## Referência
 

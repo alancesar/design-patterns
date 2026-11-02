@@ -91,15 +91,15 @@ public class Customer extends DomainObject {
 }
 ```
 
-O JPA usa `@Id` como Identity Field; a superclasse segue o [Layer Supertype](../base/layer-supertype.md).
+O JPA usa `@Id` como Identity Field; a superclasse segue o [Layer Supertype](/application/poeaa/base/layer-supertype).
 
 ## Padrões relacionados
 
-- [Identity Map](../object-relational-behavioral/identity-map.md) — usa o Identity Field como chave para evitar carregar o mesmo registro duas vezes.
-- [Foreign Key Mapping](./foreign-key-mapping.md) — usa o Identity Field para representar referências entre objetos.
-- [Layer Supertype](../base/layer-supertype.md) — superclasse comum que costuma conter o campo de identidade.
-- [Value Object](../base/value-object.md) — objetos sem identidade, que não precisam do campo.
-- [Embedded Value](./embedded-value.md) — alternativa para objetos pequenos sem identidade própria.
+- [Identity Map](/application/poeaa/object-relational-behavioral/identity-map) — usa o Identity Field como chave para evitar carregar o mesmo registro duas vezes.
+- [Foreign Key Mapping](/application/poeaa/object-relational-structural/foreign-key-mapping) — usa o Identity Field para representar referências entre objetos.
+- [Layer Supertype](/application/poeaa/base/layer-supertype) — superclasse comum que costuma conter o campo de identidade.
+- [Value Object](/application/poeaa/base/value-object) — objetos sem identidade, que não precisam do campo.
+- [Embedded Value](/application/poeaa/object-relational-structural/embedded-value) — alternativa para objetos pequenos sem identidade própria.
 
 ## Referência
 

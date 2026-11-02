@@ -18,9 +18,9 @@ sidebar_label: "Maker-Checker Loop"
 
 Um agente, o **maker**, cria ou propõe algo, e outro agente, o **checker**, avalia o resultado contra critérios definidos. Se o checker encontra lacunas ou problemas de qualidade, devolve a conversa ao maker com feedback específico. O maker revisa a saída e a reenvia. O ciclo se repete até o checker aprovar ou até atingir o número máximo de iterações.
 
-É um tipo específico de [Group Chat Orchestration](./group-chat-orchestration.md). Enquanto o group chat geral não exige que os agentes falem por turnos, o maker-checker exige uma sequência formal de turnos conduzida pelo chat manager, com papéis fixos (criar e avaliar) e uma condição de parada objetiva. Por isso é mais previsível que um group chat livre.
+É um tipo específico de [Group Chat Orchestration](/ai/agent-orchestration/dynamic-orchestration/group-chat-orchestration). Enquanto o group chat geral não exige que os agentes falem por turnos, o maker-checker exige uma sequência formal de turnos conduzida pelo chat manager, com papéis fixos (criar e avaliar) e uma condição de parada objetiva. Por isso é mais previsível que um group chat livre.
 
-Também é conhecido como *evaluator-optimizer*, *generator-verifier*, *critic loops* ou *reflection loops*. No Google Cloud é o **Review and Critique** (também chamado *generator and critic*): um agente gerador produz a saída e um agente crítico a avalia contra critérios como precisão factual, formato ou segurança, aprovando, rejeitando ou devolvendo com feedback. O Google o trata como uma implementação do [Multi-Agent Loop](../../agentic-ai/iteration/multi-agent-loop.md), geralmente em um fluxo sequencial; o [Iterative Refinement](../../agentic-ai/iteration/multi-agent-iterative-refinement.md) é a outra implementação, em que os agentes alteram progressivamente um resultado no estado da sessão.
+Também é conhecido como *evaluator-optimizer*, *generator-verifier*, *critic loops* ou *reflection loops*. No Google Cloud é o **Review and Critique** (também chamado *generator and critic*): um agente gerador produz a saída e um agente crítico a avalia contra critérios como precisão factual, formato ou segurança, aprovando, rejeitando ou devolvendo com feedback. O Google o trata como uma implementação do [Multi-Agent Loop](/ai/agentic-ai/iteration/multi-agent-loop), geralmente em um fluxo sequencial; o [Iterative Refinement](/ai/agentic-ai/iteration/multi-agent-iterative-refinement) é a outra implementação, em que os agentes alteram progressivamente um resultado no estado da sessão.
 
 ## Problemas que resolve
 
@@ -86,12 +86,12 @@ O chat manager conduz turnos formais entre maker e checker; o ciclo termina com 
 
 ## Padrões relacionados
 
-- [Group Chat Orchestration](./group-chat-orchestration.md) — padrão geral do qual este é um subtipo, com turnos formais e critérios de aceitação.
-- [Sequential Orchestration](../deterministic-workflows/sequential-orchestration.md) — uma passada criar-depois-revisar sem repetição, quando um único ciclo basta.
-- [Magentic Orchestration](./magentic-orchestration.md) — o gerente também verifica se o pedido foi atendido ou travou, mas num plano aberto.
-- [Multi-Agent Loop](../../agentic-ai/iteration/multi-agent-loop.md) — padrão do Google do qual este é uma implementação.
-- [Multi-Agent Iterative Refinement](../../agentic-ai/iteration/multi-agent-iterative-refinement.md) — outra implementação do loop, em que os agentes melhoram um resultado no estado da sessão até um limiar de qualidade, sem papel de aprovador.
-- [Circuit Breaker](../../../cloud/cloud-design-patterns/resiliency/circuit-breaker.md) — o limite de iterações com fallback lembra a interrupção de tentativas repetidas que não avançam.
+- [Group Chat Orchestration](/ai/agent-orchestration/dynamic-orchestration/group-chat-orchestration) — padrão geral do qual este é um subtipo, com turnos formais e critérios de aceitação.
+- [Sequential Orchestration](/ai/agent-orchestration/deterministic-workflows/sequential-orchestration) — uma passada criar-depois-revisar sem repetição, quando um único ciclo basta.
+- [Magentic Orchestration](/ai/agent-orchestration/dynamic-orchestration/magentic-orchestration) — o gerente também verifica se o pedido foi atendido ou travou, mas num plano aberto.
+- [Multi-Agent Loop](/ai/agentic-ai/iteration/multi-agent-loop) — padrão do Google do qual este é uma implementação.
+- [Multi-Agent Iterative Refinement](/ai/agentic-ai/iteration/multi-agent-iterative-refinement) — outra implementação do loop, em que os agentes melhoram um resultado no estado da sessão até um limiar de qualidade, sem papel de aprovador.
+- [Circuit Breaker](/cloud/cloud-design-patterns/resiliency/circuit-breaker) — o limite de iterações com fallback lembra a interrupção de tentativas repetidas que não avançam.
 
 ## Referência
 

@@ -74,11 +74,11 @@ O serviço confia previamente no IdP/STS; o cliente se autentica apenas no IdP e
 
 ## Padrões relacionados
 
-- [Gatekeeper](./gatekeeper.md) — um gatekeeper pode centralizar a validação de tokens antes de encaminhar requisições aos serviços internos.
-- [Gateway Offloading](../gateways-and-edge/gateway-offloading.md) — a validação de autenticação é uma responsabilidade transversal comumente transferida para o gateway.
-- [Valet Key](./valet-key.md) — após autenticar o usuário via identidade federada, a aplicação pode emitir chaves de acesso restritas e temporárias a recursos.
-- [Backends for Frontends](../gateways-and-edge/backends-for-frontends.md) — cada BFF pode conduzir o fluxo de login adequado ao seu tipo de cliente e propagar tokens para as APIs.
-- [Deployment Stamp](../deployment-and-topology/deployment-stamp.md) — em soluções multi-tenant e multirregião, a identidade federada permite que todos os stamps confiem no mesmo IdP.
+- [Gatekeeper](/cloud/cloud-design-patterns/security-and-access/gatekeeper) — um gatekeeper pode centralizar a validação de tokens antes de encaminhar requisições aos serviços internos.
+- [Gateway Offloading](/cloud/cloud-design-patterns/gateways-and-edge/gateway-offloading) — a validação de autenticação é uma responsabilidade transversal comumente transferida para o gateway.
+- [Valet Key](/cloud/cloud-design-patterns/security-and-access/valet-key) — após autenticar o usuário via identidade federada, a aplicação pode emitir chaves de acesso restritas e temporárias a recursos.
+- [Backends for Frontends](/cloud/cloud-design-patterns/gateways-and-edge/backends-for-frontends) — cada BFF pode conduzir o fluxo de login adequado ao seu tipo de cliente e propagar tokens para as APIs.
+- [Deployment Stamp](/cloud/cloud-design-patterns/deployment-and-topology/deployment-stamp) — em soluções multi-tenant e multirregião, a identidade federada permite que todos os stamps confiem no mesmo IdP.
 
 ## Referência
 

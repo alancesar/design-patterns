@@ -16,7 +16,7 @@ sidebar_label: "Consistent Core"
 
 O Consistent Core separa o cluster em duas partes: um pequeno grupo de nós (tipicamente três a cinco) que executa um algoritmo de consenso e oferece linearizabilidade com tolerância a falhas, e um cluster de dados, que pode ter centenas de nós. O núcleo guarda os metadados e toma as decisões que exigem uma visão única e confiável do sistema, como a lista de membros, o mapeamento de partições para servidores e a escolha de líderes.
 
-O cluster de dados não participa do consenso. Ele consulta o núcleo e usa primitivas construídas sobre ele, como [Lease](./lease.md) e [State Watch](./state-watch.md), para coordenar-se. Assim, o custo do quórum fica restrito a poucos nós, enquanto o volume de dados e de requisições de clientes escala nos demais.
+O cluster de dados não participa do consenso. Ele consulta o núcleo e usa primitivas construídas sobre ele, como [Lease](/architecture/distributed-systems/cluster-management/lease) e [State Watch](/architecture/distributed-systems/cluster-management/state-watch), para coordenar-se. Assim, o custo do quórum fica restrito a poucos nós, enquanto o volume de dados e de requisições de clientes escala nos demais.
 
 É a arquitetura por trás de serviços como ZooKeeper, etcd e Consul, e também de componentes de metadados em sistemas como Kafka e Kubernetes.
 
@@ -37,7 +37,7 @@ O cluster de dados não participa do consenso. Ele consulta o núcleo e usa prim
 
 - Clusters pequenos, em que o próprio cluster de dados já pode executar o consenso.
 - Quando guardar dados de aplicação no núcleo for tentador: ele não foi feito para alto volume de escrita.
-- Sistemas que precisam continuar coordenando sem qualquer dependência externa, mesmo com partição de rede (veja [Emergent Leader](./emergent-leader.md) e [Gossip Dissemination](./gossip-dissemination.md)).
+- Sistemas que precisam continuar coordenando sem qualquer dependência externa, mesmo com partição de rede (veja [Emergent Leader](/architecture/distributed-systems/cluster-management/emergent-leader) e [Gossip Dissemination](/architecture/distributed-systems/cluster-management/gossip-dissemination)).
 
 ## Trade-offs
 
@@ -82,13 +82,13 @@ O consenso acontece apenas entre os poucos nós do núcleo; os servidores de dad
 
 ## Padrões relacionados
 
-- [Replicated Log](../data-replication/replicated-log.md) — o núcleo replica os comandos de metadados por meio de um log replicado.
-- [Majority Quorum](../data-replication/majority-quorum.md) — define quantos nós do núcleo precisam concordar e quantas falhas ele tolera.
-- [Fixed Partitions](../data-partitioning/fixed-partitions.md) — o mapeamento de partições para servidores costuma ser guardado no núcleo.
-- [Lease](./lease.md) — primitiva de acesso exclusivo com expiração, implementada sobre o núcleo.
-- [State Watch](./state-watch.md) — permite que clientes sejam notificados de mudanças nos metadados.
-- [Emergent Leader](./emergent-leader.md) — alternativa quando não se quer um núcleo separado.
-- [Service Registry](../../microservices/service-discovery/service-registry.md) — registros de serviços costumam ser apoiados em um núcleo consistente.
+- [Replicated Log](/architecture/distributed-systems/data-replication/replicated-log) — o núcleo replica os comandos de metadados por meio de um log replicado.
+- [Majority Quorum](/architecture/distributed-systems/data-replication/majority-quorum) — define quantos nós do núcleo precisam concordar e quantas falhas ele tolera.
+- [Fixed Partitions](/architecture/distributed-systems/data-partitioning/fixed-partitions) — o mapeamento de partições para servidores costuma ser guardado no núcleo.
+- [Lease](/architecture/distributed-systems/cluster-management/lease) — primitiva de acesso exclusivo com expiração, implementada sobre o núcleo.
+- [State Watch](/architecture/distributed-systems/cluster-management/state-watch) — permite que clientes sejam notificados de mudanças nos metadados.
+- [Emergent Leader](/architecture/distributed-systems/cluster-management/emergent-leader) — alternativa quando não se quer um núcleo separado.
+- [Service Registry](/architecture/microservices/service-discovery/service-registry) — registros de serviços costumam ser apoiados em um núcleo consistente.
 
 ## Referência
 

@@ -77,14 +77,14 @@ Várias tarefas publicam mensagens em ritmos irregulares na mesma fila, que abso
 
 ## Padrões relacionados
 
-- [Competing Consumers](./competing-consumers.md) — várias instâncias consomem da mesma fila para aumentar o throughput do processamento.
-- [Throttling](../resiliency/throttling.md) — limita o consumo de recursos; o load leveling evita que a demanda atinja o limiar de throttling.
-- [Rate Limiting](../resiliency/rate-limiting-pattern.md) — controla a taxa com que os consumidores acessam o recurso downstream.
-- [Priority Queue](./priority-queue.md) — permite processar mensagens mais importantes antes das demais.
-- [Asynchronous Request-Reply](./asynchronous-request-reply.md) — oferece um meio de devolver respostas ao chamador em fluxos assíncronos.
-- [Idempotent Consumer](./idempotent-consumer.md) — garante que mensagens entregues mais de uma vez não causem efeitos duplicados.
-- [Claim Check](./claim-check.md) — reduz o tamanho das mensagens enfileiradas armazenando o payload fora da fila.
-- [Retry](../resiliency/retry.md) — trata falhas transitórias ao publicar ou processar mensagens.
+- [Competing Consumers](/cloud/cloud-design-patterns/messaging/competing-consumers) — várias instâncias consomem da mesma fila para aumentar o throughput do processamento.
+- [Throttling](/cloud/cloud-design-patterns/resiliency/throttling) — limita o consumo de recursos; o load leveling evita que a demanda atinja o limiar de throttling.
+- [Rate Limiting](/cloud/cloud-design-patterns/resiliency/rate-limiting-pattern) — controla a taxa com que os consumidores acessam o recurso downstream.
+- [Priority Queue](/cloud/cloud-design-patterns/messaging/priority-queue) — permite processar mensagens mais importantes antes das demais.
+- [Asynchronous Request-Reply](/cloud/cloud-design-patterns/messaging/asynchronous-request-reply) — oferece um meio de devolver respostas ao chamador em fluxos assíncronos.
+- [Idempotent Consumer](/cloud/cloud-design-patterns/messaging/idempotent-consumer) — garante que mensagens entregues mais de uma vez não causem efeitos duplicados.
+- [Claim Check](/cloud/cloud-design-patterns/messaging/claim-check) — reduz o tamanho das mensagens enfileiradas armazenando o payload fora da fila.
+- [Retry](/cloud/cloud-design-patterns/resiliency/retry) — trata falhas transitórias ao publicar ou processar mensagens.
 
 ## Referência
 

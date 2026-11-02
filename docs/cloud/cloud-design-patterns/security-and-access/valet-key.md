@@ -79,11 +79,11 @@ O cliente obtém da aplicação uma chave com escopo, permissões e prazo limita
 
 ## Padrões relacionados
 
-- [Gatekeeper](./gatekeeper.md) — protege serviços com uma camada dedicada que valida as requisições. No Valet Key, a aplicação faz esse papel só na emissão da chave.
-- [Static Content Hosting](../deployment-and-topology/static-content-hosting.md) — também tira o tráfego de conteúdo da aplicação. O Valet Key protege esse acesso direto quando o conteúdo não é público.
-- [Gateway Routing](../gateways-and-edge/gateway-routing.md) — é a alternativa de proxy, em que todo o tráfego passa por um endpoint intermediário. Compensa só quando o intermediário agrega algo à transação.
-- [Federated Identity](./federated-identity.md) — autentica o cliente no serviço que emite as chaves antes de qualquer acesso ser concedido.
-- [Claim Check](../messaging/claim-check.md) — também guarda cargas grandes num armazenamento externo, e o Valet Key pode dar acesso temporário a elas.
+- [Gatekeeper](/cloud/cloud-design-patterns/security-and-access/gatekeeper) — protege serviços com uma camada dedicada que valida as requisições. No Valet Key, a aplicação faz esse papel só na emissão da chave.
+- [Static Content Hosting](/cloud/cloud-design-patterns/deployment-and-topology/static-content-hosting) — também tira o tráfego de conteúdo da aplicação. O Valet Key protege esse acesso direto quando o conteúdo não é público.
+- [Gateway Routing](/cloud/cloud-design-patterns/gateways-and-edge/gateway-routing) — é a alternativa de proxy, em que todo o tráfego passa por um endpoint intermediário. Compensa só quando o intermediário agrega algo à transação.
+- [Federated Identity](/cloud/cloud-design-patterns/security-and-access/federated-identity) — autentica o cliente no serviço que emite as chaves antes de qualquer acesso ser concedido.
+- [Claim Check](/cloud/cloud-design-patterns/messaging/claim-check) — também guarda cargas grandes num armazenamento externo, e o Valet Key pode dar acesso temporário a elas.
 
 ## Referência
 

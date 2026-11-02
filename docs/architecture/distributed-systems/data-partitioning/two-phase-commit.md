@@ -74,13 +74,13 @@ Se qualquer participante recusar na fase de prepare, o coordenador envia rollbac
 
 ## Padrões relacionados
 
-- [Write-Ahead Log](../data-replication/write-ahead-log.md) — garante a durabilidade das decisões de coordenador e participantes
-- [Replicated Log](../data-replication/replicated-log.md) — permite replicar o estado do coordenador para evitar bloqueio
-- [Versioned Value](../data-replication/versioned-value.md) — armazena as versões gravadas pela transação
-- [Hybrid Clock](../distributed-time/hybrid-clock.md) — ordena transações entre nós com timestamps
-- [Fixed Partitions](./fixed-partitions.md) e [Key-Range Partitions](./key-range-partitions.md) — as partições sobre as quais a transação costuma atuar
-- [Saga](../../../cloud/cloud-design-patterns/distributed-coordination/saga.md) (nuvem) — alternativa sem locks globais, baseada em compensação
-- [Compensating Transaction](../../../cloud/cloud-design-patterns/distributed-coordination/compensating-transaction.md) (nuvem) — desfaz passos já efetivados em vez de bloquear
+- [Write-Ahead Log](/architecture/distributed-systems/data-replication/write-ahead-log) — garante a durabilidade das decisões de coordenador e participantes
+- [Replicated Log](/architecture/distributed-systems/data-replication/replicated-log) — permite replicar o estado do coordenador para evitar bloqueio
+- [Versioned Value](/architecture/distributed-systems/data-replication/versioned-value) — armazena as versões gravadas pela transação
+- [Hybrid Clock](/architecture/distributed-systems/distributed-time/hybrid-clock) — ordena transações entre nós com timestamps
+- [Fixed Partitions](/architecture/distributed-systems/data-partitioning/fixed-partitions) e [Key-Range Partitions](/architecture/distributed-systems/data-partitioning/key-range-partitions) — as partições sobre as quais a transação costuma atuar
+- [Saga](/cloud/cloud-design-patterns/distributed-coordination/saga) (nuvem) — alternativa sem locks globais, baseada em compensação
+- [Compensating Transaction](/cloud/cloud-design-patterns/distributed-coordination/compensating-transaction) (nuvem) — desfaz passos já efetivados em vez de bloquear
 
 ## Referência
 

@@ -16,7 +16,7 @@ sidebar_label: "Plugin"
 
 O Plugin liga classes durante a configuração, e não durante a compilação. A escolha da implementação de uma interface sai do código da aplicação e vai para uma configuração centralizada, lida em tempo de execução.
 
-O problema típico aparece quando o código roda em ambientes diferentes e usa um [Separated Interface](./separated-interface.md) com implementações distintas para cada um: por exemplo, um gerador de chaves em memória para testes unitários e uma sequência do banco em produção. Normalmente a escolha é feita em métodos de fábrica que verificam variáveis de ambiente. À medida que as fábricas se multiplicam, mudar a configuração de um ambiente exige editar várias delas, recompilar e reimplantar.
+O problema típico aparece quando o código roda em ambientes diferentes e usa um [Separated Interface](/application/poeaa/base/separated-interface) com implementações distintas para cada um: por exemplo, um gerador de chaves em memória para testes unitários e uma sequência do banco em produção. Normalmente a escolha é feita em métodos de fábrica que verificam variáveis de ambiente. À medida que as fábricas se multiplicam, mudar a configuração de um ambiente exige editar várias delas, recompilar e reimplantar.
 
 Com o Plugin, um único arquivo de configuração associa cada interface à implementação do ambiente, e uma fábrica genérica instancia a classe indicada (por reflexão ou carregamento dinâmico). Trocar a implementação passa a ser uma mudança de configuração, sem recompilar. Os contêineres de injeção de dependência modernos são, em essência, implementações sofisticadas desse padrão.
 
@@ -49,7 +49,7 @@ Com o Plugin, um único arquivo de configuração associa cada interface à impl
 | Facilita trocar por stubs em testes e ambientes | Exige uma interface bem definida (Separated Interface) |
 | Permite extensões de terceiros | Segurança: carregar classes por configuração exige cuidado com a origem |
 
-- **Testabilidade:** o ambiente de teste aponta para implementações de teste (por exemplo, [Service Stub](./service-stub.md)) apenas pela configuração.
+- **Testabilidade:** o ambiente de teste aponta para implementações de teste (por exemplo, [Service Stub](/application/poeaa/base/service-stub)) apenas pela configuração.
 - **Complexidade:** moderada, pois depende de reflexão, descoberta de classes ou de um contêiner.
 
 ## Diagrama
@@ -102,14 +102,14 @@ Em frameworks, equivalem ao Spring (perfis e configuração de beans), ao `Servi
 
 ## Padrões relacionados
 
-- [Separated Interface](./separated-interface.md) — fornece a interface cujas implementações o Plugin escolhe.
-- [Service Stub](./service-stub.md) — implementação típica selecionada em ambientes de teste.
-- [Gateway](./gateway.md) — gateways costumam ser configurados como plugins por ambiente.
-- [Registry](./registry.md) — alternativa para localizar serviços, mas por consulta a um objeto conhecido, e não por configuração externa.
-- [Factory Method](../../../coding/gof/creational/factory-method.md) — o Plugin substitui fábricas com condicionais por uma fábrica genérica dirigida por configuração.
-- [Abstract Factory](../../../coding/gof/creational/abstract-factory.md) — também escolhe uma família de implementações, mas fixada no código.
-- [Strategy](../../../coding/gof/behavioral/strategy.md) — o Plugin é uma forma de selecionar a estratégia por configuração.
-- [Externalized Configuration](../../../cloud/cloud-design-patterns/deployment-and-topology/external-configuration-store.md) — a mesma ideia de tirar a configuração do código, aplicada a serviços.
+- [Separated Interface](/application/poeaa/base/separated-interface) — fornece a interface cujas implementações o Plugin escolhe.
+- [Service Stub](/application/poeaa/base/service-stub) — implementação típica selecionada em ambientes de teste.
+- [Gateway](/application/poeaa/base/gateway) — gateways costumam ser configurados como plugins por ambiente.
+- [Registry](/application/poeaa/base/registry) — alternativa para localizar serviços, mas por consulta a um objeto conhecido, e não por configuração externa.
+- [Factory Method](/coding/gof/creational/factory-method) — o Plugin substitui fábricas com condicionais por uma fábrica genérica dirigida por configuração.
+- [Abstract Factory](/coding/gof/creational/abstract-factory) — também escolhe uma família de implementações, mas fixada no código.
+- [Strategy](/coding/gof/behavioral/strategy) — o Plugin é uma forma de selecionar a estratégia por configuração.
+- [Externalized Configuration](/cloud/cloud-design-patterns/deployment-and-topology/external-configuration-store) — a mesma ideia de tirar a configuração do código, aplicada a serviços.
 
 ## Referência
 

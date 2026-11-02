@@ -66,13 +66,13 @@ O requestor envia a requisição por um canal e recebe a resposta por outro.
 
 ## Padrões relacionados
 
-- [Return Address](./return-address.md) — informa ao replier onde responder
-- [Correlation Identifier](./correlation-identifier.md) — liga cada resposta à sua requisição
-- [Command Message](./command-message.md) — a requisição costuma ser um comando
-- [Document Message](./document-message.md) — a resposta costuma ser um documento
-- [Message Expiration](./message-expiration.md) — evita requisições que perderam o prazo
-- [Point-to-Point Channel](../messaging-channels/point-to-point-channel.md) — canal típico da resposta
-- [Asynchronous Request-Reply](../../../cloud/cloud-design-patterns/messaging/asynchronous-request-reply.md) — variante do Azure baseada em HTTP 202 e polling, diferente do par de canais do EIP
+- [Return Address](/architecture/eip/message-construction/return-address) — informa ao replier onde responder
+- [Correlation Identifier](/architecture/eip/message-construction/correlation-identifier) — liga cada resposta à sua requisição
+- [Command Message](/architecture/eip/message-construction/command-message) — a requisição costuma ser um comando
+- [Document Message](/architecture/eip/message-construction/document-message) — a resposta costuma ser um documento
+- [Message Expiration](/architecture/eip/message-construction/message-expiration) — evita requisições que perderam o prazo
+- [Point-to-Point Channel](/architecture/eip/messaging-channels/point-to-point-channel) — canal típico da resposta
+- [Asynchronous Request-Reply](/cloud/cloud-design-patterns/messaging/asynchronous-request-reply) — variante do Azure baseada em HTTP 202 e polling, diferente do par de canais do EIP
 
 ## Referência
 

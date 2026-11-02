@@ -29,7 +29,7 @@ Se a conexão cai, o remetente a reabre e reenvia o que ainda não foi confirmad
 
 ## Quando usar
 
-- Comunicação contínua entre pares fixos de nós, como líder e followers em [Leader and Followers](../data-replication/leader-and-followers.md).
+- Comunicação contínua entre pares fixos de nós, como líder e followers em [Leader and Followers](/architecture/distributed-systems/data-replication/leader-and-followers).
 - Fluxos de replicação em que a ordem das mensagens importa (log replicado, atualizações de estado).
 - Quando se deseja ordenação e entrega confiável delegadas ao TCP, em vez de numeração e confirmação próprias.
 
@@ -48,7 +48,7 @@ Se a conexão cai, o remetente a reabre e reenvia o que ainda não foi confirmad
 | Modelo simples de raciocínio sobre a ordem | Um único canal pode limitar a vazão em enlaces de alta latência |
 
 - A ordenação vale por canal: se o nó troca de conexão, é preciso garantir que mensagens antigas não sejam processadas depois das novas.
-- É comum combinar o canal com [Heartbeat](../data-replication/heartbeat.md) para detectar conexões mortas.
+- É comum combinar o canal com [Heartbeat](/architecture/distributed-systems/data-replication/heartbeat) para detectar conexões mortas.
 - A observabilidade é simples, pois há uma conexão por par de nós para monitorar.
 
 ## Diagrama
@@ -70,12 +70,12 @@ O líder abre uma conexão única com o follower e envia todas as mensagens por 
 
 ## Padrões relacionados
 
-- [Leader and Followers](../data-replication/leader-and-followers.md) — contexto em que o canal único liga o líder a cada follower.
-- [Singular Update Queue](../data-replication/singular-update-queue.md) — serializa no receptor as mensagens que chegam pelo canal.
-- [Heartbeat](../data-replication/heartbeat.md) — trafega pelo mesmo canal e ajuda a detectar falhas de conexão.
-- [Request Pipeline](./request-pipeline.md) — permite enviar várias requisições pelo canal sem esperar cada resposta.
-- [Request Batch](./request-batch.md) — agrupa requisições para reduzir o custo por mensagem no canal.
-- [Guaranteed Delivery](../../eip/messaging-channels/guaranteed-delivery.md) (EIP) — garantia de entrega em nível de mensageria, comparável à confiabilidade do TCP.
+- [Leader and Followers](/architecture/distributed-systems/data-replication/leader-and-followers) — contexto em que o canal único liga o líder a cada follower.
+- [Singular Update Queue](/architecture/distributed-systems/data-replication/singular-update-queue) — serializa no receptor as mensagens que chegam pelo canal.
+- [Heartbeat](/architecture/distributed-systems/data-replication/heartbeat) — trafega pelo mesmo canal e ajuda a detectar falhas de conexão.
+- [Request Pipeline](/architecture/distributed-systems/node-communication/request-pipeline) — permite enviar várias requisições pelo canal sem esperar cada resposta.
+- [Request Batch](/architecture/distributed-systems/node-communication/request-batch) — agrupa requisições para reduzir o custo por mensagem no canal.
+- [Guaranteed Delivery](/architecture/eip/messaging-channels/guaranteed-delivery) (EIP) — garantia de entrega em nível de mensageria, comparável à confiabilidade do TCP.
 
 ## Referência
 

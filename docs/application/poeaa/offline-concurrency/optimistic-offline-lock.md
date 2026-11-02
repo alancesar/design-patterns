@@ -98,11 +98,11 @@ UPDATE customer
 
 ## Padrões relacionados
 
-- [Pessimistic Offline Lock](./pessimistic-offline-lock.md) — alternativa para alta contenção: bloqueia antes de editar em vez de validar depois.
-- [Coarse-Grained Lock](./coarse-grained-lock.md) — faz um único número de versão proteger um grupo de objetos relacionados.
-- [Implicit Lock](./implicit-lock.md) — garante que a verificação de versão não seja esquecida pelo código de aplicação.
-- [Unit of Work](../object-relational-behavioral/unit-of-work.md) — normalmente é quem aplica a verificação de versão ao gravar as mudanças.
-- [Layer Supertype](../base/layer-supertype.md) — local comum para o campo de versão compartilhado pelas entidades.
+- [Pessimistic Offline Lock](/application/poeaa/offline-concurrency/pessimistic-offline-lock) — alternativa para alta contenção: bloqueia antes de editar em vez de validar depois.
+- [Coarse-Grained Lock](/application/poeaa/offline-concurrency/coarse-grained-lock) — faz um único número de versão proteger um grupo de objetos relacionados.
+- [Implicit Lock](/application/poeaa/offline-concurrency/implicit-lock) — garante que a verificação de versão não seja esquecida pelo código de aplicação.
+- [Unit of Work](/application/poeaa/object-relational-behavioral/unit-of-work) — normalmente é quem aplica a verificação de versão ao gravar as mudanças.
+- [Layer Supertype](/application/poeaa/base/layer-supertype) — local comum para o campo de versão compartilhado pelas entidades.
 
 ## Referência
 

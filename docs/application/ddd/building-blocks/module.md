@@ -81,11 +81,11 @@ com.acme.billing/
 
 ## Padrões relacionados
 
-- [Bounded Context](../model-in-practice/bounded-context.md) — fronteira maior, de um modelo inteiro.
-- [Ubiquitous Language](../model-in-practice/ubiquitous-language.md) — nomeia os módulos.
-- [Aggregate](./aggregate.md) — costuma residir dentro de um módulo.
-- [Layered Architecture](./layered-architecture.md) — organiza por camadas, enquanto o módulo organiza por conceito.
-- [Standalone Classes](../supple-design/standalone-classes.md) — reduz dependências entre módulos.
+- [Bounded Context](/application/ddd/model-in-practice/bounded-context) — fronteira maior, de um modelo inteiro.
+- [Ubiquitous Language](/application/ddd/model-in-practice/ubiquitous-language) — nomeia os módulos.
+- [Aggregate](/application/ddd/building-blocks/aggregate) — costuma residir dentro de um módulo.
+- [Layered Architecture](/application/ddd/building-blocks/layered-architecture) — organiza por camadas, enquanto o módulo organiza por conceito.
+- [Standalone Classes](/application/ddd/supple-design/standalone-classes) — reduz dependências entre módulos.
 
 ## Referência
 

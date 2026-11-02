@@ -123,10 +123,10 @@ console.log(rule.interpret(ctx)); // true
 
 ## Padrões relacionados
 
-- [Composite](../structural/composite.md) — a árvore sintática abstrata é uma instância do Composite
-- [Flyweight](../structural/flyweight.md) — permite compartilhar símbolos terminais repetidos na AST
-- [Iterator](./iterator.md) — pode ser usado para percorrer a estrutura da árvore
-- [Visitor](./visitor.md) — concentra operações sobre os nós da AST em uma única classe, evitando alterar cada expressão
+- [Composite](/coding/gof/structural/composite) — a árvore sintática abstrata é uma instância do Composite
+- [Flyweight](/coding/gof/structural/flyweight) — permite compartilhar símbolos terminais repetidos na AST
+- [Iterator](/coding/gof/behavioral/iterator) — pode ser usado para percorrer a estrutura da árvore
+- [Visitor](/coding/gof/behavioral/visitor) — concentra operações sobre os nós da AST em uma única classe, evitando alterar cada expressão
 
 ## Referência
 

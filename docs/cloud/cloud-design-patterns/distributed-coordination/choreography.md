@@ -77,15 +77,15 @@ Nenhum serviço coordena os demais: cada um reage aos eventos do broker e public
 
 ## Padrões relacionados
 
-- [Publisher-Subscriber](../messaging/publisher-subscriber.md) — mecanismo de mensageria mais usado para implementar a coreografia entre serviços
-- [Saga](./saga.md) — gerencia a consistência de transações distribuídas e pode ser implementada por coreografia ou orquestração
-- [Compensating Transaction](./compensating-transaction.md) — desfaz o trabalho já concluído quando uma etapa do fluxo coreografado falha
-- [Idempotent Consumer](../messaging/idempotent-consumer.md) — garante que mensagens duplicadas ou reprocessadas não causem efeitos colaterais repetidos
-- [Retry](../resiliency/retry.md) — trata falhas transitórias no processamento de mensagens por cada serviço
-- [Event Sourcing](../data-management/event-sourcing.md) — registra mudanças de estado como eventos, que podem alimentar o fluxo coreografado
-- [Competing Consumers](../messaging/competing-consumers.md) — permite escalar cada serviço participante com várias instâncias consumindo a mesma fila
-- [Throttling](../resiliency/throttling.md) — ajuda a conter cascatas de eventos e sobrecarga nos consumidores
-- [Ambassador](../integration-and-modernization/ambassador.md) e [Sidecar](../integration-and-modernization/sidecar.md) — podem encapsular preocupações de conectividade e resiliência ao lado de cada serviço
+- [Publisher-Subscriber](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — mecanismo de mensageria mais usado para implementar a coreografia entre serviços
+- [Saga](/cloud/cloud-design-patterns/distributed-coordination/saga) — gerencia a consistência de transações distribuídas e pode ser implementada por coreografia ou orquestração
+- [Compensating Transaction](/cloud/cloud-design-patterns/distributed-coordination/compensating-transaction) — desfaz o trabalho já concluído quando uma etapa do fluxo coreografado falha
+- [Idempotent Consumer](/cloud/cloud-design-patterns/messaging/idempotent-consumer) — garante que mensagens duplicadas ou reprocessadas não causem efeitos colaterais repetidos
+- [Retry](/cloud/cloud-design-patterns/resiliency/retry) — trata falhas transitórias no processamento de mensagens por cada serviço
+- [Event Sourcing](/cloud/cloud-design-patterns/data-management/event-sourcing) — registra mudanças de estado como eventos, que podem alimentar o fluxo coreografado
+- [Competing Consumers](/cloud/cloud-design-patterns/messaging/competing-consumers) — permite escalar cada serviço participante com várias instâncias consumindo a mesma fila
+- [Throttling](/cloud/cloud-design-patterns/resiliency/throttling) — ajuda a conter cascatas de eventos e sobrecarga nos consumidores
+- [Ambassador](/cloud/cloud-design-patterns/integration-and-modernization/ambassador) e [Sidecar](/cloud/cloud-design-patterns/integration-and-modernization/sidecar) — podem encapsular preocupações de conectividade e resiliência ao lado de cada serviço
 
 ## Referência
 

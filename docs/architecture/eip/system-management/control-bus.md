@@ -65,13 +65,13 @@ O console envia comandos pelo Control Bus aos componentes, que respondem com mé
 
 ## Padrões relacionados
 
-- [Detour](./detour.md) — o Control Bus comanda a troca de rota do Detour.
-- [Test Message](./test-message.md) — complementa os heartbeats verificando se a saída dos componentes está correta.
-- [Message History](./message-history.md) — ajuda a analisar o que o Control Bus observa.
-- [Wire Tap](./wire-tap.md) — instrumentação passiva que pode alimentar o gerenciamento.
-- [Message Store](./message-store.md) — armazena informações de mensagens para relatórios.
-- [Content-Based Router](../message-routing/content-based-router.md) — componente cuja regra de roteamento costuma ser alterada via Control Bus.
-- [External Configuration Store](../../../cloud/cloud-design-patterns/deployment-and-topology/external-configuration-store.md) — alternativa de configuração centralizada baseada em repositório, em vez de mensagens.
+- [Detour](/architecture/eip/system-management/detour) — o Control Bus comanda a troca de rota do Detour.
+- [Test Message](/architecture/eip/system-management/test-message) — complementa os heartbeats verificando se a saída dos componentes está correta.
+- [Message History](/architecture/eip/system-management/message-history) — ajuda a analisar o que o Control Bus observa.
+- [Wire Tap](/architecture/eip/system-management/wire-tap) — instrumentação passiva que pode alimentar o gerenciamento.
+- [Message Store](/architecture/eip/system-management/message-store) — armazena informações de mensagens para relatórios.
+- [Content-Based Router](/architecture/eip/message-routing/content-based-router) — componente cuja regra de roteamento costuma ser alterada via Control Bus.
+- [External Configuration Store](/cloud/cloud-design-patterns/deployment-and-topology/external-configuration-store) — alternativa de configuração centralizada baseada em repositório, em vez de mensagens.
 
 ## Referência
 

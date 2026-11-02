@@ -66,12 +66,12 @@ O serviço grava dados e mensagem na mesma transação; o relay lê o outbox e p
 
 ## Padrões relacionados
 
-- [Transaction Log Tailing](./transaction-log-tailing.md) — implementação do relay lendo o log de transações do banco
-- [Polling Publisher](./polling-publisher.md) — implementação do relay consultando periodicamente o outbox
-- [Saga](../../../cloud/cloud-design-patterns/distributed-coordination/saga.md) — gera a necessidade de enviar mensagens atomicamente com a atualização do banco
-- [Event Sourcing](../../../cloud/cloud-design-patterns/data-management/event-sourcing.md) — abordagem alternativa para publicar eventos de forma confiável
-- [Idempotent Consumer](../../../cloud/cloud-design-patterns/messaging/idempotent-consumer.md) — necessário para tolerar mensagens duplicadas do relay
-- [Messaging](../communication-styles/messaging.md) — estilo de comunicação que usa o broker
+- [Transaction Log Tailing](/architecture/microservices/transactional-messaging/transaction-log-tailing) — implementação do relay lendo o log de transações do banco
+- [Polling Publisher](/architecture/microservices/transactional-messaging/polling-publisher) — implementação do relay consultando periodicamente o outbox
+- [Saga](/cloud/cloud-design-patterns/distributed-coordination/saga) — gera a necessidade de enviar mensagens atomicamente com a atualização do banco
+- [Event Sourcing](/cloud/cloud-design-patterns/data-management/event-sourcing) — abordagem alternativa para publicar eventos de forma confiável
+- [Idempotent Consumer](/cloud/cloud-design-patterns/messaging/idempotent-consumer) — necessário para tolerar mensagens duplicadas do relay
+- [Messaging](/architecture/microservices/communication-styles/messaging) — estilo de comunicação que usa o broker
 
 ## Referência
 

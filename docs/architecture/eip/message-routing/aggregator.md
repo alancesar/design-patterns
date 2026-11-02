@@ -68,13 +68,13 @@ O Aggregator guarda as mensagens por chave de correlação e publica uma única 
 
 ## Padrões relacionados
 
-- [Splitter](./splitter.md) — gera as partes que serão recombinadas
-- [Scatter-Gather](./scatter-gather.md) — usa um Aggregator para reunir as respostas
-- [Composed Message Processor](./composed-message-processor.md) — Splitter, roteamento e Aggregator juntos
-- [Resequencer](./resequencer.md) — também é filtro com estado, mas só reordena
-- [Correlation Identifier](../message-construction/correlation-identifier.md) — chave que agrupa as mensagens
-- [Gateway Aggregation](../../../cloud/cloud-design-patterns/gateways-and-edge/gateway-aggregation.md) — agregação de chamadas em um gateway
-- [API Composition](../../microservices/service-collaboration/api-composition.md) — composição de dados de vários serviços
+- [Splitter](/architecture/eip/message-routing/splitter) — gera as partes que serão recombinadas
+- [Scatter-Gather](/architecture/eip/message-routing/scatter-gather) — usa um Aggregator para reunir as respostas
+- [Composed Message Processor](/architecture/eip/message-routing/composed-message-processor) — Splitter, roteamento e Aggregator juntos
+- [Resequencer](/architecture/eip/message-routing/resequencer) — também é filtro com estado, mas só reordena
+- [Correlation Identifier](/architecture/eip/message-construction/correlation-identifier) — chave que agrupa as mensagens
+- [Gateway Aggregation](/cloud/cloud-design-patterns/gateways-and-edge/gateway-aggregation) — agregação de chamadas em um gateway
+- [API Composition](/architecture/microservices/service-collaboration/api-composition) — composição de dados de vários serviços
 
 ## Referência
 

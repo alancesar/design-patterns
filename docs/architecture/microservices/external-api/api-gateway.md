@@ -74,15 +74,15 @@ Os clientes falam apenas com o gateway. Ele roteia algumas requisições diretam
 
 ## Padrões relacionados
 
-- [Backend for Front-end](../../../cloud/cloud-design-patterns/gateways-and-edge/backends-for-frontends.md) — variação em que cada tipo de cliente tem seu próprio gateway.
-- [Gateway Routing](../../../cloud/cloud-design-patterns/gateways-and-edge/gateway-routing.md) — equivalente no catálogo de nuvem à função de roteamento/proxy do API Gateway.
-- [Gateway Aggregation](../../../cloud/cloud-design-patterns/gateways-and-edge/gateway-aggregation.md) — equivalente à função de composição (fan-out e combinação de respostas).
-- [Gateway Offloading](../../../cloud/cloud-design-patterns/gateways-and-edge/gateway-offloading.md) — equivalente à delegação de responsabilidades transversais (TLS, autenticação, monitoramento) ao gateway.
-- [Microservice Architecture](../architectural-style/microservice-architecture.md) — o estilo arquitetural que cria a necessidade do gateway.
-- [API Composition](../service-collaboration/api-composition.md) — o gateway costuma implementá-lo para combinar dados de vários serviços.
-- [Client-side Discovery](../service-discovery/client-side-discovery.md) e [Server-side Discovery](../service-discovery/server-side-discovery.md) — o gateway usa um deles para localizar instâncias disponíveis.
-- [Access Token](../security/access-token.md) — o gateway autentica usuários e repassa informações de identidade aos serviços.
-- [Circuit Breaker](../../../cloud/cloud-design-patterns/resiliency/circuit-breaker.md) — protege as chamadas do gateway aos serviços.
+- [Backend for Front-end](/cloud/cloud-design-patterns/gateways-and-edge/backends-for-frontends) — variação em que cada tipo de cliente tem seu próprio gateway.
+- [Gateway Routing](/cloud/cloud-design-patterns/gateways-and-edge/gateway-routing) — equivalente no catálogo de nuvem à função de roteamento/proxy do API Gateway.
+- [Gateway Aggregation](/cloud/cloud-design-patterns/gateways-and-edge/gateway-aggregation) — equivalente à função de composição (fan-out e combinação de respostas).
+- [Gateway Offloading](/cloud/cloud-design-patterns/gateways-and-edge/gateway-offloading) — equivalente à delegação de responsabilidades transversais (TLS, autenticação, monitoramento) ao gateway.
+- [Microservice Architecture](/architecture/microservices/architectural-style/microservice-architecture) — o estilo arquitetural que cria a necessidade do gateway.
+- [API Composition](/architecture/microservices/service-collaboration/api-composition) — o gateway costuma implementá-lo para combinar dados de vários serviços.
+- [Client-side Discovery](/architecture/microservices/service-discovery/client-side-discovery) e [Server-side Discovery](/architecture/microservices/service-discovery/server-side-discovery) — o gateway usa um deles para localizar instâncias disponíveis.
+- [Access Token](/architecture/microservices/security/access-token) — o gateway autentica usuários e repassa informações de identidade aos serviços.
+- [Circuit Breaker](/cloud/cloud-design-patterns/resiliency/circuit-breaker) — protege as chamadas do gateway aos serviços.
 
 ## Referência
 

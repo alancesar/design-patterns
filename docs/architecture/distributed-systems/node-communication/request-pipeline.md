@@ -15,9 +15,9 @@ sidebar_label: "Request Pipeline"
 
 O Request Pipeline faz um nó enviar várias requisições a outro nó sem esperar a resposta de cada uma antes de enviar a seguinte. Em vez do ciclo estrito de enviar e aguardar, o canal fica sempre com requisições em voo, e as respostas são consumidas à medida que chegam.
 
-Em geral há duas linhas de execução independentes por conexão: uma escreve requisições no canal e outra lê as respostas. Um mecanismo de correlação associa cada resposta à requisição de origem, e, num [Single-Socket Channel](./single-socket-channel.md), a ordem do TCP ajuda a manter essa associação previsível.
+Em geral há duas linhas de execução independentes por conexão: uma escreve requisições no canal e outra lê as respostas. Um mecanismo de correlação associa cada resposta à requisição de origem, e, num [Single-Socket Channel](/architecture/distributed-systems/node-communication/single-socket-channel), a ordem do TCP ajuda a manter essa associação previsível.
 
-O ganho aparece quando o servidor consegue processar algo enquanto outras requisições ainda chegam, como ocorre com uma [Singular Update Queue](../data-replication/singular-update-queue.md). Se o cliente só envia uma requisição por vez, a capacidade do servidor e do enlace fica ociosa durante cada ida e volta. Sistemas como Kafka e ZooKeeper limitam o número de requisições em voo por conexão, para equilibrar vazão, ordem e consumo de memória.
+O ganho aparece quando o servidor consegue processar algo enquanto outras requisições ainda chegam, como ocorre com uma [Singular Update Queue](/architecture/distributed-systems/data-replication/singular-update-queue). Se o cliente só envia uma requisição por vez, a capacidade do servidor e do enlace fica ociosa durante cada ida e volta. Sistemas como Kafka e ZooKeeper limitam o número de requisições em voo por conexão, para equilibrar vazão, ordem e consumo de memória.
 
 ## Problemas que resolve
 
@@ -47,7 +47,7 @@ O ganho aparece quando o servidor consegue processar algo enquanto outras requis
 
 - Defina um limite máximo de requisições em voo por conexão para controlar memória e pressão sobre o receptor.
 - Retentativas podem reordenar mensagens; sem cuidado, a ordem original se perde. Receptores idempotentes ajudam a tolerar reenvios.
-- Respostas associadas por identificador ou por ordem do canal facilitam o acompanhamento, por exemplo na [Request Waiting List](../data-replication/request-waiting-list.md).
+- Respostas associadas por identificador ou por ordem do canal facilitam o acompanhamento, por exemplo na [Request Waiting List](/architecture/distributed-systems/data-replication/request-waiting-list).
 - Monitore o número de requisições em voo e o tempo das respostas.
 
 ## Diagrama
@@ -68,12 +68,12 @@ O cliente envia as requisições 2 e 3 sem esperar a resposta da requisição 1.
 
 ## Padrões relacionados
 
-- [Single-Socket Channel](./single-socket-channel.md) — fornece o canal ordenado sobre o qual o pipeline opera.
-- [Request Batch](./request-batch.md) — complementar: reduz o custo por requisição, enquanto o pipeline reduz a espera.
-- [Singular Update Queue](../data-replication/singular-update-queue.md) — fila do servidor que se beneficia de estar sempre alimentada.
-- [Request Waiting List](../data-replication/request-waiting-list.md) — acompanha requisições em voo até que as respostas cheguem.
-- [Leader and Followers](../data-replication/leader-and-followers.md) — cenário típico de envio contínuo do líder aos followers.
-- [Idempotent Receiver](../../../cloud/cloud-design-patterns/messaging/idempotent-consumer.md) — torna seguros os reenvios após falhas.
+- [Single-Socket Channel](/architecture/distributed-systems/node-communication/single-socket-channel) — fornece o canal ordenado sobre o qual o pipeline opera.
+- [Request Batch](/architecture/distributed-systems/node-communication/request-batch) — complementar: reduz o custo por requisição, enquanto o pipeline reduz a espera.
+- [Singular Update Queue](/architecture/distributed-systems/data-replication/singular-update-queue) — fila do servidor que se beneficia de estar sempre alimentada.
+- [Request Waiting List](/architecture/distributed-systems/data-replication/request-waiting-list) — acompanha requisições em voo até que as respostas cheguem.
+- [Leader and Followers](/architecture/distributed-systems/data-replication/leader-and-followers) — cenário típico de envio contínuo do líder aos followers.
+- [Idempotent Receiver](/cloud/cloud-design-patterns/messaging/idempotent-consumer) — torna seguros os reenvios após falhas.
 
 ## Referência
 

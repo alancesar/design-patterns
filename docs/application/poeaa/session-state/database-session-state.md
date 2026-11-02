@@ -103,10 +103,10 @@ Frameworks como Django (`django.contrib.sessions.backends.db`) e Laravel (driver
 
 ## Padrões relacionados
 
-- [Client Session State](./client-session-state.md) — mantém o estado no cliente, sem tocar o banco.
-- [Server Session State](./server-session-state.md) — mantém o estado no servidor ou em um cache, mais rápido porém menos durável.
-- [Optimistic Offline Lock](../offline-concurrency/optimistic-offline-lock.md) — protege contra gravações concorrentes sobre o mesmo estado de sessão.
-- [Serialized LOB](../object-relational-structural/serialized-lob.md) — o estado costuma ser guardado como um objeto serializado em uma coluna.
+- [Client Session State](/application/poeaa/session-state/client-session-state) — mantém o estado no cliente, sem tocar o banco.
+- [Server Session State](/application/poeaa/session-state/server-session-state) — mantém o estado no servidor ou em um cache, mais rápido porém menos durável.
+- [Optimistic Offline Lock](/application/poeaa/offline-concurrency/optimistic-offline-lock) — protege contra gravações concorrentes sobre o mesmo estado de sessão.
+- [Serialized LOB](/application/poeaa/object-relational-structural/serialized-lob) — o estado costuma ser guardado como um objeto serializado em uma coluna.
 
 ## Referência
 

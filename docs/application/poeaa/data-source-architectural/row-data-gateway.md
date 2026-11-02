@@ -114,12 +114,12 @@ class CustomerFinder {
 
 ## Padrões relacionados
 
-- [Table Data Gateway](./table-data-gateway.md) — um objeto por tabela em vez de um por linha.
-- [Active Record](./active-record.md) — igual em estrutura, mas incorpora a lógica de domínio.
-- [Data Mapper](./data-mapper.md) — separa totalmente objetos de domínio e persistência.
-- [Transaction Script](../domain-logic/transaction-script.md) — uso mais comum do Row Data Gateway.
-- [Gateway](../base/gateway.md) — padrão base do qual este é uma especialização.
-- [Identity Map](../object-relational-behavioral/identity-map.md) — evita carregar a mesma linha em gateways duplicados.
+- [Table Data Gateway](/application/poeaa/data-source-architectural/table-data-gateway) — um objeto por tabela em vez de um por linha.
+- [Active Record](/application/poeaa/data-source-architectural/active-record) — igual em estrutura, mas incorpora a lógica de domínio.
+- [Data Mapper](/application/poeaa/data-source-architectural/data-mapper) — separa totalmente objetos de domínio e persistência.
+- [Transaction Script](/application/poeaa/domain-logic/transaction-script) — uso mais comum do Row Data Gateway.
+- [Gateway](/application/poeaa/base/gateway) — padrão base do qual este é uma especialização.
+- [Identity Map](/application/poeaa/object-relational-behavioral/identity-map) — evita carregar a mesma linha em gateways duplicados.
 
 ## Referência
 

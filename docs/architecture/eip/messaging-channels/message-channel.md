@@ -62,15 +62,15 @@ A aplicação remetente escreve mensagens no canal e a receptora as lê, sem que
 
 ## Padrões relacionados
 
-- [Point-to-Point Channel](./point-to-point-channel.md) — especialização em que cada mensagem é consumida por um único receptor.
-- [Publish-Subscribe Channel](../../../cloud/cloud-design-patterns/messaging/publisher-subscriber.md) — especialização em que cada assinante recebe uma cópia da mensagem.
-- [Datatype Channel](./datatype-channel.md) — dedica um canal a cada tipo de dado.
-- [Invalid Message Channel](./invalid-message-channel.md) — canal para mensagens que o receptor não consegue processar.
-- [Channel Adapter](./channel-adapter.md) — conecta uma aplicação existente a um canal.
-- [Message Bus](./message-bus.md) — conjunto de canais e adaptadores que forma a infraestrutura comum.
-- [Messaging](../../microservices/communication-styles/messaging.md) — o estilo de integração que depende de canais.
-- [Message Endpoint](../messaging-endpoints/message-endpoint.md) — o ponto em que a aplicação se liga ao canal.
-- [Selective Consumer](../messaging-endpoints/selective-consumer.md) — filtra as mensagens que o consumidor aceita de um canal.
+- [Point-to-Point Channel](/architecture/eip/messaging-channels/point-to-point-channel) — especialização em que cada mensagem é consumida por um único receptor.
+- [Publish-Subscribe Channel](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — especialização em que cada assinante recebe uma cópia da mensagem.
+- [Datatype Channel](/architecture/eip/messaging-channels/datatype-channel) — dedica um canal a cada tipo de dado.
+- [Invalid Message Channel](/architecture/eip/messaging-channels/invalid-message-channel) — canal para mensagens que o receptor não consegue processar.
+- [Channel Adapter](/architecture/eip/messaging-channels/channel-adapter) — conecta uma aplicação existente a um canal.
+- [Message Bus](/architecture/eip/messaging-channels/message-bus) — conjunto de canais e adaptadores que forma a infraestrutura comum.
+- [Messaging](/architecture/microservices/communication-styles/messaging) — o estilo de integração que depende de canais.
+- [Message Endpoint](/architecture/eip/messaging-endpoints/message-endpoint) — o ponto em que a aplicação se liga ao canal.
+- [Selective Consumer](/architecture/eip/messaging-endpoints/selective-consumer) — filtra as mensagens que o consumidor aceita de um canal.
 
 ## Referência
 

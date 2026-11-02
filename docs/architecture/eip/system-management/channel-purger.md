@@ -32,7 +32,7 @@ Mensageria persistente e assíncrona pode deixar mensagens perdidas no caminho. 
 
 ### Quando evitar
 
-- Quando as mensagens têm valor de negócio e não podem ser perdidas; prefira movê-las para um [Dead Letter Channel](../messaging-channels/dead-letter-channel.md).
+- Quando as mensagens têm valor de negócio e não podem ser perdidas; prefira movê-las para um [Dead Letter Channel](/architecture/eip/messaging-channels/dead-letter-channel).
 - Sem controle de acesso, pois a operação é destrutiva.
 - Como substituto de tratamento adequado de erros e expiração de mensagens.
 
@@ -44,7 +44,7 @@ Mensageria persistente e assíncrona pode deixar mensagens perdidas no caminho. 
 | Torna testes repetíveis | Pode apagar mensagens legítimas se usado sem critério |
 | Permite remoção seletiva em produção | Precisa de permissões restritas e de registro da operação |
 
-- Convém registrar o que foi removido, por exemplo copiando para um [Message Store](./message-store.md).
+- Convém registrar o que foi removido, por exemplo copiando para um [Message Store](/architecture/eip/system-management/message-store).
 - Muitos brokers oferecem a operação de purge pronta, por exemplo no console da fila.
 
 ## Diagrama
@@ -61,12 +61,12 @@ O purger age diretamente sobre o canal, removendo todas as mensagens ou só as q
 
 ## Padrões relacionados
 
-- [Dead Letter Channel](../messaging-channels/dead-letter-channel.md) — preserva mensagens problemáticas em vez de descartá-las.
-- [Message Store](./message-store.md) — registra o que foi purgado.
-- [Control Bus](./control-bus.md) — pode acionar a limpeza remotamente.
-- [Point-to-Point Channel](../messaging-channels/point-to-point-channel.md) — canal em que as mensagens residuais mais atrapalham.
-- [Correlation Identifier](../message-construction/correlation-identifier.md) — evita confundir respostas, e serve como critério de purga seletiva.
-- [Invalid Message Channel](../messaging-channels/invalid-message-channel.md) — destino alternativo para mensagens inválidas.
+- [Dead Letter Channel](/architecture/eip/messaging-channels/dead-letter-channel) — preserva mensagens problemáticas em vez de descartá-las.
+- [Message Store](/architecture/eip/system-management/message-store) — registra o que foi purgado.
+- [Control Bus](/architecture/eip/system-management/control-bus) — pode acionar a limpeza remotamente.
+- [Point-to-Point Channel](/architecture/eip/messaging-channels/point-to-point-channel) — canal em que as mensagens residuais mais atrapalham.
+- [Correlation Identifier](/architecture/eip/message-construction/correlation-identifier) — evita confundir respostas, e serve como critério de purga seletiva.
+- [Invalid Message Channel](/architecture/eip/messaging-channels/invalid-message-channel) — destino alternativo para mensagens inválidas.
 
 ## Referência
 

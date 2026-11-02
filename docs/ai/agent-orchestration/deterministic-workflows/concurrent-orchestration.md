@@ -80,13 +80,13 @@ O orquestrador envia a mesma entrada a todos os agentes ao mesmo tempo, e o cole
 
 ## Padrões relacionados
 
-- [Sequential Orchestration](./sequential-orchestration.md) — alternativa quando há dependência entre estágios; é comum usar sequencial para o pré-processamento e concorrente para a análise paralela.
-- [Group Chat Orchestration](../dynamic-orchestration/group-chat-orchestration.md) — também reúne várias perspectivas, mas em conversa, com os agentes reagindo uns aos outros.
-- [Magentic Orchestration](../dynamic-orchestration/magentic-orchestration.md) — um gerente pode paralelizar tarefas de forma dinâmica num plano adaptativo.
-- [Scatter-Gather](../../../architecture/eip/message-routing/scatter-gather.md) — equivalente em integração: distribui a requisição e reúne as respostas.
-- [Aggregator](../../../architecture/eip/message-routing/aggregator.md) — correlaciona e combina as saídas dos agentes.
-- [Recipient List](../../../architecture/eip/message-routing/recipient-list.md) — seleção de destinatários, análoga à escolha dinâmica de agentes.
-- [Circuit Breaker](../../../cloud/cloud-design-patterns/resiliency/circuit-breaker.md) — protege dependências dos agentes contra falhas em cascata.
+- [Sequential Orchestration](/ai/agent-orchestration/deterministic-workflows/sequential-orchestration) — alternativa quando há dependência entre estágios; é comum usar sequencial para o pré-processamento e concorrente para a análise paralela.
+- [Group Chat Orchestration](/ai/agent-orchestration/dynamic-orchestration/group-chat-orchestration) — também reúne várias perspectivas, mas em conversa, com os agentes reagindo uns aos outros.
+- [Magentic Orchestration](/ai/agent-orchestration/dynamic-orchestration/magentic-orchestration) — um gerente pode paralelizar tarefas de forma dinâmica num plano adaptativo.
+- [Scatter-Gather](/architecture/eip/message-routing/scatter-gather) — equivalente em integração: distribui a requisição e reúne as respostas.
+- [Aggregator](/architecture/eip/message-routing/aggregator) — correlaciona e combina as saídas dos agentes.
+- [Recipient List](/architecture/eip/message-routing/recipient-list) — seleção de destinatários, análoga à escolha dinâmica de agentes.
+- [Circuit Breaker](/cloud/cloud-design-patterns/resiliency/circuit-breaker) — protege dependências dos agentes contra falhas em cascata.
 
 ## Referência
 

@@ -71,13 +71,13 @@ Ao incluir um novo conceito, "janela de entrega prioritária", a equipe pergunta
 
 ## Padrões relacionados
 
-- [Layered Architecture](../building-blocks/layered-architecture.md) — divisão técnica em camadas; Responsibility Layers divide o domínio por papel conceitual.
-- [Evolving Order](./evolving-order.md) — a estrutura em camadas deve emergir e ser refatorada conforme o entendimento.
-- [Module](../building-blocks/module.md) — cada módulo é alocado a uma camada de responsabilidade.
-- [Knowledge Level](./knowledge-level.md) — estrutura que pode coexistir quando parte do modelo configura o restante.
-- [System Metaphor](./system-metaphor.md) — alternativa de organização do conjunto por analogia.
-- [Conceptual Contours](../supple-design/conceptual-contours.md) — alinha as divisões do modelo às linhas naturais de mudança do domínio.
-- [Core Domain](../distillation/core-domain.md) — as camadas ajudam a manter o foco do domínio central.
+- [Layered Architecture](/application/ddd/building-blocks/layered-architecture) — divisão técnica em camadas; Responsibility Layers divide o domínio por papel conceitual.
+- [Evolving Order](/application/ddd/large-scale-structure/evolving-order) — a estrutura em camadas deve emergir e ser refatorada conforme o entendimento.
+- [Module](/application/ddd/building-blocks/module) — cada módulo é alocado a uma camada de responsabilidade.
+- [Knowledge Level](/application/ddd/large-scale-structure/knowledge-level) — estrutura que pode coexistir quando parte do modelo configura o restante.
+- [System Metaphor](/application/ddd/large-scale-structure/system-metaphor) — alternativa de organização do conjunto por analogia.
+- [Conceptual Contours](/application/ddd/supple-design/conceptual-contours) — alinha as divisões do modelo às linhas naturais de mudança do domínio.
+- [Core Domain](/application/ddd/distillation/core-domain) — as camadas ajudam a manter o foco do domínio central.
 
 ## Referência
 

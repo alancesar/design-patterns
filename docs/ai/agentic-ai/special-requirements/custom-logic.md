@@ -67,12 +67,12 @@ Exemplo de um agente de reembolso: uma verificação em paralelo alimenta um ram
 
 ## Padrões relacionados
 
-- [Multi-Agent Sequential](../../agent-orchestration/deterministic-workflows/sequential-orchestration.md) — um dos blocos que o código pode compor.
-- [Multi-Agent Parallel](../../agent-orchestration/deterministic-workflows/concurrent-orchestration.md) — usado na etapa de verificação paralela.
-- [Human-in-the-Loop](./human-in-the-loop.md) — o código define onde inserir a aprovação humana.
-- [Content-Based Router](../../../architecture/eip/message-routing/content-based-router.md) — roteamento por regras sobre o conteúdo, equivalente ao ramo condicional.
-- [Process Manager](../../../architecture/eip/message-routing/process-manager.md) — orquestração com estado e ramificações.
-- [Scheduler Agent Supervisor](../../../cloud/cloud-design-patterns/distributed-coordination/scheduler-agent-supervisor.md) — coordenação de etapas distribuídas com supervisão.
+- [Multi-Agent Sequential](/ai/agent-orchestration/deterministic-workflows/sequential-orchestration) — um dos blocos que o código pode compor.
+- [Multi-Agent Parallel](/ai/agent-orchestration/deterministic-workflows/concurrent-orchestration) — usado na etapa de verificação paralela.
+- [Human-in-the-Loop](/ai/agentic-ai/special-requirements/human-in-the-loop) — o código define onde inserir a aprovação humana.
+- [Content-Based Router](/architecture/eip/message-routing/content-based-router) — roteamento por regras sobre o conteúdo, equivalente ao ramo condicional.
+- [Process Manager](/architecture/eip/message-routing/process-manager) — orquestração com estado e ramificações.
+- [Scheduler Agent Supervisor](/cloud/cloud-design-patterns/distributed-coordination/scheduler-agent-supervisor) — coordenação de etapas distribuídas com supervisão.
 
 ## Referência
 

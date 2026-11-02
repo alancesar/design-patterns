@@ -13,7 +13,7 @@ sidebar_label: "Message Store"
 
 ## Descrição
 
-O Message Store captura informações sobre cada mensagem em um local central. Quando uma mensagem é enviada a um canal, uma cópia segue para um canal secundário do qual o repositório a coleta. O próprio componente pode fazer a duplicação, ou um [Wire Tap](./wire-tap.md) pode ser inserido no canal.
+O Message Store captura informações sobre cada mensagem em um local central. Quando uma mensagem é enviada a um canal, uma cópia segue para um canal secundário do qual o repositório a coleta. O próprio componente pode fazer a duplicação, ou um [Wire Tap](/architecture/eip/system-management/wire-tap) pode ser inserido no canal.
 
 O envio da cópia é fire-and-forget, para não atrasar o fluxo principal. Em geral guardam-se apenas os campos úteis para análise posterior, como identificador, canal, horário e talvez o corpo, em vez de tudo.
 
@@ -61,11 +61,11 @@ Cada mensagem segue ao consumidor e uma cópia chega ao repositório central, de
 
 ## Padrões relacionados
 
-- [Wire Tap](./wire-tap.md) — mecanismo comum para alimentar o repositório.
-- [Message History](./message-history.md) — acrescenta o caminho percorrido às informações guardadas.
-- [Control Bus](./control-bus.md) — gerencia a captura e consulta de dados.
-- [Event Sourcing](../../../cloud/cloud-design-patterns/data-management/event-sourcing.md) — guarda eventos como fonte de verdade, enquanto o Message Store serve à observação.
-- [Audit Logging](../../microservices/observability/audit-logging.md) — registro de auditoria que o repositório pode sustentar.
+- [Wire Tap](/architecture/eip/system-management/wire-tap) — mecanismo comum para alimentar o repositório.
+- [Message History](/architecture/eip/system-management/message-history) — acrescenta o caminho percorrido às informações guardadas.
+- [Control Bus](/architecture/eip/system-management/control-bus) — gerencia a captura e consulta de dados.
+- [Event Sourcing](/cloud/cloud-design-patterns/data-management/event-sourcing) — guarda eventos como fonte de verdade, enquanto o Message Store serve à observação.
+- [Audit Logging](/architecture/microservices/observability/audit-logging) — registro de auditoria que o repositório pode sustentar.
 
 ## Referência
 

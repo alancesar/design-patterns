@@ -89,11 +89,11 @@ interface OrderRepository {
 
 ## Padrões relacionados
 
-- [Model-Driven Design](../model-in-practice/model-driven-design.md) — a camada de domínio isola o modelo para que ele seja refletido no código.
-- [Domain Service](./domain-service.md) — serviços de domínio e de aplicação ocupam camadas distintas.
-- [Repository](../../poeaa/object-relational-metadata-mapping/repository.md) — interface no domínio, implementação na infraestrutura.
-- [Bounded Context](../model-in-practice/bounded-context.md) — cada contexto pode ter sua própria estrutura de camadas.
-- [Service Layer](../../poeaa/domain-logic/service-layer.md) — equivale, em linhas gerais, à camada de aplicação.
+- [Model-Driven Design](/application/ddd/model-in-practice/model-driven-design) — a camada de domínio isola o modelo para que ele seja refletido no código.
+- [Domain Service](/application/ddd/building-blocks/domain-service) — serviços de domínio e de aplicação ocupam camadas distintas.
+- [Repository](/application/poeaa/object-relational-metadata-mapping/repository) — interface no domínio, implementação na infraestrutura.
+- [Bounded Context](/application/ddd/model-in-practice/bounded-context) — cada contexto pode ter sua própria estrutura de camadas.
+- [Service Layer](/application/poeaa/domain-logic/service-layer) — equivale, em linhas gerais, à camada de aplicação.
 
 ## Referência
 

@@ -31,7 +31,7 @@ O Composed Message Processor trata uma mensagem composta: divide-a em submensage
 ### Quando evitar
 
 - Todas as partes vão ao mesmo processador e podem ser tratadas em bloco
-- O fluxo é dinâmico ou depende de resultados intermediários; considere o [Process Manager](./process-manager.md)
+- O fluxo é dinâmico ou depende de resultados intermediários; considere o [Process Manager](/architecture/eip/message-routing/process-manager)
 
 ## Trade-offs
 
@@ -61,11 +61,11 @@ O pedido é dividido, cada item vai ao estoque correto e as respostas são reuni
 
 ## Padrões relacionados
 
-- [Splitter](./splitter.md) — divide a mensagem
-- [Content-Based Router](./content-based-router.md) — distribui as partes
-- [Aggregator](./aggregator.md) — reúne as respostas
-- [Scatter-Gather](./scatter-gather.md) — padrão parente que envia a mesma mensagem a vários destinos
-- [Process Manager](./process-manager.md) — alternativa para fluxos dinâmicos
+- [Splitter](/architecture/eip/message-routing/splitter) — divide a mensagem
+- [Content-Based Router](/architecture/eip/message-routing/content-based-router) — distribui as partes
+- [Aggregator](/architecture/eip/message-routing/aggregator) — reúne as respostas
+- [Scatter-Gather](/architecture/eip/message-routing/scatter-gather) — padrão parente que envia a mesma mensagem a vários destinos
+- [Process Manager](/architecture/eip/message-routing/process-manager) — alternativa para fluxos dinâmicos
 
 ## Referência
 

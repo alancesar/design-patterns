@@ -103,13 +103,13 @@ public class Order {
 
 ## Padrões relacionados
 
-- [Transaction Script](./transaction-script.md) — alternativa mais simples para lógica pouco complexa.
-- [Table Module](./table-module.md) — organiza a lógica por tabela, intermediário entre os dois.
-- [Service Layer](./service-layer.md) — fronteira usual do Domain Model, coordenando casos de uso e transações.
-- [Data Mapper](../data-source-architectural/data-mapper.md) — mantém o modelo independente do banco.
-- [Unit of Work](../object-relational-behavioral/unit-of-work.md) — rastreia mudanças nos objetos do modelo.
-- [Strategy](../../../coding/gof/behavioral/strategy.md) — encapsula variações de regras dentro do modelo.
-- [Null Object](../../../coding/gof/behavioral/null-object.md) — evita verificações de nulo nas regras.
+- [Transaction Script](/application/poeaa/domain-logic/transaction-script) — alternativa mais simples para lógica pouco complexa.
+- [Table Module](/application/poeaa/domain-logic/table-module) — organiza a lógica por tabela, intermediário entre os dois.
+- [Service Layer](/application/poeaa/domain-logic/service-layer) — fronteira usual do Domain Model, coordenando casos de uso e transações.
+- [Data Mapper](/application/poeaa/data-source-architectural/data-mapper) — mantém o modelo independente do banco.
+- [Unit of Work](/application/poeaa/object-relational-behavioral/unit-of-work) — rastreia mudanças nos objetos do modelo.
+- [Strategy](/coding/gof/behavioral/strategy) — encapsula variações de regras dentro do modelo.
+- [Null Object](/coding/gof/behavioral/null-object) — evita verificações de nulo nas regras.
 
 ## Referência
 

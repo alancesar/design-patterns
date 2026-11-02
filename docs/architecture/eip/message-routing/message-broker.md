@@ -63,12 +63,12 @@ As aplicações enviam mensagens ao broker, que decide o destino de cada uma.
 
 ## Padrões relacionados
 
-- [Message Router](./message-router.md) — peça com a qual o broker é construído
-- [Content-Based Router](./content-based-router.md) — critério de roteamento típico do broker
-- [Process Manager](./process-manager.md) — outro hub central, com estado de processo
-- [Message Bus](../messaging-channels/message-bus.md) — alternativa de arquitetura de integração
-- [Mediator](../../../coding/gof/behavioral/mediator.md) — mesmo princípio em design de classes
-- [Pipes and Filters](../../../cloud/cloud-design-patterns/messaging/pipes-and-filters.md) — estilo comparável em escala menor
+- [Message Router](/architecture/eip/message-routing/message-router) — peça com a qual o broker é construído
+- [Content-Based Router](/architecture/eip/message-routing/content-based-router) — critério de roteamento típico do broker
+- [Process Manager](/architecture/eip/message-routing/process-manager) — outro hub central, com estado de processo
+- [Message Bus](/architecture/eip/messaging-channels/message-bus) — alternativa de arquitetura de integração
+- [Mediator](/coding/gof/behavioral/mediator) — mesmo princípio em design de classes
+- [Pipes and Filters](/cloud/cloud-design-patterns/messaging/pipes-and-filters) — estilo comparável em escala menor
 
 ## Referência
 

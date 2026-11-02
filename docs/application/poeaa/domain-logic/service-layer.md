@@ -97,12 +97,12 @@ No Spring, serviços anotados com `@Service` e `@Transactional` são a forma com
 
 ## Padrões relacionados
 
-- [Domain Model](./domain-model.md) — o Service Layer coordena o modelo, que contém as regras.
-- [Transaction Script](./transaction-script.md) — pode ser a implementação dos serviços quando a lógica é simples.
-- [Table Module](./table-module.md) — também pode ficar atrás da camada de serviço.
-- [Remote Facade](../distribution/remote-facade.md) — fachada de granularidade grossa para acesso remoto, geralmente sobre o Service Layer.
-- [Repository](../object-relational-metadata-mapping/repository.md) — usado pelos serviços para obter e salvar agregados.
-- [Facade](../../../coding/gof/structural/facade.md) — o Service Layer é uma fachada para as operações da aplicação.
+- [Domain Model](/application/poeaa/domain-logic/domain-model) — o Service Layer coordena o modelo, que contém as regras.
+- [Transaction Script](/application/poeaa/domain-logic/transaction-script) — pode ser a implementação dos serviços quando a lógica é simples.
+- [Table Module](/application/poeaa/domain-logic/table-module) — também pode ficar atrás da camada de serviço.
+- [Remote Facade](/application/poeaa/distribution/remote-facade) — fachada de granularidade grossa para acesso remoto, geralmente sobre o Service Layer.
+- [Repository](/application/poeaa/object-relational-metadata-mapping/repository) — usado pelos serviços para obter e salvar agregados.
+- [Facade](/coding/gof/structural/facade) — o Service Layer é uma fachada para as operações da aplicação.
 
 ## Referência
 

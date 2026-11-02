@@ -121,12 +121,12 @@ class Forest {
 
 ## Padrões relacionados
 
-- [Composite](./composite.md) — folhas de uma árvore Composite costumam ser implementadas como flyweights compartilhados
-- [Factory Method](../creational/factory-method.md) — a `FlyweightFactory` encapsula a criação e o reaproveitamento das instâncias
-- [Singleton](../creational/singleton.md) — a factory de flyweights frequentemente é única; ambos controlam o número de instâncias
-- [Object Pool](../creational/object-pool.md) — também reaproveita objetos, mas por empréstimo exclusivo, enquanto o Flyweight compartilha instâncias imutáveis simultaneamente
-- [State](../behavioral/state.md) e [Strategy](../behavioral/strategy.md) — objetos de estado ou estratégia sem dados próprios podem ser compartilhados como flyweights
-- [Proxy](./proxy.md) — ambos interpõem um objeto para controlar recursos; o Proxy controla o acesso, o Flyweight controla a quantidade de instâncias
+- [Composite](/coding/gof/structural/composite) — folhas de uma árvore Composite costumam ser implementadas como flyweights compartilhados
+- [Factory Method](/coding/gof/creational/factory-method) — a `FlyweightFactory` encapsula a criação e o reaproveitamento das instâncias
+- [Singleton](/coding/gof/creational/singleton) — a factory de flyweights frequentemente é única; ambos controlam o número de instâncias
+- [Object Pool](/coding/gof/creational/object-pool) — também reaproveita objetos, mas por empréstimo exclusivo, enquanto o Flyweight compartilha instâncias imutáveis simultaneamente
+- [State](/coding/gof/behavioral/state) e [Strategy](/coding/gof/behavioral/strategy) — objetos de estado ou estratégia sem dados próprios podem ser compartilhados como flyweights
+- [Proxy](/coding/gof/structural/proxy) — ambos interpõem um objeto para controlar recursos; o Proxy controla o acesso, o Flyweight controla a quantidade de instâncias
 
 ## Referência
 

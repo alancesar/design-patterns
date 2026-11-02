@@ -60,11 +60,11 @@ O replier devolve o mesmo identificador, e o requestor o usa para encontrar a re
 
 ## Padrões relacionados
 
-- [Request-Reply](./request-reply.md) — contexto principal de uso
-- [Return Address](./return-address.md) — informa o destino, enquanto o identificador informa a origem
-- [Message Sequence](./message-sequence.md) — também usa identificadores para agrupar mensagens
-- [Message](./message.md) — o identificador vive no cabeçalho
-- [Distributed Tracing](../../microservices/observability/distributed-tracing.md) — propaga identificadores para rastrear chamadas entre serviços
+- [Request-Reply](/architecture/eip/message-construction/request-reply) — contexto principal de uso
+- [Return Address](/architecture/eip/message-construction/return-address) — informa o destino, enquanto o identificador informa a origem
+- [Message Sequence](/architecture/eip/message-construction/message-sequence) — também usa identificadores para agrupar mensagens
+- [Message](/architecture/eip/message-construction/message) — o identificador vive no cabeçalho
+- [Distributed Tracing](/architecture/microservices/observability/distributed-tracing) — propaga identificadores para rastrear chamadas entre serviços
 
 ## Referência
 

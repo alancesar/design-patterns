@@ -17,7 +17,7 @@ O Data Transfer Object (DTO) é um objeto que carrega dados entre processos para
 
 Um DTO é um objeto simples, só com campos e acessores, sem comportamento de domínio, e precisa ser serializável para cruzar a fronteira. Normalmente um Assembler (ou Mapper) converte entre o DTO e os objetos de domínio, de modo que o domínio não conhece o formato de transporte.
 
-Um benefício secundário é encapsular a serialização: o formato de transmissão (JSON, XML, binário) fica em um único lugar, e o restante do código não depende dele. Historicamente o padrão foi chamado de "value object" em Java, o que conflita com o padrão [Value Object](../base/value-object.md); por isso o nome "Transfer Object" se firmou.
+Um benefício secundário é encapsular a serialização: o formato de transmissão (JSON, XML, binário) fica em um único lugar, e o restante do código não depende dele. Historicamente o padrão foi chamado de "value object" em Java, o que conflita com o padrão [Value Object](/application/poeaa/base/value-object); por isso o nome "Transfer Object" se firmou.
 
 ## Problemas que resolve
 
@@ -28,13 +28,13 @@ Um benefício secundário é encapsular a serialização: o formato de transmiss
 
 ## Quando usar
 
-- Em interfaces remotas, geralmente por trás de um [Remote Facade](./remote-facade.md), onde cada chamada tem custo alto.
+- Em interfaces remotas, geralmente por trás de um [Remote Facade](/application/poeaa/distribution/remote-facade), onde cada chamada tem custo alto.
 - Quando se quer agrupar o que seriam várias chamadas em uma só.
 - Quando o contrato de dados com o cliente deve evoluir independentemente do modelo de domínio.
 
 ### Quando evitar
 
-- Em chamadas locais dentro do mesmo processo: Fowler alerta no artigo LocalDTO que o custo de mapeamento é alto e o benefício é nenhum; prefira uma [Service Layer](../domain-logic/service-layer.md) trabalhando com objetos de domínio.
+- Em chamadas locais dentro do mesmo processo: Fowler alerta no artigo LocalDTO que o custo de mapeamento é alto e o benefício é nenhum; prefira uma [Service Layer](/application/poeaa/domain-logic/service-layer) trabalhando com objetos de domínio.
 - Quando o DTO tende a espelhar o domínio campo a campo, apenas duplicando classes sem ganho de isolamento.
 - Quando o DTO ganha comportamento e regras de negócio, o que o transforma em um modelo anêmico paralelo.
 
@@ -102,12 +102,12 @@ Em frameworks, o papel do assembler é feito por bibliotecas como MapStruct (Jav
 
 ## Padrões relacionados
 
-- [Remote Facade](./remote-facade.md) — o consumidor típico do DTO: a fachada recebe e devolve DTOs.
-- [Service Layer](../domain-logic/service-layer.md) — a alternativa local, que dispensa DTOs e trabalha com o domínio.
-- [Mapper](../base/mapper.md) — o Assembler é um mapper entre DTO e domínio.
-- [Value Object](../base/value-object.md) — nome historicamente confundido; o Value Object tem comportamento e igualdade por valor.
-- [Data Mapper](../data-source-architectural/data-mapper.md) — faz algo parecido entre domínio e banco de dados; o assembler faz entre domínio e fronteira remota.
-- [Remote Procedure Invocation](../../../architecture/microservices/communication-styles/remote-procedure-invocation.md) — o estilo de comunicação em que o custo de cada chamada justifica o DTO.
+- [Remote Facade](/application/poeaa/distribution/remote-facade) — o consumidor típico do DTO: a fachada recebe e devolve DTOs.
+- [Service Layer](/application/poeaa/domain-logic/service-layer) — a alternativa local, que dispensa DTOs e trabalha com o domínio.
+- [Mapper](/application/poeaa/base/mapper) — o Assembler é um mapper entre DTO e domínio.
+- [Value Object](/application/poeaa/base/value-object) — nome historicamente confundido; o Value Object tem comportamento e igualdade por valor.
+- [Data Mapper](/application/poeaa/data-source-architectural/data-mapper) — faz algo parecido entre domínio e banco de dados; o assembler faz entre domínio e fronteira remota.
+- [Remote Procedure Invocation](/architecture/microservices/communication-styles/remote-procedure-invocation) — o estilo de comunicação em que o custo de cada chamada justifica o DTO.
 
 ## Referência
 

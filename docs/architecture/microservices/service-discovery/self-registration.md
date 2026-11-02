@@ -59,10 +59,10 @@ A própria instância gerencia seu ciclo de vida no registro.
 
 ## Padrões relacionados
 
-- [Service Registry](./service-registry.md) — onde a instância se registra
-- [3rd Party Registration](./3rd-party-registration.md) — alternativa com registrador externo
-- [Client-side Discovery](./client-side-discovery.md) e [Server-side Discovery](./server-side-discovery.md) — consumidores do registro
-- [Microservice Chassis](../cross-cutting-concerns/microservice-chassis.md) — costuma implementar o registro
+- [Service Registry](/architecture/microservices/service-discovery/service-registry) — onde a instância se registra
+- [3rd Party Registration](/architecture/microservices/service-discovery/3rd-party-registration) — alternativa com registrador externo
+- [Client-side Discovery](/architecture/microservices/service-discovery/client-side-discovery) e [Server-side Discovery](/architecture/microservices/service-discovery/server-side-discovery) — consumidores do registro
+- [Microservice Chassis](/architecture/microservices/cross-cutting-concerns/microservice-chassis) — costuma implementar o registro
 
 ## Referência
 

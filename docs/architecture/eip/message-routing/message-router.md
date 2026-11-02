@@ -61,13 +61,13 @@ O roteador lê uma mensagem do canal de entrada e a encaminha, sem modificá-la,
 
 ## Padrões relacionados
 
-- [Content-Based Router](./content-based-router.md) — roteia pelo conteúdo da mensagem
-- [Message Filter](./message-filter.md) — roteador com uma única saída que descarta o que não interessa
-- [Dynamic Router](./dynamic-router.md) — regras montadas em tempo de execução
-- [Recipient List](./recipient-list.md) — encaminha a uma lista calculada de destinatários
-- [Pipes and Filters](../../../cloud/cloud-design-patterns/messaging/pipes-and-filters.md) — o roteador é um filtro com várias saídas
-- [Message Broker](./message-broker.md) — compõe roteadores em escala de solução
-- [Gateway Routing](../../../cloud/cloud-design-patterns/gateways-and-edge/gateway-routing.md) — roteamento de requisições em um gateway
+- [Content-Based Router](/architecture/eip/message-routing/content-based-router) — roteia pelo conteúdo da mensagem
+- [Message Filter](/architecture/eip/message-routing/message-filter) — roteador com uma única saída que descarta o que não interessa
+- [Dynamic Router](/architecture/eip/message-routing/dynamic-router) — regras montadas em tempo de execução
+- [Recipient List](/architecture/eip/message-routing/recipient-list) — encaminha a uma lista calculada de destinatários
+- [Pipes and Filters](/cloud/cloud-design-patterns/messaging/pipes-and-filters) — o roteador é um filtro com várias saídas
+- [Message Broker](/architecture/eip/message-routing/message-broker) — compõe roteadores em escala de solução
+- [Gateway Routing](/cloud/cloud-design-patterns/gateways-and-edge/gateway-routing) — roteamento de requisições em um gateway
 
 ## Referência
 

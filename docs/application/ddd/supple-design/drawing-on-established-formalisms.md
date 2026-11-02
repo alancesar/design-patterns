@@ -99,12 +99,12 @@ tx = Transaction([
 
 ## Padrões relacionados
 
-- [Conceptual Contours](./conceptual-contours.md) — o formalismo ajuda a achar divisões naturais do modelo.
-- [Refactoring Toward Deeper Insight](../model-in-practice/refactoring-toward-deeper-insight.md) — formalismos costumam surgir como parte desse aprofundamento.
-- [Ubiquitous Language](../model-in-practice/ubiquitous-language.md) — o vocabulário do formalismo passa a ser a linguagem comum.
-- [Closure of Operations](./closure-of-operations.md) — formalismos matemáticos trazem operações fechadas.
-- [Value Object](../../poeaa/base/value-object.md) — conceitos formais costumam ser modelados como valores.
-- [Money](../../poeaa/base/money.md) (PoEAA) — exemplo de conceito formal bem estabelecido.
+- [Conceptual Contours](/application/ddd/supple-design/conceptual-contours) — o formalismo ajuda a achar divisões naturais do modelo.
+- [Refactoring Toward Deeper Insight](/application/ddd/model-in-practice/refactoring-toward-deeper-insight) — formalismos costumam surgir como parte desse aprofundamento.
+- [Ubiquitous Language](/application/ddd/model-in-practice/ubiquitous-language) — o vocabulário do formalismo passa a ser a linguagem comum.
+- [Closure of Operations](/application/ddd/supple-design/closure-of-operations) — formalismos matemáticos trazem operações fechadas.
+- [Value Object](/application/poeaa/base/value-object) — conceitos formais costumam ser modelados como valores.
+- [Money](/application/poeaa/base/money) (PoEAA) — exemplo de conceito formal bem estabelecido.
 
 ## Referência
 

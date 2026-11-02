@@ -88,11 +88,11 @@ Em Spring MVC, um método `@GetMapping` em um `@Controller` é um Page Controlle
 
 ## Padrões relacionados
 
-- [Front Controller](./front-controller.md) — alternativa com um único ponto de entrada para todas as requisições.
-- [Model View Controller](./model-view-controller.md) — o Page Controller é uma forma de realizar o papel de controller.
-- [Template View](./template-view.md) — view típica escolhida por um Page Controller.
-- [Application Controller](./application-controller.md) — pode decidir fluxo de telas quando a navegação é complexa.
-- [Template Method](../../../coding/gof/behavioral/template-method.md) — usado em classes base de controllers para fixar o fluxo comum.
+- [Front Controller](/application/poeaa/web-presentation/front-controller) — alternativa com um único ponto de entrada para todas as requisições.
+- [Model View Controller](/application/poeaa/web-presentation/model-view-controller) — o Page Controller é uma forma de realizar o papel de controller.
+- [Template View](/application/poeaa/web-presentation/template-view) — view típica escolhida por um Page Controller.
+- [Application Controller](/application/poeaa/web-presentation/application-controller) — pode decidir fluxo de telas quando a navegação é complexa.
+- [Template Method](/coding/gof/behavioral/template-method) — usado em classes base de controllers para fixar o fluxo comum.
 
 ## Referência
 

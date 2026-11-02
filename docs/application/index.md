@@ -9,5 +9,5 @@ Estrutura interna da aplicação e modelagem de domínio (camadas, persistência
 
 ## Catálogos
 
-- [Domain-Driven Design](./ddd/index.md): 45 padrões em 6 grupos. Fonte: <https://www.domainlanguage.com/ddd/reference/>
-- [Patterns of Enterprise Application Architecture](./poeaa/index.md): 51 padrões em 10 grupos. Fonte: <https://martinfowler.com/eaaCatalog/>
+- [Domain-Driven Design](/application/ddd): 45 padrões em 6 grupos. Fonte: <https://www.domainlanguage.com/ddd/reference/>
+- [Patterns of Enterprise Application Architecture](/application/poeaa): 51 padrões em 10 grupos. Fonte: <https://martinfowler.com/eaaCatalog/>

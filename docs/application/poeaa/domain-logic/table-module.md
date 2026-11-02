@@ -106,11 +106,11 @@ public class Orders
 
 ## Padrões relacionados
 
-- [Transaction Script](./transaction-script.md) — organiza por requisição em vez de por tabela.
-- [Domain Model](./domain-model.md) — um objeto por registro, em vez de um por tabela.
-- [Record Set](../base/record-set.md) — estrutura tabular em memória na qual o Table Module opera.
-- [Table Data Gateway](../data-source-architectural/table-data-gateway.md) — carrega os dados da tabela para o módulo.
-- [Service Layer](./service-layer.md) — pode servir de fronteira sobre os módulos.
+- [Transaction Script](/application/poeaa/domain-logic/transaction-script) — organiza por requisição em vez de por tabela.
+- [Domain Model](/application/poeaa/domain-logic/domain-model) — um objeto por registro, em vez de um por tabela.
+- [Record Set](/application/poeaa/base/record-set) — estrutura tabular em memória na qual o Table Module opera.
+- [Table Data Gateway](/application/poeaa/data-source-architectural/table-data-gateway) — carrega os dados da tabela para o módulo.
+- [Service Layer](/application/poeaa/domain-logic/service-layer) — pode servir de fronteira sobre os módulos.
 
 ## Referência
 

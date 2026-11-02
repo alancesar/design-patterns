@@ -90,13 +90,13 @@ public class Invoice {
 
 ## Padrões relacionados
 
-- [Refactoring Toward Deeper Insight](../model-in-practice/refactoring-toward-deeper-insight.md) — meio principal para descobrir os contornos.
-- [Aggregate](../building-blocks/aggregate.md) — fronteiras de Aggregate seguem os contornos de consistência.
-- [Standalone Classes](./standalone-classes.md) — contornos corretos facilitam classes independentes.
-- [Intention-Revealing Interfaces](./intention-revealing-interfaces.md) — cada unidade tem um nome que expressa seu conceito.
-- [Drawing on Established Formalisms](./drawing-on-established-formalisms.md) — formalismos sugerem divisões naturais.
-- [Core Domain](../distillation/core-domain.md) — os contornos mais importantes vão onde está o valor do negócio.
-- [Strategy](../../../coding/gof/behavioral/strategy.md) (GoF) — encapsula cada política que varia separadamente.
+- [Refactoring Toward Deeper Insight](/application/ddd/model-in-practice/refactoring-toward-deeper-insight) — meio principal para descobrir os contornos.
+- [Aggregate](/application/ddd/building-blocks/aggregate) — fronteiras de Aggregate seguem os contornos de consistência.
+- [Standalone Classes](/application/ddd/supple-design/standalone-classes) — contornos corretos facilitam classes independentes.
+- [Intention-Revealing Interfaces](/application/ddd/supple-design/intention-revealing-interfaces) — cada unidade tem um nome que expressa seu conceito.
+- [Drawing on Established Formalisms](/application/ddd/supple-design/drawing-on-established-formalisms) — formalismos sugerem divisões naturais.
+- [Core Domain](/application/ddd/distillation/core-domain) — os contornos mais importantes vão onde está o valor do negócio.
+- [Strategy](/coding/gof/behavioral/strategy) (GoF) — encapsula cada política que varia separadamente.
 
 ## Referência
 

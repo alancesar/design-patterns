@@ -125,11 +125,11 @@ finally:
 
 ## Padrões relacionados
 
-- [Singleton](./singleton.md) — o pool costuma ser uma instância única e global da aplicação
-- [Factory Method](./factory-method.md) — usado pelo pool para criar novas instâncias quando não há objetos disponíveis
-- [Prototype](./prototype.md) — o pool pode clonar um protótipo pré-configurado para gerar novos objetos
-- [Flyweight](../structural/flyweight.md) — ambos reutilizam objetos, mas o Flyweight compartilha estado imutável simultaneamente, enquanto o pool empresta objetos com uso exclusivo
-- [Proxy](../structural/proxy.md) — um proxy pode envolver o objeto emprestado e devolvê-lo ao pool automaticamente ao ser fechado
+- [Singleton](/coding/gof/creational/singleton) — o pool costuma ser uma instância única e global da aplicação
+- [Factory Method](/coding/gof/creational/factory-method) — usado pelo pool para criar novas instâncias quando não há objetos disponíveis
+- [Prototype](/coding/gof/creational/prototype) — o pool pode clonar um protótipo pré-configurado para gerar novos objetos
+- [Flyweight](/coding/gof/structural/flyweight) — ambos reutilizam objetos, mas o Flyweight compartilha estado imutável simultaneamente, enquanto o pool empresta objetos com uso exclusivo
+- [Proxy](/coding/gof/structural/proxy) — um proxy pode envolver o objeto emprestado e devolvê-lo ao pool automaticamente ao ser fechado
 
 ## Referência
 

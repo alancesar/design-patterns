@@ -63,10 +63,10 @@ O esqueleto da página no navegador compõe componentes de UI, e cada um consult
 
 ## Padrões relacionados
 
-- [Server-side Page Fragment Composition](./server-side-page-fragment-composition.md) — alternativa em que a composição ocorre no servidor
-- [API Gateway](../external-api/api-gateway.md) — expõe os serviços aos componentes do cliente
-- [API Composition](../service-collaboration/api-composition.md) — agregação de dados no backend
-- [Backends for Frontends](../../../cloud/cloud-design-patterns/gateways-and-edge/backends-for-frontends.md) — backend dedicado ao cliente
+- [Server-side Page Fragment Composition](/architecture/microservices/ui-design/server-side-page-fragment-composition) — alternativa em que a composição ocorre no servidor
+- [API Gateway](/architecture/microservices/external-api/api-gateway) — expõe os serviços aos componentes do cliente
+- [API Composition](/architecture/microservices/service-collaboration/api-composition) — agregação de dados no backend
+- [Backends for Frontends](/cloud/cloud-design-patterns/gateways-and-edge/backends-for-frontends) — backend dedicado ao cliente
 
 ## Referência
 

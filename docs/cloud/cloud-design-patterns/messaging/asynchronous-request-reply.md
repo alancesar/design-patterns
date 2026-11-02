@@ -89,14 +89,14 @@ O cliente recebe 202 assim que a requisição é aceita e enfileirada, consulta 
 
 ## Padrões relacionados
 
-- [Queue-Based Load Leveling](./queue-based-load-leveling.md) — a fila entre API e workers desacopla e nivela a carga do processamento assíncrono.
-- [Competing Consumers](./competing-consumers.md) — vários workers podem consumir a fila em paralelo para escalar o processamento.
-- [Valet Key](../security-and-access/valet-key.md) — permite que o `Location` aponte para o resultado com acesso restrito e temporário.
-- [Idempotent Consumer](./idempotent-consumer.md) — protege contra processamento duplicado quando o cliente reenvia a requisição.
-- [Retry](../resiliency/retry.md) — o cliente deve repetir chamadas com backoff, respeitando o `Retry-After`.
-- [Compensating Transaction](../distributed-coordination/compensating-transaction.md) — útil para desfazer trabalho parcial ao cancelar uma operação longa.
-- [Claim-Check](./claim-check.md) — payloads grandes podem ser armazenados à parte e referenciados na mensagem enfileirada.
-- [Backends for Frontends](../gateways-and-edge/backends-for-frontends.md) — um BFF pode encapsular o polling ou servir de façade para clientes que esperam respostas síncronas.
+- [Queue-Based Load Leveling](/cloud/cloud-design-patterns/messaging/queue-based-load-leveling) — a fila entre API e workers desacopla e nivela a carga do processamento assíncrono.
+- [Competing Consumers](/cloud/cloud-design-patterns/messaging/competing-consumers) — vários workers podem consumir a fila em paralelo para escalar o processamento.
+- [Valet Key](/cloud/cloud-design-patterns/security-and-access/valet-key) — permite que o `Location` aponte para o resultado com acesso restrito e temporário.
+- [Idempotent Consumer](/cloud/cloud-design-patterns/messaging/idempotent-consumer) — protege contra processamento duplicado quando o cliente reenvia a requisição.
+- [Retry](/cloud/cloud-design-patterns/resiliency/retry) — o cliente deve repetir chamadas com backoff, respeitando o `Retry-After`.
+- [Compensating Transaction](/cloud/cloud-design-patterns/distributed-coordination/compensating-transaction) — útil para desfazer trabalho parcial ao cancelar uma operação longa.
+- [Claim-Check](/cloud/cloud-design-patterns/messaging/claim-check) — payloads grandes podem ser armazenados à parte e referenciados na mensagem enfileirada.
+- [Backends for Frontends](/cloud/cloud-design-patterns/gateways-and-edge/backends-for-frontends) — um BFF pode encapsular o polling ou servir de façade para clientes que esperam respostas síncronas.
 
 ## Referência
 

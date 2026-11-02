@@ -61,14 +61,14 @@ O produtor empacota o dado em uma mensagem com cabeçalho e corpo e a envia por 
 
 ## Padrões relacionados
 
-- [Message Channel](../messaging-channels/message-channel.md) — caminho pelo qual as mensagens trafegam
-- [Command Message](./command-message.md) — mensagem que pede uma ação
-- [Document Message](./document-message.md) — mensagem que transporta dados
-- [Event Message](./event-message.md) — mensagem que notifica um acontecimento
-- [Request-Reply](./request-reply.md) — troca de mensagens em par
-- [Message Sequence](./message-sequence.md) — divide dados grandes em várias mensagens
-- [Message Expiration](./message-expiration.md) — limita a validade da mensagem
-- [Canonical Data Model](../message-transformation/canonical-data-model.md) — formato comum para o corpo
+- [Message Channel](/architecture/eip/messaging-channels/message-channel) — caminho pelo qual as mensagens trafegam
+- [Command Message](/architecture/eip/message-construction/command-message) — mensagem que pede uma ação
+- [Document Message](/architecture/eip/message-construction/document-message) — mensagem que transporta dados
+- [Event Message](/architecture/eip/message-construction/event-message) — mensagem que notifica um acontecimento
+- [Request-Reply](/architecture/eip/message-construction/request-reply) — troca de mensagens em par
+- [Message Sequence](/architecture/eip/message-construction/message-sequence) — divide dados grandes em várias mensagens
+- [Message Expiration](/architecture/eip/message-construction/message-expiration) — limita a validade da mensagem
+- [Canonical Data Model](/architecture/eip/message-transformation/canonical-data-model) — formato comum para o corpo
 
 ## Referência
 

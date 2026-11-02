@@ -116,11 +116,11 @@ const tracking = new OrderFacade().placeOrder("c-1", "SKU-9", 2, 199.9);
 
 ## Padrões relacionados
 
-- [Adapter](./adapter.md) — o Adapter converte uma interface existente para outra esperada; o Facade cria uma interface nova e mais simples para um conjunto de classes.
-- [Mediator](../behavioral/mediator.md) — ambos centralizam a comunicação, mas o Mediator coordena colegas que o conhecem, enquanto o Facade é transparente para o subsistema.
-- [Abstract Factory](../creational/abstract-factory.md) — pode ser usado junto com o Facade para criar os objetos do subsistema de forma independente de plataforma.
-- [Singleton](../creational/singleton.md) — frequentemente basta uma única instância da fachada.
-- [Proxy](./proxy.md) — também se interpõe entre cliente e objeto real, mas mantém a mesma interface em vez de simplificá-la.
+- [Adapter](/coding/gof/structural/adapter) — o Adapter converte uma interface existente para outra esperada; o Facade cria uma interface nova e mais simples para um conjunto de classes.
+- [Mediator](/coding/gof/behavioral/mediator) — ambos centralizam a comunicação, mas o Mediator coordena colegas que o conhecem, enquanto o Facade é transparente para o subsistema.
+- [Abstract Factory](/coding/gof/creational/abstract-factory) — pode ser usado junto com o Facade para criar os objetos do subsistema de forma independente de plataforma.
+- [Singleton](/coding/gof/creational/singleton) — frequentemente basta uma única instância da fachada.
+- [Proxy](/coding/gof/structural/proxy) — também se interpõe entre cliente e objeto real, mas mantém a mesma interface em vez de simplificá-la.
 
 ## Referência
 

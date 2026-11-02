@@ -18,7 +18,7 @@ Vários agentes de IA resolvem um problema, tomam uma decisão ou validam um tra
 
 Todos os agentes (e os humanos, se houver) escrevem em uma única thread acumulada, que serve de contexto para os próximos turnos e de resultado final. Os agentes costumam ficar em modo somente leitura: discutem com base em conhecimento e modelos, sem usar ferramentas que alterem sistemas em execução. Um humano pode atuar como observador, participante ou até assumir o papel de chat manager.
 
-Também é conhecido como *roundtable*, *collaborative*, *multiagent debate* ou *council*. O [Maker-Checker Loop](./maker-checker-loop.md) é um subtipo dele.
+Também é conhecido como *roundtable*, *collaborative*, *multiagent debate* ou *council*. O [Maker-Checker Loop](/ai/agent-orchestration/dynamic-orchestration/maker-checker-loop) é um subtipo dele.
 
 ## Problemas que resolve
 
@@ -32,7 +32,7 @@ Também é conhecido como *roundtable*, *collaborative*, *multiagent debate* ou 
 
 - Brainstorming criativo em que agentes com perspectivas e fontes de conhecimento distintas constroem sobre as contribuições uns dos outros.
 - Decisões que pedem debate, consenso ou refinamento iterativo.
-- Garantia de qualidade com revisão estruturada e iteração, incluindo [maker-checker loops](./maker-checker-loop.md).
+- Garantia de qualidade com revisão estruturada e iteração, incluindo [maker-checker loops](/ai/agent-orchestration/dynamic-orchestration/maker-checker-loop).
 - Validação de conformidade e regulatória com múltiplos pontos de vista de especialistas.
 - Cenários com participação ou supervisão humana em tempo real (human-in-the-loop).
 
@@ -84,12 +84,12 @@ O chat manager escolhe quem fala a cada turno; todas as contribuições se acumu
 
 ## Padrões relacionados
 
-- [Maker-Checker Loop](./maker-checker-loop.md) — subtipo de group chat com turnos formais, critérios de aceitação e limite de iterações.
-- [Magentic Orchestration](./magentic-orchestration.md) — extensão do group chat em que um gerente monta um plano e os agentes usam ferramentas para agir em sistemas externos.
-- [Handoff Orchestration](./handoff-orchestration.md) — também dinâmico, mas com um único agente ativo e transferência total de controle.
-- [Sequential Orchestration](../deterministic-workflows/sequential-orchestration.md) — alternativa determinística quando um pipeline linear basta.
-- [Concurrent Orchestration](../deterministic-workflows/concurrent-orchestration.md) — análises independentes em paralelo, sem debate entre os agentes.
-- [Process Manager](../../../architecture/eip/message-routing/process-manager.md) — coordenação central de um processo com vários participantes, mas com fluxo definido.
+- [Maker-Checker Loop](/ai/agent-orchestration/dynamic-orchestration/maker-checker-loop) — subtipo de group chat com turnos formais, critérios de aceitação e limite de iterações.
+- [Magentic Orchestration](/ai/agent-orchestration/dynamic-orchestration/magentic-orchestration) — extensão do group chat em que um gerente monta um plano e os agentes usam ferramentas para agir em sistemas externos.
+- [Handoff Orchestration](/ai/agent-orchestration/dynamic-orchestration/handoff-orchestration) — também dinâmico, mas com um único agente ativo e transferência total de controle.
+- [Sequential Orchestration](/ai/agent-orchestration/deterministic-workflows/sequential-orchestration) — alternativa determinística quando um pipeline linear basta.
+- [Concurrent Orchestration](/ai/agent-orchestration/deterministic-workflows/concurrent-orchestration) — análises independentes em paralelo, sem debate entre os agentes.
+- [Process Manager](/architecture/eip/message-routing/process-manager) — coordenação central de um processo com vários participantes, mas com fluxo definido.
 
 ## Referência
 

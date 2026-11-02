@@ -96,10 +96,10 @@ public class Customer {
 
 ## Padrões relacionados
 
-- [Embedded Value](./embedded-value.md) — alternativa para grupos pequenos e estruturados que ainda precisam ser colunas.
-- [Dependent Mapping](./dependent-mapping.md) — alternativa quando os filhos precisam ser tabelas.
-- [Foreign Key Mapping](./foreign-key-mapping.md) — o mapeamento relacional tradicional que o LOB evita.
-- [Data Transfer Object](../distribution/data-transfer-object.md) — também serializa um grafo de objetos, mas para transporte.
+- [Embedded Value](/application/poeaa/object-relational-structural/embedded-value) — alternativa para grupos pequenos e estruturados que ainda precisam ser colunas.
+- [Dependent Mapping](/application/poeaa/object-relational-structural/dependent-mapping) — alternativa quando os filhos precisam ser tabelas.
+- [Foreign Key Mapping](/application/poeaa/object-relational-structural/foreign-key-mapping) — o mapeamento relacional tradicional que o LOB evita.
+- [Data Transfer Object](/application/poeaa/distribution/data-transfer-object) — também serializa um grafo de objetos, mas para transporte.
 
 ## Referência
 

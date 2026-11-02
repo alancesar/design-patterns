@@ -18,7 +18,7 @@ O Abstract Core é um módulo separado que contém os conceitos mais fundamentai
 
 Os módulos especializados dependem do Abstract Core e implementam ou estendem seus tipos, mas não dependem uns dos outros diretamente. Isso permite entender o modelo de alto nível lendo apenas o núcleo abstrato, e reduz o acoplamento entre as partes especializadas.
 
-É um recurso mais forte do que o [Highlighted Core](./highlighted-core.md), pois muda a estrutura do código, mas pode ser menos invasivo que um [Segregated Core](./segregated-core.md) quando o core é muito grande para ser movido por inteiro. Só vale a pena quando há muita interação entre módulos e um conjunto de conceitos claramente estável.
+É um recurso mais forte do que o [Highlighted Core](/application/ddd/distillation/highlighted-core), pois muda a estrutura do código, mas pode ser menos invasivo que um [Segregated Core](/application/ddd/distillation/segregated-core) quando o core é muito grande para ser movido por inteiro. Só vale a pena quando há muita interação entre módulos e um conjunto de conceitos claramente estável.
 
 ## Problemas que resolve
 
@@ -110,14 +110,14 @@ public class AutoPolicy extends Policy {
 
 ## Padrões relacionados
 
-- [Core Domain](./core-domain.md) — o Abstract Core é uma forma de organizar e comunicar o core.
-- [Highlighted Core](./highlighted-core.md) — alternativa mais leve, que não altera a estrutura.
-- [Segregated Core](./segregated-core.md) — alternativa que move o core inteiro, em vez de extrair apenas abstrações.
-- [Module](../building-blocks/module.md) — o núcleo abstrato vive em um módulo próprio.
-- [Knowledge Level](../large-scale-structure/knowledge-level.md) — outra forma de separar conceitos abstratos e regras configuráveis.
-- [Pluggable Component Framework](../large-scale-structure/pluggable-component-framework.md) — usa interfaces abstratas para permitir componentes intercambiáveis.
-- [Separated Interface](../../poeaa/base/separated-interface.md) — técnica para colocar interface e implementação em pacotes distintos.
-- [Abstract Factory](../../../coding/gof/creational/abstract-factory.md) — comumente usada para criar implementações sem conhecer os tipos concretos.
+- [Core Domain](/application/ddd/distillation/core-domain) — o Abstract Core é uma forma de organizar e comunicar o core.
+- [Highlighted Core](/application/ddd/distillation/highlighted-core) — alternativa mais leve, que não altera a estrutura.
+- [Segregated Core](/application/ddd/distillation/segregated-core) — alternativa que move o core inteiro, em vez de extrair apenas abstrações.
+- [Module](/application/ddd/building-blocks/module) — o núcleo abstrato vive em um módulo próprio.
+- [Knowledge Level](/application/ddd/large-scale-structure/knowledge-level) — outra forma de separar conceitos abstratos e regras configuráveis.
+- [Pluggable Component Framework](/application/ddd/large-scale-structure/pluggable-component-framework) — usa interfaces abstratas para permitir componentes intercambiáveis.
+- [Separated Interface](/application/poeaa/base/separated-interface) — técnica para colocar interface e implementação em pacotes distintos.
+- [Abstract Factory](/coding/gof/creational/abstract-factory) — comumente usada para criar implementações sem conhecer os tipos concretos.
 
 ## Referência
 

@@ -91,12 +91,12 @@ Antes, cada tarefa ocupa sua própria unidade computacional, muitas vezes ociosa
 
 ## Padrões relacionados
 
-- [Sidecar](../integration-and-modernization/sidecar.md) — também colocaliza componentes na mesma unidade de execução, compartilhando recursos e ciclo de vida com a aplicação principal.
-- [Bulkhead](../resiliency/bulkhead.md) — caminho oposto: isola recursos para conter falhas; ajuda a decidir quais tarefas não devem ser consolidadas.
-- [Deployment Stamp](./deployment-stamp.md) — agrupa componentes e até tenants em unidades de implantação compartilhadas, com trade-offs semelhantes de custo versus isolamento.
-- [Competing Consumers](../messaging/competing-consumers.md) — vários consumidores de fila podem rodar em unidades consolidadas e escalar juntos quando têm perfil semelhante.
-- [Queue-Based Load Leveling](../messaging/queue-based-load-leveling.md) — suaviza picos de carga, tornando o consumo de recursos mais previsível e facilitando a consolidação.
-- [Health Endpoint Monitoring](../resiliency/health-endpoint-monitoring.md) — monitorar a saúde de cada tarefa é essencial quando várias compartilham a mesma unidade.
+- [Sidecar](/cloud/cloud-design-patterns/integration-and-modernization/sidecar) — também colocaliza componentes na mesma unidade de execução, compartilhando recursos e ciclo de vida com a aplicação principal.
+- [Bulkhead](/cloud/cloud-design-patterns/resiliency/bulkhead) — caminho oposto: isola recursos para conter falhas; ajuda a decidir quais tarefas não devem ser consolidadas.
+- [Deployment Stamp](/cloud/cloud-design-patterns/deployment-and-topology/deployment-stamp) — agrupa componentes e até tenants em unidades de implantação compartilhadas, com trade-offs semelhantes de custo versus isolamento.
+- [Competing Consumers](/cloud/cloud-design-patterns/messaging/competing-consumers) — vários consumidores de fila podem rodar em unidades consolidadas e escalar juntos quando têm perfil semelhante.
+- [Queue-Based Load Leveling](/cloud/cloud-design-patterns/messaging/queue-based-load-leveling) — suaviza picos de carga, tornando o consumo de recursos mais previsível e facilitando a consolidação.
+- [Health Endpoint Monitoring](/cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring) — monitorar a saúde de cada tarefa é essencial quando várias compartilham a mesma unidade.
 
 ## Referência
 

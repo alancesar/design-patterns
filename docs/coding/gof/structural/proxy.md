@@ -118,11 +118,11 @@ gallery[0].display(); // carrega e exibe apenas a.png
 
 ## Padrões relacionados
 
-- [Adapter](./adapter.md) — também envolve outro objeto, mas fornece uma interface diferente; o Proxy mantém a mesma interface.
-- [Decorator](./decorator.md) — estrutura quase idêntica, porém o Decorator acrescenta responsabilidades e é empilhável, enquanto o Proxy controla o acesso e geralmente gerencia o ciclo de vida do objeto real.
-- [Facade](./facade.md) — também é um intermediário, mas simplifica um subsistema inteiro em vez de representar um único objeto.
-- [Flyweight](./flyweight.md) — proxies podem ser usados para compartilhar e referenciar objetos flyweight de forma transparente.
-- [Singleton](../creational/singleton.md) — o proxy costuma ser o ponto de acesso controlado a um recurso único e caro.
+- [Adapter](/coding/gof/structural/adapter) — também envolve outro objeto, mas fornece uma interface diferente; o Proxy mantém a mesma interface.
+- [Decorator](/coding/gof/structural/decorator) — estrutura quase idêntica, porém o Decorator acrescenta responsabilidades e é empilhável, enquanto o Proxy controla o acesso e geralmente gerencia o ciclo de vida do objeto real.
+- [Facade](/coding/gof/structural/facade) — também é um intermediário, mas simplifica um subsistema inteiro em vez de representar um único objeto.
+- [Flyweight](/coding/gof/structural/flyweight) — proxies podem ser usados para compartilhar e referenciar objetos flyweight de forma transparente.
+- [Singleton](/coding/gof/creational/singleton) — o proxy costuma ser o ponto de acesso controlado a um recurso único e caro.
 
 ## Referência
 

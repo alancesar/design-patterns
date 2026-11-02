@@ -132,10 +132,10 @@ inventory.setQuantity("SKU-42", 0);
 
 ## Padrões relacionados
 
-- [Mediator](./mediator.md) — ambos desacoplam emissores e receptores; o Mediator centraliza a comunicação, enquanto o Observer a distribui. Um Mediator pode ser implementado com Observer.
-- [Singleton](../creational/singleton.md) — um gerenciador de eventos/subject global costuma ser implementado como Singleton.
-- [Command](./command.md) — notificações podem ser encapsuladas como comandos, permitindo enfileirá-las ou desfazê-las.
-- [Chain of Responsibility](./chain-of-responsibility.md) — também conecta emissores e receptores, mas passa a requisição sequencialmente até um tratador, em vez de difundi-la a todos.
+- [Mediator](/coding/gof/behavioral/mediator) — ambos desacoplam emissores e receptores; o Mediator centraliza a comunicação, enquanto o Observer a distribui. Um Mediator pode ser implementado com Observer.
+- [Singleton](/coding/gof/creational/singleton) — um gerenciador de eventos/subject global costuma ser implementado como Singleton.
+- [Command](/coding/gof/behavioral/command) — notificações podem ser encapsuladas como comandos, permitindo enfileirá-las ou desfazê-las.
+- [Chain of Responsibility](/coding/gof/behavioral/chain-of-responsibility) — também conecta emissores e receptores, mas passa a requisição sequencialmente até um tratador, em vez de difundi-la a todos.
 
 ## Referência
 

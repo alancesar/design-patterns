@@ -99,11 +99,11 @@ No EF Core, o equivalente é `OwnsOne`.
 
 ## Padrões relacionados
 
-- [Value Object](../base/value-object.md) — o tipo de objeto que costuma ser embutido.
-- [Money](../base/money.md) — exemplo clássico de objeto de valor embutido.
-- [Serialized LOB](./serialized-lob.md) — alternativa quando o grupo é maior ou menos estruturado.
-- [Dependent Mapping](./dependent-mapping.md) — para dependentes que precisam de tabela própria.
-- [Identity Field](./identity-field.md) — não é necessário para o objeto embutido.
+- [Value Object](/application/poeaa/base/value-object) — o tipo de objeto que costuma ser embutido.
+- [Money](/application/poeaa/base/money) — exemplo clássico de objeto de valor embutido.
+- [Serialized LOB](/application/poeaa/object-relational-structural/serialized-lob) — alternativa quando o grupo é maior ou menos estruturado.
+- [Dependent Mapping](/application/poeaa/object-relational-structural/dependent-mapping) — para dependentes que precisam de tabela própria.
+- [Identity Field](/application/poeaa/object-relational-structural/identity-field) — não é necessário para o objeto embutido.
 
 ## Referência
 

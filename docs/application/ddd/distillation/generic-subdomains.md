@@ -13,7 +13,7 @@ sidebar_label: "Generic Subdomains"
 
 ## Descrição
 
-Generic Subdomains são partes do modelo que não são o diferencial do negócio e nem são específicas dele: problemas que muitas organizações compartilham, como contabilidade, controle de acesso, agendamento ou notificações. Embora necessárias, elas não devem competir com o [Core Domain](./core-domain.md) por atenção e talento.
+Generic Subdomains são partes do modelo que não são o diferencial do negócio e nem são específicas dele: problemas que muitas organizações compartilham, como contabilidade, controle de acesso, agendamento ou notificações. Embora necessárias, elas não devem competir com o [Core Domain](/application/ddd/distillation/core-domain) por atenção e talento.
 
 O padrão orienta a identificar esses subdomínios, isolá-los em módulos ou contextos separados e tratá-los com o menor custo possível. As alternativas, em ordem de preferência, são adotar uma solução pronta (produto ou biblioteca), reaproveitar um modelo publicado, terceirizar a construção ou, por último, implementar internamente com uma equipe júnior e com design simples.
 
@@ -47,7 +47,7 @@ Como o modelo é genérico, ele não deve conter conceitos do core, e o core nã
 | Soluções maduras e testadas pelo mercado | Modelo de terceiros pode vazar para o core sem uma camada de proteção |
 | Custo previsível e menor | Pode ser tentador classificar como genérico algo que é estratégico |
 
-- **Fronteira:** a integração deve passar por uma interface própria, como uma [Anticorruption Layer](../../../cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer.md), para o modelo externo não contaminar o core.
+- **Fronteira:** a integração deve passar por uma interface própria, como uma [Anticorruption Layer](/cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer), para o modelo externo não contaminar o core.
 - **Reversibilidade:** a escolha não é definitiva; um subdomínio genérico pode ser trocado ou internalizado depois.
 - **Classificação:** a decisão de o que é genérico depende do negócio; o mesmo subdomínio pode ser core em outra empresa.
 
@@ -73,13 +73,13 @@ O código do core fala apenas com interfaces internas (`PaymentGateway`, `Notifi
 
 ## Padrões relacionados
 
-- [Core Domain](./core-domain.md) — o contraponto: onde o investimento deve se concentrar.
-- [Cohesive Mechanisms](./cohesive-mechanisms.md) — extração de mecanismos técnicos, que lembra os subdomínios genéricos, mas para algoritmos em vez de conceitos de negócio.
-- [Anticorruption Layer](../../../cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer.md) — protege o modelo do core da solução genérica adotada.
-- [Conformist](../context-mapping/conformist.md) — alternativa quando se adota o modelo do fornecedor como está.
-- [Published Language](../context-mapping/published-language.md) — linguagem padronizada que facilita integrar soluções prontas.
-- [Module](../building-blocks/module.md) — forma mais simples de isolar um subdomínio genérico dentro do mesmo contexto.
-- [Decompose by Subdomain](../../../architecture/microservices/service-boundaries/decompose-by-subdomain.md) — subdomínios genéricos costumam virar serviços ou ser substituídos por serviços externos.
+- [Core Domain](/application/ddd/distillation/core-domain) — o contraponto: onde o investimento deve se concentrar.
+- [Cohesive Mechanisms](/application/ddd/distillation/cohesive-mechanisms) — extração de mecanismos técnicos, que lembra os subdomínios genéricos, mas para algoritmos em vez de conceitos de negócio.
+- [Anticorruption Layer](/cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer) — protege o modelo do core da solução genérica adotada.
+- [Conformist](/application/ddd/context-mapping/conformist) — alternativa quando se adota o modelo do fornecedor como está.
+- [Published Language](/application/ddd/context-mapping/published-language) — linguagem padronizada que facilita integrar soluções prontas.
+- [Module](/application/ddd/building-blocks/module) — forma mais simples de isolar um subdomínio genérico dentro do mesmo contexto.
+- [Decompose by Subdomain](/architecture/microservices/service-boundaries/decompose-by-subdomain) — subdomínios genéricos costumam virar serviços ou ser substituídos por serviços externos.
 
 ## Referência
 

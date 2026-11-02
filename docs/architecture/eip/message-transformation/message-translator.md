@@ -62,15 +62,15 @@ A mensagem sai da aplicação A no seu formato, é convertida pelo tradutor e ch
 
 ## Padrões relacionados
 
-- [Canonical Data Model](./canonical-data-model.md) — reduz o número de tradutores ao definir um formato comum.
-- [Normalizer](./normalizer.md) — combina um roteador com vários tradutores para unificar formatos.
-- [Content Enricher](./content-enricher.md) — acrescenta dados que faltam, em vez de apenas converter o formato.
-- [Content Filter](./content-filter.md) — remove dados desnecessários da mensagem.
-- [Envelope Wrapper](./envelope-wrapper.md) — adapta a mensagem aos requisitos de cabeçalho da infraestrutura.
-- [Channel Adapter](../messaging-channels/channel-adapter.md) — conecta a aplicação ao canal; a tradução do formato fica no tradutor.
-- [Pipes and Filters](../../../cloud/cloud-design-patterns/messaging/pipes-and-filters.md) — o tradutor é um filtro dentro de uma cadeia de processamento.
-- [Adapter](../../../coding/gof/structural/adapter.md) — o análogo em orientação a objetos.
-- [Anti-Corruption Layer](../../../cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer.md) — camada que traduz entre modelos para proteger o domínio.
+- [Canonical Data Model](/architecture/eip/message-transformation/canonical-data-model) — reduz o número de tradutores ao definir um formato comum.
+- [Normalizer](/architecture/eip/message-transformation/normalizer) — combina um roteador com vários tradutores para unificar formatos.
+- [Content Enricher](/architecture/eip/message-transformation/content-enricher) — acrescenta dados que faltam, em vez de apenas converter o formato.
+- [Content Filter](/architecture/eip/message-transformation/content-filter) — remove dados desnecessários da mensagem.
+- [Envelope Wrapper](/architecture/eip/message-transformation/envelope-wrapper) — adapta a mensagem aos requisitos de cabeçalho da infraestrutura.
+- [Channel Adapter](/architecture/eip/messaging-channels/channel-adapter) — conecta a aplicação ao canal; a tradução do formato fica no tradutor.
+- [Pipes and Filters](/cloud/cloud-design-patterns/messaging/pipes-and-filters) — o tradutor é um filtro dentro de uma cadeia de processamento.
+- [Adapter](/coding/gof/structural/adapter) — o análogo em orientação a objetos.
+- [Anti-Corruption Layer](/cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer) — camada que traduz entre modelos para proteger o domínio.
 
 ## Referência
 

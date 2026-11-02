@@ -17,7 +17,7 @@ O Mapper é um objeto que estabelece a comunicação entre dois objetos ou subsi
 
 O padrão vale quando os dois subsistemas precisam se comunicar, mas não podem (ou não devem) ser alterados para conhecer um ao outro. Também é útil quando é possível alterá-los, mas se deseja evitar dependências entre eles e até entre eles e o elemento isolador.
 
-No PoEAA, o Mapper é a forma geral. O [Data Mapper](../data-source-architectural/data-mapper.md), que move dados entre objetos de domínio e o banco, é a sua especialização mais conhecida.
+No PoEAA, o Mapper é a forma geral. O [Data Mapper](/application/poeaa/data-source-architectural/data-mapper), que move dados entre objetos de domínio e o banco, é a sua especialização mais conhecida.
 
 ## Problemas que resolve
 
@@ -97,11 +97,11 @@ O mesmo princípio aparece em bibliotecas como MapStruct e AutoMapper, e no mape
 
 ## Padrões relacionados
 
-- [Data Mapper](../data-source-architectural/data-mapper.md) — especialização do Mapper entre objetos de domínio e banco de dados.
-- [Gateway](./gateway.md) — isola a aplicação de um recurso externo; o Mapper isola dois subsistemas entre si.
-- [Data Transfer Object](../distribution/data-transfer-object.md) — frequentemente são usados mappers para converter entre entidades e DTOs.
-- [Adapter](../../../coding/gof/structural/adapter.md) — adapta uma interface a outra; o Mapper traduz dados entre dois modelos sem que nenhum o conheça.
-- [Mediator](../../../coding/gof/behavioral/mediator.md) — centraliza a comunicação entre objetos, mas os colegas conhecem o mediador.
+- [Data Mapper](/application/poeaa/data-source-architectural/data-mapper) — especialização do Mapper entre objetos de domínio e banco de dados.
+- [Gateway](/application/poeaa/base/gateway) — isola a aplicação de um recurso externo; o Mapper isola dois subsistemas entre si.
+- [Data Transfer Object](/application/poeaa/distribution/data-transfer-object) — frequentemente são usados mappers para converter entre entidades e DTOs.
+- [Adapter](/coding/gof/structural/adapter) — adapta uma interface a outra; o Mapper traduz dados entre dois modelos sem que nenhum o conheça.
+- [Mediator](/coding/gof/behavioral/mediator) — centraliza a comunicação entre objetos, mas os colegas conhecem o mediador.
 
 ## Referência
 

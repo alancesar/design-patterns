@@ -68,12 +68,12 @@ O roteador identifica o formato de cada mensagem e a envia ao tradutor correspon
 
 ## Padrões relacionados
 
-- [Message Translator](./message-translator.md) — realiza a conversão de cada formato.
-- [Canonical Data Model](./canonical-data-model.md) — o formato comum de saída costuma ser o modelo canônico.
-- [Content-Based Router](../message-routing/content-based-router.md) — base do roteador que detecta o formato.
-- [Format Indicator](../message-construction/format-indicator.md) — quando a mensagem informa o formato, a detecção fica trivial.
-- [Datatype Channel](../messaging-channels/datatype-channel.md) — nomes de arquivo ou pastas podem fazer esse papel.
-- [Invalid Message Channel](../messaging-channels/invalid-message-channel.md) — destino para mensagens de formato desconhecido.
+- [Message Translator](/architecture/eip/message-transformation/message-translator) — realiza a conversão de cada formato.
+- [Canonical Data Model](/architecture/eip/message-transformation/canonical-data-model) — o formato comum de saída costuma ser o modelo canônico.
+- [Content-Based Router](/architecture/eip/message-routing/content-based-router) — base do roteador que detecta o formato.
+- [Format Indicator](/architecture/eip/message-construction/format-indicator) — quando a mensagem informa o formato, a detecção fica trivial.
+- [Datatype Channel](/architecture/eip/messaging-channels/datatype-channel) — nomes de arquivo ou pastas podem fazer esse papel.
+- [Invalid Message Channel](/architecture/eip/messaging-channels/invalid-message-channel) — destino para mensagens de formato desconhecido.
 
 ## Referência
 

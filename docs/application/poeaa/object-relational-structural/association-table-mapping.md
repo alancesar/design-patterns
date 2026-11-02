@@ -79,10 +79,10 @@ public class Employee {
 
 ## Padrões relacionados
 
-- [Foreign Key Mapping](./foreign-key-mapping.md) — usado nas associações um-para-muitos; a tabela de associação generaliza a ideia.
-- [Identity Field](./identity-field.md) — as chaves referenciadas pela tabela de associação.
-- [Dependent Mapping](./dependent-mapping.md) — alternativa quando um dos lados é dependente do outro.
-- [Lazy Load](../object-relational-behavioral/lazy-load.md) — adia a carga dos objetos relacionados.
+- [Foreign Key Mapping](/application/poeaa/object-relational-structural/foreign-key-mapping) — usado nas associações um-para-muitos; a tabela de associação generaliza a ideia.
+- [Identity Field](/application/poeaa/object-relational-structural/identity-field) — as chaves referenciadas pela tabela de associação.
+- [Dependent Mapping](/application/poeaa/object-relational-structural/dependent-mapping) — alternativa quando um dos lados é dependente do outro.
+- [Lazy Load](/application/poeaa/object-relational-behavioral/lazy-load) — adia a carga dos objetos relacionados.
 
 ## Referência
 

@@ -72,11 +72,11 @@ Mais tarde, a metáfora começou a atrapalhar: no correio pneumático não exist
 
 ## Padrões relacionados
 
-- [Ubiquitous Language](../model-in-practice/ubiquitous-language.md) — a metáfora pode alimentar a linguagem, mas o vocabulário do negócio é soberano.
-- [Evolving Order](./evolving-order.md) — a metáfora deve emergir e ser revista, nunca imposta.
-- [Responsibility Layers](./responsibility-layers.md) — estrutura alternativa, baseada em responsabilidades e não em analogia.
-- [Model-Driven Design](../model-in-practice/model-driven-design.md) — a metáfora só vale se for refletida no código.
-- [Intention-Revealing Interfaces](../supple-design/intention-revealing-interfaces.md) — nomes que revelam intenção ajudam a manter a metáfora legível no código.
+- [Ubiquitous Language](/application/ddd/model-in-practice/ubiquitous-language) — a metáfora pode alimentar a linguagem, mas o vocabulário do negócio é soberano.
+- [Evolving Order](/application/ddd/large-scale-structure/evolving-order) — a metáfora deve emergir e ser revista, nunca imposta.
+- [Responsibility Layers](/application/ddd/large-scale-structure/responsibility-layers) — estrutura alternativa, baseada em responsabilidades e não em analogia.
+- [Model-Driven Design](/application/ddd/model-in-practice/model-driven-design) — a metáfora só vale se for refletida no código.
+- [Intention-Revealing Interfaces](/application/ddd/supple-design/intention-revealing-interfaces) — nomes que revelam intenção ajudam a manter a metáfora legível no código.
 
 ## Referência
 

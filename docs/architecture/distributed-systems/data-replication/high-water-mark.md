@@ -61,12 +61,12 @@ As entradas de 1 a 3 já estão na maioria e são visíveis; as entradas 4 e 5 a
 
 ## Padrões relacionados
 
-- [Write-Ahead Log](./write-ahead-log.md) — o log cuja parte segura a marca delimita
-- [Leader and Followers](./leader-and-followers.md) — o líder calcula e propaga a marca
-- [Majority Quorum](./majority-quorum.md) — a marca é definida pela maioria
-- [Replicated Log](./replicated-log.md) — o commit das entradas segue a marca
-- [Low-Water Mark](./low-water-mark.md) — marca complementar no extremo inferior
-- [Follower Reads](./follower-reads.md) — seguidores servem leituras até a marca
+- [Write-Ahead Log](/architecture/distributed-systems/data-replication/write-ahead-log) — o log cuja parte segura a marca delimita
+- [Leader and Followers](/architecture/distributed-systems/data-replication/leader-and-followers) — o líder calcula e propaga a marca
+- [Majority Quorum](/architecture/distributed-systems/data-replication/majority-quorum) — a marca é definida pela maioria
+- [Replicated Log](/architecture/distributed-systems/data-replication/replicated-log) — o commit das entradas segue a marca
+- [Low-Water Mark](/architecture/distributed-systems/data-replication/low-water-mark) — marca complementar no extremo inferior
+- [Follower Reads](/architecture/distributed-systems/data-replication/follower-reads) — seguidores servem leituras até a marca
 
 ## Referência
 

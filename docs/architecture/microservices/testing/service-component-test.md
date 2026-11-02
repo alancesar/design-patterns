@@ -59,10 +59,10 @@ O serviço é exercitado pela sua API e suas dependências remotas são substitu
 
 ## Padrões relacionados
 
-- [Consumer-driven Contract Test](./consumer-driven-contract-test.md) — valida o provedor contra contratos dos consumidores
-- [Consumer-side Contract Test](./consumer-side-contract-test.md) — contratos ajudam a manter os dublês fiéis
-- [Database per Service](../service-collaboration/database-per-service.md) — cada serviço tem seu banco, facilitando o teste isolado
-- [Microservice Architecture](../architectural-style/microservice-architecture.md) — contexto de serviços que se chamam
+- [Consumer-driven Contract Test](/architecture/microservices/testing/consumer-driven-contract-test) — valida o provedor contra contratos dos consumidores
+- [Consumer-side Contract Test](/architecture/microservices/testing/consumer-side-contract-test) — contratos ajudam a manter os dublês fiéis
+- [Database per Service](/architecture/microservices/service-collaboration/database-per-service) — cada serviço tem seu banco, facilitando o teste isolado
+- [Microservice Architecture](/architecture/microservices/architectural-style/microservice-architecture) — contexto de serviços que se chamam
 
 ## Referência
 

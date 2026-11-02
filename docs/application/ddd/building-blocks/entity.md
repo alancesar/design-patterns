@@ -34,7 +34,7 @@ Para manter o modelo simples, convém reduzir a entidade ao essencial: atributos
 
 ### Quando evitar
 
-- Quando o conceito é definido só por seus valores e é intercambiável: prefira um [Value Object](../../poeaa/base/value-object.md).
+- Quando o conceito é definido só por seus valores e é intercambiável: prefira um [Value Object](/application/poeaa/base/value-object).
 - Quando rastrear identidade e ciclo de vida seria custo sem benefício.
 
 ## Trade-offs
@@ -100,11 +100,11 @@ class Customer:
 
 ## Padrões relacionados
 
-- [Value Object](../../poeaa/base/value-object.md) — contraparte sem identidade, usada para descrever a entidade.
-- [Aggregate](./aggregate.md) — entidades se agrupam sob uma raiz que garante invariantes.
-- [Repository](../../poeaa/object-relational-metadata-mapping/repository.md) — recupera entidades pela identidade.
-- [Factory](./factory.md) — cria entidades já com identidade e invariantes válidas.
-- [Identity Field](../../poeaa/object-relational-structural/identity-field.md) — armazena a identidade da entidade no banco.
+- [Value Object](/application/poeaa/base/value-object) — contraparte sem identidade, usada para descrever a entidade.
+- [Aggregate](/application/ddd/building-blocks/aggregate) — entidades se agrupam sob uma raiz que garante invariantes.
+- [Repository](/application/poeaa/object-relational-metadata-mapping/repository) — recupera entidades pela identidade.
+- [Factory](/application/ddd/building-blocks/factory) — cria entidades já com identidade e invariantes válidas.
+- [Identity Field](/application/poeaa/object-relational-structural/identity-field) — armazena a identidade da entidade no banco.
 
 ## Referência
 

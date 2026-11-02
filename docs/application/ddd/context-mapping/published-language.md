@@ -84,12 +84,12 @@ Os campos são definidos em termos de negócio e não expõem tabelas ou classes
 
 ## Padrões relacionados
 
-- [Open-host Service](./open-host-service.md) — o serviço que expõe a linguagem publicada.
-- [Context Map](./context-map.md) — onde a linguagem é registrada como meio de integração.
-- [Anticorruption Layer](../../../cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer.md) — tradução do consumidor entre a linguagem e o modelo interno.
-- [Conformist](./conformist.md) — consumidor que adota a linguagem do upstream como modelo.
-- [Ubiquitous Language](../model-in-practice/ubiquitous-language.md) — linguagem interna de um contexto, distinta da linguagem publicada.
-- [Domain-specific Protocol](../../../architecture/microservices/communication-styles/domain-specific-protocol.md) — protocolo específico de domínio para comunicação entre serviços.
+- [Open-host Service](/application/ddd/context-mapping/open-host-service) — o serviço que expõe a linguagem publicada.
+- [Context Map](/application/ddd/context-mapping/context-map) — onde a linguagem é registrada como meio de integração.
+- [Anticorruption Layer](/cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer) — tradução do consumidor entre a linguagem e o modelo interno.
+- [Conformist](/application/ddd/context-mapping/conformist) — consumidor que adota a linguagem do upstream como modelo.
+- [Ubiquitous Language](/application/ddd/model-in-practice/ubiquitous-language) — linguagem interna de um contexto, distinta da linguagem publicada.
+- [Domain-specific Protocol](/architecture/microservices/communication-styles/domain-specific-protocol) — protocolo específico de domínio para comunicação entre serviços.
 
 ## Referência
 

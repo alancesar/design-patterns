@@ -15,7 +15,7 @@ sidebar_label: "Multi-Agent Loop"
 
 Um agente de loop executa uma sequência de subagentes e, em seguida, verifica uma condição de saída. Se a condição não foi atendida, repete a sequência. A lógica é predefinida e não depende de um modelo para orquestrar; a verificação pode ocorrer em qualquer ponto do fluxo.
 
-O estado compartilhado carrega o resultado de uma volta para a seguinte. O resultado final é o estado no momento em que a condição de saída é satisfeita. [Review and Critique](../../agent-orchestration/dynamic-orchestration/maker-checker-loop.md) e [Iterative Refinement](./multi-agent-iterative-refinement.md) são implementações deste padrão.
+O estado compartilhado carrega o resultado de uma volta para a seguinte. O resultado final é o estado no momento em que a condição de saída é satisfeita. [Review and Critique](/ai/agent-orchestration/dynamic-orchestration/maker-checker-loop) e [Iterative Refinement](/ai/agentic-ai/iteration/multi-agent-iterative-refinement) são implementações deste padrão.
 
 ## Problemas que resolve
 
@@ -62,11 +62,11 @@ A sequência de subagentes se repete até que a condição de saída seja satisf
 
 ## Padrões relacionados
 
-- [Multi-Agent Review and Critique](../../agent-orchestration/dynamic-orchestration/maker-checker-loop.md) — implementação do loop com gerador e crítico.
-- [Multi-Agent Iterative Refinement](./multi-agent-iterative-refinement.md) — implementação do loop que melhora progressivamente um resultado no estado da sessão.
-- [ReAct](./react.md) — itera, mas é o modelo que decide cada passo, sem fluxo predefinido.
-- [Multi-Agent Sequential](../../agent-orchestration/deterministic-workflows/sequential-orchestration.md) — a sequência de subagentes dentro de cada volta é um fluxo sequencial.
-- [Scheduler Agent Supervisor](../../../cloud/cloud-design-patterns/distributed-coordination/scheduler-agent-supervisor.md) — também repete e supervisiona passos até a conclusão.
+- [Multi-Agent Review and Critique](/ai/agent-orchestration/dynamic-orchestration/maker-checker-loop) — implementação do loop com gerador e crítico.
+- [Multi-Agent Iterative Refinement](/ai/agentic-ai/iteration/multi-agent-iterative-refinement) — implementação do loop que melhora progressivamente um resultado no estado da sessão.
+- [ReAct](/ai/agentic-ai/iteration/react) — itera, mas é o modelo que decide cada passo, sem fluxo predefinido.
+- [Multi-Agent Sequential](/ai/agent-orchestration/deterministic-workflows/sequential-orchestration) — a sequência de subagentes dentro de cada volta é um fluxo sequencial.
+- [Scheduler Agent Supervisor](/cloud/cloud-design-patterns/distributed-coordination/scheduler-agent-supervisor) — também repete e supervisiona passos até a conclusão.
 
 ## Referência
 

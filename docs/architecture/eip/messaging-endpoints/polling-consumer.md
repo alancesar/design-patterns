@@ -62,14 +62,14 @@ A aplicação pede mensagens em laço e processa cada uma que chega.
 
 ## Padrões relacionados
 
-- [Event-Driven Consumer](./event-driven-consumer.md) — alternativa baseada em push.
-- [Message Endpoint](./message-endpoint.md) — o polling consumer é um tipo de endpoint de recebimento.
-- [Competing Consumers](../../../cloud/cloud-design-patterns/messaging/competing-consumers.md) — vários polling consumers no mesmo canal.
-- [Transactional Client](./transactional-client.md) — o receive pode ser transacional.
-- [Selective Consumer](./selective-consumer.md) — o polling pode ser filtrado.
-- [Durable Subscriber](./durable-subscriber.md) — assinante que também pode usar polling.
-- [Message Dispatcher](./message-dispatcher.md) — distribui o que o consumidor recebe.
-- [Polling Publisher](../../microservices/transactional-messaging/polling-publisher.md) — uso de polling no lado do publicador.
+- [Event-Driven Consumer](/architecture/eip/messaging-endpoints/event-driven-consumer) — alternativa baseada em push.
+- [Message Endpoint](/architecture/eip/messaging-endpoints/message-endpoint) — o polling consumer é um tipo de endpoint de recebimento.
+- [Competing Consumers](/cloud/cloud-design-patterns/messaging/competing-consumers) — vários polling consumers no mesmo canal.
+- [Transactional Client](/architecture/eip/messaging-endpoints/transactional-client) — o receive pode ser transacional.
+- [Selective Consumer](/architecture/eip/messaging-endpoints/selective-consumer) — o polling pode ser filtrado.
+- [Durable Subscriber](/architecture/eip/messaging-endpoints/durable-subscriber) — assinante que também pode usar polling.
+- [Message Dispatcher](/architecture/eip/messaging-endpoints/message-dispatcher) — distribui o que o consumidor recebe.
+- [Polling Publisher](/architecture/microservices/transactional-messaging/polling-publisher) — uso de polling no lado do publicador.
 
 ## Referência
 

@@ -13,11 +13,11 @@ sidebar_label: "Segregated Core"
 
 ## Descrição
 
-O Segregated Core é a reestruturação do modelo para separar fisicamente o [Core Domain](./core-domain.md) dos demais elementos, de modo que o core fique coeso e com poucas dependências. As classes centrais são movidas para seus próprios módulos, e o que for de suporte ou genérico fica fora, dependendo do core e não o contrário.
+O Segregated Core é a reestruturação do modelo para separar fisicamente o [Core Domain](/application/ddd/distillation/core-domain) dos demais elementos, de modo que o core fique coeso e com poucas dependências. As classes centrais são movidas para seus próprios módulos, e o que for de suporte ou genérico fica fora, dependendo do core e não o contrário.
 
 A separação reduz o acoplamento do core com as partes de suporte e permite que ele seja entendido, testado e evoluído de forma independente. Também facilita a alocação de uma equipe dedicada ao core, com liberdade de refatoração, sem arrastar o restante do sistema.
 
-O custo é uma refatoração significativa. Elementos que servem tanto ao core quanto ao suporte precisam ser divididos ou ter suas responsabilidades redesenhadas, e a interface entre as partes precisa ser explicitada. Por isso, costuma ser adotado quando o [Highlighted Core](./highlighted-core.md) já não basta.
+O custo é uma refatoração significativa. Elementos que servem tanto ao core quanto ao suporte precisam ser divididos ou ter suas responsabilidades redesenhadas, e a interface entre as partes precisa ser explicitada. Por isso, costuma ser adotado quando o [Highlighted Core](/application/ddd/distillation/highlighted-core) já não basta.
 
 ## Problemas que resolve
 
@@ -35,7 +35,7 @@ O custo é uma refatoração significativa. Elementos que servem tanto ao core q
 ### Quando evitar
 
 - Quando o core é pequeno ou a separação não traz ganho perceptível de clareza.
-- Quando o custo e o risco de refatorar superam o benefício, caso em que o [Highlighted Core](./highlighted-core.md) basta.
+- Quando o custo e o risco de refatorar superam o benefício, caso em que o [Highlighted Core](/application/ddd/distillation/highlighted-core) basta.
 - Quando ainda não se tem clareza do que é core; separar cedo demais pode cristalizar uma escolha errada.
 
 ## Trade-offs
@@ -78,13 +78,13 @@ A equipe move `MaintenancePlan`, `WearModel` e `FailureRisk` para um módulo `ma
 
 ## Padrões relacionados
 
-- [Core Domain](./core-domain.md) — o conteúdo que é isolado.
-- [Highlighted Core](./highlighted-core.md) — alternativa mais leve, que apenas aponta onde o core está.
-- [Abstract Core](./abstract-core.md) — pode ser combinado, extraindo as interfaces e conceitos centrais em um módulo próprio.
-- [Generic Subdomains](./generic-subdomains.md) — o que é movido para fora do core.
-- [Module](../building-blocks/module.md) — a unidade de organização usada na separação.
-- [Layered Architecture](../building-blocks/layered-architecture.md) — outra forma de controlar a direção das dependências.
-- [Separated Interface](../../poeaa/base/separated-interface.md) — técnica para inverter dependências entre core e suporte.
+- [Core Domain](/application/ddd/distillation/core-domain) — o conteúdo que é isolado.
+- [Highlighted Core](/application/ddd/distillation/highlighted-core) — alternativa mais leve, que apenas aponta onde o core está.
+- [Abstract Core](/application/ddd/distillation/abstract-core) — pode ser combinado, extraindo as interfaces e conceitos centrais em um módulo próprio.
+- [Generic Subdomains](/application/ddd/distillation/generic-subdomains) — o que é movido para fora do core.
+- [Module](/application/ddd/building-blocks/module) — a unidade de organização usada na separação.
+- [Layered Architecture](/application/ddd/building-blocks/layered-architecture) — outra forma de controlar a direção das dependências.
+- [Separated Interface](/application/poeaa/base/separated-interface) — técnica para inverter dependências entre core e suporte.
 
 ## Referência
 

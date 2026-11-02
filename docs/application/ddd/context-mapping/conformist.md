@@ -64,12 +64,12 @@ Uma loja online integra o cálculo de frete de um grande transportador, cuja API
 
 ## Padrões relacionados
 
-- [Context Map](./context-map.md) — registra o relacionamento Conformist.
-- [Anticorruption Layer](../../../cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer.md) — alternativa defensiva quando o modelo upstream não serve.
-- [Customer/Supplier Development](./customer-supplier-development.md) — alternativa quando o upstream aceita negociar.
-- [Shared Kernel](./shared-kernel.md) — compartilhamento por acordo, não por submissão.
-- [Separate Ways](./separate-ways.md) — saída quando a conformidade custa mais do que traz.
-- [Published Language](./published-language.md) — o modelo adotado costuma ser uma linguagem publicada pelo upstream.
+- [Context Map](/application/ddd/context-mapping/context-map) — registra o relacionamento Conformist.
+- [Anticorruption Layer](/cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer) — alternativa defensiva quando o modelo upstream não serve.
+- [Customer/Supplier Development](/application/ddd/context-mapping/customer-supplier-development) — alternativa quando o upstream aceita negociar.
+- [Shared Kernel](/application/ddd/context-mapping/shared-kernel) — compartilhamento por acordo, não por submissão.
+- [Separate Ways](/application/ddd/context-mapping/separate-ways) — saída quando a conformidade custa mais do que traz.
+- [Published Language](/application/ddd/context-mapping/published-language) — o modelo adotado costuma ser uma linguagem publicada pelo upstream.
 
 ## Referência
 

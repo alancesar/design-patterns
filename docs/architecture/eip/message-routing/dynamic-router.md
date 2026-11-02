@@ -62,10 +62,10 @@ Os destinatários registram suas condições no canal de controle e o roteador u
 
 ## Padrões relacionados
 
-- [Message Router](./message-router.md) — padrão genérico
-- [Content-Based Router](./content-based-router.md) — versão com regras fixas
-- [Recipient List](./recipient-list.md) — a lista de destinatários pode vir das regras registradas
-- [Control Bus](../system-management/control-bus.md) — canal de controle para administrar o fluxo
+- [Message Router](/architecture/eip/message-routing/message-router) — padrão genérico
+- [Content-Based Router](/architecture/eip/message-routing/content-based-router) — versão com regras fixas
+- [Recipient List](/architecture/eip/message-routing/recipient-list) — a lista de destinatários pode vir das regras registradas
+- [Control Bus](/architecture/eip/system-management/control-bus) — canal de controle para administrar o fluxo
 
 ## Referência
 

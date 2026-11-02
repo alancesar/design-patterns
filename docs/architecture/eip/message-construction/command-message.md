@@ -58,12 +58,12 @@ A aplicação A envia um comando por um canal e a aplicação B o executa quando
 
 ## Padrões relacionados
 
-- [Message](./message.md) — o comando é uma mensagem
-- [Document Message](./document-message.md) — transporta dados em vez de ordenar uma ação
-- [Event Message](./event-message.md) — notifica um fato em vez de pedir uma ação
-- [Request-Reply](./request-reply.md) — usado quando o comando precisa de resposta
-- [Point-to-Point Channel](../messaging-channels/point-to-point-channel.md) — garante um único executor
-- [Command](../../../coding/gof/behavioral/command.md) — padrão GoF que encapsula uma requisição como objeto
+- [Message](/architecture/eip/message-construction/message) — o comando é uma mensagem
+- [Document Message](/architecture/eip/message-construction/document-message) — transporta dados em vez de ordenar uma ação
+- [Event Message](/architecture/eip/message-construction/event-message) — notifica um fato em vez de pedir uma ação
+- [Request-Reply](/architecture/eip/message-construction/request-reply) — usado quando o comando precisa de resposta
+- [Point-to-Point Channel](/architecture/eip/messaging-channels/point-to-point-channel) — garante um único executor
+- [Command](/coding/gof/behavioral/command) — padrão GoF que encapsula uma requisição como objeto
 
 ## Referência
 

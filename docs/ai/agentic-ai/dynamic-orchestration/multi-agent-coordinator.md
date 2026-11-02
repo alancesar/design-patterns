@@ -17,7 +17,7 @@ Um agente coordenador central analisa o pedido do usuário, divide-o em subtaref
 
 O caso típico é o atendimento ao cliente: o coordenador classifica o pedido como consulta de status, devolução ou reembolso e o envia ao agente correspondente. Os agentes especializados devolvem seus resultados e o coordenador monta a resposta. Também é conhecido como *coordinator pattern*.
 
-Diferente do [Magentic Orchestration](../../agent-orchestration/dynamic-orchestration/magentic-orchestration.md), que constrói e refina um task ledger para problemas abertos sem plano, o coordenador aqui roteia processos de negócio estruturados e não mantém um plano auditável iterativo. Em relação ao [Handoff Orchestration](../../agent-orchestration/dynamic-orchestration/handoff-orchestration.md), o controle permanece com o coordenador, em vez de passar de agente em agente.
+Diferente do [Magentic Orchestration](/ai/agent-orchestration/dynamic-orchestration/magentic-orchestration), que constrói e refina um task ledger para problemas abertos sem plano, o coordenador aqui roteia processos de negócio estruturados e não mantém um plano auditável iterativo. Em relação ao [Handoff Orchestration](/ai/agent-orchestration/dynamic-orchestration/handoff-orchestration), o controle permanece com o coordenador, em vez de passar de agente em agente.
 
 ## Problemas que resolve
 
@@ -66,13 +66,13 @@ O coordenador classifica o pedido, roteia para o especialista adequado e consoli
 
 ## Padrões relacionados
 
-- [Single Agent](./single-agent.md) — ponto de partida quando um só agente ainda dá conta.
-- [Multi-Agent Hierarchical Task Decomposition](./multi-agent-hierarchical-task-decomposition.md) — implementação em vários níveis do coordenador.
-- [Multi-Agent Parallel](../../agent-orchestration/deterministic-workflows/concurrent-orchestration.md) — despacho fixo no código, sem decisão do modelo.
-- [Multi-Agent Sequential](../../agent-orchestration/deterministic-workflows/sequential-orchestration.md) — ordem fixa de agentes.
-- [Magentic Orchestration](../../agent-orchestration/dynamic-orchestration/magentic-orchestration.md) — planejamento aberto com task ledger, distinto do roteamento do coordenador.
-- [Handoff Orchestration](../../agent-orchestration/dynamic-orchestration/handoff-orchestration.md) — o controle passa entre agentes, sem coordenador central.
-- [Process Manager](../../../architecture/eip/message-routing/process-manager.md) — coordenador central que decide o próximo passo.
+- [Single Agent](/ai/agentic-ai/dynamic-orchestration/single-agent) — ponto de partida quando um só agente ainda dá conta.
+- [Multi-Agent Hierarchical Task Decomposition](/ai/agentic-ai/dynamic-orchestration/multi-agent-hierarchical-task-decomposition) — implementação em vários níveis do coordenador.
+- [Multi-Agent Parallel](/ai/agent-orchestration/deterministic-workflows/concurrent-orchestration) — despacho fixo no código, sem decisão do modelo.
+- [Multi-Agent Sequential](/ai/agent-orchestration/deterministic-workflows/sequential-orchestration) — ordem fixa de agentes.
+- [Magentic Orchestration](/ai/agent-orchestration/dynamic-orchestration/magentic-orchestration) — planejamento aberto com task ledger, distinto do roteamento do coordenador.
+- [Handoff Orchestration](/ai/agent-orchestration/dynamic-orchestration/handoff-orchestration) — o controle passa entre agentes, sem coordenador central.
+- [Process Manager](/architecture/eip/message-routing/process-manager) — coordenador central que decide o próximo passo.
 
 ## Referência
 

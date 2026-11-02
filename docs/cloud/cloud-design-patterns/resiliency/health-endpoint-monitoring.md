@@ -93,16 +93,16 @@ O monitor consulta periodicamente o endpoint de liveness, que não toca dependê
 
 ## Padrões relacionados
 
-- [Circuit Breaker](./circuit-breaker.md) — evita que uma dependência instável derrube a checagem profunda e provoque falhas em cascata
-- [Retry](./retry.md) — trata falhas transitórias. Os limiares de falha do monitor seguem a mesma lógica de tolerância
-- [Gateway Routing](../gateways-and-edge/gateway-routing.md) — o roteamento pode usar os sinais de saúde para mandar requisições só a instâncias saudáveis
-- [Geodes](../deployment-and-topology/geodes.md) — o failover entre regiões depende de sinais de saúde confiáveis de cada nó geográfico
-- [Deployment Stamp](../deployment-and-topology/deployment-stamp.md) — cada stamp expõe endpoints de saúde que orientam o roteamento global e o failover
-- [Sidecar](../integration-and-modernization/sidecar.md) — um sidecar pode implementar ou agregar as verificações de saúde sem mudar a aplicação
-- [Cache-Aside](../data-management/cache-aside.md) — mesma ideia de guardar em cache o resultado de verificações caras para reduzir o custo das sondagens
-- [Service Registry](../../../architecture/microservices/service-discovery/service-registry.md) — o registro invoca o endpoint de saúde para manter apenas instâncias saudáveis disponíveis
-- [Application Metrics](../../../architecture/microservices/observability/application-metrics.md) — complementa o sinal de saúde com medições contínuas
-- [Bulkhead](./bulkhead.md) — isolar recursos impede que a carga das sondagens dispute capacidade com o tráfego de produção
+- [Circuit Breaker](/cloud/cloud-design-patterns/resiliency/circuit-breaker) — evita que uma dependência instável derrube a checagem profunda e provoque falhas em cascata
+- [Retry](/cloud/cloud-design-patterns/resiliency/retry) — trata falhas transitórias. Os limiares de falha do monitor seguem a mesma lógica de tolerância
+- [Gateway Routing](/cloud/cloud-design-patterns/gateways-and-edge/gateway-routing) — o roteamento pode usar os sinais de saúde para mandar requisições só a instâncias saudáveis
+- [Geodes](/cloud/cloud-design-patterns/deployment-and-topology/geodes) — o failover entre regiões depende de sinais de saúde confiáveis de cada nó geográfico
+- [Deployment Stamp](/cloud/cloud-design-patterns/deployment-and-topology/deployment-stamp) — cada stamp expõe endpoints de saúde que orientam o roteamento global e o failover
+- [Sidecar](/cloud/cloud-design-patterns/integration-and-modernization/sidecar) — um sidecar pode implementar ou agregar as verificações de saúde sem mudar a aplicação
+- [Cache-Aside](/cloud/cloud-design-patterns/data-management/cache-aside) — mesma ideia de guardar em cache o resultado de verificações caras para reduzir o custo das sondagens
+- [Service Registry](/architecture/microservices/service-discovery/service-registry) — o registro invoca o endpoint de saúde para manter apenas instâncias saudáveis disponíveis
+- [Application Metrics](/architecture/microservices/observability/application-metrics) — complementa o sinal de saúde com medições contínuas
+- [Bulkhead](/cloud/cloud-design-patterns/resiliency/bulkhead) — isolar recursos impede que a carga das sondagens dispute capacidade com o tráfego de produção
 
 ## Referência
 

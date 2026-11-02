@@ -64,11 +64,11 @@ O cliente conhece apenas o roteador; ele consulta o registro e escolhe a instân
 
 ## Padrões relacionados
 
-- [Service Registry](./service-registry.md) — usado pelo roteador para localizar instâncias
-- [Client-side Discovery](./client-side-discovery.md) — principal alternativa
-- [Circuit Breaker](../../../cloud/cloud-design-patterns/resiliency/circuit-breaker.md) — o roteador pode usá-lo ao invocar serviços
-- [API Gateway](../external-api/api-gateway.md) — frequentemente atua como roteador de entrada
-- [Gateway Routing](../../../cloud/cloud-design-patterns/gateways-and-edge/gateway-routing.md) — roteamento de requisições a serviços de backend
+- [Service Registry](/architecture/microservices/service-discovery/service-registry) — usado pelo roteador para localizar instâncias
+- [Client-side Discovery](/architecture/microservices/service-discovery/client-side-discovery) — principal alternativa
+- [Circuit Breaker](/cloud/cloud-design-patterns/resiliency/circuit-breaker) — o roteador pode usá-lo ao invocar serviços
+- [API Gateway](/architecture/microservices/external-api/api-gateway) — frequentemente atua como roteador de entrada
+- [Gateway Routing](/cloud/cloud-design-patterns/gateways-and-edge/gateway-routing) — roteamento de requisições a serviços de backend
 
 ## Referência
 

@@ -15,7 +15,7 @@ sidebar_label: "Single Agent"
 
 Um único modelo, um conjunto definido de ferramentas e um prompt de sistema detalhado tratam o pedido do usuário de forma autônoma. O prompt define a tarefa central, a persona, as operações e as condições para usar cada ferramenta. O modelo interpreta o pedido, planeja a sequência de passos e escolhe as ferramentas, sem outros agentes envolvidos.
 
-É o ponto de partida recomendado antes de qualquer arquitetura multiagente: permite refinar a lógica central, o prompt e as definições de ferramentas antes de acrescentar componentes. Técnicas de raciocínio como [ReAct](../iteration/react.md) podem melhorar o desempenho do agente sem mudar a topologia. Também é chamado de *single-agent system*.
+É o ponto de partida recomendado antes de qualquer arquitetura multiagente: permite refinar a lógica central, o prompt e as definições de ferramentas antes de acrescentar componentes. Técnicas de raciocínio como [ReAct](/ai/agentic-ai/iteration/react) podem melhorar o desempenho do agente sem mudar a topologia. Também é chamado de *single-agent system*.
 
 ## Problemas que resolve
 
@@ -62,10 +62,10 @@ O agente único interpreta o pedido, escolhe entre as ferramentas disponíveis, 
 
 ## Padrões relacionados
 
-- [ReAct](../iteration/react.md) — técnica de raciocínio e ação que refina o agente único antes de recorrer a multiagente.
-- [Multi-Agent Coordinator](./multi-agent-coordinator.md) — próximo passo quando o agente único passa a ter responsabilidades demais.
-- [Multi-Agent Sequential](../../agent-orchestration/deterministic-workflows/sequential-orchestration.md) — divisão em etapas fixas quando uma só instrução não basta.
-- [Handoff Orchestration](../../agent-orchestration/dynamic-orchestration/handoff-orchestration.md) — delegação dinâmica entre agentes quando o escopo se divide.
+- [ReAct](/ai/agentic-ai/iteration/react) — técnica de raciocínio e ação que refina o agente único antes de recorrer a multiagente.
+- [Multi-Agent Coordinator](/ai/agentic-ai/dynamic-orchestration/multi-agent-coordinator) — próximo passo quando o agente único passa a ter responsabilidades demais.
+- [Multi-Agent Sequential](/ai/agent-orchestration/deterministic-workflows/sequential-orchestration) — divisão em etapas fixas quando uma só instrução não basta.
+- [Handoff Orchestration](/ai/agent-orchestration/dynamic-orchestration/handoff-orchestration) — delegação dinâmica entre agentes quando o escopo se divide.
 
 ## Referência
 

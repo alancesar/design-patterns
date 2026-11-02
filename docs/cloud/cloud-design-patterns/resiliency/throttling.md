@@ -19,7 +19,7 @@ O padrão Throttling limita os recursos que uma instância da aplicação, um te
 
 Throttling é um ciclo de controle contínuo, não uma decisão isolada. O sistema mede a saturação em três camadas (utilização da infraestrutura, estado da aplicação e contadores por cliente/tenant), aplica limites em pontos bem definidos e ajusta esses limites conforme o tráfego muda. As estratégias mais comuns são: limites por principal (cliente, usuário ou tenant), degradação gradual de funcionalidades não essenciais, nivelamento de carga com fila, adiamento de operações de menor prioridade e redução das próprias chamadas de saída quando uma dependência está com problemas.
 
-**Diferença para Rate Limiting:** no Throttling, quem impõe o limite é o **serviço**, que protege a si mesmo controlando quanto cada cliente ou tenant pode consumir (por exemplo, devolvendo HTTP 429 ou 503 com `Retry-After`). No [Rate Limiting](./rate-limiting-pattern.md), quem se limita é o **cliente**: ele controla o ritmo das próprias chamadas para não esbarrar nos limites de um serviço externo e evitar erros e retentativas. Os dois se complementam: um serviço que aplica throttling deve, por sua vez, respeitar o throttling das dependências que chama.
+**Diferença para Rate Limiting:** no Throttling, quem impõe o limite é o **serviço**, que protege a si mesmo controlando quanto cada cliente ou tenant pode consumir (por exemplo, devolvendo HTTP 429 ou 503 com `Retry-After`). No [Rate Limiting](/cloud/cloud-design-patterns/resiliency/rate-limiting-pattern), quem se limita é o **cliente**: ele controla o ritmo das próprias chamadas para não esbarrar nos limites de um serviço externo e evitar erros e retentativas. Os dois se complementam: um serviço que aplica throttling deve, por sua vez, respeitar o throttling das dependências que chama.
 
 ## Problemas que resolve
 
@@ -88,15 +88,15 @@ O serviço mede o consumo de cada tenant e o uso global de recursos. Requisiçõ
 
 ## Padrões relacionados
 
-- [Rate Limiting](./rate-limiting-pattern.md) — contraparte do lado do cliente: o consumidor controla o próprio ritmo de chamadas para respeitar o throttling dos serviços que usa.
-- [Queue-Based Load Leveling](../messaging/queue-based-load-leveling.md) — suaviza picos colocando o trabalho em fila, uma das estratégias de throttling.
-- [Priority Queue](../messaging/priority-queue.md) — permite atender primeiro tenants ou operações de maior valor e descartar ou adiar o trabalho de menor prioridade.
-- [Bulkhead](./bulkhead.md) — complementa o throttling limitando concorrência e isolando recursos em pontos de fan-out.
-- [Retry](./retry.md) — clientes precisam honrar `Retry-After` e usar backoff para não transformar rejeições em tempestades de retentativas.
-- [Circuit Breaker](./circuit-breaker.md) — interrompe chamadas a dependências sobrecarregadas, alinhado à redução das chamadas de saída.
-- [External Configuration Store](../deployment-and-topology/external-configuration-store.md) — permite ajustar limites em tempo de execução, sem deploy.
-- [Cache-Aside](../data-management/cache-aside.md) — reduz a carga média na origem, mas não substitui o throttling para limitar o pior caso.
-- [Gateway Offloading](../gateways-and-edge/gateway-offloading.md) — centraliza a aplicação de cotas e limites em um gateway.
+- [Rate Limiting](/cloud/cloud-design-patterns/resiliency/rate-limiting-pattern) — contraparte do lado do cliente: o consumidor controla o próprio ritmo de chamadas para respeitar o throttling dos serviços que usa.
+- [Queue-Based Load Leveling](/cloud/cloud-design-patterns/messaging/queue-based-load-leveling) — suaviza picos colocando o trabalho em fila, uma das estratégias de throttling.
+- [Priority Queue](/cloud/cloud-design-patterns/messaging/priority-queue) — permite atender primeiro tenants ou operações de maior valor e descartar ou adiar o trabalho de menor prioridade.
+- [Bulkhead](/cloud/cloud-design-patterns/resiliency/bulkhead) — complementa o throttling limitando concorrência e isolando recursos em pontos de fan-out.
+- [Retry](/cloud/cloud-design-patterns/resiliency/retry) — clientes precisam honrar `Retry-After` e usar backoff para não transformar rejeições em tempestades de retentativas.
+- [Circuit Breaker](/cloud/cloud-design-patterns/resiliency/circuit-breaker) — interrompe chamadas a dependências sobrecarregadas, alinhado à redução das chamadas de saída.
+- [External Configuration Store](/cloud/cloud-design-patterns/deployment-and-topology/external-configuration-store) — permite ajustar limites em tempo de execução, sem deploy.
+- [Cache-Aside](/cloud/cloud-design-patterns/data-management/cache-aside) — reduz a carga média na origem, mas não substitui o throttling para limitar o pior caso.
+- [Gateway Offloading](/cloud/cloud-design-patterns/gateways-and-edge/gateway-offloading) — centraliza a aplicação de cotas e limites em um gateway.
 
 ## Referência
 

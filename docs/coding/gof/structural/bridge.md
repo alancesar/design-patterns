@@ -121,11 +121,11 @@ new ReminderNotification(new EmailSender()).notify("ana@example.com", "Meeting a
 
 ## Padrões relacionados
 
-- [Adapter](./adapter.md) — também envolve indireção entre interfaces, mas o Adapter é aplicado depois para compatibilizar classes existentes; o Bridge é planejado de antemão.
-- [Abstract Factory](../creational/abstract-factory.md) — pode criar e configurar o par abstração/implementador adequado, escondendo a escolha da implementação concreta.
-- [Strategy](../behavioral/strategy.md) — estrutura semelhante (composição + delegação), mas o Strategy foca em trocar algoritmos, enquanto o Bridge separa duas hierarquias estruturais.
-- [State](../behavioral/state.md) — também delega comportamento a um objeto composto, porém a troca é dirigida pelo estado interno.
-- [Builder](../creational/builder.md) — pode ser combinado com Bridge: o diretor atua como abstração e os builders como implementações.
+- [Adapter](/coding/gof/structural/adapter) — também envolve indireção entre interfaces, mas o Adapter é aplicado depois para compatibilizar classes existentes; o Bridge é planejado de antemão.
+- [Abstract Factory](/coding/gof/creational/abstract-factory) — pode criar e configurar o par abstração/implementador adequado, escondendo a escolha da implementação concreta.
+- [Strategy](/coding/gof/behavioral/strategy) — estrutura semelhante (composição + delegação), mas o Strategy foca em trocar algoritmos, enquanto o Bridge separa duas hierarquias estruturais.
+- [State](/coding/gof/behavioral/state) — também delega comportamento a um objeto composto, porém a troca é dirigida pelo estado interno.
+- [Builder](/coding/gof/creational/builder) — pode ser combinado com Bridge: o diretor atua como abstração e os builders como implementações.
 
 ## Referência
 

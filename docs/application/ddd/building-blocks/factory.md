@@ -89,13 +89,13 @@ public class OrderFactory {
 
 ## Padrões relacionados
 
-- [Aggregate](./aggregate.md) — a fábrica cria o agregado inteiro e suas invariantes.
-- [Entity](./entity.md) — cria entidades com identidade válida.
-- [Value Object](../../poeaa/base/value-object.md) — também pode ser criado por fábricas.
-- [Repository](../../poeaa/object-relational-metadata-mapping/repository.md) — recupera objetos já existentes, enquanto a fábrica cria novos.
-- [Factory](../../../coding/gof/creational/factory.md) — a fábrica simples do acervo GoF, com escopo de design de classes.
-- [Factory Method](../../../coding/gof/creational/factory-method.md) — padrão GoF que pode ser usado na implementação.
-- [Abstract Factory](../../../coding/gof/creational/abstract-factory.md) — padrão GoF para famílias de objetos, distinto da Factory do DDD.
+- [Aggregate](/application/ddd/building-blocks/aggregate) — a fábrica cria o agregado inteiro e suas invariantes.
+- [Entity](/application/ddd/building-blocks/entity) — cria entidades com identidade válida.
+- [Value Object](/application/poeaa/base/value-object) — também pode ser criado por fábricas.
+- [Repository](/application/poeaa/object-relational-metadata-mapping/repository) — recupera objetos já existentes, enquanto a fábrica cria novos.
+- [Factory](/coding/gof/creational/factory) — a fábrica simples do acervo GoF, com escopo de design de classes.
+- [Factory Method](/coding/gof/creational/factory-method) — padrão GoF que pode ser usado na implementação.
+- [Abstract Factory](/coding/gof/creational/abstract-factory) — padrão GoF para famílias de objetos, distinto da Factory do DDD.
 
 ## Referência
 

@@ -123,11 +123,11 @@ public class JsonImporter extends DataImporter {
 
 ## Padrões relacionados
 
-- [Strategy](./strategy.md) — alternativa baseada em composição: varia o algoritmo inteiro em runtime, enquanto o Template Method varia partes via herança
-- [Factory Method](../creational/factory-method.md) — é frequentemente um passo especializado chamado de dentro de um método template
-- [State](./state.md) — também delega comportamento, mas por composição e com troca dinâmica de estado
-- [Command](./command.md) — comandos podem usar um método template para padronizar etapas como validação, execução e auditoria
-- [Null Object](./null-object.md) — hooks vazios com implementação padrão seguem a mesma ideia de comportamento neutro
+- [Strategy](/coding/gof/behavioral/strategy) — alternativa baseada em composição: varia o algoritmo inteiro em runtime, enquanto o Template Method varia partes via herança
+- [Factory Method](/coding/gof/creational/factory-method) — é frequentemente um passo especializado chamado de dentro de um método template
+- [State](/coding/gof/behavioral/state) — também delega comportamento, mas por composição e com troca dinâmica de estado
+- [Command](/coding/gof/behavioral/command) — comandos podem usar um método template para padronizar etapas como validação, execução e auditoria
+- [Null Object](/coding/gof/behavioral/null-object) — hooks vazios com implementação padrão seguem a mesma ideia de comportamento neutro
 
 ## Referência
 

@@ -27,13 +27,13 @@ A lógica de análise (monitoramento, auditoria, depuração) fica em um compone
 
 - Monitoramento e auditoria de mensagens em canais ponto a ponto.
 - Diagnóstico de problemas em ambientes onde não se pode alterar o produtor nem o consumidor.
-- Alimentar um [Message Store](./message-store.md) ou ferramentas de análise com cópias do tráfego.
+- Alimentar um [Message Store](/architecture/eip/system-management/message-store) ou ferramentas de análise com cópias do tráfego.
 
 ### Quando evitar
 
 - Em canais publish-subscribe, em que basta adicionar outro assinante.
 - Quando as cópias contêm dados sensíveis e o canal secundário não tem a mesma proteção do original.
-- Quando for preciso modificar ou redirecionar mensagens, caso em que [Detour](./detour.md) é mais adequado.
+- Quando for preciso modificar ou redirecionar mensagens, caso em que [Detour](/architecture/eip/system-management/detour) é mais adequado.
 
 ## Trade-offs
 
@@ -60,13 +60,13 @@ O tap entrega a mensagem ao consumidor e uma cópia idêntica ao canal secundár
 
 ## Padrões relacionados
 
-- [Message Store](./message-store.md) — guarda as informações capturadas pelo tap.
-- [Message History](./message-history.md) — complementa o tap com o caminho percorrido pela mensagem.
-- [Detour](./detour.md) — versão ativa, capaz de alterar o fluxo.
-- [Smart Proxy](./smart-proxy.md) — permite rastrear serviços cujas respostas vão para um Return Address dinâmico.
-- [Control Bus](./control-bus.md) — pode ligar e desligar taps dinamicamente.
-- [Publish-Subscribe Channel](../../../cloud/cloud-design-patterns/messaging/publisher-subscriber.md) — dispensa o tap quando o canal já é de difusão.
-- [Log Aggregation](../../microservices/observability/log-aggregation.md) — consolida os registros gerados pela análise das cópias.
+- [Message Store](/architecture/eip/system-management/message-store) — guarda as informações capturadas pelo tap.
+- [Message History](/architecture/eip/system-management/message-history) — complementa o tap com o caminho percorrido pela mensagem.
+- [Detour](/architecture/eip/system-management/detour) — versão ativa, capaz de alterar o fluxo.
+- [Smart Proxy](/architecture/eip/system-management/smart-proxy) — permite rastrear serviços cujas respostas vão para um Return Address dinâmico.
+- [Control Bus](/architecture/eip/system-management/control-bus) — pode ligar e desligar taps dinamicamente.
+- [Publish-Subscribe Channel](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — dispensa o tap quando o canal já é de difusão.
+- [Log Aggregation](/architecture/microservices/observability/log-aggregation) — consolida os registros gerados pela análise das cópias.
 
 ## Referência
 

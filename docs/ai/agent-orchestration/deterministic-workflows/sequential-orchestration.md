@@ -80,12 +80,12 @@ O fluxo segue uma ordem fixa: cada agente transforma a saída do anterior, e um 
 
 ## Padrões relacionados
 
-- [Concurrent Orchestration](./concurrent-orchestration.md) — alternativa quando os estágios são independentes e podem rodar em paralelo; os dois podem ser combinados.
-- [Maker-Checker Loop](../dynamic-orchestration/maker-checker-loop.md) — acrescenta iteração e revisão, que o fluxo sequencial não suporta.
-- [Handoff Orchestration](../dynamic-orchestration/handoff-orchestration.md) — também passa o trabalho entre agentes, mas quem decide o próximo é o agente, não o fluxo.
-- [Pipes and Filters](../../../cloud/cloud-design-patterns/messaging/pipes-and-filters.md) — padrão de nuvem em que o Sequential se inspira, com agentes no lugar de filtros.
-- [Routing Slip](../../../architecture/eip/message-routing/routing-slip.md) — define a sequência de passos por mensagem, análogo a uma cadeia de agentes predefinida.
-- [Retry](../../../cloud/cloud-design-patterns/resiliency/retry.md) — tratamento de falhas transitórias em cada estágio.
+- [Concurrent Orchestration](/ai/agent-orchestration/deterministic-workflows/concurrent-orchestration) — alternativa quando os estágios são independentes e podem rodar em paralelo; os dois podem ser combinados.
+- [Maker-Checker Loop](/ai/agent-orchestration/dynamic-orchestration/maker-checker-loop) — acrescenta iteração e revisão, que o fluxo sequencial não suporta.
+- [Handoff Orchestration](/ai/agent-orchestration/dynamic-orchestration/handoff-orchestration) — também passa o trabalho entre agentes, mas quem decide o próximo é o agente, não o fluxo.
+- [Pipes and Filters](/cloud/cloud-design-patterns/messaging/pipes-and-filters) — padrão de nuvem em que o Sequential se inspira, com agentes no lugar de filtros.
+- [Routing Slip](/architecture/eip/message-routing/routing-slip) — define a sequência de passos por mensagem, análogo a uma cadeia de agentes predefinida.
+- [Retry](/cloud/cloud-design-patterns/resiliency/retry) — tratamento de falhas transitórias em cada estágio.
 
 ## Referência
 

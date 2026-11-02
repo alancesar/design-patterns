@@ -64,10 +64,10 @@ O compositor de página monta no servidor os fragmentos HTML gerados por cada se
 
 ## Padrões relacionados
 
-- [Client-side UI Composition](./client-side-ui-composition.md) — alternativa em que a composição ocorre no cliente
-- [API Composition](../service-collaboration/api-composition.md) — agrega dados de vários serviços, mas no nível de API e não de UI
-- [API Gateway](../external-api/api-gateway.md) — ponto de entrada que pode rotear a requisição da página
-- [Backends for Frontends](../../../cloud/cloud-design-patterns/gateways-and-edge/backends-for-frontends.md) — backend dedicado a cada tipo de cliente
+- [Client-side UI Composition](/architecture/microservices/ui-design/client-side-ui-composition) — alternativa em que a composição ocorre no cliente
+- [API Composition](/architecture/microservices/service-collaboration/api-composition) — agrega dados de vários serviços, mas no nível de API e não de UI
+- [API Gateway](/architecture/microservices/external-api/api-gateway) — ponto de entrada que pode rotear a requisição da página
+- [Backends for Frontends](/cloud/cloud-design-patterns/gateways-and-edge/backends-for-frontends) — backend dedicado a cada tipo de cliente
 
 ## Referência
 

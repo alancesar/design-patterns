@@ -68,12 +68,12 @@ O serviço de comando assina os eventos do provedor para manter a réplica local
 
 ## Padrões relacionados
 
-- [Database per Service](./database-per-service.md) — cria a necessidade deste padrão.
-- [Domain Event](./domain-event.md) — gera os eventos que mantêm a réplica atualizada.
-- [CQRS](../../../cloud/cloud-design-patterns/data-management/cqrs.md) — estruturalmente idêntico, mas com foco em leitura.
-- [Saga](../../../cloud/cloud-design-patterns/distributed-coordination/saga.md) — alternativa quando o dado é obtido como um passo da saga.
-- [Materialized View](../../../cloud/cloud-design-patterns/data-management/materialized-view.md) — visão pré-computada, conceito próximo ao da réplica.
-- [Idempotent Consumer](../../../cloud/cloud-design-patterns/messaging/idempotent-consumer.md) — necessário para consumir eventos de forma segura.
+- [Database per Service](/architecture/microservices/service-collaboration/database-per-service) — cria a necessidade deste padrão.
+- [Domain Event](/architecture/microservices/service-collaboration/domain-event) — gera os eventos que mantêm a réplica atualizada.
+- [CQRS](/cloud/cloud-design-patterns/data-management/cqrs) — estruturalmente idêntico, mas com foco em leitura.
+- [Saga](/cloud/cloud-design-patterns/distributed-coordination/saga) — alternativa quando o dado é obtido como um passo da saga.
+- [Materialized View](/cloud/cloud-design-patterns/data-management/materialized-view) — visão pré-computada, conceito próximo ao da réplica.
+- [Idempotent Consumer](/cloud/cloud-design-patterns/messaging/idempotent-consumer) — necessário para consumir eventos de forma segura.
 
 ## Referência
 

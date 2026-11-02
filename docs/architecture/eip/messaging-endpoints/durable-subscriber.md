@@ -62,13 +62,13 @@ O broker guarda as mensagens enquanto o assinante está ausente e as entrega qua
 
 ## Padrões relacionados
 
-- [Publish-Subscribe Channel](../../../cloud/cloud-design-patterns/messaging/publisher-subscriber.md) — o canal ao qual o assinante durável se inscreve.
-- [Guaranteed Delivery](../messaging-channels/guaranteed-delivery.md) — persistência de mensagens no broker, base da durabilidade.
-- [Point-to-Point Channel](../messaging-channels/point-to-point-channel.md) — canal em que a fila já retém mensagens.
-- [Message Expiration](../message-construction/message-expiration.md) — limita o acúmulo de mensagens.
-- [Message Endpoint](./message-endpoint.md) — o assinante é um endpoint de recebimento.
-- [Polling Consumer](./polling-consumer.md) — modo de consumo possível.
-- [Event-Driven Consumer](./event-driven-consumer.md) — modo de consumo possível.
+- [Publish-Subscribe Channel](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — o canal ao qual o assinante durável se inscreve.
+- [Guaranteed Delivery](/architecture/eip/messaging-channels/guaranteed-delivery) — persistência de mensagens no broker, base da durabilidade.
+- [Point-to-Point Channel](/architecture/eip/messaging-channels/point-to-point-channel) — canal em que a fila já retém mensagens.
+- [Message Expiration](/architecture/eip/message-construction/message-expiration) — limita o acúmulo de mensagens.
+- [Message Endpoint](/architecture/eip/messaging-endpoints/message-endpoint) — o assinante é um endpoint de recebimento.
+- [Polling Consumer](/architecture/eip/messaging-endpoints/polling-consumer) — modo de consumo possível.
+- [Event-Driven Consumer](/architecture/eip/messaging-endpoints/event-driven-consumer) — modo de consumo possível.
 
 ## Referência
 

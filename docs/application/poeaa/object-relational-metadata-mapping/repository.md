@@ -17,9 +17,9 @@ sidebar_label: "Repository"
 
 O Repository fica entre o domínio e a camada de mapeamento de dados e apresenta os objetos persistidos por meio de uma interface semelhante à de uma coleção em memória. O cliente adiciona, remove e busca objetos como faria em uma lista, sem saber como ou onde eles são armazenados.
 
-Internamente, o Repository delega o trabalho a um [Data Mapper](../data-source-architectural/data-mapper.md) e a Query Objects. Isso concentra a lógica de consulta em um só lugar e faz a dependência apontar do domínio para a camada de dados, não o contrário.
+Internamente, o Repository delega o trabalho a um [Data Mapper](/application/poeaa/data-source-architectural/data-mapper) e a Query Objects. Isso concentra a lógica de consulta em um só lugar e faz a dependência apontar do domínio para a camada de dados, não o contrário.
 
-No DDD (Domain-Driven Design), Evans define o Repository como o mecanismo que dá a ilusão de uma coleção em memória de todos os objetos de um certo tipo. Há um Repository por [Aggregate](../../ddd/building-blocks/aggregate.md) root: os objetos internos do agregado são acessados pela raiz, e o cliente não deve consultá-los diretamente. A interface é expressa na linguagem do domínio, e a criação de novos objetos fica com a [Factory](../../ddd/building-blocks/factory.md), enquanto o Repository cuida de armazenar e recuperar objetos existentes.
+No DDD (Domain-Driven Design), Evans define o Repository como o mecanismo que dá a ilusão de uma coleção em memória de todos os objetos de um certo tipo. Há um Repository por [Aggregate](/application/ddd/building-blocks/aggregate) root: os objetos internos do agregado são acessados pela raiz, e o cliente não deve consultá-los diretamente. A interface é expressa na linguagem do domínio, e a criação de novos objetos fica com a [Factory](/application/ddd/building-blocks/factory), enquanto o Repository cuida de armazenar e recuperar objetos existentes.
 
 ## Problemas que resolve
 
@@ -51,7 +51,7 @@ No DDD (Domain-Driven Design), Evans define o Repository como o mecanismo que d�
 
 - **Acoplamento:** o domínio depende apenas da interface do Repository.
 - **Testabilidade:** uma implementação em memória permite testes rápidos do domínio.
-- **Consistência:** a gravação em si costuma ser coordenada por um [Unit of Work](../object-relational-behavioral/unit-of-work.md).
+- **Consistência:** a gravação em si costuma ser coordenada por um [Unit of Work](/application/poeaa/object-relational-behavioral/unit-of-work).
 
 ## Diagrama
 
@@ -105,14 +105,14 @@ Nos testes, basta uma implementação em memória da interface.
 
 ## Padrões relacionados
 
-- [Data Mapper](../data-source-architectural/data-mapper.md) — o Repository fica sobre ele e usa-o para persistir os objetos.
-- [Query Object](./query-object.md) — usado para expressar consultas declarativas enviadas ao Repository.
-- [Metadata Mapping](./metadata-mapping.md) — fornece o mapeamento usado pela implementação.
-- [Unit of Work](../object-relational-behavioral/unit-of-work.md) — registra as alterações feitas nos objetos obtidos pelo Repository.
-- [Identity Map](../object-relational-behavioral/identity-map.md) — garante que o Repository devolva a mesma instância para a mesma identidade.
-- [Aggregate](../../ddd/building-blocks/aggregate.md) — o Repository trabalha por raiz de agregado.
-- [Factory](../../ddd/building-blocks/factory.md) — cria os objetos novos, enquanto o Repository recupera os existentes.
-- [Domain Model](../domain-logic/domain-model.md) — o modelo de domínio acessa a persistência por meio do Repository.
+- [Data Mapper](/application/poeaa/data-source-architectural/data-mapper) — o Repository fica sobre ele e usa-o para persistir os objetos.
+- [Query Object](/application/poeaa/object-relational-metadata-mapping/query-object) — usado para expressar consultas declarativas enviadas ao Repository.
+- [Metadata Mapping](/application/poeaa/object-relational-metadata-mapping/metadata-mapping) — fornece o mapeamento usado pela implementação.
+- [Unit of Work](/application/poeaa/object-relational-behavioral/unit-of-work) — registra as alterações feitas nos objetos obtidos pelo Repository.
+- [Identity Map](/application/poeaa/object-relational-behavioral/identity-map) — garante que o Repository devolva a mesma instância para a mesma identidade.
+- [Aggregate](/application/ddd/building-blocks/aggregate) — o Repository trabalha por raiz de agregado.
+- [Factory](/application/ddd/building-blocks/factory) — cria os objetos novos, enquanto o Repository recupera os existentes.
+- [Domain Model](/application/poeaa/domain-logic/domain-model) — o modelo de domínio acessa a persistência por meio do Repository.
 
 ## Referência
 

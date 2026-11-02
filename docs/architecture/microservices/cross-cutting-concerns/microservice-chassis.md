@@ -70,14 +70,14 @@ Os serviços contêm apenas lógica de negócio e dependem do chassis, que forne
 
 ## Padrões relacionados
 
-- [Service Template](./service-template.md) — alternativa ou complemento: contém o código e a configuração específicos do serviço, normalmente usando o chassis.
-- [Externalized Configuration](../../../cloud/cloud-design-patterns/deployment-and-topology/external-configuration-store.md) — preocupação transversal comumente provida pelo chassis.
-- [Self Registration](../service-discovery/self-registration.md) — o chassis frequentemente registra o serviço no registro de serviços.
-- [Client-side Discovery](../service-discovery/client-side-discovery.md) — também costuma ser tratado pelo chassis.
-- [Distributed Tracing](../observability/distributed-tracing.md) — o chassis pode instrumentar o código automaticamente.
-- [Health Check API](../../../cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring.md) — endpoint padrão fornecido pelo chassis.
-- [Circuit Breaker](../../../cloud/cloud-design-patterns/resiliency/circuit-breaker.md) — pode ser implementado pelo framework do chassis.
-- [Sidecar](../../../cloud/cloud-design-patterns/integration-and-modernization/sidecar.md) — move preocupações transversais para um processo separado, independente da linguagem.
+- [Service Template](/architecture/microservices/cross-cutting-concerns/service-template) — alternativa ou complemento: contém o código e a configuração específicos do serviço, normalmente usando o chassis.
+- [Externalized Configuration](/cloud/cloud-design-patterns/deployment-and-topology/external-configuration-store) — preocupação transversal comumente provida pelo chassis.
+- [Self Registration](/architecture/microservices/service-discovery/self-registration) — o chassis frequentemente registra o serviço no registro de serviços.
+- [Client-side Discovery](/architecture/microservices/service-discovery/client-side-discovery) — também costuma ser tratado pelo chassis.
+- [Distributed Tracing](/architecture/microservices/observability/distributed-tracing) — o chassis pode instrumentar o código automaticamente.
+- [Health Check API](/cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring) — endpoint padrão fornecido pelo chassis.
+- [Circuit Breaker](/cloud/cloud-design-patterns/resiliency/circuit-breaker) — pode ser implementado pelo framework do chassis.
+- [Sidecar](/cloud/cloud-design-patterns/integration-and-modernization/sidecar) — move preocupações transversais para um processo separado, independente da linguagem.
 
 ## Referência
 

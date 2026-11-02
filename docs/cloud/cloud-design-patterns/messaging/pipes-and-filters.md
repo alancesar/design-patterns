@@ -87,17 +87,17 @@ Dados de diferentes fontes entram no pipeline e passam por filtros independentes
 
 ## Padrões relacionados
 
-- [Competing Consumers](./competing-consumers.md) — várias instâncias de um filtro consomem do mesmo pipe para distribuir a carga e aumentar a vazão
-- [Compute Resource Consolidation](../deployment-and-topology/compute-resource-consolidation.md) — filtros que escalam juntos podem ser agrupados no mesmo processo para reduzir custo e sobrecarga
-- [Compensating Transaction](../distributed-coordination/compensating-transaction.md) — filtros podem implementar operações compensáveis, oferecendo alternativa a transações distribuídas
-- [Claim Check](./claim-check.md) — evita trafegar cargas grandes pelos pipes, passando apenas uma referência ao dado armazenado
-- [Idempotent Consumer](./idempotent-consumer.md) — garante que reprocessamentos e mensagens duplicadas não causem efeitos repetidos nos filtros
-- [Queue-Based Load Leveling](./queue-based-load-leveling.md) — filas usadas como pipes absorvem picos de carga entre etapas
-- [Retry](../resiliency/retry.md) — filtros podem repetir operações que falham de forma transitória antes de propagar o erro
-- [Message Router](../../../architecture/eip/message-routing/message-router.md) — filtro com várias saídas que escolhe o canal de destino (visão do EIP)
-- [Routing Slip](../../../architecture/eip/message-routing/routing-slip.md) — torna a sequência de filtros variável por mensagem
-- [Message Filter](../../../architecture/eip/message-routing/message-filter.md) — filtro que descarta mensagens que não atendem a um critério
-- [Choreography](../distributed-coordination/choreography.md) — alternativa descentralizada em que serviços reagem a eventos em vez de seguir uma cadeia fixa
+- [Competing Consumers](/cloud/cloud-design-patterns/messaging/competing-consumers) — várias instâncias de um filtro consomem do mesmo pipe para distribuir a carga e aumentar a vazão
+- [Compute Resource Consolidation](/cloud/cloud-design-patterns/deployment-and-topology/compute-resource-consolidation) — filtros que escalam juntos podem ser agrupados no mesmo processo para reduzir custo e sobrecarga
+- [Compensating Transaction](/cloud/cloud-design-patterns/distributed-coordination/compensating-transaction) — filtros podem implementar operações compensáveis, oferecendo alternativa a transações distribuídas
+- [Claim Check](/cloud/cloud-design-patterns/messaging/claim-check) — evita trafegar cargas grandes pelos pipes, passando apenas uma referência ao dado armazenado
+- [Idempotent Consumer](/cloud/cloud-design-patterns/messaging/idempotent-consumer) — garante que reprocessamentos e mensagens duplicadas não causem efeitos repetidos nos filtros
+- [Queue-Based Load Leveling](/cloud/cloud-design-patterns/messaging/queue-based-load-leveling) — filas usadas como pipes absorvem picos de carga entre etapas
+- [Retry](/cloud/cloud-design-patterns/resiliency/retry) — filtros podem repetir operações que falham de forma transitória antes de propagar o erro
+- [Message Router](/architecture/eip/message-routing/message-router) — filtro com várias saídas que escolhe o canal de destino (visão do EIP)
+- [Routing Slip](/architecture/eip/message-routing/routing-slip) — torna a sequência de filtros variável por mensagem
+- [Message Filter](/architecture/eip/message-routing/message-filter) — filtro que descarta mensagens que não atendem a um critério
+- [Choreography](/cloud/cloud-design-patterns/distributed-coordination/choreography) — alternativa descentralizada em que serviços reagem a eventos em vez de seguir uma cadeia fixa
 
 ## Referência
 

@@ -63,9 +63,9 @@ Cada capacidade de negócio dá origem a um serviço com responsabilidade própr
 
 ## Padrões relacionados
 
-- [Decompose by Subdomain](./decompose-by-subdomain.md) — abordagem alternativa baseada em subdomínios do DDD
-- [Service per Team](./service-per-team.md) — define a relação entre os serviços resultantes e as equipes
-- [Microservice Architecture](../architectural-style/microservice-architecture.md) — o estilo arquitetural que cria a necessidade de decompor
+- [Decompose by Subdomain](/architecture/microservices/service-boundaries/decompose-by-subdomain) — abordagem alternativa baseada em subdomínios do DDD
+- [Service per Team](/architecture/microservices/service-boundaries/service-per-team) — define a relação entre os serviços resultantes e as equipes
+- [Microservice Architecture](/architecture/microservices/architectural-style/microservice-architecture) — o estilo arquitetural que cria a necessidade de decompor
 
 ## Referência
 

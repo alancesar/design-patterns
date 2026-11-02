@@ -19,7 +19,7 @@ Um evento de domínio (*Domain Event*), conceito vindo do Domain-Driven Design, 
 
 Os eventos são nomeados no passado, imutáveis e carregam os dados necessários para que os consumidores reajam sem precisar consultar o emissor. Eles são o insumo para atualizar visões CQRS, manter réplicas locais e conduzir sagas coreografadas.
 
-No DDD, o Domain Event é antes de tudo um fato do domínio: algo que aconteceu e que os especialistas do negócio consideram relevante, nomeado com a linguagem ubíqua. Ele é produzido pelo [Aggregate](../../../application/ddd/building-blocks/aggregate.md) e pode ser tratado dentro do próprio contexto, para propagar consistência eventual entre agregados, ou publicado para outros contextos, como contrato de integração.
+No DDD, o Domain Event é antes de tudo um fato do domínio: algo que aconteceu e que os especialistas do negócio consideram relevante, nomeado com a linguagem ubíqua. Ele é produzido pelo [Aggregate](/application/ddd/building-blocks/aggregate) e pode ser tratado dentro do próprio contexto, para propagar consistência eventual entre agregados, ou publicado para outros contextos, como contrato de integração.
 
 O padrão em si define o que publicar; a publicação confiável (atômica com a atualização do banco) é tratada por padrões como Transactional Outbox ou Event Sourcing.
 
@@ -106,14 +106,14 @@ public class OrderService {
 
 ## Padrões relacionados
 
-- [Aggregate](../../../application/ddd/building-blocks/aggregate.md) — o agregado é a fonte natural dos eventos de domínio.
-- [Saga](../../../cloud/cloud-design-patterns/distributed-coordination/saga.md) — sagas coreografadas dependem de eventos de domínio.
-- [CQRS](../../../cloud/cloud-design-patterns/data-management/cqrs.md) — visões de leitura são atualizadas por esses eventos.
-- [Command-side Replica](./command-side-replica.md) — réplicas locais são mantidas pelos eventos.
-- [Event Sourcing](../../../cloud/cloud-design-patterns/data-management/event-sourcing.md) — pode ser usado para gerar e publicar eventos de domínio.
-- [Transactional Outbox](../transactional-messaging/transactional-outbox.md) — publica os eventos de forma atômica com a transação do banco.
-- [Messaging](../communication-styles/messaging.md) — estilo de comunicação usado para distribuir os eventos.
-- [Publisher-Subscriber](../../../cloud/cloud-design-patterns/messaging/publisher-subscriber.md) — modelo de distribuição dos eventos a múltiplos consumidores.
+- [Aggregate](/application/ddd/building-blocks/aggregate) — o agregado é a fonte natural dos eventos de domínio.
+- [Saga](/cloud/cloud-design-patterns/distributed-coordination/saga) — sagas coreografadas dependem de eventos de domínio.
+- [CQRS](/cloud/cloud-design-patterns/data-management/cqrs) — visões de leitura são atualizadas por esses eventos.
+- [Command-side Replica](/architecture/microservices/service-collaboration/command-side-replica) — réplicas locais são mantidas pelos eventos.
+- [Event Sourcing](/cloud/cloud-design-patterns/data-management/event-sourcing) — pode ser usado para gerar e publicar eventos de domínio.
+- [Transactional Outbox](/architecture/microservices/transactional-messaging/transactional-outbox) — publica os eventos de forma atômica com a transação do banco.
+- [Messaging](/architecture/microservices/communication-styles/messaging) — estilo de comunicação usado para distribuir os eventos.
+- [Publisher-Subscriber](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — modelo de distribuição dos eventos a múltiplos consumidores.
 
 ## Referência
 

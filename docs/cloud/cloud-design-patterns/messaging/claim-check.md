@@ -81,15 +81,15 @@ O produtor grava o payload no armazenamento externo e publica apenas a referênc
 
 ## Padrões relacionados
 
-- [Content Enricher](../../../architecture/eip/message-transformation/content-enricher.md) — recupera o payload guardado a partir da chave e o devolve à mensagem.
-- [Content Filter](../../../architecture/eip/message-transformation/content-filter.md) — também reduz a mensagem, mas descarta os dados em definitivo.
-- [Process Manager](../../../architecture/eip/message-routing/process-manager.md) — coordena o fluxo em que o claim check atravessa várias etapas.
-- [Valet Key](../security-and-access/valet-key.md) — concede acesso temporário e restrito ao armazenamento quando o consumidor precisa de permissão explícita para buscar o payload.
-- [Idempotent Consumer](./idempotent-consumer.md) — garante processamento seguro de claim checks entregues mais de uma vez por retentativas.
-- [Competing Consumers](./competing-consumers.md) — vários consumidores podem processar claim checks em paralelo, buscando os payloads sob demanda.
-- [Publisher-Subscriber](./publisher-subscriber.md) — o claim check pode ser distribuído a vários assinantes sem replicar o payload grande.
-- [Queue-Based Load Leveling](./queue-based-load-leveling.md) — filas com mensagens pequenas suavizam picos de carga com menor custo de recursos no broker.
-- [Retry](../resiliency/retry.md) — trata falhas transitórias ao gravar ou buscar o payload no armazenamento externo.
+- [Content Enricher](/architecture/eip/message-transformation/content-enricher) — recupera o payload guardado a partir da chave e o devolve à mensagem.
+- [Content Filter](/architecture/eip/message-transformation/content-filter) — também reduz a mensagem, mas descarta os dados em definitivo.
+- [Process Manager](/architecture/eip/message-routing/process-manager) — coordena o fluxo em que o claim check atravessa várias etapas.
+- [Valet Key](/cloud/cloud-design-patterns/security-and-access/valet-key) — concede acesso temporário e restrito ao armazenamento quando o consumidor precisa de permissão explícita para buscar o payload.
+- [Idempotent Consumer](/cloud/cloud-design-patterns/messaging/idempotent-consumer) — garante processamento seguro de claim checks entregues mais de uma vez por retentativas.
+- [Competing Consumers](/cloud/cloud-design-patterns/messaging/competing-consumers) — vários consumidores podem processar claim checks em paralelo, buscando os payloads sob demanda.
+- [Publisher-Subscriber](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — o claim check pode ser distribuído a vários assinantes sem replicar o payload grande.
+- [Queue-Based Load Leveling](/cloud/cloud-design-patterns/messaging/queue-based-load-leveling) — filas com mensagens pequenas suavizam picos de carga com menor custo de recursos no broker.
+- [Retry](/cloud/cloud-design-patterns/resiliency/retry) — trata falhas transitórias ao gravar ou buscar o payload no armazenamento externo.
 
 ## Referência
 

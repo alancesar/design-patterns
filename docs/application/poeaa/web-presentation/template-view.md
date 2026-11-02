@@ -82,12 +82,12 @@ JSP, Razor, Thymeleaf, ERB, Jinja e Blade são Template Views. Com o retorno do 
 
 ## Padrões relacionados
 
-- [Transform View](./transform-view.md) — alternativa que transforma dados em HTML por código ou por XSLT, em vez de incorporar marcadores.
-- [Two Step View](./two-step-view.md) — pode ser construído sobre templates para centralizar a aparência.
-- [Model View Controller](./model-view-controller.md) — o Template View é a implementação típica da view.
-- [Page Controller](./page-controller.md) — normalmente escolhe e preenche o template.
-- [Server-side page fragment composition](../../../architecture/microservices/ui-design/server-side-page-fragment-composition.md) — composição de fragmentos HTML no servidor, em microservices.
-- [Template Method](../../../coding/gof/behavioral/template-method.md) — layouts com blocos substituíveis usam ideia semelhante.
+- [Transform View](/application/poeaa/web-presentation/transform-view) — alternativa que transforma dados em HTML por código ou por XSLT, em vez de incorporar marcadores.
+- [Two Step View](/application/poeaa/web-presentation/two-step-view) — pode ser construído sobre templates para centralizar a aparência.
+- [Model View Controller](/application/poeaa/web-presentation/model-view-controller) — o Template View é a implementação típica da view.
+- [Page Controller](/application/poeaa/web-presentation/page-controller) — normalmente escolhe e preenche o template.
+- [Server-side page fragment composition](/architecture/microservices/ui-design/server-side-page-fragment-composition) — composição de fragmentos HTML no servidor, em microservices.
+- [Template Method](/coding/gof/behavioral/template-method) — layouts com blocos substituíveis usam ideia semelhante.
 
 ## Referência
 

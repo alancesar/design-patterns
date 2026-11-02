@@ -99,10 +99,10 @@ No EF Core, é o padrão Table-per-Hierarchy (TPH).
 
 ## Padrões relacionados
 
-- [Class Table Inheritance](./class-table-inheritance.md) — uma tabela por classe, com joins.
-- [Concrete Table Inheritance](./concrete-table-inheritance.md) — uma tabela por classe concreta, sem joins entre tipos.
-- [Inheritance Mappers](./inheritance-mappers.md) — estrutura de mapeadores usada com qualquer um dos três esquemas.
-- [Embedded Value](./embedded-value.md) — outro caso de colunas agrupadas na tabela do dono.
+- [Class Table Inheritance](/application/poeaa/object-relational-structural/class-table-inheritance) — uma tabela por classe, com joins.
+- [Concrete Table Inheritance](/application/poeaa/object-relational-structural/concrete-table-inheritance) — uma tabela por classe concreta, sem joins entre tipos.
+- [Inheritance Mappers](/application/poeaa/object-relational-structural/inheritance-mappers) — estrutura de mapeadores usada com qualquer um dos três esquemas.
+- [Embedded Value](/application/poeaa/object-relational-structural/embedded-value) — outro caso de colunas agrupadas na tabela do dono.
 
 ## Referência
 

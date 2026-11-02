@@ -82,13 +82,13 @@ O cliente fala apenas com a fachada, que encaminha cada requisição ao legado o
 
 ## Padrões relacionados
 
-- [Database per Service](../../../architecture/microservices/service-collaboration/database-per-service.md) — destino dos dados de cada domínio extraído do banco monolítico.
-- [Anti-Corruption Layer](./anti-corruption-layer.md) — traduz chamadas entre o novo sistema e o legado durante a coexistência, protegendo o novo design da semântica legada.
-- [Gateway Routing](../gateways-and-edge/gateway-routing.md) — a fachada do Strangler Fig é essencialmente um roteamento por gateway para direcionar requisições ao sistema correto.
-- [Backends for Frontends](../gateways-and-edge/backends-for-frontends.md) — pode servir como fachada específica por tipo de cliente durante a migração.
-- [Materialized View](../data-management/materialized-view.md) — ajuda a expor dados do legado ao novo sistema enquanto os domínios são extraídos.
-- [Event Sourcing](../data-management/event-sourcing.md) — eventos de alteração podem alimentar a sincronização de dados entre legado e novo sistema.
-- [Circuit Breaker](../resiliency/circuit-breaker.md) — protege a fachada e o novo sistema contra falhas do legado ainda em uso.
+- [Database per Service](/architecture/microservices/service-collaboration/database-per-service) — destino dos dados de cada domínio extraído do banco monolítico.
+- [Anti-Corruption Layer](/cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer) — traduz chamadas entre o novo sistema e o legado durante a coexistência, protegendo o novo design da semântica legada.
+- [Gateway Routing](/cloud/cloud-design-patterns/gateways-and-edge/gateway-routing) — a fachada do Strangler Fig é essencialmente um roteamento por gateway para direcionar requisições ao sistema correto.
+- [Backends for Frontends](/cloud/cloud-design-patterns/gateways-and-edge/backends-for-frontends) — pode servir como fachada específica por tipo de cliente durante a migração.
+- [Materialized View](/cloud/cloud-design-patterns/data-management/materialized-view) — ajuda a expor dados do legado ao novo sistema enquanto os domínios são extraídos.
+- [Event Sourcing](/cloud/cloud-design-patterns/data-management/event-sourcing) — eventos de alteração podem alimentar a sincronização de dados entre legado e novo sistema.
+- [Circuit Breaker](/cloud/cloud-design-patterns/resiliency/circuit-breaker) — protege a fachada e o novo sistema contra falhas do legado ainda em uso.
 
 ## Referência
 

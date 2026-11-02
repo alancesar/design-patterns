@@ -62,10 +62,10 @@ O injetor insere mensagens marcadas no fluxo, o separador as desvia da saída e 
 
 ## Padrões relacionados
 
-- [Control Bus](./control-bus.md) — recebe heartbeats e alertas de falha do verificador.
-- [Content-Based Router](../message-routing/content-based-router.md) — base do separador de mensagens de teste.
-- [Return Address](../message-construction/return-address.md) — pode direcionar as respostas de teste ao verificador.
-- [Health Endpoint Monitoring](../../../cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring.md) — verificação de saúde de serviços, mais superficial que a validação do resultado.
+- [Control Bus](/architecture/eip/system-management/control-bus) — recebe heartbeats e alertas de falha do verificador.
+- [Content-Based Router](/architecture/eip/message-routing/content-based-router) — base do separador de mensagens de teste.
+- [Return Address](/architecture/eip/message-construction/return-address) — pode direcionar as respostas de teste ao verificador.
+- [Health Endpoint Monitoring](/cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring) — verificação de saúde de serviços, mais superficial que a validação do resultado.
 
 ## Referência
 

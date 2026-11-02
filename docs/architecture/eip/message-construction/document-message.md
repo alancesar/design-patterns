@@ -58,12 +58,12 @@ A aplicação A envia os dados e a aplicação B decide o que fazer com eles.
 
 ## Padrões relacionados
 
-- [Message](./message.md) — o documento é o corpo da mensagem
-- [Command Message](./command-message.md) — pede uma ação em vez de entregar dados
-- [Event Message](./event-message.md) — notifica um fato; o conteúdo importa menos
-- [Request-Reply](./request-reply.md) — a resposta costuma ser um documento
-- [Guaranteed Delivery](../messaging-channels/guaranteed-delivery.md) — garante que o documento chegue
-- [Claim Check](../../../cloud/cloud-design-patterns/messaging/claim-check.md) — alternativa para documentos grandes
+- [Message](/architecture/eip/message-construction/message) — o documento é o corpo da mensagem
+- [Command Message](/architecture/eip/message-construction/command-message) — pede uma ação em vez de entregar dados
+- [Event Message](/architecture/eip/message-construction/event-message) — notifica um fato; o conteúdo importa menos
+- [Request-Reply](/architecture/eip/message-construction/request-reply) — a resposta costuma ser um documento
+- [Guaranteed Delivery](/architecture/eip/messaging-channels/guaranteed-delivery) — garante que o documento chegue
+- [Claim Check](/cloud/cloud-design-patterns/messaging/claim-check) — alternativa para documentos grandes
 
 ## Referência
 

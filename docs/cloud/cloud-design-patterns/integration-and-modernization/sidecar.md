@@ -80,13 +80,13 @@ A aplicação principal e o sidecar rodam lado a lado no mesmo host, compartilha
 
 ## Padrões relacionados
 
-- [Ambassador](./ambassador.md) — é uma especialização do Sidecar, atuando como proxy de saída para conectividade com serviços remotos.
-- [Gateway Offloading](../gateways-and-edge/gateway-offloading.md) — também descarrega preocupações transversais, porém de forma centralizada em um gateway em vez de por instância.
-- [Messaging Bridge](../messaging/messaging-bridge.md) — um sidecar pode atuar como adaptador de protocolo ou ponte entre sistemas de mensageria.
-- [Anti-Corruption Layer](./anti-corruption-layer.md) — um sidecar pode isolar a aplicação de interfaces legadas ou incompatíveis.
-- [Circuit Breaker](../resiliency/circuit-breaker.md) e [Retry](../resiliency/retry.md) — comumente implementados em sidecars de proxy de rede, sem alterar o código da aplicação.
-- [Health Endpoint Monitoring](../resiliency/health-endpoint-monitoring.md) — sidecars podem expor ou executar verificações de saúde em nome da aplicação.
-- [External Configuration Store](../deployment-and-topology/external-configuration-store.md) — o sidecar pode obter e entregar a configuração externa à aplicação.
+- [Ambassador](/cloud/cloud-design-patterns/integration-and-modernization/ambassador) — é uma especialização do Sidecar, atuando como proxy de saída para conectividade com serviços remotos.
+- [Gateway Offloading](/cloud/cloud-design-patterns/gateways-and-edge/gateway-offloading) — também descarrega preocupações transversais, porém de forma centralizada em um gateway em vez de por instância.
+- [Messaging Bridge](/cloud/cloud-design-patterns/messaging/messaging-bridge) — um sidecar pode atuar como adaptador de protocolo ou ponte entre sistemas de mensageria.
+- [Anti-Corruption Layer](/cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer) — um sidecar pode isolar a aplicação de interfaces legadas ou incompatíveis.
+- [Circuit Breaker](/cloud/cloud-design-patterns/resiliency/circuit-breaker) e [Retry](/cloud/cloud-design-patterns/resiliency/retry) — comumente implementados em sidecars de proxy de rede, sem alterar o código da aplicação.
+- [Health Endpoint Monitoring](/cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring) — sidecars podem expor ou executar verificações de saúde em nome da aplicação.
+- [External Configuration Store](/cloud/cloud-design-patterns/deployment-and-topology/external-configuration-store) — o sidecar pode obter e entregar a configuração externa à aplicação.
 
 ## Referência
 

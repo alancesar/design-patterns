@@ -28,12 +28,12 @@ Ferramentas de interface de usuário com vínculo a dados (data-aware UI) espera
 ## Quando usar
 
 - Quando a aplicação é centrada em dados relacionais e usa componentes de UI vinculados a dados.
-- Em conjunto com [Table Module](../domain-logic/table-module.md) ou [Transaction Script](../domain-logic/transaction-script.md), que operam naturalmente sobre dados tabulares.
+- Em conjunto com [Table Module](/application/poeaa/domain-logic/table-module) ou [Transaction Script](/application/poeaa/domain-logic/transaction-script), que operam naturalmente sobre dados tabulares.
 - Para relatórios e telas de manutenção simples (CRUD) em que um modelo de objetos seria exagero.
 
 ### Quando evitar
 
-- Quando a lógica de domínio é complexa e se beneficia de um [Domain Model](../domain-logic/domain-model.md), pois o Record Set empurra para um estilo orientado a tabelas.
+- Quando a lógica de domínio é complexa e se beneficia de um [Domain Model](/application/poeaa/domain-logic/domain-model), pois o Record Set empurra para um estilo orientado a tabelas.
 - Quando a camada de domínio não deve conhecer a estrutura do banco, já que o Record Set a reproduz.
 - Quando os conjuntos de dados são muito grandes e o custo de mantê-los todos em memória é inaceitável.
 
@@ -96,11 +96,11 @@ foreach (DataRow row in orders.Rows)
 
 ## Padrões relacionados
 
-- [Table Module](../domain-logic/table-module.md) — organiza a lógica de domínio por tabela e consome o Record Set como estrutura de dados.
-- [Transaction Script](../domain-logic/transaction-script.md) — scripts também operam bem sobre dados tabulares.
-- [Domain Model](../domain-logic/domain-model.md) — a alternativa orientada a objetos, que substitui o Record Set por objetos ricos.
-- [Table Data Gateway](../data-source-architectural/table-data-gateway.md) — costuma devolver um Record Set como resultado das consultas.
-- [Data Transfer Object](../distribution/data-transfer-object.md) — também transporta dados, mas com estrutura fixa e voltada à transferência entre processos.
+- [Table Module](/application/poeaa/domain-logic/table-module) — organiza a lógica de domínio por tabela e consome o Record Set como estrutura de dados.
+- [Transaction Script](/application/poeaa/domain-logic/transaction-script) — scripts também operam bem sobre dados tabulares.
+- [Domain Model](/application/poeaa/domain-logic/domain-model) — a alternativa orientada a objetos, que substitui o Record Set por objetos ricos.
+- [Table Data Gateway](/application/poeaa/data-source-architectural/table-data-gateway) — costuma devolver um Record Set como resultado das consultas.
+- [Data Transfer Object](/application/poeaa/distribution/data-transfer-object) — também transporta dados, mas com estrutura fixa e voltada à transferência entre processos.
 
 ## Referência
 

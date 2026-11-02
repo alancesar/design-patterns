@@ -60,14 +60,14 @@ Cada aplicação acessa o canal por meio de seu endpoint, que traduz entre o mun
 
 ## Padrões relacionados
 
-- [Messaging Gateway](./messaging-gateway.md) — encapsula o envio por trás de uma interface do domínio.
-- [Messaging Mapper](./messaging-mapper.md) — converte entre objetos de domínio e mensagens.
-- [Polling Consumer](./polling-consumer.md) — recebimento em que a aplicação decide quando buscar.
-- [Event-Driven Consumer](./event-driven-consumer.md) — recebimento em que o sistema de mensageria aciona a aplicação.
-- [Service Activator](./service-activator.md) — conecta mensagens a um serviço da aplicação.
-- [Channel Adapter](../messaging-channels/channel-adapter.md) — endpoint para aplicações que não conhecem mensageria.
-- [Message Channel](../messaging-channels/message-channel.md) — o canal ao qual o endpoint se conecta.
-- [Message](../message-construction/message.md) — a unidade de dados trocada pelo endpoint.
+- [Messaging Gateway](/architecture/eip/messaging-endpoints/messaging-gateway) — encapsula o envio por trás de uma interface do domínio.
+- [Messaging Mapper](/architecture/eip/messaging-endpoints/messaging-mapper) — converte entre objetos de domínio e mensagens.
+- [Polling Consumer](/architecture/eip/messaging-endpoints/polling-consumer) — recebimento em que a aplicação decide quando buscar.
+- [Event-Driven Consumer](/architecture/eip/messaging-endpoints/event-driven-consumer) — recebimento em que o sistema de mensageria aciona a aplicação.
+- [Service Activator](/architecture/eip/messaging-endpoints/service-activator) — conecta mensagens a um serviço da aplicação.
+- [Channel Adapter](/architecture/eip/messaging-channels/channel-adapter) — endpoint para aplicações que não conhecem mensageria.
+- [Message Channel](/architecture/eip/messaging-channels/message-channel) — o canal ao qual o endpoint se conecta.
+- [Message](/architecture/eip/message-construction/message) — a unidade de dados trocada pelo endpoint.
 
 ## Referência
 

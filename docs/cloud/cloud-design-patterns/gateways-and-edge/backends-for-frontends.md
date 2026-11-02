@@ -88,16 +88,16 @@ Os clientes passam por um gateway que trata autenticação, autorização e moni
 
 ## Padrões relacionados
 
-- [API Gateway](../../../architecture/microservices/external-api/api-gateway.md) — o BFF é a variação do API Gateway com um gateway por tipo de cliente.
-- [API Composition](../../../architecture/microservices/service-collaboration/api-composition.md) — um BFF costuma implementá-lo para combinar dados de vários serviços.
-- [Microservice Architecture](../../../architecture/microservices/architectural-style/microservice-architecture.md) — o estilo arquitetural que motiva a necessidade de BFFs.
-- [Gateway Aggregation](./gateway-aggregation.md) — um BFF frequentemente agrega chamadas a vários serviços para reduzir as requisições do cliente.
-- [Gateway Offloading](./gateway-offloading.md) — transfere preocupações transversais (TLS, autenticação, monitoramento) para o gateway, mantendo os BFFs focados na experiência do cliente.
-- [Gateway Routing](./gateway-routing.md) — encaminha cada requisição ao BFF correto a partir de um único ponto de entrada.
-- [Gatekeeper](../security-and-access/gatekeeper.md) — protege os BFFs e os serviços de backend validando e higienizando requisições antes de chegarem a eles.
-- [Rate Limiting](../resiliency/rate-limiting-pattern.md) — controla o volume de chamadas que os BFFs fazem aos serviços de backend.
-- [Bulkhead](../resiliency/bulkhead.md) — o isolamento por cliente proporcionado pelos BFFs segue o mesmo princípio de conter falhas em compartimentos.
-- [Cache-Aside](../data-management/cache-aside.md) — BFFs e gateways podem usar cache para otimizar respostas repetidas, especialmente para clientes mobile.
+- [API Gateway](/architecture/microservices/external-api/api-gateway) — o BFF é a variação do API Gateway com um gateway por tipo de cliente.
+- [API Composition](/architecture/microservices/service-collaboration/api-composition) — um BFF costuma implementá-lo para combinar dados de vários serviços.
+- [Microservice Architecture](/architecture/microservices/architectural-style/microservice-architecture) — o estilo arquitetural que motiva a necessidade de BFFs.
+- [Gateway Aggregation](/cloud/cloud-design-patterns/gateways-and-edge/gateway-aggregation) — um BFF frequentemente agrega chamadas a vários serviços para reduzir as requisições do cliente.
+- [Gateway Offloading](/cloud/cloud-design-patterns/gateways-and-edge/gateway-offloading) — transfere preocupações transversais (TLS, autenticação, monitoramento) para o gateway, mantendo os BFFs focados na experiência do cliente.
+- [Gateway Routing](/cloud/cloud-design-patterns/gateways-and-edge/gateway-routing) — encaminha cada requisição ao BFF correto a partir de um único ponto de entrada.
+- [Gatekeeper](/cloud/cloud-design-patterns/security-and-access/gatekeeper) — protege os BFFs e os serviços de backend validando e higienizando requisições antes de chegarem a eles.
+- [Rate Limiting](/cloud/cloud-design-patterns/resiliency/rate-limiting-pattern) — controla o volume de chamadas que os BFFs fazem aos serviços de backend.
+- [Bulkhead](/cloud/cloud-design-patterns/resiliency/bulkhead) — o isolamento por cliente proporcionado pelos BFFs segue o mesmo princípio de conter falhas em compartimentos.
+- [Cache-Aside](/cloud/cloud-design-patterns/data-management/cache-aside) — BFFs e gateways podem usar cache para otimizar respostas repetidas, especialmente para clientes mobile.
 
 ## Referência
 

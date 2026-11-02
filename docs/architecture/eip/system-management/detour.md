@@ -31,7 +31,7 @@ A escolha da saída é controlada por fora, normalmente por mensagens enviadas p
 
 ### Quando evitar
 
-- Se só é preciso observar mensagens, [Wire Tap](./wire-tap.md) é mais seguro, pois não interfere no fluxo.
+- Se só é preciso observar mensagens, [Wire Tap](/architecture/eip/system-management/wire-tap) é mais seguro, pois não interfere no fluxo.
 - Se as etapas extras devem ser sempre aplicadas, basta colocá-las no fluxo normal.
 - Quando não há um canal de controle confiável para acionar o desvio.
 
@@ -62,10 +62,10 @@ O roteador envia a mensagem direto ao destino ou pelas etapas intermediárias, c
 
 ## Padrões relacionados
 
-- [Control Bus](./control-bus.md) — aciona a troca entre as duas saídas.
-- [Wire Tap](./wire-tap.md) — observação passiva, enquanto o Detour permite intervir.
-- [Content-Based Router](../message-routing/content-based-router.md) — o Detour é um roteador cuja decisão vem do contexto e não do conteúdo.
-- [Publish-Subscribe Channel](../../../cloud/cloud-design-patterns/messaging/publisher-subscriber.md) — alternativa para distribuir cópias a observadores.
+- [Control Bus](/architecture/eip/system-management/control-bus) — aciona a troca entre as duas saídas.
+- [Wire Tap](/architecture/eip/system-management/wire-tap) — observação passiva, enquanto o Detour permite intervir.
+- [Content-Based Router](/architecture/eip/message-routing/content-based-router) — o Detour é um roteador cuja decisão vem do contexto e não do conteúdo.
+- [Publish-Subscribe Channel](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — alternativa para distribuir cópias a observadores.
 
 ## Referência
 

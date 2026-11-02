@@ -68,13 +68,13 @@ O nó B tem o relógio físico atrasado, mas mantém o maior tempo conhecido e i
 
 ## Padrões relacionados
 
-- [Lamport Clock](./lamport-clock.md) — base lógica que o Hybrid Clock estende com o tempo físico
-- [Clock-Bound Wait](./clock-bound-wait.md) — complementa o HLC esperando a incerteza dos relógios para obter ordem externa
-- [Versioned Value](../data-replication/versioned-value.md) — armazena cada valor com o timestamp híbrido como versão
-- [Version Vector](../data-replication/version-vector.md) — alternativa para detectar escritas concorrentes
-- [Two-Phase Commit](../data-partitioning/two-phase-commit.md) — transações entre partições usam timestamps como momento de commit
-- [Message Sequence](../../eip/message-construction/message-sequence.md) (EIP) — ordenação no nível de mensagens
-- [Resequencer](../../eip/message-routing/resequencer.md) (EIP) — reordena mensagens por sequência
+- [Lamport Clock](/architecture/distributed-systems/distributed-time/lamport-clock) — base lógica que o Hybrid Clock estende com o tempo físico
+- [Clock-Bound Wait](/architecture/distributed-systems/distributed-time/clock-bound-wait) — complementa o HLC esperando a incerteza dos relógios para obter ordem externa
+- [Versioned Value](/architecture/distributed-systems/data-replication/versioned-value) — armazena cada valor com o timestamp híbrido como versão
+- [Version Vector](/architecture/distributed-systems/data-replication/version-vector) — alternativa para detectar escritas concorrentes
+- [Two-Phase Commit](/architecture/distributed-systems/data-partitioning/two-phase-commit) — transações entre partições usam timestamps como momento de commit
+- [Message Sequence](/architecture/eip/message-construction/message-sequence) (EIP) — ordenação no nível de mensagens
+- [Resequencer](/architecture/eip/message-routing/resequencer) (EIP) — reordena mensagens por sequência
 
 ## Referência
 

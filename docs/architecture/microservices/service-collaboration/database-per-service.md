@@ -68,12 +68,12 @@ Cada serviço acessa apenas o seu próprio banco. Quando precisa de dados de out
 
 ## Padrões relacionados
 
-- [Microservice Architecture](../architectural-style/microservice-architecture.md) — o estilo arquitetural que cria a necessidade deste padrão.
-- [Saga](../../../cloud/cloud-design-patterns/distributed-coordination/saga.md) — fornece transações eventualmente consistentes entre serviços.
-- [API Composition](./api-composition.md) — forma simples de implementar consultas que cruzam serviços.
-- [CQRS](../../../cloud/cloud-design-patterns/data-management/cqrs.md) — mantém visões que combinam dados de vários serviços.
-- [Shared Database](./shared-database.md) — a alternativa (e anti-padrão) de compartilhar um único banco.
-- [Command-side Replica](./command-side-replica.md) — replica localmente dados de outro serviço para comandos.
+- [Microservice Architecture](/architecture/microservices/architectural-style/microservice-architecture) — o estilo arquitetural que cria a necessidade deste padrão.
+- [Saga](/cloud/cloud-design-patterns/distributed-coordination/saga) — fornece transações eventualmente consistentes entre serviços.
+- [API Composition](/architecture/microservices/service-collaboration/api-composition) — forma simples de implementar consultas que cruzam serviços.
+- [CQRS](/cloud/cloud-design-patterns/data-management/cqrs) — mantém visões que combinam dados de vários serviços.
+- [Shared Database](/architecture/microservices/service-collaboration/shared-database) — a alternativa (e anti-padrão) de compartilhar um único banco.
+- [Command-side Replica](/architecture/microservices/service-collaboration/command-side-replica) — replica localmente dados de outro serviço para comandos.
 
 ## Referência
 

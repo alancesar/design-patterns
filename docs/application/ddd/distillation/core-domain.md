@@ -49,7 +49,7 @@ A distilação é o processo de separar o essencial do que é apenas suporte. O 
 
 - **Organização:** a escolha tem consequências sobre alocação de pessoas, o que costuma gerar atrito político.
 - **Evolução:** o core de hoje pode virar commodity amanhã; a revisão periódica faz parte do padrão.
-- **Documentação:** o core precisa ser comunicado, por exemplo com um [Domain Vision Statement](./domain-vision-statement.md) e um [Highlighted Core](./highlighted-core.md).
+- **Documentação:** o core precisa ser comunicado, por exemplo com um [Domain Vision Statement](/application/ddd/distillation/domain-vision-statement) e um [Highlighted Core](/application/ddd/distillation/highlighted-core).
 
 ## Diagrama
 
@@ -73,15 +73,15 @@ Faturamento, folha de pagamento, autenticação e envio de e-mails são necessá
 
 ## Padrões relacionados
 
-- [Generic Subdomains](./generic-subdomains.md) — o que sobra fora do core e pode ser comprado ou terceirizado.
-- [Domain Vision Statement](./domain-vision-statement.md) — descreve o core e seu valor em poucas linhas.
-- [Highlighted Core](./highlighted-core.md) — torna o core visível no repositório e na documentação.
-- [Segregated Core](./segregated-core.md) — separa o core estruturalmente do restante.
-- [Cohesive Mechanisms](./cohesive-mechanisms.md) — retira mecanismos técnicos do core para mantê-lo expressivo.
-- [Abstract Core](./abstract-core.md) — extrai o núcleo conceitual quando o core é grande.
-- [Bounded Context](../model-in-practice/bounded-context.md) — o core normalmente vive em um contexto próprio.
-- [Context Map](../context-mapping/context-map.md) — situa o core em relação aos demais contextos.
-- [Decompose by Subdomain](../../../architecture/microservices/service-boundaries/decompose-by-subdomain.md) — usa subdomínios, com o core entre eles, para delimitar serviços.
+- [Generic Subdomains](/application/ddd/distillation/generic-subdomains) — o que sobra fora do core e pode ser comprado ou terceirizado.
+- [Domain Vision Statement](/application/ddd/distillation/domain-vision-statement) — descreve o core e seu valor em poucas linhas.
+- [Highlighted Core](/application/ddd/distillation/highlighted-core) — torna o core visível no repositório e na documentação.
+- [Segregated Core](/application/ddd/distillation/segregated-core) — separa o core estruturalmente do restante.
+- [Cohesive Mechanisms](/application/ddd/distillation/cohesive-mechanisms) — retira mecanismos técnicos do core para mantê-lo expressivo.
+- [Abstract Core](/application/ddd/distillation/abstract-core) — extrai o núcleo conceitual quando o core é grande.
+- [Bounded Context](/application/ddd/model-in-practice/bounded-context) — o core normalmente vive em um contexto próprio.
+- [Context Map](/application/ddd/context-mapping/context-map) — situa o core em relação aos demais contextos.
+- [Decompose by Subdomain](/architecture/microservices/service-boundaries/decompose-by-subdomain) — usa subdomínios, com o core entre eles, para delimitar serviços.
 
 ## Referência
 

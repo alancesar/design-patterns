@@ -13,7 +13,7 @@ sidebar_label: "Multi-Agent Hierarchical Task Decomposition"
 
 ## Descrição
 
-Os agentes se organizam em uma hierarquia de vários níveis. Um agente raiz divide uma tarefa complexa em subtarefas e as delega a subagentes de nível inferior; cada nível decompõe o trabalho recebido e delega mais adiante, até que um agente trabalhador no nível mais baixo execute a tarefa diretamente. A fonte o descreve como uma implementação do [Multi-Agent Coordinator](./multi-agent-coordinator.md).
+Os agentes se organizam em uma hierarquia de vários níveis. Um agente raiz divide uma tarefa complexa em subtarefas e as delega a subagentes de nível inferior; cada nível decompõe o trabalho recebido e delega mais adiante, até que um agente trabalhador no nível mais baixo execute a tarefa diretamente. A fonte o descreve como uma implementação do [Multi-Agent Coordinator](/ai/agentic-ai/dynamic-orchestration/multi-agent-coordinator).
 
 É indicado para problemas ambíguos e abertos que exigem raciocínio em várias etapas, como pesquisa, planejamento e síntese. Em um projeto de pesquisa, por exemplo, o raiz divide o objetivo em coleta de dados, análise e redação do relatório, e subagentes especializados concluem ou decompõem ainda mais cada tarefa.
 
@@ -66,11 +66,11 @@ O agente raiz delega a subagentes intermediários, que decompõem e delegam até
 
 ## Padrões relacionados
 
-- [Multi-Agent Coordinator](./multi-agent-coordinator.md) — padrão de que este é uma implementação em vários níveis.
-- [Single Agent](./single-agent.md) — ponto de partida mais simples.
-- [Multi-Agent Swarm](./multi-agent-swarm.md) — colaboração sem hierarquia nem supervisor central.
-- [Magentic Orchestration](../../agent-orchestration/dynamic-orchestration/magentic-orchestration.md) — planejamento adaptativo com task ledger para problemas abertos.
-- [Scheduler Agent Supervisor](../../../cloud/cloud-design-patterns/distributed-coordination/scheduler-agent-supervisor.md) — supervisão de tarefas distribuídas.
+- [Multi-Agent Coordinator](/ai/agentic-ai/dynamic-orchestration/multi-agent-coordinator) — padrão de que este é uma implementação em vários níveis.
+- [Single Agent](/ai/agentic-ai/dynamic-orchestration/single-agent) — ponto de partida mais simples.
+- [Multi-Agent Swarm](/ai/agentic-ai/dynamic-orchestration/multi-agent-swarm) — colaboração sem hierarquia nem supervisor central.
+- [Magentic Orchestration](/ai/agent-orchestration/dynamic-orchestration/magentic-orchestration) — planejamento adaptativo com task ledger para problemas abertos.
+- [Scheduler Agent Supervisor](/cloud/cloud-design-patterns/distributed-coordination/scheduler-agent-supervisor) — supervisão de tarefas distribuídas.
 
 ## Referência
 

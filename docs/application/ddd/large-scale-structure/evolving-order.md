@@ -70,13 +70,13 @@ A equipe então adota uma estrutura de Responsibility Layers com apenas essas du
 
 ## Padrões relacionados
 
-- [System Metaphor](./system-metaphor.md) — uma das estruturas que podem emergir e ser adotadas quando um conceito do domínio ordena o conjunto.
-- [Responsibility Layers](./responsibility-layers.md) — estrutura que costuma emergir da observação de responsabilidades recorrentes.
-- [Knowledge Level](./knowledge-level.md) — estrutura adotada quando regras de configuração do modelo precisam variar.
-- [Pluggable Component Framework](./pluggable-component-framework.md) — estrutura de alto custo, adotada só quando há maturidade para isso.
-- [Refactoring Toward Deeper Insight](../model-in-practice/refactoring-toward-deeper-insight.md) — o mecanismo pelo qual a estrutura é revista.
-- [Module](../building-blocks/module.md) — unidade básica que as estruturas de larga escala organizam.
-- [Bounded Context](../model-in-practice/bounded-context.md) — limite de contexto que precisa ser resolvido antes de recorrer a estruturas de larga escala.
+- [System Metaphor](/application/ddd/large-scale-structure/system-metaphor) — uma das estruturas que podem emergir e ser adotadas quando um conceito do domínio ordena o conjunto.
+- [Responsibility Layers](/application/ddd/large-scale-structure/responsibility-layers) — estrutura que costuma emergir da observação de responsabilidades recorrentes.
+- [Knowledge Level](/application/ddd/large-scale-structure/knowledge-level) — estrutura adotada quando regras de configuração do modelo precisam variar.
+- [Pluggable Component Framework](/application/ddd/large-scale-structure/pluggable-component-framework) — estrutura de alto custo, adotada só quando há maturidade para isso.
+- [Refactoring Toward Deeper Insight](/application/ddd/model-in-practice/refactoring-toward-deeper-insight) — o mecanismo pelo qual a estrutura é revista.
+- [Module](/application/ddd/building-blocks/module) — unidade básica que as estruturas de larga escala organizam.
+- [Bounded Context](/application/ddd/model-in-practice/bounded-context) — limite de contexto que precisa ser resolvido antes de recorrer a estruturas de larga escala.
 
 ## Referência
 

@@ -133,11 +133,11 @@ alice.send("Olá, Bob!"); // [Bob] Alice: Olá, Bob!
 
 ## Padrões relacionados
 
-- [Observer](./observer.md) — frequentemente usado para implementar a comunicação entre colleagues e mediador; o Observer distribui a comunicação, enquanto o Mediator a centraliza
-- [Facade](../structural/facade.md) — também simplifica interações, mas é unidirecional e abstrai um subsistema; o Mediator coordena colleagues que o conhecem e se comunicam por ele
-- [Chain of Responsibility](./chain-of-responsibility.md) — outra forma de desacoplar remetentes e receptores, passando a requisição por uma cadeia em vez de centralizá-la
-- [Command](./command.md) — comandos podem ser encaminhados por um mediador a seus handlers, como em bibliotecas de mediator para CQRS
-- [Singleton](../creational/singleton.md) — o mediador costuma ter uma única instância por contexto
+- [Observer](/coding/gof/behavioral/observer) — frequentemente usado para implementar a comunicação entre colleagues e mediador; o Observer distribui a comunicação, enquanto o Mediator a centraliza
+- [Facade](/coding/gof/structural/facade) — também simplifica interações, mas é unidirecional e abstrai um subsistema; o Mediator coordena colleagues que o conhecem e se comunicam por ele
+- [Chain of Responsibility](/coding/gof/behavioral/chain-of-responsibility) — outra forma de desacoplar remetentes e receptores, passando a requisição por uma cadeia em vez de centralizá-la
+- [Command](/coding/gof/behavioral/command) — comandos podem ser encaminhados por um mediador a seus handlers, como em bibliotecas de mediator para CQRS
+- [Singleton](/coding/gof/creational/singleton) — o mediador costuma ter uma única instância por contexto
 
 ## Referência
 

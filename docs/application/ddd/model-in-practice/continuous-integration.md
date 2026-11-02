@@ -71,11 +71,11 @@ Eles escolheram um único termo, `SeatHold`, para a reserva temporária e `SeatR
 
 ## Padrões relacionados
 
-- [Bounded Context](./bounded-context.md) — define o escopo em que a integração contínua se aplica.
-- [Ubiquitous Language](./ubiquitous-language.md) — a conversa contínua mantém a linguagem alinhada.
-- [Model-Driven Design](./model-driven-design.md) — o código reflete o modelo integrado.
-- [Shared Kernel](../context-mapping/shared-kernel.md) — o trecho compartilhado entre contextos também exige integração frequente.
-- [Context Map](../context-mapping/context-map.md) — trata da integração entre contextos, onde esta prática não se aplica.
+- [Bounded Context](/application/ddd/model-in-practice/bounded-context) — define o escopo em que a integração contínua se aplica.
+- [Ubiquitous Language](/application/ddd/model-in-practice/ubiquitous-language) — a conversa contínua mantém a linguagem alinhada.
+- [Model-Driven Design](/application/ddd/model-in-practice/model-driven-design) — o código reflete o modelo integrado.
+- [Shared Kernel](/application/ddd/context-mapping/shared-kernel) — o trecho compartilhado entre contextos também exige integração frequente.
+- [Context Map](/application/ddd/context-mapping/context-map) — trata da integração entre contextos, onde esta prática não se aplica.
 
 ## Referência
 

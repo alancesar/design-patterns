@@ -87,11 +87,11 @@ public class Order {
 
 ## Padrões relacionados
 
-- [Foreign Key Mapping](./foreign-key-mapping.md) — é a forma geral de mapear associação; o Dependent Mapping é o caso em que o filho não tem vida própria.
-- [Association Table Mapping](./association-table-mapping.md) — outra associação que o dono pode controlar.
-- [Embedded Value](./embedded-value.md) — para dependentes de relação um-para-um, sem tabela própria.
-- [Unit of Work](../object-relational-behavioral/unit-of-work.md) — coordena a gravação do dono e dos dependentes.
-- [Data Mapper](../data-source-architectural/data-mapper.md) — o mapeador do dono cuida dos dependentes.
+- [Foreign Key Mapping](/application/poeaa/object-relational-structural/foreign-key-mapping) — é a forma geral de mapear associação; o Dependent Mapping é o caso em que o filho não tem vida própria.
+- [Association Table Mapping](/application/poeaa/object-relational-structural/association-table-mapping) — outra associação que o dono pode controlar.
+- [Embedded Value](/application/poeaa/object-relational-structural/embedded-value) — para dependentes de relação um-para-um, sem tabela própria.
+- [Unit of Work](/application/poeaa/object-relational-behavioral/unit-of-work) — coordena a gravação do dono e dos dependentes.
+- [Data Mapper](/application/poeaa/data-source-architectural/data-mapper) — o mapeador do dono cuida dos dependentes.
 
 ## Referência
 

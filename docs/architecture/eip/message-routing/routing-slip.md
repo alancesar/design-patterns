@@ -31,7 +31,7 @@ Cada componente de processamento é envolvido por um roteador que lê a ficha e 
 
 ### Quando evitar
 
-- O próximo passo depende de resultados intermediários ou há passos paralelos; use um [Process Manager](./process-manager.md)
+- O próximo passo depende de resultados intermediários ou há passos paralelos; use um [Process Manager](/architecture/eip/message-routing/process-manager)
 - O percurso é sempre o mesmo
 
 ## Trade-offs
@@ -60,10 +60,10 @@ A ficha lista as etapas 1 e 3 (a 2 é pulada) e a mensagem percorre apenas esse 
 
 ## Padrões relacionados
 
-- [Process Manager](./process-manager.md) — alternativa para fluxos dinâmicos e com paralelismo
-- [Pipes and Filters](../../../cloud/cloud-design-patterns/messaging/pipes-and-filters.md) — estrutura de etapas que o Routing Slip torna variável
-- [Message Router](./message-router.md) — cada etapa tem um roteador local
-- [Chain of Responsibility](../../../coding/gof/behavioral/chain-of-responsibility.md) — cadeia de handlers em orientação a objetos
+- [Process Manager](/architecture/eip/message-routing/process-manager) — alternativa para fluxos dinâmicos e com paralelismo
+- [Pipes and Filters](/cloud/cloud-design-patterns/messaging/pipes-and-filters) — estrutura de etapas que o Routing Slip torna variável
+- [Message Router](/architecture/eip/message-routing/message-router) — cada etapa tem um roteador local
+- [Chain of Responsibility](/coding/gof/behavioral/chain-of-responsibility) — cadeia de handlers em orientação a objetos
 
 ## Referência
 
