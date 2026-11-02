@@ -224,8 +224,9 @@ pre code,
   fill: var(--bg-raised) !important;
 }
 
-/* Shared patterns (documented in another catalog) are marked with ★, as in the source README */
-.sidebar-shared > .menu__link::after {
+/* Shared patterns (documented in another catalog) are marked with ★, as in the source README.
+   The star goes inside the label span so it follows the last word when the label wraps. */
+.sidebar-shared > .menu__link > span::after {
   content: '★';
   margin-left: 0.4em;
   font-size: 0.75em;
