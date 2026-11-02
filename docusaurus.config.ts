@@ -91,7 +91,7 @@ const config: Config = {
       logo: {alt: 'Design Patterns', src: 'img/logo.svg'},
       items: [
         // activeBaseRegex never matches: an "active" navbar item would be prefixed to
-        // every search-result breadcrumb ("Cloud › Cloud › Azure …").
+        // every search-result breadcrumb ("Cloud › Cloud › Cloud Design Patterns …").
         ...domains.map((d) => ({to: `/${d.slug}`, label: d.label, position: 'left' as const, activeBaseRegex: '^$'})),
         {to: '/tags', label: 'Etiquetas', position: 'left'},
         {href: 'https://alancesar.dev', label: 'alancesar.dev', position: 'right'},
@@ -109,7 +109,7 @@ const config: Config = {
             {label: 'Enterprise Integration Patterns', to: '/architecture/eip'},
             {label: 'Microservices', to: '/architecture/microservices'},
             {label: 'Patterns of Distributed Systems', to: '/architecture/distributed-systems'},
-            {label: 'Cloud Design Patterns', to: '/cloud/azure'},
+            {label: 'Cloud Design Patterns', to: '/cloud/cloud-design-patterns'},
           ],
         },
         {
