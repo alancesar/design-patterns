@@ -7,6 +7,7 @@ const domains = [
   {slug: 'application', label: 'Application'},
   {slug: 'architecture', label: 'Architecture'},
   {slug: 'cloud', label: 'Cloud'},
+  {slug: 'ai', label: 'AI'},
 ];
 
 const config: Config = {
@@ -110,6 +111,8 @@ const config: Config = {
             {label: 'Microservices', to: '/architecture/microservices'},
             {label: 'Patterns of Distributed Systems', to: '/architecture/distributed-systems'},
             {label: 'Cloud Design Patterns', to: '/cloud/cloud-design-patterns'},
+            {label: 'AI Agent Orchestration', to: '/ai/agent-orchestration'},
+            {label: 'Agentic AI', to: '/ai/agentic-ai'},
           ],
         },
         {
@@ -122,6 +125,8 @@ const config: Config = {
             {label: 'microservices.io', href: 'https://microservices.io/patterns/'},
             {label: 'Patterns of Distributed Systems', href: 'https://martinfowler.com/articles/patterns-of-distributed-systems/'},
             {label: 'Azure Architecture Center', href: 'https://learn.microsoft.com/en-us/azure/architecture/patterns/'},
+            {label: 'Azure Architecture Center (AI agents)', href: 'https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns'},
+            {label: 'Google Cloud Architecture Center', href: 'https://docs.cloud.google.com/architecture/choose-design-pattern-agentic-ai-system'},
           ],
         },
         {
