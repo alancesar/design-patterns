@@ -1,0 +1,135 @@
+---
+title: Template Method
+pattern_slug: template-method
+category: Behavioral
+tags:
+  - Extensibility
+origin: GoF
+source: https://iretha.github.io/design-patterns/cheat-sheet
+sidebar_label: "Template Method"
+---
+
+# Template Method
+
+## Description
+
+Template Method defines the skeleton of an algorithm in an operation of a base class, deferring some steps to subclasses. Subclasses can redefine certain steps of the algorithm without changing its overall structure.
+
+The abstract class exposes a "template" method (usually not overridable) that calls a sequence of operations in a fixed order. Some of these operations are abstract (mandatory steps that each subclass must implement), others have a default implementation, and others are *hooks*: optional extension points, normally empty, that the subclass can override if it wants to.
+
+Control of the flow stays in the base class, applying the so-called "Hollywood Principle" (*don't call us, we'll call you*): the superclass calls the subclasses' methods, not the other way around.
+
+## Problems it solves
+
+- Code duplication in classes that run nearly identical algorithms, differing only in a few steps
+- The lack of a single point to control the order and invariants of a process (validation, logging, transactions)
+- The need to allow controlled extension of a framework without exposing or allowing changes to the entire flow
+
+## When to use
+
+- When several classes share the same algorithm structure and only vary in the details of some steps
+- When you want to fix the invariant parts of an algorithm once and leave the variable parts to the subclasses
+- In frameworks and libraries that offer well-defined extension points (hooks) to client code
+- When refactoring duplicated code in subclasses, promoting the common behavior to the superclass
+
+### When to avoid
+
+- When the variable steps need to be swapped at runtime — prefer Strategy (composition)
+- When the algorithm has many customizable steps, producing large hierarchies that are hard to understand
+- In languages or contexts where inheritance is discouraged or the hierarchy is already deep
+- When subclasses would have to violate the base contract (breaking the Liskov Substitution Principle)
+
+## Trade-offs
+
+| Benefit | Cost / Risk |
+| --- | --- |
+| Eliminates duplication, centralizing the common flow in the base class | Strong coupling through inheritance between base and subclasses |
+| Guarantees the algorithm's order and invariants | The flow is fragmented across classes, making it harder to read |
+| Controlled extension through abstract steps and hooks | Variation is fixed at compile time; it can't be swapped at runtime |
+| Makes it easier to build reusable frameworks | Changes to the base class can affect all subclasses (fragile base class) |
+
+- **Coupling:** subclasses depend on details of the superclass; document well which methods can be overridden.
+- **Testability:** the template can be tested with simple test subclasses, but the individual steps aren't always easy to test.
+- **Complexity:** keep the number of abstract steps small; prefer hooks with a default implementation.
+- **Contract safety:** mark the template method as `final` (or equivalent) to keep subclasses from changing the structure.
+
+## Diagram
+
+```mermaid
+classDiagram
+    class AbstractClass {
+        <<abstract>>
+        +templateMethod()
+        #primitiveOperation1()*
+        #primitiveOperation2()*
+        #hook()
+    }
+    class ConcreteClassA {
+        #primitiveOperation1()
+        #primitiveOperation2()
+    }
+    class ConcreteClassB {
+        #primitiveOperation1()
+        #primitiveOperation2()
+        #hook()
+    }
+    class Client
+    AbstractClass <|-- ConcreteClassA
+    AbstractClass <|-- ConcreteClassB
+    Client --> AbstractClass : calls templateMethod
+```
+
+`AbstractClass` defines the `templateMethod`, which invokes the primitive (abstract) operations and the (optional) `hook` in a fixed order. `ConcreteClassA` and `ConcreteClassB` implement the variable steps, and the `Client` interacts only with the template method.
+
+## Example
+
+A system imports data from different formats (CSV and JSON). The flow is always: open, read, convert, validate, and save; only reading and conversion vary by format.
+
+```java
+public abstract class DataImporter {
+    // Template method: fixed structure of the algorithm
+    public final void importFile(String path) {
+        String raw = read(path);
+        List<Record> records = parse(raw);
+        validate(records);
+        beforeSave(records); // optional hook
+        save(records);
+    }
+
+    protected abstract String read(String path);
+    protected abstract List<Record> parse(String raw);
+
+    protected void validate(List<Record> records) {
+        records.removeIf(r -> !r.isValid());
+    }
+
+    protected void beforeSave(List<Record> records) { } // hook
+
+    private void save(List<Record> records) { /* persists to the database */ }
+}
+
+public class CsvImporter extends DataImporter {
+    protected String read(String path) { return Files.readString(Path.of(path)); }
+    protected List<Record> parse(String raw) { return CsvParser.parse(raw); }
+}
+
+public class JsonImporter extends DataImporter {
+    protected String read(String path) { return Files.readString(Path.of(path)); }
+    protected List<Record> parse(String raw) { return JsonParser.parse(raw); }
+    @Override
+    protected void beforeSave(List<Record> records) { records.forEach(Record::normalize); }
+}
+```
+
+## Related patterns
+
+- [Strategy](/coding/gof/behavioral/strategy) — a composition-based alternative: it varies the whole algorithm at runtime, while Template Method varies parts of it through inheritance
+- [Factory Method](/coding/gof/creational/factory-method) — is often a specialized step called from inside a template method
+- [State](/coding/gof/behavioral/state) — also delegates behavior, but through composition and with dynamic state switching
+- [Command](/coding/gof/behavioral/command) — commands can use a template method to standardize steps such as validation, execution, and auditing
+- [Null Object](/coding/gof/behavioral/null-object) — empty hooks with a default implementation follow the same idea of neutral behavior
+
+## Reference
+
+- [Design Patterns Cheat Sheet](https://iretha.github.io/design-patterns/cheat-sheet)
+- [Template Method on Refactoring.Guru](https://refactoring.guru/design-patterns/template-method)
