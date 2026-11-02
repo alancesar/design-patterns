@@ -1,0 +1,239 @@
+/*
+ * Visual identity shared with alancesar.dev: Catppuccin Latte (light) / Mocha (dark),
+ * mauve accent, system sans-serif text and JetBrains Mono for code.
+ * Roles mirror alancesar-dev/hugo.yaml (bg, bg-raised, text, text-dim, border, accent).
+ */
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
+  src: url('/fonts/JetBrainsMono-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
+  src: url('/fonts/JetBrainsMono-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  /* Catppuccin Latte */
+  --bg: #eff1f5; /* base */
+  --bg-raised: #e6e9ef; /* mantle */
+  --bg-sunken: #dce0e8; /* crust */
+  --text: #4c4f69; /* text */
+  --text-dim: #6c6f85; /* subtext0 */
+  --border: #ccd0da; /* surface0 */
+  --surface1: #bcc0cc;
+  --accent: #8839ef; /* mauve */
+
+  --ifm-color-primary: #8839ef;
+  --ifm-color-primary-dark: #7a1fed;
+  --ifm-color-primary-darker: #7314e6;
+  --ifm-color-primary-darkest: #5f10bd;
+  --ifm-color-primary-light: #9653f1;
+  --ifm-color-primary-lighter: #9d5ff2;
+  --ifm-color-primary-lightest: #b386f5;
+
+  --ifm-background-color: var(--bg);
+  --ifm-background-surface-color: var(--bg-raised);
+  --ifm-font-color-base: var(--text);
+  --ifm-font-color-secondary: var(--text-dim);
+  --ifm-heading-color: var(--text);
+  --ifm-color-content: var(--text);
+  --ifm-color-content-secondary: var(--text-dim);
+  --ifm-toc-border-color: var(--border);
+  --ifm-hr-background-color: var(--border);
+  --ifm-table-border-color: var(--border);
+  --ifm-table-stripe-background: color-mix(in srgb, var(--bg-raised) 60%, transparent);
+  --ifm-table-head-background: var(--bg-raised);
+  --ifm-color-emphasis-100: var(--bg-raised);
+  --ifm-color-emphasis-200: var(--border);
+  --ifm-color-emphasis-300: var(--surface1);
+  --ifm-color-emphasis-600: var(--text-dim);
+  --ifm-color-emphasis-700: var(--text-dim);
+
+  --ifm-navbar-background-color: var(--bg-raised);
+  --ifm-navbar-shadow: none;
+  --ifm-footer-background-color: var(--bg-raised);
+  --ifm-footer-color: var(--text-dim);
+  --ifm-footer-link-color: var(--text-dim);
+  --ifm-footer-title-color: var(--text);
+  --ifm-menu-color: var(--text-dim);
+  --ifm-menu-color-background-active: color-mix(in srgb, var(--accent) 12%, transparent);
+  --ifm-menu-color-background-hover: color-mix(in srgb, var(--accent) 7%, transparent);
+  --ifm-dropdown-background-color: var(--bg-raised);
+  --ifm-card-background-color: var(--bg-raised);
+  --docsearch-searchbox-background: var(--bg);
+
+  --ifm-font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --ifm-font-family-monospace: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --ifm-heading-font-weight: 650;
+  --ifm-code-font-size: 90%;
+  --ifm-code-background: var(--bg-raised);
+  --ifm-code-border-radius: 6px;
+  --docusaurus-highlighted-code-line-bg: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+[data-theme='dark'] {
+  /* Catppuccin Mocha */
+  --bg: #1e1e2e;
+  --bg-raised: #181825;
+  --bg-sunken: #11111b;
+  --text: #cdd6f4;
+  --text-dim: #a6adc8;
+  --border: #313244;
+  --surface1: #45475a;
+  --accent: #cba6f7;
+
+  --ifm-color-primary: #cba6f7;
+  --ifm-color-primary-dark: #b886f4;
+  --ifm-color-primary-darker: #af76f3;
+  --ifm-color-primary-darkest: #9246ee;
+  --ifm-color-primary-light: #dec6fa;
+  --ifm-color-primary-lighter: #e7d6fb;
+  --ifm-color-primary-lightest: #ffffff;
+}
+
+body {
+  background: var(--bg);
+  font-feature-settings: normal;
+}
+
+code,
+pre {
+  font-variant-ligatures: contextual;
+}
+
+code {
+  border: 1px solid var(--border);
+}
+
+pre code,
+.prism-code {
+  border: none;
+}
+
+.theme-code-block {
+  border: 1px solid var(--border);
+  box-shadow: none;
+}
+
+.navbar {
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar__title {
+  font-weight: 650;
+}
+
+.footer {
+  border-top: 1px solid var(--border);
+}
+
+.markdown a {
+  text-underline-offset: 2px;
+}
+
+.markdown blockquote {
+  border-left: 3px solid var(--accent);
+  color: var(--text-dim);
+  background: transparent;
+}
+
+/* Tables: full-width, readable on mobile via horizontal scroll inside the table only */
+.markdown table {
+  display: table;
+  width: 100%;
+}
+
+@media (max-width: 996px) {
+  .markdown table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+/* Mermaid: keep diagrams within the Catppuccin palette in both themes */
+.docusaurus-mermaid-container {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  margin-bottom: var(--ifm-leading);
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.docusaurus-mermaid-container svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.docusaurus-mermaid-container .node rect,
+.docusaurus-mermaid-container .node circle,
+.docusaurus-mermaid-container .node polygon,
+.docusaurus-mermaid-container .node path,
+.docusaurus-mermaid-container .classGroup rect,
+.docusaurus-mermaid-container g.classGroup rect,
+.docusaurus-mermaid-container .actor,
+.docusaurus-mermaid-container .stateGroup rect {
+  fill: var(--bg) !important;
+  stroke: var(--accent) !important;
+}
+
+.docusaurus-mermaid-container .cluster rect {
+  fill: color-mix(in srgb, var(--accent) 6%, transparent) !important;
+  stroke: var(--border) !important;
+}
+
+.docusaurus-mermaid-container .edgePath .path,
+.docusaurus-mermaid-container .flowchart-link,
+.docusaurus-mermaid-container .relation,
+.docusaurus-mermaid-container .messageLine0,
+.docusaurus-mermaid-container .messageLine1 {
+  stroke: var(--text-dim) !important;
+}
+
+.docusaurus-mermaid-container .marker,
+.docusaurus-mermaid-container marker path {
+  fill: var(--text-dim) !important;
+  stroke: var(--text-dim) !important;
+}
+
+.docusaurus-mermaid-container .nodeLabel,
+.docusaurus-mermaid-container .label,
+.docusaurus-mermaid-container text {
+  color: var(--text) !important;
+  fill: var(--text) !important;
+}
+
+.docusaurus-mermaid-container .edgeLabel,
+.docusaurus-mermaid-container .edgeLabel rect,
+.docusaurus-mermaid-container .labelBkg {
+  background-color: var(--bg-raised) !important;
+  fill: var(--bg-raised) !important;
+}
+
+/* Shared patterns (documented in another catalog) are marked with ★, as in the source README */
+.sidebar-shared > .menu__link::after {
+  content: '★';
+  margin-left: 0.4em;
+  font-size: 0.75em;
+  color: var(--accent);
+}
+
+.navbar__search-input:focus,
+[class*='searchQueryInput']:focus {
+  outline: 2px solid var(--accent);
+  border-color: var(--accent) !important;
+}
