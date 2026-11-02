@@ -71,11 +71,11 @@ A aplicação consulta a tabela de índice pela chave secundária, obtém a chav
 
 ## Padrões relacionados
 
-- [Sharding](./sharding.md) — tabelas de índice permitem localizar registros e fazer consultas por faixa sobre dados fragmentados.
-- [Materialized View](./materialized-view.md) — outra forma de pré-organizar dados derivados para atender consultas específicas.
-- [Idempotent Consumer](../messaging/idempotent-consumer.md) — o atualizador assíncrono de índices deve tolerar mensagens duplicadas.
-- [CQRS](./cqrs.md) — separa modelos de leitura e escrita, frequentemente com índices desnormalizados no lado de leitura.
-- [Event Sourcing](./event-sourcing.md) — os eventos podem alimentar a construção e a reconstrução das tabelas de índice.
+- [Sharding](/cloud/cloud-design-patterns/data-management/sharding) — tabelas de índice permitem localizar registros e fazer consultas por faixa sobre dados fragmentados.
+- [Materialized View](/cloud/cloud-design-patterns/data-management/materialized-view) — outra forma de pré-organizar dados derivados para atender consultas específicas.
+- [Idempotent Consumer](/cloud/cloud-design-patterns/messaging/idempotent-consumer) — o atualizador assíncrono de índices deve tolerar mensagens duplicadas.
+- [CQRS](/cloud/cloud-design-patterns/data-management/cqrs) — separa modelos de leitura e escrita, frequentemente com índices desnormalizados no lado de leitura.
+- [Event Sourcing](/cloud/cloud-design-patterns/data-management/event-sourcing) — os eventos podem alimentar a construção e a reconstrução das tabelas de índice.
 
 ## Referência
 

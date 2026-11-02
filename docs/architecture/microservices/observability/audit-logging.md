@@ -63,10 +63,10 @@ O serviço executa a ação do usuário e grava um registro de auditoria em um a
 
 ## Padrões relacionados
 
-- [Event Sourcing](../../../cloud/cloud-design-patterns/data-management/event-sourcing.md) — forma confiável de obter auditoria, pois todas as mudanças são eventos
-- [Domain Event](../service-collaboration/domain-event.md) — eventos de domínio podem alimentar o registro de auditoria
-- [Log Aggregation](./log-aggregation.md) — logs técnicos centralizados, complementares à auditoria de negócio
-- [Log Deployments and Changes](./log-deployments-and-changes.md) — auditoria de mudanças na infraestrutura e nos deploys
+- [Event Sourcing](/cloud/cloud-design-patterns/data-management/event-sourcing) — forma confiável de obter auditoria, pois todas as mudanças são eventos
+- [Domain Event](/architecture/microservices/service-collaboration/domain-event) — eventos de domínio podem alimentar o registro de auditoria
+- [Log Aggregation](/architecture/microservices/observability/log-aggregation) — logs técnicos centralizados, complementares à auditoria de negócio
+- [Log Deployments and Changes](/architecture/microservices/observability/log-deployments-and-changes) — auditoria de mudanças na infraestrutura e nos deploys
 
 ## Referência
 

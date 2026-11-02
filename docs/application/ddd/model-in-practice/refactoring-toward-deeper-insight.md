@@ -72,12 +72,12 @@ As flags desapareceram, a regra ficou em um só lugar e novas políticas, como a
 
 ## Padrões relacionados
 
-- [Ubiquitous Language](./ubiquitous-language.md) — termos desajeitados na linguagem sinalizam onde refatorar.
-- [Model-Driven Design](./model-driven-design.md) — o modelo refinado se reflete diretamente no código.
-- [Hands-on Modelers](./hands-on-modelers.md) — quem modela refina o modelo junto com o código.
-- [Core Domain](../distillation/core-domain.md) — onde concentrar o esforço de refinamento.
-- [Conceptual Contours](../supple-design/conceptual-contours.md) — o design flexível emerge de refatorações guiadas pelo domínio.
-- [Intention-Revealing Interfaces](../supple-design/intention-revealing-interfaces.md) — conceitos explícitos pedem nomes que revelam a intenção.
+- [Ubiquitous Language](/application/ddd/model-in-practice/ubiquitous-language) — termos desajeitados na linguagem sinalizam onde refatorar.
+- [Model-Driven Design](/application/ddd/model-in-practice/model-driven-design) — o modelo refinado se reflete diretamente no código.
+- [Hands-on Modelers](/application/ddd/model-in-practice/hands-on-modelers) — quem modela refina o modelo junto com o código.
+- [Core Domain](/application/ddd/distillation/core-domain) — onde concentrar o esforço de refinamento.
+- [Conceptual Contours](/application/ddd/supple-design/conceptual-contours) — o design flexível emerge de refatorações guiadas pelo domínio.
+- [Intention-Revealing Interfaces](/application/ddd/supple-design/intention-revealing-interfaces) — conceitos explícitos pedem nomes que revelam a intenção.
 
 ## Referência
 

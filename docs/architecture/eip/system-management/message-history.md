@@ -63,11 +63,11 @@ A cada componente a mensagem ganha uma entrada no histórico, de modo que o dest
 
 ## Padrões relacionados
 
-- [Message Store](./message-store.md) — guarda os dados das mensagens em um local central.
-- [Wire Tap](./wire-tap.md) — outra forma de observar o tráfego.
-- [Control Bus](./control-bus.md) — usado para gerenciar os componentes que mantêm o histórico.
-- [Correlation Identifier](../message-construction/correlation-identifier.md) — liga mensagens relacionadas, enquanto o histórico mostra o caminho.
-- [Distributed Tracing](../../microservices/observability/distributed-tracing.md) — abordagem equivalente em microservices, com spans coletados externamente.
+- [Message Store](/architecture/eip/system-management/message-store) — guarda os dados das mensagens em um local central.
+- [Wire Tap](/architecture/eip/system-management/wire-tap) — outra forma de observar o tráfego.
+- [Control Bus](/architecture/eip/system-management/control-bus) — usado para gerenciar os componentes que mantêm o histórico.
+- [Correlation Identifier](/architecture/eip/message-construction/correlation-identifier) — liga mensagens relacionadas, enquanto o histórico mostra o caminho.
+- [Distributed Tracing](/architecture/microservices/observability/distributed-tracing) — abordagem equivalente em microservices, com spans coletados externamente.
 
 ## Referência
 

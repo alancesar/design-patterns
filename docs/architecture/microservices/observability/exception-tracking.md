@@ -60,9 +60,9 @@ Cada serviço reporta exceções ao serviço central, que as agrupa e notifica a
 
 ## Padrões relacionados
 
-- [Log Aggregation](./log-aggregation.md) — exceções devem ser registradas nos logs além de reportadas
-- [Distributed Tracing](./distributed-tracing.md) — correlaciona a exceção com a requisição que a originou
-- [Application Metrics](./application-metrics.md) — taxas de erro como métricas complementam o rastreamento
+- [Log Aggregation](/architecture/microservices/observability/log-aggregation) — exceções devem ser registradas nos logs além de reportadas
+- [Distributed Tracing](/architecture/microservices/observability/distributed-tracing) — correlaciona a exceção com a requisição que a originou
+- [Application Metrics](/architecture/microservices/observability/application-metrics) — taxas de erro como métricas complementam o rastreamento
 
 ## Referência
 

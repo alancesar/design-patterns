@@ -63,9 +63,9 @@ Uma única imagem de VM gera várias instâncias, atrás de um balanceador de ca
 
 ## Padrões relacionados
 
-- [Service Instance per Host](./service-instance-per-host.md) — padrão que esta abordagem refina.
-- [Service Instance per Container](./service-instance-per-container.md) — alternativa mais leve e rápida.
-- [Serverless Deployment](./serverless-deployment.md) — alternativa que esconde a infraestrutura.
+- [Service Instance per Host](/architecture/microservices/deployment/service-instance-per-host) — padrão que esta abordagem refina.
+- [Service Instance per Container](/architecture/microservices/deployment/service-instance-per-container) — alternativa mais leve e rápida.
+- [Serverless Deployment](/architecture/microservices/deployment/serverless-deployment) — alternativa que esconde a infraestrutura.
 
 ## Referência
 

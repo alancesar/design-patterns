@@ -58,14 +58,14 @@ O activator traduz a mensagem em chamada ao serviço e, se necessário, devolve 
 
 ## Padrões relacionados
 
-- [Message Endpoint](./message-endpoint.md) — o activator é um tipo de endpoint de recebimento.
-- [Messaging Gateway](./messaging-gateway.md) — contraparte do lado emissor.
-- [Command Message](../message-construction/command-message.md) — mensagem típica que aciona o serviço.
-- [Request-Reply](../message-construction/request-reply.md) — interação suportada pelo activator.
-- [Event-Driven Consumer](./event-driven-consumer.md) — forma habitual de recepção.
-- [Polling Consumer](./polling-consumer.md) — outra forma de recepção.
-- [Message Dispatcher](./message-dispatcher.md) — pode distribuir mensagens a vários activators.
-- [Invalid Message Channel](../messaging-channels/invalid-message-channel.md) — destino de mensagens que o serviço não entende.
+- [Message Endpoint](/architecture/eip/messaging-endpoints/message-endpoint) — o activator é um tipo de endpoint de recebimento.
+- [Messaging Gateway](/architecture/eip/messaging-endpoints/messaging-gateway) — contraparte do lado emissor.
+- [Command Message](/architecture/eip/message-construction/command-message) — mensagem típica que aciona o serviço.
+- [Request-Reply](/architecture/eip/message-construction/request-reply) — interação suportada pelo activator.
+- [Event-Driven Consumer](/architecture/eip/messaging-endpoints/event-driven-consumer) — forma habitual de recepção.
+- [Polling Consumer](/architecture/eip/messaging-endpoints/polling-consumer) — outra forma de recepção.
+- [Message Dispatcher](/architecture/eip/messaging-endpoints/message-dispatcher) — pode distribuir mensagens a vários activators.
+- [Invalid Message Channel](/architecture/eip/messaging-channels/invalid-message-channel) — destino de mensagens que o serviço não entende.
 
 ## Referência
 

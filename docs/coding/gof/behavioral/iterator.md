@@ -128,11 +128,11 @@ while (it.hasNext()) console.log(`Tocando: ${it.next()}`);
 
 ## Padrões relacionados
 
-- [Composite](../structural/composite.md) — iteradores são frequentemente usados para percorrer estruturas recursivas de Composite.
-- [Factory Method](../creational/factory-method.md) — `createIterator()` é um Factory Method que permite a cada coleção instanciar o iterador adequado.
-- [Memento](./memento.md) — pode capturar o estado de uma iteração para retomá-la ou desfazê-la depois.
-- [Visitor](./visitor.md) — combina-se com Iterator: o iterador percorre a coleção e o Visitor aplica a operação a cada elemento.
-- [Null Object](./null-object.md) — um iterador vazio (Null Iterator) evita verificações de nulo em coleções sem elementos.
+- [Composite](/coding/gof/structural/composite) — iteradores são frequentemente usados para percorrer estruturas recursivas de Composite.
+- [Factory Method](/coding/gof/creational/factory-method) — `createIterator()` é um Factory Method que permite a cada coleção instanciar o iterador adequado.
+- [Memento](/coding/gof/behavioral/memento) — pode capturar o estado de uma iteração para retomá-la ou desfazê-la depois.
+- [Visitor](/coding/gof/behavioral/visitor) — combina-se com Iterator: o iterador percorre a coleção e o Visitor aplica a operação a cada elemento.
+- [Null Object](/coding/gof/behavioral/null-object) — um iterador vazio (Null Iterator) evita verificações de nulo em coleções sem elementos.
 
 ## Referência
 

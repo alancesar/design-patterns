@@ -13,9 +13,9 @@ sidebar_label: "Lease"
 
 ## Descrição
 
-Um Lease é uma concessão de acesso exclusivo a um recurso por um tempo limitado. O nó que quer o recurso pede o lease a um [Consistent Core](./consistent-core.md), recebe um prazo (time-to-live, TTL) e precisa renová-lo periodicamente enquanto continuar usando o recurso. Se ele parar de renovar, o lease expira e o recurso pode ser entregue a outro nó.
+Um Lease é uma concessão de acesso exclusivo a um recurso por um tempo limitado. O nó que quer o recurso pede o lease a um [Consistent Core](/architecture/distributed-systems/cluster-management/consistent-core), recebe um prazo (time-to-live, TTL) e precisa renová-lo periodicamente enquanto continuar usando o recurso. Se ele parar de renovar, o lease expira e o recurso pode ser entregue a outro nó.
 
-A renovação costuma ser feita por mensagens de [Heartbeat](../data-replication/heartbeat.md) enviadas pelo cliente ao núcleo. O núcleo replica a criação e a renovação do lease, para que um novo líder do próprio núcleo continue a respeitá-los. Chaves ou entradas de metadados podem ser associadas ao lease e removidas automaticamente quando ele expira, o que é a base de registro de membros e de locks distribuídos em ZooKeeper (sessões e nós efêmeros), etcd (leases) e Chubby.
+A renovação costuma ser feita por mensagens de [Heartbeat](/architecture/distributed-systems/data-replication/heartbeat) enviadas pelo cliente ao núcleo. O núcleo replica a criação e a renovação do lease, para que um novo líder do próprio núcleo continue a respeitá-los. Chaves ou entradas de metadados podem ser associadas ao lease e removidas automaticamente quando ele expira, o que é a base de registro de membros e de locks distribuídos em ZooKeeper (sessões e nós efêmeros), etcd (leases) e Chubby.
 
 ## Problemas que resolve
 
@@ -32,7 +32,7 @@ A renovação costuma ser feita por mensagens de [Heartbeat](../data-replication
 
 ### Quando evitar
 
-- Quando a correção depende de exclusividade estrita e o recurso protegido não valida um token de fencing (por exemplo, [Generation Clock](../data-replication/generation-clock.md)): um dono com pausa longa pode agir depois de o lease ter expirado.
+- Quando a correção depende de exclusividade estrita e o recurso protegido não valida um token de fencing (por exemplo, [Generation Clock](/architecture/distributed-systems/data-replication/generation-clock)): um dono com pausa longa pode agir depois de o lease ter expirado.
 - Quando não há um núcleo consistente para gerenciar os leases.
 - Para tarefas curtas, em que um lock simples ou uma operação idempotente basta.
 
@@ -41,7 +41,7 @@ A renovação costuma ser feita por mensagens de [Heartbeat](../data-replication
 | Ganho | Custo / Risco |
 | --- | --- |
 | Liberação automática de recursos de nós falhos | O recurso fica indisponível até o prazo vencer |
-| Detecção de falhas simples, baseada em tempo | Depende de relógios que avançam em ritmo parecido (veja [Clock-Bound Wait](../distributed-time/clock-bound-wait.md)) |
+| Detecção de falhas simples, baseada em tempo | Depende de relógios que avançam em ritmo parecido (veja [Clock-Bound Wait](/architecture/distributed-systems/distributed-time/clock-bound-wait)) |
 | Estado efêmero consistente com a vida do cliente | Tráfego constante de renovação |
 | Evita deadlocks por donos mortos | Pausas (GC, rede) podem causar expiração falsa e dois nós achando que são donos |
 
@@ -75,11 +75,11 @@ O cliente mantém o lease enquanto renova. Quando para de renovar, o núcleo o e
 
 ## Padrões relacionados
 
-- [Consistent Core](./consistent-core.md) — onde os leases são criados, replicados e expirados.
-- [Heartbeat](../data-replication/heartbeat.md) — mecanismo usado para renovar o lease.
-- [Clock-Bound Wait](../distributed-time/clock-bound-wait.md) — lida com a incerteza de relógios, relevante para medir expiração.
-- [State Watch](./state-watch.md) — outros nós são notificados quando um lease expira.
-- [Leader Election](../../../cloud/cloud-design-patterns/distributed-coordination/leader-election.md) — eleição de líder frequentemente implementada com leases.
+- [Consistent Core](/architecture/distributed-systems/cluster-management/consistent-core) — onde os leases são criados, replicados e expirados.
+- [Heartbeat](/architecture/distributed-systems/data-replication/heartbeat) — mecanismo usado para renovar o lease.
+- [Clock-Bound Wait](/architecture/distributed-systems/distributed-time/clock-bound-wait) — lida com a incerteza de relógios, relevante para medir expiração.
+- [State Watch](/architecture/distributed-systems/cluster-management/state-watch) — outros nós são notificados quando um lease expira.
+- [Leader Election](/cloud/cloud-design-patterns/distributed-coordination/leader-election) — eleição de líder frequentemente implementada com leases.
 
 ## Referência
 

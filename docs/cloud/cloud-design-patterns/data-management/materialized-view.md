@@ -76,11 +76,11 @@ As escritas continuam indo para os armazenamentos de origem; um processo dedicad
 
 ## Padrões relacionados
 
-- [CQRS](./cqrs.md) — as visões materializadas são o modelo de leitura típico ao separar comandos e consultas.
-- [Event Sourcing](./event-sourcing.md) — visões materializadas costumam ser necessárias para obter o estado atual a partir do fluxo de eventos.
-- [Index Table](./index-table.md) — alternativa ou complemento para consultar por campos não indexados quando o armazenamento não suporta índices secundários.
-- [Cache-Aside](./cache-aside.md) — a visão é um cache especializado e pode ser armazenada em uma camada de cache.
-- [Sharding](./sharding.md) — visões podem consolidar dados distribuídos em várias partições para evitar consultas entre shards.
+- [CQRS](/cloud/cloud-design-patterns/data-management/cqrs) — as visões materializadas são o modelo de leitura típico ao separar comandos e consultas.
+- [Event Sourcing](/cloud/cloud-design-patterns/data-management/event-sourcing) — visões materializadas costumam ser necessárias para obter o estado atual a partir do fluxo de eventos.
+- [Index Table](/cloud/cloud-design-patterns/data-management/index-table) — alternativa ou complemento para consultar por campos não indexados quando o armazenamento não suporta índices secundários.
+- [Cache-Aside](/cloud/cloud-design-patterns/data-management/cache-aside) — a visão é um cache especializado e pode ser armazenada em uma camada de cache.
+- [Sharding](/cloud/cloud-design-patterns/data-management/sharding) — visões podem consolidar dados distribuídos em várias partições para evitar consultas entre shards.
 
 ## Referência
 

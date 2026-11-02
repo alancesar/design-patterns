@@ -86,15 +86,15 @@ O sistema legado publica mensagens em sua infraestrutura nativa; a ponte as cons
 
 ## Padrões relacionados
 
-- [Channel Adapter](../../../architecture/eip/messaging-channels/channel-adapter.md) — o bloco de construção da ponte: um par de adaptadores liga um canal de cada sistema.
-- [Message Channel](../../../architecture/eip/messaging-channels/message-channel.md) — os canais que a ponte conecta.
-- [Message Translator](../../../architecture/eip/message-transformation/message-translator.md) — converte o formato das mensagens entre os dois sistemas.
-- [Competing Consumers](./competing-consumers.md) — usado para escalar horizontalmente a ponte e atender aos SLOs de disponibilidade.
-- [Retry](../resiliency/retry.md) — a ponte precisa de política de retry própria para lidar com falhas transitórias sem descartar mensagens válidas como poison.
-- [Circuit Breaker](../resiliency/circuit-breaker.md) — permite pausar o encaminhamento quando uma das infraestruturas está indisponível.
-- [Idempotent Consumer](./idempotent-consumer.md) — a entrega at-least-once pela ponte pode gerar duplicatas que os consumidores devem tolerar.
-- [Strangler Fig](../integration-and-modernization/strangler-fig.md) — ambos suportam migração incremental de sistemas legados para novas tecnologias.
-- [Anti-Corruption Layer](../integration-and-modernization/anti-corruption-layer.md) — também isola sistemas legados de novos, mas traduzindo semântica, enquanto a ponte repassa mensagens sem alterá-las.
+- [Channel Adapter](/architecture/eip/messaging-channels/channel-adapter) — o bloco de construção da ponte: um par de adaptadores liga um canal de cada sistema.
+- [Message Channel](/architecture/eip/messaging-channels/message-channel) — os canais que a ponte conecta.
+- [Message Translator](/architecture/eip/message-transformation/message-translator) — converte o formato das mensagens entre os dois sistemas.
+- [Competing Consumers](/cloud/cloud-design-patterns/messaging/competing-consumers) — usado para escalar horizontalmente a ponte e atender aos SLOs de disponibilidade.
+- [Retry](/cloud/cloud-design-patterns/resiliency/retry) — a ponte precisa de política de retry própria para lidar com falhas transitórias sem descartar mensagens válidas como poison.
+- [Circuit Breaker](/cloud/cloud-design-patterns/resiliency/circuit-breaker) — permite pausar o encaminhamento quando uma das infraestruturas está indisponível.
+- [Idempotent Consumer](/cloud/cloud-design-patterns/messaging/idempotent-consumer) — a entrega at-least-once pela ponte pode gerar duplicatas que os consumidores devem tolerar.
+- [Strangler Fig](/cloud/cloud-design-patterns/integration-and-modernization/strangler-fig) — ambos suportam migração incremental de sistemas legados para novas tecnologias.
+- [Anti-Corruption Layer](/cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer) — também isola sistemas legados de novos, mas traduzindo semântica, enquanto a ponte repassa mensagens sem alterá-las.
 
 ## Referência
 

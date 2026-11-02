@@ -1,0 +1,94 @@
+{
+  "link.title.Catálogos": {
+    "message": "Catalogs",
+    "description": "The title of the footer links column with title=Catálogos in the footer"
+  },
+  "link.title.Fontes": {
+    "message": "Sources",
+    "description": "The title of the footer links column with title=Fontes in the footer"
+  },
+  "link.title.Alan Cesar": {
+    "message": "Alan Cesar",
+    "description": "The title of the footer links column with title=Alan Cesar in the footer"
+  },
+  "link.item.label.GoF": {
+    "message": "GoF",
+    "description": "The label of footer link with label=GoF linking to /coding/gof"
+  },
+  "link.item.label.PoEAA": {
+    "message": "PoEAA",
+    "description": "The label of footer link with label=PoEAA linking to /application/poeaa"
+  },
+  "link.item.label.Domain-Driven Design": {
+    "message": "Domain-Driven Design",
+    "description": "The label of footer link with label=Domain-Driven Design linking to /application/ddd"
+  },
+  "link.item.label.Enterprise Integration Patterns": {
+    "message": "Enterprise Integration Patterns",
+    "description": "The label of footer link with label=Enterprise Integration Patterns linking to https://www.enterpriseintegrationpatterns.com/patterns/messaging/"
+  },
+  "link.item.label.Microservices": {
+    "message": "Microservices",
+    "description": "The label of footer link with label=Microservices linking to /architecture/microservices"
+  },
+  "link.item.label.Patterns of Distributed Systems": {
+    "message": "Patterns of Distributed Systems",
+    "description": "The label of footer link with label=Patterns of Distributed Systems linking to https://martinfowler.com/articles/patterns-of-distributed-systems/"
+  },
+  "link.item.label.Cloud Design Patterns": {
+    "message": "Cloud Design Patterns",
+    "description": "The label of footer link with label=Cloud Design Patterns linking to /cloud/cloud-design-patterns"
+  },
+  "link.item.label.AI Agent Orchestration": {
+    "message": "AI Agent Orchestration",
+    "description": "The label of footer link with label=AI Agent Orchestration linking to /ai/agent-orchestration"
+  },
+  "link.item.label.Agentic AI": {
+    "message": "Agentic AI",
+    "description": "The label of footer link with label=Agentic AI linking to /ai/agentic-ai"
+  },
+  "link.item.label.Design Patterns Cheat Sheet": {
+    "message": "Design Patterns Cheat Sheet",
+    "description": "The label of footer link with label=Design Patterns Cheat Sheet linking to https://iretha.github.io/design-patterns/cheat-sheet"
+  },
+  "link.item.label.Catalog of PoEAA": {
+    "message": "Catalog of PoEAA",
+    "description": "The label of footer link with label=Catalog of PoEAA linking to https://martinfowler.com/eaaCatalog/"
+  },
+  "link.item.label.DDD Reference": {
+    "message": "DDD Reference",
+    "description": "The label of footer link with label=DDD Reference linking to https://www.domainlanguage.com/ddd/reference/"
+  },
+  "link.item.label.microservices.io": {
+    "message": "microservices.io",
+    "description": "The label of footer link with label=microservices.io linking to https://microservices.io/patterns/"
+  },
+  "link.item.label.Azure Architecture Center": {
+    "message": "Azure Architecture Center",
+    "description": "The label of footer link with label=Azure Architecture Center linking to https://learn.microsoft.com/en-us/azure/architecture/patterns/"
+  },
+  "link.item.label.Azure Architecture Center (AI agents)": {
+    "message": "Azure Architecture Center (AI agents)",
+    "description": "The label of footer link with label=Azure Architecture Center (AI agents) linking to https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns"
+  },
+  "link.item.label.Google Cloud Architecture Center": {
+    "message": "Google Cloud Architecture Center",
+    "description": "The label of footer link with label=Google Cloud Architecture Center linking to https://docs.cloud.google.com/architecture/choose-design-pattern-agentic-ai-system"
+  },
+  "link.item.label.alancesar.dev": {
+    "message": "alancesar.dev",
+    "description": "The label of footer link with label=alancesar.dev linking to https://alancesar.dev"
+  },
+  "link.item.label.GitHub": {
+    "message": "GitHub",
+    "description": "The label of footer link with label=GitHub linking to https://github.com/alancesar"
+  },
+  "link.item.label.LinkedIn": {
+    "message": "LinkedIn",
+    "description": "The label of footer link with label=LinkedIn linking to https://www.linkedin.com/in/alancesar/"
+  },
+  "copyright": {
+    "message": "Summaries written by Alan Cesar. The patterns belong to their original authors; see the source link on each page.<br/>© 2026 Alan Cesar. Content under <a href=\"https://creativecommons.org/licenses/by/4.0/\" target=\"_blank\" rel=\"noopener noreferrer\">CC BY 4.0</a>, code under MIT. Built with Docusaurus.",
+    "description": "The footer copyright"
+  }
+}

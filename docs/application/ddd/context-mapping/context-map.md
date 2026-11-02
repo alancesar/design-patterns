@@ -71,17 +71,17 @@ Com isso, o time decide priorizar a reunião quinzenal entre Vendas e Estoque (C
 
 ## Padrões relacionados
 
-- [Bounded Context](../model-in-practice/bounded-context.md) — os nós do mapa; sem fronteiras explícitas não há o que mapear.
-- [Shared Kernel](./shared-kernel.md) — um dos relacionamentos que o mapa registra.
-- [Customer/Supplier Development](./customer-supplier-development.md) — relação upstream/downstream com negociação.
-- [Conformist](./conformist.md) — downstream que adota o modelo do upstream.
-- [Anticorruption Layer](../../../cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer.md) — tradução defensiva no lado downstream.
-- [Open-host Service](./open-host-service.md) — protocolo aberto para muitos consumidores.
-- [Published Language](./published-language.md) — linguagem comum de troca entre contextos.
-- [Separate Ways](./separate-ways.md) — decisão explícita de não integrar.
-- [Partnership](./partnership.md) — times com sucesso interdependente.
-- [Big Ball of Mud](./big-ball-of-mud.md) — região do mapa onde os modelos estão misturados.
-- [Decompose by Subdomain](../../../architecture/microservices/service-boundaries/decompose-by-subdomain.md) — usa subdomínios do DDD para definir serviços.
+- [Bounded Context](/application/ddd/model-in-practice/bounded-context) — os nós do mapa; sem fronteiras explícitas não há o que mapear.
+- [Shared Kernel](/application/ddd/context-mapping/shared-kernel) — um dos relacionamentos que o mapa registra.
+- [Customer/Supplier Development](/application/ddd/context-mapping/customer-supplier-development) — relação upstream/downstream com negociação.
+- [Conformist](/application/ddd/context-mapping/conformist) — downstream que adota o modelo do upstream.
+- [Anticorruption Layer](/cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer) — tradução defensiva no lado downstream.
+- [Open-host Service](/application/ddd/context-mapping/open-host-service) — protocolo aberto para muitos consumidores.
+- [Published Language](/application/ddd/context-mapping/published-language) — linguagem comum de troca entre contextos.
+- [Separate Ways](/application/ddd/context-mapping/separate-ways) — decisão explícita de não integrar.
+- [Partnership](/application/ddd/context-mapping/partnership) — times com sucesso interdependente.
+- [Big Ball of Mud](/application/ddd/context-mapping/big-ball-of-mud) — região do mapa onde os modelos estão misturados.
+- [Decompose by Subdomain](/architecture/microservices/service-boundaries/decompose-by-subdomain) — usa subdomínios do DDD para definir serviços.
 
 ## Referência
 

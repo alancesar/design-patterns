@@ -90,12 +90,12 @@ O balanceador de carga global encaminha cada usuário ao geode mais próximo ou 
 
 ## Padrões relacionados
 
-- [Deployment Stamp](./deployment-stamp.md) — também replica unidades de implantação, mas cada stamp pode atender um subconjunto isolado de clientes; é a alternativa quando os geodes não podem ser equivalentes quanto aos dados
-- [Gateway Routing](../gateways-and-edge/gateway-routing.md) — o roteamento global na frente dos geodes aplica a mesma ideia de encaminhar requisições ao backend adequado
-- [Sharding](../data-management/sharding.md) — alternativa para distribuir dados por região quando não é possível replicar tudo para todos os nós
-- [Health Endpoint Monitoring](../resiliency/health-endpoint-monitoring.md) — o balanceador global depende de verificações de saúde para tirar de rotação geodes indisponíveis
-- [Static Content Hosting](./static-content-hosting.md) — complementa o padrão ao servir conteúdo estático pela borda, perto dos usuários
-- [Rate Limiting](../resiliency/rate-limiting-pattern.md) — pode ser aplicado na camada de API de cada geode para proteger os recursos compartilhados do backplane
+- [Deployment Stamp](/cloud/cloud-design-patterns/deployment-and-topology/deployment-stamp) — também replica unidades de implantação, mas cada stamp pode atender um subconjunto isolado de clientes; é a alternativa quando os geodes não podem ser equivalentes quanto aos dados
+- [Gateway Routing](/cloud/cloud-design-patterns/gateways-and-edge/gateway-routing) — o roteamento global na frente dos geodes aplica a mesma ideia de encaminhar requisições ao backend adequado
+- [Sharding](/cloud/cloud-design-patterns/data-management/sharding) — alternativa para distribuir dados por região quando não é possível replicar tudo para todos os nós
+- [Health Endpoint Monitoring](/cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring) — o balanceador global depende de verificações de saúde para tirar de rotação geodes indisponíveis
+- [Static Content Hosting](/cloud/cloud-design-patterns/deployment-and-topology/static-content-hosting) — complementa o padrão ao servir conteúdo estático pela borda, perto dos usuários
+- [Rate Limiting](/cloud/cloud-design-patterns/resiliency/rate-limiting-pattern) — pode ser aplicado na camada de API de cada geode para proteger os recursos compartilhados do backplane
 
 ## Referência
 

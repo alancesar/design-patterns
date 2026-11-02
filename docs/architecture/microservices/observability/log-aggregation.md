@@ -63,11 +63,11 @@ Todas as instâncias enviam seus logs para um serviço central, que oferece busc
 
 ## Padrões relacionados
 
-- [Distributed Tracing](./distributed-tracing.md) — inclui um identificador de requisição em cada mensagem de log para seguir uma requisição entre serviços
-- [Exception Tracking](./exception-tracking.md) — exceções também são reportadas a um serviço dedicado, além de registradas nos logs
-- [Application Metrics](./application-metrics.md) — complementa os logs com medições numéricas
-- [Microservice Chassis](../cross-cutting-concerns/microservice-chassis.md) — pode padronizar formato e envio de logs
-- [Sidecar](../../../cloud/cloud-design-patterns/integration-and-modernization/sidecar.md) — um sidecar pode coletar e encaminhar logs sem alterar o serviço
+- [Distributed Tracing](/architecture/microservices/observability/distributed-tracing) — inclui um identificador de requisição em cada mensagem de log para seguir uma requisição entre serviços
+- [Exception Tracking](/architecture/microservices/observability/exception-tracking) — exceções também são reportadas a um serviço dedicado, além de registradas nos logs
+- [Application Metrics](/architecture/microservices/observability/application-metrics) — complementa os logs com medições numéricas
+- [Microservice Chassis](/architecture/microservices/cross-cutting-concerns/microservice-chassis) — pode padronizar formato e envio de logs
+- [Sidecar](/cloud/cloud-design-patterns/integration-and-modernization/sidecar) — um sidecar pode coletar e encaminhar logs sem alterar o serviço
 
 ## Referência
 

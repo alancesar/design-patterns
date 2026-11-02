@@ -131,14 +131,14 @@ console.log(checkout.total(100, 3)); // 137
 
 ## Padrões relacionados
 
-- [State](./state.md) — estrutura quase idêntica, mas no State os estados trocam a si mesmos conforme o ciclo de vida, enquanto no Strategy a escolha costuma vir do cliente
-- [Template Method](./template-method.md) — varia partes de um algoritmo por herança, enquanto o Strategy varia o algoritmo inteiro por composição
-- [Decorator](../structural/decorator.md) — o Decorator muda a "pele" de um objeto; o Strategy muda suas "entranhas"
-- [Bridge](../structural/bridge.md) — estrutura semelhante de delegação a uma implementação, mas voltada a separar abstração e implementação em hierarquias independentes
-- [Command](./command.md) — ambos encapsulam comportamento em objetos; o Command representa uma ação a executar, o Strategy uma forma de executar algo
-- [Flyweight](../structural/flyweight.md) — estratégias sem estado podem ser compartilhadas como flyweights
-- [Factory Method](../creational/factory-method.md) — frequentemente usado para criar a estratégia adequada a partir de configuração ou entrada do usuário
-- [Null Object](./null-object.md) — pode atuar como estratégia padrão que não faz nada, evitando verificações de nulo no contexto
+- [State](/coding/gof/behavioral/state) — estrutura quase idêntica, mas no State os estados trocam a si mesmos conforme o ciclo de vida, enquanto no Strategy a escolha costuma vir do cliente
+- [Template Method](/coding/gof/behavioral/template-method) — varia partes de um algoritmo por herança, enquanto o Strategy varia o algoritmo inteiro por composição
+- [Decorator](/coding/gof/structural/decorator) — o Decorator muda a "pele" de um objeto; o Strategy muda suas "entranhas"
+- [Bridge](/coding/gof/structural/bridge) — estrutura semelhante de delegação a uma implementação, mas voltada a separar abstração e implementação em hierarquias independentes
+- [Command](/coding/gof/behavioral/command) — ambos encapsulam comportamento em objetos; o Command representa uma ação a executar, o Strategy uma forma de executar algo
+- [Flyweight](/coding/gof/structural/flyweight) — estratégias sem estado podem ser compartilhadas como flyweights
+- [Factory Method](/coding/gof/creational/factory-method) — frequentemente usado para criar a estratégia adequada a partir de configuração ou entrada do usuário
+- [Null Object](/coding/gof/behavioral/null-object) — pode atuar como estratégia padrão que não faz nada, evitando verificações de nulo no contexto
 
 ## Referência
 

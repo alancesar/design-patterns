@@ -111,12 +111,12 @@ public class Circle {
 
 ## Padrões relacionados
 
-- [Proxy](./proxy.md) — também controla o acesso a um objeto, mas por meio de um substituto, e não pela separação do estado.
-- [Facade](./facade.md) — ambos reduzem o que é exposto aos clientes; a Facade simplifica um subsistema, o Private Class Data protege os atributos.
-- [Builder](../creational/builder.md) — costuma montar objetos de dados imutáveis quando há muitos parâmetros de inicialização.
-- [Telescoping Constructor](../creational/telescoping-constructor.md) — problema que aparece quando a classe de dados recebe muitos atributos no construtor.
-- [Memento](../behavioral/memento.md) — também guarda o estado em um objeto separado e opaco, mas para salvá-lo e restaurá-lo depois.
-- [Flyweight](./flyweight.md) — o estado intrínseco compartilhado precisa ser imutável, que é justamente o que o Private Class Data garante.
+- [Proxy](/coding/gof/structural/proxy) — também controla o acesso a um objeto, mas por meio de um substituto, e não pela separação do estado.
+- [Facade](/coding/gof/structural/facade) — ambos reduzem o que é exposto aos clientes; a Facade simplifica um subsistema, o Private Class Data protege os atributos.
+- [Builder](/coding/gof/creational/builder) — costuma montar objetos de dados imutáveis quando há muitos parâmetros de inicialização.
+- [Telescoping Constructor](/coding/gof/creational/telescoping-constructor) — problema que aparece quando a classe de dados recebe muitos atributos no construtor.
+- [Memento](/coding/gof/behavioral/memento) — também guarda o estado em um objeto separado e opaco, mas para salvá-lo e restaurá-lo depois.
+- [Flyweight](/coding/gof/structural/flyweight) — o estado intrínseco compartilhado precisa ser imutável, que é justamente o que o Private Class Data garante.
 
 ## Referência
 

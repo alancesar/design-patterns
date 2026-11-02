@@ -69,10 +69,10 @@ O ID gerado na entrada é repassado entre os serviços, e cada um envia seus spa
 
 ## Padrões relacionados
 
-- [Log Aggregation](./log-aggregation.md) — o ID da requisição aparece em cada mensagem de log agregada
-- [Application Metrics](./application-metrics.md) — complementa o trace com métricas agregadas
-- [Exception Tracking](./exception-tracking.md) — exceções podem carregar o ID do trace
-- [Microservice Chassis](../cross-cutting-concerns/microservice-chassis.md) — pode fornecer a instrumentação de tracing
+- [Log Aggregation](/architecture/microservices/observability/log-aggregation) — o ID da requisição aparece em cada mensagem de log agregada
+- [Application Metrics](/architecture/microservices/observability/application-metrics) — complementa o trace com métricas agregadas
+- [Exception Tracking](/architecture/microservices/observability/exception-tracking) — exceções podem carregar o ID do trace
+- [Microservice Chassis](/architecture/microservices/cross-cutting-concerns/microservice-chassis) — pode fornecer a instrumentação de tracing
 
 ## Referência
 

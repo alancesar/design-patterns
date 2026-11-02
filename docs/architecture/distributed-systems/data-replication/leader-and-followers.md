@@ -72,14 +72,14 @@ O cliente escreve no líder, que replica a entrada para os seguidores e responde
 
 ## Padrões relacionados
 
-- [HeartBeat](./heartbeat.md) — detecta a falha do líder
-- [Generation Clock](./generation-clock.md) — identifica o mandato do líder e rejeita líderes antigos
-- [High-Water Mark](./high-water-mark.md) — define o que os seguidores podem expor
-- [Majority Quorum](./majority-quorum.md) — define quantas confirmações o líder precisa
-- [Replicated Log](./replicated-log.md) — o líder replica seu log para os seguidores
-- [Follower Reads](./follower-reads.md) — leituras servidas pelos seguidores
-- [Emergent Leader](../cluster-management/emergent-leader.md) — alternativa em que o líder emerge da ordem de entrada dos nós
-- [Leader Election](../../../cloud/cloud-design-patterns/distributed-coordination/leader-election.md) — padrão de nuvem para eleger um coordenador entre instâncias
+- [HeartBeat](/architecture/distributed-systems/data-replication/heartbeat) — detecta a falha do líder
+- [Generation Clock](/architecture/distributed-systems/data-replication/generation-clock) — identifica o mandato do líder e rejeita líderes antigos
+- [High-Water Mark](/architecture/distributed-systems/data-replication/high-water-mark) — define o que os seguidores podem expor
+- [Majority Quorum](/architecture/distributed-systems/data-replication/majority-quorum) — define quantas confirmações o líder precisa
+- [Replicated Log](/architecture/distributed-systems/data-replication/replicated-log) — o líder replica seu log para os seguidores
+- [Follower Reads](/architecture/distributed-systems/data-replication/follower-reads) — leituras servidas pelos seguidores
+- [Emergent Leader](/architecture/distributed-systems/cluster-management/emergent-leader) — alternativa em que o líder emerge da ordem de entrada dos nós
+- [Leader Election](/cloud/cloud-design-patterns/distributed-coordination/leader-election) — padrão de nuvem para eleger um coordenador entre instâncias
 
 ## Referência
 

@@ -131,12 +131,12 @@ service.notify("+5511999999999", "Seu pedido foi enviado");
 
 ## Padrões relacionados
 
-- [Factory](./factory.md) — a Simple Factory concentra a decisão em um único método com condicionais; o Factory Method distribui essa decisão entre subclasses via polimorfismo, evitando modificar a fábrica a cada novo tipo.
-- [Abstract Factory](./abstract-factory.md) — cria famílias de produtos relacionados por composição; suas fábricas concretas costumam ser implementadas com um Factory Method por produto.
-- [Template Method](../behavioral/template-method.md) — o Factory Method é frequentemente um passo de um Template Method, em que a classe base define o algoritmo e a subclasse fornece o objeto.
-- [Prototype](./prototype.md) — alternativa que cria objetos clonando instâncias, sem exigir uma hierarquia de Creators.
-- [Builder](./builder.md) — foca na construção passo a passo de objetos complexos, enquanto o Factory Method decide qual classe instanciar.
-- [Iterator](../behavioral/iterator.md) — coleções usam um Factory Method (`createIterator()`) para devolver o iterador compatível com sua estrutura.
+- [Factory](/coding/gof/creational/factory) — a Simple Factory concentra a decisão em um único método com condicionais; o Factory Method distribui essa decisão entre subclasses via polimorfismo, evitando modificar a fábrica a cada novo tipo.
+- [Abstract Factory](/coding/gof/creational/abstract-factory) — cria famílias de produtos relacionados por composição; suas fábricas concretas costumam ser implementadas com um Factory Method por produto.
+- [Template Method](/coding/gof/behavioral/template-method) — o Factory Method é frequentemente um passo de um Template Method, em que a classe base define o algoritmo e a subclasse fornece o objeto.
+- [Prototype](/coding/gof/creational/prototype) — alternativa que cria objetos clonando instâncias, sem exigir uma hierarquia de Creators.
+- [Builder](/coding/gof/creational/builder) — foca na construção passo a passo de objetos complexos, enquanto o Factory Method decide qual classe instanciar.
+- [Iterator](/coding/gof/behavioral/iterator) — coleções usam um Factory Method (`createIterator()`) para devolver o iterador compatível com sua estrutura.
 
 ## Referência
 

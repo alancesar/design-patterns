@@ -100,13 +100,13 @@ Spring Web Flow, os fluxos do JSF e o Windows Workflow são exemplos. Em SPAs, b
 
 ## Padrões relacionados
 
-- [Front Controller](./front-controller.md) — normalmente delega a este padrão a decisão do fluxo.
-- [Page Controller](./page-controller.md) — idem, quando a navegação deixa de ser trivial.
-- [Model View Controller](./model-view-controller.md) — o Application Controller refina o papel do controller.
-- [Server Session State](../session-state/server-session-state.md) — guarda o passo atual de fluxos longos.
-- [Service Layer](../domain-logic/service-layer.md) — os comandos de domínio costumam ser operações da camada de serviço.
-- [Command](../../../coding/gof/behavioral/command.md) — comandos de domínio são objetos command.
-- [State](../../../coding/gof/behavioral/state.md) — fluxos dependentes de estado podem ser modelados assim.
+- [Front Controller](/application/poeaa/web-presentation/front-controller) — normalmente delega a este padrão a decisão do fluxo.
+- [Page Controller](/application/poeaa/web-presentation/page-controller) — idem, quando a navegação deixa de ser trivial.
+- [Model View Controller](/application/poeaa/web-presentation/model-view-controller) — o Application Controller refina o papel do controller.
+- [Server Session State](/application/poeaa/session-state/server-session-state) — guarda o passo atual de fluxos longos.
+- [Service Layer](/application/poeaa/domain-logic/service-layer) — os comandos de domínio costumam ser operações da camada de serviço.
+- [Command](/coding/gof/behavioral/command) — comandos de domínio são objetos command.
+- [State](/coding/gof/behavioral/state) — fluxos dependentes de estado podem ser modelados assim.
 
 ## Referência
 

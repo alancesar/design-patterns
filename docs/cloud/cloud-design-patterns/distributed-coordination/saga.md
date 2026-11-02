@@ -90,18 +90,18 @@ Na orquestração, um componente central envia comandos a cada participante e, q
 
 ## Padrões relacionados
 
-- [Compensating Transaction](./compensating-transaction.md) — descreve como desfazer o trabalho de passos já concluídos, mecanismo central da saga.
-- [Choreography](./choreography.md) — detalha a coordenação descentralizada por eventos usada na variante coreografada.
-- [Scheduler Agent Supervisor](./scheduler-agent-supervisor.md) — abordagem de orquestração com supervisão e recuperação de fluxos distribuídos.
-- [Idempotent Consumer](../messaging/idempotent-consumer.md) — garante que mensagens reprocessadas não causem efeitos duplicados nos participantes.
-- [Retry](../resiliency/retry.md) — trata falhas transitórias, especialmente nos passos repetíveis após o pivô.
-- [Circuit Breaker](../resiliency/circuit-breaker.md) — evita insistir em participantes indisponíveis e ajuda a decidir quando compensar.
-- [Event Sourcing](../data-management/event-sourcing.md) — registra a sequência de eventos, facilitando o rastreamento do estado da saga.
-- [Publisher-Subscriber](../messaging/publisher-subscriber.md) — base de mensageria para a troca de eventos entre participantes.
-- [Database per Service](../../../architecture/microservices/service-collaboration/database-per-service.md) — cria a necessidade de sagas ao isolar os dados de cada serviço.
-- [Domain Event](../../../architecture/microservices/service-collaboration/domain-event.md) — eventos que conduzem as sagas coreografadas.
-- [Command-side Replica](../../../architecture/microservices/service-collaboration/command-side-replica.md) — alternativa para passos de saga que apenas consultam dados.
-- [Transactional Outbox](../../../architecture/microservices/transactional-messaging/transactional-outbox.md) — publica mensagens da saga de forma atômica com a atualização do banco.
+- [Compensating Transaction](/cloud/cloud-design-patterns/distributed-coordination/compensating-transaction) — descreve como desfazer o trabalho de passos já concluídos, mecanismo central da saga.
+- [Choreography](/cloud/cloud-design-patterns/distributed-coordination/choreography) — detalha a coordenação descentralizada por eventos usada na variante coreografada.
+- [Scheduler Agent Supervisor](/cloud/cloud-design-patterns/distributed-coordination/scheduler-agent-supervisor) — abordagem de orquestração com supervisão e recuperação de fluxos distribuídos.
+- [Idempotent Consumer](/cloud/cloud-design-patterns/messaging/idempotent-consumer) — garante que mensagens reprocessadas não causem efeitos duplicados nos participantes.
+- [Retry](/cloud/cloud-design-patterns/resiliency/retry) — trata falhas transitórias, especialmente nos passos repetíveis após o pivô.
+- [Circuit Breaker](/cloud/cloud-design-patterns/resiliency/circuit-breaker) — evita insistir em participantes indisponíveis e ajuda a decidir quando compensar.
+- [Event Sourcing](/cloud/cloud-design-patterns/data-management/event-sourcing) — registra a sequência de eventos, facilitando o rastreamento do estado da saga.
+- [Publisher-Subscriber](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — base de mensageria para a troca de eventos entre participantes.
+- [Database per Service](/architecture/microservices/service-collaboration/database-per-service) — cria a necessidade de sagas ao isolar os dados de cada serviço.
+- [Domain Event](/architecture/microservices/service-collaboration/domain-event) — eventos que conduzem as sagas coreografadas.
+- [Command-side Replica](/architecture/microservices/service-collaboration/command-side-replica) — alternativa para passos de saga que apenas consultam dados.
+- [Transactional Outbox](/architecture/microservices/transactional-messaging/transactional-outbox) — publica mensagens da saga de forma atômica com a atualização do banco.
 
 ## Referência
 

@@ -55,8 +55,8 @@ Cliente e serviço conversam diretamente usando um protocolo estabelecido para o
 
 ## Padrões relacionados
 
-- [Remote Procedure Invocation](./remote-procedure-invocation.md) — alternativa genérica de requisição/resposta síncrona.
-- [Messaging](./messaging.md) — alternativa genérica de comunicação assíncrona por mensagens.
+- [Remote Procedure Invocation](/architecture/microservices/communication-styles/remote-procedure-invocation) — alternativa genérica de requisição/resposta síncrona.
+- [Messaging](/architecture/microservices/communication-styles/messaging) — alternativa genérica de comunicação assíncrona por mensagens.
 
 ## Referência
 

@@ -91,12 +91,12 @@ class FootballerMapper(PlayerMapper):
 
 ## Padrões relacionados
 
-- [Single Table Inheritance](./single-table-inheritance.md) — um dos esquemas que o mapeador de herança implementa.
-- [Class Table Inheritance](./class-table-inheritance.md) — outro esquema suportado pela mesma estrutura.
-- [Concrete Table Inheritance](./concrete-table-inheritance.md) — terceiro esquema suportado.
-- [Data Mapper](../data-source-architectural/data-mapper.md) — padrão cujos mapeadores são organizados em hierarquia.
-- [Layer Supertype](../base/layer-supertype.md) — mesma ideia de reunir comportamento comum na raiz da hierarquia.
-- [Template Method](../../../coding/gof/behavioral/template-method.md) — o fluxo comum com passos que as subclasses especializam.
+- [Single Table Inheritance](/application/poeaa/object-relational-structural/single-table-inheritance) — um dos esquemas que o mapeador de herança implementa.
+- [Class Table Inheritance](/application/poeaa/object-relational-structural/class-table-inheritance) — outro esquema suportado pela mesma estrutura.
+- [Concrete Table Inheritance](/application/poeaa/object-relational-structural/concrete-table-inheritance) — terceiro esquema suportado.
+- [Data Mapper](/application/poeaa/data-source-architectural/data-mapper) — padrão cujos mapeadores são organizados em hierarquia.
+- [Layer Supertype](/application/poeaa/base/layer-supertype) — mesma ideia de reunir comportamento comum na raiz da hierarquia.
+- [Template Method](/coding/gof/behavioral/template-method) — o fluxo comum com passos que as subclasses especializam.
 
 ## Referência
 

@@ -67,13 +67,13 @@ O cliente leva o timestamp devolvido pelo nó A na requisição ao nó B, e o n�
 
 ## Padrões relacionados
 
-- [Hybrid Clock](./hybrid-clock.md) — estende a ideia combinando o contador com o relógio de parede
-- [Clock-Bound Wait](./clock-bound-wait.md) — resolve a ordenação entre nós esperando a incerteza dos relógios físicos
-- [Versioned Value](../data-replication/versioned-value.md) — usa o timestamp lógico como versão de cada valor armazenado
-- [Version Vector](../data-replication/version-vector.md) — detecta concorrência, o que um único inteiro não consegue
-- [Generation Clock](../data-replication/generation-clock.md) — outro contador lógico, usado para marcar épocas de liderança
-- [Message Sequence](../../eip/message-construction/message-sequence.md) (EIP) — numeração de mensagens para ordená-las
-- [Resequencer](../../eip/message-routing/resequencer.md) (EIP) — restaura a ordem de mensagens usando números de sequência
+- [Hybrid Clock](/architecture/distributed-systems/distributed-time/hybrid-clock) — estende a ideia combinando o contador com o relógio de parede
+- [Clock-Bound Wait](/architecture/distributed-systems/distributed-time/clock-bound-wait) — resolve a ordenação entre nós esperando a incerteza dos relógios físicos
+- [Versioned Value](/architecture/distributed-systems/data-replication/versioned-value) — usa o timestamp lógico como versão de cada valor armazenado
+- [Version Vector](/architecture/distributed-systems/data-replication/version-vector) — detecta concorrência, o que um único inteiro não consegue
+- [Generation Clock](/architecture/distributed-systems/data-replication/generation-clock) — outro contador lógico, usado para marcar épocas de liderança
+- [Message Sequence](/architecture/eip/message-construction/message-sequence) (EIP) — numeração de mensagens para ordená-las
+- [Resequencer](/architecture/eip/message-routing/resequencer) (EIP) — restaura a ordem de mensagens usando números de sequência
 
 ## Referência
 

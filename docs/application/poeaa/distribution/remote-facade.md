@@ -18,7 +18,7 @@ O Remote Facade oferece uma interface de granularidade grossa sobre objetos de g
 
 A fachada fica na fronteira da aplicação e expõe poucos métodos que fazem muito: por exemplo, em vez de buscar um pedido e depois cada item, o cliente remoto obtém ou atualiza o pedido inteiro em uma única chamada. Cada método da fachada traduz a requisição grossa em chamadas locais aos objetos finos.
 
-A fachada não contém lógica de domínio: apenas traduz, delega e, em geral, cuida de aspectos de fronteira como segurança e transação. Costuma trabalhar em conjunto com o [Data Transfer Object](./data-transfer-object.md), que carrega os dados trafegados entre as duas pontas.
+A fachada não contém lógica de domínio: apenas traduz, delega e, em geral, cuida de aspectos de fronteira como segurança e transação. Costuma trabalhar em conjunto com o [Data Transfer Object](/application/poeaa/distribution/data-transfer-object), que carrega os dados trafegados entre as duas pontas.
 
 ## Problemas que resolve
 
@@ -37,7 +37,7 @@ A fachada não contém lógica de domínio: apenas traduz, delega e, em geral, c
 
 - Quando todos os clientes rodam no mesmo processo; a interface grossa só atrapalha e esconde a intenção dos métodos.
 - Quando a fachada começa a receber regras de negócio; isso a transforma em um segundo modelo de domínio.
-- Quando uma [Service Layer](../domain-logic/service-layer.md) local já basta e o acesso remoto não é requisito real.
+- Quando uma [Service Layer](/application/poeaa/domain-logic/service-layer) local já basta e o acesso remoto não é requisito real.
 
 ## Trade-offs
 
@@ -108,13 +108,13 @@ Em Java EE, um session bean remoto sobre entidades era a implementação clássi
 
 ## Padrões relacionados
 
-- [Data Transfer Object](./data-transfer-object.md) — carrega os dados trocados na chamada grossa da fachada.
-- [Service Layer](../domain-logic/service-layer.md) — também define uma fronteira de casos de uso, mas local e com lógica de coordenação; a fachada remota pode ficar sobre ela.
-- [Gateway](../base/gateway.md) — o Gateway encapsula o acesso a um sistema externo do lado do cliente; o Remote Facade expõe o sistema do lado do servidor.
-- [Facade](../../../coding/gof/structural/facade.md) — a versão geral do GoF, voltada a simplificar; o Remote Facade foca em reduzir chamadas de rede.
-- [API Gateway](../../../architecture/microservices/external-api/api-gateway.md) — leva a ideia de ponto de entrada grosso para a borda de um sistema de microsserviços.
-- [Gateway Aggregation](../../../cloud/cloud-design-patterns/gateways-and-edge/gateway-aggregation.md) — agrega várias chamadas de backend em uma só para o cliente.
-- [Remote Procedure Invocation](../../../architecture/microservices/communication-styles/remote-procedure-invocation.md) — o estilo de comunicação cujo custo motiva o padrão.
+- [Data Transfer Object](/application/poeaa/distribution/data-transfer-object) — carrega os dados trocados na chamada grossa da fachada.
+- [Service Layer](/application/poeaa/domain-logic/service-layer) — também define uma fronteira de casos de uso, mas local e com lógica de coordenação; a fachada remota pode ficar sobre ela.
+- [Gateway](/application/poeaa/base/gateway) — o Gateway encapsula o acesso a um sistema externo do lado do cliente; o Remote Facade expõe o sistema do lado do servidor.
+- [Facade](/coding/gof/structural/facade) — a versão geral do GoF, voltada a simplificar; o Remote Facade foca em reduzir chamadas de rede.
+- [API Gateway](/architecture/microservices/external-api/api-gateway) — leva a ideia de ponto de entrada grosso para a borda de um sistema de microsserviços.
+- [Gateway Aggregation](/cloud/cloud-design-patterns/gateways-and-edge/gateway-aggregation) — agrega várias chamadas de backend em uma só para o cliente.
+- [Remote Procedure Invocation](/architecture/microservices/communication-styles/remote-procedure-invocation) — o estilo de comunicação cujo custo motiva o padrão.
 
 ## Referência
 

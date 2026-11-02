@@ -93,11 +93,11 @@ Hoje o padrão aparece sobretudo como serialização de JSON/XML em APIs (Jackso
 
 ## Padrões relacionados
 
-- [Template View](./template-view.md) — alternativa orientada à página, com marcadores no HTML.
-- [Two Step View](./two-step-view.md) — pode ser implementado com duas transformações em sequência.
-- [Model View Controller](./model-view-controller.md) — o Transform View é uma forma de implementar a view.
-- [Data Transfer Object](../distribution/data-transfer-object.md) — os dados transformados costumam ser DTOs ou estruturas serializáveis.
-- [Strategy](../../../coding/gof/behavioral/strategy.md) — escolha do transformador conforme o formato de saída.
+- [Template View](/application/poeaa/web-presentation/template-view) — alternativa orientada à página, com marcadores no HTML.
+- [Two Step View](/application/poeaa/web-presentation/two-step-view) — pode ser implementado com duas transformações em sequência.
+- [Model View Controller](/application/poeaa/web-presentation/model-view-controller) — o Transform View é uma forma de implementar a view.
+- [Data Transfer Object](/application/poeaa/distribution/data-transfer-object) — os dados transformados costumam ser DTOs ou estruturas serializáveis.
+- [Strategy](/coding/gof/behavioral/strategy) — escolha do transformador conforme o formato de saída.
 
 ## Referência
 

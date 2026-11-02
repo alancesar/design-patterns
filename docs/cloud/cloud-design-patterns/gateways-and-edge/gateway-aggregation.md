@@ -77,13 +77,13 @@ O cliente envia uma única requisição ao gateway, que dispara chamadas paralel
 
 ## Padrões relacionados
 
-- [Backends for Frontends](./backends-for-frontends.md) — cada front-end pode ter seu próprio gateway que agrega dados conforme as necessidades específicas do cliente.
-- [Gateway Offloading](./gateway-offloading.md) — transfere ao gateway funcionalidades transversais (TLS, autenticação), frequentemente combinado com a agregação.
-- [Gateway Routing](./gateway-routing.md) — roteia requisições a vários serviços por um único endpoint; a agregação vai além ao combinar as respostas.
-- [Circuit Breaker](../resiliency/circuit-breaker.md) — evita que o gateway continue chamando um serviço com falha e provoque falhas em cascata.
-- [Retry](../resiliency/retry.md) — trata falhas transitórias de forma centralizada nas chamadas feitas pelo gateway.
-- [Bulkhead](../resiliency/bulkhead.md) — isola recursos por serviço de back-end para que a lentidão de um não esgote o gateway.
-- [Cache-Aside](../data-management/cache-aside.md) — permite servir dados em cache na camada de agregação, reduzindo chamadas e servindo como failover.
+- [Backends for Frontends](/cloud/cloud-design-patterns/gateways-and-edge/backends-for-frontends) — cada front-end pode ter seu próprio gateway que agrega dados conforme as necessidades específicas do cliente.
+- [Gateway Offloading](/cloud/cloud-design-patterns/gateways-and-edge/gateway-offloading) — transfere ao gateway funcionalidades transversais (TLS, autenticação), frequentemente combinado com a agregação.
+- [Gateway Routing](/cloud/cloud-design-patterns/gateways-and-edge/gateway-routing) — roteia requisições a vários serviços por um único endpoint; a agregação vai além ao combinar as respostas.
+- [Circuit Breaker](/cloud/cloud-design-patterns/resiliency/circuit-breaker) — evita que o gateway continue chamando um serviço com falha e provoque falhas em cascata.
+- [Retry](/cloud/cloud-design-patterns/resiliency/retry) — trata falhas transitórias de forma centralizada nas chamadas feitas pelo gateway.
+- [Bulkhead](/cloud/cloud-design-patterns/resiliency/bulkhead) — isola recursos por serviço de back-end para que a lentidão de um não esgote o gateway.
+- [Cache-Aside](/cloud/cloud-design-patterns/data-management/cache-aside) — permite servir dados em cache na camada de agregação, reduzindo chamadas e servindo como failover.
 
 ## Referência
 

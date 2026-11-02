@@ -91,12 +91,12 @@ As requisições chegam por um ponto de entrada global, e o serviço de roteamen
 
 ## Padrões relacionados
 
-- [Geodes](./geodes.md) — alternativa em que qualquer instância atende qualquer usuário; também pode ser usado para o próprio serviço de roteamento
-- [Sharding](../data-management/sharding.md) — stamps particionam os dados implicitamente; sharding pode ser suficiente quando só o armazenamento precisa escalar, ou ser usado dentro de cada stamp
-- [Gateway Routing](../gateways-and-edge/gateway-routing.md) — o serviço de roteamento atua como gateway que direciona as requisições ao stamp correto
-- [Gateway Offloading](../gateways-and-edge/gateway-offloading.md) — o gateway de roteamento pode concentrar validação de tokens, throttling e autorização
-- [Static Content Hosting](./static-content-hosting.md) — alternativa quando a solução é apenas conteúdo estático, ou para componentes compartilhados entre stamps
-- [Bulkhead](../resiliency/bulkhead.md) — cada stamp funciona como uma partição isolada que contém o impacto de falhas
+- [Geodes](/cloud/cloud-design-patterns/deployment-and-topology/geodes) — alternativa em que qualquer instância atende qualquer usuário; também pode ser usado para o próprio serviço de roteamento
+- [Sharding](/cloud/cloud-design-patterns/data-management/sharding) — stamps particionam os dados implicitamente; sharding pode ser suficiente quando só o armazenamento precisa escalar, ou ser usado dentro de cada stamp
+- [Gateway Routing](/cloud/cloud-design-patterns/gateways-and-edge/gateway-routing) — o serviço de roteamento atua como gateway que direciona as requisições ao stamp correto
+- [Gateway Offloading](/cloud/cloud-design-patterns/gateways-and-edge/gateway-offloading) — o gateway de roteamento pode concentrar validação de tokens, throttling e autorização
+- [Static Content Hosting](/cloud/cloud-design-patterns/deployment-and-topology/static-content-hosting) — alternativa quando a solução é apenas conteúdo estático, ou para componentes compartilhados entre stamps
+- [Bulkhead](/cloud/cloud-design-patterns/resiliency/bulkhead) — cada stamp funciona como uma partição isolada que contém o impacto de falhas
 
 ## Referência
 

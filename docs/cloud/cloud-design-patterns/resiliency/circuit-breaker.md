@@ -19,7 +19,7 @@ O Circuit Breaker bloqueia temporariamente o acesso a um serviço ou recurso rem
 
 O proxy é uma máquina de estados inspirada no disjuntor elétrico. Em **Closed**, as requisições passam normalmente e um contador de falhas (zerado periodicamente) é incrementado a cada erro. Quando o limite é atingido dentro de uma janela de tempo, o circuito vai para **Open**: as chamadas falham imediatamente (ou recebem uma resposta padrão ou vinda de cache) e um temporizador começa a contar. Quando o temporizador expira, o circuito passa para **Half-Open** e deixa passar um número limitado de requisições de teste. Se elas derem certo, o circuito volta para Closed. Se qualquer uma falhar, ele volta para Open e o temporizador recomeça.
 
-O padrão complementa o [Retry](./retry.md), mas tem outro objetivo. O Retry insiste esperando que a operação acabe dando certo. O Circuit Breaker impede chamadas que provavelmente vão falhar. Quando os dois são usados juntos, a lógica de retry precisa respeitar as exceções do circuito aberto e parar de tentar.
+O padrão complementa o [Retry](/cloud/cloud-design-patterns/resiliency/retry), mas tem outro objetivo. O Retry insiste esperando que a operação acabe dando certo. O Circuit Breaker impede chamadas que provavelmente vão falhar. Quando os dois são usados juntos, a lógica de retry precisa respeitar as exceções do circuito aberto e parar de tentar.
 
 Em arquiteturas de microsserviços, esse contexto é ainda mais comum: um serviço costuma chamar outro de forma síncrona (RPC ou REST). Se o serviço chamado está fora do ar ou muito lento, o chamador fica com threads presas esperando, esgota seus próprios recursos e também deixa de responder, e a falha se espalha pelo sistema. A pergunta central é como impedir que uma falha de rede ou de um serviço se propague em cascata. O circuito, nesse caso, fica em um proxy ao redor do cliente remoto e abre depois de falhas consecutivas acima de um limite.
 
@@ -85,18 +85,18 @@ O circuito começa em Closed e abre quando as falhas passam do limite. Em Open, 
 
 ## Padrões relacionados
 
-- [Retry](./retry.md): trata falhas transitórias repetindo a operação. Combinado com o Circuit Breaker, deve parar de tentar quando o circuito estiver aberto.
-- [Health Endpoint Monitoring](./health-endpoint-monitoring.md): o circuito pode sondar um endpoint de saúde para decidir quando sair do estado Open.
-- [Bulkhead](./bulkhead.md): isola recursos por consumidor ou dependência e, junto com o Circuit Breaker, limita o alcance das falhas.
-- [Sidecar](../integration-and-modernization/sidecar.md): permite implementar o circuito fora do código da aplicação, como em service meshes.
-- [Ambassador](../integration-and-modernization/ambassador.md): um proxy fora do processo pode centralizar circuit breaking, retries e monitoramento das chamadas remotas.
-- [Throttling](./throttling.md): serviços que limitam clientes (HTTP 429) dão sinais que o circuito pode usar para abrir mais rápido.
-- [Cache-Aside](../data-management/cache-aside.md): o cache pode fornecer respostas degradadas enquanto o circuito está aberto.
+- [Retry](/cloud/cloud-design-patterns/resiliency/retry): trata falhas transitórias repetindo a operação. Combinado com o Circuit Breaker, deve parar de tentar quando o circuito estiver aberto.
+- [Health Endpoint Monitoring](/cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring): o circuito pode sondar um endpoint de saúde para decidir quando sair do estado Open.
+- [Bulkhead](/cloud/cloud-design-patterns/resiliency/bulkhead): isola recursos por consumidor ou dependência e, junto com o Circuit Breaker, limita o alcance das falhas.
+- [Sidecar](/cloud/cloud-design-patterns/integration-and-modernization/sidecar): permite implementar o circuito fora do código da aplicação, como em service meshes.
+- [Ambassador](/cloud/cloud-design-patterns/integration-and-modernization/ambassador): um proxy fora do processo pode centralizar circuit breaking, retries e monitoramento das chamadas remotas.
+- [Throttling](/cloud/cloud-design-patterns/resiliency/throttling): serviços que limitam clientes (HTTP 429) dão sinais que o circuito pode usar para abrir mais rápido.
+- [Cache-Aside](/cloud/cloud-design-patterns/data-management/cache-aside): o cache pode fornecer respostas degradadas enquanto o circuito está aberto.
 
-- [Microservice Chassis](../../../architecture/microservices/cross-cutting-concerns/microservice-chassis.md): o chassis pode embutir o circuit breaker (por exemplo, via biblioteca) em todos os serviços.
-- [API Gateway](../../../architecture/microservices/external-api/api-gateway.md): usa circuit breakers ao invocar os serviços de back-end.
-- [Server-side Discovery](../../../architecture/microservices/service-discovery/server-side-discovery.md): o roteador pode aplicar circuit breaking ao encaminhar requisições.
-- [Remote Procedure Invocation](../../../architecture/microservices/communication-styles/remote-procedure-invocation.md): a comunicação síncrona entre serviços é o cenário em que o padrão é mais necessário.
+- [Microservice Chassis](/architecture/microservices/cross-cutting-concerns/microservice-chassis): o chassis pode embutir o circuit breaker (por exemplo, via biblioteca) em todos os serviços.
+- [API Gateway](/architecture/microservices/external-api/api-gateway): usa circuit breakers ao invocar os serviços de back-end.
+- [Server-side Discovery](/architecture/microservices/service-discovery/server-side-discovery): o roteador pode aplicar circuit breaking ao encaminhar requisições.
+- [Remote Procedure Invocation](/architecture/microservices/communication-styles/remote-procedure-invocation): a comunicação síncrona entre serviços é o cenário em que o padrão é mais necessário.
 
 ## Referência
 

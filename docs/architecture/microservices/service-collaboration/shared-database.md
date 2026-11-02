@@ -64,12 +64,12 @@ Todos os serviços leem e gravam no mesmo banco, o que simplifica transações e
 
 ## Padrões relacionados
 
-- [Database per Service](./database-per-service.md) — a alternativa principal, em que cada serviço possui seus dados de forma privada.
-- [Microservice Architecture](../architectural-style/microservice-architecture.md) — o contexto arquitetural em que surge a decisão sobre o banco de dados.
-- [Monolithic Architecture](../architectural-style/monolithic-architecture.md) — estilo em que um banco único é natural.
-- [File Transfer](../../eip/integration-styles/file-transfer.md) — estilo de integração em lote, que troca dados por arquivos em vez de um banco comum.
-- [Remote Procedure Invocation](../communication-styles/remote-procedure-invocation.md) — estilo em que cada aplicação mantém seus dados e os expõe por chamadas.
-- [Messaging](../communication-styles/messaging.md) — estilo assíncrono que evita o esquema compartilhado.
+- [Database per Service](/architecture/microservices/service-collaboration/database-per-service) — a alternativa principal, em que cada serviço possui seus dados de forma privada.
+- [Microservice Architecture](/architecture/microservices/architectural-style/microservice-architecture) — o contexto arquitetural em que surge a decisão sobre o banco de dados.
+- [Monolithic Architecture](/architecture/microservices/architectural-style/monolithic-architecture) — estilo em que um banco único é natural.
+- [File Transfer](/architecture/eip/integration-styles/file-transfer) — estilo de integração em lote, que troca dados por arquivos em vez de um banco comum.
+- [Remote Procedure Invocation](/architecture/microservices/communication-styles/remote-procedure-invocation) — estilo em que cada aplicação mantém seus dados e os expõe por chamadas.
+- [Messaging](/architecture/microservices/communication-styles/messaging) — estilo assíncrono que evita o esquema compartilhado.
 
 ## Referência
 

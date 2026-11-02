@@ -15,7 +15,7 @@ sidebar_label: "Consumer-driven Contract Test"
 
 No Consumer-driven Contract Test, os desenvolvedores de cada serviço consumidor escrevem um conjunto de testes (contratos) que descreve o que esperam da API de um serviço provedor. Esses contratos são entregues ao time do provedor, que os executa contra o seu próprio serviço, de forma isolada, como parte do pipeline de build.
 
-A ênfase está no **lado do provedor**: é o provedor que é validado contra os contratos definidos pelos consumidores. Se uma mudança no provedor quebrar alguma expectativa registrada, o teste falha antes do deploy, sem a necessidade de subir os dois serviços juntos. O padrão complementar, que valida o consumidor contra o mesmo contrato, é o [Consumer-side Contract Test](./consumer-side-contract-test.md).
+A ênfase está no **lado do provedor**: é o provedor que é validado contra os contratos definidos pelos consumidores. Se uma mudança no provedor quebrar alguma expectativa registrada, o teste falha antes do deploy, sem a necessidade de subir os dois serviços juntos. O padrão complementar, que valida o consumidor contra o mesmo contrato, é o [Consumer-side Contract Test](/architecture/microservices/testing/consumer-side-contract-test).
 
 ## Problemas que resolve
 
@@ -59,11 +59,11 @@ O consumidor define o contrato e o provedor o executa contra o próprio serviço
 
 ## Padrões relacionados
 
-- [Consumer-side Contract Test](./consumer-side-contract-test.md) — valida o consumidor contra o mesmo contrato
-- [Service Component Test](./service-component-test.md) — testa um serviço isolado, com dublês dos serviços que ele chama
-- [Microservice Architecture](../architectural-style/microservice-architecture.md) — contexto em que serviços dependem uns dos outros
-- [Remote Procedure Invocation](../communication-styles/remote-procedure-invocation.md) — estilo de comunicação cujas APIs são cobertas pelos contratos
-- [Messaging](../communication-styles/messaging.md) — contratos também podem descrever mensagens trocadas
+- [Consumer-side Contract Test](/architecture/microservices/testing/consumer-side-contract-test) — valida o consumidor contra o mesmo contrato
+- [Service Component Test](/architecture/microservices/testing/service-component-test) — testa um serviço isolado, com dublês dos serviços que ele chama
+- [Microservice Architecture](/architecture/microservices/architectural-style/microservice-architecture) — contexto em que serviços dependem uns dos outros
+- [Remote Procedure Invocation](/architecture/microservices/communication-styles/remote-procedure-invocation) — estilo de comunicação cujas APIs são cobertas pelos contratos
+- [Messaging](/architecture/microservices/communication-styles/messaging) — contratos também podem descrever mensagens trocadas
 
 ## Referência
 

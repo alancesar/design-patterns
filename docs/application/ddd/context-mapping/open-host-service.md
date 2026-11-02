@@ -70,13 +70,13 @@ O contexto de Clientes de uma empresa tem quatro consumidores: Marketing, Fatura
 
 ## Padrões relacionados
 
-- [Published Language](./published-language.md) — formato documentado usado pelo protocolo.
-- [Context Map](./context-map.md) — registra o upstream como Open-host Service.
-- [Anticorruption Layer](../../../cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer.md) — proteção do consumidor que tem modelo próprio.
-- [Customer/Supplier Development](./customer-supplier-development.md) — relação com um consumidor específico.
-- [Conformist](./conformist.md) — consumidores que adotam o modelo do protocolo.
-- [API Gateway](../../../architecture/microservices/external-api/api-gateway.md) — ponto de entrada que pode expor o serviço aberto a clientes externos.
-- [Domain-specific Protocol](../../../architecture/microservices/communication-styles/domain-specific-protocol.md) — protocolo específico do domínio, relacionado à ideia de protocolo aberto.
+- [Published Language](/application/ddd/context-mapping/published-language) — formato documentado usado pelo protocolo.
+- [Context Map](/application/ddd/context-mapping/context-map) — registra o upstream como Open-host Service.
+- [Anticorruption Layer](/cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer) — proteção do consumidor que tem modelo próprio.
+- [Customer/Supplier Development](/application/ddd/context-mapping/customer-supplier-development) — relação com um consumidor específico.
+- [Conformist](/application/ddd/context-mapping/conformist) — consumidores que adotam o modelo do protocolo.
+- [API Gateway](/architecture/microservices/external-api/api-gateway) — ponto de entrada que pode expor o serviço aberto a clientes externos.
+- [Domain-specific Protocol](/architecture/microservices/communication-styles/domain-specific-protocol) — protocolo específico do domínio, relacionado à ideia de protocolo aberto.
 
 ## Referência
 

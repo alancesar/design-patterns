@@ -18,7 +18,7 @@ sidebar_label: "Competing Consumers"
 
 O padrão Competing Consumers permite que várias instâncias consumidoras processem, de forma concorrente, mensagens recebidas pelo mesmo canal de mensageria. Os produtores publicam solicitações como mensagens em uma fila, e um pool de consumidores retira e processa essas mensagens de forma assíncrona, sem que o produtor precise saber qual instância fará o trabalho.
 
-Cada mensagem é entregue a apenas um consumidor: as instâncias "competem" pelas mensagens disponíveis. Isso difere do [Publisher-Subscriber](./publisher-subscriber.md), em que todos os assinantes recebem todas as mensagens. A fila funciona como buffer e como mecanismo natural de balanceamento de carga: consumidores livres pegam a próxima mensagem, enquanto mensagens demoradas não bloqueiam as demais.
+Cada mensagem é entregue a apenas um consumidor: as instâncias "competem" pelas mensagens disponíveis. Isso difere do [Publisher-Subscriber](/cloud/cloud-design-patterns/messaging/publisher-subscriber), em que todos os assinantes recebem todas as mensagens. A fila funciona como buffer e como mecanismo natural de balanceamento de carga: consumidores livres pegam a próxima mensagem, enquanto mensagens demoradas não bloqueiam as demais.
 
 No Enterprise Integration Patterns (Hohpe e Woolf), o padrão é descrito como vários consumidores em um mesmo canal ponto a ponto, em que o sistema de mensageria decide qual deles recebe cada mensagem. Ele só faz sentido em canais ponto a ponto: em um canal publish-subscribe, consumidores adicionais apenas recebem cópias de cada mensagem. O EIP destaca ainda que a concorrência real exige coordenação, o que pode custar desempenho em alto volume, e que a distribuição antecipada de trabalho pode deixar um consumidor ocioso enquanto outro acumula fila. Em sistemas no estilo Kafka, o paralelismo é limitado pelo número de partições (um consumidor por partição dentro do grupo), e as mensagens são atribuídas às partições por um roteador, normalmente baseado na chave da mensagem, o que preserva a ordem de mensagens relacionadas.
 
@@ -88,19 +88,19 @@ Várias instâncias da aplicação publicam mensagens em uma única fila; cada m
 
 ## Padrões relacionados
 
-- [Queue-Based Load Leveling](./queue-based-load-leveling.md) — a fila entre produtores e consumidores absorve picos e nivela a carga.
-- [Publisher-Subscriber](./publisher-subscriber.md) — contraste: no Pub/Sub todos os assinantes recebem cada mensagem; aqui, apenas um consumidor.
-- [Idempotent Consumer](./idempotent-consumer.md) — garante que reentregas de mensagens não causem efeitos duplicados.
-- [Priority Queue](./priority-queue.md) — permite que consumidores processem primeiro as mensagens mais importantes.
-- [Sequential Convoy](./sequential-convoy.md) — processa em ordem grupos de mensagens relacionadas sem abrir mão da concorrência entre grupos.
-- [Asynchronous Request-Reply](./asynchronous-request-reply.md) — forma de devolver resultados ao produtor quando o processamento é assíncrono.
-- [Compute Resource Consolidation](../deployment-and-topology/compute-resource-consolidation.md) — consumidores podem ser consolidados em unidades de computação compartilhadas.
-- [Point-to-Point Channel](../../../architecture/eip/messaging-channels/point-to-point-channel.md) — o tipo de canal em que os consumidores competem (EIP).
-- [Message Dispatcher](../../../architecture/eip/messaging-endpoints/message-dispatcher.md) — alternativa em que um único consumidor distribui o trabalho a executores (EIP).
-- [Polling Consumer](../../../architecture/eip/messaging-endpoints/polling-consumer.md) — modo de consumo possível para cada concorrente (EIP).
-- [Event-Driven Consumer](../../../architecture/eip/messaging-endpoints/event-driven-consumer.md) — outro modo de consumo possível (EIP).
-- [Retry](../resiliency/retry.md) — trata falhas transitórias durante o processamento das mensagens.
-- [Throttling](../resiliency/throttling.md) — limita o consumo de recursos quando a escala dos consumidores pressiona serviços a jusante.
+- [Queue-Based Load Leveling](/cloud/cloud-design-patterns/messaging/queue-based-load-leveling) — a fila entre produtores e consumidores absorve picos e nivela a carga.
+- [Publisher-Subscriber](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — contraste: no Pub/Sub todos os assinantes recebem cada mensagem; aqui, apenas um consumidor.
+- [Idempotent Consumer](/cloud/cloud-design-patterns/messaging/idempotent-consumer) — garante que reentregas de mensagens não causem efeitos duplicados.
+- [Priority Queue](/cloud/cloud-design-patterns/messaging/priority-queue) — permite que consumidores processem primeiro as mensagens mais importantes.
+- [Sequential Convoy](/cloud/cloud-design-patterns/messaging/sequential-convoy) — processa em ordem grupos de mensagens relacionadas sem abrir mão da concorrência entre grupos.
+- [Asynchronous Request-Reply](/cloud/cloud-design-patterns/messaging/asynchronous-request-reply) — forma de devolver resultados ao produtor quando o processamento é assíncrono.
+- [Compute Resource Consolidation](/cloud/cloud-design-patterns/deployment-and-topology/compute-resource-consolidation) — consumidores podem ser consolidados em unidades de computação compartilhadas.
+- [Point-to-Point Channel](/architecture/eip/messaging-channels/point-to-point-channel) — o tipo de canal em que os consumidores competem (EIP).
+- [Message Dispatcher](/architecture/eip/messaging-endpoints/message-dispatcher) — alternativa em que um único consumidor distribui o trabalho a executores (EIP).
+- [Polling Consumer](/architecture/eip/messaging-endpoints/polling-consumer) — modo de consumo possível para cada concorrente (EIP).
+- [Event-Driven Consumer](/architecture/eip/messaging-endpoints/event-driven-consumer) — outro modo de consumo possível (EIP).
+- [Retry](/cloud/cloud-design-patterns/resiliency/retry) — trata falhas transitórias durante o processamento das mensagens.
+- [Throttling](/cloud/cloud-design-patterns/resiliency/throttling) — limita o consumo de recursos quando a escala dos consumidores pressiona serviços a jusante.
 
 ## Referência
 

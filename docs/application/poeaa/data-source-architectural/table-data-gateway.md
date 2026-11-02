@@ -107,14 +107,14 @@ No .NET, o `TableAdapter` do ADO.NET e a classe DAO do mundo Java seguem ideia s
 
 ## Padrões relacionados
 
-- [Row Data Gateway](./row-data-gateway.md) — um objeto por linha em vez de um por tabela.
-- [Active Record](./active-record.md) — o objeto de domínio acumula também o acesso ao banco.
-- [Data Mapper](./data-mapper.md) — alternativa quando o modelo de domínio é rico e independente do esquema.
-- [Transaction Script](../domain-logic/transaction-script.md) — combinação típica de lógica de domínio com este gateway.
-- [Table Module](../domain-logic/table-module.md) — consome os Record Sets que o gateway produz.
-- [Record Set](../base/record-set.md) — formato comum dos resultados.
-- [Gateway](../base/gateway.md) — padrão base do qual este é uma especialização.
-- [Facade](../../../coding/gof/structural/facade.md) — também esconde detalhes de um subsistema atrás de uma interface simples.
+- [Row Data Gateway](/application/poeaa/data-source-architectural/row-data-gateway) — um objeto por linha em vez de um por tabela.
+- [Active Record](/application/poeaa/data-source-architectural/active-record) — o objeto de domínio acumula também o acesso ao banco.
+- [Data Mapper](/application/poeaa/data-source-architectural/data-mapper) — alternativa quando o modelo de domínio é rico e independente do esquema.
+- [Transaction Script](/application/poeaa/domain-logic/transaction-script) — combinação típica de lógica de domínio com este gateway.
+- [Table Module](/application/poeaa/domain-logic/table-module) — consome os Record Sets que o gateway produz.
+- [Record Set](/application/poeaa/base/record-set) — formato comum dos resultados.
+- [Gateway](/application/poeaa/base/gateway) — padrão base do qual este é uma especialização.
+- [Facade](/coding/gof/structural/facade) — também esconde detalhes de um subsistema atrás de uma interface simples.
 
 ## Referência
 

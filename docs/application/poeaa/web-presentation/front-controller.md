@@ -97,13 +97,13 @@ O `DispatcherServlet` do Spring MVC, o pipeline de middleware do ASP.NET Core e 
 
 ## Padrões relacionados
 
-- [Page Controller](./page-controller.md) — alternativa com um controller por página.
-- [Application Controller](./application-controller.md) — pode ser chamado pelo Front Controller para decidir fluxo de telas.
-- [Model View Controller](./model-view-controller.md) — o Front Controller realiza o papel de controller.
-- [Command](../../../coding/gof/behavioral/command.md) — as ações delegadas pelo handler são commands.
-- [Chain of Responsibility](../../../coding/gof/behavioral/chain-of-responsibility.md) — filtros e interceptadores são encadeados dessa forma.
-- [Facade](../../../coding/gof/structural/facade.md) — o Front Controller funciona como fachada de entrada da camada web.
-- [Backend for Front-end](../../../cloud/cloud-design-patterns/gateways-and-edge/backends-for-frontends.md) — ponto de entrada dedicado por tipo de cliente em arquiteturas distribuídas.
+- [Page Controller](/application/poeaa/web-presentation/page-controller) — alternativa com um controller por página.
+- [Application Controller](/application/poeaa/web-presentation/application-controller) — pode ser chamado pelo Front Controller para decidir fluxo de telas.
+- [Model View Controller](/application/poeaa/web-presentation/model-view-controller) — o Front Controller realiza o papel de controller.
+- [Command](/coding/gof/behavioral/command) — as ações delegadas pelo handler são commands.
+- [Chain of Responsibility](/coding/gof/behavioral/chain-of-responsibility) — filtros e interceptadores são encadeados dessa forma.
+- [Facade](/coding/gof/structural/facade) — o Front Controller funciona como fachada de entrada da camada web.
+- [Backend for Front-end](/cloud/cloud-design-patterns/gateways-and-edge/backends-for-frontends) — ponto de entrada dedicado por tipo de cliente em arquiteturas distribuídas.
 
 ## Referência
 

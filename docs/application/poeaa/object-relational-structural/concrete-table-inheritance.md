@@ -88,10 +88,10 @@ A `SEQUENCE` compartilhada garante chaves únicas entre as tabelas. No EF Core, 
 
 ## Padrões relacionados
 
-- [Single Table Inheritance](./single-table-inheritance.md) — alternativa com uma tabela para toda a hierarquia.
-- [Class Table Inheritance](./class-table-inheritance.md) — alternativa com uma tabela por classe, com joins.
-- [Inheritance Mappers](./inheritance-mappers.md) — organiza os mapeadores da hierarquia.
-- [Identity Field](./identity-field.md) — precisa de unicidade entre as tabelas.
+- [Single Table Inheritance](/application/poeaa/object-relational-structural/single-table-inheritance) — alternativa com uma tabela para toda a hierarquia.
+- [Class Table Inheritance](/application/poeaa/object-relational-structural/class-table-inheritance) — alternativa com uma tabela por classe, com joins.
+- [Inheritance Mappers](/application/poeaa/object-relational-structural/inheritance-mappers) — organiza os mapeadores da hierarquia.
+- [Identity Field](/application/poeaa/object-relational-structural/identity-field) — precisa de unicidade entre as tabelas.
 
 ## Referência
 

@@ -78,12 +78,12 @@ O orquestrador executa as etapas e registra, para cada etapa concluída, a açã
 
 ## Padrões relacionados
 
-- [Saga](./saga.md): gerencia a consistência de dados entre microsserviços e usa transações compensatórias para se recuperar de falhas.
-- [Retry](../resiliency/retry.md): trata falhas transitórias e reduz a necessidade de acionar compensações.
-- [Idempotent Consumer](../messaging/idempotent-consumer.md): garante que etapas e compensações reexecutadas não produzam efeitos duplicados.
-- [Scheduler Agent Supervisor](./scheduler-agent-supervisor.md): coordena operações distribuídas e pode acionar transações compensatórias para desfazer trabalho.
-- [Pipes and Filters](../messaging/pipes-and-filters.md): decompõe tarefas complexas em etapas reutilizáveis, como alternativa a transações distribuídas.
-- [Choreography](./choreography.md): forma descentralizada de coordenar etapas e suas compensações por meio de eventos.
+- [Saga](/cloud/cloud-design-patterns/distributed-coordination/saga): gerencia a consistência de dados entre microsserviços e usa transações compensatórias para se recuperar de falhas.
+- [Retry](/cloud/cloud-design-patterns/resiliency/retry): trata falhas transitórias e reduz a necessidade de acionar compensações.
+- [Idempotent Consumer](/cloud/cloud-design-patterns/messaging/idempotent-consumer): garante que etapas e compensações reexecutadas não produzam efeitos duplicados.
+- [Scheduler Agent Supervisor](/cloud/cloud-design-patterns/distributed-coordination/scheduler-agent-supervisor): coordena operações distribuídas e pode acionar transações compensatórias para desfazer trabalho.
+- [Pipes and Filters](/cloud/cloud-design-patterns/messaging/pipes-and-filters): decompõe tarefas complexas em etapas reutilizáveis, como alternativa a transações distribuídas.
+- [Choreography](/cloud/cloud-design-patterns/distributed-coordination/choreography): forma descentralizada de coordenar etapas e suas compensações por meio de eventos.
 
 ## Referência
 

@@ -64,12 +64,12 @@ A requisição é espalhada aos fornecedores e as respostas são reunidas em um 
 
 ## Padrões relacionados
 
-- [Recipient List](./recipient-list.md) — distribui na variante controlada
-- [Aggregator](./aggregator.md) — reúne as respostas
-- [Composed Message Processor](./composed-message-processor.md) — divide em partes distintas em vez de replicar
-- [Publish-Subscribe Channel](../../../cloud/cloud-design-patterns/messaging/publisher-subscriber.md) — usado na variante de leilão
-- [Gateway Aggregation](../../../cloud/cloud-design-patterns/gateways-and-edge/gateway-aggregation.md) — agrega chamadas a vários serviços
-- [API Composition](../../microservices/service-collaboration/api-composition.md) — combina dados de vários serviços
+- [Recipient List](/architecture/eip/message-routing/recipient-list) — distribui na variante controlada
+- [Aggregator](/architecture/eip/message-routing/aggregator) — reúne as respostas
+- [Composed Message Processor](/architecture/eip/message-routing/composed-message-processor) — divide em partes distintas em vez de replicar
+- [Publish-Subscribe Channel](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — usado na variante de leilão
+- [Gateway Aggregation](/cloud/cloud-design-patterns/gateways-and-edge/gateway-aggregation) — agrega chamadas a vários serviços
+- [API Composition](/architecture/microservices/service-collaboration/api-composition) — combina dados de vários serviços
 
 ## Referência
 

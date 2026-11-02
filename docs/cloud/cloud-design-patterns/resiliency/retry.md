@@ -72,13 +72,13 @@ A aplicação repete a requisição após intervalos crescentes enquanto as falh
 
 ## Padrões relacionados
 
-- [Circuit Breaker](./circuit-breaker.md) — interrompe as chamadas quando a falha é duradoura, complementando o Retry e evitando tentativas inúteis
-- [Idempotent Consumer](../messaging/idempotent-consumer.md) — torna seguro reprocessar requisições ou mensagens repetidas por retries
-- [Throttling](./throttling.md) — serviços que aplicam throttling geram as falhas transitórias que o Retry precisa tratar com intervalos adequados
-- [Rate Limiting](./rate-limiting-pattern.md) — controla o ritmo de chamadas do cliente, reduzindo erros de limite que levariam a retries
-- [Bulkhead](./bulkhead.md) — isola recursos para que retries contra uma dependência com problemas não esgotem toda a aplicação
-- [Compensating Transaction](../distributed-coordination/compensating-transaction.md) — desfaz passos já concluídos quando uma operação falha definitivamente após as tentativas
-- [Ambassador](../integration-and-modernization/ambassador.md) — pode centralizar a lógica de retry fora da aplicação, em um proxy auxiliar
+- [Circuit Breaker](/cloud/cloud-design-patterns/resiliency/circuit-breaker) — interrompe as chamadas quando a falha é duradoura, complementando o Retry e evitando tentativas inúteis
+- [Idempotent Consumer](/cloud/cloud-design-patterns/messaging/idempotent-consumer) — torna seguro reprocessar requisições ou mensagens repetidas por retries
+- [Throttling](/cloud/cloud-design-patterns/resiliency/throttling) — serviços que aplicam throttling geram as falhas transitórias que o Retry precisa tratar com intervalos adequados
+- [Rate Limiting](/cloud/cloud-design-patterns/resiliency/rate-limiting-pattern) — controla o ritmo de chamadas do cliente, reduzindo erros de limite que levariam a retries
+- [Bulkhead](/cloud/cloud-design-patterns/resiliency/bulkhead) — isola recursos para que retries contra uma dependência com problemas não esgotem toda a aplicação
+- [Compensating Transaction](/cloud/cloud-design-patterns/distributed-coordination/compensating-transaction) — desfaz passos já concluídos quando uma operação falha definitivamente após as tentativas
+- [Ambassador](/cloud/cloud-design-patterns/integration-and-modernization/ambassador) — pode centralizar a lógica de retry fora da aplicação, em um proxy auxiliar
 
 ## Referência
 

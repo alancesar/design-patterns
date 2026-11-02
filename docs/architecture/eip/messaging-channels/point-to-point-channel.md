@@ -62,14 +62,14 @@ O remetente publica no canal e cada mensagem é entregue a apenas um dos recepto
 
 ## Padrões relacionados
 
-- [Message Channel](./message-channel.md) — o conceito geral que este padrão especializa.
-- [Publish-Subscribe Channel](../../../cloud/cloud-design-patterns/messaging/publisher-subscriber.md) — a alternativa em que todos os assinantes recebem uma cópia.
-- [Competing Consumers](../../../cloud/cloud-design-patterns/messaging/competing-consumers.md) — vários receptores disputando as mensagens do mesmo canal.
-- [Idempotent Receiver](../../../cloud/cloud-design-patterns/messaging/idempotent-consumer.md) — tolera reentregas do canal.
-- [Request-Reply](../message-construction/request-reply.md) — troca bidirecional muito construída sobre canais ponto a ponto.
-- [Command Message](../message-construction/command-message.md) — mensagem que pede uma ação, típica deste canal.
-- [Document Message](../message-construction/document-message.md) — mensagem que transfere dados.
-- [Messaging](../../microservices/communication-styles/messaging.md) — o estilo de integração em que o padrão se insere.
+- [Message Channel](/architecture/eip/messaging-channels/message-channel) — o conceito geral que este padrão especializa.
+- [Publish-Subscribe Channel](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — a alternativa em que todos os assinantes recebem uma cópia.
+- [Competing Consumers](/cloud/cloud-design-patterns/messaging/competing-consumers) — vários receptores disputando as mensagens do mesmo canal.
+- [Idempotent Receiver](/cloud/cloud-design-patterns/messaging/idempotent-consumer) — tolera reentregas do canal.
+- [Request-Reply](/architecture/eip/message-construction/request-reply) — troca bidirecional muito construída sobre canais ponto a ponto.
+- [Command Message](/architecture/eip/message-construction/command-message) — mensagem que pede uma ação, típica deste canal.
+- [Document Message](/architecture/eip/message-construction/document-message) — mensagem que transfere dados.
+- [Messaging](/architecture/microservices/communication-styles/messaging) — o estilo de integração em que o padrão se insere.
 
 ## Referência
 

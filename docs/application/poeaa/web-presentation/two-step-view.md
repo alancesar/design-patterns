@@ -90,11 +90,11 @@ Na prática, o padrão aparece em layouts mestres, design systems e bibliotecas 
 
 ## Padrões relacionados
 
-- [Template View](./template-view.md) — a segunda etapa pode usar templates, ou o padrão pode ser usado em cada passo.
-- [Transform View](./transform-view.md) — duas transformações em sequência (por exemplo, dois XSLT) realizam o padrão.
-- [Model View Controller](./model-view-controller.md) — o Two Step View é uma forma de estruturar a view.
-- [Client-side UI composition](../../../architecture/microservices/ui-design/client-side-ui-composition.md) — composição de UI a partir de componentes em arquiteturas distribuídas.
-- [Decorator](../../../coding/gof/structural/decorator.md) — a segunda etapa "decora" a página lógica com a aparência do site.
+- [Template View](/application/poeaa/web-presentation/template-view) — a segunda etapa pode usar templates, ou o padrão pode ser usado em cada passo.
+- [Transform View](/application/poeaa/web-presentation/transform-view) — duas transformações em sequência (por exemplo, dois XSLT) realizam o padrão.
+- [Model View Controller](/application/poeaa/web-presentation/model-view-controller) — o Two Step View é uma forma de estruturar a view.
+- [Client-side UI composition](/architecture/microservices/ui-design/client-side-ui-composition) — composição de UI a partir de componentes em arquiteturas distribuídas.
+- [Decorator](/coding/gof/structural/decorator) — a segunda etapa "decora" a página lógica com a aparência do site.
 
 ## Referência
 

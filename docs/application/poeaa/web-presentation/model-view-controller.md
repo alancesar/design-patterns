@@ -99,13 +99,13 @@ Spring MVC, ASP.NET MVC e Rails implementam esse padrão. Em SPAs, o MVC se desl
 
 ## Padrões relacionados
 
-- [Page Controller](./page-controller.md) — controller por página, uma das formas de realizar o C do MVC na web.
-- [Front Controller](./front-controller.md) — controller único na entrada, outra forma de realizar o C.
-- [Template View](./template-view.md) — forma comum de implementar a view.
-- [Transform View](./transform-view.md) — view implementada como transformação dos dados do model.
-- [Two Step View](./two-step-view.md) — view em duas etapas para manter aparência consistente.
-- [Observer](../../../coding/gof/behavioral/observer.md) — mecanismo clássico para a view reagir a mudanças no model.
-- [Strategy](../../../coding/gof/behavioral/strategy.md) — a relação entre view e controller costuma ser uma estratégia substituível.
+- [Page Controller](/application/poeaa/web-presentation/page-controller) — controller por página, uma das formas de realizar o C do MVC na web.
+- [Front Controller](/application/poeaa/web-presentation/front-controller) — controller único na entrada, outra forma de realizar o C.
+- [Template View](/application/poeaa/web-presentation/template-view) — forma comum de implementar a view.
+- [Transform View](/application/poeaa/web-presentation/transform-view) — view implementada como transformação dos dados do model.
+- [Two Step View](/application/poeaa/web-presentation/two-step-view) — view em duas etapas para manter aparência consistente.
+- [Observer](/coding/gof/behavioral/observer) — mecanismo clássico para a view reagir a mudanças no model.
+- [Strategy](/coding/gof/behavioral/strategy) — a relação entre view e controller costuma ser uma estratégia substituível.
 
 ## Referência
 

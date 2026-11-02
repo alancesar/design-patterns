@@ -72,13 +72,13 @@ Cada dependência recebe seu próprio pool de recursos. Quando o Serviço A falh
 
 ## Padrões relacionados
 
-- [Circuit Breaker](./circuit-breaker.md) — interrompe chamadas a uma dependência com falha, complementando o isolamento de recursos.
-- [Retry](./retry.md) — trata falhas transitórias dentro de cada partição sem afetar as demais.
-- [Throttling](./throttling.md) — limita o consumo de recursos por consumidor, reforçando o isolamento entre partições.
-- [Rate Limiting](./rate-limiting-pattern.md) — controla o volume de chamadas enviadas a cada dependência isolada.
-- [Queue-Based Load Leveling](../messaging/queue-based-load-leveling.md) — filas separadas por partição ajudam a isolar serviços que se comunicam de forma assíncrona.
-- [Deployment Stamp](../deployment-and-topology/deployment-stamp.md) — aplica a ideia de células independentes em nível de implantação completa.
-- [Sharding](../data-management/sharding.md) — particiona dados, o que também limita o alcance de falhas e sobrecargas.
+- [Circuit Breaker](/cloud/cloud-design-patterns/resiliency/circuit-breaker) — interrompe chamadas a uma dependência com falha, complementando o isolamento de recursos.
+- [Retry](/cloud/cloud-design-patterns/resiliency/retry) — trata falhas transitórias dentro de cada partição sem afetar as demais.
+- [Throttling](/cloud/cloud-design-patterns/resiliency/throttling) — limita o consumo de recursos por consumidor, reforçando o isolamento entre partições.
+- [Rate Limiting](/cloud/cloud-design-patterns/resiliency/rate-limiting-pattern) — controla o volume de chamadas enviadas a cada dependência isolada.
+- [Queue-Based Load Leveling](/cloud/cloud-design-patterns/messaging/queue-based-load-leveling) — filas separadas por partição ajudam a isolar serviços que se comunicam de forma assíncrona.
+- [Deployment Stamp](/cloud/cloud-design-patterns/deployment-and-topology/deployment-stamp) — aplica a ideia de células independentes em nível de implantação completa.
+- [Sharding](/cloud/cloud-design-patterns/data-management/sharding) — particiona dados, o que também limita o alcance de falhas e sobrecargas.
 
 ## Referência
 

@@ -70,13 +70,13 @@ Quando os especialistas mudaram a regra para permitir cobertura retroativa, a al
 
 ## Padrões relacionados
 
-- [Hands-on Modelers](./hands-on-modelers.md) — quem modela participa da implementação.
-- [Ubiquitous Language](./ubiquitous-language.md) — o código usa os termos do modelo.
-- [Layered Architecture](../building-blocks/layered-architecture.md) — isola a camada de domínio onde o modelo vive.
-- [Entity](../building-blocks/entity.md) — bloco de construção para expressar o modelo.
-- [Value Object](../../poeaa/base/value-object.md) — bloco de construção para expressar o modelo.
-- [Aggregate](../building-blocks/aggregate.md) — bloco de construção para manter a consistência do modelo.
-- [Domain Model](../../poeaa/domain-logic/domain-model.md) — padrão de organização da lógica de domínio que o DDD aprofunda.
+- [Hands-on Modelers](/application/ddd/model-in-practice/hands-on-modelers) — quem modela participa da implementação.
+- [Ubiquitous Language](/application/ddd/model-in-practice/ubiquitous-language) — o código usa os termos do modelo.
+- [Layered Architecture](/application/ddd/building-blocks/layered-architecture) — isola a camada de domínio onde o modelo vive.
+- [Entity](/application/ddd/building-blocks/entity) — bloco de construção para expressar o modelo.
+- [Value Object](/application/poeaa/base/value-object) — bloco de construção para expressar o modelo.
+- [Aggregate](/application/ddd/building-blocks/aggregate) — bloco de construção para manter a consistência do modelo.
+- [Domain Model](/application/poeaa/domain-logic/domain-model) — padrão de organização da lógica de domínio que o DDD aprofunda.
 
 ## Referência
 

@@ -34,7 +34,7 @@ Em cenários mais sofisticados, o roteador evolui para um mecanismo de regras co
 ### Quando evitar
 
 - O destino pode ser decidido pelo remetente de forma trivial
-- Os destinatários precisam se registrar dinamicamente; considere o [Dynamic Router](./dynamic-router.md)
+- Os destinatários precisam se registrar dinamicamente; considere o [Dynamic Router](/architecture/eip/message-routing/dynamic-router)
 - Os destinatários mudam com frequência e o roteador viraria um ponto de alteração constante
 
 ## Trade-offs
@@ -61,11 +61,11 @@ O roteador lê o item do pedido e o encaminha ao sistema de estoque responsável
 
 ## Padrões relacionados
 
-- [Message Router](./message-router.md) — padrão genérico do qual este é uma variante
-- [Message Filter](./message-filter.md) — descarta em vez de escolher entre destinos
-- [Dynamic Router](./dynamic-router.md) — regras registradas pelos próprios destinatários
-- [Recipient List](./recipient-list.md) — quando a lista de destinatários é calculada
-- [Gateway Routing](../../../cloud/cloud-design-patterns/gateways-and-edge/gateway-routing.md) — roteamento de requisições por caminho ou cabeçalho em um gateway
+- [Message Router](/architecture/eip/message-routing/message-router) — padrão genérico do qual este é uma variante
+- [Message Filter](/architecture/eip/message-routing/message-filter) — descarta em vez de escolher entre destinos
+- [Dynamic Router](/architecture/eip/message-routing/dynamic-router) — regras registradas pelos próprios destinatários
+- [Recipient List](/architecture/eip/message-routing/recipient-list) — quando a lista de destinatários é calculada
+- [Gateway Routing](/cloud/cloud-design-patterns/gateways-and-edge/gateway-routing) — roteamento de requisições por caminho ou cabeçalho em um gateway
 
 ## Referência
 

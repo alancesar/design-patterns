@@ -84,14 +84,14 @@ As instâncias da aplicação enviam as requisições para a lógica de sharding
 
 ## Padrões relacionados
 
-- [Index Table](./index-table.md): cria índices secundários para consultar dados por atributos que não fazem parte da chave de shard.
-- [Materialized View](./materialized-view.md): pré-calcula visões que agregam dados de vários shards, evitando consultas *fan-out* caras.
-- [Cache-Aside](./cache-aside.md): mantém em cache o mapa de shards (lookup) e dados muito acessados, reduzindo o overhead de roteamento.
-- [Deployment Stamp](../deployment-and-topology/deployment-stamp.md): replica unidades completas de infraestrutura por grupo de tenants, levando a ideia de sharding para toda a pilha.
-- [Geodes](../deployment-and-topology/geodes.md): distribui serviços e dados geograficamente, assim como a estratégia de sharding geográfica.
-- [Compensating Transaction](../distributed-coordination/compensating-transaction.md): desfaz operações que atravessam vários shards quando não há transação distribuída.
-- [Saga](../distributed-coordination/saga.md): coordena operações de várias etapas entre shards mantendo consistência eventual.
-- [Bulkhead](../resiliency/bulkhead.md): isola recursos para que a falha de uma partição não afete as outras, o mesmo princípio de isolamento dos shards.
+- [Index Table](/cloud/cloud-design-patterns/data-management/index-table): cria índices secundários para consultar dados por atributos que não fazem parte da chave de shard.
+- [Materialized View](/cloud/cloud-design-patterns/data-management/materialized-view): pré-calcula visões que agregam dados de vários shards, evitando consultas *fan-out* caras.
+- [Cache-Aside](/cloud/cloud-design-patterns/data-management/cache-aside): mantém em cache o mapa de shards (lookup) e dados muito acessados, reduzindo o overhead de roteamento.
+- [Deployment Stamp](/cloud/cloud-design-patterns/deployment-and-topology/deployment-stamp): replica unidades completas de infraestrutura por grupo de tenants, levando a ideia de sharding para toda a pilha.
+- [Geodes](/cloud/cloud-design-patterns/deployment-and-topology/geodes): distribui serviços e dados geograficamente, assim como a estratégia de sharding geográfica.
+- [Compensating Transaction](/cloud/cloud-design-patterns/distributed-coordination/compensating-transaction): desfaz operações que atravessam vários shards quando não há transação distribuída.
+- [Saga](/cloud/cloud-design-patterns/distributed-coordination/saga): coordena operações de várias etapas entre shards mantendo consistência eventual.
+- [Bulkhead](/cloud/cloud-design-patterns/resiliency/bulkhead): isola recursos para que a falha de uma partição não afete as outras, o mesmo princípio de isolamento dos shards.
 
 ## Referência
 

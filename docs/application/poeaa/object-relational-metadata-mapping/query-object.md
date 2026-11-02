@@ -101,11 +101,11 @@ LINQ no Entity Framework e o Specification em Spring Data seguem a mesma ideia.
 
 ## Padrões relacionados
 
-- [Interpreter](../../../coding/gof/behavioral/interpreter.md) — o Query Object é um Interpreter cuja saída é SQL.
-- [Metadata Mapping](./metadata-mapping.md) — fornece o mapeamento de classes e campos para tabelas e colunas.
-- [Repository](./repository.md) — aceita Query Objects como forma de descrever consultas declarativas.
-- [Data Mapper](../data-source-architectural/data-mapper.md) — executa a consulta e materializa os objetos.
-- [Unit of Work](../object-relational-behavioral/unit-of-work.md) — objetos carregados pela consulta são registrados nele.
+- [Interpreter](/coding/gof/behavioral/interpreter) — o Query Object é um Interpreter cuja saída é SQL.
+- [Metadata Mapping](/application/poeaa/object-relational-metadata-mapping/metadata-mapping) — fornece o mapeamento de classes e campos para tabelas e colunas.
+- [Repository](/application/poeaa/object-relational-metadata-mapping/repository) — aceita Query Objects como forma de descrever consultas declarativas.
+- [Data Mapper](/application/poeaa/data-source-architectural/data-mapper) — executa a consulta e materializa os objetos.
+- [Unit of Work](/application/poeaa/object-relational-behavioral/unit-of-work) — objetos carregados pela consulta são registrados nele.
 
 ## Referência
 

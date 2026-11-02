@@ -89,11 +89,11 @@ const common = alice
 
 ## Padrões relacionados
 
-- [Value Object](../../poeaa/base/value-object.md) — ambiente mais natural para operações fechadas.
-- [Side-Effect-Free Functions](./side-effect-free-functions.md) — operações fechadas costumam ser funções puras.
-- [Standalone Classes](./standalone-classes.md) — o fechamento ajuda a limitar dependências.
-- [Composite](../../../coding/gof/structural/composite.md) (GoF) — estrutura em que o todo e a parte compartilham o mesmo tipo.
-- [Declarative Design](./declarative-design.md) — operações fechadas sustentam combinações declarativas.
+- [Value Object](/application/poeaa/base/value-object) — ambiente mais natural para operações fechadas.
+- [Side-Effect-Free Functions](/application/ddd/supple-design/side-effect-free-functions) — operações fechadas costumam ser funções puras.
+- [Standalone Classes](/application/ddd/supple-design/standalone-classes) — o fechamento ajuda a limitar dependências.
+- [Composite](/coding/gof/structural/composite) (GoF) — estrutura em que o todo e a parte compartilham o mesmo tipo.
+- [Declarative Design](/application/ddd/supple-design/declarative-design) — operações fechadas sustentam combinações declarativas.
 
 ## Referência
 

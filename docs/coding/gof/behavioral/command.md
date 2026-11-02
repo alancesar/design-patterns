@@ -124,12 +124,12 @@ console.log(editor.content);             // "Hello"
 
 ## Padrões relacionados
 
-- [Memento](./memento.md) — pode guardar o estado do receptor antes da execução para viabilizar o `undo()`
-- [Composite](../structural/composite.md) — permite montar macros, comandos compostos por outros comandos
-- [Chain of Responsibility](./chain-of-responsibility.md) — também desacopla emissor e receptor; os handlers podem ser representados como comandos
-- [Strategy](./strategy.md) — estrutura parecida, mas Strategy varia *como* algo é feito, enquanto Command representa *o que* fazer como objeto
-- [Prototype](../creational/prototype.md) — útil para copiar comandos antes de colocá-los no histórico
-- [Observer](./observer.md) — comandos podem notificar observadores ou ser disparados por eventos
+- [Memento](/coding/gof/behavioral/memento) — pode guardar o estado do receptor antes da execução para viabilizar o `undo()`
+- [Composite](/coding/gof/structural/composite) — permite montar macros, comandos compostos por outros comandos
+- [Chain of Responsibility](/coding/gof/behavioral/chain-of-responsibility) — também desacopla emissor e receptor; os handlers podem ser representados como comandos
+- [Strategy](/coding/gof/behavioral/strategy) — estrutura parecida, mas Strategy varia *como* algo é feito, enquanto Command representa *o que* fazer como objeto
+- [Prototype](/coding/gof/creational/prototype) — útil para copiar comandos antes de colocá-los no histórico
+- [Observer](/coding/gof/behavioral/observer) — comandos podem notificar observadores ou ser disparados por eventos
 
 ## Referência
 

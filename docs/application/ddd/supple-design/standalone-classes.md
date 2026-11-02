@@ -100,11 +100,11 @@ PigmentColor c = new PigmentColor(0, 0, 1)
 
 ## Padrões relacionados
 
-- [Value Object](../../poeaa/base/value-object.md) — candidato natural a classe independente.
-- [Module](../building-blocks/module.md) — baixo acoplamento entre módulos e alta coesão dentro deles.
-- [Side-Effect-Free Functions](./side-effect-free-functions.md) — funções puras em classes independentes são muito fáceis de entender.
-- [Closure of Operations](./closure-of-operations.md) — outra forma de reduzir dependências em operações.
-- [Cohesive Mechanisms](../distillation/cohesive-mechanisms.md) — isola mecanismos complexos para que o modelo permaneça focado.
+- [Value Object](/application/poeaa/base/value-object) — candidato natural a classe independente.
+- [Module](/application/ddd/building-blocks/module) — baixo acoplamento entre módulos e alta coesão dentro deles.
+- [Side-Effect-Free Functions](/application/ddd/supple-design/side-effect-free-functions) — funções puras em classes independentes são muito fáceis de entender.
+- [Closure of Operations](/application/ddd/supple-design/closure-of-operations) — outra forma de reduzir dependências em operações.
+- [Cohesive Mechanisms](/application/ddd/distillation/cohesive-mechanisms) — isola mecanismos complexos para que o modelo permaneça focado.
 
 ## Referência
 

@@ -13,7 +13,7 @@ sidebar_label: "Domain Vision Statement"
 
 ## Descrição
 
-O Domain Vision Statement é um documento curto, de uma página ou menos, que descreve o [Core Domain](./core-domain.md) e o valor que ele entrega, sem entrar em detalhes técnicos. Ele mostra o que torna o modelo especial e como ele atende aos interesses do negócio.
+O Domain Vision Statement é um documento curto, de uma página ou menos, que descreve o [Core Domain](/application/ddd/distillation/core-domain) e o valor que ele entrega, sem entrar em detalhes técnicos. Ele mostra o que torna o modelo especial e como ele atende aos interesses do negócio.
 
 Escrito cedo no projeto e revisado quando o entendimento amadurece, ele serve como uma narrativa de alto nível para desenvolvedores, gestores e especialistas do domínio. O texto deve evitar o que não seja essencial, destacar o valor para o negócio e não depender de decisões de implementação que mudam com frequência.
 
@@ -73,11 +73,11 @@ O texto não menciona banco de dados, filas nem frameworks. Ele é fixado na wik
 
 ## Padrões relacionados
 
-- [Core Domain](./core-domain.md) — o objeto que a declaração descreve.
-- [Highlighted Core](./highlighted-core.md) — complemento, que aponta onde o core está dentro do modelo e do código.
-- [Ubiquitous Language](../model-in-practice/ubiquitous-language.md) — o vocabulário da declaração deve ser o mesmo usado no modelo e no código.
-- [Context Map](../context-mapping/context-map.md) — mostra como os contextos se relacionam com o core descrito.
-- [Evolving Order](../large-scale-structure/evolving-order.md) — outra forma leve de orientar a evolução do modelo sem impor regras rígidas.
+- [Core Domain](/application/ddd/distillation/core-domain) — o objeto que a declaração descreve.
+- [Highlighted Core](/application/ddd/distillation/highlighted-core) — complemento, que aponta onde o core está dentro do modelo e do código.
+- [Ubiquitous Language](/application/ddd/model-in-practice/ubiquitous-language) — o vocabulário da declaração deve ser o mesmo usado no modelo e no código.
+- [Context Map](/application/ddd/context-mapping/context-map) — mostra como os contextos se relacionam com o core descrito.
+- [Evolving Order](/application/ddd/large-scale-structure/evolving-order) — outra forma leve de orientar a evolução do modelo sem impor regras rígidas.
 
 ## Referência
 

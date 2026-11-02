@@ -28,7 +28,7 @@ Cada camada pode ter o seu próprio Layer Supertype (por exemplo, um para o dom�
 ## Quando usar
 
 - Quando os objetos de uma camada compartilham campos ou métodos que seriam duplicados.
-- Para manter identidade, versão ou auditoria em um só lugar, em conjunto com [Identity Field](../object-relational-structural/identity-field.md).
+- Para manter identidade, versão ou auditoria em um só lugar, em conjunto com [Identity Field](/application/poeaa/object-relational-structural/identity-field).
 - Para dar a todos os mappers ou repositórios um comportamento comum de acesso ao banco.
 
 ### Quando evitar
@@ -99,11 +99,11 @@ Exemplos conhecidos: `BaseEntity` em projetos Hibernate, `ApplicationRecord` no 
 
 ## Padrões relacionados
 
-- [Identity Field](../object-relational-structural/identity-field.md) — o campo de identidade costuma viver no Layer Supertype.
-- [Domain Model](../domain-logic/domain-model.md) — as entidades do domínio normalmente compartilham uma classe base.
-- [Data Mapper](../data-source-architectural/data-mapper.md) — mappers costumam ter seu próprio Layer Supertype com lógica comum de acesso a dados.
-- [Active Record](../data-source-architectural/active-record.md) — frameworks de Active Record fornecem um Layer Supertype pronto para os modelos.
-- [Template Method](../../../coding/gof/behavioral/template-method.md) — a classe base pode definir esqueletos de algoritmo que as subclasses completam.
+- [Identity Field](/application/poeaa/object-relational-structural/identity-field) — o campo de identidade costuma viver no Layer Supertype.
+- [Domain Model](/application/poeaa/domain-logic/domain-model) — as entidades do domínio normalmente compartilham uma classe base.
+- [Data Mapper](/application/poeaa/data-source-architectural/data-mapper) — mappers costumam ter seu próprio Layer Supertype com lógica comum de acesso a dados.
+- [Active Record](/application/poeaa/data-source-architectural/active-record) — frameworks de Active Record fornecem um Layer Supertype pronto para os modelos.
+- [Template Method](/coding/gof/behavioral/template-method) — a classe base pode definir esqueletos de algoritmo que as subclasses completam.
 
 ## Referência
 

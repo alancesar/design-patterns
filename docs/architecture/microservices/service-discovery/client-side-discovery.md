@@ -63,10 +63,10 @@ O cliente consulta o registro, escolhe uma instância e a chama diretamente.
 
 ## Padrões relacionados
 
-- [Service Registry](./service-registry.md) — fonte das localizações consultadas pelo cliente
-- [Server-side Discovery](./server-side-discovery.md) — alternativa em que um roteador faz a descoberta
-- [Microservice Chassis](../cross-cutting-concerns/microservice-chassis.md) — costuma embutir a lógica de descoberta
-- [Self Registration](./self-registration.md) e [3rd Party Registration](./3rd-party-registration.md) — formas de popular o registro
+- [Service Registry](/architecture/microservices/service-discovery/service-registry) — fonte das localizações consultadas pelo cliente
+- [Server-side Discovery](/architecture/microservices/service-discovery/server-side-discovery) — alternativa em que um roteador faz a descoberta
+- [Microservice Chassis](/architecture/microservices/cross-cutting-concerns/microservice-chassis) — costuma embutir a lógica de descoberta
+- [Self Registration](/architecture/microservices/service-discovery/self-registration) e [3rd Party Registration](/architecture/microservices/service-discovery/3rd-party-registration) — formas de popular o registro
 
 ## Referência
 

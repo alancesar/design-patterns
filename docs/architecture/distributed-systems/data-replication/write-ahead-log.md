@@ -66,13 +66,13 @@ O servidor grava o comando no log em disco antes de alterar o estado em memória
 
 ## Padrões relacionados
 
-- [Segmented Log](./segmented-log.md) — divide o log em vários arquivos para facilitar leitura e limpeza
-- [Low-Water Mark](./low-water-mark.md) — define até onde o log pode ser descartado
-- [Replicated Log](./replicated-log.md) — replica o WAL entre nós para formar um log consistente
-- [Singular Update Queue](./singular-update-queue.md) — serializa as escritas no log em uma única thread
-- [Generation Clock](./generation-clock.md) — a geração é gravada em cada entrada do log
-- [Event Sourcing](../../../cloud/cloud-design-patterns/data-management/event-sourcing.md) — também armazena o estado como sequência de eventos em um log imutável
-- [Transaction Log Tailing](../../microservices/transactional-messaging/transaction-log-tailing.md) — lê o log de transações do banco, que é um WAL, para publicar eventos
+- [Segmented Log](/architecture/distributed-systems/data-replication/segmented-log) — divide o log em vários arquivos para facilitar leitura e limpeza
+- [Low-Water Mark](/architecture/distributed-systems/data-replication/low-water-mark) — define até onde o log pode ser descartado
+- [Replicated Log](/architecture/distributed-systems/data-replication/replicated-log) — replica o WAL entre nós para formar um log consistente
+- [Singular Update Queue](/architecture/distributed-systems/data-replication/singular-update-queue) — serializa as escritas no log em uma única thread
+- [Generation Clock](/architecture/distributed-systems/data-replication/generation-clock) — a geração é gravada em cada entrada do log
+- [Event Sourcing](/cloud/cloud-design-patterns/data-management/event-sourcing) — também armazena o estado como sequência de eventos em um log imutável
+- [Transaction Log Tailing](/architecture/microservices/transactional-messaging/transaction-log-tailing) — lê o log de transações do banco, que é um WAL, para publicar eventos
 
 ## Referência
 

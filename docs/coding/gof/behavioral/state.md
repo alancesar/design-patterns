@@ -116,11 +116,11 @@ class Order {
 
 ## Padrões relacionados
 
-- [Strategy](./strategy.md) — tem estrutura quase idêntica (contexto delegando a um objeto intercambiável), mas a intenção difere: no Strategy o cliente escolhe o algoritmo e as estratégias são independentes e não se conhecem; no State a troca é dirigida pelo próprio objeto conforme seu estado interno, e os estados costumam conhecer e disparar as transições entre si.
-- [Singleton](../creational/singleton.md) — estados sem dados próprios podem ser instâncias únicas compartilhadas.
-- [Flyweight](../structural/flyweight.md) — permite compartilhar objetos de estado entre vários contextos, mantendo o dado específico no contexto.
-- [Memento](./memento.md) — pode capturar e restaurar o estado de um objeto, por exemplo para desfazer transições.
-- [Bridge](../structural/bridge.md) — também se baseia em composição e delegação para uma hierarquia de implementações, porém com foco estrutural, não em transições.
+- [Strategy](/coding/gof/behavioral/strategy) — tem estrutura quase idêntica (contexto delegando a um objeto intercambiável), mas a intenção difere: no Strategy o cliente escolhe o algoritmo e as estratégias são independentes e não se conhecem; no State a troca é dirigida pelo próprio objeto conforme seu estado interno, e os estados costumam conhecer e disparar as transições entre si.
+- [Singleton](/coding/gof/creational/singleton) — estados sem dados próprios podem ser instâncias únicas compartilhadas.
+- [Flyweight](/coding/gof/structural/flyweight) — permite compartilhar objetos de estado entre vários contextos, mantendo o dado específico no contexto.
+- [Memento](/coding/gof/behavioral/memento) — pode capturar e restaurar o estado de um objeto, por exemplo para desfazer transições.
+- [Bridge](/coding/gof/structural/bridge) — também se baseia em composição e delegação para uma hierarquia de implementações, porém com foco estrutural, não em transições.
 
 ## Referência
 

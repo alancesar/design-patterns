@@ -67,13 +67,13 @@ Uma seguradora tem um sistema de apólices com vinte anos de acréscimos, em que
 
 ## Padrões relacionados
 
-- [Context Map](./context-map.md) — onde a região é delimitada como um único contexto.
-- [Anticorruption Layer](../../../cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer.md) — protege os vizinhos do modelo confuso.
-- [Bounded Context](../model-in-practice/bounded-context.md) — a fronteira desenhada em torno da região.
-- [Separate Ways](./separate-ways.md) — alternativa quando não vale a pena integrar com o legado.
-- [Conformist](./conformist.md) — evitar em relação a um Big Ball of Mud, para não herdar a confusão.
-- [Strangler Application](../../../cloud/cloud-design-patterns/integration-and-modernization/strangler-fig.md) — substituição incremental do legado.
-- [Strangler Fig](../../../cloud/cloud-design-patterns/integration-and-modernization/strangler-fig.md) — a mesma ideia no catálogo de nuvem.
+- [Context Map](/application/ddd/context-mapping/context-map) — onde a região é delimitada como um único contexto.
+- [Anticorruption Layer](/cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer) — protege os vizinhos do modelo confuso.
+- [Bounded Context](/application/ddd/model-in-practice/bounded-context) — a fronteira desenhada em torno da região.
+- [Separate Ways](/application/ddd/context-mapping/separate-ways) — alternativa quando não vale a pena integrar com o legado.
+- [Conformist](/application/ddd/context-mapping/conformist) — evitar em relação a um Big Ball of Mud, para não herdar a confusão.
+- [Strangler Application](/cloud/cloud-design-patterns/integration-and-modernization/strangler-fig) — substituição incremental do legado.
+- [Strangler Fig](/cloud/cloud-design-patterns/integration-and-modernization/strangler-fig) — a mesma ideia no catálogo de nuvem.
 
 ## Referência
 

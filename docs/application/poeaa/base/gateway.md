@@ -30,8 +30,8 @@ Como o cliente depende apenas da interface do Gateway, o recurso pode ser trocad
 
 - Quando a aplicação acessa um recurso externo com API complexa ou específica e se quer escondê-la do resto do sistema.
 - Quando há chance de trocar o recurso ou o fornecedor no futuro.
-- Quando se quer substituir o recurso por um [Service Stub](./service-stub.md) em testes.
-- Em conjunto com [Separated Interface](./separated-interface.md), para que a interface fique no código cliente e a implementação em outro pacote.
+- Quando se quer substituir o recurso por um [Service Stub](/application/poeaa/base/service-stub) em testes.
+- Em conjunto com [Separated Interface](/application/poeaa/base/separated-interface), para que a interface fique no código cliente e a implementação em outro pacote.
 
 ### Quando evitar
 
@@ -97,19 +97,19 @@ class PriceConverter:
         return amount * self._gateway.rate(source, target)
 ```
 
-Exemplos comuns: clientes de pagamento encapsulados, wrappers de SDKs de nuvem e as próprias variantes [Table Data Gateway](../data-source-architectural/table-data-gateway.md) e [Row Data Gateway](../data-source-architectural/row-data-gateway.md) para banco de dados.
+Exemplos comuns: clientes de pagamento encapsulados, wrappers de SDKs de nuvem e as próprias variantes [Table Data Gateway](/application/poeaa/data-source-architectural/table-data-gateway) e [Row Data Gateway](/application/poeaa/data-source-architectural/row-data-gateway) para banco de dados.
 
 ## Padrões relacionados
 
-- [Service Stub](./service-stub.md) — substitui o Gateway em testes, evitando o serviço remoto real.
-- [Separated Interface](./separated-interface.md) — costuma ser o ponto de encaixe do Gateway: a interface fica perto do cliente e a implementação em outro pacote.
-- [Table Data Gateway](../data-source-architectural/table-data-gateway.md) — Gateway especializado para uma tabela do banco.
-- [Row Data Gateway](../data-source-architectural/row-data-gateway.md) — Gateway especializado para uma linha do banco.
-- [Mapper](./mapper.md) — também separa dois lados, mas o Mapper isola dois subsistemas entre si, e o Gateway isola a aplicação de um recurso externo.
-- [Facade](../../../coding/gof/structural/facade.md) — simplifica um subsistema, em geral em direção ao cliente; o Gateway adapta um recurso externo ao vocabulário da aplicação.
-- [Adapter](../../../coding/gof/structural/adapter.md) — o Gateway costuma ser implementado como um Adapter sobre a API do recurso.
-- [API Gateway](../../../architecture/microservices/external-api/api-gateway.md) — não confundir: aquele é um componente de infraestrutura na borda do sistema que recebe requisições de clientes externos; o Gateway do PoEAA é uma classe dentro da aplicação que acessa um recurso externo.
-- [Gateway Routing](../../../cloud/cloud-design-patterns/gateways-and-edge/gateway-routing.md), [Gateway Aggregation](../../../cloud/cloud-design-patterns/gateways-and-edge/gateway-aggregation.md) e [Gateway Offloading](../../../cloud/cloud-design-patterns/gateways-and-edge/gateway-offloading.md) — padrões de nuvem que rodam como serviço na frente de backends; nada têm a ver com a classe de encapsulamento do PoEAA.
+- [Service Stub](/application/poeaa/base/service-stub) — substitui o Gateway em testes, evitando o serviço remoto real.
+- [Separated Interface](/application/poeaa/base/separated-interface) — costuma ser o ponto de encaixe do Gateway: a interface fica perto do cliente e a implementação em outro pacote.
+- [Table Data Gateway](/application/poeaa/data-source-architectural/table-data-gateway) — Gateway especializado para uma tabela do banco.
+- [Row Data Gateway](/application/poeaa/data-source-architectural/row-data-gateway) — Gateway especializado para uma linha do banco.
+- [Mapper](/application/poeaa/base/mapper) — também separa dois lados, mas o Mapper isola dois subsistemas entre si, e o Gateway isola a aplicação de um recurso externo.
+- [Facade](/coding/gof/structural/facade) — simplifica um subsistema, em geral em direção ao cliente; o Gateway adapta um recurso externo ao vocabulário da aplicação.
+- [Adapter](/coding/gof/structural/adapter) — o Gateway costuma ser implementado como um Adapter sobre a API do recurso.
+- [API Gateway](/architecture/microservices/external-api/api-gateway) — não confundir: aquele é um componente de infraestrutura na borda do sistema que recebe requisições de clientes externos; o Gateway do PoEAA é uma classe dentro da aplicação que acessa um recurso externo.
+- [Gateway Routing](/cloud/cloud-design-patterns/gateways-and-edge/gateway-routing), [Gateway Aggregation](/cloud/cloud-design-patterns/gateways-and-edge/gateway-aggregation) e [Gateway Offloading](/cloud/cloud-design-patterns/gateways-and-edge/gateway-offloading) — padrões de nuvem que rodam como serviço na frente de backends; nada têm a ver com a classe de encapsulamento do PoEAA.
 
 ## Referência
 

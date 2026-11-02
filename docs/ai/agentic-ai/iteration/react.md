@@ -62,9 +62,9 @@ O agente alterna raciocínio, ação e observação até decidir que já tem a r
 
 ## Padrões relacionados
 
-- [Multi-Agent Loop](./multi-agent-loop.md) — também itera, mas com um fluxo predefinido de subagentes em vez de um modelo decidindo cada passo.
-- [Multi-Agent Review and Critique](../../agent-orchestration/dynamic-orchestration/maker-checker-loop.md) — separa criação e verificação em agentes distintos, em vez de um agente que raciocina e age sozinho.
-- [Magentic Orchestration](../../agent-orchestration/dynamic-orchestration/magentic-orchestration.md) — planejamento dinâmico semelhante, mas com um gerente coordenando vários agentes.
+- [Multi-Agent Loop](/ai/agentic-ai/iteration/multi-agent-loop) — também itera, mas com um fluxo predefinido de subagentes em vez de um modelo decidindo cada passo.
+- [Multi-Agent Review and Critique](/ai/agent-orchestration/dynamic-orchestration/maker-checker-loop) — separa criação e verificação em agentes distintos, em vez de um agente que raciocina e age sozinho.
+- [Magentic Orchestration](/ai/agent-orchestration/dynamic-orchestration/magentic-orchestration) — planejamento dinâmico semelhante, mas com um gerente coordenando vários agentes.
 
 ## Referência
 

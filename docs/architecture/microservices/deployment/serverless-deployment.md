@@ -66,10 +66,10 @@ A plataforma cria e escala instâncias da função sob demanda, a partir de requ
 
 ## Padrões relacionados
 
-- [Multiple Service Instances per Host](./multiple-service-instances-per-host.md) — abordagem alternativa de implantação.
-- [Service Instance per Host](./service-instance-per-host.md) — alternativa; a plataforma serverless provavelmente a usa internamente.
-- [Service Instance per Container](./service-instance-per-container.md) — alternativa em que o time gerencia os contêineres.
-- [Service Instance per VM](./service-instance-per-vm.md) — alternativa em que o time gerencia as VMs.
+- [Multiple Service Instances per Host](/architecture/microservices/deployment/multiple-service-instances-per-host) — abordagem alternativa de implantação.
+- [Service Instance per Host](/architecture/microservices/deployment/service-instance-per-host) — alternativa; a plataforma serverless provavelmente a usa internamente.
+- [Service Instance per Container](/architecture/microservices/deployment/service-instance-per-container) — alternativa em que o time gerencia os contêineres.
+- [Service Instance per VM](/architecture/microservices/deployment/service-instance-per-vm) — alternativa em que o time gerencia as VMs.
 
 ## Referência
 

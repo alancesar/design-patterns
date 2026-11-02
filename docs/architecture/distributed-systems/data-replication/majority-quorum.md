@@ -66,11 +66,11 @@ Em um cluster de três nós, duas confirmações bastam para considerar a atuali
 
 ## Padrões relacionados
 
-- [Leader and Followers](./leader-and-followers.md) — o líder usa o quórum para confirmar escritas
-- [High-Water Mark](./high-water-mark.md) — marca a última entrada replicada em maioria
-- [Paxos](./paxos.md) — usa quóruns de maioria nas fases de prepare e accept
-- [Replicated Log](./replicated-log.md) — entradas só são confirmadas após o quórum
-- [Two-Phase Commit](../data-partitioning/two-phase-commit.md) — contraste: exige todos os participantes, não apenas a maioria
+- [Leader and Followers](/architecture/distributed-systems/data-replication/leader-and-followers) — o líder usa o quórum para confirmar escritas
+- [High-Water Mark](/architecture/distributed-systems/data-replication/high-water-mark) — marca a última entrada replicada em maioria
+- [Paxos](/architecture/distributed-systems/data-replication/paxos) — usa quóruns de maioria nas fases de prepare e accept
+- [Replicated Log](/architecture/distributed-systems/data-replication/replicated-log) — entradas só são confirmadas após o quórum
+- [Two-Phase Commit](/architecture/distributed-systems/data-partitioning/two-phase-commit) — contraste: exige todos os participantes, não apenas a maioria
 
 ## Referência
 

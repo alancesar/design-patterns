@@ -1,0 +1,42 @@
+{
+  "title": {
+    "message": "Design Patterns",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "Design Patterns",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Coding": {
+    "message": "Coding",
+    "description": "Navbar item with label Coding"
+  },
+  "item.label.Application": {
+    "message": "Application",
+    "description": "Navbar item with label Application"
+  },
+  "item.label.Architecture": {
+    "message": "Architecture",
+    "description": "Navbar item with label Architecture"
+  },
+  "item.label.Cloud": {
+    "message": "Cloud",
+    "description": "Navbar item with label Cloud"
+  },
+  "item.label.AI": {
+    "message": "AI",
+    "description": "Navbar item with label AI"
+  },
+  "item.label.Etiquetas": {
+    "message": "Tags",
+    "description": "Navbar item with label Etiquetas"
+  },
+  "item.label.alancesar.dev": {
+    "message": "alancesar.dev",
+    "description": "Navbar item with label alancesar.dev"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  }
+}

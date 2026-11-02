@@ -81,11 +81,11 @@ O cliente obtém da aplicação apenas a página dinâmica, que referencia os ar
 
 ## Padrões relacionados
 
-- [Valet Key](../security-and-access/valet-key.md) — fornece tokens ou chaves de acesso restrito e temporário para que clientes acessem diretamente recursos que não devem ser públicos.
-- [Cache-Aside](../data-management/cache-aside.md) — outra forma de reduzir carga na origem mantendo dados frequentemente acessados em cache.
-- [Gateway Offloading](../gateways-and-edge/gateway-offloading.md) — também transfere responsabilidades dos serviços de aplicação para uma camada compartilhada, como a entrega de conteúdo.
-- [Gateway Routing](../gateways-and-edge/gateway-routing.md) — um proxy reverso pode rotear caminhos do mesmo domínio para o armazenamento estático e preservar URLs.
-- [Geodes](./geodes.md) — distribuição geográfica de serviços para aproximar o conteúdo dos usuários, complementando o uso de CDN.
+- [Valet Key](/cloud/cloud-design-patterns/security-and-access/valet-key) — fornece tokens ou chaves de acesso restrito e temporário para que clientes acessem diretamente recursos que não devem ser públicos.
+- [Cache-Aside](/cloud/cloud-design-patterns/data-management/cache-aside) — outra forma de reduzir carga na origem mantendo dados frequentemente acessados em cache.
+- [Gateway Offloading](/cloud/cloud-design-patterns/gateways-and-edge/gateway-offloading) — também transfere responsabilidades dos serviços de aplicação para uma camada compartilhada, como a entrega de conteúdo.
+- [Gateway Routing](/cloud/cloud-design-patterns/gateways-and-edge/gateway-routing) — um proxy reverso pode rotear caminhos do mesmo domínio para o armazenamento estático e preservar URLs.
+- [Geodes](/cloud/cloud-design-patterns/deployment-and-topology/geodes) — distribuição geográfica de serviços para aproximar o conteúdo dos usuários, complementando o uso de CDN.
 
 ## Referência
 

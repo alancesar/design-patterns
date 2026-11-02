@@ -132,11 +132,11 @@ notifier.send("Servidor fora do ar"); // Email, SMS e Slack
 
 ## Padrões relacionados
 
-- [Adapter](./adapter.md) — o Adapter altera a interface de um objeto; o Decorator mantém a interface e acrescenta responsabilidades.
-- [Composite](./composite.md) — estrutura semelhante (composição recursiva), mas o Decorator tem um único filho e foca em adicionar comportamento, não em agregar resultados.
-- [Proxy](./proxy.md) — mesma estrutura de embrulho, mas o Proxy controla o acesso ao objeto e normalmente gerencia seu ciclo de vida, enquanto o Decorator é composto pelo cliente para estender comportamento.
-- [Strategy](../behavioral/strategy.md) — o Decorator muda a "casca" do objeto; o Strategy muda suas "entranhas", trocando o algoritmo interno.
-- [Chain of Responsibility](../behavioral/chain-of-responsibility.md) — também encadeia objetos, mas um elo pode interromper o fluxo, enquanto decoradores normalmente sempre delegam.
+- [Adapter](/coding/gof/structural/adapter) — o Adapter altera a interface de um objeto; o Decorator mantém a interface e acrescenta responsabilidades.
+- [Composite](/coding/gof/structural/composite) — estrutura semelhante (composição recursiva), mas o Decorator tem um único filho e foca em adicionar comportamento, não em agregar resultados.
+- [Proxy](/coding/gof/structural/proxy) — mesma estrutura de embrulho, mas o Proxy controla o acesso ao objeto e normalmente gerencia seu ciclo de vida, enquanto o Decorator é composto pelo cliente para estender comportamento.
+- [Strategy](/coding/gof/behavioral/strategy) — o Decorator muda a "casca" do objeto; o Strategy muda suas "entranhas", trocando o algoritmo interno.
+- [Chain of Responsibility](/coding/gof/behavioral/chain-of-responsibility) — também encadeia objetos, mas um elo pode interromper o fluxo, enquanto decoradores normalmente sempre delegam.
 
 ## Referência
 

@@ -76,11 +76,11 @@ A aplicação envia suas requisições ao ambassador colocalizado no mesmo host,
 
 ## Padrões relacionados
 
-- [Sidecar](./sidecar.md) — o ambassador é uma especialização do sidecar voltada a conectividade de saída e é frequentemente implantado dessa forma.
-- [Circuit Breaker](../resiliency/circuit-breaker.md) — uma das funcionalidades de resiliência mais comuns de implementar dentro do ambassador.
-- [Retry](../resiliency/retry.md) — o ambassador pode aplicar novas tentativas de forma transparente, desde que as operações sejam idempotentes.
-- [Gateway Offloading](../gateways-and-edge/gateway-offloading.md) — também descarrega preocupações transversais, mas de forma centralizada no lado do servidor, e não junto ao cliente.
-- [Anti-Corruption Layer](./anti-corruption-layer.md) — também se interpõe entre a aplicação e sistemas externos, porém para traduzir semântica, e não para tratar conectividade.
+- [Sidecar](/cloud/cloud-design-patterns/integration-and-modernization/sidecar) — o ambassador é uma especialização do sidecar voltada a conectividade de saída e é frequentemente implantado dessa forma.
+- [Circuit Breaker](/cloud/cloud-design-patterns/resiliency/circuit-breaker) — uma das funcionalidades de resiliência mais comuns de implementar dentro do ambassador.
+- [Retry](/cloud/cloud-design-patterns/resiliency/retry) — o ambassador pode aplicar novas tentativas de forma transparente, desde que as operações sejam idempotentes.
+- [Gateway Offloading](/cloud/cloud-design-patterns/gateways-and-edge/gateway-offloading) — também descarrega preocupações transversais, mas de forma centralizada no lado do servidor, e não junto ao cliente.
+- [Anti-Corruption Layer](/cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer) — também se interpõe entre a aplicação e sistemas externos, porém para traduzir semântica, e não para tratar conectividade.
 
 ## Referência
 

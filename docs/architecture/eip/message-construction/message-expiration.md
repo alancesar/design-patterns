@@ -59,13 +59,13 @@ Mensagens dentro do prazo vão ao consumidor; as vencidas são descartadas ou de
 
 ## Padrões relacionados
 
-- [Dead Letter Channel](../messaging-channels/dead-letter-channel.md) — destino comum das mensagens expiradas
-- [Invalid Message Channel](../messaging-channels/invalid-message-channel.md) — destino de mensagens que o receptor não consegue tratar
-- [Guaranteed Delivery](../messaging-channels/guaranteed-delivery.md) — preocupação oposta: não perder mensagens
-- [Publish-Subscribe Channel](../../../cloud/cloud-design-patterns/messaging/publisher-subscriber.md) — assinantes tardios podem precisar de mensagens antigas
-- [Event Message](./event-message.md) — eventos obsoletos são bons candidatos à expiração
-- [Request-Reply](./request-reply.md) — requisições vencidas não devem ser atendidas
-- [Message](./message.md) — o prazo vai no cabeçalho
+- [Dead Letter Channel](/architecture/eip/messaging-channels/dead-letter-channel) — destino comum das mensagens expiradas
+- [Invalid Message Channel](/architecture/eip/messaging-channels/invalid-message-channel) — destino de mensagens que o receptor não consegue tratar
+- [Guaranteed Delivery](/architecture/eip/messaging-channels/guaranteed-delivery) — preocupação oposta: não perder mensagens
+- [Publish-Subscribe Channel](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — assinantes tardios podem precisar de mensagens antigas
+- [Event Message](/architecture/eip/message-construction/event-message) — eventos obsoletos são bons candidatos à expiração
+- [Request-Reply](/architecture/eip/message-construction/request-reply) — requisições vencidas não devem ser atendidas
+- [Message](/architecture/eip/message-construction/message) — o prazo vai no cabeçalho
 
 ## Referência
 

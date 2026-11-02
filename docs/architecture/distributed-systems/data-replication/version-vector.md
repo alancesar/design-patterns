@@ -65,9 +65,9 @@ Dois nós atualizam a mesma chave sem conhecer a atualização do outro; ao sinc
 
 ## Padrões relacionados
 
-- [Versioned Value](./versioned-value.md) — versão única, para sistemas com ordem total
-- [Lamport Clock](../distributed-time/lamport-clock.md) — relógio lógico escalar que ordena sem detectar concorrência
-- [Leader and Followers](./leader-and-followers.md) — abordagem alternativa: um líder evita conflitos de escrita
+- [Versioned Value](/architecture/distributed-systems/data-replication/versioned-value) — versão única, para sistemas com ordem total
+- [Lamport Clock](/architecture/distributed-systems/distributed-time/lamport-clock) — relógio lógico escalar que ordena sem detectar concorrência
+- [Leader and Followers](/architecture/distributed-systems/data-replication/leader-and-followers) — abordagem alternativa: um líder evita conflitos de escrita
 
 ## Referência
 

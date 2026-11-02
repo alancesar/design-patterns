@@ -17,7 +17,7 @@ O Special Case é uma subclasse que fornece comportamento especial para casos pa
 
 O objeto de caso especial encapsula o comportamento padrão da situação (por exemplo, um cliente desconhecido, um valor infinito, um ocupante não identificado). Com isso, as checagens de nulo que seriam repetidas em muitos lugares deixam de ser necessárias, e o tratamento do caso fica em um único ponto.
 
-O Special Case é a generalização do [Null Object](../../../coding/gof/behavioral/null-object.md) do GoF. O Null Object é um caso particular em que o objeto especial não faz nada (ausência de comportamento). O Special Case cobre também situações em que há comportamento específico e útil, como um `UnknownCustomer` que devolve nome "ocupante" e cobra tarifa padrão, ou um `MissingPerson` que devolve valores padrão.
+O Special Case é a generalização do [Null Object](/coding/gof/behavioral/null-object) do GoF. O Null Object é um caso particular em que o objeto especial não faz nada (ausência de comportamento). O Special Case cobre também situações em que há comportamento específico e útil, como um `UnknownCustomer` que devolve nome "ocupante" e cobra tarifa padrão, ou um `MissingPerson` que devolve valores padrão.
 
 ## Problemas que resolve
 
@@ -114,13 +114,13 @@ Exemplos conhecidos: `Collections.emptyList()` no Java, `AnonymousUser` em frame
 
 ## Padrões relacionados
 
-- [Null Object](../../../coding/gof/behavioral/null-object.md) — caso particular do Special Case, em que o objeto especial não faz nada; o Special Case generaliza a ideia para qualquer comportamento específico.
-- [Value Object](./value-object.md) — valores especiais (zero, infinito, desconhecido) podem ser Special Cases de um Value Object.
-- [Money](./money.md) — um dinheiro "zero" ou "indefinido" pode ser um Special Case de Money.
-- [Domain Model](../domain-logic/domain-model.md) — entidades como clientes e contas costumam ter variantes de caso especial.
-- [Repository](../object-relational-metadata-mapping/repository.md) — finders que não encontram resultados podem devolver um Special Case no lugar de nulo.
-- [State](../../../coding/gof/behavioral/state.md) — também usa polimorfismo para variar o comportamento, mas em função do estado interno do objeto.
-- [Strategy](../../../coding/gof/behavioral/strategy.md) — o caso especial é, na prática, uma estratégia-padrão para a situação.
+- [Null Object](/coding/gof/behavioral/null-object) — caso particular do Special Case, em que o objeto especial não faz nada; o Special Case generaliza a ideia para qualquer comportamento específico.
+- [Value Object](/application/poeaa/base/value-object) — valores especiais (zero, infinito, desconhecido) podem ser Special Cases de um Value Object.
+- [Money](/application/poeaa/base/money) — um dinheiro "zero" ou "indefinido" pode ser um Special Case de Money.
+- [Domain Model](/application/poeaa/domain-logic/domain-model) — entidades como clientes e contas costumam ter variantes de caso especial.
+- [Repository](/application/poeaa/object-relational-metadata-mapping/repository) — finders que não encontram resultados podem devolver um Special Case no lugar de nulo.
+- [State](/coding/gof/behavioral/state) — também usa polimorfismo para variar o comportamento, mas em função do estado interno do objeto.
+- [Strategy](/coding/gof/behavioral/strategy) — o caso especial é, na prática, uma estratégia-padrão para a situação.
 
 ## Referência
 

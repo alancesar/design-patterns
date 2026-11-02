@@ -63,12 +63,12 @@ O receptor valida cada mensagem; as válidas seguem o fluxo normal e as inválid
 
 ## Padrões relacionados
 
-- [Dead Letter Channel](./dead-letter-channel.md) — trata mensagens que não puderam ser entregues, em vez de mensagens inválidas.
-- [Datatype Channel](./datatype-channel.md) — canais por tipo reduzem a chance de formato errado.
-- [Message Channel](./message-channel.md) — o conceito geral de canal.
-- [Message Expiration](../message-construction/message-expiration.md) — mensagens vencidas também podem ser desviadas.
-- [Retry](../../../cloud/cloud-design-patterns/resiliency/retry.md) — falhas transitórias pedem nova tentativa, não desvio como inválida.
-- [Service Activator](../messaging-endpoints/service-activator.md) — endpoint que costuma validar e despachar a mensagem.
+- [Dead Letter Channel](/architecture/eip/messaging-channels/dead-letter-channel) — trata mensagens que não puderam ser entregues, em vez de mensagens inválidas.
+- [Datatype Channel](/architecture/eip/messaging-channels/datatype-channel) — canais por tipo reduzem a chance de formato errado.
+- [Message Channel](/architecture/eip/messaging-channels/message-channel) — o conceito geral de canal.
+- [Message Expiration](/architecture/eip/message-construction/message-expiration) — mensagens vencidas também podem ser desviadas.
+- [Retry](/cloud/cloud-design-patterns/resiliency/retry) — falhas transitórias pedem nova tentativa, não desvio como inválida.
+- [Service Activator](/architecture/eip/messaging-endpoints/service-activator) — endpoint que costuma validar e despachar a mensagem.
 
 ## Referência
 

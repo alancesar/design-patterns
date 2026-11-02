@@ -60,12 +60,12 @@ As instâncias mantêm o registro atualizado e clientes ou roteadores o consulta
 
 ## Padrões relacionados
 
-- [Client-side Discovery](./client-side-discovery.md) — cliente consulta o registro
-- [Server-side Discovery](./server-side-discovery.md) — roteador consulta o registro
-- [Self Registration](./self-registration.md) — instâncias se registram sozinhas
-- [3rd Party Registration](./3rd-party-registration.md) — um registrador externo cuida do registro
-- [Health Check API](../../../cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring.md) — usada para verificar a saúde das instâncias
-- [Health Endpoint Monitoring](../../../cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring.md) — verificação de saúde por endpoints
+- [Client-side Discovery](/architecture/microservices/service-discovery/client-side-discovery) — cliente consulta o registro
+- [Server-side Discovery](/architecture/microservices/service-discovery/server-side-discovery) — roteador consulta o registro
+- [Self Registration](/architecture/microservices/service-discovery/self-registration) — instâncias se registram sozinhas
+- [3rd Party Registration](/architecture/microservices/service-discovery/3rd-party-registration) — um registrador externo cuida do registro
+- [Health Check API](/cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring) — usada para verificar a saúde das instâncias
+- [Health Endpoint Monitoring](/cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring) — verificação de saúde por endpoints
 
 ## Referência
 

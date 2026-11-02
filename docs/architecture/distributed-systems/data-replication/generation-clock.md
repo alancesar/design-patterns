@@ -66,11 +66,11 @@ O seguidor já viu a geração 2 e rejeita a mensagem do líder antigo, que desc
 
 ## Padrões relacionados
 
-- [Leader and Followers](./leader-and-followers.md) — cada eleição de líder incrementa a geração
-- [Write-Ahead Log](./write-ahead-log.md) — a geração é gravada em cada entrada do log
-- [High-Water Mark](./high-water-mark.md) — usada em conjunto para resolver conflitos de log
-- [Paxos](./paxos.md) — usa o Generation Clock na fase prepare
-- [Lamport Clock](../distributed-time/lamport-clock.md) — outro relógio lógico monotônico, com granularidade por evento
+- [Leader and Followers](/architecture/distributed-systems/data-replication/leader-and-followers) — cada eleição de líder incrementa a geração
+- [Write-Ahead Log](/architecture/distributed-systems/data-replication/write-ahead-log) — a geração é gravada em cada entrada do log
+- [High-Water Mark](/architecture/distributed-systems/data-replication/high-water-mark) — usada em conjunto para resolver conflitos de log
+- [Paxos](/architecture/distributed-systems/data-replication/paxos) — usa o Generation Clock na fase prepare
+- [Lamport Clock](/architecture/distributed-systems/distributed-time/lamport-clock) — outro relógio lógico monotônico, com granularidade por evento
 
 ## Referência
 

@@ -69,10 +69,10 @@ A imagem gera vários contêineres que compartilham o kernel do host.
 
 ## Padrões relacionados
 
-- [Service Instance per Host](./service-instance-per-host.md) — padrão que esta abordagem refina.
-- [Service Instance per VM](./service-instance-per-vm.md) — alternativa com isolamento mais forte, porém mais pesada.
-- [Serverless Deployment](./serverless-deployment.md) — alternativa que esconde a infraestrutura.
-- [Service Deployment Platform](./service-deployment-platform.md) — plataforma que orquestra contêineres.
+- [Service Instance per Host](/architecture/microservices/deployment/service-instance-per-host) — padrão que esta abordagem refina.
+- [Service Instance per VM](/architecture/microservices/deployment/service-instance-per-vm) — alternativa com isolamento mais forte, porém mais pesada.
+- [Serverless Deployment](/architecture/microservices/deployment/serverless-deployment) — alternativa que esconde a infraestrutura.
+- [Service Deployment Platform](/architecture/microservices/deployment/service-deployment-platform) — plataforma que orquestra contêineres.
 
 ## Referência
 

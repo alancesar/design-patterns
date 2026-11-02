@@ -73,13 +73,13 @@ Os times de Cobrança e de Assinaturas de uma empresa de software como serviço 
 
 ## Padrões relacionados
 
-- [Context Map](./context-map.md) — o kernel e seus participantes devem aparecer no mapa.
-- [Partnership](./partnership.md) — o Shared Kernel costuma nascer de uma parceria próxima.
-- [Customer/Supplier Development](./customer-supplier-development.md) — alternativa quando o acoplamento deve ser unilateral.
-- [Separate Ways](./separate-ways.md) — extremo oposto: nenhum compartilhamento.
-- [Continuous Integration](../model-in-practice/continuous-integration.md) — prática necessária para manter o kernel coerente.
-- [Value Object](../../poeaa/base/value-object.md) — tipos como Money costumam compor o kernel.
-- [Shared Database](../../../architecture/microservices/service-collaboration/shared-database.md) — forma de compartilhamento ainda mais forte, no nível dos dados.
+- [Context Map](/application/ddd/context-mapping/context-map) — o kernel e seus participantes devem aparecer no mapa.
+- [Partnership](/application/ddd/context-mapping/partnership) — o Shared Kernel costuma nascer de uma parceria próxima.
+- [Customer/Supplier Development](/application/ddd/context-mapping/customer-supplier-development) — alternativa quando o acoplamento deve ser unilateral.
+- [Separate Ways](/application/ddd/context-mapping/separate-ways) — extremo oposto: nenhum compartilhamento.
+- [Continuous Integration](/application/ddd/model-in-practice/continuous-integration) — prática necessária para manter o kernel coerente.
+- [Value Object](/application/poeaa/base/value-object) — tipos como Money costumam compor o kernel.
+- [Shared Database](/architecture/microservices/service-collaboration/shared-database) — forma de compartilhamento ainda mais forte, no nível dos dados.
 
 ## Referência
 

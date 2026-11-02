@@ -67,10 +67,10 @@ O líder registra um callback por índice e o dispara quando a replicação alca
 
 ## Padrões relacionados
 
-- [Replicated Log](./replicated-log.md) — usa o índice do log como chave
-- [Majority Quorum](./majority-quorum.md) — define quando o callback é disparado
-- [High-Water Mark](./high-water-mark.md) — ao avançar, completa as requisições pendentes
-- [Singular Update Queue](./singular-update-queue.md) — acompanha a execução serializada das requisições
+- [Replicated Log](/architecture/distributed-systems/data-replication/replicated-log) — usa o índice do log como chave
+- [Majority Quorum](/architecture/distributed-systems/data-replication/majority-quorum) — define quando o callback é disparado
+- [High-Water Mark](/architecture/distributed-systems/data-replication/high-water-mark) — ao avançar, completa as requisições pendentes
+- [Singular Update Queue](/architecture/distributed-systems/data-replication/singular-update-queue) — acompanha a execução serializada das requisições
 
 ## Referência
 

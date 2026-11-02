@@ -113,11 +113,11 @@ No Hibernate, associações `@OneToMany(fetch = LAZY)` usam proxies e coleções
 
 ## Padrões relacionados
 
-- [Identity Map](./identity-map.md) — garante que ghosts e proxies resolvam para a mesma instância.
-- [Unit of Work](./unit-of-work.md) — define o escopo em que o carregamento tardio deve ocorrer.
-- [Data Mapper](../data-source-architectural/data-mapper.md) — executa a consulta disparada pelo carregamento tardio.
-- [Proxy](../../../coding/gof/structural/proxy.md) — a variante virtual proxy é uma aplicação direta do Proxy do GoF.
-- [Cache-Aside](../../../cloud/cloud-design-patterns/data-management/cache-aside.md) — também adia a leitura até a necessidade, mas guarda o resultado em um cache compartilhado.
+- [Identity Map](/application/poeaa/object-relational-behavioral/identity-map) — garante que ghosts e proxies resolvam para a mesma instância.
+- [Unit of Work](/application/poeaa/object-relational-behavioral/unit-of-work) — define o escopo em que o carregamento tardio deve ocorrer.
+- [Data Mapper](/application/poeaa/data-source-architectural/data-mapper) — executa a consulta disparada pelo carregamento tardio.
+- [Proxy](/coding/gof/structural/proxy) — a variante virtual proxy é uma aplicação direta do Proxy do GoF.
+- [Cache-Aside](/cloud/cloud-design-patterns/data-management/cache-aside) — também adia a leitura até a necessidade, mas guarda o resultado em um cache compartilhado.
 
 ## Referência
 

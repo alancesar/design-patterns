@@ -20,7 +20,7 @@ O Value Object é um objeto pequeno e simples, como um valor monetário ou um in
 
 Isso o diferencia dos objetos de referência (entidades), identificados por uma chave ou por identidade de objeto. O Value Object se parece com os tipos primitivos das linguagens, só que modelando conceitos do domínio, como `Money`, `DateRange`, `Email` ou `Address`.
 
-Na prática, um bom Value Object é imutável, compara por valor (implementando igualdade e hash a partir dos campos) e concentra a validação e o comportamento do conceito que representa. No Domain-Driven Design, o Value Object é um bloco de construção do modelo, ao lado de [Entity](../../ddd/building-blocks/entity.md) e de [Aggregate](../../ddd/building-blocks/aggregate.md). Evans recomenda preferir Value Objects sempre que o conceito não exigir identidade, pois são mais simples de raciocinar, testar e compartilhar. Dentro de um Aggregate, eles descrevem a raiz e as entidades internas e podem ser copiados ou substituídos livremente, sem cuidado com ciclo de vida.
+Na prática, um bom Value Object é imutável, compara por valor (implementando igualdade e hash a partir dos campos) e concentra a validação e o comportamento do conceito que representa. No Domain-Driven Design, o Value Object é um bloco de construção do modelo, ao lado de [Entity](/application/ddd/building-blocks/entity) e de [Aggregate](/application/ddd/building-blocks/aggregate). Evans recomenda preferir Value Objects sempre que o conceito não exigir identidade, pois são mais simples de raciocinar, testar e compartilhar. Dentro de um Aggregate, eles descrevem a raiz e as entidades internas e podem ser copiados ou substituídos livremente, sem cuidado com ciclo de vida.
 
 ## Problemas que resolve
 
@@ -34,11 +34,11 @@ Na prática, um bom Value Object é imutável, compara por valor (implementando 
 - Quando o conceito é definido apenas por seus atributos (valor monetário, intervalo, coordenada, e-mail, CEP).
 - Quando se quer garantir invariantes na construção, de forma que o objeto seja sempre válido.
 - Quando se quer imutabilidade para evitar efeitos colaterais e facilitar concorrência.
-- Em conjunto com [Embedded Value](../object-relational-structural/embedded-value.md) para persisti-lo dentro da linha do dono.
+- Em conjunto com [Embedded Value](/application/poeaa/object-relational-structural/embedded-value) para persisti-lo dentro da linha do dono.
 
 ### Quando evitar
 
-- Quando o objeto tem ciclo de vida e identidade próprios, que precisam ser rastreados (use uma entidade com [Identity Field](../object-relational-structural/identity-field.md)).
+- Quando o objeto tem ciclo de vida e identidade próprios, que precisam ser rastreados (use uma entidade com [Identity Field](/application/poeaa/object-relational-structural/identity-field)).
 - Quando o conceito muda com frequência e a imutabilidade geraria muita criação de objetos sem benefício.
 - Quando o valor é realmente trivial e o encapsulamento acrescentaria apenas cerimônia.
 
@@ -106,15 +106,15 @@ Records do Java e do C#, `dataclass(frozen=True)` no Python e `Struct` no Ruby s
 
 ## Padrões relacionados
 
-- [Money](./money.md) — o exemplo clássico de Value Object.
-- [Embedded Value](../object-relational-structural/embedded-value.md) — mapeia um Value Object para colunas da tabela do objeto dono.
-- [Serialized LOB](../object-relational-structural/serialized-lob.md) — alternativa para persistir um Value Object complexo como bloco serializado.
-- [Special Case](./special-case.md) — um valor especial (como "sem desconto") pode ser modelado como Value Object ou como Special Case.
-- [Entity](../../ddd/building-blocks/entity.md) — contraparte do DDD, definida por identidade e não por valor.
-- [Aggregate](../../ddd/building-blocks/aggregate.md) — Value Objects compõem os agregados e descrevem a raiz.
-- [Domain Model](../domain-logic/domain-model.md) — Value Objects compõem o modelo de domínio ao lado das entidades.
-- [Flyweight](../../../coding/gof/structural/flyweight.md) — objetos imutáveis podem ser compartilhados com segurança, o que viabiliza o Flyweight.
-- [Data Transfer Object](../distribution/data-transfer-object.md) — também é um objeto de dados, mas sem comportamento nem invariantes, voltado à transferência.
+- [Money](/application/poeaa/base/money) — o exemplo clássico de Value Object.
+- [Embedded Value](/application/poeaa/object-relational-structural/embedded-value) — mapeia um Value Object para colunas da tabela do objeto dono.
+- [Serialized LOB](/application/poeaa/object-relational-structural/serialized-lob) — alternativa para persistir um Value Object complexo como bloco serializado.
+- [Special Case](/application/poeaa/base/special-case) — um valor especial (como "sem desconto") pode ser modelado como Value Object ou como Special Case.
+- [Entity](/application/ddd/building-blocks/entity) — contraparte do DDD, definida por identidade e não por valor.
+- [Aggregate](/application/ddd/building-blocks/aggregate) — Value Objects compõem os agregados e descrevem a raiz.
+- [Domain Model](/application/poeaa/domain-logic/domain-model) — Value Objects compõem o modelo de domínio ao lado das entidades.
+- [Flyweight](/coding/gof/structural/flyweight) — objetos imutáveis podem ser compartilhados com segurança, o que viabiliza o Flyweight.
+- [Data Transfer Object](/application/poeaa/distribution/data-transfer-object) — também é um objeto de dados, mas sem comportamento nem invariantes, voltado à transferência.
 
 ## Referência
 

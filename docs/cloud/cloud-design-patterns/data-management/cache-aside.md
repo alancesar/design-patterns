@@ -80,11 +80,11 @@ Na leitura, a aplicação consulta o cache primeiro e, em caso de *miss*, busca 
 
 ## Padrões relacionados
 
-- [Static Content Hosting](../deployment-and-topology/static-content-hosting.md) — também tira carga da aplicação e da origem ao servir conteúdo estático, muitas vezes com CDN e cache.
-- [Materialized View](./materialized-view.md) — pré-computa visões dos dados para leitura, que podem ficar no cache para acelerar consultas.
-- [CQRS](./cqrs.md) — separa leituras e escritas, e o lado de leitura pode usar Cache-Aside para ganhar desempenho.
-- [Sharding](./sharding.md) — particiona dados, e um cache distribuído pode seguir a mesma estratégia de particionamento.
-- [Circuit Breaker](../resiliency/circuit-breaker.md) — protege a aplicação quando o cache ou a origem falham e permite recorrer ao outro.
+- [Static Content Hosting](/cloud/cloud-design-patterns/deployment-and-topology/static-content-hosting) — também tira carga da aplicação e da origem ao servir conteúdo estático, muitas vezes com CDN e cache.
+- [Materialized View](/cloud/cloud-design-patterns/data-management/materialized-view) — pré-computa visões dos dados para leitura, que podem ficar no cache para acelerar consultas.
+- [CQRS](/cloud/cloud-design-patterns/data-management/cqrs) — separa leituras e escritas, e o lado de leitura pode usar Cache-Aside para ganhar desempenho.
+- [Sharding](/cloud/cloud-design-patterns/data-management/sharding) — particiona dados, e um cache distribuído pode seguir a mesma estratégia de particionamento.
+- [Circuit Breaker](/cloud/cloud-design-patterns/resiliency/circuit-breaker) — protege a aplicação quando o cache ou a origem falham e permite recorrer ao outro.
 
 ## Referência
 

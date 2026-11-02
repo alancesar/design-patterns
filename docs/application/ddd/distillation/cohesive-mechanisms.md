@@ -17,7 +17,7 @@ Cohesive Mechanisms são mecanismos computacionais complexos, como algoritmos de
 
 O modelo de domínio passa a expressar o quê (conceitos e regras de negócio) enquanto o mecanismo cuida do como (a mecânica do cálculo). O mecanismo é coeso, tem uma responsabilidade clara e pode ser testado e evoluído sem tocar nas regras do negócio.
 
-É diferente de um [Generic Subdomain](./generic-subdomains.md): o subdomínio genérico trata de conceitos de negócio sem diferencial, enquanto o mecanismo é uma questão técnica de computação que, às vezes, é publicada como framework ou biblioteca.
+É diferente de um [Generic Subdomain](/application/ddd/distillation/generic-subdomains): o subdomínio genérico trata de conceitos de negócio sem diferencial, enquanto o mecanismo é uma questão técnica de computação que, às vezes, é publicada como framework ou biblioteca.
 
 ## Problemas que resolve
 
@@ -47,7 +47,7 @@ O modelo de domínio passa a expressar o quê (conceitos e regras de negócio) e
 | Troca ou otimização do algoritmo sem afetar o domínio | Risco de abstrair demais e esconder regras de negócio |
 | Possibilidade de reuso por vários componentes | Pode exigir conhecimento técnico especializado |
 
-- **Interface:** deve ser expressa em termos do domínio ([Intention-Revealing Interfaces](../supple-design/intention-revealing-interfaces.md)), não dos detalhes do algoritmo.
+- **Interface:** deve ser expressa em termos do domínio ([Intention-Revealing Interfaces](/application/ddd/supple-design/intention-revealing-interfaces)), não dos detalhes do algoritmo.
 - **Fronteira:** é o ponto mais sensível; o mecanismo resolve o como, e decisões do quê permanecem no modelo.
 - **Reuso:** frequentemente se transforma em uma biblioteca ou em um framework interno.
 
@@ -103,12 +103,12 @@ public class RouteService {
 
 ## Padrões relacionados
 
-- [Generic Subdomains](./generic-subdomains.md) — vizinho conceitual, mas voltado a conceitos de negócio e não a mecanismos de computação.
-- [Core Domain](./core-domain.md) — o mecanismo é retirado para manter o core expressivo.
-- [Intention-Revealing Interfaces](../supple-design/intention-revealing-interfaces.md) — dá ao mecanismo uma interface em termos do domínio.
-- [Domain Service](../building-blocks/domain-service.md) — o ponto do modelo que normalmente invoca o mecanismo.
-- [Strategy](../../../coding/gof/behavioral/strategy.md) — forma comum de tornar o algoritmo substituível.
-- [Separated Interface](../../poeaa/base/separated-interface.md) — separa a interface da implementação em pacotes distintos.
+- [Generic Subdomains](/application/ddd/distillation/generic-subdomains) — vizinho conceitual, mas voltado a conceitos de negócio e não a mecanismos de computação.
+- [Core Domain](/application/ddd/distillation/core-domain) — o mecanismo é retirado para manter o core expressivo.
+- [Intention-Revealing Interfaces](/application/ddd/supple-design/intention-revealing-interfaces) — dá ao mecanismo uma interface em termos do domínio.
+- [Domain Service](/application/ddd/building-blocks/domain-service) — o ponto do modelo que normalmente invoca o mecanismo.
+- [Strategy](/coding/gof/behavioral/strategy) — forma comum de tornar o algoritmo substituível.
+- [Separated Interface](/application/poeaa/base/separated-interface) — separa a interface da implementação em pacotes distintos.
 
 ## Referência
 

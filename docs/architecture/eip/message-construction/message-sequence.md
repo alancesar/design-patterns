@@ -62,13 +62,13 @@ O dado é dividido em mensagens numeradas dentro da mesma sequência e o recepto
 
 ## Padrões relacionados
 
-- [Splitter](../message-routing/splitter.md) — divide uma mensagem em várias
-- [Resequencer](../message-routing/resequencer.md) — restaura a ordem das mensagens
-- [Aggregator](../message-routing/aggregator.md) — reúne mensagens relacionadas em uma
-- [Claim Check](../../../cloud/cloud-design-patterns/messaging/claim-check.md) — alternativa que envia só uma referência ao dado
-- [Correlation Identifier](./correlation-identifier.md) — também agrupa mensagens por identificador
-- [Request-Reply](./request-reply.md) — a resposta pode vir em sequência
-- [Sequential Convoy](../../../cloud/cloud-design-patterns/messaging/sequential-convoy.md) — processa mensagens relacionadas em ordem no Azure
+- [Splitter](/architecture/eip/message-routing/splitter) — divide uma mensagem em várias
+- [Resequencer](/architecture/eip/message-routing/resequencer) — restaura a ordem das mensagens
+- [Aggregator](/architecture/eip/message-routing/aggregator) — reúne mensagens relacionadas em uma
+- [Claim Check](/cloud/cloud-design-patterns/messaging/claim-check) — alternativa que envia só uma referência ao dado
+- [Correlation Identifier](/architecture/eip/message-construction/correlation-identifier) — também agrupa mensagens por identificador
+- [Request-Reply](/architecture/eip/message-construction/request-reply) — a resposta pode vir em sequência
+- [Sequential Convoy](/cloud/cloud-design-patterns/messaging/sequential-convoy) — processa mensagens relacionadas em ordem no Azure
 
 ## Referência
 

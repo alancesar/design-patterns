@@ -71,10 +71,10 @@ Ao implementar uma regra de estorno, ela percebeu que o modelo desenhado exigia 
 
 ## Padrões relacionados
 
-- [Model-Driven Design](./model-driven-design.md) — o princípio que exige que modelo e código sejam um só.
-- [Ubiquitous Language](./ubiquitous-language.md) — a linguagem compartilhada une modeladores e programadores.
-- [Continuous Integration](./continuous-integration.md) — mantém o modelo coeso quando várias pessoas o alteram.
-- [Refactoring Toward Deeper Insight](./refactoring-toward-deeper-insight.md) — o refinamento do modelo acontece junto com o código.
+- [Model-Driven Design](/application/ddd/model-in-practice/model-driven-design) — o princípio que exige que modelo e código sejam um só.
+- [Ubiquitous Language](/application/ddd/model-in-practice/ubiquitous-language) — a linguagem compartilhada une modeladores e programadores.
+- [Continuous Integration](/application/ddd/model-in-practice/continuous-integration) — mantém o modelo coeso quando várias pessoas o alteram.
+- [Refactoring Toward Deeper Insight](/application/ddd/model-in-practice/refactoring-toward-deeper-insight) — o refinamento do modelo acontece junto com o código.
 
 ## Referência
 

@@ -92,20 +92,20 @@ O publisher envia cada evento uma única vez ao canal de entrada; o broker copia
 
 ## Padrões relacionados
 
-- [Competing Consumers](./competing-consumers.md) — escala horizontalmente o processamento de cada assinatura com várias instâncias consumindo do mesmo canal.
-- [Idempotent Consumer](./idempotent-consumer.md) — permite tratar com segurança as mensagens duplicadas da entrega at-least-once.
-- [Claim Check](./claim-check.md) — evita os limites de tamanho de mensagem enviando apenas uma referência ao payload armazenado externamente.
-- [Priority Queue](./priority-queue.md) — garante que mensagens de maior prioridade sejam processadas antes das demais.
-- [Choreography](../distributed-coordination/choreography.md) — usa eventos publicados para que serviços coordenem um fluxo de negócio sem orquestrador central.
-- [Saga](../distributed-coordination/saga.md) — coordena transações distribuídas quando é preciso consistência entre publisher e consumidores.
-- [Event Sourcing](../data-management/event-sourcing.md) — os eventos armazenados costumam ser publicados para atualizar outros sistemas e visões.
-- [Asynchronous Request-Reply](./asynchronous-request-reply.md) — alternativa quando o remetente precisa de uma resposta, já que os canais pub/sub são unidirecionais.
-- [Queue-Based Load Leveling](./queue-based-load-leveling.md) — o buffer do broker absorve picos de carga entre publisher e subscribers.
-- [Point-to-Point Channel](../../../architecture/eip/messaging-channels/point-to-point-channel.md) — no EIP, a alternativa em que cada mensagem vai a um único receptor.
-- [Durable Subscriber](../../../architecture/eip/messaging-endpoints/durable-subscriber.md) — retém mensagens para assinantes que estão offline.
-- [Message Channel](../../../architecture/eip/messaging-channels/message-channel.md) — o conceito geral de canal que este padrão especializa.
-- [Event Message](../../../architecture/eip/message-construction/event-message.md) — o tipo de mensagem normalmente difundido por este canal.
-- [Messaging Bridge](./messaging-bridge.md) — integra sistemas de mensageria diferentes quando publishers e subscribers usam brokers distintos.
+- [Competing Consumers](/cloud/cloud-design-patterns/messaging/competing-consumers) — escala horizontalmente o processamento de cada assinatura com várias instâncias consumindo do mesmo canal.
+- [Idempotent Consumer](/cloud/cloud-design-patterns/messaging/idempotent-consumer) — permite tratar com segurança as mensagens duplicadas da entrega at-least-once.
+- [Claim Check](/cloud/cloud-design-patterns/messaging/claim-check) — evita os limites de tamanho de mensagem enviando apenas uma referência ao payload armazenado externamente.
+- [Priority Queue](/cloud/cloud-design-patterns/messaging/priority-queue) — garante que mensagens de maior prioridade sejam processadas antes das demais.
+- [Choreography](/cloud/cloud-design-patterns/distributed-coordination/choreography) — usa eventos publicados para que serviços coordenem um fluxo de negócio sem orquestrador central.
+- [Saga](/cloud/cloud-design-patterns/distributed-coordination/saga) — coordena transações distribuídas quando é preciso consistência entre publisher e consumidores.
+- [Event Sourcing](/cloud/cloud-design-patterns/data-management/event-sourcing) — os eventos armazenados costumam ser publicados para atualizar outros sistemas e visões.
+- [Asynchronous Request-Reply](/cloud/cloud-design-patterns/messaging/asynchronous-request-reply) — alternativa quando o remetente precisa de uma resposta, já que os canais pub/sub são unidirecionais.
+- [Queue-Based Load Leveling](/cloud/cloud-design-patterns/messaging/queue-based-load-leveling) — o buffer do broker absorve picos de carga entre publisher e subscribers.
+- [Point-to-Point Channel](/architecture/eip/messaging-channels/point-to-point-channel) — no EIP, a alternativa em que cada mensagem vai a um único receptor.
+- [Durable Subscriber](/architecture/eip/messaging-endpoints/durable-subscriber) — retém mensagens para assinantes que estão offline.
+- [Message Channel](/architecture/eip/messaging-channels/message-channel) — o conceito geral de canal que este padrão especializa.
+- [Event Message](/architecture/eip/message-construction/event-message) — o tipo de mensagem normalmente difundido por este canal.
+- [Messaging Bridge](/cloud/cloud-design-patterns/messaging/messaging-bridge) — integra sistemas de mensageria diferentes quando publishers e subscribers usam brokers distintos.
 
 ## Referência
 

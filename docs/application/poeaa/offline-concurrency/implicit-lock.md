@@ -104,11 +104,11 @@ Frameworks como o Hibernate aplicam a verificação de `@Version` implicitamente
 
 ## Padrões relacionados
 
-- [Optimistic Offline Lock](./optimistic-offline-lock.md) — estratégia cuja aplicação pode ser tornada implícita.
-- [Pessimistic Offline Lock](./pessimistic-offline-lock.md) — idem, com aquisição automática ao carregar objetos.
-- [Coarse-Grained Lock](./coarse-grained-lock.md) — a aquisição implícita deve respeitar o bloqueio do grupo.
-- [Layer Supertype](../base/layer-supertype.md) — local clássico para embutir a lógica de bloqueio.
-- [Unit of Work](../object-relational-behavioral/unit-of-work.md) — outro ponto central em que o bloqueio pode ser aplicado automaticamente.
+- [Optimistic Offline Lock](/application/poeaa/offline-concurrency/optimistic-offline-lock) — estratégia cuja aplicação pode ser tornada implícita.
+- [Pessimistic Offline Lock](/application/poeaa/offline-concurrency/pessimistic-offline-lock) — idem, com aquisição automática ao carregar objetos.
+- [Coarse-Grained Lock](/application/poeaa/offline-concurrency/coarse-grained-lock) — a aquisição implícita deve respeitar o bloqueio do grupo.
+- [Layer Supertype](/application/poeaa/base/layer-supertype) — local clássico para embutir a lógica de bloqueio.
+- [Unit of Work](/application/poeaa/object-relational-behavioral/unit-of-work) — outro ponto central em que o bloqueio pode ser aplicado automaticamente.
 
 ## Referência
 

@@ -70,11 +70,11 @@ O time renomeou os métodos e as classes para `consolidate()` e `PickupWindow`, 
 
 ## Padrões relacionados
 
-- [Bounded Context](./bounded-context.md) — delimita onde a linguagem vale.
-- [Model-Driven Design](./model-driven-design.md) — o código usa os termos do modelo.
-- [Hands-on Modelers](./hands-on-modelers.md) — quem modela também programa e usa a mesma linguagem.
-- [Refactoring Toward Deeper Insight](./refactoring-toward-deeper-insight.md) — a linguagem revela onde o modelo precisa de refinamento.
-- [Published Language](../context-mapping/published-language.md) — linguagem bem documentada para integração entre contextos.
+- [Bounded Context](/application/ddd/model-in-practice/bounded-context) — delimita onde a linguagem vale.
+- [Model-Driven Design](/application/ddd/model-in-practice/model-driven-design) — o código usa os termos do modelo.
+- [Hands-on Modelers](/application/ddd/model-in-practice/hands-on-modelers) — quem modela também programa e usa a mesma linguagem.
+- [Refactoring Toward Deeper Insight](/application/ddd/model-in-practice/refactoring-toward-deeper-insight) — a linguagem revela onde o modelo precisa de refinamento.
+- [Published Language](/application/ddd/context-mapping/published-language) — linguagem bem documentada para integração entre contextos.
 
 ## Referência
 

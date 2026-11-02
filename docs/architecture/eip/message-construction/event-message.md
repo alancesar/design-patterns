@@ -59,13 +59,13 @@ O sujeito publica o evento uma vez e cada observador o recebe e reage.
 
 ## Padrões relacionados
 
-- [Message](./message.md) — o evento é transportado como mensagem
-- [Document Message](./document-message.md) — usado quando o conteúdo importa mais que o momento
-- [Command Message](./command-message.md) — pede uma ação em vez de relatar um fato
-- [Message Expiration](./message-expiration.md) — descarta eventos que perderam a validade
-- [Publish-Subscribe Channel](../../../cloud/cloud-design-patterns/messaging/publisher-subscriber.md) — entrega o evento a vários observadores
-- [Guaranteed Delivery](../messaging-channels/guaranteed-delivery.md) — raramente adequado para eventos frequentes
-- [Domain Event](../../microservices/service-collaboration/domain-event.md) — evento de domínio publicado entre serviços
+- [Message](/architecture/eip/message-construction/message) — o evento é transportado como mensagem
+- [Document Message](/architecture/eip/message-construction/document-message) — usado quando o conteúdo importa mais que o momento
+- [Command Message](/architecture/eip/message-construction/command-message) — pede uma ação em vez de relatar um fato
+- [Message Expiration](/architecture/eip/message-construction/message-expiration) — descarta eventos que perderam a validade
+- [Publish-Subscribe Channel](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — entrega o evento a vários observadores
+- [Guaranteed Delivery](/architecture/eip/messaging-channels/guaranteed-delivery) — raramente adequado para eventos frequentes
+- [Domain Event](/architecture/microservices/service-collaboration/domain-event) — evento de domínio publicado entre serviços
 
 ## Referência
 

@@ -78,14 +78,14 @@ Os clientes só alcançam o gatekeeper, que roda com privilégios mínimos e des
 
 ## Padrões relacionados
 
-- [Gateway Offloading](../gateways-and-edge/gateway-offloading.md) — transfere funções transversais (TLS, autenticação, validação) para um gateway, que pode atuar como gatekeeper.
-- [Gateway Routing](../gateways-and-edge/gateway-routing.md) — o gatekeeper frequentemente também roteia as requisições aprovadas para o back-end correto.
-- [Rate Limiting](../resiliency/rate-limiting-pattern.md) — limitação de taxa costuma ser aplicada no gatekeeper.
-- [Throttling](../resiliency/throttling.md) — controle de consumo de recursos que pode ser centralizado no ponto de entrada.
-- [Valet Key](./valet-key.md) — complementa o gatekeeper ao conceder acesso restrito e temporário a recursos sem expor chaves.
-- [Federated Identity](./federated-identity.md) — delega a autenticação a um provedor de identidade cujos tokens o gatekeeper valida.
-- [Queue-Based Load Leveling](../messaging/queue-based-load-leveling.md) — uma fila entre gatekeeper e host confiável desacopla as camadas e absorve picos.
-- [Quarantine](./quarantine.md) — também valida e isola conteúdo externo antes de liberá-lo para consumo pela carga de trabalho.
+- [Gateway Offloading](/cloud/cloud-design-patterns/gateways-and-edge/gateway-offloading) — transfere funções transversais (TLS, autenticação, validação) para um gateway, que pode atuar como gatekeeper.
+- [Gateway Routing](/cloud/cloud-design-patterns/gateways-and-edge/gateway-routing) — o gatekeeper frequentemente também roteia as requisições aprovadas para o back-end correto.
+- [Rate Limiting](/cloud/cloud-design-patterns/resiliency/rate-limiting-pattern) — limitação de taxa costuma ser aplicada no gatekeeper.
+- [Throttling](/cloud/cloud-design-patterns/resiliency/throttling) — controle de consumo de recursos que pode ser centralizado no ponto de entrada.
+- [Valet Key](/cloud/cloud-design-patterns/security-and-access/valet-key) — complementa o gatekeeper ao conceder acesso restrito e temporário a recursos sem expor chaves.
+- [Federated Identity](/cloud/cloud-design-patterns/security-and-access/federated-identity) — delega a autenticação a um provedor de identidade cujos tokens o gatekeeper valida.
+- [Queue-Based Load Leveling](/cloud/cloud-design-patterns/messaging/queue-based-load-leveling) — uma fila entre gatekeeper e host confiável desacopla as camadas e absorve picos.
+- [Quarantine](/cloud/cloud-design-patterns/security-and-access/quarantine) — também valida e isola conteúdo externo antes de liberá-lo para consumo pela carga de trabalho.
 
 ## Referência
 

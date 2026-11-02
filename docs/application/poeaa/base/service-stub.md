@@ -15,7 +15,7 @@ sidebar_label: "Service Stub"
 
 O Service Stub remove a dependência de serviços problemáticos durante os testes. Aplicações corporativas costumam depender de serviços fora do controle da equipe, como consulta de crédito, cálculo de impostos ou motores de preço. Esses serviços podem estar atrasados, instáveis, lentos ou simplesmente indisponíveis no ambiente de desenvolvimento.
 
-A solução é substituir o serviço real, durante os testes, por uma implementação local e em memória que devolve respostas previsíveis. O stub é rápido, determinístico e não depende da disponibilidade do sistema externo. Em geral ele é plugado no lugar de um [Gateway](./gateway.md) por meio de um [Separated Interface](./separated-interface.md) e escolhido por configuração, com o [Plugin](./plugin.md).
+A solução é substituir o serviço real, durante os testes, por uma implementação local e em memória que devolve respostas previsíveis. O stub é rápido, determinístico e não depende da disponibilidade do sistema externo. Em geral ele é plugado no lugar de um [Gateway](/application/poeaa/base/gateway) por meio de um [Separated Interface](/application/poeaa/base/separated-interface) e escolhido por configuração, com o [Plugin](/application/poeaa/base/plugin).
 
 O padrão foi proposto por David Rice no PoEAA e é a base do que hoje se chama de fakes e stubs em testes automatizados.
 
@@ -110,12 +110,12 @@ Ferramentas como WireMock, MockServer e bibliotecas de mock produzem stubs sem e
 
 ## Padrões relacionados
 
-- [Gateway](./gateway.md) — o Gateway encapsula o serviço externo; o Service Stub é a implementação de teste desse Gateway.
-- [Separated Interface](./separated-interface.md) — fornece a interface que permite trocar o serviço real pelo stub.
-- [Plugin](./plugin.md) — escolhe, por configuração, entre o serviço real e o stub conforme o ambiente.
-- [Null Object](../../../coding/gof/behavioral/null-object.md) — também é uma implementação alternativa de uma interface, mas voltada a representar ausência, e não a simular um serviço em testes.
-- [Proxy](../../../coding/gof/structural/proxy.md) — o stub ocupa o lugar do serviço real, mas sem delegar a ele.
-- [Consumer-Driven Contract Test](../../../architecture/microservices/testing/consumer-driven-contract-test.md) — complementa o stub, verificando que ele continua fiel ao contrato real.
+- [Gateway](/application/poeaa/base/gateway) — o Gateway encapsula o serviço externo; o Service Stub é a implementação de teste desse Gateway.
+- [Separated Interface](/application/poeaa/base/separated-interface) — fornece a interface que permite trocar o serviço real pelo stub.
+- [Plugin](/application/poeaa/base/plugin) — escolhe, por configuração, entre o serviço real e o stub conforme o ambiente.
+- [Null Object](/coding/gof/behavioral/null-object) — também é uma implementação alternativa de uma interface, mas voltada a representar ausência, e não a simular um serviço em testes.
+- [Proxy](/coding/gof/structural/proxy) — o stub ocupa o lugar do serviço real, mas sem delegar a ele.
+- [Consumer-Driven Contract Test](/architecture/microservices/testing/consumer-driven-contract-test) — complementa o stub, verificando que ele continua fiel ao contrato real.
 
 ## Referência
 

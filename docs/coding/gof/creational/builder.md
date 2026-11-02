@@ -132,12 +132,12 @@ HttpRequest req = HttpRequest.builder("https://api.example.com/orders")
 
 ## Padrões relacionados
 
-- [Abstract Factory](./abstract-factory.md) — também cria objetos complexos, mas retorna famílias de produtos de uma vez; o Builder foca em montar um produto passo a passo
-- [Telescoping Constructor](./telescoping-constructor.md) — antipadrão que o Builder normalmente substitui
-- [Factory Method](./factory-method.md) — alternativa mais simples quando a criação cabe em uma única chamada
-- [Prototype](./prototype.md) — outra forma de evitar construção complexa, clonando um objeto já configurado
-- [Composite](../structural/composite.md) — o Builder é frequentemente usado para montar árvores Composite
-- [Singleton](./singleton.md) — um Director ou builder compartilhado às vezes é exposto como instância única
+- [Abstract Factory](/coding/gof/creational/abstract-factory) — também cria objetos complexos, mas retorna famílias de produtos de uma vez; o Builder foca em montar um produto passo a passo
+- [Telescoping Constructor](/coding/gof/creational/telescoping-constructor) — antipadrão que o Builder normalmente substitui
+- [Factory Method](/coding/gof/creational/factory-method) — alternativa mais simples quando a criação cabe em uma única chamada
+- [Prototype](/coding/gof/creational/prototype) — outra forma de evitar construção complexa, clonando um objeto já configurado
+- [Composite](/coding/gof/structural/composite) — o Builder é frequentemente usado para montar árvores Composite
+- [Singleton](/coding/gof/creational/singleton) — um Director ou builder compartilhado às vezes é exposto como instância única
 
 ## Referência
 

@@ -142,11 +142,11 @@ const json = shapes.map((s) => s.accept(new JsonExportVisitor()));
 
 ## Padrões relacionados
 
-- [Composite](../structural/composite.md) — o Visitor é frequentemente aplicado para executar operações sobre todos os nós de uma árvore Composite
-- [Iterator](./iterator.md) — pode ser usado para percorrer a estrutura de objetos enquanto o Visitor executa a operação em cada elemento
-- [Interpreter](./interpreter.md) — operações sobre a árvore sintática abstrata do Interpreter (avaliação, impressão, otimização) costumam ser implementadas como visitantes
-- [Command](./command.md) — ambos encapsulam operações em objetos; o Visitor pode ser visto como um Command poderoso que atua sobre vários tipos de elemento
-- [Strategy](./strategy.md) — também extrai comportamento para objetos separados, mas varia um algoritmo para um único contexto, sem double dispatch
+- [Composite](/coding/gof/structural/composite) — o Visitor é frequentemente aplicado para executar operações sobre todos os nós de uma árvore Composite
+- [Iterator](/coding/gof/behavioral/iterator) — pode ser usado para percorrer a estrutura de objetos enquanto o Visitor executa a operação em cada elemento
+- [Interpreter](/coding/gof/behavioral/interpreter) — operações sobre a árvore sintática abstrata do Interpreter (avaliação, impressão, otimização) costumam ser implementadas como visitantes
+- [Command](/coding/gof/behavioral/command) — ambos encapsulam operações em objetos; o Visitor pode ser visto como um Command poderoso que atua sobre vários tipos de elemento
+- [Strategy](/coding/gof/behavioral/strategy) — também extrai comportamento para objetos separados, mas varia um algoritmo para um único contexto, sem double dispatch
 
 ## Referência
 

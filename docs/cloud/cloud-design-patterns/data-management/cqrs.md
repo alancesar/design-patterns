@@ -84,17 +84,17 @@ O cliente envia *commands* para o modelo de escrita, que valida, aplica as regra
 
 ## Padrões relacionados
 
-- [Event Sourcing](./event-sourcing.md): costuma ser combinado com CQRS. O *event store* serve de modelo de escrita, e as projeções de leitura são geradas a partir dos eventos.
-- [Materialized View](./materialized-view.md): o modelo de leitura geralmente guarda visões materializadas e desnormalizadas, otimizadas para consulta.
-- [Idempotent Consumer](../messaging/idempotent-consumer.md): os consumidores que atualizam o modelo de leitura precisam tolerar eventos duplicados.
-- [Publisher-Subscriber](../messaging/publisher-subscriber.md): é a forma usual de propagar eventos do lado de escrita para uma ou mais projeções de leitura.
-- [Priority Queue](../messaging/priority-queue.md): ajuda a processar *commands* com prioridades diferentes.
-- [Queue-Based Load Leveling](../messaging/queue-based-load-leveling.md): enfileirar *commands* suaviza picos de escrita.
-- [Cache-Aside](./cache-aside.md): é outra forma de acelerar leituras e pode complementar o modelo de leitura.
-- [Database per Service](../../../architecture/microservices/service-collaboration/database-per-service.md): cria a necessidade de visões que combinam dados de vários serviços.
-- [API Composition](../../../architecture/microservices/service-collaboration/api-composition.md): alternativa mais simples para consultas entre serviços.
-- [Domain Event](../../../architecture/microservices/service-collaboration/domain-event.md): eventos que mantêm as visões atualizadas.
-- [Command-side Replica](../../../architecture/microservices/service-collaboration/command-side-replica.md): estruturalmente idêntico, mas a réplica serve ao lado de comando.
+- [Event Sourcing](/cloud/cloud-design-patterns/data-management/event-sourcing): costuma ser combinado com CQRS. O *event store* serve de modelo de escrita, e as projeções de leitura são geradas a partir dos eventos.
+- [Materialized View](/cloud/cloud-design-patterns/data-management/materialized-view): o modelo de leitura geralmente guarda visões materializadas e desnormalizadas, otimizadas para consulta.
+- [Idempotent Consumer](/cloud/cloud-design-patterns/messaging/idempotent-consumer): os consumidores que atualizam o modelo de leitura precisam tolerar eventos duplicados.
+- [Publisher-Subscriber](/cloud/cloud-design-patterns/messaging/publisher-subscriber): é a forma usual de propagar eventos do lado de escrita para uma ou mais projeções de leitura.
+- [Priority Queue](/cloud/cloud-design-patterns/messaging/priority-queue): ajuda a processar *commands* com prioridades diferentes.
+- [Queue-Based Load Leveling](/cloud/cloud-design-patterns/messaging/queue-based-load-leveling): enfileirar *commands* suaviza picos de escrita.
+- [Cache-Aside](/cloud/cloud-design-patterns/data-management/cache-aside): é outra forma de acelerar leituras e pode complementar o modelo de leitura.
+- [Database per Service](/architecture/microservices/service-collaboration/database-per-service): cria a necessidade de visões que combinam dados de vários serviços.
+- [API Composition](/architecture/microservices/service-collaboration/api-composition): alternativa mais simples para consultas entre serviços.
+- [Domain Event](/architecture/microservices/service-collaboration/domain-event): eventos que mantêm as visões atualizadas.
+- [Command-side Replica](/architecture/microservices/service-collaboration/command-side-replica): estruturalmente idêntico, mas a réplica serve ao lado de comando.
 
 ## Referência
 

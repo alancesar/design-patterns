@@ -66,9 +66,9 @@ Vários serviços diferentes dividem os mesmos recursos de um único host.
 
 ## Padrões relacionados
 
-- [Service Instance per Host](./service-instance-per-host.md) — alternativa que isola cada instância em seu próprio host.
-- [Serverless Deployment](./serverless-deployment.md) — alternativa que esconde o conceito de servidor.
-- [Compute Resource Consolidation](../../../cloud/cloud-design-patterns/deployment-and-topology/compute-resource-consolidation.md) — mesma ideia de consolidar cargas para reduzir custo.
+- [Service Instance per Host](/architecture/microservices/deployment/service-instance-per-host) — alternativa que isola cada instância em seu próprio host.
+- [Serverless Deployment](/architecture/microservices/deployment/serverless-deployment) — alternativa que esconde o conceito de servidor.
+- [Compute Resource Consolidation](/cloud/cloud-design-patterns/deployment-and-topology/compute-resource-consolidation) — mesma ideia de consolidar cargas para reduzir custo.
 
 ## Referência
 

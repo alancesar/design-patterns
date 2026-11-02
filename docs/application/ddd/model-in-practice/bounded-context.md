@@ -77,13 +77,13 @@ Cada contexto passou a ter seu modelo, seu código e seu esquema de banco, com u
 
 ## Padrões relacionados
 
-- [Ubiquitous Language](./ubiquitous-language.md) — a linguagem vale dentro de um Bounded Context.
-- [Continuous Integration](./continuous-integration.md) — mantém o modelo coeso dentro da fronteira.
-- [Context Map](../context-mapping/context-map.md) — descreve os relacionamentos entre Bounded Contexts.
-- [Anticorruption Layer](../../../cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer.md) — protege o modelo de influências externas.
-- [Shared Kernel](../context-mapping/shared-kernel.md) — subconjunto do modelo compartilhado entre contextos.
-- [Decompose by Subdomain](../../../architecture/microservices/service-boundaries/decompose-by-subdomain.md) — Bounded Contexts costumam guiar a divisão em microsserviços.
-- [Database per Service](../../../architecture/microservices/service-collaboration/database-per-service.md) — reforça a fronteira do modelo no armazenamento.
+- [Ubiquitous Language](/application/ddd/model-in-practice/ubiquitous-language) — a linguagem vale dentro de um Bounded Context.
+- [Continuous Integration](/application/ddd/model-in-practice/continuous-integration) — mantém o modelo coeso dentro da fronteira.
+- [Context Map](/application/ddd/context-mapping/context-map) — descreve os relacionamentos entre Bounded Contexts.
+- [Anticorruption Layer](/cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer) — protege o modelo de influências externas.
+- [Shared Kernel](/application/ddd/context-mapping/shared-kernel) — subconjunto do modelo compartilhado entre contextos.
+- [Decompose by Subdomain](/architecture/microservices/service-boundaries/decompose-by-subdomain) — Bounded Contexts costumam guiar a divisão em microsserviços.
+- [Database per Service](/architecture/microservices/service-collaboration/database-per-service) — reforça a fronteira do modelo no armazenamento.
 
 ## Referência
 

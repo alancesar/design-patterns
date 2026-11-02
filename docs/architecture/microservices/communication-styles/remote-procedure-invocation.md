@@ -73,15 +73,15 @@ O cliente envia a requisição diretamente ao serviço e permanece aguardando a 
 
 ## Padrões relacionados
 
-- [Messaging](./messaging.md) — alternativa assíncrona, baseada em broker, ao RPI.
-- [Domain-specific Protocol](./domain-specific-protocol.md) — outra alternativa, usando um protocolo específico do domínio.
-- [Externalized Configuration](../../../cloud/cloud-design-patterns/deployment-and-topology/external-configuration-store.md) — fornece a localização lógica (por exemplo, a URL) do serviço.
-- [Client-side Discovery](../service-discovery/client-side-discovery.md) — o cliente localiza a instância do serviço consultando o registro.
-- [Server-side Discovery](../service-discovery/server-side-discovery.md) — um roteador localiza a instância em nome do cliente.
-- [Circuit Breaker](../../../cloud/cloud-design-patterns/resiliency/circuit-breaker.md) — melhora a confiabilidade das chamadas síncronas.
-- [File Transfer](../../eip/integration-styles/file-transfer.md) — estilo de integração por arquivos, em lote e sem chamadas diretas.
-- [Shared Database](../service-collaboration/shared-database.md) — estilo em que os dados ficam em um banco comum em vez de encapsulados.
-- [Message Endpoint](../../eip/messaging-endpoints/message-endpoint.md) — ponto de acesso da aplicação à mensageria, análogo à interface exposta pela chamada remota.
+- [Messaging](/architecture/microservices/communication-styles/messaging) — alternativa assíncrona, baseada em broker, ao RPI.
+- [Domain-specific Protocol](/architecture/microservices/communication-styles/domain-specific-protocol) — outra alternativa, usando um protocolo específico do domínio.
+- [Externalized Configuration](/cloud/cloud-design-patterns/deployment-and-topology/external-configuration-store) — fornece a localização lógica (por exemplo, a URL) do serviço.
+- [Client-side Discovery](/architecture/microservices/service-discovery/client-side-discovery) — o cliente localiza a instância do serviço consultando o registro.
+- [Server-side Discovery](/architecture/microservices/service-discovery/server-side-discovery) — um roteador localiza a instância em nome do cliente.
+- [Circuit Breaker](/cloud/cloud-design-patterns/resiliency/circuit-breaker) — melhora a confiabilidade das chamadas síncronas.
+- [File Transfer](/architecture/eip/integration-styles/file-transfer) — estilo de integração por arquivos, em lote e sem chamadas diretas.
+- [Shared Database](/architecture/microservices/service-collaboration/shared-database) — estilo em que os dados ficam em um banco comum em vez de encapsulados.
+- [Message Endpoint](/architecture/eip/messaging-endpoints/message-endpoint) — ponto de acesso da aplicação à mensageria, análogo à interface exposta pela chamada remota.
 
 ## Referência
 

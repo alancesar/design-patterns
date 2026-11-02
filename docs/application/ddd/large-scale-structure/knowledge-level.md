@@ -102,13 +102,13 @@ public class Account {
 
 ## Padrões relacionados
 
-- [Evolving Order](./evolving-order.md) — o nível de conhecimento deve surgir de uma necessidade real, e não de especulação.
-- [Responsibility Layers](./responsibility-layers.md) — estruturas distintas, que podem ser combinadas no mesmo domínio.
-- [Pluggable Component Framework](./pluggable-component-framework.md) — outra forma de tornar partes do sistema configuráveis, com foco em componentes.
-- [Entity](../building-blocks/entity.md) — as instâncias operacionais costumam ser entidades.
-- [Value Object](../../poeaa/base/value-object.md) — descrições de tipos e regras costumam ser objetos de valor.
-- [Strategy](../../../coding/gof/behavioral/strategy.md) — alternativa mais simples para variar comportamento quando há poucas variantes.
-- [Domain Model](../../poeaa/domain-logic/domain-model.md) — o modelo que o nível de conhecimento configura.
+- [Evolving Order](/application/ddd/large-scale-structure/evolving-order) — o nível de conhecimento deve surgir de uma necessidade real, e não de especulação.
+- [Responsibility Layers](/application/ddd/large-scale-structure/responsibility-layers) — estruturas distintas, que podem ser combinadas no mesmo domínio.
+- [Pluggable Component Framework](/application/ddd/large-scale-structure/pluggable-component-framework) — outra forma de tornar partes do sistema configuráveis, com foco em componentes.
+- [Entity](/application/ddd/building-blocks/entity) — as instâncias operacionais costumam ser entidades.
+- [Value Object](/application/poeaa/base/value-object) — descrições de tipos e regras costumam ser objetos de valor.
+- [Strategy](/coding/gof/behavioral/strategy) — alternativa mais simples para variar comportamento quando há poucas variantes.
+- [Domain Model](/application/poeaa/domain-logic/domain-model) — o modelo que o nível de conhecimento configura.
 
 ## Referência
 

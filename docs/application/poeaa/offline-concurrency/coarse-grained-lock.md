@@ -104,11 +104,11 @@ class Order {
 
 ## Padrões relacionados
 
-- [Optimistic Offline Lock](./optimistic-offline-lock.md) — o Coarse-Grained Lock costuma ser implementado como uma versão compartilhada pelo grupo.
-- [Pessimistic Offline Lock](./pessimistic-offline-lock.md) — o bloqueio da raiz implica o bloqueio de todo o grupo.
-- [Implicit Lock](./implicit-lock.md) — automatiza a obtenção do bloqueio do grupo.
-- [Unit of Work](../object-relational-behavioral/unit-of-work.md) — responsável por gravar o grupo de objetos alterados e incrementar a versão compartilhada.
-- [Layer Supertype](../base/layer-supertype.md) — hospeda a lógica comum de acesso à raiz ou à versão compartilhada.
+- [Optimistic Offline Lock](/application/poeaa/offline-concurrency/optimistic-offline-lock) — o Coarse-Grained Lock costuma ser implementado como uma versão compartilhada pelo grupo.
+- [Pessimistic Offline Lock](/application/poeaa/offline-concurrency/pessimistic-offline-lock) — o bloqueio da raiz implica o bloqueio de todo o grupo.
+- [Implicit Lock](/application/poeaa/offline-concurrency/implicit-lock) — automatiza a obtenção do bloqueio do grupo.
+- [Unit of Work](/application/poeaa/object-relational-behavioral/unit-of-work) — responsável por gravar o grupo de objetos alterados e incrementar a versão compartilhada.
+- [Layer Supertype](/application/poeaa/base/layer-supertype) — hospeda a lógica comum de acesso à raiz ou à versão compartilhada.
 
 ## Referência
 

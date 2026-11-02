@@ -28,7 +28,7 @@ O Registry é um padrão de último recurso: quando possível, passar as depend�
 ## Quando usar
 
 - Quando muitos pontos do sistema precisam de acesso a objetos ou serviços comuns e passá-los adiante seria impraticável.
-- Quando se tem apenas um identificador e é preciso resolvê-lo para um objeto, por exemplo via [Repository](../object-relational-metadata-mapping/repository.md) ou finder.
+- Quando se tem apenas um identificador e é preciso resolvê-lo para um objeto, por exemplo via [Repository](/application/poeaa/object-relational-metadata-mapping/repository) ou finder.
 - Em código legado ou frameworks onde não há injeção de dependência disponível.
 
 ### Quando evitar
@@ -100,13 +100,13 @@ Localizadores de serviço (`ServiceLocator`) e contextos de aplicação consulta
 
 ## Padrões relacionados
 
-- [Singleton](../../../coding/gof/creational/singleton.md) — o Registry costuma ser implementado como Singleton, mas o Singleton garante uma instância, e o Registry fornece um ponto de acesso para localizar vários objetos.
-- [Service Registry](../../../architecture/microservices/service-discovery/service-registry.md) — não confundir: aquele é um banco de dados de instâncias de serviços na rede para descoberta; o Registry do PoEAA é um objeto dentro de um processo que localiza objetos locais.
-- [Separated Interface](./separated-interface.md) — o Registry pode devolver a implementação associada à interface.
-- [Plugin](./plugin.md) — alternativa baseada em configuração para escolher implementações.
-- [Gateway](./gateway.md) — gateways são exemplos típicos do que se obtém por um Registry.
-- [Repository](../object-relational-metadata-mapping/repository.md) — finders e repositórios são objetos frequentemente localizados por um Registry.
-- [Factory Method](../../../coding/gof/creational/factory-method.md) — também centraliza a obtenção de objetos, mas cria instâncias em vez de localizar objetos existentes.
+- [Singleton](/coding/gof/creational/singleton) — o Registry costuma ser implementado como Singleton, mas o Singleton garante uma instância, e o Registry fornece um ponto de acesso para localizar vários objetos.
+- [Service Registry](/architecture/microservices/service-discovery/service-registry) — não confundir: aquele é um banco de dados de instâncias de serviços na rede para descoberta; o Registry do PoEAA é um objeto dentro de um processo que localiza objetos locais.
+- [Separated Interface](/application/poeaa/base/separated-interface) — o Registry pode devolver a implementação associada à interface.
+- [Plugin](/application/poeaa/base/plugin) — alternativa baseada em configuração para escolher implementações.
+- [Gateway](/application/poeaa/base/gateway) — gateways são exemplos típicos do que se obtém por um Registry.
+- [Repository](/application/poeaa/object-relational-metadata-mapping/repository) — finders e repositórios são objetos frequentemente localizados por um Registry.
+- [Factory Method](/coding/gof/creational/factory-method) — também centraliza a obtenção de objetos, mas cria instâncias em vez de localizar objetos existentes.
 
 ## Referência
 

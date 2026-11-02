@@ -99,12 +99,12 @@ class Order {
 
 ## Padrões relacionados
 
-- [Entity](./entity.md) — a raiz do agregado é uma entidade.
-- [Value Object](../../poeaa/base/value-object.md) — compõe o agregado ao lado de entidades internas.
-- [Repository](../../poeaa/object-relational-metadata-mapping/repository.md) — persiste e recupera um agregado por vez, pela raiz.
-- [Factory](./factory.md) — cria o agregado inteiro, garantindo invariantes na criação.
-- [Domain Event](../../../architecture/microservices/service-collaboration/domain-event.md) — propaga mudanças entre agregados com consistência eventual.
-- [Domain Model](../../poeaa/domain-logic/domain-model.md) — o agregado organiza o modelo de domínio em fronteiras de consistência.
+- [Entity](/application/ddd/building-blocks/entity) — a raiz do agregado é uma entidade.
+- [Value Object](/application/poeaa/base/value-object) — compõe o agregado ao lado de entidades internas.
+- [Repository](/application/poeaa/object-relational-metadata-mapping/repository) — persiste e recupera um agregado por vez, pela raiz.
+- [Factory](/application/ddd/building-blocks/factory) — cria o agregado inteiro, garantindo invariantes na criação.
+- [Domain Event](/architecture/microservices/service-collaboration/domain-event) — propaga mudanças entre agregados com consistência eventual.
+- [Domain Model](/application/poeaa/domain-logic/domain-model) — o agregado organiza o modelo de domínio em fronteiras de consistência.
 
 ## Referência
 

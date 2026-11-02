@@ -78,11 +78,11 @@ As instâncias disputam um lease em um serviço de lock distribuído; quem o obt
 
 ## Padrões relacionados
 
-- [Health Endpoint Monitoring](../resiliency/health-endpoint-monitoring.md) — ajuda a verificar se o líder está saudável e progredindo, não apenas renovando o lease
-- [Scheduler Agent Supervisor](./scheduler-agent-supervisor.md) — o líder pode atuar como scheduler/supervisor que coordena as demais instâncias
-- [Competing Consumers](../messaging/competing-consumers.md) — alternativa sem líder para distribuir trabalho entre instâncias pares
-- [Retry](../resiliency/retry.md) — trata falhas transitórias ao adquirir ou renovar o lease
-- [Compute Resource Consolidation](../deployment-and-topology/compute-resource-consolidation.md) — instâncias que hospedam várias tarefas podem precisar eleger um coordenador entre si
+- [Health Endpoint Monitoring](/cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring) — ajuda a verificar se o líder está saudável e progredindo, não apenas renovando o lease
+- [Scheduler Agent Supervisor](/cloud/cloud-design-patterns/distributed-coordination/scheduler-agent-supervisor) — o líder pode atuar como scheduler/supervisor que coordena as demais instâncias
+- [Competing Consumers](/cloud/cloud-design-patterns/messaging/competing-consumers) — alternativa sem líder para distribuir trabalho entre instâncias pares
+- [Retry](/cloud/cloud-design-patterns/resiliency/retry) — trata falhas transitórias ao adquirir ou renovar o lease
+- [Compute Resource Consolidation](/cloud/cloud-design-patterns/deployment-and-topology/compute-resource-consolidation) — instâncias que hospedam várias tarefas podem precisar eleger um coordenador entre si
 
 ## Referência
 

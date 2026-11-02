@@ -84,11 +84,11 @@ public class FundsTransferService {
 
 ## Padrões relacionados
 
-- [Entity](./entity.md) — o serviço opera sobre entidades.
-- [Value Object](../../poeaa/base/value-object.md) — argumentos e retornos frequentes do serviço.
-- [Layered Architecture](./layered-architecture.md) — distingue serviços de domínio e de aplicação.
-- [Service Layer](../../poeaa/domain-logic/service-layer.md) — fronteira de aplicação do PoEAA, que não contém regra de negócio.
-- [Side-Effect-Free Functions](../supple-design/side-effect-free-functions.md) — serviços tendem a ser funções sem efeitos colaterais.
+- [Entity](/application/ddd/building-blocks/entity) — o serviço opera sobre entidades.
+- [Value Object](/application/poeaa/base/value-object) — argumentos e retornos frequentes do serviço.
+- [Layered Architecture](/application/ddd/building-blocks/layered-architecture) — distingue serviços de domínio e de aplicação.
+- [Service Layer](/application/poeaa/domain-logic/service-layer) — fronteira de aplicação do PoEAA, que não contém regra de negócio.
+- [Side-Effect-Free Functions](/application/ddd/supple-design/side-effect-free-functions) — serviços tendem a ser funções sem efeitos colaterais.
 
 ## Referência
 

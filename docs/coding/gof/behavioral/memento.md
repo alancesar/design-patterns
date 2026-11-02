@@ -35,8 +35,8 @@ O ponto central é o encapsulamento: o Memento expõe uma interface "estreita" p
 
 ### Quando evitar
 
-- O estado é grande e os snapshots são frequentes, gerando alto consumo de memória — prefira armazenar diferenças ou usar [Command](./command.md) com operações inversas
-- O objeto é simples e totalmente público; uma cópia direta ou um [Prototype](../creational/prototype.md) resolve
+- O estado é grande e os snapshots são frequentes, gerando alto consumo de memória — prefira armazenar diferenças ou usar [Command](/coding/gof/behavioral/command) com operações inversas
+- O objeto é simples e totalmente público; uma cópia direta ou um [Prototype](/coding/gof/creational/prototype) resolve
 - A persistência de longo prazo é o objetivo — serialização, event sourcing ou versionamento em banco são mais adequados
 
 ## Trade-offs
@@ -118,10 +118,10 @@ class History {
 
 ## Padrões relacionados
 
-- [Command](./command.md) — comandos podem usar mementos para guardar o estado necessário ao `undo()`
-- [Iterator](./iterator.md) — um memento pode registrar o estado de uma iteração para retomá-la depois
-- [Prototype](../creational/prototype.md) — clonar o objeto é uma alternativa mais simples ao memento quando o estado é público e direto
-- [State](./state.md) — mementos podem salvar e restaurar o estado corrente de uma máquina de estados
+- [Command](/coding/gof/behavioral/command) — comandos podem usar mementos para guardar o estado necessário ao `undo()`
+- [Iterator](/coding/gof/behavioral/iterator) — um memento pode registrar o estado de uma iteração para retomá-la depois
+- [Prototype](/coding/gof/creational/prototype) — clonar o objeto é uma alternativa mais simples ao memento quando o estado é público e direto
+- [State](/coding/gof/behavioral/state) — mementos podem salvar e restaurar o estado corrente de uma máquina de estados
 
 ## Referência
 

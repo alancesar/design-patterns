@@ -92,11 +92,11 @@ assertEquals(150, blue.volume());
 
 ## Padrões relacionados
 
-- [Side-Effect-Free Functions](./side-effect-free-functions.md) — separa consultas de comandos, deixando o efeito explícito.
-- [Assertions](./assertions.md) — declaram os efeitos e invariantes que o nome apenas sugere.
-- [Ubiquitous Language](../model-in-practice/ubiquitous-language.md) — fonte dos nomes usados nas interfaces.
-- [Model-Driven Design](../model-in-practice/model-driven-design.md) — liga o modelo ao código por meio dessas interfaces.
-- [Refactoring Toward Deeper Insight](../model-in-practice/refactoring-toward-deeper-insight.md) — novos entendimentos geram novos nomes.
+- [Side-Effect-Free Functions](/application/ddd/supple-design/side-effect-free-functions) — separa consultas de comandos, deixando o efeito explícito.
+- [Assertions](/application/ddd/supple-design/assertions) — declaram os efeitos e invariantes que o nome apenas sugere.
+- [Ubiquitous Language](/application/ddd/model-in-practice/ubiquitous-language) — fonte dos nomes usados nas interfaces.
+- [Model-Driven Design](/application/ddd/model-in-practice/model-driven-design) — liga o modelo ao código por meio dessas interfaces.
+- [Refactoring Toward Deeper Insight](/application/ddd/model-in-practice/refactoring-toward-deeper-insight) — novos entendimentos geram novos nomes.
 
 ## Referência
 

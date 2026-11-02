@@ -59,10 +59,10 @@ O receptor lê o indicador de formato e escolhe o tratamento adequado.
 
 ## Padrões relacionados
 
-- [Message](./message.md) — o indicador vai no cabeçalho
-- [Canonical Data Model](../message-transformation/canonical-data-model.md) — formato comum cuja evolução o indicador viabiliza
-- [Message Translator](../message-transformation/message-translator.md) — converte entre versões de formato
-- [Document Message](./document-message.md) — documentos costumam exigir versionamento
+- [Message](/architecture/eip/message-construction/message) — o indicador vai no cabeçalho
+- [Canonical Data Model](/architecture/eip/message-transformation/canonical-data-model) — formato comum cuja evolução o indicador viabiliza
+- [Message Translator](/architecture/eip/message-transformation/message-translator) — converte entre versões de formato
+- [Document Message](/architecture/eip/message-construction/document-message) — documentos costumam exigir versionamento
 
 ## Referência
 

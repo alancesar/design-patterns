@@ -69,20 +69,20 @@ O remetente publica a mensagem em um canal e segue seu trabalho; o broker a ret�
 
 ## Padrões relacionados
 
-- [Remote Procedure Invocation](./remote-procedure-invocation.md) — alternativa síncrona de requisição/resposta.
-- [Domain-specific Protocol](./domain-specific-protocol.md) — alternativa baseada em protocolo específico do domínio.
-- [Idempotent Consumer](../../../cloud/cloud-design-patterns/messaging/idempotent-consumer.md) — torna seguro o processamento de mensagens duplicadas.
-- [Saga](../../../cloud/cloud-design-patterns/distributed-coordination/saga.md) — coordena transações distribuídas por meio de mensagens.
-- [CQRS](../../../cloud/cloud-design-patterns/data-management/cqrs.md) — usa mensagens para manter as visões de leitura atualizadas.
-- [Transactional Outbox](../transactional-messaging/transactional-outbox.md) — publica mensagens como parte da transação do banco de dados.
-- [Externalized Configuration](../../../cloud/cloud-design-patterns/deployment-and-topology/external-configuration-store.md) — fornece nomes de canais e localização do broker.
-- [Publisher-Subscriber](../../../cloud/cloud-design-patterns/messaging/publisher-subscriber.md) — estilo de publicação/assinatura sobre mensageria.
-- [Asynchronous Request-Reply](../../../cloud/cloud-design-patterns/messaging/asynchronous-request-reply.md) — requisição com resposta assíncrona.
-- [File Transfer](../../eip/integration-styles/file-transfer.md) — estilo em lote por arquivos, com desacoplamento semelhante, mas sem troca imediata.
-- [Shared Database](../service-collaboration/shared-database.md) — estilo de integração por banco compartilhado.
-- [Message Channel](../../eip/messaging-channels/message-channel.md) — o canal por onde as mensagens trafegam.
-- [Message](../../eip/message-construction/message.md) — o pacote de dados trocado.
-- [Message Endpoint](../../eip/messaging-endpoints/message-endpoint.md) — o ponto em que a aplicação envia e recebe mensagens.
+- [Remote Procedure Invocation](/architecture/microservices/communication-styles/remote-procedure-invocation) — alternativa síncrona de requisição/resposta.
+- [Domain-specific Protocol](/architecture/microservices/communication-styles/domain-specific-protocol) — alternativa baseada em protocolo específico do domínio.
+- [Idempotent Consumer](/cloud/cloud-design-patterns/messaging/idempotent-consumer) — torna seguro o processamento de mensagens duplicadas.
+- [Saga](/cloud/cloud-design-patterns/distributed-coordination/saga) — coordena transações distribuídas por meio de mensagens.
+- [CQRS](/cloud/cloud-design-patterns/data-management/cqrs) — usa mensagens para manter as visões de leitura atualizadas.
+- [Transactional Outbox](/architecture/microservices/transactional-messaging/transactional-outbox) — publica mensagens como parte da transação do banco de dados.
+- [Externalized Configuration](/cloud/cloud-design-patterns/deployment-and-topology/external-configuration-store) — fornece nomes de canais e localização do broker.
+- [Publisher-Subscriber](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — estilo de publicação/assinatura sobre mensageria.
+- [Asynchronous Request-Reply](/cloud/cloud-design-patterns/messaging/asynchronous-request-reply) — requisição com resposta assíncrona.
+- [File Transfer](/architecture/eip/integration-styles/file-transfer) — estilo em lote por arquivos, com desacoplamento semelhante, mas sem troca imediata.
+- [Shared Database](/architecture/microservices/service-collaboration/shared-database) — estilo de integração por banco compartilhado.
+- [Message Channel](/architecture/eip/messaging-channels/message-channel) — o canal por onde as mensagens trafegam.
+- [Message](/architecture/eip/message-construction/message) — o pacote de dados trocado.
+- [Message Endpoint](/architecture/eip/messaging-endpoints/message-endpoint) — o ponto em que a aplicação envia e recebe mensagens.
 
 ## Referência
 

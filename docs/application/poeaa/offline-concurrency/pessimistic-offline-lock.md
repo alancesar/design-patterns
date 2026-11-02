@@ -102,10 +102,10 @@ def release(conn, resource_id, owner):
 
 ## Padrões relacionados
 
-- [Optimistic Offline Lock](./optimistic-offline-lock.md) — a alternativa que detecta conflitos no commit em vez de preveni-los.
-- [Coarse-Grained Lock](./coarse-grained-lock.md) — permite bloquear um grupo de objetos com um único bloqueio.
-- [Implicit Lock](./implicit-lock.md) — faz com que a aquisição do bloqueio aconteça automaticamente, sem depender do desenvolvedor.
-- [Unit of Work](../object-relational-behavioral/unit-of-work.md) — ponto natural para liberar os bloqueios ao final da transação de negócio.
+- [Optimistic Offline Lock](/application/poeaa/offline-concurrency/optimistic-offline-lock) — a alternativa que detecta conflitos no commit em vez de preveni-los.
+- [Coarse-Grained Lock](/application/poeaa/offline-concurrency/coarse-grained-lock) — permite bloquear um grupo de objetos com um único bloqueio.
+- [Implicit Lock](/application/poeaa/offline-concurrency/implicit-lock) — faz com que a aquisição do bloqueio aconteça automaticamente, sem depender do desenvolvedor.
+- [Unit of Work](/application/poeaa/object-relational-behavioral/unit-of-work) — ponto natural para liberar os bloqueios ao final da transação de negócio.
 
 ## Referência
 

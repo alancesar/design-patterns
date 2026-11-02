@@ -67,15 +67,15 @@ Cada aplicação se liga ao barramento por um adaptador, e o barramento oferece 
 
 ## Padrões relacionados
 
-- [Channel Adapter](./channel-adapter.md) — liga cada aplicação ao barramento.
-- [Datatype Channel](./datatype-channel.md) — direciona tipos de mensagem a endpoints específicos.
-- [Publish-Subscribe Channel](../../../cloud/cloud-design-patterns/messaging/publisher-subscriber.md) — alcança vários receptores.
-- [Message Channel](./message-channel.md) — os canais que compõem o barramento.
-- [Canonical Data Model](../message-transformation/canonical-data-model.md) — formato de dados comum a todos os participantes.
-- [Command Message](../message-construction/command-message.md) — estrutura comum de comandos entre os sistemas.
-- [Message Router](../message-routing/message-router.md) — direciona mensagens dentro do barramento.
-- [Service Activator](../messaging-endpoints/service-activator.md) — invoca serviços das aplicações a partir de mensagens.
-- [Messaging](../../microservices/communication-styles/messaging.md) — o estilo de integração sobre o qual o barramento se apoia.
+- [Channel Adapter](/architecture/eip/messaging-channels/channel-adapter) — liga cada aplicação ao barramento.
+- [Datatype Channel](/architecture/eip/messaging-channels/datatype-channel) — direciona tipos de mensagem a endpoints específicos.
+- [Publish-Subscribe Channel](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — alcança vários receptores.
+- [Message Channel](/architecture/eip/messaging-channels/message-channel) — os canais que compõem o barramento.
+- [Canonical Data Model](/architecture/eip/message-transformation/canonical-data-model) — formato de dados comum a todos os participantes.
+- [Command Message](/architecture/eip/message-construction/command-message) — estrutura comum de comandos entre os sistemas.
+- [Message Router](/architecture/eip/message-routing/message-router) — direciona mensagens dentro do barramento.
+- [Service Activator](/architecture/eip/messaging-endpoints/service-activator) — invoca serviços das aplicações a partir de mensagens.
+- [Messaging](/architecture/microservices/communication-styles/messaging) — o estilo de integração sobre o qual o barramento se apoia.
 
 ## Referência
 

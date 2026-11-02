@@ -17,7 +17,7 @@ O Separated Interface coloca uma interface em um pacote diferente do pacote da s
 
 Equipes costumam organizar classes em pacotes ou módulos e definir regras de dependência, como "o domínio não pode depender da apresentação" ou "o domínio não depende da infraestrutura". Às vezes uma chamada necessária viola essas regras. Com o Separated Interface, a interface fica em um pacote do qual o cliente pode depender, e a implementação fica em outro, que depende da interface.
 
-É a base do princípio da inversão de dependência e o ponto de encaixe natural para um [Gateway](./gateway.md), para um [Service Stub](./service-stub.md) e para o [Plugin](./plugin.md).
+É a base do princípio da inversão de dependência e o ponto de encaixe natural para um [Gateway](/application/poeaa/base/gateway), para um [Service Stub](/application/poeaa/base/service-stub) e para o [Plugin](/application/poeaa/base/plugin).
 
 ## Problemas que resolve
 
@@ -48,7 +48,7 @@ Equipes costumam organizar classes em pacotes ou módulos e definir regras de de
 | Respeita as regras de dependência da arquitetura | A interface precisa ser bem projetada, pois muda com dificuldade |
 
 - **Acoplamento:** o cliente conhece só o contrato.
-- **Complexidade:** o ponto difícil é decidir quem instancia a implementação; veja [Plugin](./plugin.md) e [Registry](./registry.md).
+- **Complexidade:** o ponto difícil é decidir quem instancia a implementação; veja [Plugin](/application/poeaa/base/plugin) e [Registry](/application/poeaa/base/registry).
 
 ## Diagrama
 
@@ -104,13 +104,13 @@ Em frameworks como Spring, o contêiner de injeção de dependência faz o papel
 
 ## Padrões relacionados
 
-- [Gateway](./gateway.md) — a interface do Gateway costuma ser um Separated Interface.
-- [Service Stub](./service-stub.md) — uma segunda implementação da mesma interface, usada em testes.
-- [Plugin](./plugin.md) — escolhe a implementação da interface por configuração, em tempo de execução.
-- [Registry](./registry.md) — outra forma de localizar a implementação a partir da interface.
-- [Strategy](../../../coding/gof/behavioral/strategy.md) — também usa uma interface com várias implementações, mas com foco em variar algoritmos, não em separar pacotes.
-- [Abstract Factory](../../../coding/gof/creational/abstract-factory.md) — pode criar a implementação correta sem que o cliente a conheça.
-- [Repository](../object-relational-metadata-mapping/repository.md) — normalmente é definido como interface no domínio, com implementação na infraestrutura.
+- [Gateway](/application/poeaa/base/gateway) — a interface do Gateway costuma ser um Separated Interface.
+- [Service Stub](/application/poeaa/base/service-stub) — uma segunda implementação da mesma interface, usada em testes.
+- [Plugin](/application/poeaa/base/plugin) — escolhe a implementação da interface por configuração, em tempo de execução.
+- [Registry](/application/poeaa/base/registry) — outra forma de localizar a implementação a partir da interface.
+- [Strategy](/coding/gof/behavioral/strategy) — também usa uma interface com várias implementações, mas com foco em variar algoritmos, não em separar pacotes.
+- [Abstract Factory](/coding/gof/creational/abstract-factory) — pode criar a implementação correta sem que o cliente a conheça.
+- [Repository](/application/poeaa/object-relational-metadata-mapping/repository) — normalmente é definido como interface no domínio, com implementação na infraestrutura.
 
 ## Referência
 

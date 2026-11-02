@@ -62,10 +62,10 @@ As escritas vão ao líder, enquanto os clientes leitores consultam o seguidor m
 
 ## Padrões relacionados
 
-- [Leader and Followers](./leader-and-followers.md) — padrão sobre o qual esta otimização se apoia
-- [High-Water Mark](./high-water-mark.md) — limite do que o seguidor pode servir
-- [Versioned Value](./versioned-value.md) — permite ler a partir de uma versão mínima
-- [CQRS](../../../cloud/cloud-design-patterns/data-management/cqrs.md) — separação de leitura e escrita no nível da aplicação
+- [Leader and Followers](/architecture/distributed-systems/data-replication/leader-and-followers) — padrão sobre o qual esta otimização se apoia
+- [High-Water Mark](/architecture/distributed-systems/data-replication/high-water-mark) — limite do que o seguidor pode servir
+- [Versioned Value](/architecture/distributed-systems/data-replication/versioned-value) — permite ler a partir de uma versão mínima
+- [CQRS](/cloud/cloud-design-patterns/data-management/cqrs) — separação de leitura e escrita no nível da aplicação
 
 ## Referência
 

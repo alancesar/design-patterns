@@ -104,15 +104,15 @@ Uma nova equipe pode criar o produto "viagem" implementando `ProductModule` e re
 
 ## Padrões relacionados
 
-- [Abstract Core](../distillation/abstract-core.md) — a interface central do framework é, na prática, um Abstract Core.
-- [Evolving Order](./evolving-order.md) — o framework só deve surgir depois de a estrutura ter amadurecido.
-- [Knowledge Level](./knowledge-level.md) — outra forma de tornar o sistema configurável, por dados em vez de componentes.
-- [Shared Kernel](../context-mapping/shared-kernel.md) — alternativa mais simples de compartilhamento entre equipes.
-- [Open Host Service](../context-mapping/open-host-service.md) — protocolo aberto para integração, que um framework pode adotar.
-- [Cohesive Mechanisms](../distillation/cohesive-mechanisms.md) — mecanismos que podem ser encapsulados em componentes do framework.
-- [Plugin](../../poeaa/base/plugin.md) — mecanismo técnico de ligação de implementações em tempo de configuração.
-- [Separated Interface](../../poeaa/base/separated-interface.md) — separa a interface da implementação, base técnica dos componentes.
-- [Strategy](../../../coding/gof/behavioral/strategy.md) — variação de comportamento atrás de uma interface, em escala menor.
+- [Abstract Core](/application/ddd/distillation/abstract-core) — a interface central do framework é, na prática, um Abstract Core.
+- [Evolving Order](/application/ddd/large-scale-structure/evolving-order) — o framework só deve surgir depois de a estrutura ter amadurecido.
+- [Knowledge Level](/application/ddd/large-scale-structure/knowledge-level) — outra forma de tornar o sistema configurável, por dados em vez de componentes.
+- [Shared Kernel](/application/ddd/context-mapping/shared-kernel) — alternativa mais simples de compartilhamento entre equipes.
+- [Open Host Service](/application/ddd/context-mapping/open-host-service) — protocolo aberto para integração, que um framework pode adotar.
+- [Cohesive Mechanisms](/application/ddd/distillation/cohesive-mechanisms) — mecanismos que podem ser encapsulados em componentes do framework.
+- [Plugin](/application/poeaa/base/plugin) — mecanismo técnico de ligação de implementações em tempo de configuração.
+- [Separated Interface](/application/poeaa/base/separated-interface) — separa a interface da implementação, base técnica dos componentes.
+- [Strategy](/coding/gof/behavioral/strategy) — variação de comportamento atrás de uma interface, em escala menor.
 
 ## Referência
 

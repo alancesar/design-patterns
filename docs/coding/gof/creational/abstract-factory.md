@@ -139,12 +139,12 @@ console.log(renderForm(factory));
 
 ## Padrões relacionados
 
-- [Factory Method](./factory-method.md) — as fábricas concretas costumam ser implementadas com Factory Methods.
-- [Prototype](./prototype.md) — alternativa para implementar as fábricas concretas clonando protótipos em vez de instanciar subclasses.
-- [Singleton](./singleton.md) — normalmente basta uma instância de cada fábrica concreta na aplicação.
-- [Builder](./builder.md) — foca em construir um objeto complexo passo a passo, enquanto o Abstract Factory cria famílias de objetos de imediato.
-- [Facade](../structural/facade.md) — um Abstract Factory pode ser usado como alternativa ao Facade para esconder a criação de objetos específicos de um subsistema.
-- [Bridge](../structural/bridge.md) — um Abstract Factory pode criar e configurar uma implementação específica de um Bridge.
+- [Factory Method](/coding/gof/creational/factory-method) — as fábricas concretas costumam ser implementadas com Factory Methods.
+- [Prototype](/coding/gof/creational/prototype) — alternativa para implementar as fábricas concretas clonando protótipos em vez de instanciar subclasses.
+- [Singleton](/coding/gof/creational/singleton) — normalmente basta uma instância de cada fábrica concreta na aplicação.
+- [Builder](/coding/gof/creational/builder) — foca em construir um objeto complexo passo a passo, enquanto o Abstract Factory cria famílias de objetos de imediato.
+- [Facade](/coding/gof/structural/facade) — um Abstract Factory pode ser usado como alternativa ao Facade para esconder a criação de objetos específicos de um subsistema.
+- [Bridge](/coding/gof/structural/bridge) — um Abstract Factory pode criar e configurar uma implementação específica de um Bridge.
 
 ## Referência
 

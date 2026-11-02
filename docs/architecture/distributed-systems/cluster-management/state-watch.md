@@ -15,7 +15,7 @@ sidebar_label: "State Watch"
 
 No State Watch, o cliente registra no servidor o interesse em mudanças de determinados valores (uma chave, um prefixo, o estado de um nó). Quando um desses valores muda, o servidor envia uma notificação ao cliente, que então reage sem precisar consultar o servidor repetidamente.
 
-Como um único cliente pode observar muitos valores, o padrão se apoia em um [Single-Socket Channel](../node-communication/single-socket-channel.md): todas as observações e notificações trafegam por uma conexão, e requisições de registro podem ser agrupadas com um [Request Pipeline](../node-communication/request-pipeline.md). O servidor mantém um mapa de quais clientes observam quais chaves e dispara eventos ao aplicar cada mudança.
+Como um único cliente pode observar muitos valores, o padrão se apoia em um [Single-Socket Channel](/architecture/distributed-systems/node-communication/single-socket-channel): todas as observações e notificações trafegam por uma conexão, e requisições de registro podem ser agrupadas com um [Request Pipeline](/architecture/distributed-systems/node-communication/request-pipeline). O servidor mantém um mapa de quais clientes observam quais chaves e dispara eventos ao aplicar cada mudança.
 
 É o recurso de watches do ZooKeeper e do etcd, e é usado para acompanhar mudanças de membership, de configuração, de líder e de expiração de leases.
 
@@ -29,7 +29,7 @@ Como um único cliente pode observar muitos valores, o padrão se apoia em um [S
 
 - Clientes que precisam reagir a mudanças de configuração, membership ou liderança.
 - Quando muitos clientes observam poucos valores que mudam raramente.
-- Em conjunto com um [Consistent Core](./consistent-core.md) e [Lease](./lease.md), para saber quando um lease expirou.
+- Em conjunto com um [Consistent Core](/architecture/distributed-systems/cluster-management/consistent-core) e [Lease](/architecture/distributed-systems/cluster-management/lease), para saber quando um lease expirou.
 
 ### Quando evitar
 
@@ -71,12 +71,12 @@ O cliente registra o interesse uma vez, e o servidor o avisa quando o valor muda
 
 ## Padrões relacionados
 
-- [Observer](../../../coding/gof/behavioral/observer.md) — o mesmo conceito, em escala local, dentro de um processo.
-- [Publisher-Subscriber](../../../cloud/cloud-design-patterns/messaging/publisher-subscriber.md) — mensageria assíncrona com assinantes.
-- [Consistent Core](./consistent-core.md) — normalmente oferece watches sobre seus metadados.
-- [Lease](./lease.md) — a expiração de leases é um evento típico observado.
-- [Single-Socket Channel](../node-communication/single-socket-channel.md) — canal compartilhado para as notificações.
-- [Request Pipeline](../node-communication/request-pipeline.md) — reduz o custo de registrar muitas observações.
+- [Observer](/coding/gof/behavioral/observer) — o mesmo conceito, em escala local, dentro de um processo.
+- [Publisher-Subscriber](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — mensageria assíncrona com assinantes.
+- [Consistent Core](/architecture/distributed-systems/cluster-management/consistent-core) — normalmente oferece watches sobre seus metadados.
+- [Lease](/architecture/distributed-systems/cluster-management/lease) — a expiração de leases é um evento típico observado.
+- [Single-Socket Channel](/architecture/distributed-systems/node-communication/single-socket-channel) — canal compartilhado para as notificações.
+- [Request Pipeline](/architecture/distributed-systems/node-communication/request-pipeline) — reduz o custo de registrar muitas observações.
 
 ## Referência
 

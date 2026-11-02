@@ -89,11 +89,11 @@ CREATE TABLE orders (
 
 ## Padrões relacionados
 
-- [Identity Field](./identity-field.md) — fornece a chave que a chave estrangeira referencia.
-- [Association Table Mapping](./association-table-mapping.md) — usado quando a associação é muitos-para-muitos.
-- [Dependent Mapping](./dependent-mapping.md) — alternativa quando o filho depende totalmente do pai.
-- [Lazy Load](../object-relational-behavioral/lazy-load.md) — adia a carga do objeto referenciado.
-- [Identity Map](../object-relational-behavioral/identity-map.md) — garante um único objeto por linha ao resolver a referência.
+- [Identity Field](/application/poeaa/object-relational-structural/identity-field) — fornece a chave que a chave estrangeira referencia.
+- [Association Table Mapping](/application/poeaa/object-relational-structural/association-table-mapping) — usado quando a associação é muitos-para-muitos.
+- [Dependent Mapping](/application/poeaa/object-relational-structural/dependent-mapping) — alternativa quando o filho depende totalmente do pai.
+- [Lazy Load](/application/poeaa/object-relational-behavioral/lazy-load) — adia a carga do objeto referenciado.
+- [Identity Map](/application/poeaa/object-relational-behavioral/identity-map) — garante um único objeto por linha ao resolver a referência.
 
 ## Referência
 

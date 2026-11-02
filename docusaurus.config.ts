@@ -29,7 +29,11 @@ const config: Config = {
 
   i18n: {
     defaultLocale: 'pt-BR',
-    locales: ['pt-BR'],
+    locales: ['pt-BR', 'en'],
+    localeConfigs: {
+      'pt-BR': {label: 'Português', htmlLang: 'pt-BR'},
+      en: {label: 'English', htmlLang: 'en'},
+    },
   },
 
   markdown: {
@@ -95,6 +99,7 @@ const config: Config = {
         // every search-result breadcrumb ("Cloud › Cloud › Cloud Design Patterns …").
         ...domains.map((d) => ({to: `/${d.slug}`, label: d.label, position: 'left' as const, activeBaseRegex: '^$'})),
         {to: '/tags', label: 'Etiquetas', position: 'left'},
+        {type: 'localeDropdown', position: 'right'},
         {href: 'https://alancesar.dev', label: 'alancesar.dev', position: 'right'},
         {href: 'https://github.com/alancesar/design-patterns', label: 'GitHub', position: 'right'},
       ],

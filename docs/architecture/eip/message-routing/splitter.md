@@ -61,11 +61,11 @@ O pedido composto é dividido em uma mensagem por item, prontas para roteamento 
 
 ## Padrões relacionados
 
-- [Aggregator](./aggregator.md) — recombina as partes depois do processamento
-- [Composed Message Processor](./composed-message-processor.md) — combina Splitter, roteador e Aggregator
-- [Content-Based Router](./content-based-router.md) — roteia cada item para o sistema certo
-- [Message Sequence](../message-construction/message-sequence.md) — numeração das partes
-- [Correlation Identifier](../message-construction/correlation-identifier.md) — liga as partes ao original
+- [Aggregator](/architecture/eip/message-routing/aggregator) — recombina as partes depois do processamento
+- [Composed Message Processor](/architecture/eip/message-routing/composed-message-processor) — combina Splitter, roteador e Aggregator
+- [Content-Based Router](/architecture/eip/message-routing/content-based-router) — roteia cada item para o sistema certo
+- [Message Sequence](/architecture/eip/message-construction/message-sequence) — numeração das partes
+- [Correlation Identifier](/architecture/eip/message-construction/correlation-identifier) — liga as partes ao original
 
 ## Referência
 

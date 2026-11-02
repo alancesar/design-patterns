@@ -76,12 +76,12 @@ O produtor atribui uma prioridade a cada mensagem e a envia para a fila correspo
 
 ## Padrões relacionados
 
-- [Queue-Based Load Leveling](./queue-based-load-leveling.md) — amortece picos de demanda antes do processamento e combina bem com a priorização.
-- [Competing Consumers](./competing-consumers.md) — permite que vários consumidores processem mensagens de cada fila em paralelo, aumentando vazão e disponibilidade.
-- [Throttling](../resiliency/throttling.md) — limita o consumo de recursos e pode privilegiar requisições de maior prioridade sob carga.
-- [Publisher-Subscriber](./publisher-subscriber.md) — tópicos e assinaturas com filtros podem rotear mensagens para filas de diferentes prioridades.
-- [Bulkhead](../resiliency/bulkhead.md) — pools de consumidores dedicados por prioridade isolam falhas entre níveis.
-- [Sequential Convoy](./sequential-convoy.md) — útil quando a ordem de processamento importa, situação em que a priorização pode ser inadequada.
+- [Queue-Based Load Leveling](/cloud/cloud-design-patterns/messaging/queue-based-load-leveling) — amortece picos de demanda antes do processamento e combina bem com a priorização.
+- [Competing Consumers](/cloud/cloud-design-patterns/messaging/competing-consumers) — permite que vários consumidores processem mensagens de cada fila em paralelo, aumentando vazão e disponibilidade.
+- [Throttling](/cloud/cloud-design-patterns/resiliency/throttling) — limita o consumo de recursos e pode privilegiar requisições de maior prioridade sob carga.
+- [Publisher-Subscriber](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — tópicos e assinaturas com filtros podem rotear mensagens para filas de diferentes prioridades.
+- [Bulkhead](/cloud/cloud-design-patterns/resiliency/bulkhead) — pools de consumidores dedicados por prioridade isolam falhas entre níveis.
+- [Sequential Convoy](/cloud/cloud-design-patterns/messaging/sequential-convoy) — útil quando a ordem de processamento importa, situação em que a priorização pode ser inadequada.
 
 ## Referência
 

@@ -17,7 +17,7 @@ O Money representa um valor monetário. A maioria das linguagens não tem um tip
 
 A solução é encapsular o valor em uma classe `Money` que carrega quantia e moeda, rejeita operações entre moedas distintas e concentra as regras de arredondamento. Tipicamente a quantia é guardada como inteiro na menor unidade (centavos) ou como decimal de precisão fixa, nunca como ponto flutuante binário.
 
-Uma operação-chave é a alocação (`allocate`): dividir um valor em partes sem perder ou criar centavos, distribuindo o resto entre as partes. Money é uma especialização de [Value Object](./value-object.md): imutável e comparado por valor.
+Uma operação-chave é a alocação (`allocate`): dividir um valor em partes sem perder ou criar centavos, distribuindo o resto entre as partes. Money é uma especialização de [Value Object](/application/poeaa/base/value-object): imutável e comparado por valor.
 
 ## Problemas que resolve
 
@@ -48,7 +48,7 @@ Uma operação-chave é a alocação (`allocate`): dividir um valor em partes se
 | Imutável, seguro e fácil de testar | Moedas com 0, 2 ou 3 casas decimais exigem tratamento |
 
 - **Consistência:** o dinheiro nunca "some" nem "aparece" em rateios.
-- **Persistência:** costuma ser mapeado com [Embedded Value](../object-relational-structural/embedded-value.md) em duas colunas (quantia e moeda).
+- **Persistência:** costuma ser mapeado com [Embedded Value](/application/poeaa/object-relational-structural/embedded-value) em duas colunas (quantia e moeda).
 
 ## Diagrama
 
@@ -108,11 +108,11 @@ Money.of(10000, "BRL").allocate(3); // 33,34 / 33,33 / 33,33
 
 ## Padrões relacionados
 
-- [Value Object](./value-object.md) — Money é o exemplo canônico: imutável e comparado por valor.
-- [Embedded Value](../object-relational-structural/embedded-value.md) — mapeia a quantia e a moeda para colunas da tabela dona.
-- [Special Case](./special-case.md) — pode representar valores especiais, como "sem preço definido" ou dinheiro zero.
-- [Domain Model](../domain-logic/domain-model.md) — usa Money nos atributos monetários das entidades.
-- [Flyweight](../../../coding/gof/structural/flyweight.md) — instâncias imutáveis comuns (como zero) podem ser compartilhadas.
+- [Value Object](/application/poeaa/base/value-object) — Money é o exemplo canônico: imutável e comparado por valor.
+- [Embedded Value](/application/poeaa/object-relational-structural/embedded-value) — mapeia a quantia e a moeda para colunas da tabela dona.
+- [Special Case](/application/poeaa/base/special-case) — pode representar valores especiais, como "sem preço definido" ou dinheiro zero.
+- [Domain Model](/application/poeaa/domain-logic/domain-model) — usa Money nos atributos monetários das entidades.
+- [Flyweight](/coding/gof/structural/flyweight) — instâncias imutáveis comuns (como zero) podem ser compartilhadas.
 
 ## Referência
 

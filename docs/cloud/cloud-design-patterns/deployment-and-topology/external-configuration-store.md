@@ -90,15 +90,15 @@ As aplicações leem as configurações por meio de um cache local, que é atual
 
 ## Padrões relacionados
 
-- [Cache-Aside](../data-management/cache-aside.md) — usado para armazenar em cache local as configurações lidas do repositório, melhorando desempenho e resiliência.
-- [Retry](../resiliency/retry.md) — trata falhas transitórias ao acessar o repositório de configuração.
-- [Circuit Breaker](../resiliency/circuit-breaker.md) — evita insistir em um repositório indisponível, recorrendo ao último valor conhecido.
-- [Deployment Stamp](./deployment-stamp.md) — stamps costumam ler configurações específicas de cada unidade a partir de um repositório central.
-- [Sidecar](../integration-and-modernization/sidecar.md) — um sidecar pode buscar e entregar configurações à aplicação sem alterar seu código.
-- [Microservice Chassis](../../../architecture/microservices/cross-cutting-concerns/microservice-chassis.md) — o chassis costuma fornecer o mecanismo de leitura de configuração externa a todos os serviços.
-- [Service Template](../../../architecture/microservices/cross-cutting-concerns/service-template.md) — o template já nasce preparado para receber configuração externalizada.
-- [Client-side Discovery](../../../architecture/microservices/service-discovery/client-side-discovery.md) — a configuração pode usar nomes lógicos de serviço, resolvidos pela descoberta.
-- [Valet Key](../security-and-access/valet-key.md) — complementa o controle de acesso restrito a recursos de armazenamento usados como repositório de apoio.
+- [Cache-Aside](/cloud/cloud-design-patterns/data-management/cache-aside) — usado para armazenar em cache local as configurações lidas do repositório, melhorando desempenho e resiliência.
+- [Retry](/cloud/cloud-design-patterns/resiliency/retry) — trata falhas transitórias ao acessar o repositório de configuração.
+- [Circuit Breaker](/cloud/cloud-design-patterns/resiliency/circuit-breaker) — evita insistir em um repositório indisponível, recorrendo ao último valor conhecido.
+- [Deployment Stamp](/cloud/cloud-design-patterns/deployment-and-topology/deployment-stamp) — stamps costumam ler configurações específicas de cada unidade a partir de um repositório central.
+- [Sidecar](/cloud/cloud-design-patterns/integration-and-modernization/sidecar) — um sidecar pode buscar e entregar configurações à aplicação sem alterar seu código.
+- [Microservice Chassis](/architecture/microservices/cross-cutting-concerns/microservice-chassis) — o chassis costuma fornecer o mecanismo de leitura de configuração externa a todos os serviços.
+- [Service Template](/architecture/microservices/cross-cutting-concerns/service-template) — o template já nasce preparado para receber configuração externalizada.
+- [Client-side Discovery](/architecture/microservices/service-discovery/client-side-discovery) — a configuração pode usar nomes lógicos de serviço, resolvidos pela descoberta.
+- [Valet Key](/cloud/cloud-design-patterns/security-and-access/valet-key) — complementa o controle de acesso restrito a recursos de armazenamento usados como repositório de apoio.
 
 ## Referência
 

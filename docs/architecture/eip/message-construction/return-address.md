@@ -60,10 +60,10 @@ O replier responde no canal indicado pelo cabeçalho da requisição.
 
 ## Padrões relacionados
 
-- [Request-Reply](./request-reply.md) — padrão que depende de um destino de resposta
-- [Correlation Identifier](./correlation-identifier.md) — associa a resposta à requisição
-- [Message](./message.md) — o endereço vai no cabeçalho
-- [Message Channel](../messaging-channels/message-channel.md) — o endereço aponta para um canal
+- [Request-Reply](/architecture/eip/message-construction/request-reply) — padrão que depende de um destino de resposta
+- [Correlation Identifier](/architecture/eip/message-construction/correlation-identifier) — associa a resposta à requisição
+- [Message](/architecture/eip/message-construction/message) — o endereço vai no cabeçalho
+- [Message Channel](/architecture/eip/messaging-channels/message-channel) — o endereço aponta para um canal
 
 ## Referência
 

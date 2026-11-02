@@ -63,12 +63,12 @@ O wrapper adiciona o envelope exigido pela infraestrutura e o unwrapper o remove
 
 ## Padrões relacionados
 
-- [Message Translator](./message-translator.md) — converte o formato do conteúdo, enquanto o wrapper apenas o envolve.
-- [Content Enricher](./content-enricher.md) — pode ser usado para completar campos de cabeçalho com dados externos.
-- [Content-Based Router](../message-routing/content-based-router.md) — usa os campos do envelope para decidir o roteamento.
-- [Messaging Bridge](../../../cloud/cloud-design-patterns/messaging/messaging-bridge.md) — conecta sistemas de mensageria que exigem envelopes distintos.
-- [Pipes and Filters](../../../cloud/cloud-design-patterns/messaging/pipes-and-filters.md) — wrapper e unwrapper são filtros na cadeia de processamento.
-- [Decorator](../../../coding/gof/structural/decorator.md) — também acrescenta responsabilidades em volta de um objeto sem alterá-lo.
+- [Message Translator](/architecture/eip/message-transformation/message-translator) — converte o formato do conteúdo, enquanto o wrapper apenas o envolve.
+- [Content Enricher](/architecture/eip/message-transformation/content-enricher) — pode ser usado para completar campos de cabeçalho com dados externos.
+- [Content-Based Router](/architecture/eip/message-routing/content-based-router) — usa os campos do envelope para decidir o roteamento.
+- [Messaging Bridge](/cloud/cloud-design-patterns/messaging/messaging-bridge) — conecta sistemas de mensageria que exigem envelopes distintos.
+- [Pipes and Filters](/cloud/cloud-design-patterns/messaging/pipes-and-filters) — wrapper e unwrapper são filtros na cadeia de processamento.
+- [Decorator](/coding/gof/structural/decorator) — também acrescenta responsabilidades em volta de um objeto sem alterá-lo.
 
 ## Referência
 

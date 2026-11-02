@@ -61,10 +61,10 @@ O log é dividido em três zonas: o que já pode ser descartado, o que é retido
 
 ## Padrões relacionados
 
-- [Write-Ahead Log](./write-ahead-log.md) — o log cujo crescimento a marca limita
-- [Segmented Log](./segmented-log.md) — facilita a remoção de segmentos abaixo da marca
-- [High-Water Mark](./high-water-mark.md) — marca complementar, no extremo superior do log
-- [Replicated Log](./replicated-log.md) — a marca precisa considerar o que os seguidores ainda precisam
+- [Write-Ahead Log](/architecture/distributed-systems/data-replication/write-ahead-log) — o log cujo crescimento a marca limita
+- [Segmented Log](/architecture/distributed-systems/data-replication/segmented-log) — facilita a remoção de segmentos abaixo da marca
+- [High-Water Mark](/architecture/distributed-systems/data-replication/high-water-mark) — marca complementar, no extremo superior do log
+- [Replicated Log](/architecture/distributed-systems/data-replication/replicated-log) — a marca precisa considerar o que os seguidores ainda precisam
 
 ## Referência
 

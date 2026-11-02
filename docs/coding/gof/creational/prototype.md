@@ -129,12 +129,12 @@ c.x = 120; c.y = 80; // o protótipo original permanece intacto
 
 ## Padrões relacionados
 
-- [Abstract Factory](./abstract-factory.md) — pode armazenar um conjunto de protótipos e clonar a partir deles em vez de instanciar subclasses
-- [Factory Method](./factory-method.md) — alternativa baseada em herança; o Prototype dispensa subclasses de criador
-- [Composite](../structural/composite.md) — estruturas compostas costumam se beneficiar de clonagem para duplicar árvores inteiras
-- [Decorator](../structural/decorator.md) — designs com muitos objetos decorados podem usar clonagem para replicar configurações complexas
-- [Memento](../behavioral/memento.md) — em casos simples, um clone do objeto pode servir como snapshot de estado
-- [Singleton](./singleton.md) — o registro de protótipos frequentemente é implementado como Singleton
+- [Abstract Factory](/coding/gof/creational/abstract-factory) — pode armazenar um conjunto de protótipos e clonar a partir deles em vez de instanciar subclasses
+- [Factory Method](/coding/gof/creational/factory-method) — alternativa baseada em herança; o Prototype dispensa subclasses de criador
+- [Composite](/coding/gof/structural/composite) — estruturas compostas costumam se beneficiar de clonagem para duplicar árvores inteiras
+- [Decorator](/coding/gof/structural/decorator) — designs com muitos objetos decorados podem usar clonagem para replicar configurações complexas
+- [Memento](/coding/gof/behavioral/memento) — em casos simples, um clone do objeto pode servir como snapshot de estado
+- [Singleton](/coding/gof/creational/singleton) — o registro de protótipos frequentemente é implementado como Singleton
 
 ## Referência
 

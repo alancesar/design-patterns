@@ -95,12 +95,12 @@ const pending = invoices.filter((i) => toCollect.isSatisfiedBy(i));
 
 ## Padrões relacionados
 
-- [Intention-Revealing Interfaces](./intention-revealing-interfaces.md) — nomes que fazem o estilo declarativo ser legível.
-- [Side-Effect-Free Functions](./side-effect-free-functions.md) — regras puras podem ser combinadas sem risco.
-- [Closure of Operations](./closure-of-operations.md) — `and`, `or` e `not` devolvem uma Specification.
-- [Interpreter](../../../coding/gof/behavioral/interpreter.md) (GoF) — técnica para executar uma linguagem de regras.
-- [Query Object](../../poeaa/object-relational-metadata-mapping/query-object.md) (PoEAA) — consulta expressa como objeto declarativo.
-- [Domain Service](../building-blocks/domain-service.md) — alternativa quando a regra não cabe em uma especificação.
+- [Intention-Revealing Interfaces](/application/ddd/supple-design/intention-revealing-interfaces) — nomes que fazem o estilo declarativo ser legível.
+- [Side-Effect-Free Functions](/application/ddd/supple-design/side-effect-free-functions) — regras puras podem ser combinadas sem risco.
+- [Closure of Operations](/application/ddd/supple-design/closure-of-operations) — `and`, `or` e `not` devolvem uma Specification.
+- [Interpreter](/coding/gof/behavioral/interpreter) (GoF) — técnica para executar uma linguagem de regras.
+- [Query Object](/application/poeaa/object-relational-metadata-mapping/query-object) (PoEAA) — consulta expressa como objeto declarativo.
+- [Domain Service](/application/ddd/building-blocks/domain-service) — alternativa quando a regra não cabe em uma especificação.
 
 ## Referência
 

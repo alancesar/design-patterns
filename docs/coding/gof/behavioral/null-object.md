@@ -113,13 +113,13 @@ new OrderService().placeOrder("43");                    // silencioso
 
 ## Padrões relacionados
 
-- [Strategy](./strategy.md) — o Null Object pode ser visto como uma estratégia que não faz nada
-- [State](./state.md) — um estado "nulo" ou inicial pode ser modelado como Null Object
-- [Singleton](../creational/singleton.md) — como não tem estado, o objeto nulo costuma ser uma instância única compartilhada
-- [Flyweight](../structural/flyweight.md) — a instância nula pode ser compartilhada como um flyweight sem estado intrínseco
-- [Proxy](../structural/proxy.md) — ambos se colocam no lugar do objeto real, mas o Proxy controla acesso a ele e o Null Object o substitui
-- [Iterator](./iterator.md) — um iterador vazio é um caso clássico de Null Object
-- [Command](./command.md) — um comando "no-op" é usado como valor padrão em vez de comando nulo
+- [Strategy](/coding/gof/behavioral/strategy) — o Null Object pode ser visto como uma estratégia que não faz nada
+- [State](/coding/gof/behavioral/state) — um estado "nulo" ou inicial pode ser modelado como Null Object
+- [Singleton](/coding/gof/creational/singleton) — como não tem estado, o objeto nulo costuma ser uma instância única compartilhada
+- [Flyweight](/coding/gof/structural/flyweight) — a instância nula pode ser compartilhada como um flyweight sem estado intrínseco
+- [Proxy](/coding/gof/structural/proxy) — ambos se colocam no lugar do objeto real, mas o Proxy controla acesso a ele e o Null Object o substitui
+- [Iterator](/coding/gof/behavioral/iterator) — um iterador vazio é um caso clássico de Null Object
+- [Command](/coding/gof/behavioral/command) — um comando "no-op" é usado como valor padrão em vez de comando nulo
 
 ## Referência
 

@@ -127,12 +127,12 @@ console.log(chain.handle(25_000)); // Director aprovou 25000
 
 ## Padrões relacionados
 
-- [Composite](../structural/composite.md) — a cadeia frequentemente segue a hierarquia de um Composite, repassando a requisição do filho para o pai (event bubbling)
-- [Command](./command.md) — requisições podem ser encapsuladas como Commands e passadas ao longo da cadeia
-- [Decorator](../structural/decorator.md) — estrutura semelhante de encadeamento recursivo, mas o Decorator sempre delega e adiciona comportamento, enquanto o handler pode interromper a cadeia
-- [Mediator](./mediator.md) — outra forma de desacoplar remetentes e receptores, porém centralizando a comunicação em vez de distribuí-la em uma cadeia
-- [Observer](./observer.md) — também desacopla emissores e receptores, mas notifica todos os interessados em vez de um único tratador
-- [Null Object](./null-object.md) — pode servir como último elo da cadeia, eliminando verificações de sucessor nulo
+- [Composite](/coding/gof/structural/composite) — a cadeia frequentemente segue a hierarquia de um Composite, repassando a requisição do filho para o pai (event bubbling)
+- [Command](/coding/gof/behavioral/command) — requisições podem ser encapsuladas como Commands e passadas ao longo da cadeia
+- [Decorator](/coding/gof/structural/decorator) — estrutura semelhante de encadeamento recursivo, mas o Decorator sempre delega e adiciona comportamento, enquanto o handler pode interromper a cadeia
+- [Mediator](/coding/gof/behavioral/mediator) — outra forma de desacoplar remetentes e receptores, porém centralizando a comunicação em vez de distribuí-la em uma cadeia
+- [Observer](/coding/gof/behavioral/observer) — também desacopla emissores e receptores, mas notifica todos os interessados em vez de um único tratador
+- [Null Object](/coding/gof/behavioral/null-object) — pode servir como último elo da cadeia, eliminando verificações de sucessor nulo
 
 ## Referência
 

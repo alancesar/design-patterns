@@ -110,16 +110,16 @@ No Hibernate e no Entity Framework, o mapeamento é configurado por metadados em
 
 ## Padrões relacionados
 
-- [Active Record](./active-record.md) — alternativa mais simples em que o objeto sabe se persistir.
-- [Row Data Gateway](./row-data-gateway.md) — gateway por linha, sem lógica de domínio.
-- [Table Data Gateway](./table-data-gateway.md) — gateway por tabela, usado por lógicas tabulares.
-- [Domain Model](../domain-logic/domain-model.md) — o modelo que o Data Mapper mantém independente do banco.
-- [Unit of Work](../object-relational-behavioral/unit-of-work.md) — controla quais objetos mudaram e coordena a gravação.
-- [Identity Map](../object-relational-behavioral/identity-map.md) — garante um único objeto por linha carregada.
-- [Lazy Load](../object-relational-behavioral/lazy-load.md) — adia o carregamento de associações.
-- [Repository](../object-relational-metadata-mapping/repository.md) — oferece ao domínio uma visão de coleção sobre o mapper.
-- [Mapper](../base/mapper.md) — padrão base do qual este é uma especialização.
-- [Metadata Mapping](../object-relational-metadata-mapping/metadata-mapping.md) — mapeamento descrito por metadados em ORMs.
+- [Active Record](/application/poeaa/data-source-architectural/active-record) — alternativa mais simples em que o objeto sabe se persistir.
+- [Row Data Gateway](/application/poeaa/data-source-architectural/row-data-gateway) — gateway por linha, sem lógica de domínio.
+- [Table Data Gateway](/application/poeaa/data-source-architectural/table-data-gateway) — gateway por tabela, usado por lógicas tabulares.
+- [Domain Model](/application/poeaa/domain-logic/domain-model) — o modelo que o Data Mapper mantém independente do banco.
+- [Unit of Work](/application/poeaa/object-relational-behavioral/unit-of-work) — controla quais objetos mudaram e coordena a gravação.
+- [Identity Map](/application/poeaa/object-relational-behavioral/identity-map) — garante um único objeto por linha carregada.
+- [Lazy Load](/application/poeaa/object-relational-behavioral/lazy-load) — adia o carregamento de associações.
+- [Repository](/application/poeaa/object-relational-metadata-mapping/repository) — oferece ao domínio uma visão de coleção sobre o mapper.
+- [Mapper](/application/poeaa/base/mapper) — padrão base do qual este é uma especialização.
+- [Metadata Mapping](/application/poeaa/object-relational-metadata-mapping/metadata-mapping) — mapeamento descrito por metadados em ORMs.
 
 ## Referência
 

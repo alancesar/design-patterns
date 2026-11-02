@@ -104,11 +104,11 @@ class OrderScripts:
 
 ## Padrões relacionados
 
-- [Domain Model](./domain-model.md) — alternativa para lógica complexa, com objetos que combinam dados e comportamento.
-- [Table Module](./table-module.md) — organiza a lógica por tabela, em vez de por requisição.
-- [Service Layer](./service-layer.md) — pode ser implementado com scripts de transação como fronteira da aplicação.
-- [Table Data Gateway](../data-source-architectural/table-data-gateway.md) — gateway fino frequentemente usado pelos scripts para acessar o banco.
-- [Command](../../../coding/gof/behavioral/command.md) — scripts podem ser organizados como objetos de comando, um por transação.
+- [Domain Model](/application/poeaa/domain-logic/domain-model) — alternativa para lógica complexa, com objetos que combinam dados e comportamento.
+- [Table Module](/application/poeaa/domain-logic/table-module) — organiza a lógica por tabela, em vez de por requisição.
+- [Service Layer](/application/poeaa/domain-logic/service-layer) — pode ser implementado com scripts de transação como fronteira da aplicação.
+- [Table Data Gateway](/application/poeaa/data-source-architectural/table-data-gateway) — gateway fino frequentemente usado pelos scripts para acessar o banco.
+- [Command](/coding/gof/behavioral/command) — scripts podem ser organizados como objetos de comando, um por transação.
 
 ## Referência
 

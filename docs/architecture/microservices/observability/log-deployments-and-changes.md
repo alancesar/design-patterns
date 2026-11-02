@@ -54,10 +54,10 @@ Eventos de deploy e de mudança são publicados junto das métricas, e o dashboa
 
 ## Padrões relacionados
 
-- [Application Metrics](./application-metrics.md) — o deploy é publicado como pseudo-métrica ao lado das métricas
-- [Audit Logging](./audit-logging.md) — registra ações de usuários, enquanto este registra mudanças no ambiente
-- [Log Aggregation](./log-aggregation.md) — eventos de mudança também podem ser enviados aos logs centralizados
-- [Service Deployment Platform](../deployment/service-deployment-platform.md) — a plataforma de deploy é uma fonte natural dos eventos
+- [Application Metrics](/architecture/microservices/observability/application-metrics) — o deploy é publicado como pseudo-métrica ao lado das métricas
+- [Audit Logging](/architecture/microservices/observability/audit-logging) — registra ações de usuários, enquanto este registra mudanças no ambiente
+- [Log Aggregation](/architecture/microservices/observability/log-aggregation) — eventos de mudança também podem ser enviados aos logs centralizados
+- [Service Deployment Platform](/architecture/microservices/deployment/service-deployment-platform) — a plataforma de deploy é uma fonte natural dos eventos
 
 ## Referência
 

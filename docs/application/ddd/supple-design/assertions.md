@@ -98,11 +98,11 @@ void mixInSumsVolumes() {
 
 ## Padrões relacionados
 
-- [Side-Effect-Free Functions](./side-effect-free-functions.md) — reduz o número de comandos que precisam de assertions.
-- [Intention-Revealing Interfaces](./intention-revealing-interfaces.md) — o nome sugere o efeito; a assertion o confirma.
-- [Aggregate](../building-blocks/aggregate.md) — seus invariantes são o principal alvo de assertions.
-- [Entity](../building-blocks/entity.md) — comandos que mudam estado precisam de pós-condições claras.
-- [Closure of Operations](./closure-of-operations.md) — facilita raciocinar sobre o resultado sem novas dependências.
+- [Side-Effect-Free Functions](/application/ddd/supple-design/side-effect-free-functions) — reduz o número de comandos que precisam de assertions.
+- [Intention-Revealing Interfaces](/application/ddd/supple-design/intention-revealing-interfaces) — o nome sugere o efeito; a assertion o confirma.
+- [Aggregate](/application/ddd/building-blocks/aggregate) — seus invariantes são o principal alvo de assertions.
+- [Entity](/application/ddd/building-blocks/entity) — comandos que mudam estado precisam de pós-condições claras.
+- [Closure of Operations](/application/ddd/supple-design/closure-of-operations) — facilita raciocinar sobre o resultado sem novas dependências.
 
 ## Referência
 

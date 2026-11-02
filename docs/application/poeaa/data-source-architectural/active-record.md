@@ -100,12 +100,12 @@ product.save()
 
 ## Padrões relacionados
 
-- [Row Data Gateway](./row-data-gateway.md) — mesma estrutura, mas sem lógica de domínio.
-- [Table Data Gateway](./table-data-gateway.md) — acesso por tabela, em vez de um objeto por linha.
-- [Data Mapper](./data-mapper.md) — separa domínio e persistência quando o modelo é rico.
-- [Domain Model](../domain-logic/domain-model.md) — com modelo simples, o Active Record é uma forma de implementá-lo.
-- [Transaction Script](../domain-logic/transaction-script.md) — alternativa mais procedural para lógicas simples.
-- [Identity Field](../object-relational-structural/identity-field.md) — a chave primária guardada no objeto.
+- [Row Data Gateway](/application/poeaa/data-source-architectural/row-data-gateway) — mesma estrutura, mas sem lógica de domínio.
+- [Table Data Gateway](/application/poeaa/data-source-architectural/table-data-gateway) — acesso por tabela, em vez de um objeto por linha.
+- [Data Mapper](/application/poeaa/data-source-architectural/data-mapper) — separa domínio e persistência quando o modelo é rico.
+- [Domain Model](/application/poeaa/domain-logic/domain-model) — com modelo simples, o Active Record é uma forma de implementá-lo.
+- [Transaction Script](/application/poeaa/domain-logic/transaction-script) — alternativa mais procedural para lógicas simples.
+- [Identity Field](/application/poeaa/object-relational-structural/identity-field) — a chave primária guardada no objeto.
 
 ## Referência
 

@@ -76,12 +76,12 @@ O consumidor solicita um artefato externo, que é copiado para um repositório i
 
 ## Padrões relacionados
 
-- [Gatekeeper](./gatekeeper.md) — também interpõe um intermediário que valida e controla o acesso antes que algo alcance recursos confiáveis.
-- [Sidecar](../integration-and-modernization/sidecar.md) — a quarentena funciona como um processo operacional auxiliar, separado do ciclo de desenvolvimento.
-- [Pipes and Filters](../messaging/pipes-and-filters.md) — as verificações podem ser organizadas como uma sequência de etapas independentes.
-- [Scheduler Agent Supervisor](../distributed-coordination/scheduler-agent-supervisor.md) — útil para orquestrar tarefas de validação longas e lidar com falhas.
-- [Asynchronous Request-Reply](../messaging/asynchronous-request-reply.md) — o consumidor solicita a quarentena e recebe o resultado de forma assíncrona.
-- [Publisher-Subscriber](../messaging/publisher-subscriber.md) — o fim da quarentena é sinalizado por um evento consumido pelos interessados.
+- [Gatekeeper](/cloud/cloud-design-patterns/security-and-access/gatekeeper) — também interpõe um intermediário que valida e controla o acesso antes que algo alcance recursos confiáveis.
+- [Sidecar](/cloud/cloud-design-patterns/integration-and-modernization/sidecar) — a quarentena funciona como um processo operacional auxiliar, separado do ciclo de desenvolvimento.
+- [Pipes and Filters](/cloud/cloud-design-patterns/messaging/pipes-and-filters) — as verificações podem ser organizadas como uma sequência de etapas independentes.
+- [Scheduler Agent Supervisor](/cloud/cloud-design-patterns/distributed-coordination/scheduler-agent-supervisor) — útil para orquestrar tarefas de validação longas e lidar com falhas.
+- [Asynchronous Request-Reply](/cloud/cloud-design-patterns/messaging/asynchronous-request-reply) — o consumidor solicita a quarentena e recebe o resultado de forma assíncrona.
+- [Publisher-Subscriber](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — o fim da quarentena é sinalizado por um evento consumido pelos interessados.
 
 ## Referência
 

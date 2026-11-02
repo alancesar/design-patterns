@@ -14,7 +14,7 @@ sidebar_label: "Rate Limiting"
 
 O padrão Rate Limiting faz com que uma aplicação **controle a taxa com que ela mesma envia requisições** a um serviço que impõe limites de uso. Em vez de disparar tudo de uma vez e reenviar o que for rejeitado, o cliente regula o próprio consumo (número de operações, volume de dados ou custo relativo por intervalo de tempo) para ficar dentro da capacidade do serviço de destino. Assim, ele evita ou reduz erros de estrangulamento e consegue prever o throughput e o tempo total de processamento.
 
-A diferença em relação ao [Throttling](./throttling.md) está no lado de quem controla. No Throttling, o **serviço** se protege e limita ou rejeita os clientes que passam da conta (por exemplo, respondendo HTTP 429). No Rate Limiting, o **cliente** reconhece e respeita esses limites de antemão, consumindo só o que cabe, para não ser estrangulado. Os dois padrões se complementam: um define o teto, o outro se mantém abaixo dele.
+A diferença em relação ao [Throttling](/cloud/cloud-design-patterns/resiliency/throttling) está no lado de quem controla. No Throttling, o **serviço** se protege e limita ou rejeita os clientes que passam da conta (por exemplo, respondendo HTTP 429). No Rate Limiting, o **cliente** reconhece e respeita esses limites de antemão, consumindo só o que cabe, para não ser estrangulado. Os dois padrões se complementam: um define o teto, o outro se mantém abaixo dele.
 
 Uma implementação típica coloca as requisições em um sistema de mensageria durável, capaz de absorver a taxa total de entrada, e usa um ou mais processadores que leem desse sistema em ritmo controlado. Liberar lotes pequenos com mais frequência (por exemplo, 20 operações a cada 200 ms em vez de 100 por segundo de uma vez) deixa o fluxo mais uniforme e evita picos. Quando vários processos independentes compartilham o mesmo serviço, a capacidade pode ser dividida em partições lógicas, e cada processo obtém concessões (leases) exclusivas e temporárias sobre elas por meio de um mecanismo de exclusão mútua distribuída (por exemplo, leases de blobs no Azure Storage, ZooKeeper, etcd ou Redis).
 
@@ -79,14 +79,14 @@ A API aceita toda a carga e a grava em uma fila durável. Os processadores retir
 
 ## Padrões relacionados
 
-- [Throttling](./throttling.md) — é o lado do serviço: impõe os limites que o Rate Limiting faz o cliente respeitar
-- [Retry](./retry.md) — trata as falhas transitórias que ainda ocorrerem; deve ser coordenado com o limitador para não gerar tempestades de retry
-- [Circuit Breaker](./circuit-breaker.md) — interrompe chamadas quando o serviço está degradado, complementando o controle de taxa
-- [Queue-Based Load Leveling](../messaging/queue-based-load-leveling.md) — usa uma fila para absorver picos e entregar a carga em ritmo constante, base da implementação do Rate Limiting
-- [Competing Consumers](../messaging/competing-consumers.md) — vários processadores consomem a mesma fila e dividem a capacidade disponível
-- [Leader Election](../distributed-coordination/leader-election.md) — também usa exclusão mútua distribuída (leases) para coordenar processos independentes
-- [Bulkhead](./bulkhead.md) — isola capacidade por fluxo de trabalho, como reservar cotas separadas por tipo de carga
-- [Asynchronous Request-Reply](../messaging/asynchronous-request-reply.md) — desacopla a aceitação da requisição do processamento adiado e controlado
+- [Throttling](/cloud/cloud-design-patterns/resiliency/throttling) — é o lado do serviço: impõe os limites que o Rate Limiting faz o cliente respeitar
+- [Retry](/cloud/cloud-design-patterns/resiliency/retry) — trata as falhas transitórias que ainda ocorrerem; deve ser coordenado com o limitador para não gerar tempestades de retry
+- [Circuit Breaker](/cloud/cloud-design-patterns/resiliency/circuit-breaker) — interrompe chamadas quando o serviço está degradado, complementando o controle de taxa
+- [Queue-Based Load Leveling](/cloud/cloud-design-patterns/messaging/queue-based-load-leveling) — usa uma fila para absorver picos e entregar a carga em ritmo constante, base da implementação do Rate Limiting
+- [Competing Consumers](/cloud/cloud-design-patterns/messaging/competing-consumers) — vários processadores consomem a mesma fila e dividem a capacidade disponível
+- [Leader Election](/cloud/cloud-design-patterns/distributed-coordination/leader-election) — também usa exclusão mútua distribuída (leases) para coordenar processos independentes
+- [Bulkhead](/cloud/cloud-design-patterns/resiliency/bulkhead) — isola capacidade por fluxo de trabalho, como reservar cotas separadas por tipo de carga
+- [Asynchronous Request-Reply](/cloud/cloud-design-patterns/messaging/asynchronous-request-reply) — desacopla a aceitação da requisição do processamento adiado e controlado
 
 ## Referência
 

@@ -69,10 +69,10 @@ Cada instância de serviço ocupa um host exclusivo.
 
 ## Padrões relacionados
 
-- [Multiple Service Instances per Host](./multiple-service-instances-per-host.md) — alternativa que compartilha o host.
-- [Service Instance per VM](./service-instance-per-vm.md) — refinamento que usa máquinas virtuais.
-- [Service Instance per Container](./service-instance-per-container.md) — refinamento que usa contêineres.
-- [Serverless Deployment](./serverless-deployment.md) — alternativa que abstrai o host.
+- [Multiple Service Instances per Host](/architecture/microservices/deployment/multiple-service-instances-per-host) — alternativa que compartilha o host.
+- [Service Instance per VM](/architecture/microservices/deployment/service-instance-per-vm) — refinamento que usa máquinas virtuais.
+- [Service Instance per Container](/architecture/microservices/deployment/service-instance-per-container) — refinamento que usa contêineres.
+- [Serverless Deployment](/architecture/microservices/deployment/serverless-deployment) — alternativa que abstrai o host.
 
 ## Referência
 

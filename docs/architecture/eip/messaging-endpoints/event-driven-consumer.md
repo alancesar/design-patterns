@@ -62,14 +62,14 @@ O canal aciona o consumidor, que repassa o conteúdo à aplicação e confirma a
 
 ## Padrões relacionados
 
-- [Polling Consumer](./polling-consumer.md) — alternativa baseada em pull.
-- [Message Endpoint](./message-endpoint.md) — tipo de endpoint de recebimento.
-- [Competing Consumers](../../../cloud/cloud-design-patterns/messaging/competing-consumers.md) — vários consumidores orientados a eventos no mesmo canal.
-- [Message Dispatcher](./message-dispatcher.md) — distribui mensagens recebidas a executores.
-- [Selective Consumer](./selective-consumer.md) — aceita só parte das mensagens.
-- [Durable Subscriber](./durable-subscriber.md) — assinante que não perde mensagens offline.
-- [Transactional Client](./transactional-client.md) — confirmação controlada pelo cliente.
-- [Observer (GoF)](../../../coding/gof/behavioral/observer.md) — o mesmo modelo de notificação em escala de objetos.
+- [Polling Consumer](/architecture/eip/messaging-endpoints/polling-consumer) — alternativa baseada em pull.
+- [Message Endpoint](/architecture/eip/messaging-endpoints/message-endpoint) — tipo de endpoint de recebimento.
+- [Competing Consumers](/cloud/cloud-design-patterns/messaging/competing-consumers) — vários consumidores orientados a eventos no mesmo canal.
+- [Message Dispatcher](/architecture/eip/messaging-endpoints/message-dispatcher) — distribui mensagens recebidas a executores.
+- [Selective Consumer](/architecture/eip/messaging-endpoints/selective-consumer) — aceita só parte das mensagens.
+- [Durable Subscriber](/architecture/eip/messaging-endpoints/durable-subscriber) — assinante que não perde mensagens offline.
+- [Transactional Client](/architecture/eip/messaging-endpoints/transactional-client) — confirmação controlada pelo cliente.
+- [Observer (GoF)](/coding/gof/behavioral/observer) — o mesmo modelo de notificação em escala de objetos.
 
 ## Referência
 

@@ -35,9 +35,9 @@ A escolha do formato (texto delimitado, largura fixa, XML, JSON, formatos legado
 
 ### Quando evitar
 
-- Quando os dados precisam estar atualizados quase em tempo real; prefira [Messaging](../../microservices/communication-styles/messaging.md).
-- Quando é preciso invocar comportamento no sistema remoto e obter resposta imediata; veja [Remote Procedure Invocation](../../microservices/communication-styles/remote-procedure-invocation.md).
-- Quando muitos sistemas precisam enxergar a mesma informação consistente a todo momento; veja [Shared Database](../../microservices/service-collaboration/shared-database.md).
+- Quando os dados precisam estar atualizados quase em tempo real; prefira [Messaging](/architecture/microservices/communication-styles/messaging).
+- Quando é preciso invocar comportamento no sistema remoto e obter resposta imediata; veja [Remote Procedure Invocation](/architecture/microservices/communication-styles/remote-procedure-invocation).
+- Quando muitos sistemas precisam enxergar a mesma informação consistente a todo momento; veja [Shared Database](/architecture/microservices/service-collaboration/shared-database).
 
 ## Trade-offs
 
@@ -65,12 +65,12 @@ A aplicação produtora grava um arquivo periodicamente; um conversor adapta o f
 
 ## Padrões relacionados
 
-- [Shared Database](../../microservices/service-collaboration/shared-database.md) — outro estilo de integração, com dados compartilhados em tempo quase real.
-- [Remote Procedure Invocation](../../microservices/communication-styles/remote-procedure-invocation.md) — integração síncrona por chamadas a interfaces expostas.
-- [Messaging](../../microservices/communication-styles/messaging.md) — troca frequente, imediata e assíncrona de pequenos pacotes de dados.
-- [Message](../message-construction/message.md) — a unidade de dados que substitui o arquivo na mensageria.
-- [Message Channel](../messaging-channels/message-channel.md) — o canal que faz o papel do local de troca dos arquivos.
-- [Message Endpoint](../messaging-endpoints/message-endpoint.md) — o ponto em que a aplicação lê e grava no canal.
+- [Shared Database](/architecture/microservices/service-collaboration/shared-database) — outro estilo de integração, com dados compartilhados em tempo quase real.
+- [Remote Procedure Invocation](/architecture/microservices/communication-styles/remote-procedure-invocation) — integração síncrona por chamadas a interfaces expostas.
+- [Messaging](/architecture/microservices/communication-styles/messaging) — troca frequente, imediata e assíncrona de pequenos pacotes de dados.
+- [Message](/architecture/eip/message-construction/message) — a unidade de dados que substitui o arquivo na mensageria.
+- [Message Channel](/architecture/eip/messaging-channels/message-channel) — o canal que faz o papel do local de troca dos arquivos.
+- [Message Endpoint](/architecture/eip/messaging-endpoints/message-endpoint) — o ponto em que a aplicação lê e grava no canal.
 
 ## Referência
 

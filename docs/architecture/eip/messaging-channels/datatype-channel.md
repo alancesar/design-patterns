@@ -61,14 +61,14 @@ O remetente escolhe o canal segundo o tipo de dado, e cada processador recebe so
 
 ## Padrões relacionados
 
-- [Message Channel](./message-channel.md) — o conceito geral que este padrão especializa.
-- [Invalid Message Channel](./invalid-message-channel.md) — destino de mensagens que mesmo assim chegam em formato incorreto.
-- [Message Bus](./message-bus.md) — usa canais por tipo de dado para rotear mensagens aos endpoints certos.
-- [Format Indicator](../message-construction/format-indicator.md) — alternativa que marca o formato dentro da mensagem.
-- [Command Message](../message-construction/command-message.md) — tipo de mensagem comum em canais dedicados.
-- [Canonical Data Model](../message-transformation/canonical-data-model.md) — reduz a variedade de tipos a traduzir.
-- [Message Dispatcher](../messaging-endpoints/message-dispatcher.md) — distribui mensagens aos consumidores certos.
-- [Selective Consumer](../messaging-endpoints/selective-consumer.md) — filtra por tipo quando não há canais dedicados.
+- [Message Channel](/architecture/eip/messaging-channels/message-channel) — o conceito geral que este padrão especializa.
+- [Invalid Message Channel](/architecture/eip/messaging-channels/invalid-message-channel) — destino de mensagens que mesmo assim chegam em formato incorreto.
+- [Message Bus](/architecture/eip/messaging-channels/message-bus) — usa canais por tipo de dado para rotear mensagens aos endpoints certos.
+- [Format Indicator](/architecture/eip/message-construction/format-indicator) — alternativa que marca o formato dentro da mensagem.
+- [Command Message](/architecture/eip/message-construction/command-message) — tipo de mensagem comum em canais dedicados.
+- [Canonical Data Model](/architecture/eip/message-transformation/canonical-data-model) — reduz a variedade de tipos a traduzir.
+- [Message Dispatcher](/architecture/eip/messaging-endpoints/message-dispatcher) — distribui mensagens aos consumidores certos.
+- [Selective Consumer](/architecture/eip/messaging-endpoints/selective-consumer) — filtra por tipo quando não há canais dedicados.
 
 ## Referência
 
