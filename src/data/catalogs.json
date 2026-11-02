@@ -1,0 +1,80 @@
+{
+  "domains": [
+    {
+      "slug": "coding",
+      "label": "Coding",
+      "description": "Design de classes e objetos."
+    },
+    {
+      "slug": "application",
+      "label": "Application",
+      "description": "Estrutura interna da aplicação (domínio, camadas, persistência)."
+    },
+    {
+      "slug": "architecture",
+      "label": "Architecture",
+      "description": "Sistemas distribuídos (serviços, integração, consistência)."
+    },
+    {
+      "slug": "cloud",
+      "label": "Cloud",
+      "description": "Plataforma e operação em nuvem e contêineres."
+    }
+  ],
+  "catalogs": [
+    {
+      "domain": "coding",
+      "domainLabel": "Coding",
+      "title": "Design Patterns (GoF e clássicos)",
+      "href": "/coding/gof",
+      "source": "https://iretha.github.io/design-patterns/cheat-sheet",
+      "patterns": 28,
+      "groups": 3
+    },
+    {
+      "domain": "application",
+      "domainLabel": "Application",
+      "title": "Domain-Driven Design",
+      "href": "/application/ddd",
+      "source": "https://www.domainlanguage.com/ddd/reference/",
+      "patterns": 45,
+      "groups": 6
+    },
+    {
+      "domain": "application",
+      "domainLabel": "Application",
+      "title": "Patterns of Enterprise Application Architecture",
+      "href": "/application/poeaa",
+      "source": "https://martinfowler.com/eaaCatalog/",
+      "patterns": 51,
+      "groups": 10
+    },
+    {
+      "domain": "architecture",
+      "domainLabel": "Architecture",
+      "title": "Enterprise Integration Patterns",
+      "href": "/architecture/eip",
+      "source": "https://www.enterpriseintegrationpatterns.com/patterns/messaging/",
+      "patterns": 65,
+      "groups": 7
+    },
+    {
+      "domain": "architecture",
+      "domainLabel": "Architecture",
+      "title": "Microservices Patterns",
+      "href": "/architecture/microservices",
+      "source": "https://microservices.io/patterns/",
+      "patterns": 53,
+      "groups": 15
+    },
+    {
+      "domain": "cloud",
+      "domainLabel": "Cloud",
+      "title": "Cloud Design Patterns",
+      "href": "/cloud/azure",
+      "source": "https://learn.microsoft.com/en-us/azure/architecture/patterns/",
+      "patterns": 44,
+      "groups": 8
+    }
+  ]
+}
