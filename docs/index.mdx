@@ -1,0 +1,36 @@
+---
+title: Design Patterns
+slug: /
+sidebar_label: Início
+hide_title: true
+---
+
+import CatalogCards from '@site/src/components/CatalogCards';
+
+# Design Patterns
+
+Acervo pessoal de design patterns, organizado por **domínio** e, dentro dele, por **catálogo** de origem. Cada padrão tem descrição, problemas que resolve, quando usar, trade-offs, etiquetas e um diagrama Mermaid.
+
+<CatalogCards />
+
+## Domínios
+
+- **[Coding](./coding/index.md):** Design de classes e objetos.
+- **[Application](./application/index.md):** Estrutura interna da aplicação (domínio, camadas, persistência).
+- **[Architecture](./architecture/index.md):** Sistemas distribuídos (serviços, integração, consistência).
+- **[Cloud](./cloud/index.md):** Plataforma e operação em nuvem e contêineres.
+- **AI:** Sistemas com agentes de IA.
+
+## Catálogos
+
+| Domínio | Catálogo | Fonte | Padrões | Grupos | Etiquetas |
+| --- | --- | --- | --- | --- | --- |
+| `coding` | [Design Patterns (GoF e clássicos)](./coding/gof/index.md) | [Design Patterns Cheat Sheet](https://iretha.github.io/design-patterns/cheat-sheet) | 28 | 3 | Objetivo de design |
+| `application` | [Patterns of Enterprise Application Architecture](./application/poeaa/index.md) | [Catalog of PoEAA](https://martinfowler.com/eaaCatalog/) | 51 | 10 | Objetivo de design |
+| `application` | [Domain-Driven Design](./application/ddd/index.md) | [DDD Reference](https://www.domainlanguage.com/ddd/reference/) | 45 (2 compartilhados com PoEAA, 1 com microservices e 1 com Azure) | 6 | Objetivo de modelagem |
+| `architecture` | [Microservices Patterns](./architecture/microservices/index.md) | [microservices.io](https://microservices.io/patterns/) | 53 (10 compartilhados com Azure) | 15 | Pilares do Well-Architected Framework |
+| `architecture` | [Enterprise Integration Patterns](./architecture/eip/index.md) | [Messaging Patterns](https://www.enterpriseintegrationpatterns.com/patterns/messaging/) | 65 (3 compartilhados com microservices e 6 com Azure) | 7 | Pilares do Well-Architected Framework |
+| `cloud` | [Cloud Design Patterns](./cloud/azure/index.md) | [Azure Architecture Center](https://learn.microsoft.com/en-us/azure/architecture/patterns/) | 44 | 8 | Pilares do Well-Architected Framework |
+| `ai` | — | Próximo: AI Agent Orchestration | — | — | — |
+
+Os padrões que aparecem em mais de um catálogo têm um único documento; os outros catálogos apontam para ele.
