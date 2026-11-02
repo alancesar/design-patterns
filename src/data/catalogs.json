@@ -52,6 +52,15 @@
     {
       "domain": "architecture",
       "domainLabel": "Architecture",
+      "title": "Patterns of Distributed Systems",
+      "href": "/architecture/distributed-systems",
+      "source": "https://martinfowler.com/articles/patterns-of-distributed-systems/",
+      "patterns": 30,
+      "groups": 5
+    },
+    {
+      "domain": "architecture",
+      "domainLabel": "Architecture",
       "title": "Enterprise Integration Patterns",
       "href": "/architecture/eip",
       "source": "https://www.enterpriseintegrationpatterns.com/patterns/messaging/",
