@@ -168,7 +168,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Anti-Corruption Layer",
-                  "href": "/cloud/azure/integration-and-modernization/anti-corruption-layer?catalogo=ddd",
+                  "href": "/cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer?catalogo=ddd",
                   "className": "sidebar-shared",
                   "key": "ddd-anticorruption-layer"
                 },
@@ -378,7 +378,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Idempotent Receiver",
-                  "href": "/cloud/azure/messaging/idempotent-consumer?catalogo=distributed-systems",
+                  "href": "/cloud/cloud-design-patterns/messaging/idempotent-consumer?catalogo=distributed-systems",
                   "className": "sidebar-shared",
                   "key": "distributed-systems-idempotent-receiver"
                 },
@@ -479,7 +479,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Publish-Subscribe Channel",
-                  "href": "/cloud/azure/messaging/publisher-subscriber?catalogo=eip",
+                  "href": "/cloud/cloud-design-patterns/messaging/publisher-subscriber?catalogo=eip",
                   "className": "sidebar-shared",
                   "key": "eip-publish-subscribe-channel"
                 },
@@ -491,7 +491,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Messaging Bridge",
-                  "href": "/cloud/azure/messaging/messaging-bridge?catalogo=eip",
+                  "href": "/cloud/cloud-design-patterns/messaging/messaging-bridge?catalogo=eip",
                   "className": "sidebar-shared",
                   "key": "eip-messaging-bridge"
                 },
@@ -523,7 +523,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Pipes and Filters",
-                  "href": "/cloud/azure/messaging/pipes-and-filters?catalogo=eip",
+                  "href": "/cloud/cloud-design-patterns/messaging/pipes-and-filters?catalogo=eip",
                   "className": "sidebar-shared",
                   "key": "eip-pipes-and-filters"
                 },
@@ -554,7 +554,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Claim Check",
-                  "href": "/cloud/azure/messaging/claim-check?catalogo=eip",
+                  "href": "/cloud/cloud-design-patterns/messaging/claim-check?catalogo=eip",
                   "className": "sidebar-shared",
                   "key": "eip-claim-check"
                 },
@@ -576,7 +576,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Competing Consumers",
-                  "href": "/cloud/azure/messaging/competing-consumers?catalogo=eip",
+                  "href": "/cloud/cloud-design-patterns/messaging/competing-consumers?catalogo=eip",
                   "className": "sidebar-shared",
                   "key": "eip-competing-consumers"
                 },
@@ -586,7 +586,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Idempotent Receiver",
-                  "href": "/cloud/azure/messaging/idempotent-consumer?catalogo=eip",
+                  "href": "/cloud/cloud-design-patterns/messaging/idempotent-consumer?catalogo=eip",
                   "className": "sidebar-shared",
                   "key": "eip-idempotent-receiver"
                 },
@@ -647,14 +647,14 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Strangler Application",
-                  "href": "/cloud/azure/integration-and-modernization/strangler-fig?catalogo=microservices",
+                  "href": "/cloud/cloud-design-patterns/integration-and-modernization/strangler-fig?catalogo=microservices",
                   "className": "sidebar-shared",
                   "key": "microservices-strangler-application"
                 },
                 {
                   "type": "link",
                   "label": "Anti-Corruption Layer",
-                  "href": "/cloud/azure/integration-and-modernization/anti-corruption-layer?catalogo=microservices",
+                  "href": "/cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer?catalogo=microservices",
                   "className": "sidebar-shared",
                   "key": "microservices-anti-corruption-layer"
                 }
@@ -670,7 +670,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Saga",
-                  "href": "/cloud/azure/distributed-coordination/saga?catalogo=microservices",
+                  "href": "/cloud/cloud-design-patterns/distributed-coordination/saga?catalogo=microservices",
                   "className": "sidebar-shared",
                   "key": "microservices-saga"
                 },
@@ -679,7 +679,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "CQRS",
-                  "href": "/cloud/azure/data-management/cqrs?catalogo=microservices",
+                  "href": "/cloud/cloud-design-patterns/data-management/cqrs?catalogo=microservices",
                   "className": "sidebar-shared",
                   "key": "microservices-cqrs"
                 },
@@ -687,7 +687,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Event Sourcing",
-                  "href": "/cloud/azure/data-management/event-sourcing?catalogo=microservices",
+                  "href": "/cloud/cloud-design-patterns/data-management/event-sourcing?catalogo=microservices",
                   "className": "sidebar-shared",
                   "key": "microservices-event-sourcing"
                 }
@@ -735,7 +735,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Externalized Configuration",
-                  "href": "/cloud/azure/deployment-and-topology/external-configuration-store?catalogo=microservices",
+                  "href": "/cloud/cloud-design-patterns/deployment-and-topology/external-configuration-store?catalogo=microservices",
                   "className": "sidebar-shared",
                   "key": "microservices-externalized-configuration"
                 },
@@ -753,7 +753,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Idempotent Consumer",
-                  "href": "/cloud/azure/messaging/idempotent-consumer?catalogo=microservices",
+                  "href": "/cloud/cloud-design-patterns/messaging/idempotent-consumer?catalogo=microservices",
                   "className": "sidebar-shared",
                   "key": "microservices-idempotent-consumer"
                 }
@@ -768,7 +768,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Backend for Front-end",
-                  "href": "/cloud/azure/gateways-and-edge/backends-for-frontends?catalogo=microservices",
+                  "href": "/cloud/cloud-design-patterns/gateways-and-edge/backends-for-frontends?catalogo=microservices",
                   "className": "sidebar-shared",
                   "key": "microservices-backend-for-front-end"
                 }
@@ -794,7 +794,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Circuit Breaker",
-                  "href": "/cloud/azure/resiliency/circuit-breaker?catalogo=microservices",
+                  "href": "/cloud/cloud-design-patterns/resiliency/circuit-breaker?catalogo=microservices",
                   "className": "sidebar-shared",
                   "key": "microservices-circuit-breaker"
                 }
@@ -821,7 +821,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Health Check API",
-                  "href": "/cloud/azure/resiliency/health-endpoint-monitoring?catalogo=microservices",
+                  "href": "/cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring?catalogo=microservices",
                   "className": "sidebar-shared",
                   "key": "microservices-health-check-api"
                 },
@@ -852,10 +852,10 @@ const sidebars: SidebarsConfig = {
       "items": [
         {
           "type": "category",
-          "label": "Azure",
+          "label": "Cloud Design Patterns",
           "link": {
             "type": "doc",
-            "id": "cloud/azure/index"
+            "id": "cloud/cloud-design-patterns/index"
           },
           "collapsed": true,
           "items": [
@@ -864,16 +864,16 @@ const sidebars: SidebarsConfig = {
               "label": "Messaging",
               "collapsed": true,
               "items": [
-                "cloud/azure/messaging/asynchronous-request-reply",
-                "cloud/azure/messaging/claim-check",
-                "cloud/azure/messaging/competing-consumers",
-                "cloud/azure/messaging/idempotent-consumer",
-                "cloud/azure/messaging/messaging-bridge",
-                "cloud/azure/messaging/pipes-and-filters",
-                "cloud/azure/messaging/priority-queue",
-                "cloud/azure/messaging/publisher-subscriber",
-                "cloud/azure/messaging/queue-based-load-leveling",
-                "cloud/azure/messaging/sequential-convoy"
+                "cloud/cloud-design-patterns/messaging/asynchronous-request-reply",
+                "cloud/cloud-design-patterns/messaging/claim-check",
+                "cloud/cloud-design-patterns/messaging/competing-consumers",
+                "cloud/cloud-design-patterns/messaging/idempotent-consumer",
+                "cloud/cloud-design-patterns/messaging/messaging-bridge",
+                "cloud/cloud-design-patterns/messaging/pipes-and-filters",
+                "cloud/cloud-design-patterns/messaging/priority-queue",
+                "cloud/cloud-design-patterns/messaging/publisher-subscriber",
+                "cloud/cloud-design-patterns/messaging/queue-based-load-leveling",
+                "cloud/cloud-design-patterns/messaging/sequential-convoy"
               ]
             },
             {
@@ -881,12 +881,12 @@ const sidebars: SidebarsConfig = {
               "label": "Data Management",
               "collapsed": true,
               "items": [
-                "cloud/azure/data-management/cache-aside",
-                "cloud/azure/data-management/cqrs",
-                "cloud/azure/data-management/event-sourcing",
-                "cloud/azure/data-management/index-table",
-                "cloud/azure/data-management/materialized-view",
-                "cloud/azure/data-management/sharding"
+                "cloud/cloud-design-patterns/data-management/cache-aside",
+                "cloud/cloud-design-patterns/data-management/cqrs",
+                "cloud/cloud-design-patterns/data-management/event-sourcing",
+                "cloud/cloud-design-patterns/data-management/index-table",
+                "cloud/cloud-design-patterns/data-management/materialized-view",
+                "cloud/cloud-design-patterns/data-management/sharding"
               ]
             },
             {
@@ -894,12 +894,12 @@ const sidebars: SidebarsConfig = {
               "label": "Resiliency",
               "collapsed": true,
               "items": [
-                "cloud/azure/resiliency/bulkhead",
-                "cloud/azure/resiliency/circuit-breaker",
-                "cloud/azure/resiliency/health-endpoint-monitoring",
-                "cloud/azure/resiliency/rate-limiting-pattern",
-                "cloud/azure/resiliency/retry",
-                "cloud/azure/resiliency/throttling"
+                "cloud/cloud-design-patterns/resiliency/bulkhead",
+                "cloud/cloud-design-patterns/resiliency/circuit-breaker",
+                "cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring",
+                "cloud/cloud-design-patterns/resiliency/rate-limiting-pattern",
+                "cloud/cloud-design-patterns/resiliency/retry",
+                "cloud/cloud-design-patterns/resiliency/throttling"
               ]
             },
             {
@@ -907,11 +907,11 @@ const sidebars: SidebarsConfig = {
               "label": "Distributed Coordination",
               "collapsed": true,
               "items": [
-                "cloud/azure/distributed-coordination/choreography",
-                "cloud/azure/distributed-coordination/compensating-transaction",
-                "cloud/azure/distributed-coordination/leader-election",
-                "cloud/azure/distributed-coordination/saga",
-                "cloud/azure/distributed-coordination/scheduler-agent-supervisor"
+                "cloud/cloud-design-patterns/distributed-coordination/choreography",
+                "cloud/cloud-design-patterns/distributed-coordination/compensating-transaction",
+                "cloud/cloud-design-patterns/distributed-coordination/leader-election",
+                "cloud/cloud-design-patterns/distributed-coordination/saga",
+                "cloud/cloud-design-patterns/distributed-coordination/scheduler-agent-supervisor"
               ]
             },
             {
@@ -919,11 +919,11 @@ const sidebars: SidebarsConfig = {
               "label": "Deployment and Topology",
               "collapsed": true,
               "items": [
-                "cloud/azure/deployment-and-topology/compute-resource-consolidation",
-                "cloud/azure/deployment-and-topology/deployment-stamp",
-                "cloud/azure/deployment-and-topology/external-configuration-store",
-                "cloud/azure/deployment-and-topology/geodes",
-                "cloud/azure/deployment-and-topology/static-content-hosting"
+                "cloud/cloud-design-patterns/deployment-and-topology/compute-resource-consolidation",
+                "cloud/cloud-design-patterns/deployment-and-topology/deployment-stamp",
+                "cloud/cloud-design-patterns/deployment-and-topology/external-configuration-store",
+                "cloud/cloud-design-patterns/deployment-and-topology/geodes",
+                "cloud/cloud-design-patterns/deployment-and-topology/static-content-hosting"
               ]
             },
             {
@@ -931,10 +931,10 @@ const sidebars: SidebarsConfig = {
               "label": "Gateways and Edge",
               "collapsed": true,
               "items": [
-                "cloud/azure/gateways-and-edge/backends-for-frontends",
-                "cloud/azure/gateways-and-edge/gateway-aggregation",
-                "cloud/azure/gateways-and-edge/gateway-offloading",
-                "cloud/azure/gateways-and-edge/gateway-routing"
+                "cloud/cloud-design-patterns/gateways-and-edge/backends-for-frontends",
+                "cloud/cloud-design-patterns/gateways-and-edge/gateway-aggregation",
+                "cloud/cloud-design-patterns/gateways-and-edge/gateway-offloading",
+                "cloud/cloud-design-patterns/gateways-and-edge/gateway-routing"
               ]
             },
             {
@@ -942,10 +942,10 @@ const sidebars: SidebarsConfig = {
               "label": "Security and Access",
               "collapsed": true,
               "items": [
-                "cloud/azure/security-and-access/federated-identity",
-                "cloud/azure/security-and-access/gatekeeper",
-                "cloud/azure/security-and-access/quarantine",
-                "cloud/azure/security-and-access/valet-key"
+                "cloud/cloud-design-patterns/security-and-access/federated-identity",
+                "cloud/cloud-design-patterns/security-and-access/gatekeeper",
+                "cloud/cloud-design-patterns/security-and-access/quarantine",
+                "cloud/cloud-design-patterns/security-and-access/valet-key"
               ]
             },
             {
@@ -953,10 +953,10 @@ const sidebars: SidebarsConfig = {
               "label": "Integration and Modernization",
               "collapsed": true,
               "items": [
-                "cloud/azure/integration-and-modernization/ambassador",
-                "cloud/azure/integration-and-modernization/anti-corruption-layer",
-                "cloud/azure/integration-and-modernization/sidecar",
-                "cloud/azure/integration-and-modernization/strangler-fig"
+                "cloud/cloud-design-patterns/integration-and-modernization/ambassador",
+                "cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer",
+                "cloud/cloud-design-patterns/integration-and-modernization/sidecar",
+                "cloud/cloud-design-patterns/integration-and-modernization/strangler-fig"
               ]
             }
           ]
