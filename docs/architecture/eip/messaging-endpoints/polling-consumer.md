@@ -64,7 +64,7 @@ A aplicação pede mensagens em laço e processa cada uma que chega.
 
 - [Event-Driven Consumer](./event-driven-consumer.md) — alternativa baseada em push.
 - [Message Endpoint](./message-endpoint.md) — o polling consumer é um tipo de endpoint de recebimento.
-- [Competing Consumers](../../../cloud/azure/messaging/competing-consumers.md) — vários polling consumers no mesmo canal.
+- [Competing Consumers](../../../cloud/cloud-design-patterns/messaging/competing-consumers.md) — vários polling consumers no mesmo canal.
 - [Transactional Client](./transactional-client.md) — o receive pode ser transacional.
 - [Selective Consumer](./selective-consumer.md) — o polling pode ser filtrado.
 - [Durable Subscriber](./durable-subscriber.md) — assinante que também pode usar polling.

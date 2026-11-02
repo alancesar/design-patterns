@@ -68,7 +68,7 @@ Quando a mensagem não pode ser entregue ou excede as tentativas, ela é movida 
 - [Message Channel](./message-channel.md) — o conceito geral de canal.
 - [Message Expiration](../message-construction/message-expiration.md) — mensagens expiradas costumam ir ao canal de mortas.
 - [Message Store](../system-management/message-store.md) — guarda mensagens para análise posterior.
-- [Retry](../../../cloud/azure/resiliency/retry.md) — as tentativas ocorrem antes de a mensagem ser considerada morta.
+- [Retry](../../../cloud/cloud-design-patterns/resiliency/retry.md) — as tentativas ocorrem antes de a mensagem ser considerada morta.
 
 ## Referência
 

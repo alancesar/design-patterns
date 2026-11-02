@@ -63,8 +63,8 @@ O filtro deixa passar somente as mensagens que satisfazem o critério.
 - [Message Router](./message-router.md) — o filtro é um roteador com uma saída
 - [Content-Based Router](./content-based-router.md) — escolhe entre várias saídas pelo conteúdo
 - [Selective Consumer](../messaging-endpoints/selective-consumer.md) — filtragem feita no consumidor
-- [Publish-Subscribe Channel](../../../cloud/azure/messaging/publisher-subscriber.md) — canal em que filtros são usados por assinante
-- [Pipes and Filters](../../../cloud/azure/messaging/pipes-and-filters.md) — o filtro é uma etapa possível do pipeline
+- [Publish-Subscribe Channel](../../../cloud/cloud-design-patterns/messaging/publisher-subscriber.md) — canal em que filtros são usados por assinante
+- [Pipes and Filters](../../../cloud/cloud-design-patterns/messaging/pipes-and-filters.md) — o filtro é uma etapa possível do pipeline
 
 ## Referência
 

@@ -71,7 +71,7 @@ O servidor grava o comando no log em disco antes de alterar o estado em memória
 - [Replicated Log](./replicated-log.md) — replica o WAL entre nós para formar um log consistente
 - [Singular Update Queue](./singular-update-queue.md) — serializa as escritas no log em uma única thread
 - [Generation Clock](./generation-clock.md) — a geração é gravada em cada entrada do log
-- [Event Sourcing](../../../cloud/azure/data-management/event-sourcing.md) — também armazena o estado como sequência de eventos em um log imutável
+- [Event Sourcing](../../../cloud/cloud-design-patterns/data-management/event-sourcing.md) — também armazena o estado como sequência de eventos em um log imutável
 - [Transaction Log Tailing](../../microservices/transactional-messaging/transaction-log-tailing.md) — lê o log de transações do banco, que é um WAL, para publicar eventos
 
 ## Referência

@@ -65,8 +65,8 @@ O serviço responde sem chamar outros serviços; a conclusão ocorre de forma as
 
 ## Padrões relacionados
 
-- [Saga](../../../cloud/azure/distributed-coordination/saga.md) — mantém a consistência dos dados de forma assíncrona
-- [CQRS](../../../cloud/azure/data-management/cqrs.md) — mantém réplicas locais dos dados de outros serviços
+- [Saga](../../../cloud/cloud-design-patterns/distributed-coordination/saga.md) — mantém a consistência dos dados de forma assíncrona
+- [CQRS](../../../cloud/cloud-design-patterns/data-management/cqrs.md) — mantém réplicas locais dos dados de outros serviços
 - [Command-side Replica](../service-collaboration/command-side-replica.md) — réplica local usada para validar comandos sem chamadas remotas
 - [Microservice Architecture](../architectural-style/microservice-architecture.md) — o contexto que cria a necessidade do padrão
 

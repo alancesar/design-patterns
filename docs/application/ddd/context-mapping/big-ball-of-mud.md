@@ -68,12 +68,12 @@ Uma seguradora tem um sistema de apólices com vinte anos de acréscimos, em que
 ## Padrões relacionados
 
 - [Context Map](./context-map.md) — onde a região é delimitada como um único contexto.
-- [Anticorruption Layer](../../../cloud/azure/integration-and-modernization/anti-corruption-layer.md) — protege os vizinhos do modelo confuso.
+- [Anticorruption Layer](../../../cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer.md) — protege os vizinhos do modelo confuso.
 - [Bounded Context](../model-in-practice/bounded-context.md) — a fronteira desenhada em torno da região.
 - [Separate Ways](./separate-ways.md) — alternativa quando não vale a pena integrar com o legado.
 - [Conformist](./conformist.md) — evitar em relação a um Big Ball of Mud, para não herdar a confusão.
-- [Strangler Application](../../../cloud/azure/integration-and-modernization/strangler-fig.md) — substituição incremental do legado.
-- [Strangler Fig](../../../cloud/azure/integration-and-modernization/strangler-fig.md) — a mesma ideia no catálogo de nuvem.
+- [Strangler Application](../../../cloud/cloud-design-patterns/integration-and-modernization/strangler-fig.md) — substituição incremental do legado.
+- [Strangler Fig](../../../cloud/cloud-design-patterns/integration-and-modernization/strangler-fig.md) — a mesma ideia no catálogo de nuvem.
 
 ## Referência
 

@@ -73,9 +73,9 @@ O gateway autentica o cliente uma única vez e emite o token; cada serviço vali
 ## Padrões relacionados
 
 - [API Gateway](../external-api/api-gateway.md) — autentica a requisição na borda e emite o token que é repassado aos serviços
-- [Federated Identity](../../../cloud/azure/security-and-access/federated-identity.md) — delega a autenticação a um provedor de identidade externo, que normalmente emite o token usado aqui
-- [Gatekeeper](../../../cloud/azure/security-and-access/gatekeeper.md) — o gateway ou intermediário que valida as requisições antes de chegarem aos serviços protegidos
-- [Valet Key](../../../cloud/azure/security-and-access/valet-key.md) — também usa um token de acesso restrito, mas para conceder acesso limitado e temporário a um recurso específico
+- [Federated Identity](../../../cloud/cloud-design-patterns/security-and-access/federated-identity.md) — delega a autenticação a um provedor de identidade externo, que normalmente emite o token usado aqui
+- [Gatekeeper](../../../cloud/cloud-design-patterns/security-and-access/gatekeeper.md) — o gateway ou intermediário que valida as requisições antes de chegarem aos serviços protegidos
+- [Valet Key](../../../cloud/cloud-design-patterns/security-and-access/valet-key.md) — também usa um token de acesso restrito, mas para conceder acesso limitado e temporário a um recurso específico
 
 ## Referência
 

@@ -65,7 +65,7 @@ O roteador envia a mensagem direto ao destino ou pelas etapas intermediárias, c
 - [Control Bus](./control-bus.md) — aciona a troca entre as duas saídas.
 - [Wire Tap](./wire-tap.md) — observação passiva, enquanto o Detour permite intervir.
 - [Content-Based Router](../message-routing/content-based-router.md) — o Detour é um roteador cuja decisão vem do contexto e não do conteúdo.
-- [Publish-Subscribe Channel](../../../cloud/azure/messaging/publisher-subscriber.md) — alternativa para distribuir cópias a observadores.
+- [Publish-Subscribe Channel](../../../cloud/cloud-design-patterns/messaging/publisher-subscriber.md) — alternativa para distribuir cópias a observadores.
 
 ## Referência
 

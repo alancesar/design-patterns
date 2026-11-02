@@ -65,10 +65,10 @@ O dado é dividido em mensagens numeradas dentro da mesma sequência e o recepto
 - [Splitter](../message-routing/splitter.md) — divide uma mensagem em várias
 - [Resequencer](../message-routing/resequencer.md) — restaura a ordem das mensagens
 - [Aggregator](../message-routing/aggregator.md) — reúne mensagens relacionadas em uma
-- [Claim Check](../../../cloud/azure/messaging/claim-check.md) — alternativa que envia só uma referência ao dado
+- [Claim Check](../../../cloud/cloud-design-patterns/messaging/claim-check.md) — alternativa que envia só uma referência ao dado
 - [Correlation Identifier](./correlation-identifier.md) — também agrupa mensagens por identificador
 - [Request-Reply](./request-reply.md) — a resposta pode vir em sequência
-- [Sequential Convoy](../../../cloud/azure/messaging/sequential-convoy.md) — processa mensagens relacionadas em ordem no Azure
+- [Sequential Convoy](../../../cloud/cloud-design-patterns/messaging/sequential-convoy.md) — processa mensagens relacionadas em ordem no Azure
 
 ## Referência
 

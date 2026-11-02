@@ -64,7 +64,7 @@ O canal aciona o consumidor, que repassa o conteúdo à aplicação e confirma a
 
 - [Polling Consumer](./polling-consumer.md) — alternativa baseada em pull.
 - [Message Endpoint](./message-endpoint.md) — tipo de endpoint de recebimento.
-- [Competing Consumers](../../../cloud/azure/messaging/competing-consumers.md) — vários consumidores orientados a eventos no mesmo canal.
+- [Competing Consumers](../../../cloud/cloud-design-patterns/messaging/competing-consumers.md) — vários consumidores orientados a eventos no mesmo canal.
 - [Message Dispatcher](./message-dispatcher.md) — distribui mensagens recebidas a executores.
 - [Selective Consumer](./selective-consumer.md) — aceita só parte das mensagens.
 - [Durable Subscriber](./durable-subscriber.md) — assinante que não perde mensagens offline.

@@ -74,7 +74,7 @@ O coordenador é sempre o nó mais antigo da lista de membros; quando ele sai, o
 ## Padrões relacionados
 
 - [Leader and Followers](../data-replication/leader-and-followers.md) — modelo com eleição explícita, alternativa a este.
-- [Leader Election](../../../cloud/azure/distributed-coordination/leader-election.md) — eleição de líder em nuvem, com coordenação explícita.
+- [Leader Election](../../../cloud/cloud-design-patterns/distributed-coordination/leader-election.md) — eleição de líder em nuvem, com coordenação explícita.
 - [Gossip Dissemination](./gossip-dissemination.md) — propaga a lista de membros e as idades dos nós.
 - [Consistent Core](./consistent-core.md) — alternativa quando se precisa de coordenação fortemente consistente.
 - [Fixed Partitions](../data-partitioning/fixed-partitions.md) — partições que o coordenador atribui aos nós.

@@ -62,7 +62,7 @@ Mensagens dentro do prazo vão ao consumidor; as vencidas são descartadas ou de
 - [Dead Letter Channel](../messaging-channels/dead-letter-channel.md) — destino comum das mensagens expiradas
 - [Invalid Message Channel](../messaging-channels/invalid-message-channel.md) — destino de mensagens que o receptor não consegue tratar
 - [Guaranteed Delivery](../messaging-channels/guaranteed-delivery.md) — preocupação oposta: não perder mensagens
-- [Publish-Subscribe Channel](../../../cloud/azure/messaging/publisher-subscriber.md) — assinantes tardios podem precisar de mensagens antigas
+- [Publish-Subscribe Channel](../../../cloud/cloud-design-patterns/messaging/publisher-subscriber.md) — assinantes tardios podem precisar de mensagens antigas
 - [Event Message](./event-message.md) — eventos obsoletos são bons candidatos à expiração
 - [Request-Reply](./request-reply.md) — requisições vencidas não devem ser atendidas
 - [Message](./message.md) — o prazo vai no cabeçalho

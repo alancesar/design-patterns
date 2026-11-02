@@ -70,7 +70,7 @@ Todas as instâncias contêm todos os subdomínios e compartilham um único banc
 
 - [Microservice Architecture](./microservice-architecture.md) — alternativa que endereça as limitações do monólito dividindo a aplicação em serviços independentes.
 - [Shared Database](../service-collaboration/shared-database.md) — o monólito naturalmente usa um banco único compartilhado por todos os módulos.
-- [Strangler Application](../../../cloud/azure/integration-and-modernization/strangler-fig.md) — estratégia para migrar gradualmente um monólito para serviços.
+- [Strangler Application](../../../cloud/cloud-design-patterns/integration-and-modernization/strangler-fig.md) — estratégia para migrar gradualmente um monólito para serviços.
 
 ## Referência
 

@@ -65,7 +65,7 @@ O roteador lê o item do pedido e o encaminha ao sistema de estoque responsável
 - [Message Filter](./message-filter.md) — descarta em vez de escolher entre destinos
 - [Dynamic Router](./dynamic-router.md) — regras registradas pelos próprios destinatários
 - [Recipient List](./recipient-list.md) — quando a lista de destinatários é calculada
-- [Gateway Routing](../../../cloud/azure/gateways-and-edge/gateway-routing.md) — roteamento de requisições por caminho ou cabeçalho em um gateway
+- [Gateway Routing](../../../cloud/cloud-design-patterns/gateways-and-edge/gateway-routing.md) — roteamento de requisições por caminho ou cabeçalho em um gateway
 
 ## Referência
 

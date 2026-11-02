@@ -73,7 +73,7 @@ O Aggregator guarda as mensagens por chave de correlação e publica uma única 
 - [Composed Message Processor](./composed-message-processor.md) — Splitter, roteamento e Aggregator juntos
 - [Resequencer](./resequencer.md) — também é filtro com estado, mas só reordena
 - [Correlation Identifier](../message-construction/correlation-identifier.md) — chave que agrupa as mensagens
-- [Gateway Aggregation](../../../cloud/azure/gateways-and-edge/gateway-aggregation.md) — agregação de chamadas em um gateway
+- [Gateway Aggregation](../../../cloud/cloud-design-patterns/gateways-and-edge/gateway-aggregation.md) — agregação de chamadas em um gateway
 - [API Composition](../../microservices/service-collaboration/api-composition.md) — composição de dados de vários serviços
 
 ## Referência

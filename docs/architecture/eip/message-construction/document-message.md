@@ -63,7 +63,7 @@ A aplicação A envia os dados e a aplicação B decide o que fazer com eles.
 - [Event Message](./event-message.md) — notifica um fato; o conteúdo importa menos
 - [Request-Reply](./request-reply.md) — a resposta costuma ser um documento
 - [Guaranteed Delivery](../messaging-channels/guaranteed-delivery.md) — garante que o documento chegue
-- [Claim Check](../../../cloud/azure/messaging/claim-check.md) — alternativa para documentos grandes
+- [Claim Check](../../../cloud/cloud-design-patterns/messaging/claim-check.md) — alternativa para documentos grandes
 
 ## Referência
 

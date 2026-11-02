@@ -103,7 +103,7 @@ O `DispatcherServlet` do Spring MVC, o pipeline de middleware do ASP.NET Core e 
 - [Command](../../../coding/gof/behavioral/command.md) — as ações delegadas pelo handler são commands.
 - [Chain of Responsibility](../../../coding/gof/behavioral/chain-of-responsibility.md) — filtros e interceptadores são encadeados dessa forma.
 - [Facade](../../../coding/gof/structural/facade.md) — o Front Controller funciona como fachada de entrada da camada web.
-- [Backend for Front-end](../../../cloud/azure/gateways-and-edge/backends-for-frontends.md) — ponto de entrada dedicado por tipo de cliente em arquiteturas distribuídas.
+- [Backend for Front-end](../../../cloud/cloud-design-patterns/gateways-and-edge/backends-for-frontends.md) — ponto de entrada dedicado por tipo de cliente em arquiteturas distribuídas.
 
 ## Referência
 

@@ -68,7 +68,7 @@ As aplicações enviam mensagens ao broker, que decide o destino de cada uma.
 - [Process Manager](./process-manager.md) — outro hub central, com estado de processo
 - [Message Bus](../messaging-channels/message-bus.md) — alternativa de arquitetura de integração
 - [Mediator](../../../coding/gof/behavioral/mediator.md) — mesmo princípio em design de classes
-- [Pipes and Filters](../../../cloud/azure/messaging/pipes-and-filters.md) — estilo comparável em escala menor
+- [Pipes and Filters](../../../cloud/cloud-design-patterns/messaging/pipes-and-filters.md) — estilo comparável em escala menor
 
 ## Referência
 

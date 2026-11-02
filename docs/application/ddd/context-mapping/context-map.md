@@ -75,7 +75,7 @@ Com isso, o time decide priorizar a reunião quinzenal entre Vendas e Estoque (C
 - [Shared Kernel](./shared-kernel.md) — um dos relacionamentos que o mapa registra.
 - [Customer/Supplier Development](./customer-supplier-development.md) — relação upstream/downstream com negociação.
 - [Conformist](./conformist.md) — downstream que adota o modelo do upstream.
-- [Anticorruption Layer](../../../cloud/azure/integration-and-modernization/anti-corruption-layer.md) — tradução defensiva no lado downstream.
+- [Anticorruption Layer](../../../cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer.md) — tradução defensiva no lado downstream.
 - [Open-host Service](./open-host-service.md) — protocolo aberto para muitos consumidores.
 - [Published Language](./published-language.md) — linguagem comum de troca entre contextos.
 - [Separate Ways](./separate-ways.md) — decisão explícita de não integrar.

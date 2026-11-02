@@ -107,13 +107,13 @@ public class OrderService {
 ## Padrões relacionados
 
 - [Aggregate](../../../application/ddd/building-blocks/aggregate.md) — o agregado é a fonte natural dos eventos de domínio.
-- [Saga](../../../cloud/azure/distributed-coordination/saga.md) — sagas coreografadas dependem de eventos de domínio.
-- [CQRS](../../../cloud/azure/data-management/cqrs.md) — visões de leitura são atualizadas por esses eventos.
+- [Saga](../../../cloud/cloud-design-patterns/distributed-coordination/saga.md) — sagas coreografadas dependem de eventos de domínio.
+- [CQRS](../../../cloud/cloud-design-patterns/data-management/cqrs.md) — visões de leitura são atualizadas por esses eventos.
 - [Command-side Replica](./command-side-replica.md) — réplicas locais são mantidas pelos eventos.
-- [Event Sourcing](../../../cloud/azure/data-management/event-sourcing.md) — pode ser usado para gerar e publicar eventos de domínio.
+- [Event Sourcing](../../../cloud/cloud-design-patterns/data-management/event-sourcing.md) — pode ser usado para gerar e publicar eventos de domínio.
 - [Transactional Outbox](../transactional-messaging/transactional-outbox.md) — publica os eventos de forma atômica com a transação do banco.
 - [Messaging](../communication-styles/messaging.md) — estilo de comunicação usado para distribuir os eventos.
-- [Publisher-Subscriber](../../../cloud/azure/messaging/publisher-subscriber.md) — modelo de distribuição dos eventos a múltiplos consumidores.
+- [Publisher-Subscriber](../../../cloud/cloud-design-patterns/messaging/publisher-subscriber.md) — modelo de distribuição dos eventos a múltiplos consumidores.
 
 ## Referência
 

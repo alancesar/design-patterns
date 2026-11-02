@@ -110,7 +110,7 @@ O Hibernate (cache de primeiro nível da `Session`) e o Entity Framework (rastre
 - [Lazy Load](./lazy-load.md) — o carregamento sob demanda consulta o mapa para evitar objetos duplicados.
 - [Identity Field](../object-relational-structural/identity-field.md) — fornece a chave que indexa o mapa.
 - [Data Mapper](../data-source-architectural/data-mapper.md) — consulta o mapa antes de acessar o banco.
-- [Cache-Aside](../../../cloud/azure/data-management/cache-aside.md) — também evita leituras repetidas, mas como cache compartilhado e não como garantia de identidade.
+- [Cache-Aside](../../../cloud/cloud-design-patterns/data-management/cache-aside.md) — também evita leituras repetidas, mas como cache compartilhado e não como garantia de identidade.
 
 ## Referência
 

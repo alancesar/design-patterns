@@ -66,7 +66,7 @@ O nó A envia heartbeats periódicos; quando o nó B deixa de recebê-los dentro
 
 - [Leader and Followers](./leader-and-followers.md) — seguidores usam o heartbeat para detectar a queda do líder
 - [Lease](../cluster-management/lease.md) — concessão com prazo que também depende de renovação periódica
-- [Health Endpoint Monitoring](../../../cloud/azure/resiliency/health-endpoint-monitoring.md) — verificação de saúde externa, equivalente na camada de plataforma
+- [Health Endpoint Monitoring](../../../cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring.md) — verificação de saúde externa, equivalente na camada de plataforma
 - [Generation Clock](./generation-clock.md) — protege contra líderes que voltam depois de uma pausa
 
 ## Referência

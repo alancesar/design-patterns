@@ -80,7 +80,7 @@ Cada contexto passou a ter seu modelo, seu código e seu esquema de banco, com u
 - [Ubiquitous Language](./ubiquitous-language.md) — a linguagem vale dentro de um Bounded Context.
 - [Continuous Integration](./continuous-integration.md) — mantém o modelo coeso dentro da fronteira.
 - [Context Map](../context-mapping/context-map.md) — descreve os relacionamentos entre Bounded Contexts.
-- [Anticorruption Layer](../../../cloud/azure/integration-and-modernization/anti-corruption-layer.md) — protege o modelo de influências externas.
+- [Anticorruption Layer](../../../cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer.md) — protege o modelo de influências externas.
 - [Shared Kernel](../context-mapping/shared-kernel.md) — subconjunto do modelo compartilhado entre contextos.
 - [Decompose by Subdomain](../../../architecture/microservices/service-boundaries/decompose-by-subdomain.md) — Bounded Contexts costumam guiar a divisão em microsserviços.
 - [Database per Service](../../../architecture/microservices/service-collaboration/database-per-service.md) — reforça a fronteira do modelo no armazenamento.

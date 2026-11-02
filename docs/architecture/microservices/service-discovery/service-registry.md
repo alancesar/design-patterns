@@ -64,8 +64,8 @@ As instâncias mantêm o registro atualizado e clientes ou roteadores o consulta
 - [Server-side Discovery](./server-side-discovery.md) — roteador consulta o registro
 - [Self Registration](./self-registration.md) — instâncias se registram sozinhas
 - [3rd Party Registration](./3rd-party-registration.md) — um registrador externo cuida do registro
-- [Health Check API](../../../cloud/azure/resiliency/health-endpoint-monitoring.md) — usada para verificar a saúde das instâncias
-- [Health Endpoint Monitoring](../../../cloud/azure/resiliency/health-endpoint-monitoring.md) — verificação de saúde por endpoints
+- [Health Check API](../../../cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring.md) — usada para verificar a saúde das instâncias
+- [Health Endpoint Monitoring](../../../cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring.md) — verificação de saúde por endpoints
 
 ## Referência
 

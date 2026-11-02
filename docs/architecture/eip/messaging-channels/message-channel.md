@@ -63,7 +63,7 @@ A aplicação remetente escreve mensagens no canal e a receptora as lê, sem que
 ## Padrões relacionados
 
 - [Point-to-Point Channel](./point-to-point-channel.md) — especialização em que cada mensagem é consumida por um único receptor.
-- [Publish-Subscribe Channel](../../../cloud/azure/messaging/publisher-subscriber.md) — especialização em que cada assinante recebe uma cópia da mensagem.
+- [Publish-Subscribe Channel](../../../cloud/cloud-design-patterns/messaging/publisher-subscriber.md) — especialização em que cada assinante recebe uma cópia da mensagem.
 - [Datatype Channel](./datatype-channel.md) — dedica um canal a cada tipo de dado.
 - [Invalid Message Channel](./invalid-message-channel.md) — canal para mensagens que o receptor não consegue processar.
 - [Channel Adapter](./channel-adapter.md) — conecta uma aplicação existente a um canal.

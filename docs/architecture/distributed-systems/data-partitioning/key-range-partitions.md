@@ -70,7 +70,7 @@ A consulta é roteada apenas à partição cujo intervalo cobre a faixa pedida; 
 
 - [Fixed Partitions](./fixed-partitions.md) — alternativa baseada em hash, sem suporte eficiente a faixas
 - [Consistent Core](../cluster-management/consistent-core.md) — mantém o mapeamento de partições de forma consistente
-- [Sharding](../../../cloud/azure/data-management/sharding.md) (nuvem) — particionamento horizontal, incluindo estratégia por intervalo
+- [Sharding](../../../cloud/cloud-design-patterns/data-management/sharding.md) (nuvem) — particionamento horizontal, incluindo estratégia por intervalo
 
 ## Referência
 

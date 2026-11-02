@@ -72,10 +72,10 @@ Cada salto grava a mensagem em disco antes de confirmar, e a cópia só é desca
 
 - [Dead Letter Channel](./dead-letter-channel.md) — destino das mensagens que, mesmo persistidas, não puderam ser entregues.
 - [Point-to-Point Channel](./point-to-point-channel.md) — canal ao qual a persistência se aplica.
-- [Publish-Subscribe Channel](../../../cloud/azure/messaging/publisher-subscriber.md) — idem, para múltiplos assinantes.
+- [Publish-Subscribe Channel](../../../cloud/cloud-design-patterns/messaging/publisher-subscriber.md) — idem, para múltiplos assinantes.
 - [Durable Subscriber](../messaging-endpoints/durable-subscriber.md) — retém mensagens para assinantes offline.
 - [Transactional Client](../messaging-endpoints/transactional-client.md) — agrupa envio e recebimento em uma transação.
-- [Idempotent Receiver](../../../cloud/azure/messaging/idempotent-consumer.md) — tolera as duplicatas da entrega ao menos uma vez.
+- [Idempotent Receiver](../../../cloud/cloud-design-patterns/messaging/idempotent-consumer.md) — tolera as duplicatas da entrega ao menos uma vez.
 - [Message Expiration](../message-construction/message-expiration.md) — limita por quanto tempo a mensagem permanece válida.
 - [Message Store](../system-management/message-store.md) — registra mensagens para auditoria e análise.
 

@@ -113,7 +113,7 @@ Em Java EE, um session bean remoto sobre entidades era a implementação clássi
 - [Gateway](../base/gateway.md) — o Gateway encapsula o acesso a um sistema externo do lado do cliente; o Remote Facade expõe o sistema do lado do servidor.
 - [Facade](../../../coding/gof/structural/facade.md) — a versão geral do GoF, voltada a simplificar; o Remote Facade foca em reduzir chamadas de rede.
 - [API Gateway](../../../architecture/microservices/external-api/api-gateway.md) — leva a ideia de ponto de entrada grosso para a borda de um sistema de microsserviços.
-- [Gateway Aggregation](../../../cloud/azure/gateways-and-edge/gateway-aggregation.md) — agrega várias chamadas de backend em uma só para o cliente.
+- [Gateway Aggregation](../../../cloud/cloud-design-patterns/gateways-and-edge/gateway-aggregation.md) — agrega várias chamadas de backend em uma só para o cliente.
 - [Remote Procedure Invocation](../../../architecture/microservices/communication-styles/remote-procedure-invocation.md) — o estilo de comunicação cujo custo motiva o padrão.
 
 ## Referência

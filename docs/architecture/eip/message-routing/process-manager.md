@@ -67,9 +67,9 @@ O gerente mantém o estado, envia cada passo e escolhe o seguinte com base nas r
 
 - [Routing Slip](./routing-slip.md) — alternativa para sequências lineares predeterminadas
 - [Message Broker](./message-broker.md) — hub-and-spoke de roteamento sem estado de processo
-- [Saga](../../../cloud/azure/distributed-coordination/saga.md) — coordenação de transações longas com compensação
-- [Scheduler Agent Supervisor](../../../cloud/azure/distributed-coordination/scheduler-agent-supervisor.md) — coordenação e recuperação de tarefas distribuídas
-- [Choreography](../../../cloud/azure/distributed-coordination/choreography.md) — alternativa descentralizada, sem coordenador
+- [Saga](../../../cloud/cloud-design-patterns/distributed-coordination/saga.md) — coordenação de transações longas com compensação
+- [Scheduler Agent Supervisor](../../../cloud/cloud-design-patterns/distributed-coordination/scheduler-agent-supervisor.md) — coordenação e recuperação de tarefas distribuídas
+- [Choreography](../../../cloud/cloud-design-patterns/distributed-coordination/choreography.md) — alternativa descentralizada, sem coordenador
 
 ## Referência
 

@@ -65,7 +65,7 @@ O tap entrega a mensagem ao consumidor e uma cópia idêntica ao canal secundár
 - [Detour](./detour.md) — versão ativa, capaz de alterar o fluxo.
 - [Smart Proxy](./smart-proxy.md) — permite rastrear serviços cujas respostas vão para um Return Address dinâmico.
 - [Control Bus](./control-bus.md) — pode ligar e desligar taps dinamicamente.
-- [Publish-Subscribe Channel](../../../cloud/azure/messaging/publisher-subscriber.md) — dispensa o tap quando o canal já é de difusão.
+- [Publish-Subscribe Channel](../../../cloud/cloud-design-patterns/messaging/publisher-subscriber.md) — dispensa o tap quando o canal já é de difusão.
 - [Log Aggregation](../../microservices/observability/log-aggregation.md) — consolida os registros gerados pela análise das cópias.
 
 ## Referência

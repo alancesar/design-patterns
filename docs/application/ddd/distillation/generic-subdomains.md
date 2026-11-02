@@ -47,7 +47,7 @@ Como o modelo é genérico, ele não deve conter conceitos do core, e o core nã
 | Soluções maduras e testadas pelo mercado | Modelo de terceiros pode vazar para o core sem uma camada de proteção |
 | Custo previsível e menor | Pode ser tentador classificar como genérico algo que é estratégico |
 
-- **Fronteira:** a integração deve passar por uma interface própria, como uma [Anticorruption Layer](../../../cloud/azure/integration-and-modernization/anti-corruption-layer.md), para o modelo externo não contaminar o core.
+- **Fronteira:** a integração deve passar por uma interface própria, como uma [Anticorruption Layer](../../../cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer.md), para o modelo externo não contaminar o core.
 - **Reversibilidade:** a escolha não é definitiva; um subdomínio genérico pode ser trocado ou internalizado depois.
 - **Classificação:** a decisão de o que é genérico depende do negócio; o mesmo subdomínio pode ser core em outra empresa.
 
@@ -75,7 +75,7 @@ O código do core fala apenas com interfaces internas (`PaymentGateway`, `Notifi
 
 - [Core Domain](./core-domain.md) — o contraponto: onde o investimento deve se concentrar.
 - [Cohesive Mechanisms](./cohesive-mechanisms.md) — extração de mecanismos técnicos, que lembra os subdomínios genéricos, mas para algoritmos em vez de conceitos de negócio.
-- [Anticorruption Layer](../../../cloud/azure/integration-and-modernization/anti-corruption-layer.md) — protege o modelo do core da solução genérica adotada.
+- [Anticorruption Layer](../../../cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer.md) — protege o modelo do core da solução genérica adotada.
 - [Conformist](../context-mapping/conformist.md) — alternativa quando se adota o modelo do fornecedor como está.
 - [Published Language](../context-mapping/published-language.md) — linguagem padronizada que facilita integrar soluções prontas.
 - [Module](../building-blocks/module.md) — forma mais simples de isolar um subdomínio genérico dentro do mesmo contexto.

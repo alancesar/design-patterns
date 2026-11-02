@@ -68,7 +68,7 @@ A mensagem só deixa o canal no commit; no rollback ela fica disponível para ou
 - [Message Endpoint](./message-endpoint.md) — o endpoint é quem controla a transação.
 - [Guaranteed Delivery](../messaging-channels/guaranteed-delivery.md) — persistência do canal, complementar às transações.
 - [Dead Letter Channel](../messaging-channels/dead-letter-channel.md) — destino para mensagens que falham repetidamente.
-- [Competing Consumers](../../../cloud/azure/messaging/competing-consumers.md) — rollback devolve a mensagem a outro consumidor.
+- [Competing Consumers](../../../cloud/cloud-design-patterns/messaging/competing-consumers.md) — rollback devolve a mensagem a outro consumidor.
 - [Polling Consumer](./polling-consumer.md) — pode receber dentro de uma transação.
 - [Event-Driven Consumer](./event-driven-consumer.md) — idem, com confirmação após o callback.
 - [Transactional Outbox](../../microservices/transactional-messaging/transactional-outbox.md) — alternativa para atomicidade entre banco e mensageria.

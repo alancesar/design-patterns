@@ -72,7 +72,7 @@ O contexto de Clientes de uma empresa tem quatro consumidores: Marketing, Fatura
 
 - [Published Language](./published-language.md) — formato documentado usado pelo protocolo.
 - [Context Map](./context-map.md) — registra o upstream como Open-host Service.
-- [Anticorruption Layer](../../../cloud/azure/integration-and-modernization/anti-corruption-layer.md) — proteção do consumidor que tem modelo próprio.
+- [Anticorruption Layer](../../../cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer.md) — proteção do consumidor que tem modelo próprio.
 - [Customer/Supplier Development](./customer-supplier-development.md) — relação com um consumidor específico.
 - [Conformist](./conformist.md) — consumidores que adotam o modelo do protocolo.
 - [API Gateway](../../../architecture/microservices/external-api/api-gateway.md) — ponto de entrada que pode expor o serviço aberto a clientes externos.

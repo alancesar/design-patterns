@@ -69,7 +69,7 @@ O contexto de Entregas depende de Pedidos para saber peso, volume e janela de en
 
 - [Context Map](./context-map.md) — registra a relação upstream/downstream.
 - [Conformist](./conformist.md) — o que o downstream faz quando o upstream não colabora.
-- [Anticorruption Layer](../../../cloud/azure/integration-and-modernization/anti-corruption-layer.md) — proteção do downstream quando o modelo upstream não serve.
+- [Anticorruption Layer](../../../cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer.md) — proteção do downstream quando o modelo upstream não serve.
 - [Partnership](./partnership.md) — relação mais simétrica entre os times.
 - [Open-host Service](./open-host-service.md) — quando o upstream atende muitos clientes com um protocolo comum.
 - [Continuous Integration](../model-in-practice/continuous-integration.md) — os testes de aceitação rodam em integração contínua.

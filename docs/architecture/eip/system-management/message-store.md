@@ -64,7 +64,7 @@ Cada mensagem segue ao consumidor e uma cópia chega ao repositório central, de
 - [Wire Tap](./wire-tap.md) — mecanismo comum para alimentar o repositório.
 - [Message History](./message-history.md) — acrescenta o caminho percorrido às informações guardadas.
 - [Control Bus](./control-bus.md) — gerencia a captura e consulta de dados.
-- [Event Sourcing](../../../cloud/azure/data-management/event-sourcing.md) — guarda eventos como fonte de verdade, enquanto o Message Store serve à observação.
+- [Event Sourcing](../../../cloud/cloud-design-patterns/data-management/event-sourcing.md) — guarda eventos como fonte de verdade, enquanto o Message Store serve à observação.
 - [Audit Logging](../../microservices/observability/audit-logging.md) — registro de auditoria que o repositório pode sustentar.
 
 ## Referência

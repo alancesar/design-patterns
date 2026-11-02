@@ -68,9 +68,9 @@ O serviço grava dados e mensagem na mesma transação; o relay lê o outbox e p
 
 - [Transaction Log Tailing](./transaction-log-tailing.md) — implementação do relay lendo o log de transações do banco
 - [Polling Publisher](./polling-publisher.md) — implementação do relay consultando periodicamente o outbox
-- [Saga](../../../cloud/azure/distributed-coordination/saga.md) — gera a necessidade de enviar mensagens atomicamente com a atualização do banco
-- [Event Sourcing](../../../cloud/azure/data-management/event-sourcing.md) — abordagem alternativa para publicar eventos de forma confiável
-- [Idempotent Consumer](../../../cloud/azure/messaging/idempotent-consumer.md) — necessário para tolerar mensagens duplicadas do relay
+- [Saga](../../../cloud/cloud-design-patterns/distributed-coordination/saga.md) — gera a necessidade de enviar mensagens atomicamente com a atualização do banco
+- [Event Sourcing](../../../cloud/cloud-design-patterns/data-management/event-sourcing.md) — abordagem alternativa para publicar eventos de forma confiável
+- [Idempotent Consumer](../../../cloud/cloud-design-patterns/messaging/idempotent-consumer.md) — necessário para tolerar mensagens duplicadas do relay
 - [Messaging](../communication-styles/messaging.md) — estilo de comunicação que usa o broker
 
 ## Referência

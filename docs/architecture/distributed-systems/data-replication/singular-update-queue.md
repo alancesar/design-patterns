@@ -66,7 +66,7 @@ Vários clientes enfileiram atualizações e uma única thread as aplica ao esta
 - [Write-Ahead Log](./write-ahead-log.md) — as gravações no log são serializadas por essa fila
 - [Replicated Log](./replicated-log.md) — as entradas confirmadas são aplicadas em ordem por uma thread
 - [Request Waiting List](./request-waiting-list.md) — registra callbacks de requisições enfileiradas
-- [Competing Consumers](../../../cloud/azure/messaging/competing-consumers.md) — contraste: vários consumidores em paralelo, sem ordem global
+- [Competing Consumers](../../../cloud/cloud-design-patterns/messaging/competing-consumers.md) — contraste: vários consumidores em paralelo, sem ordem global
 
 ## Referência
 

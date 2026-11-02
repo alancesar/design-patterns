@@ -68,7 +68,7 @@ O hash da chave sempre resulta na mesma partição; só a tabela partição → 
 
 - [Key-Range Partitions](./key-range-partitions.md) — alternativa que preserva a ordem das chaves para consultas por intervalo
 - [Consistent Core](../cluster-management/consistent-core.md) — mantém o mapeamento de partições para nós de forma consistente
-- [Sharding](../../../cloud/azure/data-management/sharding.md) (nuvem) — particionamento horizontal de dados em armazenamentos distintos
+- [Sharding](../../../cloud/cloud-design-patterns/data-management/sharding.md) (nuvem) — particionamento horizontal de dados em armazenamentos distintos
 
 ## Referência
 

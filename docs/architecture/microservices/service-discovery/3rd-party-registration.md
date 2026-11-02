@@ -65,7 +65,7 @@ Um registrador externo observa as instâncias e mantém o registro.
 - [Service Registry](./service-registry.md) — onde o registrador mantém as instâncias
 - [Self Registration](./self-registration.md) — alternativa em que a instância se registra
 - [Client-side Discovery](./client-side-discovery.md) e [Server-side Discovery](./server-side-discovery.md) — consumidores do registro
-- [Health Check API](../../../cloud/azure/resiliency/health-endpoint-monitoring.md) — usada pelo registrador para verificar saúde
+- [Health Check API](../../../cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring.md) — usada pelo registrador para verificar saúde
 
 ## Referência
 

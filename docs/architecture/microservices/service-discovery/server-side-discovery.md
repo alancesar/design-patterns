@@ -66,9 +66,9 @@ O cliente conhece apenas o roteador; ele consulta o registro e escolhe a instân
 
 - [Service Registry](./service-registry.md) — usado pelo roteador para localizar instâncias
 - [Client-side Discovery](./client-side-discovery.md) — principal alternativa
-- [Circuit Breaker](../../../cloud/azure/resiliency/circuit-breaker.md) — o roteador pode usá-lo ao invocar serviços
+- [Circuit Breaker](../../../cloud/cloud-design-patterns/resiliency/circuit-breaker.md) — o roteador pode usá-lo ao invocar serviços
 - [API Gateway](../external-api/api-gateway.md) — frequentemente atua como roteador de entrada
-- [Gateway Routing](../../../cloud/azure/gateways-and-edge/gateway-routing.md) — roteamento de requisições a serviços de backend
+- [Gateway Routing](../../../cloud/cloud-design-patterns/gateways-and-edge/gateway-routing.md) — roteamento de requisições a serviços de backend
 
 ## Referência
 

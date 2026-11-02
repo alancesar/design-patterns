@@ -66,7 +66,7 @@ A lista calculada para a mensagem inclui A e C, que recebem cópias; B não é s
 - [Scatter-Gather](./scatter-gather.md) — usa uma Recipient List na variante de distribuição
 - [Aggregator](./aggregator.md) — combina as respostas dos destinatários
 - [Dynamic Router](./dynamic-router.md) — pode fornecer a lista a partir de registros
-- [Publish-Subscribe Channel](../../../cloud/azure/messaging/publisher-subscriber.md) — alternativa em que os assinantes decidem
+- [Publish-Subscribe Channel](../../../cloud/cloud-design-patterns/messaging/publisher-subscriber.md) — alternativa em que os assinantes decidem
 
 ## Referência
 

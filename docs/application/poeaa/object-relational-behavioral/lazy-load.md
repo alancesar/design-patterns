@@ -117,7 +117,7 @@ No Hibernate, associações `@OneToMany(fetch = LAZY)` usam proxies e coleções
 - [Unit of Work](./unit-of-work.md) — define o escopo em que o carregamento tardio deve ocorrer.
 - [Data Mapper](../data-source-architectural/data-mapper.md) — executa a consulta disparada pelo carregamento tardio.
 - [Proxy](../../../coding/gof/structural/proxy.md) — a variante virtual proxy é uma aplicação direta do Proxy do GoF.
-- [Cache-Aside](../../../cloud/azure/data-management/cache-aside.md) — também adia a leitura até a necessidade, mas guarda o resultado em um cache compartilhado.
+- [Cache-Aside](../../../cloud/cloud-design-patterns/data-management/cache-aside.md) — também adia a leitura até a necessidade, mas guarda o resultado em um cache compartilhado.
 
 ## Referência
 

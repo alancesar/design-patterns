@@ -109,7 +109,7 @@ Exemplos comuns: clientes de pagamento encapsulados, wrappers de SDKs de nuvem e
 - [Facade](../../../coding/gof/structural/facade.md) — simplifica um subsistema, em geral em direção ao cliente; o Gateway adapta um recurso externo ao vocabulário da aplicação.
 - [Adapter](../../../coding/gof/structural/adapter.md) — o Gateway costuma ser implementado como um Adapter sobre a API do recurso.
 - [API Gateway](../../../architecture/microservices/external-api/api-gateway.md) — não confundir: aquele é um componente de infraestrutura na borda do sistema que recebe requisições de clientes externos; o Gateway do PoEAA é uma classe dentro da aplicação que acessa um recurso externo.
-- [Gateway Routing](../../../cloud/azure/gateways-and-edge/gateway-routing.md), [Gateway Aggregation](../../../cloud/azure/gateways-and-edge/gateway-aggregation.md) e [Gateway Offloading](../../../cloud/azure/gateways-and-edge/gateway-offloading.md) — padrões de nuvem que rodam como serviço na frente de backends; nada têm a ver com a classe de encapsulamento do PoEAA.
+- [Gateway Routing](../../../cloud/cloud-design-patterns/gateways-and-edge/gateway-routing.md), [Gateway Aggregation](../../../cloud/cloud-design-patterns/gateways-and-edge/gateway-aggregation.md) e [Gateway Offloading](../../../cloud/cloud-design-patterns/gateways-and-edge/gateway-offloading.md) — padrões de nuvem que rodam como serviço na frente de backends; nada têm a ver com a classe de encapsulamento do PoEAA.
 
 ## Referência
 

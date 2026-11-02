@@ -63,7 +63,7 @@ O sujeito publica o evento uma vez e cada observador o recebe e reage.
 - [Document Message](./document-message.md) — usado quando o conteúdo importa mais que o momento
 - [Command Message](./command-message.md) — pede uma ação em vez de relatar um fato
 - [Message Expiration](./message-expiration.md) — descarta eventos que perderam a validade
-- [Publish-Subscribe Channel](../../../cloud/azure/messaging/publisher-subscriber.md) — entrega o evento a vários observadores
+- [Publish-Subscribe Channel](../../../cloud/cloud-design-patterns/messaging/publisher-subscriber.md) — entrega o evento a vários observadores
 - [Guaranteed Delivery](../messaging-channels/guaranteed-delivery.md) — raramente adequado para eventos frequentes
 - [Domain Event](../../microservices/service-collaboration/domain-event.md) — evento de domínio publicado entre serviços
 

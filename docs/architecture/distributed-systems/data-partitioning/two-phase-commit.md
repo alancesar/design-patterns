@@ -79,8 +79,8 @@ Se qualquer participante recusar na fase de prepare, o coordenador envia rollbac
 - [Versioned Value](../data-replication/versioned-value.md) — armazena as versões gravadas pela transação
 - [Hybrid Clock](../distributed-time/hybrid-clock.md) — ordena transações entre nós com timestamps
 - [Fixed Partitions](./fixed-partitions.md) e [Key-Range Partitions](./key-range-partitions.md) — as partições sobre as quais a transação costuma atuar
-- [Saga](../../../cloud/azure/distributed-coordination/saga.md) (nuvem) — alternativa sem locks globais, baseada em compensação
-- [Compensating Transaction](../../../cloud/azure/distributed-coordination/compensating-transaction.md) (nuvem) — desfaz passos já efetivados em vez de bloquear
+- [Saga](../../../cloud/cloud-design-patterns/distributed-coordination/saga.md) (nuvem) — alternativa sem locks globais, baseada em compensação
+- [Compensating Transaction](../../../cloud/cloud-design-patterns/distributed-coordination/compensating-transaction.md) (nuvem) — desfaz passos já efetivados em vez de bloquear
 
 ## Referência
 

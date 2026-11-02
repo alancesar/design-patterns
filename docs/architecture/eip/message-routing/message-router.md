@@ -65,9 +65,9 @@ O roteador lê uma mensagem do canal de entrada e a encaminha, sem modificá-la,
 - [Message Filter](./message-filter.md) — roteador com uma única saída que descarta o que não interessa
 - [Dynamic Router](./dynamic-router.md) — regras montadas em tempo de execução
 - [Recipient List](./recipient-list.md) — encaminha a uma lista calculada de destinatários
-- [Pipes and Filters](../../../cloud/azure/messaging/pipes-and-filters.md) — o roteador é um filtro com várias saídas
+- [Pipes and Filters](../../../cloud/cloud-design-patterns/messaging/pipes-and-filters.md) — o roteador é um filtro com várias saídas
 - [Message Broker](./message-broker.md) — compõe roteadores em escala de solução
-- [Gateway Routing](../../../cloud/azure/gateways-and-edge/gateway-routing.md) — roteamento de requisições em um gateway
+- [Gateway Routing](../../../cloud/cloud-design-patterns/gateways-and-edge/gateway-routing.md) — roteamento de requisições em um gateway
 
 ## Referência
 

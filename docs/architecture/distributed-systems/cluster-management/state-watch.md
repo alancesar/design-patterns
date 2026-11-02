@@ -72,7 +72,7 @@ O cliente registra o interesse uma vez, e o servidor o avisa quando o valor muda
 ## Padrões relacionados
 
 - [Observer](../../../coding/gof/behavioral/observer.md) — o mesmo conceito, em escala local, dentro de um processo.
-- [Publisher-Subscriber](../../../cloud/azure/messaging/publisher-subscriber.md) — mensageria assíncrona com assinantes.
+- [Publisher-Subscriber](../../../cloud/cloud-design-patterns/messaging/publisher-subscriber.md) — mensageria assíncrona com assinantes.
 - [Consistent Core](./consistent-core.md) — normalmente oferece watches sobre seus metadados.
 - [Lease](./lease.md) — a expiração de leases é um evento típico observado.
 - [Single-Socket Channel](../node-communication/single-socket-channel.md) — canal compartilhado para as notificações.

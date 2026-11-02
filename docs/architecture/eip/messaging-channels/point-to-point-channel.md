@@ -63,9 +63,9 @@ O remetente publica no canal e cada mensagem é entregue a apenas um dos recepto
 ## Padrões relacionados
 
 - [Message Channel](./message-channel.md) — o conceito geral que este padrão especializa.
-- [Publish-Subscribe Channel](../../../cloud/azure/messaging/publisher-subscriber.md) — a alternativa em que todos os assinantes recebem uma cópia.
-- [Competing Consumers](../../../cloud/azure/messaging/competing-consumers.md) — vários receptores disputando as mensagens do mesmo canal.
-- [Idempotent Receiver](../../../cloud/azure/messaging/idempotent-consumer.md) — tolera reentregas do canal.
+- [Publish-Subscribe Channel](../../../cloud/cloud-design-patterns/messaging/publisher-subscriber.md) — a alternativa em que todos os assinantes recebem uma cópia.
+- [Competing Consumers](../../../cloud/cloud-design-patterns/messaging/competing-consumers.md) — vários receptores disputando as mensagens do mesmo canal.
+- [Idempotent Receiver](../../../cloud/cloud-design-patterns/messaging/idempotent-consumer.md) — tolera reentregas do canal.
 - [Request-Reply](../message-construction/request-reply.md) — troca bidirecional muito construída sobre canais ponto a ponto.
 - [Command Message](../message-construction/command-message.md) — mensagem que pede uma ação, típica deste canal.
 - [Document Message](../message-construction/document-message.md) — mensagem que transfere dados.

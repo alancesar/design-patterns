@@ -61,7 +61,7 @@ A ficha lista as etapas 1 e 3 (a 2 é pulada) e a mensagem percorre apenas esse 
 ## Padrões relacionados
 
 - [Process Manager](./process-manager.md) — alternativa para fluxos dinâmicos e com paralelismo
-- [Pipes and Filters](../../../cloud/azure/messaging/pipes-and-filters.md) — estrutura de etapas que o Routing Slip torna variável
+- [Pipes and Filters](../../../cloud/cloud-design-patterns/messaging/pipes-and-filters.md) — estrutura de etapas que o Routing Slip torna variável
 - [Message Router](./message-router.md) — cada etapa tem um roteador local
 - [Chain of Responsibility](../../../coding/gof/behavioral/chain-of-responsibility.md) — cadeia de handlers em orientação a objetos
 

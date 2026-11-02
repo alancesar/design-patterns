@@ -67,8 +67,8 @@ A requisição é espalhada aos fornecedores e as respostas são reunidas em um 
 - [Recipient List](./recipient-list.md) — distribui na variante controlada
 - [Aggregator](./aggregator.md) — reúne as respostas
 - [Composed Message Processor](./composed-message-processor.md) — divide em partes distintas em vez de replicar
-- [Publish-Subscribe Channel](../../../cloud/azure/messaging/publisher-subscriber.md) — usado na variante de leilão
-- [Gateway Aggregation](../../../cloud/azure/gateways-and-edge/gateway-aggregation.md) — agrega chamadas a vários serviços
+- [Publish-Subscribe Channel](../../../cloud/cloud-design-patterns/messaging/publisher-subscriber.md) — usado na variante de leilão
+- [Gateway Aggregation](../../../cloud/cloud-design-patterns/gateways-and-edge/gateway-aggregation.md) — agrega chamadas a vários serviços
 - [API Composition](../../microservices/service-collaboration/api-composition.md) — combina dados de vários serviços
 
 ## Referência

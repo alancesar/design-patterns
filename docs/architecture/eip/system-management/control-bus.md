@@ -71,7 +71,7 @@ O console envia comandos pelo Control Bus aos componentes, que respondem com mé
 - [Wire Tap](./wire-tap.md) — instrumentação passiva que pode alimentar o gerenciamento.
 - [Message Store](./message-store.md) — armazena informações de mensagens para relatórios.
 - [Content-Based Router](../message-routing/content-based-router.md) — componente cuja regra de roteamento costuma ser alterada via Control Bus.
-- [External Configuration Store](../../../cloud/azure/deployment-and-topology/external-configuration-store.md) — alternativa de configuração centralizada baseada em repositório, em vez de mensagens.
+- [External Configuration Store](../../../cloud/cloud-design-patterns/deployment-and-topology/external-configuration-store.md) — alternativa de configuração centralizada baseada em repositório, em vez de mensagens.
 
 ## Referência
 

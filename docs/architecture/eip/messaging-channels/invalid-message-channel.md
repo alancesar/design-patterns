@@ -67,7 +67,7 @@ O receptor valida cada mensagem; as válidas seguem o fluxo normal e as inválid
 - [Datatype Channel](./datatype-channel.md) — canais por tipo reduzem a chance de formato errado.
 - [Message Channel](./message-channel.md) — o conceito geral de canal.
 - [Message Expiration](../message-construction/message-expiration.md) — mensagens vencidas também podem ser desviadas.
-- [Retry](../../../cloud/azure/resiliency/retry.md) — falhas transitórias pedem nova tentativa, não desvio como inválida.
+- [Retry](../../../cloud/cloud-design-patterns/resiliency/retry.md) — falhas transitórias pedem nova tentativa, não desvio como inválida.
 - [Service Activator](../messaging-endpoints/service-activator.md) — endpoint que costuma validar e despachar a mensagem.
 
 ## Referência

@@ -101,7 +101,7 @@ Aparece como `HttpSession` no Java EE, `Session` no ASP.NET e `express-session` 
 
 - [Client Session State](./client-session-state.md) — mantém o estado no cliente, deixando o servidor sem estado.
 - [Database Session State](./database-session-state.md) — persiste o estado como dados confirmados no banco, com mais durabilidade e menos velocidade.
-- [Cache-Aside](../../../cloud/azure/data-management/cache-aside.md) — o session store em Redis usa o mesmo tipo de armazenamento em cache, com expiração.
+- [Cache-Aside](../../../cloud/cloud-design-patterns/data-management/cache-aside.md) — o session store em Redis usa o mesmo tipo de armazenamento em cache, com expiração.
 - [Registry](../base/registry.md) — ambos mantêm dados de contexto acessíveis a vários pontos da aplicação, mas o Registry não é indexado por sessão.
 
 ## Referência

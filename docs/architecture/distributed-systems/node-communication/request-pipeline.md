@@ -73,7 +73,7 @@ O cliente envia as requisições 2 e 3 sem esperar a resposta da requisição 1.
 - [Singular Update Queue](../data-replication/singular-update-queue.md) — fila do servidor que se beneficia de estar sempre alimentada.
 - [Request Waiting List](../data-replication/request-waiting-list.md) — acompanha requisições em voo até que as respostas cheguem.
 - [Leader and Followers](../data-replication/leader-and-followers.md) — cenário típico de envio contínuo do líder aos followers.
-- [Idempotent Receiver](../../../cloud/azure/messaging/idempotent-consumer.md) — torna seguros os reenvios após falhas.
+- [Idempotent Receiver](../../../cloud/cloud-design-patterns/messaging/idempotent-consumer.md) — torna seguros os reenvios após falhas.
 
 ## Referência
 

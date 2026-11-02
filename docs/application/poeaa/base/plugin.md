@@ -109,7 +109,7 @@ Em frameworks, equivalem ao Spring (perfis e configuração de beans), ao `Servi
 - [Factory Method](../../../coding/gof/creational/factory-method.md) — o Plugin substitui fábricas com condicionais por uma fábrica genérica dirigida por configuração.
 - [Abstract Factory](../../../coding/gof/creational/abstract-factory.md) — também escolhe uma família de implementações, mas fixada no código.
 - [Strategy](../../../coding/gof/behavioral/strategy.md) — o Plugin é uma forma de selecionar a estratégia por configuração.
-- [Externalized Configuration](../../../cloud/azure/deployment-and-topology/external-configuration-store.md) — a mesma ideia de tirar a configuração do código, aplicada a serviços.
+- [Externalized Configuration](../../../cloud/cloud-design-patterns/deployment-and-topology/external-configuration-store.md) — a mesma ideia de tirar a configuração do código, aplicada a serviços.
 
 ## Referência
 

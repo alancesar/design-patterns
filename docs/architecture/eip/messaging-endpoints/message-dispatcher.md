@@ -59,7 +59,7 @@ O dispatcher lê do canal e distribui cada mensagem a um performer.
 
 ## Padrões relacionados
 
-- [Competing Consumers](../../../cloud/azure/messaging/competing-consumers.md) — alternativa em que cada consumidor lê do canal.
+- [Competing Consumers](../../../cloud/cloud-design-patterns/messaging/competing-consumers.md) — alternativa em que cada consumidor lê do canal.
 - [Selective Consumer](./selective-consumer.md) — filtragem que pode ser feita pelo dispatcher.
 - [Event-Driven Consumer](./event-driven-consumer.md) — forma comum de alimentar o dispatcher.
 - [Polling Consumer](./polling-consumer.md) — outra forma de alimentá-lo.

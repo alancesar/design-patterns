@@ -70,10 +70,10 @@ O serviço de comando assina os eventos do provedor para manter a réplica local
 
 - [Database per Service](./database-per-service.md) — cria a necessidade deste padrão.
 - [Domain Event](./domain-event.md) — gera os eventos que mantêm a réplica atualizada.
-- [CQRS](../../../cloud/azure/data-management/cqrs.md) — estruturalmente idêntico, mas com foco em leitura.
-- [Saga](../../../cloud/azure/distributed-coordination/saga.md) — alternativa quando o dado é obtido como um passo da saga.
-- [Materialized View](../../../cloud/azure/data-management/materialized-view.md) — visão pré-computada, conceito próximo ao da réplica.
-- [Idempotent Consumer](../../../cloud/azure/messaging/idempotent-consumer.md) — necessário para consumir eventos de forma segura.
+- [CQRS](../../../cloud/cloud-design-patterns/data-management/cqrs.md) — estruturalmente idêntico, mas com foco em leitura.
+- [Saga](../../../cloud/cloud-design-patterns/distributed-coordination/saga.md) — alternativa quando o dado é obtido como um passo da saga.
+- [Materialized View](../../../cloud/cloud-design-patterns/data-management/materialized-view.md) — visão pré-computada, conceito próximo ao da réplica.
+- [Idempotent Consumer](../../../cloud/cloud-design-patterns/messaging/idempotent-consumer.md) — necessário para consumir eventos de forma segura.
 
 ## Referência
 

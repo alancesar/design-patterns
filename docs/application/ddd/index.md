@@ -67,7 +67,7 @@ Total: 45 padrões em 6 grupos. Etiquetas: Objetivo de modelagem.
 | [Shared Kernel](./context-mapping/shared-kernel.md) | O Shared Kernel é um subconjunto do modelo de domínio, e do código ou do esquema de dados associado, que dois ou mais times concordam em compartilhar. | [`Shared Understanding`](/tags/shared-understanding) [`Consistency`](/tags/consistency) |
 | [Customer/Supplier Development](./context-mapping/customer-supplier-development.md) | No Customer/Supplier Development, dois contextos têm uma relação upstream/downstream em que o time upstream (fornecedor, supplier) atende às necessidades do time downstream (cliente, customer). | [`Team Autonomy`](/tags/team-autonomy) [`Shared Understanding`](/tags/shared-understanding) |
 | [Conformist](./context-mapping/conformist.md) | No Conformist, o time downstream decide adotar integralmente o modelo do contexto upstream, sem tradução. | [`Simplicity`](/tags/simplicity) [`Shared Understanding`](/tags/shared-understanding) |
-| [Anti-Corruption Layer](../../cloud/azure/integration-and-modernization/anti-corruption-layer.md) ★ | O Anti-Corruption Layer (camada anticorrupção) é uma fachada ou camada de adaptação colocada entre subsistemas que não compartilham a mesma semântica. | [`Operational Excellence`](/tags/operational-excellence) |
+| [Anti-Corruption Layer](../../cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer.md) ★ | O Anti-Corruption Layer (camada anticorrupção) é uma fachada ou camada de adaptação colocada entre subsistemas que não compartilham a mesma semântica. | [`Operational Excellence`](/tags/operational-excellence) |
 | [Open-host Service](./context-mapping/open-host-service.md) | O Open-host Service define um protocolo que dá acesso ao seu subsistema como um conjunto de serviços. | [`Decoupling`](/tags/decoupling) [`Simplicity`](/tags/simplicity) |
 | [Published Language](./context-mapping/published-language.md) | A Published Language é uma linguagem bem documentada, compartilhada e capaz de expressar o domínio necessário, usada como meio de comunicação comum entre contextos. | [`Shared Understanding`](/tags/shared-understanding) [`Decoupling`](/tags/decoupling) |
 | [Separate Ways](./context-mapping/separate-ways.md) | No Separate Ways, dois contextos decidem de forma explícita não se integrar. | [`Team Autonomy`](/tags/team-autonomy) [`Simplicity`](/tags/simplicity) |
@@ -131,4 +131,4 @@ Total: 45 padrões em 6 grupos. Etiquetas: Objetivo de modelagem.
 
 ### Operational Excellence (2)
 
-[Domain Event](../../architecture/microservices/service-collaboration/domain-event.md), [Anti-Corruption Layer](../../cloud/azure/integration-and-modernization/anti-corruption-layer.md)
+[Domain Event](../../architecture/microservices/service-collaboration/domain-event.md), [Anti-Corruption Layer](../../cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer.md)

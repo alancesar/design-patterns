@@ -77,9 +77,9 @@ O líder acrescenta a entrada, a replica, avança o High-Water Mark quando a mai
 - [Majority Quorum](./majority-quorum.md) — define o commit da entrada
 - [Paxos](./paxos.md) — protocolo de consenso para cada entrada
 - [Request Waiting List](./request-waiting-list.md) — acompanha requisições até o commit
-- [Idempotent Receiver](../../../cloud/azure/messaging/idempotent-consumer.md) — evita aplicar duas vezes requisições repetidas
+- [Idempotent Receiver](../../../cloud/cloud-design-patterns/messaging/idempotent-consumer.md) — evita aplicar duas vezes requisições repetidas
 - [Consistent Core](../cluster-management/consistent-core.md) — serviço pequeno construído sobre um log replicado
-- [Event Sourcing](../../../cloud/azure/data-management/event-sourcing.md) — estado derivado de um log de eventos, sem replicação por consenso
+- [Event Sourcing](../../../cloud/cloud-design-patterns/data-management/event-sourcing.md) — estado derivado de um log de eventos, sem replicação por consenso
 - [Transaction Log Tailing](../../microservices/transactional-messaging/transaction-log-tailing.md) — lê o log de transações para publicar mudanças
 
 ## Referência

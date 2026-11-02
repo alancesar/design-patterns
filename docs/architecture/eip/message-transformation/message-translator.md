@@ -68,9 +68,9 @@ A mensagem sai da aplicação A no seu formato, é convertida pelo tradutor e ch
 - [Content Filter](./content-filter.md) — remove dados desnecessários da mensagem.
 - [Envelope Wrapper](./envelope-wrapper.md) — adapta a mensagem aos requisitos de cabeçalho da infraestrutura.
 - [Channel Adapter](../messaging-channels/channel-adapter.md) — conecta a aplicação ao canal; a tradução do formato fica no tradutor.
-- [Pipes and Filters](../../../cloud/azure/messaging/pipes-and-filters.md) — o tradutor é um filtro dentro de uma cadeia de processamento.
+- [Pipes and Filters](../../../cloud/cloud-design-patterns/messaging/pipes-and-filters.md) — o tradutor é um filtro dentro de uma cadeia de processamento.
 - [Adapter](../../../coding/gof/structural/adapter.md) — o análogo em orientação a objetos.
-- [Anti-Corruption Layer](../../../cloud/azure/integration-and-modernization/anti-corruption-layer.md) — camada que traduz entre modelos para proteger o domínio.
+- [Anti-Corruption Layer](../../../cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer.md) — camada que traduz entre modelos para proteger o domínio.
 
 ## Referência
 

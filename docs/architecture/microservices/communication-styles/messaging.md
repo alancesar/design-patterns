@@ -71,13 +71,13 @@ O remetente publica a mensagem em um canal e segue seu trabalho; o broker a ret�
 
 - [Remote Procedure Invocation](./remote-procedure-invocation.md) — alternativa síncrona de requisição/resposta.
 - [Domain-specific Protocol](./domain-specific-protocol.md) — alternativa baseada em protocolo específico do domínio.
-- [Idempotent Consumer](../../../cloud/azure/messaging/idempotent-consumer.md) — torna seguro o processamento de mensagens duplicadas.
-- [Saga](../../../cloud/azure/distributed-coordination/saga.md) — coordena transações distribuídas por meio de mensagens.
-- [CQRS](../../../cloud/azure/data-management/cqrs.md) — usa mensagens para manter as visões de leitura atualizadas.
+- [Idempotent Consumer](../../../cloud/cloud-design-patterns/messaging/idempotent-consumer.md) — torna seguro o processamento de mensagens duplicadas.
+- [Saga](../../../cloud/cloud-design-patterns/distributed-coordination/saga.md) — coordena transações distribuídas por meio de mensagens.
+- [CQRS](../../../cloud/cloud-design-patterns/data-management/cqrs.md) — usa mensagens para manter as visões de leitura atualizadas.
 - [Transactional Outbox](../transactional-messaging/transactional-outbox.md) — publica mensagens como parte da transação do banco de dados.
-- [Externalized Configuration](../../../cloud/azure/deployment-and-topology/external-configuration-store.md) — fornece nomes de canais e localização do broker.
-- [Publisher-Subscriber](../../../cloud/azure/messaging/publisher-subscriber.md) — estilo de publicação/assinatura sobre mensageria.
-- [Asynchronous Request-Reply](../../../cloud/azure/messaging/asynchronous-request-reply.md) — requisição com resposta assíncrona.
+- [Externalized Configuration](../../../cloud/cloud-design-patterns/deployment-and-topology/external-configuration-store.md) — fornece nomes de canais e localização do broker.
+- [Publisher-Subscriber](../../../cloud/cloud-design-patterns/messaging/publisher-subscriber.md) — estilo de publicação/assinatura sobre mensageria.
+- [Asynchronous Request-Reply](../../../cloud/cloud-design-patterns/messaging/asynchronous-request-reply.md) — requisição com resposta assíncrona.
 - [File Transfer](../../eip/integration-styles/file-transfer.md) — estilo em lote por arquivos, com desacoplamento semelhante, mas sem troca imediata.
 - [Shared Database](../service-collaboration/shared-database.md) — estilo de integração por banco compartilhado.
 - [Message Channel](../../eip/messaging-channels/message-channel.md) — o canal por onde as mensagens trafegam.

@@ -69,7 +69,7 @@ Cada aplicação se liga ao barramento por um adaptador, e o barramento oferece 
 
 - [Channel Adapter](./channel-adapter.md) — liga cada aplicação ao barramento.
 - [Datatype Channel](./datatype-channel.md) — direciona tipos de mensagem a endpoints específicos.
-- [Publish-Subscribe Channel](../../../cloud/azure/messaging/publisher-subscriber.md) — alcança vários receptores.
+- [Publish-Subscribe Channel](../../../cloud/cloud-design-patterns/messaging/publisher-subscriber.md) — alcança vários receptores.
 - [Message Channel](./message-channel.md) — os canais que compõem o barramento.
 - [Canonical Data Model](../message-transformation/canonical-data-model.md) — formato de dados comum a todos os participantes.
 - [Command Message](../message-construction/command-message.md) — estrutura comum de comandos entre os sistemas.

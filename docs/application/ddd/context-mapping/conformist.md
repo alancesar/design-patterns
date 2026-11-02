@@ -65,7 +65,7 @@ Uma loja online integra o cálculo de frete de um grande transportador, cuja API
 ## Padrões relacionados
 
 - [Context Map](./context-map.md) — registra o relacionamento Conformist.
-- [Anticorruption Layer](../../../cloud/azure/integration-and-modernization/anti-corruption-layer.md) — alternativa defensiva quando o modelo upstream não serve.
+- [Anticorruption Layer](../../../cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer.md) — alternativa defensiva quando o modelo upstream não serve.
 - [Customer/Supplier Development](./customer-supplier-development.md) — alternativa quando o upstream aceita negociar.
 - [Shared Kernel](./shared-kernel.md) — compartilhamento por acordo, não por submissão.
 - [Separate Ways](./separate-ways.md) — saída quando a conformidade custa mais do que traz.

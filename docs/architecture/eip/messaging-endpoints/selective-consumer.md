@@ -61,8 +61,8 @@ Cada consumidor recebe apenas as mensagens cujo valor de seleção atende a seu 
 - [Message Filter](../message-routing/message-filter.md) — descarta mensagens no meio do fluxo, em vez de no consumidor.
 - [Datatype Channel](../messaging-channels/datatype-channel.md) — alternativa com um canal por tipo.
 - [Content-Based Router](../message-routing/content-based-router.md) — roteia ativamente com base no conteúdo.
-- [Competing Consumers](../../../cloud/azure/messaging/competing-consumers.md) — consumidores seletivos competem entre os compatíveis.
-- [Publish-Subscribe Channel](../../../cloud/azure/messaging/publisher-subscriber.md) — cada assinante filtra suas cópias.
+- [Competing Consumers](../../../cloud/cloud-design-patterns/messaging/competing-consumers.md) — consumidores seletivos competem entre os compatíveis.
+- [Publish-Subscribe Channel](../../../cloud/cloud-design-patterns/messaging/publisher-subscriber.md) — cada assinante filtra suas cópias.
 - [Message Dispatcher](./message-dispatcher.md) — pode escolher performers por propriedades.
 - [Message Endpoint](./message-endpoint.md) — o seletor faz parte do endpoint.
 

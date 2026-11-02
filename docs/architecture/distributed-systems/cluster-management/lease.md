@@ -79,7 +79,7 @@ O cliente mantém o lease enquanto renova. Quando para de renovar, o núcleo o e
 - [Heartbeat](../data-replication/heartbeat.md) — mecanismo usado para renovar o lease.
 - [Clock-Bound Wait](../distributed-time/clock-bound-wait.md) — lida com a incerteza de relógios, relevante para medir expiração.
 - [State Watch](./state-watch.md) — outros nós são notificados quando um lease expira.
-- [Leader Election](../../../cloud/azure/distributed-coordination/leader-election.md) — eleição de líder frequentemente implementada com leases.
+- [Leader Election](../../../cloud/cloud-design-patterns/distributed-coordination/leader-election.md) — eleição de líder frequentemente implementada com leases.
 
 ## Referência
 
