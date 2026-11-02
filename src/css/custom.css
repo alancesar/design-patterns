@@ -243,3 +243,9 @@ pre code,
 .markdown td a[href^='/tags/'] code {
   white-space: nowrap;
 }
+
+/* Sidebar collapse button: only a top divider, so its bottom border doesn't stack on the footer's */
+button[class*='collapseSidebarButton'] {
+  border: none;
+  border-top: 1px solid var(--border);
+}
