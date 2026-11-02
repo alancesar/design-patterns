@@ -1,0 +1,85 @@
+---
+title: "Design Patterns (GoF e clássicos)"
+sidebar_label: "GoF"
+---
+
+# Design Patterns (GoF e clássicos)
+
+Catálogo pessoal baseado no [Design Patterns Cheat Sheet](https://iretha.github.io/design-patterns/cheat-sheet). Cada padrão tem descrição, problemas que resolve, quando usar, trade-offs, diagrama de classes Mermaid e um exemplo de código. As etiquetas indicam o objetivo de design; o campo `origin` indica se o padrão é um dos 23 do livro *Design Patterns* (GoF) ou um padrão clássico complementar.
+
+Total: 28 padrões em 3 grupos. Etiquetas: Objetivo de design.
+
+## Grupos
+
+- [Creational](#creational) (8)
+- [Structural](#structural) (8)
+- [Behavioral](#behavioral) (12)
+
+## Creational (8) {#creational}
+
+| Padrão | Resumo | Etiquetas | Origem |
+| --- | --- | --- | --- |
+| [Abstract Factory](./creational/abstract-factory.md) | O Abstract Factory fornece uma interface para criar famílias de objetos relacionados ou dependentes sem especificar suas classes concretas. | [`Decoupling`](/tags/decoupling) [`Extensibility`](/tags/extensibility) | GoF |
+| [Builder](./creational/builder.md) | O Builder separa a construção de um objeto complexo da sua representação, permitindo que o mesmo processo de construção produza representações diferentes. | [`Encapsulation`](/tags/encapsulation) [`Simplicity`](/tags/simplicity) | GoF |
+| [Factory Method](./creational/factory-method.md) | O Factory Method define uma interface para criar um objeto, mas deixa que as subclasses decidam qual classe concreta instanciar. | [`Decoupling`](/tags/decoupling) [`Extensibility`](/tags/extensibility) | GoF |
+| [Prototype](./creational/prototype.md) | O Prototype especifica os tipos de objetos a serem criados por meio de uma instância-protótipo e cria novos objetos copiando (clonando) esse protótipo. | [`Resource Efficiency`](/tags/resource-efficiency) [`Runtime Flexibility`](/tags/runtime-flexibility) | GoF |
+| [Singleton](./creational/singleton.md) | O Singleton garante que uma classe tenha **uma única instância** durante a vida da aplicação e fornece um **ponto de acesso global** a ela. | [`Resource Efficiency`](/tags/resource-efficiency) | GoF |
+| [Factory](./creational/factory.md) | O Factory (também chamado de Simple Factory) centraliza a criação de objetos em um único ponto: uma classe ou método que recebe um parâmetro (um tipo, uma configuração, uma string) e decide qual implementação concreta instanciar, devolvendo-a por meio de uma interface ou classe base comum. | [`Decoupling`](/tags/decoupling) [`Encapsulation`](/tags/encapsulation) | Classic |
+| [Object Pool](./creational/object-pool.md) | O Object Pool mantém um conjunto de objetos já inicializados e prontos para uso, em vez de criá-los e destruí-los sob demanda. | [`Resource Efficiency`](/tags/resource-efficiency) | Classic |
+| [Telescoping Constructor](./creational/telescoping-constructor.md) | O Telescoping Constructor é uma técnica de criação de objetos em que uma classe oferece uma sequência de construtores sobrecarregados, cada um aceitando um parâmetro a mais que o anterior. | [`Simplicity`](/tags/simplicity) | Classic |
+
+## Structural (8) {#structural}
+
+| Padrão | Resumo | Etiquetas | Origem |
+| --- | --- | --- | --- |
+| [Adapter](./structural/adapter.md) | O Adapter (também conhecido como Wrapper) converte a interface de uma classe em outra interface que o cliente espera. | [`Decoupling`](/tags/decoupling) | GoF |
+| [Bridge](./structural/bridge.md) | O Bridge desacopla uma abstração da sua implementação para que ambas possam variar de forma independente. | [`Decoupling`](/tags/decoupling) [`Extensibility`](/tags/extensibility) | GoF |
+| [Composite](./structural/composite.md) | O Composite compõe objetos em estruturas de árvore para representar hierarquias parte-todo. | [`Simplicity`](/tags/simplicity) [`Extensibility`](/tags/extensibility) | GoF |
+| [Decorator](./structural/decorator.md) | O Decorator permite adicionar responsabilidades a um objeto de forma dinâmica, em tempo de execução, sem alterar sua classe e sem recorrer à herança. | [`Extensibility`](/tags/extensibility) [`Runtime Flexibility`](/tags/runtime-flexibility) | GoF |
+| [Facade](./structural/facade.md) | O Facade oferece uma interface única e simplificada para um conjunto de interfaces de um subsistema. | [`Simplicity`](/tags/simplicity) [`Decoupling`](/tags/decoupling) | GoF |
+| [Flyweight](./structural/flyweight.md) | O Flyweight reduz o consumo de memória quando uma aplicação precisa manter um número muito grande de objetos parecidos. | [`Resource Efficiency`](/tags/resource-efficiency) | GoF |
+| [Proxy](./structural/proxy.md) | O Proxy fornece um substituto (ou representante) para outro objeto, controlando o acesso a ele. | [`Encapsulation`](/tags/encapsulation) [`Resource Efficiency`](/tags/resource-efficiency) | GoF |
+| [Private Class Data](./structural/private-class-data.md) | O Private Class Data restringe o acesso e a modificação dos atributos de uma classe ao separá-los em um objeto de dados próprio (a classe `Data`). | [`Encapsulation`](/tags/encapsulation) | Classic |
+
+## Behavioral (12) {#behavioral}
+
+| Padrão | Resumo | Etiquetas | Origem |
+| --- | --- | --- | --- |
+| [Chain of Responsibility](./behavioral/chain-of-responsibility.md) | O Chain of Responsibility evita acoplar o remetente de uma requisição ao seu receptor, dando a mais de um objeto a chance de tratá-la. | [`Decoupling`](/tags/decoupling) [`Runtime Flexibility`](/tags/runtime-flexibility) | GoF |
+| [Command](./behavioral/command.md) | O Command encapsula uma solicitação como um objeto, contendo tudo o que é necessário para executá-la: a ação, o objeto que a realiza (o receptor) e os parâmetros. | [`Decoupling`](/tags/decoupling) [`Extensibility`](/tags/extensibility) | GoF |
+| [Interpreter](./behavioral/interpreter.md) | O Interpreter define uma representação para a gramática de uma linguagem simples e um interpretador que usa essa representação para avaliar sentenças da linguagem. | [`Extensibility`](/tags/extensibility) | GoF |
+| [Iterator](./behavioral/iterator.md) | O Iterator fornece uma forma de acessar sequencialmente os elementos de uma coleção (agregado) sem expor sua representação interna. | [`Encapsulation`](/tags/encapsulation) [`Simplicity`](/tags/simplicity) | GoF |
+| [Mediator](./behavioral/mediator.md) | O Mediator define um objeto que encapsula a forma como um conjunto de objetos interage. | [`Decoupling`](/tags/decoupling) | GoF |
+| [Memento](./behavioral/memento.md) | O Memento captura e externaliza o estado interno de um objeto, sem violar seu encapsulamento, para que esse objeto possa ser restaurado a esse estado mais tarde. | [`Encapsulation`](/tags/encapsulation) | GoF |
+| [Observer](./behavioral/observer.md) | O Observer define uma dependência um-para-muitos entre objetos, de modo que, quando um objeto (o *subject*) muda de estado, todos os seus dependentes (os *observers*) são notificados e atualizados automaticamente. | [`Decoupling`](/tags/decoupling) [`Runtime Flexibility`](/tags/runtime-flexibility) | GoF |
+| [State](./behavioral/state.md) | O State permite que um objeto altere seu comportamento quando seu estado interno muda, dando a impressão de que o objeto mudou de classe. | [`Extensibility`](/tags/extensibility) [`Runtime Flexibility`](/tags/runtime-flexibility) | GoF |
+| [Strategy](./behavioral/strategy.md) | O Strategy (também conhecido como Policy) define uma família de algoritmos, encapsula cada um deles em um objeto próprio e os torna intercambiáveis. | [`Runtime Flexibility`](/tags/runtime-flexibility) [`Extensibility`](/tags/extensibility) | GoF |
+| [Template Method](./behavioral/template-method.md) | O Template Method define o esqueleto de um algoritmo em uma operação de uma classe base, delegando alguns passos para as subclasses. | [`Extensibility`](/tags/extensibility) | GoF |
+| [Visitor](./behavioral/visitor.md) | O Visitor representa uma operação a ser executada sobre os elementos de uma estrutura de objetos. | [`Extensibility`](/tags/extensibility) | GoF |
+| [Null Object](./behavioral/null-object.md) | O Null Object substitui referências nulas por um objeto que implementa a mesma interface esperada pelo cliente, mas cujo comportamento é neutro, ou seja, "não fazer nada". | [`Simplicity`](/tags/simplicity) | Classic |
+
+## Por etiqueta
+
+### Decoupling (10)
+
+[Abstract Factory](./creational/abstract-factory.md), [Factory Method](./creational/factory-method.md), [Factory](./creational/factory.md), [Adapter](./structural/adapter.md), [Bridge](./structural/bridge.md), [Facade](./structural/facade.md), [Chain of Responsibility](./behavioral/chain-of-responsibility.md), [Command](./behavioral/command.md), [Mediator](./behavioral/mediator.md), [Observer](./behavioral/observer.md)
+
+### Extensibility (11)
+
+[Abstract Factory](./creational/abstract-factory.md), [Factory Method](./creational/factory-method.md), [Bridge](./structural/bridge.md), [Composite](./structural/composite.md), [Decorator](./structural/decorator.md), [Command](./behavioral/command.md), [Interpreter](./behavioral/interpreter.md), [State](./behavioral/state.md), [Strategy](./behavioral/strategy.md), [Template Method](./behavioral/template-method.md), [Visitor](./behavioral/visitor.md)
+
+### Runtime Flexibility (6)
+
+[Prototype](./creational/prototype.md), [Decorator](./structural/decorator.md), [Chain of Responsibility](./behavioral/chain-of-responsibility.md), [Observer](./behavioral/observer.md), [State](./behavioral/state.md), [Strategy](./behavioral/strategy.md)
+
+### Encapsulation (6)
+
+[Builder](./creational/builder.md), [Factory](./creational/factory.md), [Proxy](./structural/proxy.md), [Private Class Data](./structural/private-class-data.md), [Iterator](./behavioral/iterator.md), [Memento](./behavioral/memento.md)
+
+### Resource Efficiency (5)
+
+[Prototype](./creational/prototype.md), [Singleton](./creational/singleton.md), [Object Pool](./creational/object-pool.md), [Flyweight](./structural/flyweight.md), [Proxy](./structural/proxy.md)
+
+### Simplicity (6)
+
+[Builder](./creational/builder.md), [Telescoping Constructor](./creational/telescoping-constructor.md), [Composite](./structural/composite.md), [Facade](./structural/facade.md), [Iterator](./behavioral/iterator.md), [Null Object](./behavioral/null-object.md)
