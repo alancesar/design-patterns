@@ -15,7 +15,7 @@ const config: Config = {
   tagline: 'Catálogo pessoal de design patterns, por domínio e catálogo.',
   favicon: 'img/logo.svg',
 
-  url: 'https://designpatterns.alancesar.org',
+  url: 'https://designpatterns.alancesar.dev',
   baseUrl: '/',
   trailingSlash: false,
 

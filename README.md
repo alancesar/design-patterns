@@ -1,6 +1,6 @@
 # Design Patterns
 
-A personal catalog of design patterns in wiki format, published at **https://designpatterns.alancesar.org**.
+A personal catalog of design patterns in wiki format, published at **https://designpatterns.alancesar.dev**.
 
 Built with [Docusaurus](https://docusaurus.io). It uses the visual identity of [alancesar.dev](https://alancesar.dev): Catppuccin Latte/Mocha, a mauve accent and JetBrains Mono for code. Deployed on [Netlify](https://www.netlify.com).
 
@@ -27,8 +27,8 @@ Netlify builds the site on every push to `main` (configured in `netlify.toml`) a
 Domain setup (one time):
 
 1. In Netlify: **Add new site → Import from GitHub →** `alancesar/design-patterns`. The build settings come from `netlify.toml`.
-2. In **Domain management → Add a domain**, enter `designpatterns.alancesar.org` and keep the DNS external.
-3. In Cloudflare (zone `alancesar.org`), create the record:
+2. In **Domain management → Add a domain**, enter `designpatterns.alancesar.dev` and keep the DNS external.
+3. In Cloudflare (zone `alancesar.dev`), create the record:
 
    | Type | Name | Target | Proxy |
    | --- | --- | --- | --- |
@@ -37,4 +37,4 @@ Domain setup (one time):
    With the proxy on, Netlify can't issue the certificate.
 4. Once the Let's Encrypt certificate is issued, turn on **Force HTTPS** in Netlify.
 
-To check: `dig +short designpatterns.alancesar.org CNAME` should return `<site-name>.netlify.app`.
+To check: `dig +short designpatterns.alancesar.dev CNAME` should return `<site-name>.netlify.app`.
