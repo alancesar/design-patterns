@@ -1,11 +1,11 @@
 ---
 title: "Cloud Design Patterns"
-sidebar_label: "Azure"
+sidebar_label: "Cloud Design Patterns"
 ---
 
 # Cloud Design Patterns
 
-Catálogo pessoal baseado no [Azure Architecture Center](https://learn.microsoft.com/en-us/azure/architecture/patterns/). Cada padrão tem descrição, problemas que resolve, quando usar, trade-offs, etiquetas (pilares do Well-Architected Framework) e um diagrama Mermaid.
+Catálogo pessoal baseado no [Azure Architecture Center](https://learn.microsoft.com/en-us/azure/architecture/patterns/), que mantém o catálogo publicado originalmente no livro *Cloud Design Patterns* (Microsoft patterns & practices, 2014). Os padrões são independentes de provedor; o Azure aparece só nas notas de implementação. Cada padrão tem descrição, problemas que resolve, quando usar, trade-offs, etiquetas (pilares do Well-Architected Framework) e um diagrama Mermaid.
 
 Total: 44 padrões em 8 grupos. Etiquetas: Pilares do Well-Architected Framework.
 
