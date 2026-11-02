@@ -5,7 +5,7 @@ sidebar_label: "Cloud"
 
 # Cloud
 
-Plataforma e operação em nuvem e contêineres.
+Aplicações e operação em nuvem e contêineres.
 
 ## Catálogos
 

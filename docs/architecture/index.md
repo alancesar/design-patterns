@@ -5,7 +5,7 @@ sidebar_label: "Architecture"
 
 # Architecture
 
-Sistemas distribuídos (serviços, integração, consistência).
+Arquitetura de sistemas (estilos arquiteturais, distribuição, integração, consistência e concorrência).
 
 ## Catálogos
 

@@ -5,7 +5,7 @@ sidebar_label: "Application"
 
 # Application
 
-Estrutura interna da aplicação (domínio, camadas, persistência).
+Estrutura interna da aplicação e modelagem de domínio (camadas, persistência, DDD).
 
 ## Catálogos
 

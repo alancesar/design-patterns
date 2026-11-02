@@ -8,17 +8,17 @@
     {
       "slug": "application",
       "label": "Application",
-      "description": "Estrutura interna da aplicação (domínio, camadas, persistência)."
+      "description": "Estrutura interna da aplicação e modelagem de domínio (camadas, persistência, DDD)."
     },
     {
       "slug": "architecture",
       "label": "Architecture",
-      "description": "Sistemas distribuídos (serviços, integração, consistência)."
+      "description": "Arquitetura de sistemas (estilos arquiteturais, distribuição, integração, consistência e concorrência)."
     },
     {
       "slug": "cloud",
       "label": "Cloud",
-      "description": "Plataforma e operação em nuvem e contêineres."
+      "description": "Aplicações e operação em nuvem e contêineres."
     }
   ],
   "catalogs": [
