@@ -7,6 +7,7 @@ tags:
 also_in:
   - architecture/microservices/communication-styles
   - architecture/eip/messaging-endpoints
+  - architecture/distributed-systems/data-replication
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/idempotent-consumer
 sidebar_label: "Idempotent Consumer"
 ---
@@ -23,6 +24,8 @@ O consumidor extrai de cada mensagem uma chave de deduplicação estável (um id
 
 Há duas formas comuns de guardar os identificadores: em uma tabela dedicada de mensagens processadas (por exemplo, `PROCESSED_MESSAGES`, com chave primária composta por identificador do assinante e da mensagem, de modo que a inserção falha se a mensagem já foi processada) ou nas próprias entidades de negócio que o consumidor cria ou atualiza. Em caso de duplicata, a transação é revertida e a mensagem é ignorada.
 
+No catálogo Patterns of Distributed Systems (Unmesh Joshi), o Idempotent Receiver trata o mesmo problema entre cliente e servidor de um cluster, quando o cliente não sabe se uma requisição sem resposta foi perdida ou processada e a reenvia. A solução é um registro de clientes: o servidor atribui a cada cliente um ID único e cada requisição carrega um número sequencial dentro desse cliente. O servidor guarda a resposta de cada requisição processada, indexada por cliente e número, e, ao receber uma repetição, devolve a resposta guardada sem executar a operação de novo. Em um cluster com Replicated Log, o registro de clientes e as respostas são replicados como qualquer outra entrada, para que um novo líder também reconheça duplicatas. Como o armazenamento não pode crescer sem limite, os registros expiram: respostas de requisições que o cliente já confirmou receber são descartadas, e clientes inativos por um tempo são removidos do registro (e precisam se registrar de novo).
+
 Para que isso funcione sob concorrência, a correção é garantida pelo armazenamento de dados (restrição de unicidade, inserção condicional ou *set-if-absent*) e não por uma verificação seguida de escrita na aplicação. Quando o registro da chave e os efeitos de negócio são gravados na mesma transação, a variante é conhecida como *Inbox*, a contraparte do lado consumidor do *Transactional Outbox*.
 
 ## Problemas que resolve
@@ -32,6 +35,7 @@ Para que isso funcione sob concorrência, a correção é garantida pelo armazen
 - Consumidor que conclui a escrita no banco mas falha antes do *ack*, fazendo outra instância repetir a operação.
 - Efeitos colaterais indesejados de duplicatas: registros duplicados, cobrança em dobro do cliente, notificações repetidas.
 - Consumidores concorrentes (*competing consumers*) recebendo cópias da mesma mensagem ao mesmo tempo.
+- Em clusters replicados, clientes que reenviam uma requisição após timeout ou troca de líder, sem saber se ela foi aplicada, o que exige registrar clientes e respostas por número de requisição (visão de Joshi).
 - Em microsserviços, onde brokers com *at-least-once* são preferidos por confiabilidade, a reentrega é esperada: consumidores não idempotentes (por exemplo, um que subtrai o valor de um evento `AccountDebited` do saldo) calculariam resultados incorretos ao processar um duplicado.
 
 ## Quando usar
@@ -99,6 +103,8 @@ O consumidor verifica a chave de deduplicação e, se ela for nova, grava a chav
 - [Saga](../distributed-coordination/saga.md) — passos de uma saga coordenados por mensagens dependem de participantes idempotentes.
 - [Messaging (microservices)](../../../architecture/microservices/communication-styles/messaging.md) — estilo de comunicação assíncrona cujo broker *at-least-once* torna o consumidor idempotente necessário.
 - [Transactional Outbox (microservices)](../../../architecture/microservices/transactional-messaging/transactional-outbox.md) — contraparte do lado produtor; o *Inbox* é a contraparte do lado consumidor.
+- [Replicated Log](../../../architecture/distributed-systems/data-replication/replicated-log.md) — o registro de clientes e as respostas guardadas são replicados no log para sobreviver à troca de líder (Patterns of Distributed Systems).
+- [Request Waiting List](../../../architecture/distributed-systems/data-replication/request-waiting-list.md) — o líder acompanha requisições pendentes enquanto aguarda o commit, e o cliente pode repeti-las (Patterns of Distributed Systems).
 - [Event Sourcing](../data-management/event-sourcing.md) — projeções que reprocessam eventos precisam aplicar cada evento uma única vez.
 
 ## Referência
@@ -106,3 +112,4 @@ O consumidor verifica a chave de deduplicação e, se ela for nova, grava a chav
 - [Documentação no Azure Architecture Center](https://learn.microsoft.com/en-us/azure/architecture/patterns/idempotent-consumer)
 - [Idempotent Consumer no microservices.io](https://microservices.io/patterns/communication-style/idempotent-consumer.html)
 - [Idempotent Receiver no Enterprise Integration Patterns](https://www.enterpriseintegrationpatterns.com/IdempotentReceiver.html)
+- [Idempotent Receiver no catálogo Patterns of Distributed Systems](https://martinfowler.com/articles/patterns-of-distributed-systems/idempotent-receiver.html)
