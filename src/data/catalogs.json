@@ -19,6 +19,11 @@
       "slug": "cloud",
       "label": "Cloud",
       "description": "Aplicações e operação em nuvem e contêineres."
+    },
+    {
+      "slug": "ai",
+      "label": "AI",
+      "description": "Sistemas com LLMs e agentes de IA."
     }
   ],
   "catalogs": [
@@ -84,6 +89,24 @@
       "source": "https://learn.microsoft.com/en-us/azure/architecture/patterns/",
       "patterns": 44,
       "groups": 8
+    },
+    {
+      "domain": "ai",
+      "domainLabel": "AI",
+      "title": "AI Agent Orchestration Patterns",
+      "href": "/ai/agent-orchestration",
+      "source": "https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns",
+      "patterns": 6,
+      "groups": 2
+    },
+    {
+      "domain": "ai",
+      "domainLabel": "AI",
+      "title": "Agentic AI Design Patterns",
+      "href": "/ai/agentic-ai",
+      "source": "https://docs.cloud.google.com/architecture/choose-design-pattern-agentic-ai-system",
+      "patterns": 12,
+      "groups": 4
     }
   ]
 }
