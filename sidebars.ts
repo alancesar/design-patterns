@@ -351,6 +351,88 @@ const sidebars: SidebarsConfig = {
       "items": [
         {
           "type": "category",
+          "label": "Distributed Systems",
+          "link": {
+            "type": "doc",
+            "id": "architecture/distributed-systems/index"
+          },
+          "collapsed": true,
+          "items": [
+            {
+              "type": "category",
+              "label": "Data Replication",
+              "collapsed": true,
+              "items": [
+                "architecture/distributed-systems/data-replication/write-ahead-log",
+                "architecture/distributed-systems/data-replication/segmented-log",
+                "architecture/distributed-systems/data-replication/low-water-mark",
+                "architecture/distributed-systems/data-replication/leader-and-followers",
+                "architecture/distributed-systems/data-replication/heartbeat",
+                "architecture/distributed-systems/data-replication/majority-quorum",
+                "architecture/distributed-systems/data-replication/generation-clock",
+                "architecture/distributed-systems/data-replication/high-water-mark",
+                "architecture/distributed-systems/data-replication/paxos",
+                "architecture/distributed-systems/data-replication/replicated-log",
+                "architecture/distributed-systems/data-replication/singular-update-queue",
+                "architecture/distributed-systems/data-replication/request-waiting-list",
+                {
+                  "type": "link",
+                  "label": "Idempotent Receiver",
+                  "href": "/cloud/azure/messaging/idempotent-consumer?catalogo=distributed-systems",
+                  "className": "sidebar-shared",
+                  "key": "distributed-systems-idempotent-receiver"
+                },
+                "architecture/distributed-systems/data-replication/follower-reads",
+                "architecture/distributed-systems/data-replication/versioned-value",
+                "architecture/distributed-systems/data-replication/version-vector"
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Data Partitioning",
+              "collapsed": true,
+              "items": [
+                "architecture/distributed-systems/data-partitioning/fixed-partitions",
+                "architecture/distributed-systems/data-partitioning/key-range-partitions",
+                "architecture/distributed-systems/data-partitioning/two-phase-commit"
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Distributed Time",
+              "collapsed": true,
+              "items": [
+                "architecture/distributed-systems/distributed-time/lamport-clock",
+                "architecture/distributed-systems/distributed-time/hybrid-clock",
+                "architecture/distributed-systems/distributed-time/clock-bound-wait"
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Cluster Management",
+              "collapsed": true,
+              "items": [
+                "architecture/distributed-systems/cluster-management/consistent-core",
+                "architecture/distributed-systems/cluster-management/lease",
+                "architecture/distributed-systems/cluster-management/state-watch",
+                "architecture/distributed-systems/cluster-management/gossip-dissemination",
+                "architecture/distributed-systems/cluster-management/emergent-leader"
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Communication between Nodes",
+              "collapsed": true,
+              "items": [
+                "architecture/distributed-systems/node-communication/single-socket-channel",
+                "architecture/distributed-systems/node-communication/request-batch",
+                "architecture/distributed-systems/node-communication/request-pipeline"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "category",
           "label": "EIP",
           "link": {
             "type": "doc",
