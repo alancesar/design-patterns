@@ -1,34 +1,40 @@
 # Design Patterns
 
-Catálogo pessoal de design patterns em formato wiki, publicado em **https://designpatterns.alancesar.org**.
+A personal catalog of design patterns in wiki format, published at **https://designpatterns.alancesar.org**.
 
-Feito com [Docusaurus](https://docusaurus.io), com a identidade visual do [alancesar.dev](https://alancesar.dev) (Catppuccin Latte/Mocha, destaque mauve, JetBrains Mono no código). Deploy na [Netlify](https://www.netlify.com).
+Built with [Docusaurus](https://docusaurus.io). It uses the visual identity of [alancesar.dev](https://alancesar.dev): Catppuccin Latte/Mocha, a mauve accent and JetBrains Mono for code. Deployed on [Netlify](https://www.netlify.com).
 
-## Desenvolvimento
+## Content
+
+The patterns are Markdown files in `docs/`, organized as domain → catalog → group → pattern (`docs/<domain>/<catalog>/<group>/<pattern>.md`). Each pattern has a description, the problems it solves, when to use it, trade-offs, tags and a Mermaid diagram. `sidebars.ts` defines the navigation, and `src/data/catalogs.json` feeds the catalog cards on the home page.
+
+The site content is in Portuguese (pt-BR), and so is the UI.
+
+## Development
 
 ```bash
 npm install
-npm start          # servidor local em http://localhost:3000
-npm run build      # build de produção em build/ (falha em links quebrados)
-npm run serve      # serve o build localmente (necessário para testar a busca)
+npm start          # local dev server at http://localhost:3000
+npm run build      # production build to build/ (fails on broken links)
+npm run serve      # serves the build locally (needed to test search)
 npm run typecheck
 ```
 
 ## Deploy
 
-A Netlify faz o build a cada push na `main` (configuração em `netlify.toml`) e gera deploy previews para pull requests.
+Netlify builds the site on every push to `main` (configured in `netlify.toml`) and creates deploy previews for pull requests.
 
-Configuração do domínio (uma vez):
+Domain setup (one time):
 
-1. Na Netlify: **Add new site → Import from GitHub →** `alancesar/designpatterns`. As configurações de build vêm do `netlify.toml`.
-2. Em **Domain management → Add a domain**, informe `designpatterns.alancesar.org` e mantenha o DNS externo.
-3. No Cloudflare (zona `alancesar.org`), crie o registro:
+1. In Netlify: **Add new site → Import from GitHub →** `alancesar/designpatterns`. The build settings come from `netlify.toml`.
+2. In **Domain management → Add a domain**, enter `designpatterns.alancesar.org` and keep the DNS external.
+3. In Cloudflare (zone `alancesar.org`), create the record:
 
-   | Tipo | Nome | Destino | Proxy |
+   | Type | Name | Target | Proxy |
    | --- | --- | --- | --- |
-   | CNAME | `designpatterns` | `<nome-do-site>.netlify.app` | **DNS only** (nuvem cinza) |
+   | CNAME | `designpatterns` | `<site-name>.netlify.app` | **DNS only** (grey cloud) |
 
-   Com o proxy ligado, a Netlify não consegue emitir o certificado.
-4. Quando o certificado Let's Encrypt for emitido, ative **Force HTTPS** na Netlify.
+   With the proxy on, Netlify can't issue the certificate.
+4. Once the Let's Encrypt certificate is issued, turn on **Force HTTPS** in Netlify.
 
-Para conferir: `dig +short designpatterns.alancesar.org CNAME` deve retornar `<nome-do-site>.netlify.app`.
+To check: `dig +short designpatterns.alancesar.org CNAME` should return `<site-name>.netlify.app`.
