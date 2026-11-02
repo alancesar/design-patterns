@@ -80,7 +80,7 @@
       "domain": "cloud",
       "domainLabel": "Cloud",
       "title": "Cloud Design Patterns",
-      "href": "/cloud/azure",
+      "href": "/cloud/cloud-design-patterns",
       "source": "https://learn.microsoft.com/en-us/azure/architecture/patterns/",
       "patterns": 44,
       "groups": 8
