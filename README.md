@@ -26,7 +26,7 @@ Netlify builds the site on every push to `main` (configured in `netlify.toml`) a
 
 Domain setup (one time):
 
-1. In Netlify: **Add new site → Import from GitHub →** `alancesar/designpatterns`. The build settings come from `netlify.toml`.
+1. In Netlify: **Add new site → Import from GitHub →** `alancesar/design-patterns`. The build settings come from `netlify.toml`.
 2. In **Domain management → Add a domain**, enter `designpatterns.alancesar.org` and keep the DNS external.
 3. In Cloudflare (zone `alancesar.org`), create the record:
 
