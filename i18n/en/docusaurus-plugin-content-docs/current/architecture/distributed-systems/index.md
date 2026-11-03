@@ -64,7 +64,7 @@ Total: 30 patterns in 5 groups. Tags: Distributed guarantee.
 | [Lease](/architecture/distributed-systems/cluster-management/lease) | A Lease is a grant of exclusive access to a resource for a limited time. | [`Fault Tolerance`](/tags/fault-tolerance) [`Availability`](/tags/availability) |
 | [State Watch](/architecture/distributed-systems/cluster-management/state-watch) | In State Watch, the client registers with the server its interest in changes to certain values (a key, a prefix, a node's state). | [`Performance`](/tags/performance) [`Scalability`](/tags/scalability) |
 | [Gossip Dissemination](/architecture/distributed-systems/cluster-management/gossip-dissemination) | In Gossip Dissemination, each node keeps the metadata it knows about the cluster (membership, node state, partition information) and, at regular intervals, for example every second, picks one or a few random nodes and exchanges what it knows with them. | [`Scalability`](/tags/scalability) [`Fault Tolerance`](/tags/fault-tolerance) [`Availability`](/tags/availability) |
-| [Emergent Leader](/architecture/distributed-systems/cluster-management/emergent-leader) | In peer-to-peer clusters, all nodes are equal and there's no explicit election as in [Leader and Followers](/architecture/distributed-systems/data-replication/leader-and-followers). | [`Availability`](/tags/availability) [`Fault Tolerance`](/tags/fault-tolerance) |
+| [Emergent Leader](/architecture/distributed-systems/cluster-management/emergent-leader) | In peer-to-peer clusters, all nodes are equal and there's no explicit election as in Leader and Followers. | [`Availability`](/tags/availability) [`Fault Tolerance`](/tags/fault-tolerance) |
 
 ## Communication between Nodes (3) {#node-communication}
 
