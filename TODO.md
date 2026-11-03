@@ -36,10 +36,10 @@ Progress: **307 of 307** (complete) pattern pages translated.
 - ✅ Navbar, footer, and home-page catalog cards (`i18n/en/code.json`, `i18n/en/docusaurus-theme-classic/`).
 - ✅ Sidebar labels (`i18n/en/docusaurus-plugin-content-docs/current.json`; already in English).
 
-## How to translate a catalog
+## Adding new catalogs
 
-1. One subagent per pattern group (Sonnet), writing to `i18n/en/docusaurus-plugin-content-docs/current/<same path>`.
-2. Prose comes from `docs/<path>`; Mermaid blocks are copied verbatim from the `docs/english-mermaid-diagrams` branch (PR #1).
-3. Keep frontmatter and every link URL unchanged; links are absolute doc URLs, so Docusaurus adds `/en` automatically.
-4. Write the catalog `index.md` and its domain page, using each translated pattern's first Description sentence as its summary.
-5. Check each page against its source (same frontmatter, links, heading count and code fences; Mermaid identical to PR #1; no Portuguese left), then verify with `npm run build` (both locales; broken links fail the build) and update this file.
+New catalogs are written in both languages from the start with the `pattern-catalog` skill (`.claude/skills/pattern-catalog/`). Check a catalog with:
+
+```bash
+python3 -I .claude/skills/pattern-catalog/scripts/catalog.py validate <domain>/<catalog>
+```
