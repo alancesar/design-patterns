@@ -4,7 +4,7 @@ English translation of the site (pt-BR is the default locale). English pages liv
 `i18n/en/docusaurus-plugin-content-docs/current/`, mirroring the paths under `docs/`;
 untranslated pages fall back to the Portuguese content under `/en/`.
 
-Progress: **213 of 307** pattern pages translated.
+Progress: **264 of 307** pattern pages translated.
 
 ## Catalogs
 
@@ -17,7 +17,7 @@ Progress: **213 of 307** pattern pages translated.
 | ✅ Done | Cloud | Cloud Design Patterns | `cloud/cloud-design-patterns` | 44/44 | 8 | — |
 | ✅ Done | Architecture | Enterprise Integration Patterns | `architecture/eip` | 56/56 | 7 | — |
 | ✅ Done | Architecture | Patterns of Distributed Systems | `architecture/distributed-systems` | 29/29 | 5 | — |
-| ⬜ Pending | Application | Patterns of Enterprise Application Architecture | `application/poeaa` | 0/51 | 10 | `base`, `data-source-architectural`, `distribution`, `domain-logic`, `object-relational-behavioral`, `object-relational-metadata-mapping`, `object-relational-structural`, `offline-concurrency`, `session-state`, `web-presentation` |
+| ✅ Done | Application | Patterns of Enterprise Application Architecture | `application/poeaa` | 51/51 | 10 | — |
 | ⬜ Pending | Architecture | Microservices Patterns | `architecture/microservices` | 0/43 | 13 | `architectural-style`, `communication-styles`, `cross-cutting-concerns`, `deployment`, `external-api`, `observability`, `security`, `service-boundaries`, `service-collaboration`, `service-discovery`, `testing`, `transactional-messaging`, `ui-design` |
 
 ## Other pages
