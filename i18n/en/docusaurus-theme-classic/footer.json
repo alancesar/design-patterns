@@ -86,9 +86,5 @@
   "link.item.label.LinkedIn": {
     "message": "LinkedIn",
     "description": "The label of footer link with label=LinkedIn linking to https://www.linkedin.com/in/alancesar/"
-  },
-  "copyright": {
-    "message": "Summaries written by Alan Cesar. The patterns belong to their original authors; see the source link on each page.<br/>© 2026 Alan Cesar. Content under <a href=\"https://creativecommons.org/licenses/by/4.0/\" target=\"_blank\" rel=\"noopener noreferrer\">CC BY 4.0</a>, code under MIT. Built with Docusaurus.",
-    "description": "The footer copyright"
   }
 }

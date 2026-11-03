@@ -123,14 +123,14 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Value Object",
-                  "href": "/application/poeaa/base/value-object?catalogo=ddd",
+                  "href": "/application/poeaa/base/value-object?catalog=ddd",
                   "className": "sidebar-shared",
                   "key": "ddd-value-object"
                 },
                 {
                   "type": "link",
                   "label": "Domain Event",
-                  "href": "/architecture/microservices/service-collaboration/domain-event?catalogo=ddd",
+                  "href": "/architecture/microservices/service-collaboration/domain-event?catalog=ddd",
                   "className": "sidebar-shared",
                   "key": "ddd-domain-event"
                 },
@@ -140,7 +140,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Repository",
-                  "href": "/application/poeaa/object-relational-metadata-mapping/repository?catalogo=ddd",
+                  "href": "/application/poeaa/object-relational-metadata-mapping/repository?catalog=ddd",
                   "className": "sidebar-shared",
                   "key": "ddd-repository"
                 },
@@ -177,7 +177,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Anti-Corruption Layer",
-                  "href": "/cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer?catalogo=ddd",
+                  "href": "/cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer?catalog=ddd",
                   "className": "sidebar-shared",
                   "key": "ddd-anticorruption-layer"
                 },
@@ -402,7 +402,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Idempotent Receiver",
-                  "href": "/cloud/cloud-design-patterns/messaging/idempotent-consumer?catalogo=distributed-systems",
+                  "href": "/cloud/cloud-design-patterns/messaging/idempotent-consumer?catalog=distributed-systems",
                   "className": "sidebar-shared",
                   "key": "distributed-systems-idempotent-receiver"
                 },
@@ -479,21 +479,21 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Shared Database",
-                  "href": "/architecture/microservices/service-collaboration/shared-database?catalogo=eip",
+                  "href": "/architecture/microservices/service-collaboration/shared-database?catalog=eip",
                   "className": "sidebar-shared",
                   "key": "eip-shared-database"
                 },
                 {
                   "type": "link",
                   "label": "Remote Procedure Invocation",
-                  "href": "/architecture/microservices/communication-styles/remote-procedure-invocation?catalogo=eip",
+                  "href": "/architecture/microservices/communication-styles/remote-procedure-invocation?catalog=eip",
                   "className": "sidebar-shared",
                   "key": "eip-remote-procedure-invocation"
                 },
                 {
                   "type": "link",
                   "label": "Messaging",
-                  "href": "/architecture/microservices/communication-styles/messaging?catalogo=eip",
+                  "href": "/architecture/microservices/communication-styles/messaging?catalog=eip",
                   "className": "sidebar-shared",
                   "key": "eip-messaging"
                 }
@@ -510,7 +510,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Publish-Subscribe Channel",
-                  "href": "/cloud/cloud-design-patterns/messaging/publisher-subscriber?catalogo=eip",
+                  "href": "/cloud/cloud-design-patterns/messaging/publisher-subscriber?catalog=eip",
                   "className": "sidebar-shared",
                   "key": "eip-publish-subscribe-channel"
                 },
@@ -522,7 +522,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Messaging Bridge",
-                  "href": "/cloud/cloud-design-patterns/messaging/messaging-bridge?catalogo=eip",
+                  "href": "/cloud/cloud-design-patterns/messaging/messaging-bridge?catalog=eip",
                   "className": "sidebar-shared",
                   "key": "eip-messaging-bridge"
                 },
@@ -556,7 +556,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Pipes and Filters",
-                  "href": "/cloud/cloud-design-patterns/messaging/pipes-and-filters?catalogo=eip",
+                  "href": "/cloud/cloud-design-patterns/messaging/pipes-and-filters?catalog=eip",
                   "className": "sidebar-shared",
                   "key": "eip-pipes-and-filters"
                 },
@@ -588,7 +588,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Claim Check",
-                  "href": "/cloud/cloud-design-patterns/messaging/claim-check?catalogo=eip",
+                  "href": "/cloud/cloud-design-patterns/messaging/claim-check?catalog=eip",
                   "className": "sidebar-shared",
                   "key": "eip-claim-check"
                 },
@@ -611,7 +611,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Competing Consumers",
-                  "href": "/cloud/cloud-design-patterns/messaging/competing-consumers?catalogo=eip",
+                  "href": "/cloud/cloud-design-patterns/messaging/competing-consumers?catalog=eip",
                   "className": "sidebar-shared",
                   "key": "eip-competing-consumers"
                 },
@@ -621,7 +621,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Idempotent Receiver",
-                  "href": "/cloud/cloud-design-patterns/messaging/idempotent-consumer?catalogo=eip",
+                  "href": "/cloud/cloud-design-patterns/messaging/idempotent-consumer?catalog=eip",
                   "className": "sidebar-shared",
                   "key": "eip-idempotent-receiver"
                 },
@@ -687,14 +687,14 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Strangler Application",
-                  "href": "/cloud/cloud-design-patterns/integration-and-modernization/strangler-fig?catalogo=microservices",
+                  "href": "/cloud/cloud-design-patterns/integration-and-modernization/strangler-fig?catalog=microservices",
                   "className": "sidebar-shared",
                   "key": "microservices-strangler-application"
                 },
                 {
                   "type": "link",
                   "label": "Anti-Corruption Layer",
-                  "href": "/cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer?catalogo=microservices",
+                  "href": "/cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer?catalog=microservices",
                   "className": "sidebar-shared",
                   "key": "microservices-anti-corruption-layer"
                 }
@@ -711,7 +711,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Saga",
-                  "href": "/cloud/cloud-design-patterns/distributed-coordination/saga?catalogo=microservices",
+                  "href": "/cloud/cloud-design-patterns/distributed-coordination/saga?catalog=microservices",
                   "className": "sidebar-shared",
                   "key": "microservices-saga"
                 },
@@ -720,7 +720,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "CQRS",
-                  "href": "/cloud/cloud-design-patterns/data-management/cqrs?catalogo=microservices",
+                  "href": "/cloud/cloud-design-patterns/data-management/cqrs?catalog=microservices",
                   "className": "sidebar-shared",
                   "key": "microservices-cqrs"
                 },
@@ -728,7 +728,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Event Sourcing",
-                  "href": "/cloud/cloud-design-patterns/data-management/event-sourcing?catalogo=microservices",
+                  "href": "/cloud/cloud-design-patterns/data-management/event-sourcing?catalog=microservices",
                   "className": "sidebar-shared",
                   "key": "microservices-event-sourcing"
                 }
@@ -780,7 +780,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Externalized Configuration",
-                  "href": "/cloud/cloud-design-patterns/deployment-and-topology/external-configuration-store?catalogo=microservices",
+                  "href": "/cloud/cloud-design-patterns/deployment-and-topology/external-configuration-store?catalog=microservices",
                   "className": "sidebar-shared",
                   "key": "microservices-externalized-configuration"
                 },
@@ -799,7 +799,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Idempotent Consumer",
-                  "href": "/cloud/cloud-design-patterns/messaging/idempotent-consumer?catalogo=microservices",
+                  "href": "/cloud/cloud-design-patterns/messaging/idempotent-consumer?catalog=microservices",
                   "className": "sidebar-shared",
                   "key": "microservices-idempotent-consumer"
                 }
@@ -815,7 +815,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Backend for Front-end",
-                  "href": "/cloud/cloud-design-patterns/gateways-and-edge/backends-for-frontends?catalogo=microservices",
+                  "href": "/cloud/cloud-design-patterns/gateways-and-edge/backends-for-frontends?catalog=microservices",
                   "className": "sidebar-shared",
                   "key": "microservices-backend-for-front-end"
                 }
@@ -843,7 +843,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Circuit Breaker",
-                  "href": "/cloud/cloud-design-patterns/resiliency/circuit-breaker?catalogo=microservices",
+                  "href": "/cloud/cloud-design-patterns/resiliency/circuit-breaker?catalog=microservices",
                   "className": "sidebar-shared",
                   "key": "microservices-circuit-breaker"
                 }
@@ -872,7 +872,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Health Check API",
-                  "href": "/cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring?catalogo=microservices",
+                  "href": "/cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring?catalog=microservices",
                   "className": "sidebar-shared",
                   "key": "microservices-health-check-api"
                 },
@@ -1086,14 +1086,14 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Multi-Agent Sequential",
-                  "href": "/ai/agent-orchestration/deterministic-workflows/sequential-orchestration?catalogo=agentic-ai",
+                  "href": "/ai/agent-orchestration/deterministic-workflows/sequential-orchestration?catalog=agentic-ai",
                   "className": "sidebar-shared",
                   "key": "agentic-ai-multi-agent-sequential"
                 },
                 {
                   "type": "link",
                   "label": "Multi-Agent Parallel",
-                  "href": "/ai/agent-orchestration/deterministic-workflows/concurrent-orchestration?catalogo=agentic-ai",
+                  "href": "/ai/agent-orchestration/deterministic-workflows/concurrent-orchestration?catalog=agentic-ai",
                   "className": "sidebar-shared",
                   "key": "agentic-ai-multi-agent-parallel"
                 }
@@ -1122,7 +1122,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Multi-Agent Review and Critique",
-                  "href": "/ai/agent-orchestration/dynamic-orchestration/maker-checker-loop?catalogo=agentic-ai",
+                  "href": "/ai/agent-orchestration/dynamic-orchestration/maker-checker-loop?catalog=agentic-ai",
                   "className": "sidebar-shared",
                   "key": "agentic-ai-multi-agent-review-and-critique"
                 },
