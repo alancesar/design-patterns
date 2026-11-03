@@ -301,110 +301,110 @@
   },
   "sidebar.catalog.link.ddd-value-object": {
     "message": "Value Object",
-    "description": "The label for link 'Value Object' in sidebar 'catalog', linking to '/application/poeaa/base/value-object?catalogo=ddd'"
+    "description": "The label for link 'Value Object' in sidebar 'catalog', linking to '/application/poeaa/base/value-object?catalog=ddd'"
   },
   "sidebar.catalog.link.ddd-domain-event": {
     "message": "Domain Event",
-    "description": "The label for link 'Domain Event' in sidebar 'catalog', linking to '/architecture/microservices/service-collaboration/domain-event?catalogo=ddd'"
+    "description": "The label for link 'Domain Event' in sidebar 'catalog', linking to '/architecture/microservices/service-collaboration/domain-event?catalog=ddd'"
   },
   "sidebar.catalog.link.ddd-repository": {
     "message": "Repository",
-    "description": "The label for link 'Repository' in sidebar 'catalog', linking to '/application/poeaa/object-relational-metadata-mapping/repository?catalogo=ddd'"
+    "description": "The label for link 'Repository' in sidebar 'catalog', linking to '/application/poeaa/object-relational-metadata-mapping/repository?catalog=ddd'"
   },
   "sidebar.catalog.link.ddd-anticorruption-layer": {
     "message": "Anti-Corruption Layer",
-    "description": "The label for link 'Anti-Corruption Layer' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer?catalogo=ddd'"
+    "description": "The label for link 'Anti-Corruption Layer' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer?catalog=ddd'"
   },
   "sidebar.catalog.link.distributed-systems-idempotent-receiver": {
     "message": "Idempotent Receiver",
-    "description": "The label for link 'Idempotent Receiver' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/messaging/idempotent-consumer?catalogo=distributed-systems'"
+    "description": "The label for link 'Idempotent Receiver' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/messaging/idempotent-consumer?catalog=distributed-systems'"
   },
   "sidebar.catalog.link.eip-shared-database": {
     "message": "Shared Database",
-    "description": "The label for link 'Shared Database' in sidebar 'catalog', linking to '/architecture/microservices/service-collaboration/shared-database?catalogo=eip'"
+    "description": "The label for link 'Shared Database' in sidebar 'catalog', linking to '/architecture/microservices/service-collaboration/shared-database?catalog=eip'"
   },
   "sidebar.catalog.link.eip-remote-procedure-invocation": {
     "message": "Remote Procedure Invocation",
-    "description": "The label for link 'Remote Procedure Invocation' in sidebar 'catalog', linking to '/architecture/microservices/communication-styles/remote-procedure-invocation?catalogo=eip'"
+    "description": "The label for link 'Remote Procedure Invocation' in sidebar 'catalog', linking to '/architecture/microservices/communication-styles/remote-procedure-invocation?catalog=eip'"
   },
   "sidebar.catalog.link.eip-messaging": {
     "message": "Messaging",
-    "description": "The label for link 'Messaging' in sidebar 'catalog', linking to '/architecture/microservices/communication-styles/messaging?catalogo=eip'"
+    "description": "The label for link 'Messaging' in sidebar 'catalog', linking to '/architecture/microservices/communication-styles/messaging?catalog=eip'"
   },
   "sidebar.catalog.link.eip-publish-subscribe-channel": {
     "message": "Publish-Subscribe Channel",
-    "description": "The label for link 'Publish-Subscribe Channel' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/messaging/publisher-subscriber?catalogo=eip'"
+    "description": "The label for link 'Publish-Subscribe Channel' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/messaging/publisher-subscriber?catalog=eip'"
   },
   "sidebar.catalog.link.eip-messaging-bridge": {
     "message": "Messaging Bridge",
-    "description": "The label for link 'Messaging Bridge' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/messaging/messaging-bridge?catalogo=eip'"
+    "description": "The label for link 'Messaging Bridge' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/messaging/messaging-bridge?catalog=eip'"
   },
   "sidebar.catalog.link.eip-pipes-and-filters": {
     "message": "Pipes and Filters",
-    "description": "The label for link 'Pipes and Filters' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/messaging/pipes-and-filters?catalogo=eip'"
+    "description": "The label for link 'Pipes and Filters' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/messaging/pipes-and-filters?catalog=eip'"
   },
   "sidebar.catalog.link.eip-claim-check": {
     "message": "Claim Check",
-    "description": "The label for link 'Claim Check' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/messaging/claim-check?catalogo=eip'"
+    "description": "The label for link 'Claim Check' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/messaging/claim-check?catalog=eip'"
   },
   "sidebar.catalog.link.eip-competing-consumers": {
     "message": "Competing Consumers",
-    "description": "The label for link 'Competing Consumers' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/messaging/competing-consumers?catalogo=eip'"
+    "description": "The label for link 'Competing Consumers' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/messaging/competing-consumers?catalog=eip'"
   },
   "sidebar.catalog.link.eip-idempotent-receiver": {
     "message": "Idempotent Receiver",
-    "description": "The label for link 'Idempotent Receiver' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/messaging/idempotent-consumer?catalogo=eip'"
+    "description": "The label for link 'Idempotent Receiver' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/messaging/idempotent-consumer?catalog=eip'"
   },
   "sidebar.catalog.link.microservices-strangler-application": {
     "message": "Strangler Application",
-    "description": "The label for link 'Strangler Application' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/integration-and-modernization/strangler-fig?catalogo=microservices'"
+    "description": "The label for link 'Strangler Application' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/integration-and-modernization/strangler-fig?catalog=microservices'"
   },
   "sidebar.catalog.link.microservices-anti-corruption-layer": {
     "message": "Anti-Corruption Layer",
-    "description": "The label for link 'Anti-Corruption Layer' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer?catalogo=microservices'"
+    "description": "The label for link 'Anti-Corruption Layer' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer?catalog=microservices'"
   },
   "sidebar.catalog.link.microservices-saga": {
     "message": "Saga",
-    "description": "The label for link 'Saga' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/distributed-coordination/saga?catalogo=microservices'"
+    "description": "The label for link 'Saga' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/distributed-coordination/saga?catalog=microservices'"
   },
   "sidebar.catalog.link.microservices-cqrs": {
     "message": "CQRS",
-    "description": "The label for link 'CQRS' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/data-management/cqrs?catalogo=microservices'"
+    "description": "The label for link 'CQRS' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/data-management/cqrs?catalog=microservices'"
   },
   "sidebar.catalog.link.microservices-event-sourcing": {
     "message": "Event Sourcing",
-    "description": "The label for link 'Event Sourcing' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/data-management/event-sourcing?catalogo=microservices'"
+    "description": "The label for link 'Event Sourcing' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/data-management/event-sourcing?catalog=microservices'"
   },
   "sidebar.catalog.link.microservices-externalized-configuration": {
     "message": "Externalized Configuration",
-    "description": "The label for link 'Externalized Configuration' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/deployment-and-topology/external-configuration-store?catalogo=microservices'"
+    "description": "The label for link 'Externalized Configuration' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/deployment-and-topology/external-configuration-store?catalog=microservices'"
   },
   "sidebar.catalog.link.microservices-idempotent-consumer": {
     "message": "Idempotent Consumer",
-    "description": "The label for link 'Idempotent Consumer' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/messaging/idempotent-consumer?catalogo=microservices'"
+    "description": "The label for link 'Idempotent Consumer' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/messaging/idempotent-consumer?catalog=microservices'"
   },
   "sidebar.catalog.link.microservices-backend-for-front-end": {
     "message": "Backend for Front-end",
-    "description": "The label for link 'Backend for Front-end' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/gateways-and-edge/backends-for-frontends?catalogo=microservices'"
+    "description": "The label for link 'Backend for Front-end' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/gateways-and-edge/backends-for-frontends?catalog=microservices'"
   },
   "sidebar.catalog.link.microservices-circuit-breaker": {
     "message": "Circuit Breaker",
-    "description": "The label for link 'Circuit Breaker' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/resiliency/circuit-breaker?catalogo=microservices'"
+    "description": "The label for link 'Circuit Breaker' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/resiliency/circuit-breaker?catalog=microservices'"
   },
   "sidebar.catalog.link.microservices-health-check-api": {
     "message": "Health Check API",
-    "description": "The label for link 'Health Check API' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring?catalogo=microservices'"
+    "description": "The label for link 'Health Check API' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring?catalog=microservices'"
   },
   "sidebar.catalog.link.agentic-ai-multi-agent-sequential": {
     "message": "Multi-Agent Sequential",
-    "description": "The label for link 'Multi-Agent Sequential' in sidebar 'catalog', linking to '/ai/agent-orchestration/deterministic-workflows/sequential-orchestration?catalogo=agentic-ai'"
+    "description": "The label for link 'Multi-Agent Sequential' in sidebar 'catalog', linking to '/ai/agent-orchestration/deterministic-workflows/sequential-orchestration?catalog=agentic-ai'"
   },
   "sidebar.catalog.link.agentic-ai-multi-agent-parallel": {
     "message": "Multi-Agent Parallel",
-    "description": "The label for link 'Multi-Agent Parallel' in sidebar 'catalog', linking to '/ai/agent-orchestration/deterministic-workflows/concurrent-orchestration?catalogo=agentic-ai'"
+    "description": "The label for link 'Multi-Agent Parallel' in sidebar 'catalog', linking to '/ai/agent-orchestration/deterministic-workflows/concurrent-orchestration?catalog=agentic-ai'"
   },
   "sidebar.catalog.link.agentic-ai-multi-agent-review-and-critique": {
     "message": "Multi-Agent Review and Critique",
-    "description": "The label for link 'Multi-Agent Review and Critique' in sidebar 'catalog', linking to '/ai/agent-orchestration/dynamic-orchestration/maker-checker-loop?catalogo=agentic-ai'"
+    "description": "The label for link 'Multi-Agent Review and Critique' in sidebar 'catalog', linking to '/ai/agent-orchestration/dynamic-orchestration/maker-checker-loop?catalog=agentic-ai'"
   }
 }
