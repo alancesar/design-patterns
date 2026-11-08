@@ -12,6 +12,8 @@ const sidebars: SidebarsConfig = {
         "id": "coding/index"
       },
       "collapsed": false,
+      "collapsible": false,
+      "className": "sidebar-domain",
       "items": [
         {
           "type": "category",
@@ -87,6 +89,8 @@ const sidebars: SidebarsConfig = {
         "id": "design/index"
       },
       "collapsed": false,
+      "collapsible": false,
+      "className": "sidebar-domain",
       "items": [
         {
           "type": "category",
@@ -370,6 +374,8 @@ const sidebars: SidebarsConfig = {
         "id": "architecture/index"
       },
       "collapsed": false,
+      "collapsible": false,
+      "className": "sidebar-domain",
       "items": [
         {
           "type": "category",
@@ -1021,6 +1027,8 @@ const sidebars: SidebarsConfig = {
         "id": "ai/index"
       },
       "collapsed": false,
+      "collapsible": false,
+      "className": "sidebar-domain",
       "items": [
         {
           "type": "category",
