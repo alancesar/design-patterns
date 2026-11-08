@@ -71,7 +71,7 @@ The console sends commands to the components through the Control Bus, and they r
 - [Wire Tap](/architecture/eip/system-management/wire-tap) — passive instrumentation that can feed management.
 - [Message Store](/architecture/eip/system-management/message-store) — stores message information for reporting.
 - [Content-Based Router](/architecture/eip/message-routing/content-based-router) — a component whose routing rule is often changed via the Control Bus.
-- [External Configuration Store](/cloud/cloud-design-patterns/deployment-and-topology/external-configuration-store) — an alternative based on a centralized configuration repository instead of messages.
+- [External Configuration Store](/architecture/cloud-design-patterns/deployment-and-topology/external-configuration-store) — an alternative based on a centralized configuration repository instead of messages.
 
 ## Reference
 

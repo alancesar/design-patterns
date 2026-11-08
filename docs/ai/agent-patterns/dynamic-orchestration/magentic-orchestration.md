@@ -81,7 +81,7 @@ O gerente constrói e atualiza o task ledger consultando os agentes especializad
 - [Maker-Checker Loop](/ai/agent-patterns/iteration/maker-checker-loop) — ciclo de verificação que pode ser usado dentro de uma tarefa do plano.
 - [Sequential Orchestration](/ai/agent-patterns/deterministic-workflows/sequential-orchestration) — ordem fixa, quando o plano é conhecido de antemão.
 - [Process Manager](/architecture/eip/message-routing/process-manager) — coordenador central que mantém o estado do processo e decide o próximo passo.
-- [Scheduler Agent Supervisor](/cloud/cloud-design-patterns/distributed-coordination/scheduler-agent-supervisor) — coordenação e supervisão de tarefas distribuídas com recuperação de falhas.
+- [Scheduler Agent Supervisor](/architecture/cloud-design-patterns/distributed-coordination/scheduler-agent-supervisor) — coordenação e supervisão de tarefas distribuídas com recuperação de falhas.
 
 ## Referência
 

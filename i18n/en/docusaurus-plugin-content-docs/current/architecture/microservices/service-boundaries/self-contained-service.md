@@ -65,8 +65,8 @@ The service responds without calling other services; completion happens asynchro
 
 ## Related patterns
 
-- [Saga](/cloud/cloud-design-patterns/distributed-coordination/saga) — maintains data consistency asynchronously
-- [CQRS](/cloud/cloud-design-patterns/data-management/cqrs) — keeps local replicas of other services' data
+- [Saga](/architecture/cloud-design-patterns/distributed-coordination/saga) — maintains data consistency asynchronously
+- [CQRS](/architecture/cloud-design-patterns/data-management/cqrs) — keeps local replicas of other services' data
 - [Command-side Replica](/architecture/microservices/service-collaboration/command-side-replica) — a local replica used to validate commands without remote calls
 - [Microservice Architecture](/architecture/microservices/architectural-style/microservice-architecture) — the context that creates the need for the pattern
 

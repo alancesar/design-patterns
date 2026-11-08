@@ -4,9 +4,8 @@ import {catppuccinLatte, catppuccinMocha} from './src/prism/catppuccin';
 
 const domains = [
   {slug: 'coding', label: 'Coding'},
-  {slug: 'application', label: 'Application'},
+  {slug: 'design', label: 'Design'},
   {slug: 'architecture', label: 'Architecture'},
-  {slug: 'cloud', label: 'Cloud'},
   {slug: 'ai', label: 'AI'},
 ];
 
@@ -126,12 +125,12 @@ const config: Config = {
           title: 'Catálogos',
           items: [
             {label: 'GoF', to: '/coding/gof'},
-            {label: 'PoEAA', to: '/application/poeaa'},
-            {label: 'Domain-Driven Design', to: '/application/ddd'},
+            {label: 'PoEAA', to: '/design/poeaa'},
+            {label: 'Domain-Driven Design', to: '/design/ddd'},
             {label: 'Enterprise Integration Patterns', to: '/architecture/eip'},
             {label: 'Microservices', to: '/architecture/microservices'},
             {label: 'Patterns of Distributed Systems', to: '/architecture/distributed-systems'},
-            {label: 'Cloud Design Patterns', to: '/cloud/cloud-design-patterns'},
+            {label: 'Cloud Design Patterns', to: '/architecture/cloud-design-patterns'},
             {label: 'AI Agent Design Patterns', to: '/ai/agent-patterns'},
           ],
         },

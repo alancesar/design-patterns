@@ -65,7 +65,7 @@ The injector inserts marked messages into the flow, the separator diverts them f
 - [Control Bus](/architecture/eip/system-management/control-bus) — receives heartbeats and failure alerts from the verifier.
 - [Content-Based Router](/architecture/eip/message-routing/content-based-router) — the basis of the test message separator.
 - [Return Address](/architecture/eip/message-construction/return-address) — can direct the test replies to the verifier.
-- [Health Endpoint Monitoring](/cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring) — service health checking, shallower than validating the result.
+- [Health Endpoint Monitoring](/architecture/cloud-design-patterns/resiliency/health-endpoint-monitoring) — service health checking, shallower than validating the result.
 
 ## Reference
 

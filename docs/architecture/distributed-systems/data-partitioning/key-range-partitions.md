@@ -70,7 +70,7 @@ A consulta é roteada apenas à partição cujo intervalo cobre a faixa pedida; 
 
 - [Fixed Partitions](/architecture/distributed-systems/data-partitioning/fixed-partitions) — alternativa baseada em hash, sem suporte eficiente a faixas
 - [Consistent Core](/architecture/distributed-systems/cluster-management/consistent-core) — mantém o mapeamento de partições de forma consistente
-- [Sharding](/cloud/cloud-design-patterns/data-management/sharding) (nuvem) — particionamento horizontal, incluindo estratégia por intervalo
+- [Sharding](/architecture/cloud-design-patterns/data-management/sharding) (nuvem) — particionamento horizontal, incluindo estratégia por intervalo
 
 ## Referência
 

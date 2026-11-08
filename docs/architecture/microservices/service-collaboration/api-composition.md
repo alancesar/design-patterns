@@ -71,11 +71,11 @@ O compositor chama cada serviço dono dos dados, une os resultados em memória e
 ## Padrões relacionados
 
 - [Database per Service](/architecture/microservices/service-collaboration/database-per-service) — cria a necessidade deste padrão.
-- [CQRS](/cloud/cloud-design-patterns/data-management/cqrs) — abordagem alternativa, com visões materializadas mantidas por eventos.
+- [CQRS](/architecture/cloud-design-patterns/data-management/cqrs) — abordagem alternativa, com visões materializadas mantidas por eventos.
 - [API Gateway](/architecture/microservices/external-api/api-gateway) — local onde a composição costuma ser executada.
-- [Gateway Aggregation](/cloud/cloud-design-patterns/gateways-and-edge/gateway-aggregation) — padrão de nuvem equivalente na borda, focado em reduzir chamadas do cliente, sem tratar da origem da fragmentação dos dados.
-- [Backend for Front-End](/cloud/cloud-design-patterns/gateways-and-edge/backends-for-frontends) — outro ponto comum para hospedar a composição.
-- [Circuit Breaker](/cloud/cloud-design-patterns/resiliency/circuit-breaker) — protege o compositor contra serviços lentos ou indisponíveis.
+- [Gateway Aggregation](/architecture/cloud-design-patterns/gateways-and-edge/gateway-aggregation) — padrão de nuvem equivalente na borda, focado em reduzir chamadas do cliente, sem tratar da origem da fragmentação dos dados.
+- [Backend for Front-End](/architecture/cloud-design-patterns/gateways-and-edge/backends-for-frontends) — outro ponto comum para hospedar a composição.
+- [Circuit Breaker](/architecture/cloud-design-patterns/resiliency/circuit-breaker) — protege o compositor contra serviços lentos ou indisponíveis.
 
 ## Referência
 

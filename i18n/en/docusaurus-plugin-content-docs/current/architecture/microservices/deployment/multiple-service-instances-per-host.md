@@ -68,7 +68,7 @@ Several different services share the resources of a single host.
 
 - [Service Instance per Host](/architecture/microservices/deployment/service-instance-per-host) — an alternative that isolates each instance on its own host.
 - [Serverless Deployment](/architecture/microservices/deployment/serverless-deployment) — an alternative that hides the concept of a server.
-- [Compute Resource Consolidation](/cloud/cloud-design-patterns/deployment-and-topology/compute-resource-consolidation) — the same idea of consolidating workloads to reduce cost.
+- [Compute Resource Consolidation](/architecture/cloud-design-patterns/deployment-and-topology/compute-resource-consolidation) — the same idea of consolidating workloads to reduce cost.
 
 ## Reference
 

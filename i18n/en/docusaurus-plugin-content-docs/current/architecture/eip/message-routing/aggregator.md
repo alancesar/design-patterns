@@ -73,7 +73,7 @@ The Aggregator stores messages by correlation key and publishes a single message
 - [Composed Message Processor](/architecture/eip/message-routing/composed-message-processor) — Splitter, routing, and Aggregator together
 - [Resequencer](/architecture/eip/message-routing/resequencer) — also a stateful filter, but it only reorders
 - [Correlation Identifier](/architecture/eip/message-construction/correlation-identifier) — the key that groups the messages
-- [Gateway Aggregation](/cloud/cloud-design-patterns/gateways-and-edge/gateway-aggregation) — aggregating calls at a gateway
+- [Gateway Aggregation](/architecture/cloud-design-patterns/gateways-and-edge/gateway-aggregation) — aggregating calls at a gateway
 - [API Composition](/architecture/microservices/service-collaboration/api-composition) — composing data from several services
 
 ## Reference

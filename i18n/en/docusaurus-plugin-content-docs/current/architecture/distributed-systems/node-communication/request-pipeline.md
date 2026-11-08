@@ -73,7 +73,7 @@ The client sends requests 2 and 3 without waiting for the response to request 1.
 - [Singular Update Queue](/architecture/distributed-systems/data-replication/singular-update-queue) — server-side queue that benefits from being always fed.
 - [Request Waiting List](/architecture/distributed-systems/data-replication/request-waiting-list) — tracks in-flight requests until the responses arrive.
 - [Leader and Followers](/architecture/distributed-systems/data-replication/leader-and-followers) — typical scenario of continuous sending from the leader to the followers.
-- [Idempotent Receiver](/cloud/cloud-design-patterns/messaging/idempotent-consumer) — makes resends after failures safe.
+- [Idempotent Receiver](/architecture/cloud-design-patterns/messaging/idempotent-consumer) — makes resends after failures safe.
 
 ## Reference
 

@@ -63,9 +63,9 @@ The sender publishes to the channel and each message is delivered to only one of
 ## Related patterns
 
 - [Message Channel](/architecture/eip/messaging-channels/message-channel) — the general concept this pattern specializes.
-- [Publish-Subscribe Channel](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — the alternative in which all subscribers receive a copy.
-- [Competing Consumers](/cloud/cloud-design-patterns/messaging/competing-consumers) — several receivers competing for messages on the same channel.
-- [Idempotent Receiver](/cloud/cloud-design-patterns/messaging/idempotent-consumer) — tolerates redeliveries from the channel.
+- [Publish-Subscribe Channel](/architecture/cloud-design-patterns/messaging/publisher-subscriber) — the alternative in which all subscribers receive a copy.
+- [Competing Consumers](/architecture/cloud-design-patterns/messaging/competing-consumers) — several receivers competing for messages on the same channel.
+- [Idempotent Receiver](/architecture/cloud-design-patterns/messaging/idempotent-consumer) — tolerates redeliveries from the channel.
 - [Request-Reply](/architecture/eip/message-construction/request-reply) — a two-way exchange often built on point-to-point channels.
 - [Command Message](/architecture/eip/message-construction/command-message) — a message that requests an action, typical of this channel.
 - [Document Message](/architecture/eip/message-construction/document-message) — a message that transfers data.

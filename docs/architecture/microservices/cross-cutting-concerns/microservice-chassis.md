@@ -71,13 +71,13 @@ Os serviços contêm apenas lógica de negócio e dependem do chassis, que forne
 ## Padrões relacionados
 
 - [Service Template](/architecture/microservices/cross-cutting-concerns/service-template) — alternativa ou complemento: contém o código e a configuração específicos do serviço, normalmente usando o chassis.
-- [Externalized Configuration](/cloud/cloud-design-patterns/deployment-and-topology/external-configuration-store) — preocupação transversal comumente provida pelo chassis.
+- [Externalized Configuration](/architecture/cloud-design-patterns/deployment-and-topology/external-configuration-store) — preocupação transversal comumente provida pelo chassis.
 - [Self Registration](/architecture/microservices/service-discovery/self-registration) — o chassis frequentemente registra o serviço no registro de serviços.
 - [Client-side Discovery](/architecture/microservices/service-discovery/client-side-discovery) — também costuma ser tratado pelo chassis.
 - [Distributed Tracing](/architecture/microservices/observability/distributed-tracing) — o chassis pode instrumentar o código automaticamente.
-- [Health Check API](/cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring) — endpoint padrão fornecido pelo chassis.
-- [Circuit Breaker](/cloud/cloud-design-patterns/resiliency/circuit-breaker) — pode ser implementado pelo framework do chassis.
-- [Sidecar](/cloud/cloud-design-patterns/integration-and-modernization/sidecar) — move preocupações transversais para um processo separado, independente da linguagem.
+- [Health Check API](/architecture/cloud-design-patterns/resiliency/health-endpoint-monitoring) — endpoint padrão fornecido pelo chassis.
+- [Circuit Breaker](/architecture/cloud-design-patterns/resiliency/circuit-breaker) — pode ser implementado pelo framework do chassis.
+- [Sidecar](/architecture/cloud-design-patterns/integration-and-modernization/sidecar) — move preocupações transversais para um processo separado, independente da linguagem.
 
 ## Referência
 

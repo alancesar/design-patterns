@@ -66,9 +66,9 @@ The client knows only the router; it queries the registry and picks the instance
 
 - [Service Registry](/architecture/microservices/service-discovery/service-registry) — used by the router to locate instances
 - [Client-side Discovery](/architecture/microservices/service-discovery/client-side-discovery) — the main alternative
-- [Circuit Breaker](/cloud/cloud-design-patterns/resiliency/circuit-breaker) — the router can use it when invoking services
+- [Circuit Breaker](/architecture/cloud-design-patterns/resiliency/circuit-breaker) — the router can use it when invoking services
 - [API Gateway](/architecture/microservices/external-api/api-gateway) — often acts as the entry router
-- [Gateway Routing](/cloud/cloud-design-patterns/gateways-and-edge/gateway-routing) — routing requests to backend services
+- [Gateway Routing](/architecture/cloud-design-patterns/gateways-and-edge/gateway-routing) — routing requests to backend services
 
 ## Reference
 

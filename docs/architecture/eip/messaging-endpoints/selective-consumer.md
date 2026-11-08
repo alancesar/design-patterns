@@ -61,8 +61,8 @@ Cada consumidor recebe apenas as mensagens cujo valor de seleção atende a seu 
 - [Message Filter](/architecture/eip/message-routing/message-filter) — descarta mensagens no meio do fluxo, em vez de no consumidor.
 - [Datatype Channel](/architecture/eip/messaging-channels/datatype-channel) — alternativa com um canal por tipo.
 - [Content-Based Router](/architecture/eip/message-routing/content-based-router) — roteia ativamente com base no conteúdo.
-- [Competing Consumers](/cloud/cloud-design-patterns/messaging/competing-consumers) — consumidores seletivos competem entre os compatíveis.
-- [Publish-Subscribe Channel](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — cada assinante filtra suas cópias.
+- [Competing Consumers](/architecture/cloud-design-patterns/messaging/competing-consumers) — consumidores seletivos competem entre os compatíveis.
+- [Publish-Subscribe Channel](/architecture/cloud-design-patterns/messaging/publisher-subscriber) — cada assinante filtra suas cópias.
 - [Message Dispatcher](/architecture/eip/messaging-endpoints/message-dispatcher) — pode escolher performers por propriedades.
 - [Message Endpoint](/architecture/eip/messaging-endpoints/message-endpoint) — o seletor faz parte do endpoint.
 

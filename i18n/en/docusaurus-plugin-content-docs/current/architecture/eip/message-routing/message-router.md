@@ -65,9 +65,9 @@ The router reads a message from the input channel and forwards it, unmodified, t
 - [Message Filter](/architecture/eip/message-routing/message-filter) — a single-output router that discards what isn't of interest
 - [Dynamic Router](/architecture/eip/message-routing/dynamic-router) — rules built at runtime
 - [Recipient List](/architecture/eip/message-routing/recipient-list) — forwards to a computed list of recipients
-- [Pipes and Filters](/cloud/cloud-design-patterns/messaging/pipes-and-filters) — the router is a filter with several outputs
+- [Pipes and Filters](/architecture/cloud-design-patterns/messaging/pipes-and-filters) — the router is a filter with several outputs
 - [Message Broker](/architecture/eip/message-routing/message-broker) — composes routers at solution scale
-- [Gateway Routing](/cloud/cloud-design-patterns/gateways-and-edge/gateway-routing) — routing requests at a gateway
+- [Gateway Routing](/architecture/cloud-design-patterns/gateways-and-edge/gateway-routing) — routing requests at a gateway
 
 ## Reference
 

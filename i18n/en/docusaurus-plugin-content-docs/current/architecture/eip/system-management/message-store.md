@@ -64,7 +64,7 @@ Each message goes on to the consumer, and a copy reaches the central store, from
 - [Wire Tap](/architecture/eip/system-management/wire-tap) — a common mechanism for feeding the store.
 - [Message History](/architecture/eip/system-management/message-history) — adds the path traveled to the stored information.
 - [Control Bus](/architecture/eip/system-management/control-bus) — manages data capture and querying.
-- [Event Sourcing](/cloud/cloud-design-patterns/data-management/event-sourcing) — stores events as the source of truth, whereas the Message Store serves observation.
+- [Event Sourcing](/architecture/cloud-design-patterns/data-management/event-sourcing) — stores events as the source of truth, whereas the Message Store serves observation.
 - [Audit Logging](/architecture/microservices/observability/audit-logging) — an audit trail that the store can back.
 
 ## Reference

@@ -126,7 +126,7 @@ public final class HttpRequest {
 
 // Usage
 HttpRequest req = HttpRequest.builder("https://api.example.com/orders")
-    .method("POST").header("Content-Type", "application/json")
+    .method("POST").header("Content-Type", "design/json")
     .body("{\"id\": 42}").timeout(2000).build();
 ```
 

@@ -249,3 +249,37 @@ button[class*='collapseSidebarButton'] {
   border: none;
   border-top: 1px solid var(--border);
 }
+
+/* Domains (Coding, Design, Architecture, AI) are section headers, not folders:
+   small uppercase muted labels, no chevron, and their catalogs are not indented. */
+.sidebar-domain {
+  margin-top: 1.25rem;
+}
+.sidebar-domain > .menu__list-item-collapsible > .menu__link,
+.sidebar-domain > .menu__link {
+  font-size: 0.75rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  opacity: 0.75;
+}
+.sidebar-domain > .menu__list-item-collapsible > .menu__link--active,
+.sidebar-domain > .menu__link--active {
+  color: var(--accent);
+  opacity: 1;
+}
+.sidebar-domain > .menu__list-item-collapsible:hover,
+.sidebar-domain > .menu__list-item-collapsible > .menu__link:hover {
+  background: none;
+}
+.sidebar-domain > .menu__list {
+  padding-left: 0;
+}
+
+/* Lighter chevrons so they don't compete with the labels. */
+.menu__caret:before,
+.menu__link--sublist-caret:after {
+  background-size: 1.6rem 1.6rem;
+  opacity: 0.6;
+}

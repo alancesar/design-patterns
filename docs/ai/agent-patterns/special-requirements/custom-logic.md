@@ -73,7 +73,7 @@ Exemplo de um agente de reembolso: uma verificação em paralelo alimenta um ram
 - [Human-in-the-Loop](/ai/agent-patterns/special-requirements/human-in-the-loop) — o código define onde inserir a aprovação humana.
 - [Content-Based Router](/architecture/eip/message-routing/content-based-router) — roteamento por regras sobre o conteúdo, equivalente ao ramo condicional.
 - [Process Manager](/architecture/eip/message-routing/process-manager) — orquestração com estado e ramificações.
-- [Scheduler Agent Supervisor](/cloud/cloud-design-patterns/distributed-coordination/scheduler-agent-supervisor) — coordenação de etapas distribuídas com supervisão.
+- [Scheduler Agent Supervisor](/architecture/cloud-design-patterns/distributed-coordination/scheduler-agent-supervisor) — coordenação de etapas distribuídas com supervisão.
 
 ## Referência
 

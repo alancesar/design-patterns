@@ -63,7 +63,7 @@ The domain is divided into subdomains of distinct types, each mapped to a suitab
 
 - [Decompose by Business Capability](/architecture/microservices/service-boundaries/decompose-by-business-capability) — an alternative approach based on business capabilities
 - [Service per Team](/architecture/microservices/service-boundaries/service-per-team) — assigns the identified services to teams
-- [Anti-Corruption Layer](/cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer) — protects a subdomain's model when integrating with others
+- [Anti-Corruption Layer](/architecture/cloud-design-patterns/integration-and-modernization/anti-corruption-layer) — protects a subdomain's model when integrating with others
 - [Microservice Architecture](/architecture/microservices/architectural-style/microservice-architecture) — the architectural style that motivates the decomposition
 
 ## Reference

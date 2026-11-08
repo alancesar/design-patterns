@@ -19,7 +19,7 @@ A *Domain Event*, a concept from Domain-Driven Design, is a business-relevant fa
 
 Events are named in the past tense, immutable, and carry the data consumers need to react without having to query the emitter. They are the input for updating CQRS views, maintaining local replicas, and driving choreographed sagas.
 
-In DDD, the Domain Event is first and foremost a fact about the domain: something that happened and that business experts consider relevant, named using the ubiquitous language. It is produced by the [Aggregate](/application/ddd/building-blocks/aggregate) and can be handled within the same context, to propagate eventual consistency between aggregates, or published to other contexts as an integration contract.
+In DDD, the Domain Event is first and foremost a fact about the domain: something that happened and that business experts consider relevant, named using the ubiquitous language. It is produced by the [Aggregate](/design/ddd/building-blocks/aggregate) and can be handled within the same context, to propagate eventual consistency between aggregates, or published to other contexts as an integration contract.
 
 The pattern itself defines what to publish; reliable publication (atomic with the database update) is handled by patterns such as Transactional Outbox or Event Sourcing.
 
@@ -106,14 +106,14 @@ public class OrderService {
 
 ## Related patterns
 
-- [Aggregate](/application/ddd/building-blocks/aggregate) — the aggregate is the natural source of domain events.
-- [Saga](/cloud/cloud-design-patterns/distributed-coordination/saga) — choreographed sagas depend on domain events.
-- [CQRS](/cloud/cloud-design-patterns/data-management/cqrs) — read views are updated by these events.
+- [Aggregate](/design/ddd/building-blocks/aggregate) — the aggregate is the natural source of domain events.
+- [Saga](/architecture/cloud-design-patterns/distributed-coordination/saga) — choreographed sagas depend on domain events.
+- [CQRS](/architecture/cloud-design-patterns/data-management/cqrs) — read views are updated by these events.
 - [Command-side Replica](/architecture/microservices/service-collaboration/command-side-replica) — local replicas are maintained by the events.
-- [Event Sourcing](/cloud/cloud-design-patterns/data-management/event-sourcing) — can be used to generate and publish domain events.
+- [Event Sourcing](/architecture/cloud-design-patterns/data-management/event-sourcing) — can be used to generate and publish domain events.
 - [Transactional Outbox](/architecture/microservices/transactional-messaging/transactional-outbox) — publishes the events atomically with the database transaction.
 - [Messaging](/architecture/microservices/communication-styles/messaging) — the communication style used to distribute the events.
-- [Publisher-Subscriber](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — the model for distributing events to multiple consumers.
+- [Publisher-Subscriber](/architecture/cloud-design-patterns/messaging/publisher-subscriber) — the model for distributing events to multiple consumers.
 
 ## Reference
 

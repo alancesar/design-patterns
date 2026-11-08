@@ -72,10 +72,10 @@ Each hop writes the message to disk before acknowledging, and the copy is discar
 
 - [Dead Letter Channel](/architecture/eip/messaging-channels/dead-letter-channel) — destination for messages that, even when persisted, couldn't be delivered.
 - [Point-to-Point Channel](/architecture/eip/messaging-channels/point-to-point-channel) — a channel to which persistence applies.
-- [Publish-Subscribe Channel](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — likewise, for multiple subscribers.
+- [Publish-Subscribe Channel](/architecture/cloud-design-patterns/messaging/publisher-subscriber) — likewise, for multiple subscribers.
 - [Durable Subscriber](/architecture/eip/messaging-endpoints/durable-subscriber) — retains messages for offline subscribers.
 - [Transactional Client](/architecture/eip/messaging-endpoints/transactional-client) — groups sending and receiving into a transaction.
-- [Idempotent Receiver](/cloud/cloud-design-patterns/messaging/idempotent-consumer) — tolerates the duplicates of at-least-once delivery.
+- [Idempotent Receiver](/architecture/cloud-design-patterns/messaging/idempotent-consumer) — tolerates the duplicates of at-least-once delivery.
 - [Message Expiration](/architecture/eip/message-construction/message-expiration) — limits how long a message remains valid.
 - [Message Store](/architecture/eip/system-management/message-store) — records messages for auditing and analysis.
 

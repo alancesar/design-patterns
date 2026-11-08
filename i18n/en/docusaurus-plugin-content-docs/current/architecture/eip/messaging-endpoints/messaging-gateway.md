@@ -67,7 +67,7 @@ The business logic calls a domain method; the gateway takes care of building the
 - [Request-Reply](/architecture/eip/message-construction/request-reply) — interaction style that the gateway usually encapsulates.
 - [Correlation Identifier](/architecture/eip/message-construction/correlation-identifier) — used to match replies with requests.
 - [Service Activator](/architecture/eip/messaging-endpoints/service-activator) — the receiving-side equivalent of the gateway on the sending side.
-- [Gateway (PoEAA)](/application/poeaa/base/gateway) — the general pattern of which this is a specialization.
+- [Gateway (PoEAA)](/design/poeaa/base/gateway) — the general pattern of which this is a specialization.
 - [Facade (GoF)](/coding/gof/structural/facade) — also simplifies access to a complex subsystem.
 
 ## Reference

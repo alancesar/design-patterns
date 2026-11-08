@@ -67,7 +67,7 @@ O receptor valida cada mensagem; as válidas seguem o fluxo normal e as inválid
 - [Datatype Channel](/architecture/eip/messaging-channels/datatype-channel) — canais por tipo reduzem a chance de formato errado.
 - [Message Channel](/architecture/eip/messaging-channels/message-channel) — o conceito geral de canal.
 - [Message Expiration](/architecture/eip/message-construction/message-expiration) — mensagens vencidas também podem ser desviadas.
-- [Retry](/cloud/cloud-design-patterns/resiliency/retry) — falhas transitórias pedem nova tentativa, não desvio como inválida.
+- [Retry](/architecture/cloud-design-patterns/resiliency/retry) — falhas transitórias pedem nova tentativa, não desvio como inválida.
 - [Service Activator](/architecture/eip/messaging-endpoints/service-activator) — endpoint que costuma validar e despachar a mensagem.
 
 ## Referência

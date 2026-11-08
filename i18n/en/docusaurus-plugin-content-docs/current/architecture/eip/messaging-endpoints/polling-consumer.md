@@ -64,7 +64,7 @@ The application asks for messages in a loop and processes each one that arrives.
 
 - [Event-Driven Consumer](/architecture/eip/messaging-endpoints/event-driven-consumer) — push-based alternative.
 - [Message Endpoint](/architecture/eip/messaging-endpoints/message-endpoint) — the polling consumer is a kind of receiving endpoint.
-- [Competing Consumers](/cloud/cloud-design-patterns/messaging/competing-consumers) — several polling consumers on the same channel.
+- [Competing Consumers](/architecture/cloud-design-patterns/messaging/competing-consumers) — several polling consumers on the same channel.
 - [Transactional Client](/architecture/eip/messaging-endpoints/transactional-client) — the receive can be transactional.
 - [Selective Consumer](/architecture/eip/messaging-endpoints/selective-consumer) — the polling can be filtered.
 - [Durable Subscriber](/architecture/eip/messaging-endpoints/durable-subscriber) — a subscriber that can also use polling.

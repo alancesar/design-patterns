@@ -82,9 +82,9 @@ O fluxo segue uma ordem fixa: cada agente transforma a saída do anterior, e um 
 - [Concurrent Orchestration](/ai/agent-patterns/deterministic-workflows/concurrent-orchestration) — alternativa quando os estágios são independentes e podem rodar em paralelo; os dois podem ser combinados.
 - [Maker-Checker Loop](/ai/agent-patterns/iteration/maker-checker-loop) — acrescenta iteração e revisão, que o fluxo sequencial não suporta.
 - [Handoff Orchestration](/ai/agent-patterns/dynamic-orchestration/handoff-orchestration) — também passa o trabalho entre agentes, mas quem decide o próximo é o agente, não o fluxo.
-- [Pipes and Filters](/cloud/cloud-design-patterns/messaging/pipes-and-filters) — padrão de nuvem em que o Sequential se inspira, com agentes no lugar de filtros.
+- [Pipes and Filters](/architecture/cloud-design-patterns/messaging/pipes-and-filters) — padrão de nuvem em que o Sequential se inspira, com agentes no lugar de filtros.
 - [Routing Slip](/architecture/eip/message-routing/routing-slip) — define a sequência de passos por mensagem, análogo a uma cadeia de agentes predefinida.
-- [Retry](/cloud/cloud-design-patterns/resiliency/retry) — tratamento de falhas transitórias em cada estágio.
+- [Retry](/architecture/cloud-design-patterns/resiliency/retry) — tratamento de falhas transitórias em cada estágio.
 
 ## Referência
 

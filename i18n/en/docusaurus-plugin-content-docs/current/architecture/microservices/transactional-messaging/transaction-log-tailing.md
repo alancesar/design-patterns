@@ -63,7 +63,7 @@ The relay reads the database's transaction log, filters the inserts into the out
 
 - [Transactional Outbox](/architecture/microservices/transactional-messaging/transactional-outbox) — creates the need for this pattern
 - [Polling Publisher](/architecture/microservices/transactional-messaging/polling-publisher) — an alternative that queries the outbox periodically
-- [Idempotent Consumer](/cloud/cloud-design-patterns/messaging/idempotent-consumer) — protects against duplicates on publication
+- [Idempotent Consumer](/architecture/cloud-design-patterns/messaging/idempotent-consumer) — protects against duplicates on publication
 - [Messaging](/architecture/microservices/communication-styles/messaging) — the communication style that uses the broker
 
 ## Reference

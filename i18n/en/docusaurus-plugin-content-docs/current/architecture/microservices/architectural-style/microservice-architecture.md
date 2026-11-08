@@ -77,23 +77,23 @@ Each service is deployed independently, owns its own database, and is accessed t
 - [Decompose by Business Capability](/architecture/microservices/service-boundaries/decompose-by-business-capability) — defines the service boundaries.
 - [Decompose by Subdomain](/architecture/microservices/service-boundaries/decompose-by-subdomain) — defines the service boundaries based on DDD.
 - [Database per Service](/architecture/microservices/service-collaboration/database-per-service) — each service owns its own data.
-- [Saga](/cloud/cloud-design-patterns/distributed-coordination/saga) — consistency for operations that span services.
+- [Saga](/architecture/cloud-design-patterns/distributed-coordination/saga) — consistency for operations that span services.
 - [API Composition](/architecture/microservices/service-collaboration/api-composition) — queries that combine data from several services.
-- [CQRS](/cloud/cloud-design-patterns/data-management/cqrs) — efficient queries over distributed data.
+- [CQRS](/architecture/cloud-design-patterns/data-management/cqrs) — efficient queries over distributed data.
 - [Messaging](/architecture/microservices/communication-styles/messaging) — asynchronous communication between services.
 - [Remote Procedure Invocation](/architecture/microservices/communication-styles/remote-procedure-invocation) — synchronous communication between services.
 - [Transactional Outbox](/architecture/microservices/transactional-messaging/transactional-outbox) — atomic publication of messages and data updates.
 - [API Gateway](/architecture/microservices/external-api/api-gateway) — entry point for clients.
 - [Client-side Discovery](/architecture/microservices/service-discovery/client-side-discovery) — locating service instances.
 - [Server-side Discovery](/architecture/microservices/service-discovery/server-side-discovery) — locating instances through a router.
-- [Circuit Breaker](/cloud/cloud-design-patterns/resiliency/circuit-breaker) — prevents cascading failures between services.
+- [Circuit Breaker](/architecture/cloud-design-patterns/resiliency/circuit-breaker) — prevents cascading failures between services.
 - [Access Token](/architecture/microservices/security/access-token) — propagating identity between services.
 - [Log Aggregation](/architecture/microservices/observability/log-aggregation) — observability for distributed systems.
 - [Distributed Tracing](/architecture/microservices/observability/distributed-tracing) — tracing requests across services.
-- [Health Check API](/cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring) — checking the health of each service.
+- [Health Check API](/architecture/cloud-design-patterns/resiliency/health-endpoint-monitoring) — checking the health of each service.
 - [Service Component Test](/architecture/microservices/testing/service-component-test) — testing each service in isolation.
 - [Microservice Chassis](/architecture/microservices/cross-cutting-concerns/microservice-chassis) — reusable cross-cutting concerns.
-- [Externalized Configuration](/cloud/cloud-design-patterns/deployment-and-topology/external-configuration-store) — configuration kept outside the artifact.
+- [Externalized Configuration](/architecture/cloud-design-patterns/deployment-and-topology/external-configuration-store) — configuration kept outside the artifact.
 
 ## Reference
 

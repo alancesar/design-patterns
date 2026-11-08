@@ -64,7 +64,7 @@ Cada mensagem segue ao consumidor e uma cópia chega ao repositório central, de
 - [Wire Tap](/architecture/eip/system-management/wire-tap) — mecanismo comum para alimentar o repositório.
 - [Message History](/architecture/eip/system-management/message-history) — acrescenta o caminho percorrido às informações guardadas.
 - [Control Bus](/architecture/eip/system-management/control-bus) — gerencia a captura e consulta de dados.
-- [Event Sourcing](/cloud/cloud-design-patterns/data-management/event-sourcing) — guarda eventos como fonte de verdade, enquanto o Message Store serve à observação.
+- [Event Sourcing](/architecture/cloud-design-patterns/data-management/event-sourcing) — guarda eventos como fonte de verdade, enquanto o Message Store serve à observação.
 - [Audit Logging](/architecture/microservices/observability/audit-logging) — registro de auditoria que o repositório pode sustentar.
 
 ## Referência

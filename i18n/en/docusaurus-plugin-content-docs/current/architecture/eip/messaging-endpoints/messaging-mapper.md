@@ -64,8 +64,8 @@ The mapper sits between the domain and the endpoint, converting in both directio
 - [Canonical Data Model](/architecture/eip/message-transformation/canonical-data-model) — a common format the mapper can convert to.
 - [Document Message](/architecture/eip/message-construction/document-message) — a message type often produced by the mapper.
 - [Command Message](/architecture/eip/message-construction/command-message) — another message type produced by the mapper.
-- [Mapper (PoEAA)](/application/poeaa/base/mapper) — the general pattern it derives from.
-- [Data Mapper (PoEAA)](/application/poeaa/data-source-architectural/data-mapper) — the analogue for persistence.
+- [Mapper (PoEAA)](/design/poeaa/base/mapper) — the general pattern it derives from.
+- [Data Mapper (PoEAA)](/design/poeaa/data-source-architectural/data-mapper) — the analogue for persistence.
 
 ## Reference
 

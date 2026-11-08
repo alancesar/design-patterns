@@ -67,7 +67,7 @@ All instances send their logs to a central service, which offers search, analysi
 - [Exception Tracking](/architecture/microservices/observability/exception-tracking) — exceptions are also reported to a dedicated service, in addition to being written to the logs
 - [Application Metrics](/architecture/microservices/observability/application-metrics) — complements logs with numeric measurements
 - [Microservice Chassis](/architecture/microservices/cross-cutting-concerns/microservice-chassis) — can standardize log format and shipping
-- [Sidecar](/cloud/cloud-design-patterns/integration-and-modernization/sidecar) — a sidecar can collect and forward logs without changing the service
+- [Sidecar](/architecture/cloud-design-patterns/integration-and-modernization/sidecar) — a sidecar can collect and forward logs without changing the service
 
 ## Reference
 

@@ -68,7 +68,7 @@ When a message can't be delivered or exceeds the retry limit, it's moved to the 
 - [Message Channel](/architecture/eip/messaging-channels/message-channel) — the general channel concept.
 - [Message Expiration](/architecture/eip/message-construction/message-expiration) — expired messages usually go to the dead letter channel.
 - [Message Store](/architecture/eip/system-management/message-store) — stores messages for later analysis.
-- [Retry](/cloud/cloud-design-patterns/resiliency/retry) — retries happen before a message is considered dead.
+- [Retry](/architecture/cloud-design-patterns/resiliency/retry) — retries happen before a message is considered dead.
 
 ## Reference
 

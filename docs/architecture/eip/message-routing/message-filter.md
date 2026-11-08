@@ -63,8 +63,8 @@ O filtro deixa passar somente as mensagens que satisfazem o critério.
 - [Message Router](/architecture/eip/message-routing/message-router) — o filtro é um roteador com uma saída
 - [Content-Based Router](/architecture/eip/message-routing/content-based-router) — escolhe entre várias saídas pelo conteúdo
 - [Selective Consumer](/architecture/eip/messaging-endpoints/selective-consumer) — filtragem feita no consumidor
-- [Publish-Subscribe Channel](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — canal em que filtros são usados por assinante
-- [Pipes and Filters](/cloud/cloud-design-patterns/messaging/pipes-and-filters) — o filtro é uma etapa possível do pipeline
+- [Publish-Subscribe Channel](/architecture/cloud-design-patterns/messaging/publisher-subscriber) — canal em que filtros são usados por assinante
+- [Pipes and Filters](/architecture/cloud-design-patterns/messaging/pipes-and-filters) — o filtro é uma etapa possível do pipeline
 
 ## Referência
 

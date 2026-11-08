@@ -63,7 +63,7 @@ The subject publishes the event once, and each observer receives it and reacts.
 - [Document Message](/architecture/eip/message-construction/document-message) — used when the content matters more than the timing
 - [Command Message](/architecture/eip/message-construction/command-message) — requests an action instead of reporting a fact
 - [Message Expiration](/architecture/eip/message-construction/message-expiration) — discards events that are no longer valid
-- [Publish-Subscribe Channel](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — delivers the event to several observers
+- [Publish-Subscribe Channel](/architecture/cloud-design-patterns/messaging/publisher-subscriber) — delivers the event to several observers
 - [Guaranteed Delivery](/architecture/eip/messaging-channels/guaranteed-delivery) — rarely suitable for frequent events
 - [Domain Event](/architecture/microservices/service-collaboration/domain-event) — domain event published between services
 

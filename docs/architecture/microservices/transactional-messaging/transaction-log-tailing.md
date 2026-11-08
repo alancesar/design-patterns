@@ -63,7 +63,7 @@ O relay lê o log de transações do banco, filtra as inserções no outbox e as
 
 - [Transactional Outbox](/architecture/microservices/transactional-messaging/transactional-outbox) — cria a necessidade deste padrão
 - [Polling Publisher](/architecture/microservices/transactional-messaging/polling-publisher) — alternativa que consulta o outbox periodicamente
-- [Idempotent Consumer](/cloud/cloud-design-patterns/messaging/idempotent-consumer) — protege contra duplicatas na publicação
+- [Idempotent Consumer](/architecture/cloud-design-patterns/messaging/idempotent-consumer) — protege contra duplicatas na publicação
 - [Messaging](/architecture/microservices/communication-styles/messaging) — estilo de comunicação que usa o broker
 
 ## Referência

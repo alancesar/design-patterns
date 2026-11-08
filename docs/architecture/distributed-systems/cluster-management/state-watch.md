@@ -72,7 +72,7 @@ O cliente registra o interesse uma vez, e o servidor o avisa quando o valor muda
 ## Padrões relacionados
 
 - [Observer](/coding/gof/behavioral/observer) — o mesmo conceito, em escala local, dentro de um processo.
-- [Publisher-Subscriber](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — mensageria assíncrona com assinantes.
+- [Publisher-Subscriber](/architecture/cloud-design-patterns/messaging/publisher-subscriber) — mensageria assíncrona com assinantes.
 - [Consistent Core](/architecture/distributed-systems/cluster-management/consistent-core) — normalmente oferece watches sobre seus metadados.
 - [Lease](/architecture/distributed-systems/cluster-management/lease) — a expiração de leases é um evento típico observado.
 - [Single-Socket Channel](/architecture/distributed-systems/node-communication/single-socket-channel) — canal compartilhado para as notificações.

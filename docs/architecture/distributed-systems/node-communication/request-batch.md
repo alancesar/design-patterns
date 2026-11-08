@@ -47,8 +47,8 @@ O cliente costuma fechar o lote por tamanho (bytes ou número de itens) ou por t
 
 - É preciso limitar tamanho e tempo do lote para evitar tanto latência excessiva quanto mensagens enormes.
 - Convém aplicar contrapressão quando o nó receptor não acompanha o ritmo dos lotes.
-- Para operações não idempotentes, reenviar um lote inteiro pode duplicar efeitos; considere [Idempotent Receiver](/cloud/cloud-design-patterns/messaging/idempotent-consumer).
-- Não confundir com [Queue-Based Load Leveling](/cloud/cloud-design-patterns/messaging/queue-based-load-leveling), que usa uma fila para suavizar picos de carga e desacoplar produtor e consumidor, sem agrupar requisições para o mesmo destino.
+- Para operações não idempotentes, reenviar um lote inteiro pode duplicar efeitos; considere [Idempotent Receiver](/architecture/cloud-design-patterns/messaging/idempotent-consumer).
+- Não confundir com [Queue-Based Load Leveling](/architecture/cloud-design-patterns/messaging/queue-based-load-leveling), que usa uma fila para suavizar picos de carga e desacoplar produtor e consumidor, sem agrupar requisições para o mesmo destino.
 
 ## Diagrama
 
@@ -72,9 +72,9 @@ O cliente acumula requisições em um buffer e as envia como um único lote quan
 - [Request Pipeline](/architecture/distributed-systems/node-communication/request-pipeline) — complementar: o pipeline mantém várias requisições em voo, e o lote reduz o custo de cada uma.
 - [Single-Socket Channel](/architecture/distributed-systems/node-communication/single-socket-channel) — canal pelo qual os lotes costumam trafegar, preservando a ordem.
 - [Singular Update Queue](/architecture/distributed-systems/data-replication/singular-update-queue) — o receptor pode drenar a fila em lotes para ganhar eficiência.
-- [Idempotent Receiver](/cloud/cloud-design-patterns/messaging/idempotent-consumer) — protege contra efeitos duplicados quando um lote é reenviado.
+- [Idempotent Receiver](/architecture/cloud-design-patterns/messaging/idempotent-consumer) — protege contra efeitos duplicados quando um lote é reenviado.
 - [Message Sequence](/architecture/eip/message-construction/message-sequence) (EIP) — dividir ou agrupar dados em sequências de mensagens.
-- [Queue-Based Load Leveling](/cloud/cloud-design-patterns/messaging/queue-based-load-leveling) (nuvem) — contraste: nivela a carga com uma fila, em vez de agrupar requisições.
+- [Queue-Based Load Leveling](/architecture/cloud-design-patterns/messaging/queue-based-load-leveling) (nuvem) — contraste: nivela a carga com uma fila, em vez de agrupar requisições.
 
 ## Referência
 

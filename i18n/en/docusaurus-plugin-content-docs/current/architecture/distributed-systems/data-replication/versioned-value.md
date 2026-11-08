@@ -63,7 +63,7 @@ Each update creates a new version of the key, making it possible to read the lat
 - [Replicated Log](/architecture/distributed-systems/data-replication/replicated-log) — the log index can serve as the version
 - [Follower Reads](/architecture/distributed-systems/data-replication/follower-reads) — the version enables reads with a minimum guarantee on followers
 - [Version Vector](/architecture/distributed-systems/data-replication/version-vector) — per-node version to detect concurrency
-- [Optimistic Offline Lock](/application/poeaa/offline-concurrency/optimistic-offline-lock) — optimistic concurrency control with a version number
+- [Optimistic Offline Lock](/design/poeaa/offline-concurrency/optimistic-offline-lock) — optimistic concurrency control with a version number
 
 ## Reference
 

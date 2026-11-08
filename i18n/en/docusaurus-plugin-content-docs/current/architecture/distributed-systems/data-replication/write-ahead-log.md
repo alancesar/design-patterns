@@ -71,7 +71,7 @@ The server writes the command to the log on disk before changing the in-memory s
 - [Replicated Log](/architecture/distributed-systems/data-replication/replicated-log) — replicates the WAL across nodes to form a consistent log
 - [Singular Update Queue](/architecture/distributed-systems/data-replication/singular-update-queue) — serializes writes to the log on a single thread
 - [Generation Clock](/architecture/distributed-systems/data-replication/generation-clock) — the generation is written to every log entry
-- [Event Sourcing](/cloud/cloud-design-patterns/data-management/event-sourcing) — also stores state as a sequence of events in an immutable log
+- [Event Sourcing](/architecture/cloud-design-patterns/data-management/event-sourcing) — also stores state as a sequence of events in an immutable log
 - [Transaction Log Tailing](/architecture/microservices/transactional-messaging/transaction-log-tailing) — reads the database's transaction log, which is a WAL, to publish events
 
 ## Reference

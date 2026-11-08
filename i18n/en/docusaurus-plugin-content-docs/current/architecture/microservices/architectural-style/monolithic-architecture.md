@@ -70,7 +70,7 @@ All instances contain every subdomain and share a single database; scaling is ac
 
 - [Microservice Architecture](/architecture/microservices/architectural-style/microservice-architecture) — an alternative that addresses the monolith's limitations by splitting the application into independent services.
 - [Shared Database](/architecture/microservices/service-collaboration/shared-database) — the monolith naturally uses a single database shared by all modules.
-- [Strangler Application](/cloud/cloud-design-patterns/integration-and-modernization/strangler-fig) — a strategy for gradually migrating a monolith to services.
+- [Strangler Application](/architecture/cloud-design-patterns/integration-and-modernization/strangler-fig) — a strategy for gradually migrating a monolith to services.
 
 ## Reference
 

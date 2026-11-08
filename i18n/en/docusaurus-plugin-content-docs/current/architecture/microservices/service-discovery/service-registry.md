@@ -64,8 +64,8 @@ Instances keep the registry up to date and clients or routers query it.
 - [Server-side Discovery](/architecture/microservices/service-discovery/server-side-discovery) — the router queries the registry
 - [Self Registration](/architecture/microservices/service-discovery/self-registration) — instances register themselves
 - [3rd Party Registration](/architecture/microservices/service-discovery/3rd-party-registration) — an external registrar handles registration
-- [Health Check API](/cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring) — used to check the health of instances
-- [Health Endpoint Monitoring](/cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring) — health checking through endpoints
+- [Health Check API](/architecture/cloud-design-patterns/resiliency/health-endpoint-monitoring) — used to check the health of instances
+- [Health Endpoint Monitoring](/architecture/cloud-design-patterns/resiliency/health-endpoint-monitoring) — health checking through endpoints
 
 ## Reference
 

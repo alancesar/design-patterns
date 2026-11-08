@@ -67,7 +67,7 @@ The sequence of subagents repeats until the exit condition is satisfied or the i
 - [Multi-Agent Iterative Refinement](/ai/agent-patterns/iteration/multi-agent-iterative-refinement) — loop implementation that progressively improves a result in the session state.
 - [ReAct](/ai/agent-patterns/iteration/react) — also iterates, but the model decides each step, with no predefined flow.
 - [Multi-Agent Sequential](/ai/agent-patterns/deterministic-workflows/sequential-orchestration) — the sequence of subagents within each round is a sequential flow.
-- [Scheduler Agent Supervisor](/cloud/cloud-design-patterns/distributed-coordination/scheduler-agent-supervisor) — also repeats and supervises steps until completion.
+- [Scheduler Agent Supervisor](/architecture/cloud-design-patterns/distributed-coordination/scheduler-agent-supervisor) — also repeats and supervises steps until completion.
 
 ## Reference
 

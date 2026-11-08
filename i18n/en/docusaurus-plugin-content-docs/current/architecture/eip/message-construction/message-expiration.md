@@ -62,7 +62,7 @@ Messages within the deadline go to the consumer; expired ones are discarded or d
 - [Dead Letter Channel](/architecture/eip/messaging-channels/dead-letter-channel) — common destination for expired messages
 - [Invalid Message Channel](/architecture/eip/messaging-channels/invalid-message-channel) — destination for messages the receiver can't handle
 - [Guaranteed Delivery](/architecture/eip/messaging-channels/guaranteed-delivery) — the opposite concern: not losing messages
-- [Publish-Subscribe Channel](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — late subscribers may need old messages
+- [Publish-Subscribe Channel](/architecture/cloud-design-patterns/messaging/publisher-subscriber) — late subscribers may need old messages
 - [Event Message](/architecture/eip/message-construction/event-message) — obsolete events are good candidates for expiration
 - [Request-Reply](/architecture/eip/message-construction/request-reply) — expired requests shouldn't be served
 - [Message](/architecture/eip/message-construction/message) — the deadline goes in the header

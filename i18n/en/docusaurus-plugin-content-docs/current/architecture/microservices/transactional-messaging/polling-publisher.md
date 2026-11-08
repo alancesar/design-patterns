@@ -69,7 +69,7 @@ The publisher queries the outbox periodically, sends the messages to the broker,
 
 - [Transactional Outbox](/architecture/microservices/transactional-messaging/transactional-outbox) — creates the need for this pattern
 - [Transaction Log Tailing](/architecture/microservices/transactional-messaging/transaction-log-tailing) — an alternative that reads the database's transaction log
-- [Idempotent Consumer](/cloud/cloud-design-patterns/messaging/idempotent-consumer) — needed to tolerate duplicate messages
+- [Idempotent Consumer](/architecture/cloud-design-patterns/messaging/idempotent-consumer) — needed to tolerate duplicate messages
 - [Messaging](/architecture/microservices/communication-styles/messaging) — the communication style that uses the broker
 
 ## Reference

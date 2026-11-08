@@ -69,7 +69,7 @@ Os serviços expõem ou enviam métricas ao serviço central, que alimenta dashb
 
 - [Log Aggregation](/architecture/microservices/observability/log-aggregation) — complementa as métricas com registros detalhados
 - [Distributed Tracing](/architecture/microservices/observability/distributed-tracing) — mostra o caminho e o tempo de cada requisição
-- [Health Check API](/cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring) — outro sinal de saúde consumido por monitoramento
+- [Health Check API](/architecture/cloud-design-patterns/resiliency/health-endpoint-monitoring) — outro sinal de saúde consumido por monitoramento
 - [Log Deployments and Changes](/architecture/microservices/observability/log-deployments-and-changes) — uma pseudo-métrica de deploy pode ser exibida junto das demais métricas
 - [Microservice Chassis](/architecture/microservices/cross-cutting-concerns/microservice-chassis) — pode embutir a instrumentação padrão
 

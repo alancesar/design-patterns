@@ -73,7 +73,7 @@ O Aggregator guarda as mensagens por chave de correlação e publica uma única 
 - [Composed Message Processor](/architecture/eip/message-routing/composed-message-processor) — Splitter, roteamento e Aggregator juntos
 - [Resequencer](/architecture/eip/message-routing/resequencer) — também é filtro com estado, mas só reordena
 - [Correlation Identifier](/architecture/eip/message-construction/correlation-identifier) — chave que agrupa as mensagens
-- [Gateway Aggregation](/cloud/cloud-design-patterns/gateways-and-edge/gateway-aggregation) — agregação de chamadas em um gateway
+- [Gateway Aggregation](/architecture/cloud-design-patterns/gateways-and-edge/gateway-aggregation) — agregação de chamadas em um gateway
 - [API Composition](/architecture/microservices/service-collaboration/api-composition) — composição de dados de vários serviços
 
 ## Referência

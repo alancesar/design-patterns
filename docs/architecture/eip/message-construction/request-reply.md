@@ -72,7 +72,7 @@ O requestor envia a requisição por um canal e recebe a resposta por outro.
 - [Document Message](/architecture/eip/message-construction/document-message) — a resposta costuma ser um documento
 - [Message Expiration](/architecture/eip/message-construction/message-expiration) — evita requisições que perderam o prazo
 - [Point-to-Point Channel](/architecture/eip/messaging-channels/point-to-point-channel) — canal típico da resposta
-- [Asynchronous Request-Reply](/cloud/cloud-design-patterns/messaging/asynchronous-request-reply) — variante do Azure baseada em HTTP 202 e polling, diferente do par de canais do EIP
+- [Asynchronous Request-Reply](/architecture/cloud-design-patterns/messaging/asynchronous-request-reply) — variante do Azure baseada em HTTP 202 e polling, diferente do par de canais do EIP
 
 ## Referência
 

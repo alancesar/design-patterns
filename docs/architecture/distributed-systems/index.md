@@ -35,7 +35,7 @@ Total: 30 padrões em 5 grupos. Etiquetas: Garantia distribuída.
 | [Replicated Log](/architecture/distributed-systems/data-replication/replicated-log) | No Replicated Log, cada nó do cluster mantém um Write-Ahead Log cujas entradas guardam as requisições do usuário e o estado necessário para o consenso. | [`Consistency`](/tags/consistency) [`Fault Tolerance`](/tags/fault-tolerance) [`Durability`](/tags/durability) |
 | [Singular Update Queue](/architecture/distributed-systems/data-replication/singular-update-queue) | A Singular Update Queue usa uma fila de trabalho processada por uma única thread para aplicar mudanças de estado. | [`Consistency`](/tags/consistency) [`Performance`](/tags/performance) |
 | [Request Waiting List](/architecture/distributed-systems/data-replication/request-waiting-list) | A Request Waiting List é uma estrutura que associa uma chave a uma função de callback. | [`Consistency`](/tags/consistency) [`Performance`](/tags/performance) |
-| [Idempotent Receiver](/cloud/cloud-design-patterns/messaging/idempotent-consumer) ★ | O padrão Idempotent Consumer projeta consumidores de mensagens de forma que processar a mesma mensagem mais de uma vez produza exatamente o mesmo efeito que processá-la uma única vez. | [`Reliability`](/tags/reliability) |
+| [Idempotent Receiver](/architecture/cloud-design-patterns/messaging/idempotent-consumer) ★ | O padrão Idempotent Consumer projeta consumidores de mensagens de forma que processar a mesma mensagem mais de uma vez produza exatamente o mesmo efeito que processá-la uma única vez. | [`Reliability`](/tags/reliability) |
 | [Follower Reads](/architecture/distributed-systems/data-replication/follower-reads) | No Follower Reads, as escritas continuam passando pelo líder, mas as requisições somente de leitura podem ser atendidas pelos seguidores, em especial o mais próximo do cliente. | [`Scalability`](/tags/scalability) [`Performance`](/tags/performance) [`Availability`](/tags/availability) |
 | [Versioned Value](/architecture/distributed-systems/data-replication/versioned-value) | No Versioned Value, cada valor de uma chave é guardado junto com um número de versão que aumenta a cada atualização. | [`Consistency`](/tags/consistency) [`Performance`](/tags/performance) |
 | [Version Vector](/architecture/distributed-systems/data-replication/version-vector) | O Version Vector associa a cada valor de uma chave um vetor com um contador por nó do cluster. | [`Consistency`](/tags/consistency) [`Availability`](/tags/availability) |
@@ -102,4 +102,4 @@ Total: 30 padrões em 5 grupos. Etiquetas: Garantia distribuída.
 
 ### Reliability (1)
 
-[Idempotent Receiver](/cloud/cloud-design-patterns/messaging/idempotent-consumer)
+[Idempotent Receiver](/architecture/cloud-design-patterns/messaging/idempotent-consumer)

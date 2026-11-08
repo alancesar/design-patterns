@@ -69,7 +69,7 @@ Cada aplicação se liga ao barramento por um adaptador, e o barramento oferece 
 
 - [Channel Adapter](/architecture/eip/messaging-channels/channel-adapter) — liga cada aplicação ao barramento.
 - [Datatype Channel](/architecture/eip/messaging-channels/datatype-channel) — direciona tipos de mensagem a endpoints específicos.
-- [Publish-Subscribe Channel](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — alcança vários receptores.
+- [Publish-Subscribe Channel](/architecture/cloud-design-patterns/messaging/publisher-subscriber) — alcança vários receptores.
 - [Message Channel](/architecture/eip/messaging-channels/message-channel) — os canais que compõem o barramento.
 - [Canonical Data Model](/architecture/eip/message-transformation/canonical-data-model) — formato de dados comum a todos os participantes.
 - [Command Message](/architecture/eip/message-construction/command-message) — estrutura comum de comandos entre os sistemas.

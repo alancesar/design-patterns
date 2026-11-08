@@ -67,7 +67,7 @@ A lógica de negócio chama um método do domínio; o gateway cuida de montar a 
 - [Request-Reply](/architecture/eip/message-construction/request-reply) — estilo de interação que o gateway costuma encapsular.
 - [Correlation Identifier](/architecture/eip/message-construction/correlation-identifier) — usado para casar respostas com requisições.
 - [Service Activator](/architecture/eip/messaging-endpoints/service-activator) — lado receptor equivalente ao gateway no lado emissor.
-- [Gateway (PoEAA)](/application/poeaa/base/gateway) — o padrão geral do qual este é a especialização.
+- [Gateway (PoEAA)](/design/poeaa/base/gateway) — o padrão geral do qual este é a especialização.
 - [Facade (GoF)](/coding/gof/structural/facade) — também simplifica o acesso a um subsistema complexo.
 
 ## Referência

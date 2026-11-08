@@ -66,7 +66,7 @@ Node A sends periodic heartbeats; when node B stops receiving them within the ti
 
 - [Leader and Followers](/architecture/distributed-systems/data-replication/leader-and-followers) — followers use the heartbeat to detect a leader failure
 - [Lease](/architecture/distributed-systems/cluster-management/lease) — a time-bound grant that also depends on periodic renewal
-- [Health Endpoint Monitoring](/cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring) — external health checking, the platform-layer equivalent
+- [Health Endpoint Monitoring](/architecture/cloud-design-patterns/resiliency/health-endpoint-monitoring) — external health checking, the platform-layer equivalent
 - [Generation Clock](/architecture/distributed-systems/data-replication/generation-clock) — protects against leaders that return after a pause
 
 ## Reference

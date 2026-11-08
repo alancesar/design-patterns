@@ -79,7 +79,7 @@ O cliente escreve no líder, que replica a entrada para os seguidores e responde
 - [Replicated Log](/architecture/distributed-systems/data-replication/replicated-log) — o líder replica seu log para os seguidores
 - [Follower Reads](/architecture/distributed-systems/data-replication/follower-reads) — leituras servidas pelos seguidores
 - [Emergent Leader](/architecture/distributed-systems/cluster-management/emergent-leader) — alternativa em que o líder emerge da ordem de entrada dos nós
-- [Leader Election](/cloud/cloud-design-patterns/distributed-coordination/leader-election) — padrão de nuvem para eleger um coordenador entre instâncias
+- [Leader Election](/architecture/cloud-design-patterns/distributed-coordination/leader-election) — padrão de nuvem para eleger um coordenador entre instâncias
 
 ## Referência
 

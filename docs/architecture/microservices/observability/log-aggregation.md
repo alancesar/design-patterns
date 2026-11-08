@@ -67,7 +67,7 @@ Todas as instâncias enviam seus logs para um serviço central, que oferece busc
 - [Exception Tracking](/architecture/microservices/observability/exception-tracking) — exceções também são reportadas a um serviço dedicado, além de registradas nos logs
 - [Application Metrics](/architecture/microservices/observability/application-metrics) — complementa os logs com medições numéricas
 - [Microservice Chassis](/architecture/microservices/cross-cutting-concerns/microservice-chassis) — pode padronizar formato e envio de logs
-- [Sidecar](/cloud/cloud-design-patterns/integration-and-modernization/sidecar) — um sidecar pode coletar e encaminhar logs sem alterar o serviço
+- [Sidecar](/architecture/cloud-design-patterns/integration-and-modernization/sidecar) — um sidecar pode coletar e encaminhar logs sem alterar o serviço
 
 ## Referência
 

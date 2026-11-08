@@ -71,11 +71,11 @@ The composer calls each service that owns the data, joins the results in memory,
 ## Related patterns
 
 - [Database per Service](/architecture/microservices/service-collaboration/database-per-service) — creates the need for this pattern.
-- [CQRS](/cloud/cloud-design-patterns/data-management/cqrs) — an alternative approach, with materialized views maintained by events.
+- [CQRS](/architecture/cloud-design-patterns/data-management/cqrs) — an alternative approach, with materialized views maintained by events.
 - [API Gateway](/architecture/microservices/external-api/api-gateway) — the place where composition is usually performed.
-- [Gateway Aggregation](/cloud/cloud-design-patterns/gateways-and-edge/gateway-aggregation) — the equivalent cloud pattern at the edge, focused on reducing client calls, without addressing the origin of the data fragmentation.
-- [Backend for Front-End](/cloud/cloud-design-patterns/gateways-and-edge/backends-for-frontends) — another common place to host the composition.
-- [Circuit Breaker](/cloud/cloud-design-patterns/resiliency/circuit-breaker) — protects the composer against slow or unavailable services.
+- [Gateway Aggregation](/architecture/cloud-design-patterns/gateways-and-edge/gateway-aggregation) — the equivalent cloud pattern at the edge, focused on reducing client calls, without addressing the origin of the data fragmentation.
+- [Backend for Front-End](/architecture/cloud-design-patterns/gateways-and-edge/backends-for-frontends) — another common place to host the composition.
+- [Circuit Breaker](/architecture/cloud-design-patterns/resiliency/circuit-breaker) — protects the composer against slow or unavailable services.
 
 ## Reference
 

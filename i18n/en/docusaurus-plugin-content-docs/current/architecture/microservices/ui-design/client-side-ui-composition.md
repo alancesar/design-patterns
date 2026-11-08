@@ -66,7 +66,7 @@ The page skeleton in the browser composes UI components, and each one queries it
 - [Server-side Page Fragment Composition](/architecture/microservices/ui-design/server-side-page-fragment-composition) — an alternative in which composition happens on the server
 - [API Gateway](/architecture/microservices/external-api/api-gateway) — exposes the services to the client components
 - [API Composition](/architecture/microservices/service-collaboration/api-composition) — data aggregation on the backend
-- [Backends for Frontends](/cloud/cloud-design-patterns/gateways-and-edge/backends-for-frontends) — a backend dedicated to the client
+- [Backends for Frontends](/architecture/cloud-design-patterns/gateways-and-edge/backends-for-frontends) — a backend dedicated to the client
 
 ## Reference
 

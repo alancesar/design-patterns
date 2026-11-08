@@ -63,7 +63,7 @@ A aplicação A envia os dados e a aplicação B decide o que fazer com eles.
 - [Event Message](/architecture/eip/message-construction/event-message) — notifica um fato; o conteúdo importa menos
 - [Request-Reply](/architecture/eip/message-construction/request-reply) — a resposta costuma ser um documento
 - [Guaranteed Delivery](/architecture/eip/messaging-channels/guaranteed-delivery) — garante que o documento chegue
-- [Claim Check](/cloud/cloud-design-patterns/messaging/claim-check) — alternativa para documentos grandes
+- [Claim Check](/architecture/cloud-design-patterns/messaging/claim-check) — alternativa para documentos grandes
 
 ## Referência
 

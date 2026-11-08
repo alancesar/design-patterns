@@ -62,7 +62,7 @@ O filtro recebe a mensagem completa, descarta os campos desnecessários e entreg
 ## Padrões relacionados
 
 - [Content Enricher](/architecture/eip/message-transformation/content-enricher) — o inverso: acrescenta dados ausentes.
-- [Claim Check](/cloud/cloud-design-patterns/messaging/claim-check) — guarda dados para recuperá-los depois, enquanto o filtro os descarta de vez.
+- [Claim Check](/architecture/cloud-design-patterns/messaging/claim-check) — guarda dados para recuperá-los depois, enquanto o filtro os descarta de vez.
 - [Message Translator](/architecture/eip/message-transformation/message-translator) — o filtro pode ser visto como uma tradução que reduz o conteúdo.
 - [Message Filter](/architecture/eip/message-routing/message-filter) — descarta mensagens inteiras; o Content Filter remove campos.
 - [Splitter](/architecture/eip/message-routing/splitter) — divide a mensagem em partes, outra forma de simplificar estruturas complexas.

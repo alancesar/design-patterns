@@ -69,7 +69,7 @@ O publicador consulta o outbox periodicamente, envia as mensagens ao broker e at
 
 - [Transactional Outbox](/architecture/microservices/transactional-messaging/transactional-outbox) — cria a necessidade deste padrão
 - [Transaction Log Tailing](/architecture/microservices/transactional-messaging/transaction-log-tailing) — alternativa que lê o log de transações do banco
-- [Idempotent Consumer](/cloud/cloud-design-patterns/messaging/idempotent-consumer) — necessário para tolerar mensagens duplicadas
+- [Idempotent Consumer](/architecture/cloud-design-patterns/messaging/idempotent-consumer) — necessário para tolerar mensagens duplicadas
 - [Messaging](/architecture/microservices/communication-styles/messaging) — estilo de comunicação que usa o broker
 
 ## Referência

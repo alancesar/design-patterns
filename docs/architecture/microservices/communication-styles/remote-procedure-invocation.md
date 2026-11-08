@@ -75,10 +75,10 @@ O cliente envia a requisição diretamente ao serviço e permanece aguardando a 
 
 - [Messaging](/architecture/microservices/communication-styles/messaging) — alternativa assíncrona, baseada em broker, ao RPI.
 - [Domain-specific Protocol](/architecture/microservices/communication-styles/domain-specific-protocol) — outra alternativa, usando um protocolo específico do domínio.
-- [Externalized Configuration](/cloud/cloud-design-patterns/deployment-and-topology/external-configuration-store) — fornece a localização lógica (por exemplo, a URL) do serviço.
+- [Externalized Configuration](/architecture/cloud-design-patterns/deployment-and-topology/external-configuration-store) — fornece a localização lógica (por exemplo, a URL) do serviço.
 - [Client-side Discovery](/architecture/microservices/service-discovery/client-side-discovery) — o cliente localiza a instância do serviço consultando o registro.
 - [Server-side Discovery](/architecture/microservices/service-discovery/server-side-discovery) — um roteador localiza a instância em nome do cliente.
-- [Circuit Breaker](/cloud/cloud-design-patterns/resiliency/circuit-breaker) — melhora a confiabilidade das chamadas síncronas.
+- [Circuit Breaker](/architecture/cloud-design-patterns/resiliency/circuit-breaker) — melhora a confiabilidade das chamadas síncronas.
 - [File Transfer](/architecture/eip/integration-styles/file-transfer) — estilo de integração por arquivos, em lote e sem chamadas diretas.
 - [Shared Database](/architecture/microservices/service-collaboration/shared-database) — estilo em que os dados ficam em um banco comum em vez de encapsulados.
 - [Message Endpoint](/architecture/eip/messaging-endpoints/message-endpoint) — ponto de acesso da aplicação à mensageria, análogo à interface exposta pela chamada remota.

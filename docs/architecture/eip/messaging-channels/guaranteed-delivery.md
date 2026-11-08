@@ -72,10 +72,10 @@ Cada salto grava a mensagem em disco antes de confirmar, e a cópia só é desca
 
 - [Dead Letter Channel](/architecture/eip/messaging-channels/dead-letter-channel) — destino das mensagens que, mesmo persistidas, não puderam ser entregues.
 - [Point-to-Point Channel](/architecture/eip/messaging-channels/point-to-point-channel) — canal ao qual a persistência se aplica.
-- [Publish-Subscribe Channel](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — idem, para múltiplos assinantes.
+- [Publish-Subscribe Channel](/architecture/cloud-design-patterns/messaging/publisher-subscriber) — idem, para múltiplos assinantes.
 - [Durable Subscriber](/architecture/eip/messaging-endpoints/durable-subscriber) — retém mensagens para assinantes offline.
 - [Transactional Client](/architecture/eip/messaging-endpoints/transactional-client) — agrupa envio e recebimento em uma transação.
-- [Idempotent Receiver](/cloud/cloud-design-patterns/messaging/idempotent-consumer) — tolera as duplicatas da entrega ao menos uma vez.
+- [Idempotent Receiver](/architecture/cloud-design-patterns/messaging/idempotent-consumer) — tolera as duplicatas da entrega ao menos uma vez.
 - [Message Expiration](/architecture/eip/message-construction/message-expiration) — limita por quanto tempo a mensagem permanece válida.
 - [Message Store](/architecture/eip/system-management/message-store) — registra mensagens para auditoria e análise.
 

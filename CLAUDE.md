@@ -19,7 +19,7 @@ There are no tests or linters. `npm run build` is the verification step: it fail
 
 ## Content model
 
-Hierarchy is **domain → catalog → group → pattern**: `docs/<domain>/<catalog>/<group>/<pattern>.md`. Domains are `coding`, `application`, `architecture`, `cloud`, `ai`.
+Hierarchy is **domain → catalog → group → pattern**: `docs/<domain>/<catalog>/<group>/<pattern>.md`. Domains are `coding`, `design`, `architecture`, `ai`.
 
 - **Pattern page:** frontmatter `title`, `pattern_slug`, `category` (the group name), `tags`, `source`, `sidebar_label` (quoted), plus `origin` and `also_in` when they apply. The body sections are fixed: Descrição, Problemas que resolve, Quando usar, `### Quando evitar`, Trade-offs (a `| Ganho | Custo / Risco |` table plus bold bullets), Diagrama (Mermaid), Exemplo (optional), Padrões relacionados, Referência. English uses Description, Problems it solves, When to use, `### When to avoid`, Trade-offs (`| Benefit | Cost / Risk |`), Diagram, Example, Related patterns, Reference. Use `docs/coding/gof/creational/builder.md` as a reference.
 - **Catalog page** (`docs/<domain>/<catalog>/index.md`): an intro, then per-group tables whose summary column is the first sentence of each pattern's description. Keep these tables in sync when you add or rename patterns.

@@ -73,7 +73,7 @@ Each application connects to the canonical model through a single translator, in
 - [Message Bus](/architecture/eip/messaging-channels/message-bus) — the bus architecture usually presupposes a canonical model.
 - [Message Router](/architecture/eip/message-routing/message-router) — routes messages in the common format.
 - [Shared Database](/architecture/microservices/service-collaboration/shared-database) — an integration alternative where the common model is the shared schema.
-- [Published Language](/application/ddd/context-mapping/published-language) — the equivalent concept in DDD: a documented language shared across contexts.
+- [Published Language](/design/ddd/context-mapping/published-language) — the equivalent concept in DDD: a documented language shared across contexts.
 
 ## Reference
 

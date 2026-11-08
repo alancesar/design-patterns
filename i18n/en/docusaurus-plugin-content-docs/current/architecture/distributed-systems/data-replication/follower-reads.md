@@ -65,7 +65,7 @@ Writes go to the leader, while reader clients query the nearest follower.
 - [Leader and Followers](/architecture/distributed-systems/data-replication/leader-and-followers) — the pattern this optimization builds on
 - [High-Water Mark](/architecture/distributed-systems/data-replication/high-water-mark) — the limit of what a follower can serve
 - [Versioned Value](/architecture/distributed-systems/data-replication/versioned-value) — makes it possible to read from a minimum version
-- [CQRS](/cloud/cloud-design-patterns/data-management/cqrs) — separation of reads and writes at the application level
+- [CQRS](/architecture/cloud-design-patterns/data-management/cqrs) — separation of reads and writes at the application level
 
 ## Reference
 

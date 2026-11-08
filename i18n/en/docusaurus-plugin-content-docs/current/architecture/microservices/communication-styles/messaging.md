@@ -71,13 +71,13 @@ The sender publishes the message to a channel and carries on with its work; the 
 
 - [Remote Procedure Invocation](/architecture/microservices/communication-styles/remote-procedure-invocation) — the synchronous request/response alternative.
 - [Domain-specific Protocol](/architecture/microservices/communication-styles/domain-specific-protocol) — the alternative based on a domain-specific protocol.
-- [Idempotent Consumer](/cloud/cloud-design-patterns/messaging/idempotent-consumer) — makes processing duplicate messages safe.
-- [Saga](/cloud/cloud-design-patterns/distributed-coordination/saga) — coordinates distributed transactions through messages.
-- [CQRS](/cloud/cloud-design-patterns/data-management/cqrs) — uses messages to keep read views up to date.
+- [Idempotent Consumer](/architecture/cloud-design-patterns/messaging/idempotent-consumer) — makes processing duplicate messages safe.
+- [Saga](/architecture/cloud-design-patterns/distributed-coordination/saga) — coordinates distributed transactions through messages.
+- [CQRS](/architecture/cloud-design-patterns/data-management/cqrs) — uses messages to keep read views up to date.
 - [Transactional Outbox](/architecture/microservices/transactional-messaging/transactional-outbox) — publishes messages as part of the database transaction.
-- [Externalized Configuration](/cloud/cloud-design-patterns/deployment-and-topology/external-configuration-store) — provides channel names and the broker's location.
-- [Publisher-Subscriber](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — publish/subscribe style on top of messaging.
-- [Asynchronous Request-Reply](/cloud/cloud-design-patterns/messaging/asynchronous-request-reply) — request with an asynchronous response.
+- [Externalized Configuration](/architecture/cloud-design-patterns/deployment-and-topology/external-configuration-store) — provides channel names and the broker's location.
+- [Publisher-Subscriber](/architecture/cloud-design-patterns/messaging/publisher-subscriber) — publish/subscribe style on top of messaging.
+- [Asynchronous Request-Reply](/architecture/cloud-design-patterns/messaging/asynchronous-request-reply) — request with an asynchronous response.
 - [File Transfer](/architecture/eip/integration-styles/file-transfer) — a batch, file-based style with similar decoupling but no immediate exchange.
 - [Shared Database](/architecture/microservices/service-collaboration/shared-database) — an integration style based on a shared database.
 - [Message Channel](/architecture/eip/messaging-channels/message-channel) — the channel through which messages travel.

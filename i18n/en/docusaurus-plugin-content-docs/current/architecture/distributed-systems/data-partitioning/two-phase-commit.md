@@ -79,8 +79,8 @@ If any participant refuses in the prepare phase, the coordinator sends rollback 
 - [Versioned Value](/architecture/distributed-systems/data-replication/versioned-value) — stores the versions written by the transaction
 - [Hybrid Clock](/architecture/distributed-systems/distributed-time/hybrid-clock) — orders transactions across nodes with timestamps
 - [Fixed Partitions](/architecture/distributed-systems/data-partitioning/fixed-partitions) and [Key-Range Partitions](/architecture/distributed-systems/data-partitioning/key-range-partitions) — the partitions the transaction typically operates on
-- [Saga](/cloud/cloud-design-patterns/distributed-coordination/saga) (cloud) — an alternative without global locks, based on compensation
-- [Compensating Transaction](/cloud/cloud-design-patterns/distributed-coordination/compensating-transaction) (cloud) — undoes steps that were already committed instead of blocking
+- [Saga](/architecture/cloud-design-patterns/distributed-coordination/saga) (cloud) — an alternative without global locks, based on compensation
+- [Compensating Transaction](/architecture/cloud-design-patterns/distributed-coordination/compensating-transaction) (cloud) — undoes steps that were already committed instead of blocking
 
 ## Reference
 

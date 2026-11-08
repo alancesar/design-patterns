@@ -75,10 +75,10 @@ The client sends the request directly to the service and keeps waiting for the r
 
 - [Messaging](/architecture/microservices/communication-styles/messaging) — the asynchronous, broker-based alternative to RPI.
 - [Domain-specific Protocol](/architecture/microservices/communication-styles/domain-specific-protocol) — another alternative, using a domain-specific protocol.
-- [Externalized Configuration](/cloud/cloud-design-patterns/deployment-and-topology/external-configuration-store) — provides the service's logical location (for example, the URL).
+- [Externalized Configuration](/architecture/cloud-design-patterns/deployment-and-topology/external-configuration-store) — provides the service's logical location (for example, the URL).
 - [Client-side Discovery](/architecture/microservices/service-discovery/client-side-discovery) — the client locates the service instance by querying the registry.
 - [Server-side Discovery](/architecture/microservices/service-discovery/server-side-discovery) — a router locates the instance on the client's behalf.
-- [Circuit Breaker](/cloud/cloud-design-patterns/resiliency/circuit-breaker) — improves the reliability of synchronous calls.
+- [Circuit Breaker](/architecture/cloud-design-patterns/resiliency/circuit-breaker) — improves the reliability of synchronous calls.
 - [File Transfer](/architecture/eip/integration-styles/file-transfer) — a file-based integration style, batch-oriented and with no direct calls.
 - [Shared Database](/architecture/microservices/service-collaboration/shared-database) — a style in which data lives in a common database instead of being encapsulated.
 - [Message Endpoint](/architecture/eip/messaging-endpoints/message-endpoint) — the application's access point to messaging, analogous to the interface exposed by the remote call.

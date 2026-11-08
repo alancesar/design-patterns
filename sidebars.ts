@@ -12,6 +12,8 @@ const sidebars: SidebarsConfig = {
         "id": "coding/index"
       },
       "collapsed": false,
+      "collapsible": false,
+      "className": "sidebar-domain",
       "items": [
         {
           "type": "category",
@@ -81,12 +83,14 @@ const sidebars: SidebarsConfig = {
     },
     {
       "type": "category",
-      "label": "Application",
+      "label": "Design",
       "link": {
         "type": "doc",
-        "id": "application/index"
+        "id": "design/index"
       },
       "collapsed": false,
+      "collapsible": false,
+      "className": "sidebar-domain",
       "items": [
         {
           "type": "category",
@@ -94,7 +98,7 @@ const sidebars: SidebarsConfig = {
           "key": "ddd",
           "link": {
             "type": "doc",
-            "id": "application/ddd/index"
+            "id": "design/ddd/index"
           },
           "collapsed": true,
           "items": [
@@ -104,12 +108,12 @@ const sidebars: SidebarsConfig = {
               "key": "ddd-model-in-practice",
               "collapsed": true,
               "items": [
-                "application/ddd/model-in-practice/bounded-context",
-                "application/ddd/model-in-practice/ubiquitous-language",
-                "application/ddd/model-in-practice/continuous-integration",
-                "application/ddd/model-in-practice/model-driven-design",
-                "application/ddd/model-in-practice/hands-on-modelers",
-                "application/ddd/model-in-practice/refactoring-toward-deeper-insight"
+                "design/ddd/model-in-practice/bounded-context",
+                "design/ddd/model-in-practice/ubiquitous-language",
+                "design/ddd/model-in-practice/continuous-integration",
+                "design/ddd/model-in-practice/model-driven-design",
+                "design/ddd/model-in-practice/hands-on-modelers",
+                "design/ddd/model-in-practice/refactoring-toward-deeper-insight"
               ]
             },
             {
@@ -118,12 +122,12 @@ const sidebars: SidebarsConfig = {
               "key": "ddd-building-blocks",
               "collapsed": true,
               "items": [
-                "application/ddd/building-blocks/layered-architecture",
-                "application/ddd/building-blocks/entity",
+                "design/ddd/building-blocks/layered-architecture",
+                "design/ddd/building-blocks/entity",
                 {
                   "type": "link",
                   "label": "Value Object",
-                  "href": "/application/poeaa/base/value-object?catalog=ddd",
+                  "href": "/design/poeaa/base/value-object?catalog=ddd",
                   "className": "sidebar-shared",
                   "key": "ddd-value-object"
                 },
@@ -134,17 +138,17 @@ const sidebars: SidebarsConfig = {
                   "className": "sidebar-shared",
                   "key": "ddd-domain-event"
                 },
-                "application/ddd/building-blocks/domain-service",
-                "application/ddd/building-blocks/module",
-                "application/ddd/building-blocks/aggregate",
+                "design/ddd/building-blocks/domain-service",
+                "design/ddd/building-blocks/module",
+                "design/ddd/building-blocks/aggregate",
                 {
                   "type": "link",
                   "label": "Repository",
-                  "href": "/application/poeaa/object-relational-metadata-mapping/repository?catalog=ddd",
+                  "href": "/design/poeaa/object-relational-metadata-mapping/repository?catalog=ddd",
                   "className": "sidebar-shared",
                   "key": "ddd-repository"
                 },
-                "application/ddd/building-blocks/factory"
+                "design/ddd/building-blocks/factory"
               ]
             },
             {
@@ -153,14 +157,14 @@ const sidebars: SidebarsConfig = {
               "key": "ddd-supple-design",
               "collapsed": true,
               "items": [
-                "application/ddd/supple-design/intention-revealing-interfaces",
-                "application/ddd/supple-design/side-effect-free-functions",
-                "application/ddd/supple-design/assertions",
-                "application/ddd/supple-design/standalone-classes",
-                "application/ddd/supple-design/closure-of-operations",
-                "application/ddd/supple-design/declarative-design",
-                "application/ddd/supple-design/drawing-on-established-formalisms",
-                "application/ddd/supple-design/conceptual-contours"
+                "design/ddd/supple-design/intention-revealing-interfaces",
+                "design/ddd/supple-design/side-effect-free-functions",
+                "design/ddd/supple-design/assertions",
+                "design/ddd/supple-design/standalone-classes",
+                "design/ddd/supple-design/closure-of-operations",
+                "design/ddd/supple-design/declarative-design",
+                "design/ddd/supple-design/drawing-on-established-formalisms",
+                "design/ddd/supple-design/conceptual-contours"
               ]
             },
             {
@@ -169,22 +173,22 @@ const sidebars: SidebarsConfig = {
               "key": "ddd-context-mapping",
               "collapsed": true,
               "items": [
-                "application/ddd/context-mapping/context-map",
-                "application/ddd/context-mapping/partnership",
-                "application/ddd/context-mapping/shared-kernel",
-                "application/ddd/context-mapping/customer-supplier-development",
-                "application/ddd/context-mapping/conformist",
+                "design/ddd/context-mapping/context-map",
+                "design/ddd/context-mapping/partnership",
+                "design/ddd/context-mapping/shared-kernel",
+                "design/ddd/context-mapping/customer-supplier-development",
+                "design/ddd/context-mapping/conformist",
                 {
                   "type": "link",
                   "label": "Anti-Corruption Layer",
-                  "href": "/cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer?catalog=ddd",
+                  "href": "/architecture/cloud-design-patterns/integration-and-modernization/anti-corruption-layer?catalog=ddd",
                   "className": "sidebar-shared",
                   "key": "ddd-anticorruption-layer"
                 },
-                "application/ddd/context-mapping/open-host-service",
-                "application/ddd/context-mapping/published-language",
-                "application/ddd/context-mapping/separate-ways",
-                "application/ddd/context-mapping/big-ball-of-mud"
+                "design/ddd/context-mapping/open-host-service",
+                "design/ddd/context-mapping/published-language",
+                "design/ddd/context-mapping/separate-ways",
+                "design/ddd/context-mapping/big-ball-of-mud"
               ]
             },
             {
@@ -193,13 +197,13 @@ const sidebars: SidebarsConfig = {
               "key": "ddd-distillation",
               "collapsed": true,
               "items": [
-                "application/ddd/distillation/core-domain",
-                "application/ddd/distillation/generic-subdomains",
-                "application/ddd/distillation/domain-vision-statement",
-                "application/ddd/distillation/highlighted-core",
-                "application/ddd/distillation/cohesive-mechanisms",
-                "application/ddd/distillation/segregated-core",
-                "application/ddd/distillation/abstract-core"
+                "design/ddd/distillation/core-domain",
+                "design/ddd/distillation/generic-subdomains",
+                "design/ddd/distillation/domain-vision-statement",
+                "design/ddd/distillation/highlighted-core",
+                "design/ddd/distillation/cohesive-mechanisms",
+                "design/ddd/distillation/segregated-core",
+                "design/ddd/distillation/abstract-core"
               ]
             },
             {
@@ -208,11 +212,11 @@ const sidebars: SidebarsConfig = {
               "key": "ddd-large-scale-structure",
               "collapsed": true,
               "items": [
-                "application/ddd/large-scale-structure/evolving-order",
-                "application/ddd/large-scale-structure/system-metaphor",
-                "application/ddd/large-scale-structure/responsibility-layers",
-                "application/ddd/large-scale-structure/knowledge-level",
-                "application/ddd/large-scale-structure/pluggable-component-framework"
+                "design/ddd/large-scale-structure/evolving-order",
+                "design/ddd/large-scale-structure/system-metaphor",
+                "design/ddd/large-scale-structure/responsibility-layers",
+                "design/ddd/large-scale-structure/knowledge-level",
+                "design/ddd/large-scale-structure/pluggable-component-framework"
               ]
             }
           ]
@@ -223,7 +227,7 @@ const sidebars: SidebarsConfig = {
           "key": "poeaa",
           "link": {
             "type": "doc",
-            "id": "application/poeaa/index"
+            "id": "design/poeaa/index"
           },
           "collapsed": true,
           "items": [
@@ -233,10 +237,10 @@ const sidebars: SidebarsConfig = {
               "key": "poeaa-domain-logic",
               "collapsed": true,
               "items": [
-                "application/poeaa/domain-logic/transaction-script",
-                "application/poeaa/domain-logic/domain-model",
-                "application/poeaa/domain-logic/table-module",
-                "application/poeaa/domain-logic/service-layer"
+                "design/poeaa/domain-logic/transaction-script",
+                "design/poeaa/domain-logic/domain-model",
+                "design/poeaa/domain-logic/table-module",
+                "design/poeaa/domain-logic/service-layer"
               ]
             },
             {
@@ -245,10 +249,10 @@ const sidebars: SidebarsConfig = {
               "key": "poeaa-data-source-architectural",
               "collapsed": true,
               "items": [
-                "application/poeaa/data-source-architectural/table-data-gateway",
-                "application/poeaa/data-source-architectural/row-data-gateway",
-                "application/poeaa/data-source-architectural/active-record",
-                "application/poeaa/data-source-architectural/data-mapper"
+                "design/poeaa/data-source-architectural/table-data-gateway",
+                "design/poeaa/data-source-architectural/row-data-gateway",
+                "design/poeaa/data-source-architectural/active-record",
+                "design/poeaa/data-source-architectural/data-mapper"
               ]
             },
             {
@@ -257,9 +261,9 @@ const sidebars: SidebarsConfig = {
               "key": "poeaa-object-relational-behavioral",
               "collapsed": true,
               "items": [
-                "application/poeaa/object-relational-behavioral/unit-of-work",
-                "application/poeaa/object-relational-behavioral/identity-map",
-                "application/poeaa/object-relational-behavioral/lazy-load"
+                "design/poeaa/object-relational-behavioral/unit-of-work",
+                "design/poeaa/object-relational-behavioral/identity-map",
+                "design/poeaa/object-relational-behavioral/lazy-load"
               ]
             },
             {
@@ -268,16 +272,16 @@ const sidebars: SidebarsConfig = {
               "key": "poeaa-object-relational-structural",
               "collapsed": true,
               "items": [
-                "application/poeaa/object-relational-structural/identity-field",
-                "application/poeaa/object-relational-structural/inheritance-mappers",
-                "application/poeaa/object-relational-structural/foreign-key-mapping",
-                "application/poeaa/object-relational-structural/association-table-mapping",
-                "application/poeaa/object-relational-structural/dependent-mapping",
-                "application/poeaa/object-relational-structural/embedded-value",
-                "application/poeaa/object-relational-structural/serialized-lob",
-                "application/poeaa/object-relational-structural/single-table-inheritance",
-                "application/poeaa/object-relational-structural/class-table-inheritance",
-                "application/poeaa/object-relational-structural/concrete-table-inheritance"
+                "design/poeaa/object-relational-structural/identity-field",
+                "design/poeaa/object-relational-structural/inheritance-mappers",
+                "design/poeaa/object-relational-structural/foreign-key-mapping",
+                "design/poeaa/object-relational-structural/association-table-mapping",
+                "design/poeaa/object-relational-structural/dependent-mapping",
+                "design/poeaa/object-relational-structural/embedded-value",
+                "design/poeaa/object-relational-structural/serialized-lob",
+                "design/poeaa/object-relational-structural/single-table-inheritance",
+                "design/poeaa/object-relational-structural/class-table-inheritance",
+                "design/poeaa/object-relational-structural/concrete-table-inheritance"
               ]
             },
             {
@@ -286,9 +290,9 @@ const sidebars: SidebarsConfig = {
               "key": "poeaa-object-relational-metadata-mapping",
               "collapsed": true,
               "items": [
-                "application/poeaa/object-relational-metadata-mapping/metadata-mapping",
-                "application/poeaa/object-relational-metadata-mapping/query-object",
-                "application/poeaa/object-relational-metadata-mapping/repository"
+                "design/poeaa/object-relational-metadata-mapping/metadata-mapping",
+                "design/poeaa/object-relational-metadata-mapping/query-object",
+                "design/poeaa/object-relational-metadata-mapping/repository"
               ]
             },
             {
@@ -297,13 +301,13 @@ const sidebars: SidebarsConfig = {
               "key": "poeaa-web-presentation",
               "collapsed": true,
               "items": [
-                "application/poeaa/web-presentation/model-view-controller",
-                "application/poeaa/web-presentation/page-controller",
-                "application/poeaa/web-presentation/front-controller",
-                "application/poeaa/web-presentation/template-view",
-                "application/poeaa/web-presentation/transform-view",
-                "application/poeaa/web-presentation/two-step-view",
-                "application/poeaa/web-presentation/application-controller"
+                "design/poeaa/web-presentation/model-view-controller",
+                "design/poeaa/web-presentation/page-controller",
+                "design/poeaa/web-presentation/front-controller",
+                "design/poeaa/web-presentation/template-view",
+                "design/poeaa/web-presentation/transform-view",
+                "design/poeaa/web-presentation/two-step-view",
+                "design/poeaa/web-presentation/application-controller"
               ]
             },
             {
@@ -312,8 +316,8 @@ const sidebars: SidebarsConfig = {
               "key": "poeaa-distribution",
               "collapsed": true,
               "items": [
-                "application/poeaa/distribution/remote-facade",
-                "application/poeaa/distribution/data-transfer-object"
+                "design/poeaa/distribution/remote-facade",
+                "design/poeaa/distribution/data-transfer-object"
               ]
             },
             {
@@ -322,10 +326,10 @@ const sidebars: SidebarsConfig = {
               "key": "poeaa-offline-concurrency",
               "collapsed": true,
               "items": [
-                "application/poeaa/offline-concurrency/optimistic-offline-lock",
-                "application/poeaa/offline-concurrency/pessimistic-offline-lock",
-                "application/poeaa/offline-concurrency/coarse-grained-lock",
-                "application/poeaa/offline-concurrency/implicit-lock"
+                "design/poeaa/offline-concurrency/optimistic-offline-lock",
+                "design/poeaa/offline-concurrency/pessimistic-offline-lock",
+                "design/poeaa/offline-concurrency/coarse-grained-lock",
+                "design/poeaa/offline-concurrency/implicit-lock"
               ]
             },
             {
@@ -334,9 +338,9 @@ const sidebars: SidebarsConfig = {
               "key": "poeaa-session-state",
               "collapsed": true,
               "items": [
-                "application/poeaa/session-state/client-session-state",
-                "application/poeaa/session-state/server-session-state",
-                "application/poeaa/session-state/database-session-state"
+                "design/poeaa/session-state/client-session-state",
+                "design/poeaa/session-state/server-session-state",
+                "design/poeaa/session-state/database-session-state"
               ]
             },
             {
@@ -345,17 +349,17 @@ const sidebars: SidebarsConfig = {
               "key": "poeaa-base",
               "collapsed": true,
               "items": [
-                "application/poeaa/base/gateway",
-                "application/poeaa/base/service-stub",
-                "application/poeaa/base/record-set",
-                "application/poeaa/base/mapper",
-                "application/poeaa/base/layer-supertype",
-                "application/poeaa/base/separated-interface",
-                "application/poeaa/base/registry",
-                "application/poeaa/base/value-object",
-                "application/poeaa/base/money",
-                "application/poeaa/base/special-case",
-                "application/poeaa/base/plugin"
+                "design/poeaa/base/gateway",
+                "design/poeaa/base/service-stub",
+                "design/poeaa/base/record-set",
+                "design/poeaa/base/mapper",
+                "design/poeaa/base/layer-supertype",
+                "design/poeaa/base/separated-interface",
+                "design/poeaa/base/registry",
+                "design/poeaa/base/value-object",
+                "design/poeaa/base/money",
+                "design/poeaa/base/special-case",
+                "design/poeaa/base/plugin"
               ]
             }
           ]
@@ -370,6 +374,8 @@ const sidebars: SidebarsConfig = {
         "id": "architecture/index"
       },
       "collapsed": false,
+      "collapsible": false,
+      "className": "sidebar-domain",
       "items": [
         {
           "type": "category",
@@ -402,7 +408,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Idempotent Receiver",
-                  "href": "/cloud/cloud-design-patterns/messaging/idempotent-consumer?catalog=distributed-systems",
+                  "href": "/architecture/cloud-design-patterns/messaging/idempotent-consumer?catalog=distributed-systems",
                   "className": "sidebar-shared",
                   "key": "distributed-systems-idempotent-receiver"
                 },
@@ -510,7 +516,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Publish-Subscribe Channel",
-                  "href": "/cloud/cloud-design-patterns/messaging/publisher-subscriber?catalog=eip",
+                  "href": "/architecture/cloud-design-patterns/messaging/publisher-subscriber?catalog=eip",
                   "className": "sidebar-shared",
                   "key": "eip-publish-subscribe-channel"
                 },
@@ -522,7 +528,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Messaging Bridge",
-                  "href": "/cloud/cloud-design-patterns/messaging/messaging-bridge?catalog=eip",
+                  "href": "/architecture/cloud-design-patterns/messaging/messaging-bridge?catalog=eip",
                   "className": "sidebar-shared",
                   "key": "eip-messaging-bridge"
                 },
@@ -556,7 +562,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Pipes and Filters",
-                  "href": "/cloud/cloud-design-patterns/messaging/pipes-and-filters?catalog=eip",
+                  "href": "/architecture/cloud-design-patterns/messaging/pipes-and-filters?catalog=eip",
                   "className": "sidebar-shared",
                   "key": "eip-pipes-and-filters"
                 },
@@ -588,7 +594,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Claim Check",
-                  "href": "/cloud/cloud-design-patterns/messaging/claim-check?catalog=eip",
+                  "href": "/architecture/cloud-design-patterns/messaging/claim-check?catalog=eip",
                   "className": "sidebar-shared",
                   "key": "eip-claim-check"
                 },
@@ -611,7 +617,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Competing Consumers",
-                  "href": "/cloud/cloud-design-patterns/messaging/competing-consumers?catalog=eip",
+                  "href": "/architecture/cloud-design-patterns/messaging/competing-consumers?catalog=eip",
                   "className": "sidebar-shared",
                   "key": "eip-competing-consumers"
                 },
@@ -621,7 +627,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Idempotent Receiver",
-                  "href": "/cloud/cloud-design-patterns/messaging/idempotent-consumer?catalog=eip",
+                  "href": "/architecture/cloud-design-patterns/messaging/idempotent-consumer?catalog=eip",
                   "className": "sidebar-shared",
                   "key": "eip-idempotent-receiver"
                 },
@@ -687,14 +693,14 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Strangler Application",
-                  "href": "/cloud/cloud-design-patterns/integration-and-modernization/strangler-fig?catalog=microservices",
+                  "href": "/architecture/cloud-design-patterns/integration-and-modernization/strangler-fig?catalog=microservices",
                   "className": "sidebar-shared",
                   "key": "microservices-strangler-application"
                 },
                 {
                   "type": "link",
                   "label": "Anti-Corruption Layer",
-                  "href": "/cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer?catalog=microservices",
+                  "href": "/architecture/cloud-design-patterns/integration-and-modernization/anti-corruption-layer?catalog=microservices",
                   "className": "sidebar-shared",
                   "key": "microservices-anti-corruption-layer"
                 }
@@ -711,7 +717,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Saga",
-                  "href": "/cloud/cloud-design-patterns/distributed-coordination/saga?catalog=microservices",
+                  "href": "/architecture/cloud-design-patterns/distributed-coordination/saga?catalog=microservices",
                   "className": "sidebar-shared",
                   "key": "microservices-saga"
                 },
@@ -720,7 +726,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "CQRS",
-                  "href": "/cloud/cloud-design-patterns/data-management/cqrs?catalog=microservices",
+                  "href": "/architecture/cloud-design-patterns/data-management/cqrs?catalog=microservices",
                   "className": "sidebar-shared",
                   "key": "microservices-cqrs"
                 },
@@ -728,7 +734,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Event Sourcing",
-                  "href": "/cloud/cloud-design-patterns/data-management/event-sourcing?catalog=microservices",
+                  "href": "/architecture/cloud-design-patterns/data-management/event-sourcing?catalog=microservices",
                   "className": "sidebar-shared",
                   "key": "microservices-event-sourcing"
                 }
@@ -780,7 +786,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Externalized Configuration",
-                  "href": "/cloud/cloud-design-patterns/deployment-and-topology/external-configuration-store?catalog=microservices",
+                  "href": "/architecture/cloud-design-patterns/deployment-and-topology/external-configuration-store?catalog=microservices",
                   "className": "sidebar-shared",
                   "key": "microservices-externalized-configuration"
                 },
@@ -799,7 +805,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Idempotent Consumer",
-                  "href": "/cloud/cloud-design-patterns/messaging/idempotent-consumer?catalog=microservices",
+                  "href": "/architecture/cloud-design-patterns/messaging/idempotent-consumer?catalog=microservices",
                   "className": "sidebar-shared",
                   "key": "microservices-idempotent-consumer"
                 }
@@ -815,7 +821,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Backend for Front-end",
-                  "href": "/cloud/cloud-design-patterns/gateways-and-edge/backends-for-frontends?catalog=microservices",
+                  "href": "/architecture/cloud-design-patterns/gateways-and-edge/backends-for-frontends?catalog=microservices",
                   "className": "sidebar-shared",
                   "key": "microservices-backend-for-front-end"
                 }
@@ -843,7 +849,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Circuit Breaker",
-                  "href": "/cloud/cloud-design-patterns/resiliency/circuit-breaker?catalog=microservices",
+                  "href": "/architecture/cloud-design-patterns/resiliency/circuit-breaker?catalog=microservices",
                   "className": "sidebar-shared",
                   "key": "microservices-circuit-breaker"
                 }
@@ -872,7 +878,7 @@ const sidebars: SidebarsConfig = {
                 {
                   "type": "link",
                   "label": "Health Check API",
-                  "href": "/cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring?catalog=microservices",
+                  "href": "/architecture/cloud-design-patterns/resiliency/health-endpoint-monitoring?catalog=microservices",
                   "className": "sidebar-shared",
                   "key": "microservices-health-check-api"
                 },
@@ -890,25 +896,14 @@ const sidebars: SidebarsConfig = {
               ]
             }
           ]
-        }
-      ]
-    },
-    {
-      "type": "category",
-      "label": "Cloud",
-      "link": {
-        "type": "doc",
-        "id": "cloud/index"
-      },
-      "collapsed": false,
-      "items": [
+        },
         {
           "type": "category",
           "label": "Cloud Design Patterns",
           "key": "cloud-design-patterns",
           "link": {
             "type": "doc",
-            "id": "cloud/cloud-design-patterns/index"
+            "id": "architecture/cloud-design-patterns/index"
           },
           "collapsed": true,
           "items": [
@@ -918,16 +913,16 @@ const sidebars: SidebarsConfig = {
               "key": "cloud-design-patterns-messaging",
               "collapsed": true,
               "items": [
-                "cloud/cloud-design-patterns/messaging/asynchronous-request-reply",
-                "cloud/cloud-design-patterns/messaging/claim-check",
-                "cloud/cloud-design-patterns/messaging/competing-consumers",
-                "cloud/cloud-design-patterns/messaging/idempotent-consumer",
-                "cloud/cloud-design-patterns/messaging/messaging-bridge",
-                "cloud/cloud-design-patterns/messaging/pipes-and-filters",
-                "cloud/cloud-design-patterns/messaging/priority-queue",
-                "cloud/cloud-design-patterns/messaging/publisher-subscriber",
-                "cloud/cloud-design-patterns/messaging/queue-based-load-leveling",
-                "cloud/cloud-design-patterns/messaging/sequential-convoy"
+                "architecture/cloud-design-patterns/messaging/asynchronous-request-reply",
+                "architecture/cloud-design-patterns/messaging/claim-check",
+                "architecture/cloud-design-patterns/messaging/competing-consumers",
+                "architecture/cloud-design-patterns/messaging/idempotent-consumer",
+                "architecture/cloud-design-patterns/messaging/messaging-bridge",
+                "architecture/cloud-design-patterns/messaging/pipes-and-filters",
+                "architecture/cloud-design-patterns/messaging/priority-queue",
+                "architecture/cloud-design-patterns/messaging/publisher-subscriber",
+                "architecture/cloud-design-patterns/messaging/queue-based-load-leveling",
+                "architecture/cloud-design-patterns/messaging/sequential-convoy"
               ]
             },
             {
@@ -936,12 +931,12 @@ const sidebars: SidebarsConfig = {
               "key": "cloud-design-patterns-data-management",
               "collapsed": true,
               "items": [
-                "cloud/cloud-design-patterns/data-management/cache-aside",
-                "cloud/cloud-design-patterns/data-management/cqrs",
-                "cloud/cloud-design-patterns/data-management/event-sourcing",
-                "cloud/cloud-design-patterns/data-management/index-table",
-                "cloud/cloud-design-patterns/data-management/materialized-view",
-                "cloud/cloud-design-patterns/data-management/sharding"
+                "architecture/cloud-design-patterns/data-management/cache-aside",
+                "architecture/cloud-design-patterns/data-management/cqrs",
+                "architecture/cloud-design-patterns/data-management/event-sourcing",
+                "architecture/cloud-design-patterns/data-management/index-table",
+                "architecture/cloud-design-patterns/data-management/materialized-view",
+                "architecture/cloud-design-patterns/data-management/sharding"
               ]
             },
             {
@@ -950,12 +945,12 @@ const sidebars: SidebarsConfig = {
               "key": "cloud-design-patterns-resiliency",
               "collapsed": true,
               "items": [
-                "cloud/cloud-design-patterns/resiliency/bulkhead",
-                "cloud/cloud-design-patterns/resiliency/circuit-breaker",
-                "cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring",
-                "cloud/cloud-design-patterns/resiliency/rate-limiting-pattern",
-                "cloud/cloud-design-patterns/resiliency/retry",
-                "cloud/cloud-design-patterns/resiliency/throttling"
+                "architecture/cloud-design-patterns/resiliency/bulkhead",
+                "architecture/cloud-design-patterns/resiliency/circuit-breaker",
+                "architecture/cloud-design-patterns/resiliency/health-endpoint-monitoring",
+                "architecture/cloud-design-patterns/resiliency/rate-limiting-pattern",
+                "architecture/cloud-design-patterns/resiliency/retry",
+                "architecture/cloud-design-patterns/resiliency/throttling"
               ]
             },
             {
@@ -964,11 +959,11 @@ const sidebars: SidebarsConfig = {
               "key": "cloud-design-patterns-distributed-coordination",
               "collapsed": true,
               "items": [
-                "cloud/cloud-design-patterns/distributed-coordination/choreography",
-                "cloud/cloud-design-patterns/distributed-coordination/compensating-transaction",
-                "cloud/cloud-design-patterns/distributed-coordination/leader-election",
-                "cloud/cloud-design-patterns/distributed-coordination/saga",
-                "cloud/cloud-design-patterns/distributed-coordination/scheduler-agent-supervisor"
+                "architecture/cloud-design-patterns/distributed-coordination/choreography",
+                "architecture/cloud-design-patterns/distributed-coordination/compensating-transaction",
+                "architecture/cloud-design-patterns/distributed-coordination/leader-election",
+                "architecture/cloud-design-patterns/distributed-coordination/saga",
+                "architecture/cloud-design-patterns/distributed-coordination/scheduler-agent-supervisor"
               ]
             },
             {
@@ -977,11 +972,11 @@ const sidebars: SidebarsConfig = {
               "key": "cloud-design-patterns-deployment-and-topology",
               "collapsed": true,
               "items": [
-                "cloud/cloud-design-patterns/deployment-and-topology/compute-resource-consolidation",
-                "cloud/cloud-design-patterns/deployment-and-topology/deployment-stamp",
-                "cloud/cloud-design-patterns/deployment-and-topology/external-configuration-store",
-                "cloud/cloud-design-patterns/deployment-and-topology/geodes",
-                "cloud/cloud-design-patterns/deployment-and-topology/static-content-hosting"
+                "architecture/cloud-design-patterns/deployment-and-topology/compute-resource-consolidation",
+                "architecture/cloud-design-patterns/deployment-and-topology/deployment-stamp",
+                "architecture/cloud-design-patterns/deployment-and-topology/external-configuration-store",
+                "architecture/cloud-design-patterns/deployment-and-topology/geodes",
+                "architecture/cloud-design-patterns/deployment-and-topology/static-content-hosting"
               ]
             },
             {
@@ -990,10 +985,10 @@ const sidebars: SidebarsConfig = {
               "key": "cloud-design-patterns-gateways-and-edge",
               "collapsed": true,
               "items": [
-                "cloud/cloud-design-patterns/gateways-and-edge/backends-for-frontends",
-                "cloud/cloud-design-patterns/gateways-and-edge/gateway-aggregation",
-                "cloud/cloud-design-patterns/gateways-and-edge/gateway-offloading",
-                "cloud/cloud-design-patterns/gateways-and-edge/gateway-routing"
+                "architecture/cloud-design-patterns/gateways-and-edge/backends-for-frontends",
+                "architecture/cloud-design-patterns/gateways-and-edge/gateway-aggregation",
+                "architecture/cloud-design-patterns/gateways-and-edge/gateway-offloading",
+                "architecture/cloud-design-patterns/gateways-and-edge/gateway-routing"
               ]
             },
             {
@@ -1002,10 +997,10 @@ const sidebars: SidebarsConfig = {
               "key": "cloud-design-patterns-security-and-access",
               "collapsed": true,
               "items": [
-                "cloud/cloud-design-patterns/security-and-access/federated-identity",
-                "cloud/cloud-design-patterns/security-and-access/gatekeeper",
-                "cloud/cloud-design-patterns/security-and-access/quarantine",
-                "cloud/cloud-design-patterns/security-and-access/valet-key"
+                "architecture/cloud-design-patterns/security-and-access/federated-identity",
+                "architecture/cloud-design-patterns/security-and-access/gatekeeper",
+                "architecture/cloud-design-patterns/security-and-access/quarantine",
+                "architecture/cloud-design-patterns/security-and-access/valet-key"
               ]
             },
             {
@@ -1014,10 +1009,10 @@ const sidebars: SidebarsConfig = {
               "key": "cloud-design-patterns-integration-and-modernization",
               "collapsed": true,
               "items": [
-                "cloud/cloud-design-patterns/integration-and-modernization/ambassador",
-                "cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer",
-                "cloud/cloud-design-patterns/integration-and-modernization/sidecar",
-                "cloud/cloud-design-patterns/integration-and-modernization/strangler-fig"
+                "architecture/cloud-design-patterns/integration-and-modernization/ambassador",
+                "architecture/cloud-design-patterns/integration-and-modernization/anti-corruption-layer",
+                "architecture/cloud-design-patterns/integration-and-modernization/sidecar",
+                "architecture/cloud-design-patterns/integration-and-modernization/strangler-fig"
               ]
             }
           ]
@@ -1032,6 +1027,8 @@ const sidebars: SidebarsConfig = {
         "id": "ai/index"
       },
       "collapsed": false,
+      "collapsible": false,
+      "className": "sidebar-domain",
       "items": [
         {
           "type": "category",

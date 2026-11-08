@@ -72,7 +72,7 @@ The client registers its interest once, and the server notifies it when the valu
 ## Related patterns
 
 - [Observer](/coding/gof/behavioral/observer) — the same concept, at local scale, inside a single process.
-- [Publisher-Subscriber](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — asynchronous messaging with subscribers.
+- [Publisher-Subscriber](/architecture/cloud-design-patterns/messaging/publisher-subscriber) — asynchronous messaging with subscribers.
 - [Consistent Core](/architecture/distributed-systems/cluster-management/consistent-core) — typically offers watches over its metadata.
 - [Lease](/architecture/distributed-systems/cluster-management/lease) — lease expiration is a typical watched event.
 - [Single-Socket Channel](/architecture/distributed-systems/node-communication/single-socket-channel) — shared channel for the notifications.

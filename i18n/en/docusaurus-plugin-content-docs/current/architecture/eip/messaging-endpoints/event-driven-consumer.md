@@ -64,7 +64,7 @@ The channel triggers the consumer, which passes the content to the application a
 
 - [Polling Consumer](/architecture/eip/messaging-endpoints/polling-consumer) — pull-based alternative.
 - [Message Endpoint](/architecture/eip/messaging-endpoints/message-endpoint) — a kind of receiving endpoint.
-- [Competing Consumers](/cloud/cloud-design-patterns/messaging/competing-consumers) — several event-driven consumers on the same channel.
+- [Competing Consumers](/architecture/cloud-design-patterns/messaging/competing-consumers) — several event-driven consumers on the same channel.
 - [Message Dispatcher](/architecture/eip/messaging-endpoints/message-dispatcher) — distributes received messages to performers.
 - [Selective Consumer](/architecture/eip/messaging-endpoints/selective-consumer) — accepts only some of the messages.
 - [Durable Subscriber](/architecture/eip/messaging-endpoints/durable-subscriber) — a subscriber that doesn't lose messages while offline.

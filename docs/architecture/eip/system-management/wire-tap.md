@@ -65,7 +65,7 @@ O tap entrega a mensagem ao consumidor e uma cópia idêntica ao canal secundár
 - [Detour](/architecture/eip/system-management/detour) — versão ativa, capaz de alterar o fluxo.
 - [Smart Proxy](/architecture/eip/system-management/smart-proxy) — permite rastrear serviços cujas respostas vão para um Return Address dinâmico.
 - [Control Bus](/architecture/eip/system-management/control-bus) — pode ligar e desligar taps dinamicamente.
-- [Publish-Subscribe Channel](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — dispensa o tap quando o canal já é de difusão.
+- [Publish-Subscribe Channel](/architecture/cloud-design-patterns/messaging/publisher-subscriber) — dispensa o tap quando o canal já é de difusão.
 - [Log Aggregation](/architecture/microservices/observability/log-aggregation) — consolida os registros gerados pela análise das cópias.
 
 ## Referência

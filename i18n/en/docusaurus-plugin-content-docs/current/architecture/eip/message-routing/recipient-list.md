@@ -66,7 +66,7 @@ The list computed for the message includes A and C, which receive copies; B isn'
 - [Scatter-Gather](/architecture/eip/message-routing/scatter-gather) — uses a Recipient List in the distribution variant
 - [Aggregator](/architecture/eip/message-routing/aggregator) — combines the recipients' responses
 - [Dynamic Router](/architecture/eip/message-routing/dynamic-router) — can supply the list from registrations
-- [Publish-Subscribe Channel](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — an alternative where the subscribers decide
+- [Publish-Subscribe Channel](/architecture/cloud-design-patterns/messaging/publisher-subscriber) — an alternative where the subscribers decide
 
 ## Reference
 

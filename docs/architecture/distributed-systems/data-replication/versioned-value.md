@@ -63,7 +63,7 @@ Cada atualização cria uma nova versão da chave, permitindo ler o valor mais r
 - [Replicated Log](/architecture/distributed-systems/data-replication/replicated-log) — o índice do log pode servir de versão
 - [Follower Reads](/architecture/distributed-systems/data-replication/follower-reads) — a versão permite leituras com garantia mínima em seguidores
 - [Version Vector](/architecture/distributed-systems/data-replication/version-vector) — versão por nó para detectar concorrência
-- [Optimistic Offline Lock](/application/poeaa/offline-concurrency/optimistic-offline-lock) — controle de concorrência otimista com número de versão
+- [Optimistic Offline Lock](/design/poeaa/offline-concurrency/optimistic-offline-lock) — controle de concorrência otimista com número de versão
 
 ## Referência
 
