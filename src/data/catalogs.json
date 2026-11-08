@@ -93,19 +93,10 @@
     {
       "domain": "ai",
       "domainLabel": "AI",
-      "title": "AI Agent Orchestration Patterns",
-      "href": "/ai/agent-orchestration",
+      "title": "AI Agent Design Patterns",
+      "href": "/ai/agent-patterns",
       "source": "https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns",
-      "patterns": 6,
-      "groups": 2
-    },
-    {
-      "domain": "ai",
-      "domainLabel": "AI",
-      "title": "Agentic AI Design Patterns",
-      "href": "/ai/agentic-ai",
-      "source": "https://docs.cloud.google.com/architecture/choose-design-pattern-agentic-ai-system",
-      "patterns": 12,
+      "patterns": 15,
       "groups": 4
     }
   ]

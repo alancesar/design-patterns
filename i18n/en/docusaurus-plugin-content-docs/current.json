@@ -267,35 +267,23 @@
     "message": "AI",
     "description": "The label for category 'AI' in sidebar 'catalog'"
   },
-  "sidebar.catalog.category.agent-orchestration": {
-    "message": "Agent Orchestration",
-    "description": "The label for category 'Agent Orchestration' in sidebar 'catalog'"
+  "sidebar.catalog.category.agent-patterns": {
+    "message": "Agent Patterns",
+    "description": "The label for category 'Agent Patterns' in sidebar 'catalog'"
   },
-  "sidebar.catalog.category.agent-orchestration-deterministic-workflows": {
+  "sidebar.catalog.category.agent-patterns-deterministic-workflows": {
     "message": "Deterministic Workflows",
     "description": "The label for category 'Deterministic Workflows' in sidebar 'catalog'"
   },
-  "sidebar.catalog.category.agent-orchestration-dynamic-orchestration": {
+  "sidebar.catalog.category.agent-patterns-dynamic-orchestration": {
     "message": "Dynamic Orchestration",
     "description": "The label for category 'Dynamic Orchestration' in sidebar 'catalog'"
   },
-  "sidebar.catalog.category.agentic-ai": {
-    "message": "Agentic AI",
-    "description": "The label for category 'Agentic AI' in sidebar 'catalog'"
-  },
-  "sidebar.catalog.category.agentic-ai-deterministic-workflows": {
-    "message": "Deterministic Workflows",
-    "description": "The label for category 'Deterministic Workflows' in sidebar 'catalog'"
-  },
-  "sidebar.catalog.category.agentic-ai-dynamic-orchestration": {
-    "message": "Dynamic Orchestration",
-    "description": "The label for category 'Dynamic Orchestration' in sidebar 'catalog'"
-  },
-  "sidebar.catalog.category.agentic-ai-iteration": {
+  "sidebar.catalog.category.agent-patterns-iteration": {
     "message": "Iteration",
     "description": "The label for category 'Iteration' in sidebar 'catalog'"
   },
-  "sidebar.catalog.category.agentic-ai-special-requirements": {
+  "sidebar.catalog.category.agent-patterns-special-requirements": {
     "message": "Special Requirements",
     "description": "The label for category 'Special Requirements' in sidebar 'catalog'"
   },
@@ -394,17 +382,5 @@
   "sidebar.catalog.link.microservices-health-check-api": {
     "message": "Health Check API",
     "description": "The label for link 'Health Check API' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring?catalog=microservices'"
-  },
-  "sidebar.catalog.link.agentic-ai-multi-agent-sequential": {
-    "message": "Multi-Agent Sequential",
-    "description": "The label for link 'Multi-Agent Sequential' in sidebar 'catalog', linking to '/ai/agent-orchestration/deterministic-workflows/sequential-orchestration?catalog=agentic-ai'"
-  },
-  "sidebar.catalog.link.agentic-ai-multi-agent-parallel": {
-    "message": "Multi-Agent Parallel",
-    "description": "The label for link 'Multi-Agent Parallel' in sidebar 'catalog', linking to '/ai/agent-orchestration/deterministic-workflows/concurrent-orchestration?catalog=agentic-ai'"
-  },
-  "sidebar.catalog.link.agentic-ai-multi-agent-review-and-critique": {
-    "message": "Multi-Agent Review and Critique",
-    "description": "The label for link 'Multi-Agent Review and Critique' in sidebar 'catalog', linking to '/ai/agent-orchestration/dynamic-orchestration/maker-checker-loop?catalog=agentic-ai'"
   }
 }

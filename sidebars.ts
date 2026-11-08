@@ -1035,108 +1035,59 @@ const sidebars: SidebarsConfig = {
       "items": [
         {
           "type": "category",
-          "label": "Agent Orchestration",
-          "key": "agent-orchestration",
+          "label": "Agent Patterns",
+          "key": "agent-patterns",
           "link": {
             "type": "doc",
-            "id": "ai/agent-orchestration/index"
+            "id": "ai/agent-patterns/index"
           },
           "collapsed": true,
           "items": [
             {
               "type": "category",
               "label": "Deterministic Workflows",
-              "key": "agent-orchestration-deterministic-workflows",
+              "key": "agent-patterns-deterministic-workflows",
               "collapsed": true,
               "items": [
-                "ai/agent-orchestration/deterministic-workflows/sequential-orchestration",
-                "ai/agent-orchestration/deterministic-workflows/concurrent-orchestration"
+                "ai/agent-patterns/deterministic-workflows/sequential-orchestration",
+                "ai/agent-patterns/deterministic-workflows/concurrent-orchestration"
               ]
             },
             {
               "type": "category",
               "label": "Dynamic Orchestration",
-              "key": "agent-orchestration-dynamic-orchestration",
+              "key": "agent-patterns-dynamic-orchestration",
               "collapsed": true,
               "items": [
-                "ai/agent-orchestration/dynamic-orchestration/group-chat-orchestration",
-                "ai/agent-orchestration/dynamic-orchestration/maker-checker-loop",
-                "ai/agent-orchestration/dynamic-orchestration/handoff-orchestration",
-                "ai/agent-orchestration/dynamic-orchestration/magentic-orchestration"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "category",
-          "label": "Agentic AI",
-          "key": "agentic-ai",
-          "link": {
-            "type": "doc",
-            "id": "ai/agentic-ai/index"
-          },
-          "collapsed": true,
-          "items": [
-            {
-              "type": "category",
-              "label": "Deterministic Workflows",
-              "key": "agentic-ai-deterministic-workflows",
-              "collapsed": true,
-              "items": [
-                {
-                  "type": "link",
-                  "label": "Multi-Agent Sequential",
-                  "href": "/ai/agent-orchestration/deterministic-workflows/sequential-orchestration?catalog=agentic-ai",
-                  "className": "sidebar-shared",
-                  "key": "agentic-ai-multi-agent-sequential"
-                },
-                {
-                  "type": "link",
-                  "label": "Multi-Agent Parallel",
-                  "href": "/ai/agent-orchestration/deterministic-workflows/concurrent-orchestration?catalog=agentic-ai",
-                  "className": "sidebar-shared",
-                  "key": "agentic-ai-multi-agent-parallel"
-                }
-              ]
-            },
-            {
-              "type": "category",
-              "label": "Dynamic Orchestration",
-              "key": "agentic-ai-dynamic-orchestration",
-              "collapsed": true,
-              "items": [
-                "ai/agentic-ai/dynamic-orchestration/single-agent",
-                "ai/agentic-ai/dynamic-orchestration/multi-agent-coordinator",
-                "ai/agentic-ai/dynamic-orchestration/multi-agent-hierarchical-task-decomposition",
-                "ai/agentic-ai/dynamic-orchestration/multi-agent-swarm"
+                "ai/agent-patterns/dynamic-orchestration/single-agent",
+                "ai/agent-patterns/dynamic-orchestration/multi-agent-coordinator",
+                "ai/agent-patterns/dynamic-orchestration/multi-agent-hierarchical-task-decomposition",
+                "ai/agent-patterns/dynamic-orchestration/multi-agent-swarm",
+                "ai/agent-patterns/dynamic-orchestration/group-chat-orchestration",
+                "ai/agent-patterns/dynamic-orchestration/handoff-orchestration",
+                "ai/agent-patterns/dynamic-orchestration/magentic-orchestration"
               ]
             },
             {
               "type": "category",
               "label": "Iteration",
-              "key": "agentic-ai-iteration",
+              "key": "agent-patterns-iteration",
               "collapsed": true,
               "items": [
-                "ai/agentic-ai/iteration/react",
-                "ai/agentic-ai/iteration/multi-agent-loop",
-                {
-                  "type": "link",
-                  "label": "Multi-Agent Review and Critique",
-                  "href": "/ai/agent-orchestration/dynamic-orchestration/maker-checker-loop?catalog=agentic-ai",
-                  "className": "sidebar-shared",
-                  "key": "agentic-ai-multi-agent-review-and-critique"
-                },
-                "ai/agentic-ai/iteration/multi-agent-iterative-refinement"
+                "ai/agent-patterns/iteration/react",
+                "ai/agent-patterns/iteration/multi-agent-loop",
+                "ai/agent-patterns/iteration/maker-checker-loop",
+                "ai/agent-patterns/iteration/multi-agent-iterative-refinement"
               ]
             },
             {
               "type": "category",
               "label": "Special Requirements",
-              "key": "agentic-ai-special-requirements",
+              "key": "agent-patterns-special-requirements",
               "collapsed": true,
               "items": [
-                "ai/agentic-ai/special-requirements/human-in-the-loop",
-                "ai/agentic-ai/special-requirements/custom-logic"
+                "ai/agent-patterns/special-requirements/human-in-the-loop",
+                "ai/agent-patterns/special-requirements/custom-logic"
               ]
             }
           ]

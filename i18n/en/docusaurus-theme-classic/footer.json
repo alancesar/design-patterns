@@ -39,13 +39,9 @@
     "message": "Cloud Design Patterns",
     "description": "The label of footer link with label=Cloud Design Patterns linking to /cloud/cloud-design-patterns"
   },
-  "link.item.label.AI Agent Orchestration": {
-    "message": "AI Agent Orchestration",
-    "description": "The label of footer link with label=AI Agent Orchestration linking to /ai/agent-orchestration"
-  },
-  "link.item.label.Agentic AI": {
-    "message": "Agentic AI",
-    "description": "The label of footer link with label=Agentic AI linking to /ai/agentic-ai"
+  "link.item.label.AI Agent Design Patterns": {
+    "message": "AI Agent Design Patterns",
+    "description": "The label of footer link with label=AI Agent Design Patterns linking to /ai/agent-patterns"
   },
   "link.item.label.Design Patterns Cheat Sheet": {
     "message": "Design Patterns Cheat Sheet",
