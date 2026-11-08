@@ -132,8 +132,7 @@ const config: Config = {
             {label: 'Microservices', to: '/architecture/microservices'},
             {label: 'Patterns of Distributed Systems', to: '/architecture/distributed-systems'},
             {label: 'Cloud Design Patterns', to: '/cloud/cloud-design-patterns'},
-            {label: 'AI Agent Orchestration', to: '/ai/agent-orchestration'},
-            {label: 'Agentic AI', to: '/ai/agentic-ai'},
+            {label: 'AI Agent Design Patterns', to: '/ai/agent-patterns'},
           ],
         },
         {
