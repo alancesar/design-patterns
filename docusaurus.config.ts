@@ -10,9 +10,25 @@ const domains = [
   {slug: 'ai', label: 'AI'},
 ];
 
+// Docusaurus sets this before loading the config for each locale (build and start).
+const locale = process.env.DOCUSAURUS_CURRENT_LOCALE === 'en' ? 'en' : 'pt-BR';
+const year = new Date().getFullYear();
+
+const TAGLINE = {
+  'pt-BR': 'Catálogo pessoal de design patterns, por domínio e catálogo.',
+  en: 'A personal catalog of design patterns, by domain and catalog.',
+};
+
+// Kept here (not in i18n/en/.../footer.json) so the year stays dynamic in both locales.
+// If `write-translations` adds a "copyright" key back to the English footer.json, delete it.
+const COPYRIGHT = {
+  'pt-BR': `Resumos escritos por Alan Cesar. Os padrões pertencem aos seus autores originais; veja o link da fonte em cada página.<br/>© ${year} Alan Cesar. Conteúdo sob <a href="https://creativecommons.org/licenses/by/4.0/deed.pt-br" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>, código sob MIT. Feito com Docusaurus.`,
+  en: `Summaries written by Alan Cesar. The patterns belong to their original authors; see the source link on each page.<br/>© ${year} Alan Cesar. Content under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>, code under MIT. Built with Docusaurus.`,
+};
+
 const config: Config = {
   title: 'Design Patterns',
-  tagline: 'Catálogo pessoal de design patterns, por domínio e catálogo.',
+  tagline: TAGLINE[locale],
   favicon: 'img/logo.svg',
 
   url: 'https://designpatterns.alancesar.dev',
@@ -143,7 +159,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Resumos escritos por Alan Cesar. Os padrões pertencem aos seus autores originais; veja o link da fonte em cada página.<br/>© ${new Date().getFullYear()} Alan Cesar. Conteúdo sob <a href="https://creativecommons.org/licenses/by/4.0/deed.pt-br" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>, código sob MIT. Feito com Docusaurus.`,
+      copyright: COPYRIGHT[locale],
     },
     prism: {
       theme: catppuccinLatte,
