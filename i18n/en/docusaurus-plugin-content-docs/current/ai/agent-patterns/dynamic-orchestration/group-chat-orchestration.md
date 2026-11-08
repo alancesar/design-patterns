@@ -37,7 +37,7 @@ It's also known as *roundtable*, *collaborative*, *multiagent debate*, or *counc
 - Compliance and regulatory validation with multiple expert viewpoints.
 - Scenarios with real-time human participation or oversight (human-in-the-loop).
 
-### When to avoid
+## When to avoid
 
 - Simple task delegation or a linear pipeline already solves the problem.
 - Processing is real-time and the cost of discussion is unacceptable.

@@ -31,7 +31,7 @@ In many products the mechanism is automatic: after a configured number of delive
 - There is a retry or validity limit, and messages that exceed it must be set aside.
 - Consumers may fail persistently with certain messages (poison messages).
 
-### When to avoid
+## When to avoid
 
 - When losing some messages is acceptable and the cost of operating the channel isn't worth it.
 - When there is no process to monitor and handle the channel: it becomes a forgotten dumping ground.

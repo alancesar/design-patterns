@@ -33,7 +33,7 @@ The pattern appears in ZooKeeper, etcd, Raft, and Paxos to commit writes and ele
 - Leader election and consensus.
 - Group decision-making where an isolated minority segment must not keep operating.
 
-### When to avoid
+## When to avoid
 
 - Two-node or even-sized clusters, where the quorum tolerates no more failures than the previous odd size.
 - When the latency of waiting for a majority across distant regions is unacceptable and eventual consistency is enough.

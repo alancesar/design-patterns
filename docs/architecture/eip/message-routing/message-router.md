@@ -31,7 +31,7 @@ Esse é o padrão-base da família de roteadores (Content-Based Router, Message 
 - É preciso centralizar as regras de encaminhamento em um único ponto
 - O fluxo deve ser reconfigurável sem tocar nos componentes de processamento
 
-### Quando evitar
+## Quando evitar
 
 - Há um único destino possível; o roteador seria só um salto a mais
 - A decisão pode ser resolvida pela própria infraestrutura de canais (por exemplo, assinaturas em um canal publish-subscribe)

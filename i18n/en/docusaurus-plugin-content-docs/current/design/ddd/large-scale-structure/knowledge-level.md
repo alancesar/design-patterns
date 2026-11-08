@@ -32,7 +32,7 @@ Instead of scattering conditionals and subclasses for each variation, the variat
 - When the model's constraints vary per instance, for example rules per product type or per contract.
 - When the knowledge-level concepts are stable enough to be modeled clearly.
 
-### When to avoid
+## When to avoid
 
 - When the variations are few and stable: subclasses or Strategy solve it with less indirection.
 - When the flexibility is speculative: the knowledge level becomes a second system that's hard to understand and debug.

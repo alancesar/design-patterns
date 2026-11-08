@@ -32,7 +32,7 @@ The protocol is usually described in a Published Language, which serves as the c
 - It's possible to maintain a stable, versioned, documented API.
 - The upstream has the capacity to evolve the protocol for new common requirements.
 
-### When to avoid
+## When to avoid
 
 - There's a single consumer; a Customer/Supplier relationship or a direct interface is cheaper.
 - The context is changing rapidly and the protocol can't be stabilized yet.

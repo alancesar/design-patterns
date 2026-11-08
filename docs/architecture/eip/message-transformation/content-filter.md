@@ -32,7 +32,7 @@ Mensagens vindas de sistemas externos ou pacotes costumam refletir estruturas no
 - É preciso limitar a exposição de informações sensíveis a um consumidor específico.
 - Estruturas complexas devem ser simplificadas ou achatadas antes de seguir adiante.
 
-### Quando evitar
+## Quando evitar
 
 - Outros consumidores posteriores podem precisar dos campos removidos e não há como recuperá-los (considere Claim Check para guardar o conteúdo).
 - O que se quer é descartar mensagens inteiras: use Message Filter.

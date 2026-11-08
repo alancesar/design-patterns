@@ -31,7 +31,7 @@ A decisão elimina a complexidade de traduzir entre modelos e dá ao downstream 
 - O upstream é grande, externo ou imutável (um produto, um padrão de mercado, uma API de terceiros).
 - O custo de uma Anticorruption Layer não compensa o ganho de modelo próprio.
 
-### Quando evitar
+## Quando evitar
 
 - O modelo do upstream é confuso, de baixa qualidade ou incompatível com o domínio do downstream; nesse caso, proteja-se com Anticorruption Layer.
 - O contexto downstream faz parte do Core Domain e precisa de um modelo próprio e expressivo.

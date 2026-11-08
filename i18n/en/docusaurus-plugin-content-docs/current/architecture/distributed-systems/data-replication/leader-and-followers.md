@@ -32,7 +32,7 @@ The pattern is the foundation of systems such as ZooKeeper (ZAB), etcd (Raft), a
 - Consensus, coordination, and replicated storage systems where writes must go through a single point.
 - When an election mechanism is an acceptable price for simpler replication.
 
-### When to avoid
+## When to avoid
 
 - Workloads that require writes at multiple geographically distributed points with low local latency (consider multi-leader or leaderless).
 - When the single leader becomes a write bottleneck and partitioning is preferable.

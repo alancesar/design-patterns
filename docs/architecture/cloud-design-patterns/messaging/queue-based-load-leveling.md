@@ -35,7 +35,7 @@ Várias tarefas, gerando requisições em taxas muito variáveis, podem comparti
 - O serviço downstream tem limites rígidos de throughput ou aplica throttling ao atingir um limiar.
 - O trabalho pode ser processado de forma assíncrona, sem que o chamador precise de resposta imediata.
 
-### Quando evitar
+## Quando evitar
 
 - O chamador exige resposta síncrona e de baixa latência.
 - O volume é previsivelmente baixo e estável, de modo que a complexidade da fila traz pouco benefício.

@@ -36,7 +36,7 @@ When the source data changes, the view needs to be updated, whether in response 
 - You want to combine different stores, using one optimized for writes as the source and another optimized for reads for the views.
 - In microservices, to consolidate data from several services without coupling their stores.
 
-### When to avoid
+## When to avoid
 
 - The source data is simple and easy to query.
 - The source data changes very quickly or can be accessed without a view; the processing cost doesn't pay off.

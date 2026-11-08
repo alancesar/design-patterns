@@ -32,7 +32,7 @@ This doesn't mean everyone does everything: architects and analysts can lead the
 - When you notice the model says one thing and the code does another.
 - For small or medium teams able to collaborate closely.
 
-### When to avoid
+## When to avoid
 
 - In organizations where architects can't touch the code due to formal restrictions; in that case, the pattern requires a process change first.
 - As a justification for everyone changing everything without coordination, with no care for integrating the model.

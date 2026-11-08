@@ -31,7 +31,7 @@ To scale, a stateless broker can run as several instances, consuming from a Poin
 - You want a single point for managing the flow
 - Whole subsystems need to be decoupled
 
-### When to avoid
+## When to avoid
 
 - Few participants, with no need for an intermediary
 - A single broker would become a bottleneck and a single point of failure

@@ -32,7 +32,7 @@ Because the model is generic, it shouldn't contain core concepts, and the core s
 - When the subdomain is necessary but doesn't set the company apart from its competitors.
 - When you want to free up team capacity to concentrate on the core.
 
-### When to avoid
+## When to avoid
 
 - When the subdomain, despite looking generic, contains rules that truly differentiate the business; in that case it belongs to the core.
 - When off-the-shelf solutions impose an incompatible model, forcing you to contort the core to fit them.

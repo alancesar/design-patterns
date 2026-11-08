@@ -34,7 +34,7 @@ Como a cadeia é montada em tempo de execução, é possível adicionar, remover
 - O conjunto e a ordem dos tratadores devem ser definidos ou alterados dinamicamente
 - Pipelines de processamento como middlewares HTTP, filtros de servlet, interceptors e tratamento de eventos em UI (event bubbling)
 
-### Quando evitar
+## Quando evitar
 
 - Existe exatamente um tratador conhecido e estável — uma chamada direta é mais simples
 - É obrigatório garantir que toda requisição seja tratada e não há um handler padrão ao fim da cadeia

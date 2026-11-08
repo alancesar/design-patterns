@@ -31,7 +31,7 @@ A linguagem é válida dentro de um Bounded Context; em contextos diferentes, os
 - Quando se percebe que as mesmas coisas recebem nomes diferentes em reuniões, documentos e código.
 - Em conjunto com um modelo em evolução, para validar o que foi entendido.
 
-### Quando evitar
+## Quando evitar
 
 - Quando não há acesso a especialistas do domínio, pois a linguagem acaba inventada só pelos desenvolvedores.
 - Tentar impor uma única linguagem para toda a empresa, em vez de uma por Bounded Context.

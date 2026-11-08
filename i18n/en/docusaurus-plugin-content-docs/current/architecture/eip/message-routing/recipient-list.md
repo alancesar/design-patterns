@@ -32,7 +32,7 @@ Examples: a small order queries one credit agency, but a large order queries sev
 - The right recipient depends on a value, preference, or policy
 - You need control over who receives, without broadcasting
 
-### When to avoid
+## When to avoid
 
 - All subscribers always receive everything; a publish-subscribe channel is enough
 - A single destination is chosen by content; use a Content-Based Router

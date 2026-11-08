@@ -32,7 +32,7 @@ Como a distribuição das chaves nem sempre é uniforme, sistemas que usam esse 
 - Armazenamentos ordenados de chave-valor ou tabulares (estilo Bigtable).
 - Quando o volume de dados cresce de forma imprevisível e as partições precisam se dividir dinamicamente.
 
-### Quando evitar
+## Quando evitar
 
 - Quando as chaves são monotônicas (timestamps, IDs sequenciais): as escritas se concentram na última partição, criando um ponto quente.
 - Quando só há acesso por chave exata e a uniformidade de carga é prioridade (prefira Fixed Partitions).

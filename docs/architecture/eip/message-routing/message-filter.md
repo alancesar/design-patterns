@@ -31,7 +31,7 @@ Muitos brokers implementam o padrão por meio de vínculos entre filas e chaves 
 - A relevância pode ser decidida pelo conteúdo da mensagem
 - Quer-se reduzir tráfego e processamento desnecessários
 
-### Quando evitar
+## Quando evitar
 
 - A mensagem descartada ainda é necessária em outro ponto; use um roteador com mais de uma saída
 - O descarte silencioso esconderia erros importantes; prefira um canal de mensagens inválidas

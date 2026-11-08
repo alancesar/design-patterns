@@ -38,7 +38,7 @@ Em arquiteturas de microsserviços, esse contexto é ainda mais comum: um servi�
 - Para lidar com problemas intermitentes de conectividade em ambientes distribuídos.
 - Para direcionar o tráfego a partir de sinais de falha em tempo real, por exemplo, para outra região em implantações multirregião.
 
-### Quando evitar
+## Quando evitar
 
 - No acesso a recursos locais e privados da aplicação, como estruturas em memória. Nesses casos o circuito só adiciona overhead.
 - Como substituto do tratamento de exceções da lógica de negócio.

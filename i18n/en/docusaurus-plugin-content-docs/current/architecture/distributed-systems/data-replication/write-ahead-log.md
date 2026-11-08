@@ -32,7 +32,7 @@ The pattern is the foundation of several others in the catalog: the Segmented Lo
 - When the sequence of changes needs to be replicated to other nodes, as the foundation of a Replicated Log.
 - When the durability of every acknowledged write is a requirement (for example, with `fsync` before the *ack*).
 
-### When to avoid
+## When to avoid
 
 - Ephemeral or easily recreated data (caches), where losing state in a crash is acceptable.
 - When the latency of `fsync` on every write is unacceptable and losing a recent window of data is tolerated.

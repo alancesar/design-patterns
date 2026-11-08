@@ -29,7 +29,7 @@ As decisões principais são o tipo da chave (simples ou composta, significativa
 - Sempre que objetos de domínio são mapeados para linhas de tabelas com um mapeamento objeto-relacional.
 - Quando a identidade do objeto precisa sobreviver ao ciclo de vida da sessão.
 
-### Quando evitar
+## Quando evitar
 
 - Para Value Objects sem identidade, que podem ser mapeados como Embedded Value ou Serialized LOB.
 - Quando o modelo é de leitura simples e não precisa de identidade entre linha e objeto.

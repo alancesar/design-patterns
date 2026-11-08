@@ -29,7 +29,7 @@ A implementação clássica usa XSLT: o model é produzido (ou convertido) em XM
 - Quando a apresentação deve ser testada como função pura de entrada e saída.
 - Quando a tecnologia de transformação (XSLT, serializadores) já é padrão na organização.
 
-### Quando evitar
+## Quando evitar
 
 - Quando designers precisam editar o HTML diretamente; o Template View é mais amigável.
 - Quando a equipe não domina XSLT ou a linguagem de transformação, que tem curva de aprendizado alta.

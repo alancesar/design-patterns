@@ -32,7 +32,7 @@ O template costuma usar um Microservice Chassis para o código de framework comp
 - Quando se quer acelerar o início de projetos sem investir de imediato em um framework compartilhado.
 - Em conjunto com um chassis, para fornecer o esqueleto específico do serviço.
 
-### Quando evitar
+## Quando evitar
 
 - Quando as preocupações transversais mudam com frequência e é preciso propagar mudanças para muitos serviços existentes.
 - Quando há poucos serviços, em que o template seria excessivo.

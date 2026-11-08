@@ -31,7 +31,7 @@ Muitos brokers oferecem esse comportamento nativamente, por meio de sessões, gr
 - As mensagens podem ser categorizadas de modo que cada categoria seja uma unidade independente de escala.
 - Há muitas categorias ativas ao mesmo tempo, o que permite paralelismo real entre grupos.
 
-### Quando evitar
+## Quando evitar
 
 - Cenários de vazão extremamente alta (milhões de mensagens por minuto), nos quais a exigência de FIFO limita a escala alcançável.
 - A ordem das mensagens não importa; nesse caso o Competing Consumers oferece escala horizontal mais simples, sem o custo de coordenação por sessão.

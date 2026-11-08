@@ -31,7 +31,7 @@ Internally the provider uses containers or VMs, but the user doesn't manage them
 - Intermittent workloads or ones with unpredictable spikes.
 - When you want to minimize infrastructure operations.
 
-### When to avoid
+## When to avoid
 
 - Long-running or stateful services, such as databases and message brokers.
 - Services that subscribe to queues on a broker such as RabbitMQ.

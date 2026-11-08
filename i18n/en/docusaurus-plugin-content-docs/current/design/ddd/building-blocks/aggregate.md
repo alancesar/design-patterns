@@ -32,7 +32,7 @@ References between aggregates should be made by identity rather than by direct o
 - When you need to define the unit of transaction and persistence.
 - When you want to limit coupling between parts of the model.
 
-### When to avoid
+## When to avoid
 
 - When aggregates grow too large, causing contention and loading costs.
 - When the boundary is imposed for technical convenience, with no real invariants.

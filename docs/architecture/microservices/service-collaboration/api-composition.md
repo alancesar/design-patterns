@@ -30,7 +30,7 @@ Em geral, o papel de compositor é assumido por um API Gateway, mas pode ser um 
 - Quando a consistência eventual de uma visão derivada (CQRS) seria um custo desnecessário.
 - Quando se quer a abordagem mais simples para atender a consulta.
 
-### Quando evitar
+## Quando evitar
 
 - Consultas que exigem *joins* sobre grandes volumes de dados, que se tornam ineficientes em memória.
 - Quando a disponibilidade do compositor é afetada por vários serviços chamados em série ou em paralelo e não há tolerância a falhas parciais.

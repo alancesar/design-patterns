@@ -40,7 +40,7 @@ In microservices with Database per Service, CQRS takes on an additional role: it
 - Systems that evolve frequently, with new model versions and changes to business rules.
 - Integration with other subsystems, especially those that use Event Sourcing, so that the failure of one component doesn't bring down the whole system.
 
-### When to avoid
+## When to avoid
 
 - Simple domain or business rules.
 - Applications where a CRUD-style interface and data access are enough.

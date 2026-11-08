@@ -32,7 +32,7 @@ Combinado com Side-Effect-Free Functions, o padrão deixa visíveis os poucos co
 - Quando há regras de consistência que precisam ser preservadas por qualquer modificação.
 - Em hierarquias ou pontos de extensão, em que várias implementações precisam respeitar o mesmo contrato.
 
-### Quando evitar
+## Quando evitar
 
 - Em operações triviais, onde a asserção só repete o nome.
 - Quando o custo de verificar a condição em tempo de execução é proibitivo; nesse caso, prefira testes.

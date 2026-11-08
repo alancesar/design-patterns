@@ -29,7 +29,7 @@ Because the activator takes care of all the messaging details, the service is ca
 - When a service should be invoked by command or request messages.
 - When the same service is also accessible through other means (API, local call).
 
-### When to avoid
+## When to avoid
 
 - When the service is already messaging-native.
 - When the required conversion is so large that it calls for a separate transformation component.

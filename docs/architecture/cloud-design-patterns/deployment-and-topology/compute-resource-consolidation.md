@@ -36,7 +36,7 @@ A escolha do que agrupar é o ponto central: tarefas com escalabilidade, ciclo d
 - Tarefas com requisitos semelhantes de escalabilidade, ciclo de vida e cadência de release, que podem escalar como um bloco.
 - Sistemas já em produção, com dados de monitoramento (um "mapa de calor" de uso de recursos) que permitem identificar bons candidatos à consolidação.
 
-### Quando evitar
+## Quando evitar
 
 - Tarefas que executam operações críticas com exigência de tolerância a falhas e não podem ser afetadas por vizinhos.
 - Tarefas que processam dados altamente sensíveis ou privados e precisam de um contexto de segurança próprio.

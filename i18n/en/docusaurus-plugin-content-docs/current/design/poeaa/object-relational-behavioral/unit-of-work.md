@@ -32,7 +32,7 @@ This way, domain code doesn't need to know when or how to persist: it just manip
 - When using a Data Mapper or a domain model and you want to isolate persistence logic.
 - When you want to reduce the number of database round trips by batching writes.
 
-### When to avoid
+## When to avoid
 
 - In simple applications using Transaction Script or Active Record, where each operation writes a single record.
 - When the framework already provides the pattern and a custom layer would only duplicate the work.

@@ -29,7 +29,7 @@ O mecanismo depende do banco: o binlog do MySQL, o WAL do PostgreSQL ou os strea
 - Baixa latência e ordem estrita de publicação são importantes.
 - O volume de mensagens torna o polling custoso para o banco.
 
-### Quando evitar
+## Quando evitar
 
 - O banco não oferece acesso ao log, ou o time não tem familiaridade com essa tecnologia.
 - Uma solução simples e portável entre bancos é preferível.

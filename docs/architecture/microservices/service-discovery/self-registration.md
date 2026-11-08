@@ -28,7 +28,7 @@ Normalmente um microservice chassis ou biblioteca cliente (por exemplo, o client
 - Quando o serviço já usa um chassis que implementa o registro.
 - Quando a instância precisa expor estados mais ricos que UP/DOWN, como STARTING ou AVAILABLE.
 
-### Quando evitar
+## Quando evitar
 
 - Ambientes poliglotas em que replicar a lógica em cada linguagem é custoso.
 - Quando se quer manter os serviços desacoplados do registro (prefira 3rd Party Registration).

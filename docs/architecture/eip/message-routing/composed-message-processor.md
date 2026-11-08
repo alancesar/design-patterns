@@ -28,7 +28,7 @@ O Composed Message Processor trata uma mensagem composta: divide-a em submensage
 - Pedidos ou documentos com itens que exigem verificações em sistemas distintos
 - O resultado final depende de todas as respostas parciais
 
-### Quando evitar
+## Quando evitar
 
 - Todas as partes vão ao mesmo processador e podem ser tratadas em bloco
 - O fluxo é dinâmico ou depende de resultados intermediários; considere o [Process Manager](/architecture/eip/message-routing/process-manager)

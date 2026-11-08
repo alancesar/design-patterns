@@ -32,7 +32,7 @@ In practice, a workflow or orchestrator records, for each completed step, what w
 - Long-running flows that follow the eventual consistency model and can't rely on atomic transactions.
 - Failure recovery requires domain logic, not just a data rollback (for example, canceling the flight and hotel reservations of an itinerary).
 
-### When to avoid
+## When to avoid
 
 - Operations can be safely repeated and most failures are transient: retry logic is usually enough, and compensation would only add complexity.
 - The system can't tolerate temporary inconsistency. In that case, prefer strong consistency mechanisms or atomic transactions.

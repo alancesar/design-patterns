@@ -38,7 +38,7 @@ Como o padrão depende de cópias idênticas da infraestrutura, a infraestrutura
 - Deseja-se limitar o raio de impacto (*blast radius*) de falhas e incidentes a um subconjunto de clientes
 - O produto é um SaaS que precisa crescer adicionando unidades de escala padronizadas
 
-### Quando evitar
+## Quando evitar
 
 - A solução é simples e não precisa escalar muito
 - É possível escalar vertical ou horizontalmente dentro de uma única instância

@@ -34,7 +34,7 @@ Com múltiplas filas, os consumidores podem ser organizados de duas formas: um *
 - Algumas tarefas exigem atenção imediata enquanto outras podem esperar ou ser executadas em horários de menor demanda.
 - Diferentes tipos de tarefa exigem características de processamento e garantias de desempenho distintas.
 
-### Quando evitar
+## Quando evitar
 
 - Todos os itens de trabalho têm importância de negócio semelhante e o processamento estritamente FIFO é mais importante que a priorização.
 - As tarefas têm dependências fortes de ordem entre níveis de prioridade, e reordená-las causaria resultados inconsistentes ou exigiria lógica de coordenação complexa.

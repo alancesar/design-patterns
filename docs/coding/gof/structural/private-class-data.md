@@ -33,7 +33,7 @@ Não é um dos 23 padrões do livro do Gang of Four. Ele aparece em catálogos c
 - Quando a linguagem não oferece bons recursos nativos de imutabilidade (`final`, `readonly`, `const`).
 - Quando o objeto é compartilhado entre threads e precisa de estado seguro para leitura concorrente.
 
-### Quando evitar
+## Quando evitar
 
 - Quando a linguagem já oferece imutabilidade simples (records, `readonly`, `data class`, `frozen dataclass`) que resolve o problema sem uma classe extra.
 - Em classes pequenas, com poucos campos, nas quais a indireção só acrescenta código.

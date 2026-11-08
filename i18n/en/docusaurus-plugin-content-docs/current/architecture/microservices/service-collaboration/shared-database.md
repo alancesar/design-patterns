@@ -32,7 +32,7 @@ From the Enterprise Integration Patterns perspective (Hohpe and Woolf), Shared D
 - In small applications, or ones transitioning from a monolith, where few teams share the same domain.
 - When strong consistency between the data is a non-negotiable requirement and service autonomy is secondary.
 
-### When to avoid
+## When to avoid
 
 - When independent deployment and evolution of services are goals of the architecture.
 - When services have very different storage or scaling requirements.

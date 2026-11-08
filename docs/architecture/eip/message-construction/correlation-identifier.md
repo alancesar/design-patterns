@@ -29,7 +29,7 @@ Ao receber a resposta, o requestor compara o identificador de correlação com o
 - Em fluxos com várias etapas, para agrupar mensagens de uma mesma conversa.
 - Para rastrear uma transação entre componentes.
 
-### Quando evitar
+## Quando evitar
 
 - Quando há só uma requisição pendente por canal de resposta e a ordem é garantida.
 - Quando não há resposta a correlacionar.

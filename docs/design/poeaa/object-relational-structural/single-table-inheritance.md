@@ -30,7 +30,7 @@ Os campos que não se aplicam a uma subclasse ficam nulos. Ao carregar, o mapead
 - Quando o desempenho de leitura polimórfica importa.
 - Quando refatorações movem campos pela hierarquia com frequência.
 
-### Quando evitar
+## Quando evitar
 
 - Quando as subclasses têm muitos campos exclusivos, gerando uma tabela larga e esparsa.
 - Quando é necessário `NOT NULL` nas colunas das subclasses.

@@ -29,7 +29,7 @@ It's often used with Value Object, Money, and other types without identity.
 - For Value Objects with few fields, such as `Money`, `Address`, or `DateRange`.
 - When the value object belongs to a single owner.
 
-### When to avoid
+## When to avoid
 
 - When the object has its own identity or is shared between owners.
 - When the object needs to be queried or indexed independently of the owner.

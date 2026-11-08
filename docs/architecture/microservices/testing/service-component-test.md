@@ -29,7 +29,7 @@ Assim, valida-se o comportamento do serviço de ponta a ponta dentro de sua fron
 - O pipeline de build precisa de feedback rápido e determinístico
 - O serviço tem dependências remotas que podem ser simuladas
 
-### Quando evitar
+## Quando evitar
 
 - Os dublês são mantidos à mão e divergem do comportamento real das dependências
 - O serviço é tão simples que testes unitários já oferecem confiança suficiente

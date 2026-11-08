@@ -33,7 +33,7 @@ Os módulos especializados dependem do Abstract Core e implementam ou estendem s
 - Quando o core é grande demais para ser segregado por inteiro.
 - Quando se quer que módulos especializados possam variar sem afetar uns aos outros.
 
-### Quando evitar
+## Quando evitar
 
 - Quando o modelo ainda está mudando rapidamente e não há conceitos estáveis o suficiente para abstrair.
 - Quando poucos módulos interagem; as abstrações seriam cerimônia sem ganho.

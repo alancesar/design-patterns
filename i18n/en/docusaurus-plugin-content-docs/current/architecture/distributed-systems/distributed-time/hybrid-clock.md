@@ -31,7 +31,7 @@ The result behaves like a Lamport Clock, with ever-increasing versions consisten
 - The system does multi-version concurrency control and needs comparable read and write timestamps.
 - Node clocks are reasonably synchronized (NTP), with no specialized hardware.
 
-### When to avoid
+## When to avoid
 
 - Ordering by causality is enough, with no relationship to real time; a Lamport Clock is simpler.
 - If strict external consistency is needed across nodes with diverging clocks, HLC alone isn't enough: it gives only a partial order between events with no causal relationship, and it must be combined with a Clock-Bound Wait.

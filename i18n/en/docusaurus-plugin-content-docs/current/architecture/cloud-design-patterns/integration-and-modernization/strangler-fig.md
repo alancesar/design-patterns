@@ -40,7 +40,7 @@ From the microservices.io perspective (Strangler Application), the question is h
 - When you want to prioritize higher-return (ROI) replacements before lower-return ones, leveraging the investment already made in the current system.
 - When decomposing a monolith into services with well-defined domain boundaries.
 
-### When to avoid
+## When to avoid
 
 - When it isn't possible to intercept the requests destined for the back end.
 - When you have no access to the legacy source code or to another modifiable integration point (such as the database) to disable migrated features and redirect internal calls.

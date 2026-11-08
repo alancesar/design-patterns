@@ -38,7 +38,7 @@ Since configuration now changes application behavior at runtime, it should be tr
 - When a microservice needs to be promoted between environments as the same artifact (for example, a container image), receiving network locations and credentials from the outside.
 - When using feature flags and progressive releases as part of safe deployment practices.
 
-### When to avoid
+## When to avoid
 
 - When the configuration is simple, local to a single application, and only changes in normal release cycles; the external store would add operational complexity with no benefit.
 - When the availability of the external store can't be guaranteed and there's no fallback mechanism at application startup.

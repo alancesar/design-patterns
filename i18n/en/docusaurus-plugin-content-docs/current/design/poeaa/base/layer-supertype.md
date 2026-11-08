@@ -31,7 +31,7 @@ Each layer can have its own Layer Supertype (for example, one for the domain and
 - To keep identity, versioning, or auditing in one place, together with [Identity Field](/design/poeaa/object-relational-structural/identity-field).
 - To give all mappers or repositories common database access behavior.
 
-### When to avoid
+## When to avoid
 
 - When the language or framework already provides the necessary base and the new class would only duplicate it.
 - When the shared behavior is small and inheritance would add unnecessary coupling; composition may be enough.

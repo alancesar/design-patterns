@@ -35,7 +35,7 @@ As a result, authentication and authorization are separated: the IdP handles cre
 - Multi-tenant SaaS applications where each tenant uses its own IdP (corporate credentials for business users, social identities for consumers).
 - Workload access, such as CI/CD pipelines, automations, or tenant applications, that call APIs using federated workload identities instead of long-lived secrets.
 
-### When to avoid
+## When to avoid
 
 - All users authenticate against a single IdP and there's no expectation of supporting others (for example, an internal application tied directly to the corporate directory over a VPN or private network).
 - The application uses an incompatible authentication mechanism (such as its own user store) and doesn't handle claims-based protocols; adapting legacy systems can be expensive and complex.

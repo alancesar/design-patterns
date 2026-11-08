@@ -32,7 +32,7 @@ The technique doesn't require applying the formalism in full. Often a part is en
 - When the formalism fits the problem with few adjustments.
 - When auditing and traceability require concepts recognized by the market.
 
-### When to avoid
+## When to avoid
 
 - When the formalism doesn't apply well and is forced, distorting the domain.
 - When the team doesn't master the formalism and the learning cost outweighs the benefit.

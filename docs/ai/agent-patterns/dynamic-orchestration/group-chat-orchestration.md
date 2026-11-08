@@ -37,7 +37,7 @@ Também é conhecido como *roundtable*, *collaborative*, *multiagent debate* ou 
 - Validação de conformidade e regulatória com múltiplos pontos de vista de especialistas.
 - Cenários com participação ou supervisão humana em tempo real (human-in-the-loop).
 
-### Quando evitar
+## Quando evitar
 
 - Delegação simples de tarefas ou um pipeline linear já resolve o problema.
 - O processamento é em tempo real e o custo da discussão é inaceitável.

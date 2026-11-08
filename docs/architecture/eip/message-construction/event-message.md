@@ -29,7 +29,7 @@ O foco está no fato de o evento ter ocorrido, e não no volume de dados. Muitos
 - Com um canal publish-subscribe, quando vários consumidores reagem ao mesmo evento.
 - Com Message Expiration, quando eventos antigos perdem a utilidade.
 
-### Quando evitar
+## Quando evitar
 
 - Quando o receptor precisa receber dados completos e confiáveis (use Document Message).
 - Quando se quer comandar uma ação específica (use Command Message).

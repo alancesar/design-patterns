@@ -34,7 +34,7 @@ Unlike **Factory (Simple Factory)**, which is a single method/class with conditi
 - When there's a common algorithm in the base class and only the product varies (combines well with Template Method).
 - When you want to reuse existing objects (cache, pool) behind a creation method, instead of always building new ones.
 
-### When to avoid
+## When to avoid
 
 - When there's only one product type and no real prospect of variation — a simple constructor is enough.
 - When creating subclasses just to swap the product causes a class explosion; a Simple Factory, dependency injection, or a creation function/lambda may be simpler.

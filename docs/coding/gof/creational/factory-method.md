@@ -34,7 +34,7 @@ Diferente da **Factory (Simple Factory)**, que é um único método/classe com c
 - Quando há um algoritmo comum na classe base e apenas o produto varia (combina bem com Template Method).
 - Quando se quer reaproveitar objetos existentes (cache, pool) por trás de um método de criação, em vez de sempre construir novos.
 
-### Quando evitar
+## Quando evitar
 
 - Quando há apenas um tipo de produto e não há perspectiva real de variação — um construtor simples basta.
 - Quando a criação de subclasses só para trocar o produto gera uma explosão de classes; uma Simple Factory, injeção de dependência ou uma função/lambda de criação pode ser mais simples.

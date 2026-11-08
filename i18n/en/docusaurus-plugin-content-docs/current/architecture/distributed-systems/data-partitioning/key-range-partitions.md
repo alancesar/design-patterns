@@ -32,7 +32,7 @@ Because key distribution isn't always uniform, systems that use this pattern oft
 - Ordered key-value or tabular stores (Bigtable style).
 - When data volume grows unpredictably and partitions need to split dynamically.
 
-### When to avoid
+## When to avoid
 
 - When keys are monotonic (timestamps, sequential IDs): writes concentrate on the last partition, creating a hot spot.
 - When access is only by exact key and even load distribution is the priority (prefer Fixed Partitions).

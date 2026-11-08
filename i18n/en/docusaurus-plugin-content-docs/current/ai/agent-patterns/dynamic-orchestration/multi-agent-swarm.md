@@ -32,7 +32,7 @@ Compared with [Group Chat Orchestration](/ai/agent-patterns/dynamic-orchestratio
 - Projects such as product specification, which balance competing requirements.
 - When quality and creativity matter more than cost and predictability.
 
-### When to avoid
+## When to avoid
 
 - Cost and latency need to be predictable.
 - A simpler answer is enough.

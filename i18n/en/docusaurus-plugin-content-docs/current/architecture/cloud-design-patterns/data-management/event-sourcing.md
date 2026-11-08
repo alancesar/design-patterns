@@ -42,7 +42,7 @@ In microservices, Event Sourcing solves a core problem: how to update the databa
 - When you use CQRS and eventual consistency of the read models is acceptable.
 - In specific parts of the system that benefit the most, such as a payments ledger or an order pipeline (adoption doesn't have to be total).
 
-### When to avoid
+## When to avoid
 
 - Simple CRUD systems, with no need for auditing, replay, or historical reconstruction.
 - Prototypes, MVPs, or short-lived systems, where the upfront investment doesn't pay off.

@@ -29,7 +29,7 @@ O Consumer-side Contract Test verifica que o cliente de um serviço consegue se 
 - Existe um contrato compartilhado, usado também para validar o provedor
 - Se quer detectar cedo mudanças de contrato que quebram o cliente
 
-### Quando evitar
+## Quando evitar
 
 - Não há contrato mantido pelo provedor, tornando o stub só uma suposição do consumidor
 - A integração é trivial ou ambos pertencem ao mesmo time e já têm testes de integração suficientes

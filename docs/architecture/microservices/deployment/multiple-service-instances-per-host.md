@@ -30,7 +30,7 @@ Há duas variações comuns: cada instância roda como um processo independente 
 - Quando há poucos serviços, com dependências compatíveis entre si.
 - Em ambientes legados ou sem suporte a virtualização ou contêineres.
 
-### Quando evitar
+## Quando evitar
 
 - Quando os serviços têm requisitos de recursos ou versões de dependências conflitantes.
 - Quando é necessário isolamento forte e limites rígidos de CPU e memória por instância.

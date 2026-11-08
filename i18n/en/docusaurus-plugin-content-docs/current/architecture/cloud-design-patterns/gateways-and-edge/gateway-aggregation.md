@@ -36,7 +36,7 @@ The aggregation can live in the gateway itself (lightweight composition, such as
 - When you want to keep backend services isolated from the clients' network, exposing only a single entry point.
 - When the backend needs to evolve (swap services or data sources) without affecting the contracts used by clients.
 
-### When to avoid
+## When to avoid
 
 - When the goal is to reduce the number of calls between a client and a single service across several operations; in that case, a batch operation on the service itself tends to be more appropriate.
 - When the client or application is close to the backend services and latency isn't a relevant factor.

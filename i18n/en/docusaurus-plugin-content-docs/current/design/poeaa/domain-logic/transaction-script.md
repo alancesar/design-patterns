@@ -31,7 +31,7 @@ It's the most direct way to structure domain logic and works well as long as the
 - Applications that need fine-grained control over SQL queries and performance.
 - Small systems, prototypes, or reporting and import modules.
 
-### When to avoid
+## When to avoid
 
 - When the rules are complex and repeat across several use cases: duplication between scripts piles up.
 - When the domain has many behavior variations that benefit from polymorphism.

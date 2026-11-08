@@ -29,7 +29,7 @@ Cada componente de processamento é envolvido por um roteador que lê a ficha e 
 - Os passos são conhecidos no início e formam uma sequência linear
 - Quer-se reaproveitar os mesmos componentes em fluxos diferentes
 
-### Quando evitar
+## Quando evitar
 
 - O próximo passo depende de resultados intermediários ou há passos paralelos; use um [Process Manager](/architecture/eip/message-routing/process-manager)
 - O percurso é sempre o mesmo

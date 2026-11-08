@@ -41,7 +41,7 @@ Na formulação do Enterprise Integration Patterns (Hohpe e Woolf), a ponte não
 - Conectar sistemas geograficamente distribuídos quando a conexão de rede é instável.
 - Migrar incrementalmente um sistema distribuído de uma infraestrutura de mensageria para outra, movendo endpoints conforme o cronograma permitir.
 
-### Quando evitar
+## Quando evitar
 
 - Algum dos sistemas depende de um recurso de uma infraestrutura que não existe na outra.
 - A integração é síncrona por natureza e o sistema iniciador precisa de resposta imediata.

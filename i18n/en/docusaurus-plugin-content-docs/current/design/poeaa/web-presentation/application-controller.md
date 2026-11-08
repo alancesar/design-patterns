@@ -30,7 +30,7 @@ The pattern has two parts: one that maps the input to the appropriate domain log
 - When navigation rules change often or are configurable.
 - When you want to test navigation without the web framework.
 
-### When to avoid
+## When to avoid
 
 - When navigation is simple and linear, and a direct mapping is enough.
 - When the framework already provides a flow engine (Spring Web Flow) and you can just use it.

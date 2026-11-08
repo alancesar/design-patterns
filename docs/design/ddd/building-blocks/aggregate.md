@@ -32,7 +32,7 @@ Referências entre agregados devem ser feitas por identidade, e não por referê
 - Quando é preciso definir a unidade de transação e de persistência.
 - Quando se quer limitar o acoplamento entre partes do modelo.
 
-### Quando evitar
+## Quando evitar
 
 - Quando os agregados ficam grandes demais, causando contenção e custo de carga.
 - Quando a fronteira é imposta por conveniência técnica, sem invariantes reais.

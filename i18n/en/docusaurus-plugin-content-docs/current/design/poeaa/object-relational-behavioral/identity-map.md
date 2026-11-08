@@ -32,7 +32,7 @@ There is usually one map per class (or per table), and it lives within the scope
 - When you want the identity of the in-memory object to match the identity of the row.
 - Together with Unit of Work, to track what was read and changed.
 
-### When to avoid
+## When to avoid
 
 - With immutable objects, such as Value Objects, where multiple copies don't cause inconsistency.
 - In very short, read-only operations where duplication poses no risk.

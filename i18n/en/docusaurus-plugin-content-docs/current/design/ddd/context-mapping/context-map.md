@@ -32,7 +32,7 @@ For Evans, the Context Map is the central artifact of strategic modeling: it exp
 - In modernization initiatives, to decide where to isolate the legacy system and where to extract new services.
 - When integrating with external or third-party systems, to make the dependencies explicit.
 
-### When to avoid
+## When to avoid
 
 - Single-context systems, with one team and one model, where the map would be ceremony with no value.
 - When the map is drawn as a future ideal and never checked against reality; it ends up misleading instead of informing.

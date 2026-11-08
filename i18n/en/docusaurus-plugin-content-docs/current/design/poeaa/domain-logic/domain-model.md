@@ -32,7 +32,7 @@ The model should be independent of the user interface and of persistence; the li
 - When there are behavior variations that benefit from polymorphism and from patterns such as Strategy.
 - When the team is skilled at object-oriented modeling and plans to invest in a ubiquitous language for the domain.
 
-### When to avoid
+## When to avoid
 
 - Essentially CRUD applications, where the logic is minimal.
 - Teams unfamiliar with object orientation and object-relational mapping.

@@ -30,7 +30,7 @@ Keys must be unique across all the tables; otherwise references to the superclas
 - When the data of each subtype is handled independently.
 - When you want `NOT NULL` per type without joins.
 
-### When to avoid
+## When to avoid
 
 - When there are many polymorphic queries or references to the superclass.
 - When superclass fields change frequently (the change applies to every table).

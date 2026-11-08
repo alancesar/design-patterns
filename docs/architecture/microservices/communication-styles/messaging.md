@@ -36,7 +36,7 @@ O Enterprise Integration Patterns apresenta Messaging como o estilo que move peq
 - É preciso difundir eventos para vários interessados (publicação/assinatura).
 - O fluxo é longo ou coordenado, como em sagas e atualização de visões em CQRS.
 
-### Quando evitar
+## Quando evitar
 
 - A interação é um simples requisição/resposta síncrono e a equipe não deseja operar um broker.
 - O cliente precisa de resposta imediata e a complexidade do request/reply assíncrono não compensa.

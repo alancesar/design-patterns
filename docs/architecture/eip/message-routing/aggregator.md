@@ -32,7 +32,7 @@ Três decisões moldam o padrão: como correlacionar, quando considerar o grupo 
 - Após um Splitter, para remontar o resultado
 - Em leilões ou cotações, para escolher a melhor resposta
 
-### Quando evitar
+## Quando evitar
 
 - Há uma única resposta por requisição; basta o padrão de requisição-resposta
 - Não há como correlacionar ou saber quando o grupo termina

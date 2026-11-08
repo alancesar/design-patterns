@@ -31,7 +31,7 @@ The pattern is a general deployment principle and is refined by using virtual ma
 - When isolation and resource predictability are priorities.
 - As the conceptual basis for VMs, containers, or deployment platforms.
 
-### When to avoid
+## When to avoid
 
 - When the cost of one host per instance is prohibitive.
 - When the services are very small and would leave hosts underused.

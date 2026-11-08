@@ -31,7 +31,7 @@ It appears in etcd (MVCC revisions), ZooKeeper (zxid and znode version), and Kaf
 - When clients watch for changes starting from a version.
 - MVCC and snapshot reads.
 
-### When to avoid
+## When to avoid
 
 - Data where history isn't needed and space is critical.
 - Simple single-client storage with no concurrency.

@@ -35,7 +35,7 @@ In modern practice, the most common variant is the fluent builder (chained metho
 - You need immutable objects, but without giant constructors
 - Assembling composite structures (trees, SQL queries, HTTP requests, messages)
 
-### When to avoid
+## When to avoid
 
 - The object is simple, with few required fields; a constructor or factory is enough
 - The language already offers named parameters and default values that eliminate the problem

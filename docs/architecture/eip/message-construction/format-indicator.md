@@ -29,7 +29,7 @@ Há três maneiras de construir o marcador: um número de versão, que ambos os 
 - Quando coexistem várias versões de emissores e receptores.
 - Em integrações de longa duração, com ciclos de implantação independentes.
 
-### Quando evitar
+## Quando evitar
 
 - Quando o formato é fixo e todos os participantes são atualizados juntos.
 - Quando a evolução pode ser feita apenas com campos opcionais compatíveis, sem identificar versões.

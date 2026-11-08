@@ -33,7 +33,7 @@ Notification can follow the *push* model (the subject sends the changed data alo
 - When an object should notify others without making assumptions about who they are
 - In event systems, graphical interfaces (MVC), news subscriptions, caches that need to be invalidated, etc.
 
-### When to avoid
+## When to avoid
 
 - When there's only one fixed, known dependent; a direct call is simpler
 - When the notification order is critical and must be guaranteed

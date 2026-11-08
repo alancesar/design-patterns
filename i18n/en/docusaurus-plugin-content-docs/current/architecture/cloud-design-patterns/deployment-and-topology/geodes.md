@@ -34,7 +34,7 @@ Unlike a deployment stamp, a geode never exists in isolation: a production envir
 - Cloud-native applications that can treat all nodes as equivalent for reading and writing data
 - Near-edge computing scenarios, where reducing response time is a priority
 
-### When to avoid
+## When to avoid
 
 - When not all geodes can be identical with regard to data, for example due to data residency requirements, temporary session state tied to a region, or traffic heavily concentrated in a single region (in that case, prefer deployment stamps with global routing that is aware of data location)
 - When there's no real need for geographic distribution; availability zones and paired regions may be enough

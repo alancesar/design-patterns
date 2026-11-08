@@ -32,7 +32,7 @@ Na prática, o líder acrescenta a entrada ao seu log, a replica aos seguidores 
 - Quando todas as réplicas devem executar o mesmo conjunto de comandos na mesma ordem.
 - Como base para um Consistent Core.
 
-### Quando evitar
+## Quando evitar
 
 - Cargas que toleram consistência eventual e podem usar replicação assíncrona mais simples.
 - Cargas com escrita massiva em que o consenso por entrada é um gargalo, sem batching ou pipelining.

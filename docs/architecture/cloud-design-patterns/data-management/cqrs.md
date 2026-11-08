@@ -40,7 +40,7 @@ Em microsserviços com Database per Service, o CQRS ganha um papel adicional: é
 - Sistemas que evoluem com frequência, com novas versões de modelo e mudanças nas regras de negócio.
 - Integração com outros subsistemas, sobretudo os que usam Event Sourcing, para que a falha de um componente não derrube o sistema inteiro.
 
-### Quando evitar
+## Quando evitar
 
 - Domínio ou regras de negócio simples.
 - Aplicações em que uma interface e um acesso a dados no estilo CRUD bastam.

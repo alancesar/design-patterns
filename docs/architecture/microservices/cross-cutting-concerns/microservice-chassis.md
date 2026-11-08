@@ -33,7 +33,7 @@ Quando os requisitos transversais mudam, a equipe responsável publica uma nova 
 - Quando as preocupações transversais mudam com frequência e precisam ser propagadas de forma barata.
 - Quando há uma equipe de plataforma capaz de manter o chassis como produto interno.
 
-### Quando evitar
+## Quando evitar
 
 - Quando há poucos serviços ou uma única equipe; o custo de manter um framework próprio supera o ganho.
 - Quando o ambiente é altamente poliglota e não há volume suficiente para justificar um chassis por linguagem.

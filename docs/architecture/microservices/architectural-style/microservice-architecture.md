@@ -35,7 +35,7 @@ O estilo troca a simplicidade de um componente único por autonomia de equipes e
 - Organizações com várias equipes multifuncionais e entrega contínua automatizada.
 - Quando subdomínios têm requisitos distintos de escala, disponibilidade, segurança ou tecnologia.
 
-### Quando evitar
+## Quando evitar
 
 - Aplicações pequenas ou com domínio ainda instável, onde as fronteiras de serviço seriam adivinhadas.
 - Equipes sem maturidade em automação, observabilidade e operação de sistemas distribuídos.

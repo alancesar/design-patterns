@@ -31,7 +31,7 @@ Scaling is done by increasing or decreasing the number of VMs, which IaaS platfo
 - When strong isolation between services is required.
 - When the team prefers an immutable, uniform deployment unit.
 
-### When to avoid
+## When to avoid
 
 - When you need to build and deploy very frequently and quickly.
 - When the cost and slowness of creating images make the delivery cycle unworkable.

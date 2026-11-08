@@ -32,7 +32,7 @@ The effort should be directed at the Core Domain, where the business's competiti
 - When new requirements demand repeated patches in the same spot in the code.
 - In the Core Domain, where a deeper model is worth the investment.
 
-### When to avoid
+## When to avoid
 
 - In generic or supporting subdomains, where an off-the-shelf or simple solution is enough.
 - Without tests that protect behavior: large-scale refactoring becomes risky.

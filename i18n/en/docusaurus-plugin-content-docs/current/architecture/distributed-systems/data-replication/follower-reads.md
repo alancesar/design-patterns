@@ -31,7 +31,7 @@ It appears in Kafka (consumers reading from replicas), ZooKeeper (reads from any
 - Multi-region deployments, where local reads reduce latency.
 - When slightly stale data is acceptable or reads can be made by minimum version.
 
-### When to avoid
+## When to avoid
 
 - Workloads that always require the latest read (linearizability) with no versioning mechanism.
 - Systems where a read right after a write must reflect the client's own write and there is no session guarantee.

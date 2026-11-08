@@ -36,7 +36,7 @@ Com isso, a aplicação mantém o controle de quem acessa o quê e por quanto te
 - Quando os dados ficam em um repositório remoto ou em outra região, e passar pela aplicação geraria tráfego extra.
 - Quando clientes não confiáveis, como navegadores ou apps móveis, precisam de acesso pontual e temporário a recursos específicos.
 
-### Quando evitar
+## Quando evitar
 
 - Quando os clientes já se autenticam de forma individual no recurso de destino com controle de acesso baseado em identidade.
 - Quando a aplicação precisa processar os dados antes de armazená-los ou entregá-los, por exemplo para validar, transformar ou registrar cada acesso.

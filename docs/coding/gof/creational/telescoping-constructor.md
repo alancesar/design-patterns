@@ -33,7 +33,7 @@ Ainda assim, a técnica tem méritos reais: produz objetos imutáveis e completa
 - Imutabilidade e inicialização atômica são desejáveis e não se quer o custo de uma classe Builder
 - A linguagem não oferece parâmetros nomeados nem valores padrão
 
-### Quando evitar
+## Quando evitar
 
 - Há muitos parâmetros opcionais, ou eles crescem com frequência — prefira o [Builder](/coding/gof/creational/builder)
 - Vários parâmetros consecutivos têm o mesmo tipo (ex.: vários `int` ou `boolean`), o que facilita trocar argumentos sem erro de compilação

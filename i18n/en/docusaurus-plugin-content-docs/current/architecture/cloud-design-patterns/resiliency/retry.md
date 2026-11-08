@@ -32,7 +32,7 @@ The retry logic is usually encapsulated in a reusable policy (maximum number of 
 - When the operation is idempotent, or can be made idempotent, so that repeating it is safe
 - In batch or background processing, which tolerates more attempts with longer intervals
 
-### When to avoid
+## When to avoid
 
 - When the failure is likely to be long-lasting: retrying only wastes time and resources and hurts responsiveness (prefer a Circuit Breaker)
 - For failures that aren't transient, such as business logic, validation, or authorization errors

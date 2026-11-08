@@ -31,7 +31,7 @@ Como a transação de negócio se estende por várias requisições (e, portanto
 - Quando a maioria das sessões é de leitura ou toca registros diferentes.
 - Em APIs HTTP e UIs web, em que não se pode manter bloqueios entre requisições.
 
-### Quando evitar
+## Quando evitar
 
 - Quando conflitos são frequentes ou o custo de perder o trabalho do usuário é alto; o Pessimistic Offline Lock é mais adequado.
 - Quando o sistema não consegue lidar com falhas de commit de forma amigável (sem fluxo de retry ou de resolução de conflito).

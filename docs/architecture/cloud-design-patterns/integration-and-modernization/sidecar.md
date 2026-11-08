@@ -36,7 +36,7 @@ Como o sidecar é independente da linguagem e do runtime da aplicação, uma mes
 - Deseja-se controle fino de limites de recursos (CPU, memória) para um componente específico, isolado da aplicação.
 - É preciso adicionar observabilidade ou controles de segurança sem acoplar dependências ao código da aplicação.
 
-### Quando evitar
+## Quando evitar
 
 - A comunicação entre processos precisa ser altamente otimizada; a sobrecarga do sidecar, especialmente em latência, prejudica interações muito frequentes.
 - A aplicação é pequena e o custo de recursos de um sidecar por instância supera os benefícios do isolamento.

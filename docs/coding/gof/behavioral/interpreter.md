@@ -33,7 +33,7 @@ O padrão não trata da análise sintática (parsing): ele assume que a árvore 
 - É útil expressar o problema como sentenças de uma DSL (por exemplo, regras de validação, expressões booleanas, especificações de busca)
 - As mesmas expressões precisam ser avaliadas contra vários contextos
 
-### Quando evitar
+## Quando evitar
 
 - A gramática é grande ou complexa: o número de classes explode e a manutenção fica difícil; prefira geradores de parser ou bibliotecas de expressão
 - O desempenho é crítico: interpretar uma AST recursivamente é mais lento que código compilado ou tabelas de estado

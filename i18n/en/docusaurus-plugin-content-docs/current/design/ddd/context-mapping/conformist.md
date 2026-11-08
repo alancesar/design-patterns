@@ -31,7 +31,7 @@ It's similar to Shared Kernel in outcome, but the difference is political: here 
 - The upstream is large, external, or immutable (a product, an industry standard, a third-party API).
 - The cost of an Anticorruption Layer isn't worth the gain of having your own model.
 
-### When to avoid
+## When to avoid
 
 - The upstream's model is confusing, low quality, or incompatible with the downstream's domain; in that case, protect yourself with an Anticorruption Layer.
 - The downstream context is part of the Core Domain and needs its own expressive model.

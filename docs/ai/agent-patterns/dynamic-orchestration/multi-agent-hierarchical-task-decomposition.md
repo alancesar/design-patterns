@@ -30,7 +30,7 @@ Os agentes se organizam em uma hierarquia de vários níveis. Um agente raiz div
 - Tarefas que se decompõem naturalmente em subtarefas, por sua vez decomponíveis.
 - Quando a qualidade e a abrangência pesam mais que custo e latência.
 
-### Quando evitar
+## Quando evitar
 
 - Problemas mais simples, em que as camadas extras só acrescentam complexidade.
 - Latência e custo são críticos, pois o número de chamadas ao modelo é alto.

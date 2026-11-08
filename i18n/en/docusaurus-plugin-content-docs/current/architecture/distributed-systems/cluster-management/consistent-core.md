@@ -33,7 +33,7 @@ It's the architecture behind services like ZooKeeper, etcd, and Consul, and also
 - Systems where metadata is small and changes rarely compared to the volume of data.
 - When you want to reuse an existing coordination service (ZooKeeper, etcd, Consul) instead of implementing consensus in every product.
 
-### When to avoid
+## When to avoid
 
 - Small clusters, where the data cluster itself can already run the consensus.
 - When it's tempting to store application data in the core: it wasn't designed for high write volume.

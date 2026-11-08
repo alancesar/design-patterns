@@ -33,7 +33,7 @@ If the connection drops, the sender reopens it and resends whatever hasn't been 
 - Replication flows where message order matters (replicated log, state updates).
 - When you want ordering and reliable delivery delegated to TCP, instead of your own numbering and acknowledgments.
 
-### When to avoid
+## When to avoid
 
 - When messages are independent and order doesn't matter: multiple connections may yield more throughput.
 - When a large or slow message must not block the others (head-of-line blocking) and there is no way to segment them.

@@ -45,7 +45,7 @@ Para que isso funcione sob concorrência, a correção é garantida pelo armazen
 - Vários consumidores concorrentes processam o mesmo canal, aumentando a chance de duplicatas simultâneas.
 - Fora do contexto de mensageria: pipelines ETL que reprocessam dados, processamento de streams retomado a partir de *checkpoint*, jobs agendados que se sobrepõem ou reiniciam, e endpoints de webhook/HTTP que recebem entregas duplicadas.
 
-### Quando evitar
+## Quando evitar
 
 - As operações do consumidor já são naturalmente idempotentes (por exemplo, *upsert* por identificador de negócio, escrita de valor absoluto em vez de incremento, `PUT` em um recurso), tornando a contabilidade de deduplicação um custo sem benefício.
 - A carga de trabalho tolera os efeitos de duplicatas ocasionais e o custo de manter um armazenamento de deduplicação supera o impacto de uma duplicata.

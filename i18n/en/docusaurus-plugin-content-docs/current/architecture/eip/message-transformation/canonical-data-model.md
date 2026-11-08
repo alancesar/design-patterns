@@ -32,7 +32,7 @@ The model belongs to the set of applications rather than to any one system, whic
 - Producers and consumers need to be decoupled from each other's internal formats.
 - The organization wants a shared, governed data vocabulary.
 
-### When to avoid
+## When to avoid
 
 - Only a few applications (two or three) are integrating: the intermediate model is more work than translating directly.
 - Consensus on a common model is infeasible or costly, and the model tends to become a poor lowest common denominator.

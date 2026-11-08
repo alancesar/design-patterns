@@ -31,7 +31,7 @@ So that the parts can be recombined later, it's common for each message to carry
 - You want to process elements in parallel
 - Each part is routed to different destinations
 
-### When to avoid
+## When to avoid
 
 - Processing requires an atomic view of the whole and can't be split
 - The cost of regrouping the parts outweighs the gain from splitting

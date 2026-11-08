@@ -30,7 +30,7 @@ Muitos sistemas redirecionam mensagens expiradas para um Dead Letter Channel; ou
 - Destinos com limite de taxa, como endpoints HTTP, em que o backlog cresce.
 - Para evitar agir sobre instruções desatualizadas.
 
-### Quando evitar
+## Quando evitar
 
 - Quando toda mensagem deve ser processada, por mais tarde que seja.
 - Quando assinantes que entram depois precisam receber mensagens antigas; nesse caso prefira retenção maior ou assinaturas duráveis.

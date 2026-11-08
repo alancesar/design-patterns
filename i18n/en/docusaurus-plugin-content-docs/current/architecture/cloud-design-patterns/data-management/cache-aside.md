@@ -34,7 +34,7 @@ The pattern suits caches that don't offer native *read-through* or *write-throug
 - The load is dominated by reads of data that changes little and tolerates some update delay.
 - Several processes or application instances need to share a distributed cache (for example, Azure Managed Redis).
 
-### When to avoid
+## When to avoid
 
 - The dataset is static and fits in the cache. In that case, it's better to preload everything at startup and not expire the items.
 - Most requests would result in a *cache miss*. The cost of querying and populating the cache outweighs the gain.

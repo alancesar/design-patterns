@@ -42,7 +42,7 @@ Em microsserviços, o Event Sourcing resolve um problema central: como atualizar
 - Quando se usa CQRS e a consistência eventual dos modelos de leitura é aceitável.
 - Em partes específicas do sistema que mais se beneficiam, como um livro-razão de pagamentos ou um pipeline de pedidos (a adoção não precisa ser total).
 
-### Quando evitar
+## Quando evitar
 
 - Sistemas CRUD simples, sem necessidade de auditoria, replay ou reconstrução histórica.
 - Protótipos, MVPs ou sistemas de vida curta, em que o investimento inicial não se paga.

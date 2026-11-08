@@ -29,7 +29,7 @@ Each message carries three fields: a sequence identifier, which groups the messa
 - When a reply to a request needs to be fragmented.
 - When the data can be processed and reassembled in parts.
 
-### When to avoid
+## When to avoid
 
 - When the data can be stored in a data store and only a reference sent (Claim Check).
 - When the infrastructure can't guarantee ordering and completeness and there's no way to reassemble.

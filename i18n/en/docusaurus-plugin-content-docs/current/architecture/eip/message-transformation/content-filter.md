@@ -32,7 +32,7 @@ It's the opposite of the Content Enricher: instead of adding what's missing, it 
 - Exposure of sensitive information to a specific consumer must be limited.
 - Complex structures must be simplified or flattened before moving on.
 
-### When to avoid
+## When to avoid
 
 - Other downstream consumers may need the removed fields and there's no way to recover them (consider a Claim Check to store the content).
 - What you want is to discard entire messages: use a Message Filter.

@@ -33,7 +33,7 @@ It isn't one of the 23 patterns in the Gang of Four book. It appears in compleme
 - When the language doesn't offer good native immutability features (`final`, `readonly`, `const`).
 - When the object is shared between threads and needs state that's safe for concurrent reads.
 
-### When to avoid
+## When to avoid
 
 - When the language already offers simple immutability (records, `readonly`, `data class`, `frozen dataclass`) that solves the problem without an extra class.
 - In small classes with few fields, where the indirection only adds code.

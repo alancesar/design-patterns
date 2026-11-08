@@ -33,7 +33,7 @@ Em memória local, a abordagem é simples e rápida, mas prende o usuário a uma
 - Quando há um session store compartilhado (Redis) que permite manter as instâncias intercambiáveis.
 - Quando a perda ocasional da sessão é tolerável.
 
-### Quando evitar
+## Quando evitar
 
 - Quando o estado precisa sobreviver a reinícios e falhas sem exceção; prefira persistir em banco.
 - Quando se usa memória local em várias instâncias sem sticky sessions, o que causa sessões "perdidas".

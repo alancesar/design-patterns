@@ -30,7 +30,7 @@ A carga do objeto referenciado costuma ser adiada com Lazy Load, para evitar car
 - Em associações de um-para-um, muitos-para-um e um-para-muitos entre entidades.
 - Quando as entidades têm identidade própria e ciclo de vida independente.
 
-### Quando evitar
+## Quando evitar
 
 - Em associações muitos-para-muitos: use Association Table Mapping.
 - Quando o filho é dependente exclusivo do pai: considere Dependent Mapping.

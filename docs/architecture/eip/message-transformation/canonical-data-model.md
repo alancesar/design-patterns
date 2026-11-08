@@ -32,7 +32,7 @@ O modelo pertence ao conjunto de aplicações e não a um sistema específico, o
 - Há necessidade de desacoplar produtores e consumidores dos formatos internos uns dos outros.
 - A organização quer um vocabulário de dados compartilhado e governado.
 
-### Quando evitar
+## Quando evitar
 
 - Poucas aplicações (duas ou três) se integram: o modelo intermediário dá mais trabalho que traduzir diretamente.
 - O consenso sobre um modelo comum é inviável ou custoso, e o modelo tende a virar um denominador comum pobre.

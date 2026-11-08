@@ -31,7 +31,7 @@ Don't confuse it with PoEAA's Service Layer or with application-layer services: 
 - When the operation involves multiple aggregates or entities.
 - When the logic is stateless and expressed in terms of the model.
 
-### When to avoid
+## When to avoid
 
 - When the operation naturally belongs to an entity or Value Object.
 - When the service would be just technical orchestration (that's the application layer).

@@ -36,7 +36,7 @@ Because commands are first-class objects, they can be stored in a history, compo
 - When operations must be logged and replayable (journaling, simplified event sourcing)
 - When different triggers (button, shortcut, menu, API) must fire the same operation
 
-### When to avoid
+## When to avoid
 
 - When the operation is simple, synchronous, and called from a single place: a direct method call or a function/lambda is enough
 - When there's no need for history, queue, log, or decoupling between sender and receiver

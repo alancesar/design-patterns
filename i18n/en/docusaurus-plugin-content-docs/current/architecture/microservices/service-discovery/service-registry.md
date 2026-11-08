@@ -30,7 +30,7 @@ Optionally, the registry calls each instance's health check API to confirm it ca
 - Whenever you adopt Client-side or Server-side Discovery in dynamic environments.
 - When instances autoscale and change addresses.
 
-### When to avoid
+## When to avoid
 
 - When the infrastructure already provides a built-in registry, making it unnecessary to operate another one.
 - In systems with few services at static addresses.

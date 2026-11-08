@@ -33,7 +33,7 @@ Still, the technique has real merits: it produces immutable, fully initialized o
 - Immutability and atomic initialization are desirable and you don't want the cost of a Builder class
 - The language offers neither named parameters nor default values
 
-### When to avoid
+## When to avoid
 
 - There are many optional parameters, or they grow frequently — prefer [Builder](/coding/gof/creational/builder)
 - Several consecutive parameters have the same type (e.g., several `int` or `boolean`), which makes it easy to swap arguments without a compile error

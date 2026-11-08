@@ -31,7 +31,7 @@ A escala é feita aumentando ou diminuindo o número de VMs, o que plataformas I
 - Quando é necessário isolamento forte entre serviços.
 - Quando a equipe prefere uma unidade de implantação imutável e uniforme.
 
-### Quando evitar
+## Quando evitar
 
 - Quando é preciso construir e implantar com muita frequência e rapidez.
 - Quando o custo e a lentidão da criação de imagens inviabilizam o ciclo de entrega.

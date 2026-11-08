@@ -31,7 +31,7 @@ Um código genérico lê esses metadados e executa as operações de leitura, in
 - Quando se quer adotar ou construir um ORM em vez de escrever mapeadores um a um.
 - Quando é preciso gerar esquema, DDL ou consultas a partir de uma única descrição.
 
-### Quando evitar
+## Quando evitar
 
 - Quando há poucas tabelas e o mapeamento manual é mais simples de entender.
 - Quando o mapeamento é muito irregular e o motor genérico precisaria de tantas exceções que perderia o valor.

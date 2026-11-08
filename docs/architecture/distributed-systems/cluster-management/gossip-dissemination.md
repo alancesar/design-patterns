@@ -32,7 +32,7 @@ Como a escolha dos pares é aleatória, a informação alcança todos os nós em
 - Sistemas que aceitam consistência eventual para os metadados.
 - Detecção de falhas em escala, combinada com [Heartbeat](/architecture/distributed-systems/data-replication/heartbeat) indireto.
 
-### Quando evitar
+## Quando evitar
 
 - Decisões que exigem consistência forte ou ordem total (use um [Consistent Core](/architecture/distributed-systems/cluster-management/consistent-core)).
 - Clusters pequenos, em que enviar a todos é barato e mais simples.

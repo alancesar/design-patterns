@@ -32,7 +32,7 @@ O Paxos básico decide um único valor; Multi-Paxos repete o processo para uma s
 - Como base de um Replicated Log em sistemas que exigem forte consistência.
 - Para acordar configuração ou metadados críticos do cluster.
 
-### Quando evitar
+## Quando evitar
 
 - Quando o simples Leader and Followers com um serviço de consenso externo (ZooKeeper, etcd) resolve; evite implementar Paxos do zero.
 - Sistemas que toleram consistência eventual.

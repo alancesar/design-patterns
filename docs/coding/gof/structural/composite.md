@@ -33,7 +33,7 @@ Com isso, o código cliente não precisa distinguir se está lidando com um elem
 - Quando o cliente deve ignorar a diferença entre objetos individuais e composições
 - Quando novas espécies de folhas ou compostos podem surgir sem alterar o código cliente
 
-### Quando evitar
+## Quando evitar
 
 - Quando a estrutura é plana ou tem um único nível; uma simples lista basta
 - Quando folhas e compostos têm comportamentos muito diferentes, tornando a interface comum artificial ou cheia de operações sem sentido para um dos lados

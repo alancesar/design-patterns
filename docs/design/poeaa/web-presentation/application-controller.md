@@ -30,7 +30,7 @@ O padrão tem duas partes: uma que mapeia a entrada para a lógica de domínio a
 - Quando as regras de navegação mudam com frequência ou são configuráveis.
 - Quando se quer testar a navegação sem o framework web.
 
-### Quando evitar
+## Quando evitar
 
 - Quando a navegação é simples e linear, que um mapeamento direto resolve.
 - Quando o framework já traz máquina de fluxos (Spring Web Flow) e basta usá-la.

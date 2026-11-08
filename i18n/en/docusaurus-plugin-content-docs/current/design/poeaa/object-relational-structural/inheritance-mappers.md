@@ -30,7 +30,7 @@ It doesn't matter which schema is chosen (Single Table, Class Table, or Concrete
 - When the domain has an inheritance hierarchy mapped with Data Mapper.
 - When the three inheritance schemas need to share a consistent code structure.
 
-### When to avoid
+## When to avoid
 
 - When using an ORM framework that already handles inheritance through metadata.
 - When the hierarchy is shallow and direct mapping is enough.

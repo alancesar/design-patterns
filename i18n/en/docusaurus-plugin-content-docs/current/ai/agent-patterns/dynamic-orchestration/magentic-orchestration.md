@@ -34,7 +34,7 @@ It's also known as *dynamic orchestration*, *task-ledger-based orchestration*, o
 - The need for a complete plan of approach for human review before or after implementation.
 - Tool-using agents that interact with external systems, consume resources, or change running systems, where the documented plan can be shown to the user before the tasks are released.
 
-### When to avoid
+## When to avoid
 
 - The solution path is, or should be, deterministic.
 - There's no need to produce a ledger.

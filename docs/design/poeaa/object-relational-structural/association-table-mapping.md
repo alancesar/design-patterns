@@ -28,7 +28,7 @@ Se a relação tiver atributos próprios (data, papel), a tabela de associação
 - Em relações muitos-para-muitos entre entidades.
 - Quando a associação existe de forma independente das duas pontas.
 
-### Quando evitar
+## Quando evitar
 
 - Em associações um-para-muitos simples: use Foreign Key Mapping.
 - Quando a relação tem comportamento próprio: modele-a como entidade.

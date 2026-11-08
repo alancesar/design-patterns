@@ -32,7 +32,7 @@ It often goes hand in hand with Open-host Service: the service defines the proto
 - There's an industry standard that expresses the domain well.
 - There's a need to document and version the integration contract.
 
-### When to avoid
+## When to avoid
 
 - Only two closely related contexts integrate, and a Shared Kernel or a direct translation is enough.
 - The cost of documenting and maintaining the language outweighs the benefit, in throwaway integrations.

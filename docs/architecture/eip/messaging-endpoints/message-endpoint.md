@@ -30,7 +30,7 @@ Na prática, o endpoint é um padrão "guarda-chuva": os demais padrões do grup
 - Sempre que uma aplicação participa de uma integração por mensageria, seja produzindo ou consumindo mensagens.
 - Quando se quer isolar a aplicação da tecnologia de mensageria escolhida.
 
-### Quando evitar
+## Quando evitar
 
 - Quando o próprio código da aplicação já é nativo de mensageria e uma camada extra só repetiria a API do cliente.
 - Em integrações muito simples e descartáveis, em que a separação não compensa.

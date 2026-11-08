@@ -31,7 +31,7 @@ O padrão alinha a granularidade do bloqueio com a fronteira de consistência do
 - Quando o custo de gerenciar bloqueios por objeto é alto.
 - Em conjunto com Optimistic ou Pessimistic Offline Lock para alinhar o bloqueio ao agregado.
 
-### Quando evitar
+## Quando evitar
 
 - Quando objetos do grupo são editados com frequência de forma independente; o bloqueio grosso gera contenção desnecessária.
 - Quando o grupo é muito grande, e bloqueá-lo inteiro impede trabalho paralelo legítimo.

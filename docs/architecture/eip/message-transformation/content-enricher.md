@@ -32,7 +32,7 @@ Com isso, remetentes não precisam carregar todos os campos que qualquer destina
 - É necessário converter identificadores em informação completa antes de roteamento ou processamento.
 - Dados guardados temporariamente por um Claim Check precisam voltar à mensagem.
 
-### Quando evitar
+## Quando evitar
 
 - A informação adicional não é confiável ou muda tão rápido que o valor consultado fica inconsistente.
 - A consulta ao sistema externo é lenta ou pouco disponível e pode se tornar gargalo para o fluxo.

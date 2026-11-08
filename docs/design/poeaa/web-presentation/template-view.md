@@ -29,7 +29,7 @@ Os marcadores podem ser tags customizadas, expressões ou, nas formas mais probl
 - Quando a página tem estrutura fixa com poucos pontos dinâmicos.
 - Quando designers e programadores colaboram nos mesmos arquivos.
 
-### Quando evitar
+## Quando evitar
 
 - Quando as páginas exigem muita lógica de apresentação, que tende a vazar para os templates.
 - Quando a mesma saída precisa de formatos muito diferentes, caso em que Transform View pode ser melhor.

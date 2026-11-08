@@ -31,7 +31,7 @@ Aparece em Kafka (consumidores lendo de réplicas), ZooKeeper (leituras em qualq
 - Implantações em várias regiões, em que leituras locais reduzem a latência.
 - Quando dados ligeiramente defasados são aceitáveis ou há leitura por versão mínima.
 
-### Quando evitar
+## Quando evitar
 
 - Cargas que exigem sempre a leitura mais recente (linearizabilidade) sem mecanismo de versão.
 - Sistemas em que a leitura logo após a escrita precisa refletir a escrita do próprio cliente e não há garantia de sessão.

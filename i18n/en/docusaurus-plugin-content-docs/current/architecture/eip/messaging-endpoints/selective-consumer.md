@@ -30,7 +30,7 @@ This lets a single channel behave like several Datatype Channels, which helps wh
 - When a channel carries several message types and each consumer handles a subset.
 - When the messaging system supports server-side selectors.
 
-### When to avoid
+## When to avoid
 
 - When dedicated channels per type are available at an acceptable cost.
 - When messages with no compatible consumer could sit idle indefinitely.

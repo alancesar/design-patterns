@@ -30,7 +30,7 @@ It suits ambiguous, open-ended problems that require multi-step reasoning, such 
 - Tasks that decompose naturally into subtasks that can themselves be decomposed.
 - When quality and comprehensiveness matter more than cost and latency.
 
-### When to avoid
+## When to avoid
 
 - Simpler problems, where the extra layers only add complexity.
 - Latency and cost are critical, since the number of model calls is high.

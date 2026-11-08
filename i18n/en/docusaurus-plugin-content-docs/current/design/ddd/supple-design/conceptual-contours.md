@@ -32,7 +32,7 @@ Contours are rarely found on the first attempt. The team discovers them by refac
 - When reviewing the model after new insights into the domain.
 - In Aggregates and classes whose boundary seems arbitrary.
 
-### When to avoid
+## When to avoid
 
 - Before knowing the domain reasonably well: a division made early tends to be reworked.
 - As an excuse for endless refactoring: apply it when there is concrete pain with change.

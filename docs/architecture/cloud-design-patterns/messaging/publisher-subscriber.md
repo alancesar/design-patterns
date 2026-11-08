@@ -45,7 +45,7 @@ No vocabulário do Enterprise Integration Patterns (Hohpe e Woolf), o mesmo padr
 - Os sistemas integrados aceitam um modelo de consistência eventual para seus dados.
 - Os consumidores têm requisitos de disponibilidade ou janelas de funcionamento diferentes das do remetente.
 
-### Quando evitar
+## Quando evitar
 
 - Há poucos consumidores e cada um precisa de informações bem diferentes; o broker adiciona complexidade sem benefício de escala, e comunicação direta ou filas separadas podem ser mais adequadas.
 - A interação precisa ser quase em tempo real ou o publisher precisa de uma resposta síncrona; prefira request-reply.

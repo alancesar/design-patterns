@@ -30,7 +30,7 @@ Exceptions should still be written to the logs, in addition to being reported to
 - Many services and instances, where reading logs to find exceptions is impractical
 - Teams that need to prioritize and track the fixing of errors
 
-### When to avoid
+## When to avoid
 
 - Small applications, where the existing logs and alerts are enough
 - When sensitive data in stack traces and context can't be sent to an external service

@@ -30,7 +30,7 @@ O ciclo de vida é controlado pelo dono: quando ele é removido, os filhos tamb�
 - Quando o dependente não é consultado de forma independente.
 - Em Aggregates de DDD, para os objetos internos ao agregado.
 
-### Quando evitar
+## Quando evitar
 
 - Quando outros objetos precisam referenciar o dependente diretamente.
 - Quando a coleção é muito grande e regravá-la a cada alteração é caro.

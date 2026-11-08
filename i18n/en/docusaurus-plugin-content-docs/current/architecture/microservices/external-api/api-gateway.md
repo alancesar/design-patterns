@@ -36,7 +36,7 @@ In the microservices.io catalog, then, the API Gateway brings together in a sing
 - You want to hide the internal structure, the location of instances, and internal protocols from the client.
 - A central point is needed to authenticate clients and pass identity information on to the services.
 
-### When to avoid
+## When to avoid
 
 - The application is a monolith or has few services and a single type of client, and direct access is enough.
 - The team can't operate one more critical production component.

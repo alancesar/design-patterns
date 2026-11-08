@@ -31,7 +31,7 @@ Em cenários mais sofisticados, o roteador evolui para um mecanismo de regras co
 - É preciso esconder do remetente a divisão de responsabilidades entre sistemas
 - As regras de roteamento mudam e precisam ficar em um único lugar
 
-### Quando evitar
+## Quando evitar
 
 - O destino pode ser decidido pelo remetente de forma trivial
 - Os destinatários precisam se registrar dinamicamente; considere o [Dynamic Router](/architecture/eip/message-routing/dynamic-router)

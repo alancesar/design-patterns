@@ -33,7 +33,7 @@ The pattern doesn't deal with parsing: it assumes the tree has already been buil
 - It's useful to express the problem as sentences of a DSL (for example, validation rules, boolean expressions, search specifications)
 - The same expressions need to be evaluated against several contexts
 
-### When to avoid
+## When to avoid
 
 - The grammar is large or complex: the number of classes explodes and maintenance gets hard; prefer parser generators or expression libraries
 - Performance is critical: recursively interpreting an AST is slower than compiled code or state tables

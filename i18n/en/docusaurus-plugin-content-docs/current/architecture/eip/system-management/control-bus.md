@@ -30,7 +30,7 @@ Every component of the solution connects to two subsystems: the business message
 - A need to change routing rules or turn routes on and off dynamically.
 - When messaging infrastructure already exists and can be reused for management.
 
-### When to avoid
+## When to avoid
 
 - Small solutions with few components, where file-based configuration or a local console is enough.
 - When control commands require a synchronous, guaranteed response that the asynchronous channel can't provide.

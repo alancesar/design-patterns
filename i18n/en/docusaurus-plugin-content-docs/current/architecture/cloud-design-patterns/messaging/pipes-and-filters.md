@@ -39,7 +39,7 @@ A common implementation uses a sequence of message queues as pipes, with each fi
 - You want a reliable solution that minimizes the impact of a step failing while data is being processed
 - Data pipelines, ETL, media processing (moderation, resizing, watermarking, metadata stripping, CDN publishing), and event ingestion
 
-### When to avoid
+## When to avoid
 
 - The application follows a synchronous request-response model and the processing has to finish within the initial request
 - The steps aren't independent or must run together in a single transaction

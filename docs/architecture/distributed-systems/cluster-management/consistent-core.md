@@ -33,7 +33,7 @@ O cluster de dados não participa do consenso. Ele consulta o núcleo e usa prim
 - Sistemas em que metadados são pequenos e mudam pouco, comparados ao volume de dados.
 - Quando se quer reaproveitar um serviço de coordenação existente (ZooKeeper, etcd, Consul) em vez de implementar consenso em cada produto.
 
-### Quando evitar
+## Quando evitar
 
 - Clusters pequenos, em que o próprio cluster de dados já pode executar o consenso.
 - Quando guardar dados de aplicação no núcleo for tentador: ele não foi feito para alto volume de escrita.

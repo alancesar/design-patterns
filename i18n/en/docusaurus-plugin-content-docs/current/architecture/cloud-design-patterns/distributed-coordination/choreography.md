@@ -34,7 +34,7 @@ As a result, components are loosely coupled and can be added, replaced, or remov
 - Communication between different bounded contexts, which requires low coupling across domain boundaries
 - The central orchestrator has become a performance bottleneck
 
-### When to avoid
+## When to avoid
 
 - The application is complex and needs a central component with shared logic to keep the services simple
 - Point-to-point communication between components is unavoidable

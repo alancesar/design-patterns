@@ -31,7 +31,7 @@ Para que as partes possam ser recombinadas depois, é comum que cada mensagem ca
 - Quer-se processar elementos em paralelo
 - Cada parte é roteada para destinos diferentes
 
-### Quando evitar
+## Quando evitar
 
 - O processamento exige visão atômica do conjunto e não pode ser dividido
 - O custo de reagrupar as partes supera o ganho de dividir

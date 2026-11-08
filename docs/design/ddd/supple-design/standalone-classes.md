@@ -32,7 +32,7 @@ Quando se consegue um Standalone Class, o ganho é grande: o conceito pode ser e
 - Ao modelar Value Objects e cálculos puros.
 - Em revisões de modelo, para identificar dependências que não são essenciais.
 
-### Quando evitar
+## Quando evitar
 
 - Quando o conceito é, por natureza, uma relação com outros: forçar o isolamento esconde a associação real.
 - Quando o isolamento exige duplicar lógica de outras classes, aumentando o custo total.

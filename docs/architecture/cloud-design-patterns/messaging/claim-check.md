@@ -41,7 +41,7 @@ Com isso, o broker trafega apenas mensagens pequenas, enquanto o armazenamento e
 - O payload (ou parte dele) contém informações sensíveis que não devem ficar visíveis na mensageria; o conteúdo vai para um armazenamento com controles de acesso dedicados.
 - As mensagens passam por várias etapas de roteamento que serializam, desserializam, criptografam ou descriptografam; trafegar só o token reduz o processamento repetido e a latência acumulada.
 
-### Quando evitar
+## Quando evitar
 
 - A latência ponta a ponta é mais crítica que o tamanho do payload e os saltos extras de rede para gravar e buscar o conteúdo não são aceitáveis.
 - Existe um transporte ou camada que suporta o tamanho do payload sem prejuízo relevante de throughput ou latência (por exemplo, o tier Premium do Azure Service Bus aceita mensagens grandes); enviar inline é mais simples.

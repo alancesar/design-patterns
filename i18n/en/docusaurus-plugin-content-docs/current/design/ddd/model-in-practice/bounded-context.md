@@ -33,7 +33,7 @@ The Bounded Context is the foundation of strategic design: it's where the Ubiqui
 - When more than one team contributes to the same system and the model starts to become incoherent.
 - When designing the decomposition of a large system, whether into modules or services.
 
-### When to avoid
+## When to avoid
 
 - Small systems maintained by a single team, where one cohesive model is enough.
 - When the boundary is drawn on technical criteria alone (layers, technology) and ignores the meaning of the domain.

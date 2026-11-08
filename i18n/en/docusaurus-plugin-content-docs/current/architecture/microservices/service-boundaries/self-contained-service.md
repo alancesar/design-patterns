@@ -29,7 +29,7 @@ There are two ways to achieve this: absorb the needed functionality as a module 
 - In critical, high-availability, low-latency operations that currently depend on several synchronous calls
 - When other services' data can be replicated locally and eventual consistency is acceptable
 
-### When to avoid
+## When to avoid
 
 - When the operation requires strong, immediate consistency with other services' data
 - When the cost of CQRS and sagas outweighs the availability gain

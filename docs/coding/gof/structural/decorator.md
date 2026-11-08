@@ -34,7 +34,7 @@ Decoradores podem ser empilhados: cada camada adiciona um comportamento, e a ord
 - Quando a herança é impraticável, seja por gerar muitas subclasses, seja por a classe não permitir extensão.
 - Para aplicar comportamentos transversais (logging, cache, autorização, compressão) mantendo o Single Responsibility Principle.
 
-### Quando evitar
+## Quando evitar
 
 - Quando o cliente depende da identidade ou do tipo concreto do objeto (o decorador é um objeto diferente do componente embrulhado).
 - Quando a interface do componente é muito extensa, obrigando cada decorador a delegar dezenas de métodos.

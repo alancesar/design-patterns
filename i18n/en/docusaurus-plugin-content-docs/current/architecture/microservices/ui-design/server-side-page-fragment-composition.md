@@ -29,7 +29,7 @@ In this pattern, each team develops a web application that generates the HTML fr
 - When SEO and time to first render are important
 - When service teams want to deliver their fragments independently
 
-### When to avoid
+## When to avoid
 
 - Highly interactive interfaces that depend on rich client-side components
 - When the latency of assembling many fragments in series on the server is unacceptable

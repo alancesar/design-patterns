@@ -31,7 +31,7 @@ Many brokers offer this behavior natively, through sessions, message groups, or 
 - Messages can be categorized so that each category is an independent unit of scale.
 - Many categories are active at the same time, which allows real parallelism across groups.
 
-### When to avoid
+## When to avoid
 
 - Extremely high-throughput scenarios (millions of messages per minute), where the FIFO requirement limits the achievable scale.
 - Message order doesn't matter; in that case Competing Consumers offers simpler horizontal scaling, without the cost of per-session coordination.

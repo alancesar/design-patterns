@@ -31,7 +31,7 @@ O custo é multiplicar canais: cada novo tipo de dado exige um novo canal, e o r
 - O consumidor se especializa em um único tipo de documento ou comando.
 - Se deseja segurança e monitoramento diferenciados por tipo de dado.
 
-### Quando evitar
+## Quando evitar
 
 - Quando o número de tipos é grande ou muda com frequência, levando a uma explosão de canais; considere um indicador de formato dentro da mensagem ou um modelo de dados canônico.
 - Quando as mensagens variam só em pequenos detalhes de um mesmo tipo.

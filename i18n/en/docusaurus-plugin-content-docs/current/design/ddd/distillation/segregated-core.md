@@ -32,7 +32,7 @@ The cost is a significant refactoring. Elements that serve both the core and the
 - When there's a team or investment dedicated to the core and its work needs to be isolated.
 - When the core is large and visual highlighting isn't enough to manage it.
 
-### When to avoid
+## When to avoid
 
 - When the core is small or the separation brings no noticeable gain in clarity.
 - When the cost and risk of refactoring outweigh the benefit, in which case the [Highlighted Core](/design/ddd/distillation/highlighted-core) is enough.

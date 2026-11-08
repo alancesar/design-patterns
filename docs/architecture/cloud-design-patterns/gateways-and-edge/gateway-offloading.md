@@ -38,7 +38,7 @@ A lógica de negócio nunca deve ser transferida para o gateway: ele concentra a
 - Quando se deseja transferir para uma equipe especializada a responsabilidade por segurança de rede, throttling ou outras preocupações de borda.
 - Quando se quer padronizar políticas (por exemplo, WAF, política de TLS, limites de taxa) em um único ponto de controle.
 
-### Quando evitar
+## Quando evitar
 
 - Quando o gateway precisaria conter lógica ou regras de roteamento específicas de cada serviço, acoplando mudanças do backend a mudanças na configuração do gateway e reduzindo a independência de implantação.
 - Quando a funcionalidade transferida é leve e a carga de trabalho é muito sensível à latência, de modo que o salto adicional de rede não compensa.

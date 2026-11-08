@@ -32,7 +32,7 @@ O risco é a rigidez: uma linguagem declarativa limitada pode impedir o que o do
 - Quando existe um modelo estável e conceitos que se combinam (por exemplo, Specifications).
 - Quando o mesmo conjunto de regras serve para validar, selecionar e construir.
 
-### Quando evitar
+## Quando evitar
 
 - Em domínios ainda mal entendidos, em que a linguagem declarativa vira camisa de força.
 - Quando o custo de criar e manter o motor ou a DSL supera o ganho.

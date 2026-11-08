@@ -32,7 +32,7 @@ The relay's delivery is "at least once": it may publish the same message more th
 - The database or the broker doesn't support distributed transactions.
 - You need to guarantee that no event is lost or emitted without the corresponding data change.
 
-### When to avoid
+## When to avoid
 
 - The service uses Event Sourcing, where the event store already plays the role of a publishable event log.
 - Occasional message loss is acceptable and the extra complexity isn't justified.

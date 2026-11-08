@@ -32,7 +32,7 @@ O controle do fluxo permanece na classe base, aplicando o chamado "Princípio de
 - Em frameworks e bibliotecas que oferecem pontos de extensão (hooks) bem definidos ao código cliente
 - Ao refatorar código duplicado em subclasses, promovendo o comportamento comum para a superclasse
 
-### Quando evitar
+## Quando evitar
 
 - Quando os passos variáveis precisam ser trocados em tempo de execução — prefira Strategy (composição)
 - Quando o algoritmo tem muitos passos customizáveis, gerando hierarquias grandes e difíceis de entender

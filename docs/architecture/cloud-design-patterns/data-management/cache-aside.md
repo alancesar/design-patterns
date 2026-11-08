@@ -34,7 +34,7 @@ O padrão serve para caches que não oferecem *read-through* ou *write-through* 
 - A carga é dominada por leituras de dados que mudam pouco e toleram algum atraso de atualização.
 - Vários processos ou instâncias da aplicação precisam compartilhar um cache distribuído (por exemplo, Azure Managed Redis).
 
-### Quando evitar
+## Quando evitar
 
 - O conjunto de dados é estático e cabe no cache. Nesse caso, é melhor pré-carregar tudo na inicialização e não expirar os itens.
 - A maioria das requisições resultaria em *cache miss*. O custo de consultar e popular o cache supera o ganho.

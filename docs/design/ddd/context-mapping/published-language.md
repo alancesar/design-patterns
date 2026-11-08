@@ -32,7 +32,7 @@ Costuma andar junto ao Open-host Service: o serviço define o protocolo, e a Pub
 - Existe um padrão de mercado que expressa bem o domínio.
 - Há necessidade de documentar e versionar o contrato de integração.
 
-### Quando evitar
+## Quando evitar
 
 - Somente dois contextos próximos se integram e um Shared Kernel ou uma tradução direta é suficiente.
 - O custo de documentar e manter a linguagem supera o benefício, em integrações descartáveis.

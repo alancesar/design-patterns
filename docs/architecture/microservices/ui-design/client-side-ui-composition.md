@@ -29,7 +29,7 @@ Neste padrão, cada equipe desenvolve um componente de UI no lado do cliente, co
 - Quando se quer carregamento progressivo de regiões da página
 - Quando as equipes desejam publicar seus componentes de forma independente
 
-### Quando evitar
+## Quando evitar
 
 - Quando SEO ou renderização inicial rápida em dispositivos fracos são críticos
 - Quando muitas chamadas do navegador a vários serviços seriam um problema de rede

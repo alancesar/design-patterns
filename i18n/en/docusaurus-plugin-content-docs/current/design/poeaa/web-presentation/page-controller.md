@@ -29,7 +29,7 @@ The controller can be the page itself (as in CGI scripts, servlets, or code-behi
 - When the framework already maps URLs directly to handlers (code-behind, servlets, ASP.NET Web Forms).
 - When you want the model that's simplest to understand for a small team.
 
-### When to avoid
+## When to avoid
 
 - When there's a lot of common behavior (authentication, logging, i18n) that would be duplicated in every controller; a Front Controller is a better fit.
 - When navigation is complex and depends on dynamic decisions about which screen to show.

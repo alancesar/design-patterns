@@ -32,7 +32,7 @@ When a Standalone Class is achieved, the gain is large: the concept can be under
 - When modeling Value Objects and pure calculations.
 - In model reviews, to identify dependencies that aren't essential.
 
-### When to avoid
+## When to avoid
 
 - When the concept is, by nature, a relationship with others: forcing isolation hides the real association.
 - When isolation requires duplicating logic from other classes, increasing the total cost.

@@ -32,7 +32,7 @@ Don't confuse it with the GoF Factory Method and Abstract Factory patterns, whic
 - When you want to guarantee invariants from the moment the object is born.
 - When the client shouldn't know the concrete class.
 
-### When to avoid
+## When to avoid
 
 - When a simple constructor is enough.
 - When the Factory would be just an extra layer with no creation logic.

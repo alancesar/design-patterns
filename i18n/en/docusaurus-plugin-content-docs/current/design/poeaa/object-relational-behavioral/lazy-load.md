@@ -32,7 +32,7 @@ Fowler describes four variants: **lazy initialization** (the field is null until
 - When the cost of loading the full graph outweighs the cost of targeted queries.
 - When you want to keep the domain unaware of how and when data is fetched.
 
-### When to avoid
+## When to avoid
 
 - When the related data is always used; eager loading with a `JOIN` is more efficient.
 - When late access happens outside the session or transaction, causing errors such as `LazyInitializationException`.

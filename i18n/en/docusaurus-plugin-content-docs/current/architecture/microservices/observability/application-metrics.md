@@ -31,7 +31,7 @@ Metrics give a quantitative, low-cost view of system behavior over time, and are
 - Any production microservices system that needs dashboards, alerts, and trend analysis
 - Tracking latency, error, and saturation SLIs and SLOs
 
-### When to avoid
+## When to avoid
 
 - Very small systems where the cost of metrics infrastructure outweighs the benefit
 - As the only diagnostic mechanism: metrics don't explain detailed causes, so use logs and traces for that

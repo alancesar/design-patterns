@@ -30,7 +30,7 @@ The handler decides which command to run, usually based on a URL mapping configu
 - When you want to configure routing and filters centrally.
 - When you need extensibility through chained handlers or filters.
 
-### When to avoid
+## When to avoid
 
 - In very simple sites, where a single entry point is more complexity than benefit.
 - When the framework already provides one, and building another on top would be redundant.

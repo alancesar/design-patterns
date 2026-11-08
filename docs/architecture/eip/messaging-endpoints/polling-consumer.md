@@ -30,7 +30,7 @@ As APIs de mensageria costumam oferecer receive bloqueante, que espera até cheg
 - Quando a aplicação precisa controlar quando e quantas mensagens consome.
 - Em processamento em lote ou em janelas definidas.
 
-### Quando evitar
+## Quando evitar
 
 - Quando a latência de entrega deve ser mínima e o intervalo de polling a prejudicaria.
 - Quando o polling vazio gera custo desnecessário (por exemplo, serviços cobrados por requisição).

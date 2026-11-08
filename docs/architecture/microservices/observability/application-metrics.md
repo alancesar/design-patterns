@@ -31,7 +31,7 @@ As métricas dão uma visão quantitativa e de baixo custo do comportamento do s
 - Qualquer sistema em microsserviços em produção que precise de dashboards, alertas e análise de tendências
 - Acompanhamento de SLIs e SLOs de latência, erros e saturação
 
-### Quando evitar
+## Quando evitar
 
 - Sistemas muito pequenos em que o custo da infraestrutura de métricas supera o benefício
 - Como único mecanismo de diagnóstico: métricas não explicam causas detalhadas, para isso use logs e traces

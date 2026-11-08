@@ -33,7 +33,7 @@ Os papéis são lógicos e podem ser implementados de várias formas (por exempl
 - Jobs em segundo plano que orquestram fluxos de várias etapas envolvendo recursos remotos e que devem ser concluídos ou desfeitos de forma limpa (por exemplo, processamento de pedidos ou provisionamento de recursos).
 - Fluxos de longa duração em que é preciso detectar etapas expiradas e decidir entre repetir, compensar ou escalar para um operador.
 
-### Quando evitar
+## Quando evitar
 
 - A tarefa não invoca serviços remotos nem acessa recursos remotos: não há superfície de falha distribuída a mitigar, e a coordenação só adiciona custo.
 - Operações simples e de uma única etapa, em que retentativas locais (padrão Retry) bastam.

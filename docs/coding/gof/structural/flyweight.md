@@ -32,7 +32,7 @@ Uma `FlyweightFactory` controla a criação e o reaproveitamento das instâncias
 - Muitos grupos de objetos podem ser substituídos por poucos objetos compartilhados depois que o estado extrínseco é removido
 - A aplicação não depende da identidade dos objetos (comparações por referência não são relevantes)
 
-### Quando evitar
+## Quando evitar
 
 - O número de objetos é pequeno ou a memória não é uma restrição; o ganho não compensa a complexidade
 - O estado dos objetos é majoritariamente único, sobrando pouco a compartilhar

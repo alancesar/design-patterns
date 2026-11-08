@@ -29,7 +29,7 @@ Como as capacidades mudam lentamente, a arquitetura resultante é estável. Cada
 - Ao desenhar ou refatorar para uma arquitetura de microsserviços com equipes autônomas
 - Quando a organização tem capacidades de negócio bem identificáveis e relativamente estáveis
 
-### Quando evitar
+## Quando evitar
 
 - Em aplicações pequenas, em que a decomposição só adiciona complexidade
 - Quando o entendimento do negócio ainda é superficial e não há como iterar sobre os limites

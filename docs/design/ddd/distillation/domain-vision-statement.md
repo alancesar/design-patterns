@@ -32,7 +32,7 @@ Quando há vários contextos ou times, o documento ajuda a manter todos alinhado
 - Quando há múltiplos times ou contextos que precisam de um norte comum.
 - Quando é preciso explicar a gestores e patrocinadores o que justifica o investimento no modelo.
 
-### Quando evitar
+## Quando evitar
 
 - Quando o documento viraria um texto genérico, sem informação específica do domínio.
 - Quando ninguém se compromete a mantê-lo atualizado, pois uma visão desatualizada confunde mais do que orienta.

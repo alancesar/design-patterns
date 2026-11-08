@@ -32,7 +32,7 @@ A lógica de retry costuma ficar encapsulada em uma política reutilizável (nú
 - Quando a operação é idempotente, ou pode ser tornada idempotente, de modo que repeti-la é seguro
 - Em processamentos em lote ou em segundo plano, que toleram mais tentativas com intervalos maiores
 
-### Quando evitar
+## Quando evitar
 
 - Quando a falha tende a ser duradoura: repetir só desperdiça tempo e recursos e piora a responsividade (prefira um Circuit Breaker)
 - Para falhas que não são transitórias, como erros de lógica de negócio, validação ou autorização

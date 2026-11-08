@@ -28,7 +28,7 @@ If the relationship has attributes of its own (date, role), the association tabl
 - In many-to-many relationships between entities.
 - When the association exists independently of the two ends.
 
-### When to avoid
+## When to avoid
 
 - In simple one-to-many associations: use Foreign Key Mapping.
 - When the relationship has behavior of its own: model it as an entity.

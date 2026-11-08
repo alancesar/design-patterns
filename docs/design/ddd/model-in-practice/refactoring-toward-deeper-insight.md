@@ -32,7 +32,7 @@ O esforço deve ser dirigido ao Core Domain, onde a diferença competitiva do ne
 - Quando novos requisitos exigem remendos repetidos no mesmo ponto do código.
 - No Core Domain, onde vale a pena investir em um modelo mais profundo.
 
-### Quando evitar
+## Quando evitar
 
 - Em subdomínios genéricos ou de suporte, em que uma solução pronta ou simples basta.
 - Sem testes que protejam o comportamento: a refatoração em larga escala fica arriscada.

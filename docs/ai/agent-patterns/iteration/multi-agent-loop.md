@@ -30,7 +30,7 @@ O estado compartilhado carrega o resultado de uma volta para a seguinte. O resul
 - Exemplo da fonte: um agente gera conteúdo e um agente crítico o revisa até atingir um padrão de qualidade.
 - Quando a condição de saída pode ser expressa como contagem de iterações ou como estado alcançado no fluxo.
 
-### Quando evitar
+## Quando evitar
 
 - Uma única passada já atende à qualidade necessária.
 - Não há condição de saída confiável nem teto de iterações.

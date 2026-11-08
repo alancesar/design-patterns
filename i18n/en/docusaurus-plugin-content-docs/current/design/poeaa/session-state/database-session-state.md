@@ -33,7 +33,7 @@ Because the state lives in the database, the server stays stateless and any inst
 - When a reliable database already exists and you want to avoid an additional component such as Redis.
 - When the pending state needs to take part in transactions with the business data.
 
-### When to avoid
+## When to avoid
 
 - When the state is small, short-lived, and read-heavy; the database becomes a bottleneck.
 - When the latency of every request must be minimal.

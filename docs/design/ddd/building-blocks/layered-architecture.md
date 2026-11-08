@@ -32,7 +32,7 @@ O objetivo é que o código do modelo possa ser lido, testado e evoluído sem se
 - Quando a equipe quer isolar a lógica de negócio de preocupações técnicas.
 - Quando há várias interfaces (web, API, jobs) sobre o mesmo modelo.
 
-### Quando evitar
+## Quando evitar
 
 - Em aplicações CRUD simples, sem lógica de domínio relevante.
 - Quando as camadas viram apenas repasse de chamadas, sem ganho de isolamento.

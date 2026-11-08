@@ -31,7 +31,7 @@ Em vez de gerenciar manualmente hosts, VMs ou contêineres, a equipe descreve o 
 - Quando se quer automatizar implantação, escala, recuperação e balanceamento.
 - Quando se busca padronizar a forma de implantar entre equipes.
 
-### Quando evitar
+## Quando evitar
 
 - Quando há poucos serviços e a sobrecarga de operar ou aprender a plataforma não compensa.
 - Quando a plataforma não atende a requisitos específicos de rede, conformidade ou latência.

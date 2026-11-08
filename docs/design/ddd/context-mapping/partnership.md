@@ -31,7 +31,7 @@ O padrão não aparece no livro de 2003; foi incluído no DDD Reference como uma
 - Há boa comunicação entre os times e capacidade de sincronizar prioridades e cadência.
 - Os contextos ainda estão evoluindo rapidamente e as interfaces mudam com frequência.
 
-### Quando evitar
+## Quando evitar
 
 - Times distribuídos, com pouca comunicação ou fusos e prioridades incompatíveis.
 - Quando um dos lados é um fornecedor externo ou de terceiros, sem como coordenar o planejamento.

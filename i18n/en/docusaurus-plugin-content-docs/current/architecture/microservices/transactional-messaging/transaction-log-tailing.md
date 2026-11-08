@@ -29,7 +29,7 @@ The mechanism depends on the database: MySQL's binlog, PostgreSQL's WAL, or Dyna
 - Low latency and strict publication ordering are important.
 - The message volume makes polling costly for the database.
 
-### When to avoid
+## When to avoid
 
 - The database doesn't offer access to the log, or the team isn't familiar with this technology.
 - A simple solution that's portable across databases is preferable.

@@ -35,7 +35,7 @@ Se todas as verificações forem aprovadas, o artefato é publicado em um reposi
 - Existe um entendimento claro e compartilhado das regras de validação aplicáveis a cada tipo de artefato.
 - A organização quer padronizar e centralizar a validação de artefatos externos para vários times.
 
-### Quando evitar
+## Quando evitar
 
 - O artefato é produzido pelo próprio time ou por um time parceiro confiável.
 - O custo de construir e manter o processo de quarentena é maior que o risco de não verificar o artefato.

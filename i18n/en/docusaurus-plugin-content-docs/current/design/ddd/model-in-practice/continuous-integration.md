@@ -32,7 +32,7 @@ The practice applies only within a Bounded Context; between contexts, integratio
 - When the team grows and the model starts showing signs of inconsistency.
 - Together with automated tests that protect the model's behavior.
 
-### When to avoid
+## When to avoid
 
 - As a substitute for defining boundaries: if the team is too large to integrate the model continuously, the context should be split.
 - Reduced to a build pipeline, with no conversation about the model, the practice loses its main value.

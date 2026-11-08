@@ -29,7 +29,7 @@ A escolha da saída é controlada por fora, normalmente por mensagens enviadas p
 - Testes e validações que não devem rodar o tempo todo.
 - Quando é necessário alterar o conteúdo ou o caminho da mensagem sem redesenhar o fluxo.
 
-### Quando evitar
+## Quando evitar
 
 - Se só é preciso observar mensagens, [Wire Tap](/architecture/eip/system-management/wire-tap) é mais seguro, pois não interfere no fluxo.
 - Se as etapas extras devem ser sempre aplicadas, basta colocá-las no fluxo normal.

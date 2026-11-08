@@ -32,7 +32,7 @@ The pattern is especially natural in Value Objects, which are immutable and can 
 - When a calculation can be expressed as a sequence of steps of the same type.
 - In rules that compose, such as sets of conditions or date ranges.
 
-### When to avoid
+## When to avoid
 
 - When there is no natural closed operation: forcing the type distorts the model.
 - When the operation needs extra information that the set doesn't carry.

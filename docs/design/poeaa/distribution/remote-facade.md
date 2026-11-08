@@ -33,7 +33,7 @@ A fachada não contém lógica de domínio: apenas traduz, delega e, em geral, c
 - Quando a interação fina exigiria muitas chamadas remotas para uma única tarefa de negócio.
 - Quando se quer manter o domínio fino e testável, isolando as preocupações de distribuição em uma camada de borda.
 
-### Quando evitar
+## Quando evitar
 
 - Quando todos os clientes rodam no mesmo processo; a interface grossa só atrapalha e esconde a intenção dos métodos.
 - Quando a fachada começa a receber regras de negócio; isso a transforma em um segundo modelo de domínio.

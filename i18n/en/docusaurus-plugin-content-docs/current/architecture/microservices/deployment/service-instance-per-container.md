@@ -31,7 +31,7 @@ Scaling is done by changing the number of containers. Since only the application
 - When there are many heterogeneous services that need isolation and density.
 - When an orchestrator or a deployment platform is available.
 
-### When to avoid
+## When to avoid
 
 - When the organization isn't mature enough to operate container infrastructure.
 - When stronger isolation than the shared kernel provides is required.

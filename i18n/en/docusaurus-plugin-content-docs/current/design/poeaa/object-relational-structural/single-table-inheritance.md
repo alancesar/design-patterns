@@ -30,7 +30,7 @@ It's the simplest of the three inheritance schemas, and has the advantage of req
 - When polymorphic read performance matters.
 - When refactorings frequently move fields around the hierarchy.
 
-### When to avoid
+## When to avoid
 
 - When subclasses have many exclusive fields, producing a wide, sparse table.
 - When `NOT NULL` is required on subclass columns.

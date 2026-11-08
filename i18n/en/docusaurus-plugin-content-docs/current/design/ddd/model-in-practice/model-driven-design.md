@@ -32,7 +32,7 @@ The pattern requires that those who model be involved in the implementation, whi
 - When you want the code to be the living documentation of the domain.
 - Together with a Ubiquitous Language shared between business and technology.
 
-### When to avoid
+## When to avoid
 
 - In systems dominated by simple data operations (CRUD), where a rich model doesn't pay off.
 - When the chosen platform or paradigm doesn't allow the model to be expressed reasonably.

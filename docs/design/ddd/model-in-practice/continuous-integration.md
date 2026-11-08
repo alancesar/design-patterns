@@ -32,7 +32,7 @@ A prática vale apenas dentro de um Bounded Context; entre contextos, a integra�
 - Quando o time cresce e o modelo começa a ganhar sinais de inconsistência.
 - Em conjunto com testes automatizados que protejam o comportamento do modelo.
 
-### Quando evitar
+## Quando evitar
 
 - Como substituto da definição de fronteiras: se o time é grande demais para integrar o modelo de forma contínua, o contexto deve ser dividido.
 - Reduzida a um pipeline de build, sem conversa sobre o modelo, a prática perde seu principal valor.

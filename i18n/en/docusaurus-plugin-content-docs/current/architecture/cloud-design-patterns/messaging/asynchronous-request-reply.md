@@ -33,7 +33,7 @@ The pattern is mainly useful when the client can't receive callbacks (webhooks, 
 - Integration with workloads that don't support modern notification mechanisms such as WebSockets or webhooks
 - Long-running operations (report generation, file processing, resource provisioning) exposed through a REST API
 
-### When to avoid
+## When to avoid
 
 - When you already have a dedicated service for asynchronous notifications (for example, an event bus such as Azure Event Grid)
 - When responses must be streamed in real time; Server-Sent Events (SSE) offer a simple push channel without polling

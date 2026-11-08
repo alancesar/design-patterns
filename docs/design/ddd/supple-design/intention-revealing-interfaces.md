@@ -32,7 +32,7 @@ O padrão é a base do Supple Design. Interfaces que revelam intenção tornam a
 - Quando especialistas do negócio e desenvolvedores precisam ler o mesmo código ou os mesmos testes.
 - Ao refatorar métodos cujo nome descreve o "como" em vez do "quê".
 
-### Quando evitar
+## Quando evitar
 
 - Em detalhes internos privados e voláteis, onde o nome prolixo traz pouco valor.
 - Quando o conceito ainda não foi entendido: um nome "bonito" para um modelo errado só dá falsa confiança. Primeiro aprofunde o modelo.

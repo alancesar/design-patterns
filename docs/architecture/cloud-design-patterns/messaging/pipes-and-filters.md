@@ -39,7 +39,7 @@ Uma implementação comum usa uma sequência de filas de mensagens como pipes, c
 - Deseja-se uma solução confiável que minimize o impacto da falha de uma etapa enquanto os dados são processados
 - Pipelines de dados, ETL, processamento de mídia (moderação, redimensionamento, marca d'água, remoção de metadados, publicação em CDN) e ingestão de eventos
 
-### Quando evitar
+## Quando evitar
 
 - A aplicação segue um modelo síncrono de requisição-resposta e o processamento precisa terminar dentro da requisição inicial
 - As etapas não são independentes ou precisam ser executadas juntas em uma única transação

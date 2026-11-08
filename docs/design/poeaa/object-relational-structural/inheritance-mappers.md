@@ -30,7 +30,7 @@ Tanto faz o esquema escolhido (Single Table, Class Table ou Concrete Table): a e
 - Quando o domínio tem hierarquia de herança mapeada por Data Mapper.
 - Quando os três esquemas de herança precisam compartilhar uma estrutura de código consistente.
 
-### Quando evitar
+## Quando evitar
 
 - Quando se usa um framework ORM que já resolve herança por metadados.
 - Quando a hierarquia é rasa e o mapeamento direto é suficiente.

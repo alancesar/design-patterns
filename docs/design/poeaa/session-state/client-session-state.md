@@ -32,7 +32,7 @@ Hoje a forma mais comum é o JWT em cookie ou em header: o token carrega identid
 - Quando se quer servidores totalmente stateless, com balanceamento livre entre instâncias.
 - Quando os dados podem ser assinados ou cifrados e a expiração é aceitável como mecanismo de invalidação.
 
-### Quando evitar
+## Quando evitar
 
 - Quando o estado é grande, pois o tráfego em cada requisição e os limites de cookie (cerca de 4 KB) tornam a abordagem inviável.
 - Quando há dados sensíveis que não devem sair do servidor, mesmo cifrados.

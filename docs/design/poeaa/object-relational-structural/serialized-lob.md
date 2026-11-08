@@ -30,7 +30,7 @@ Em vez de mapear cada objeto do grafo para tabelas e chaves estrangeiras, o mape
 - Quando não é preciso consultar ou filtrar pelo conteúdo interno.
 - Para dados de estrutura flexível, como preferências ou metadados.
 
-### Quando evitar
+## Quando evitar
 
 - Quando outros sistemas ou relatórios SQL precisam acessar os dados internos.
 - Quando o formato tende a mudar e quebrar a leitura de dados antigos.

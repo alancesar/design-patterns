@@ -35,7 +35,7 @@ If all checks pass, the artifact is published to a trusted repository, with anno
 - There's a clear, shared understanding of the validation rules that apply to each type of artifact.
 - The organization wants to standardize and centralize the validation of external artifacts for several teams.
 
-### When to avoid
+## When to avoid
 
 - The artifact is produced by the team itself or by a trusted partner team.
 - The cost of building and maintaining the quarantine process is higher than the risk of not verifying the artifact.

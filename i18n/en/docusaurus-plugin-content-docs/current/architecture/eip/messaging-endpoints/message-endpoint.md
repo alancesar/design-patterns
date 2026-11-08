@@ -30,7 +30,7 @@ In practice, the endpoint is an "umbrella" pattern: the other patterns in the gr
 - Whenever an application takes part in a messaging integration, whether producing or consuming messages.
 - When you want to isolate the application from the chosen messaging technology.
 
-### When to avoid
+## When to avoid
 
 - When the application code is already messaging-native and an extra layer would only repeat the client API.
 - In very simple, throwaway integrations where the separation doesn't pay off.

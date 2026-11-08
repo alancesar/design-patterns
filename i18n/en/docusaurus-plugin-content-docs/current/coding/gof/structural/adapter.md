@@ -33,7 +33,7 @@ There are two variants: the *object adapter*, which uses composition and holds a
 - Several heterogeneous implementations must be exposed to the client through a single interface.
 - In tests, to wrap external dependencies behind an interface that's easy to replace with test doubles.
 
-### When to avoid
+## When to avoid
 
 - When it's possible (and cheap) to simply change the original interface or the client.
 - When the difference between the interfaces is so large that the "adapter" turns into a full reimplementation; in that case, it may be a Facade or a new service.

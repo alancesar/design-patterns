@@ -33,7 +33,7 @@ Because the client depends only on the Gateway's interface, the resource can be 
 - When you want to replace the resource with a [Service Stub](/design/poeaa/base/service-stub) in tests.
 - Together with [Separated Interface](/design/poeaa/base/separated-interface), so the interface lives in the client code and the implementation in another package.
 
-### When to avoid
+## When to avoid
 
 - When the resource already has a simple, stable API and the Gateway would just forward calls without adding value.
 - When the layer would end up exposing the whole original API, merely renamed.

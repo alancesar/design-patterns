@@ -31,7 +31,7 @@ In more sophisticated scenarios, the router evolves into a configurable rules en
 - The split of responsibilities between systems must be hidden from the sender
 - Routing rules change and need to live in a single place
 
-### When to avoid
+## When to avoid
 
 - The sender can trivially decide the destination
 - Recipients need to register dynamically; consider the [Dynamic Router](/architecture/eip/message-routing/dynamic-router)

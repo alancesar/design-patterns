@@ -32,7 +32,7 @@ Não se deve confundir com os padrões Factory Method e Abstract Factory do GoF,
 - Quando se quer garantir invariantes desde o nascimento do objeto.
 - Quando o cliente não deve conhecer a classe concreta.
 
-### Quando evitar
+## Quando evitar
 
 - Quando um construtor simples basta.
 - Quando a Factory seria apenas uma camada extra sem lógica de criação.

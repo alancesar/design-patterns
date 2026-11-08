@@ -32,7 +32,7 @@ Assim, o código de domínio não precisa saber quando nem como persistir: ele a
 - Quando se usa um Data Mapper ou um domain model e se quer isolar a lógica de persistência.
 - Quando se quer reduzir o número de idas ao banco agrupando escritas.
 
-### Quando evitar
+## Quando evitar
 
 - Em aplicações simples com Transaction Script ou Active Record, em que cada operação grava um único registro.
 - Quando o framework já fornece o padrão e a camada própria só duplicaria o trabalho.

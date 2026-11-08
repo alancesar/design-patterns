@@ -35,7 +35,7 @@ O padrão em si define o que publicar; a publicação confiável (atômica com a
 - Quando é preciso manter visões ou réplicas derivadas atualizadas.
 - Quando a lógica de negócio já é modelada com agregados.
 
-### Quando evitar
+## Quando evitar
 
 - Quando nenhum outro componente precisa ser notificado das mudanças.
 - Quando não há infraestrutura de mensageria nem como garantir a publicação atômica com a gravação no banco.

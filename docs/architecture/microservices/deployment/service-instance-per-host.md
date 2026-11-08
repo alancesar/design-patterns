@@ -31,7 +31,7 @@ O padrão é um princípio geral de implantação e tem como refinamentos o uso 
 - Quando isolamento e previsibilidade de recursos são prioritários.
 - Como base conceitual para VMs, contêineres ou plataformas de implantação.
 
-### Quando evitar
+## Quando evitar
 
 - Quando o custo de um host por instância é proibitivo.
 - Quando os serviços são muito pequenos e deixariam hosts subutilizados.

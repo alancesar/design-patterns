@@ -32,7 +32,7 @@ Evans warns that this is a high-investment, high-risk pattern: it requires a wel
 - When teams need autonomy but depend on a stable common contract.
 - When there is a clear Abstract Core, extracted from existing components through refactoring.
 
-### When to avoid
+## When to avoid
 
 - Projects with a single application or just a few components: the cost of the abstraction outweighs the benefit.
 - Domains still being discovered, where the central abstraction changes with each iteration and drags all the components along.

@@ -38,7 +38,7 @@ Em microsserviços, a Saga é a consequência direta do padrão Database per Ser
 - A consistência eventual é aceitável para o negócio durante a execução do fluxo.
 - Operações de longa duração em que manter bloqueios distribuídos seria impraticável.
 
-### Quando evitar
+## Quando evitar
 
 - As transações são fortemente acopladas e exigem isolamento e atomicidade estritos.
 - As compensações precisariam ocorrer em participantes anteriores de forma que não é possível definir uma operação de efeito oposto confiável.

@@ -32,7 +32,7 @@ O modelo de domínio passa a expressar o quê (conceitos e regras de negócio) e
 - Quando o mecanismo pode ser descrito por uma interface simples orientada à intenção.
 - Quando o mesmo algoritmo pode servir a mais de um ponto do modelo ou ser substituído no futuro.
 
-### Quando evitar
+## Quando evitar
 
 - Quando o cálculo faz parte da regra de negócio e deve ser conhecimento explícito do domínio; extraí-lo esconderia o core.
 - Quando a lógica é simples demais para justificar uma estrutura separada.

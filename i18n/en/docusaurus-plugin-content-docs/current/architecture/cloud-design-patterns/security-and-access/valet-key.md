@@ -36,7 +36,7 @@ As a result, the application keeps control over who accesses what and for how lo
 - When the data lives in a remote store or another region, and going through the application would generate extra traffic.
 - When untrusted clients, such as browsers or mobile apps, need one-off, temporary access to specific resources.
 
-### When to avoid
+## When to avoid
 
 - When clients already authenticate individually against the target resource with identity-based access control.
 - When the application needs to process the data before storing or delivering it, for example to validate, transform, or log each access.

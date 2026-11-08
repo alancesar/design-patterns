@@ -29,7 +29,7 @@ The choice of output is controlled externally, usually by messages sent over the
 - Tests and validations that shouldn't run all the time.
 - When you need to change the message's content or path without redesigning the flow.
 
-### When to avoid
+## When to avoid
 
 - If you only need to observe messages, [Wire Tap](/architecture/eip/system-management/wire-tap) is safer, since it doesn't interfere with the flow.
 - If the extra steps should always be applied, just put them in the normal flow.

@@ -34,7 +34,7 @@ Na prática, o padrão é uma forma orientada a objetos de implementar uma máqu
 - As mesmas condicionais sobre o estado se repetem em vários métodos da classe
 - Novos estados tendem a surgir com frequência e devem ser adicionados de forma isolada
 
-### Quando evitar
+## Quando evitar
 
 - O objeto tem poucos estados ou o comportamento raramente muda; um `enum` com um `switch` simples é mais legível
 - As transições são triviais e não há comportamento específico por estado

@@ -30,7 +30,7 @@ O desafio é que objetos usam referências e herança, recursos que muitas infra
 - Quando o modelo de domínio é rico e precisa ser trocado por mensagens sem se acoplar a elas.
 - Quando o formato da mensagem é definido por terceiros ou por um modelo canônico.
 
-### Quando evitar
+## Quando evitar
 
 - Quando as mensagens são simples e o próprio objeto de dados já é a mensagem.
 - Quando um serializador genérico do framework resolve sem lógica de mapeamento específica.

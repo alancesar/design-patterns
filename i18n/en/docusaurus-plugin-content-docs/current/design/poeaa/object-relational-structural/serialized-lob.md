@@ -30,7 +30,7 @@ It's simple and fast for small graphs that are always read and written together,
 - When there's no need to query or filter by the internal content.
 - For data with a flexible structure, such as preferences or metadata.
 
-### When to avoid
+## When to avoid
 
 - When other systems or SQL reports need to access the internal data.
 - When the format is likely to change and break reading of old data.

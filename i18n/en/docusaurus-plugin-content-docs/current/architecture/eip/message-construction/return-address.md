@@ -28,7 +28,7 @@ The replier reads the address from each request and replies to it, without needi
 - In Request-Reply where several requestors use the same replier.
 - When a single requestor wants to receive replies on different channels depending on the case.
 
-### When to avoid
+## When to avoid
 
 - When all replies always go to a single known destination; a fixed channel is enough.
 - When there's no reply to send.

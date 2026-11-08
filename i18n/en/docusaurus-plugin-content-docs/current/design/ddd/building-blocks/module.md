@@ -31,7 +31,7 @@ When the model changes, modules should be refactored too, so they keep expressin
 - When each group can be named with a business concept.
 - To limit coupling between areas of the model.
 
-### When to avoid
+## When to avoid
 
 - In very small models, where the split would only add ceremony.
 - When the modules would be a mere copy of the technical layers.

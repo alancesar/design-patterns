@@ -30,7 +30,7 @@ The Resequencer doesn't change the content, only the order. For the order to hol
 - Parallelism or routing shuffles messages from the same sequence
 - Messages carry a sequence number
 
-### When to avoid
+## When to avoid
 
 - Order doesn't matter to the consumer
 - The problem can be avoided with a single consumer or key-based partitions

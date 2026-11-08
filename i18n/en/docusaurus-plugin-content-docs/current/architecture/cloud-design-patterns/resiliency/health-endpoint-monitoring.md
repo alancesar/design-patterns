@@ -40,7 +40,7 @@ The results feed alerts, dashboards, and controlled remediation actions, such as
 - Providing health signals to load balancers, orchestrators, and traffic routers (instance removal, self-healing, failover)
 - Validating availability from locations that represent users, including DNS, TLS certificate expiration, and content served by a CDN
 
-### When to avoid
+## When to avoid
 
 - The components don't expose a health interface that is compatible with, or reachable by, the monitoring tool. In that case, prefer platform metrics, log-based alerts, or internal heartbeats
 - There's no way to produce a useful signal without degrading the application (heavy queries, expensive calls, or full integration tests on every probe). In that case, use the telemetry the application already collects, such as error rates and dependency data

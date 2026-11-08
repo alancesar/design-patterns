@@ -32,7 +32,7 @@ O padrão é a base de vários outros do catálogo: o Segmented Log divide o log
 - Quando é preciso replicar a sequência de mudanças para outros nós, como base de um Replicated Log.
 - Quando a durabilidade de cada escrita confirmada é requisito (por exemplo, com `fsync` antes do *ack*).
 
-### Quando evitar
+## Quando evitar
 
 - Dados efêmeros ou facilmente recriáveis (caches), em que perder o estado em uma queda é aceitável.
 - Quando a latência do `fsync` por escrita é inaceitável e a perda de uma janela recente de dados é tolerada.

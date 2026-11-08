@@ -31,7 +31,7 @@ The execution state is preserved during the pause. When the human responds (appr
 - Cases with compliance requirements, where a person must approve the release of the result.
 - Flows where only a human can supply missing information.
 
-### When to avoid
+## When to avoid
 
 - Low-risk, high-volume tasks, where human review becomes a bottleneck without adding safety.
 - Flows that need an immediate response or run with nobody available to review.

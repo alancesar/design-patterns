@@ -32,7 +32,7 @@ Para manter o modelo simples, convém reduzir a entidade ao essencial: atributos
 - Quando o conceito tem ciclo de vida e histórico relevantes ao negócio.
 - Quando o objeto é referenciado por outros ao longo do tempo.
 
-### Quando evitar
+## Quando evitar
 
 - Quando o conceito é definido só por seus valores e é intercambiável: prefira um [Value Object](/design/poeaa/base/value-object).
 - Quando rastrear identidade e ciclo de vida seria custo sem benefício.

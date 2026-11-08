@@ -33,7 +33,7 @@ Na prática, o padrão funciona como uma "fábrica de fábricas": agrupa vários
 - Produtos relacionados foram projetados para serem usados juntos e essa restrição precisa ser garantida.
 - Você quer expor uma biblioteca de produtos revelando apenas as interfaces, não as implementações.
 
-### Quando evitar
+## Quando evitar
 
 - Existe apenas uma família de produtos ou um único produto; um Factory Method ou construção direta é suficiente.
 - Novos tipos de produto são adicionados com frequência: cada novo produto exige alterar a interface da fábrica abstrata e todas as fábricas concretas.

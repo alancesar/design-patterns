@@ -31,7 +31,7 @@ O padrão funciona muito bem com Record Set, estruturas tabulares em memória fo
 - Lógica de complexidade moderada, organizada em torno de tabelas.
 - Quando se quer mais estrutura que o Transaction Script, sem o custo de um Domain Model.
 
-### Quando evitar
+## Quando evitar
 
 - Quando as regras exigem polimorfismo, herança e relacionamentos ricos entre entidades.
 - Quando a lógica cresce e se espalha entre muitos módulos de tabelas que precisam se chamar.

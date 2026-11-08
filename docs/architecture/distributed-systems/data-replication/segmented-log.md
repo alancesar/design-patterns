@@ -32,7 +32,7 @@ Kafka organiza cada partição como uma sequência de segmentos, e Cassandra, Zo
 - Quando é necessário descartar o histórico antigo periodicamente (retenção por tempo ou tamanho).
 - Quando a recuperação precisa ler apenas os segmentos mais recentes.
 
-### Quando evitar
+## Quando evitar
 
 - Volumes pequenos de dados, em que um único arquivo permanece gerenciável.
 - Quando o log é efêmero e descartado inteiro a cada reinício.

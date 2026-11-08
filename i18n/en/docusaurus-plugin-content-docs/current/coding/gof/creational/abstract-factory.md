@@ -33,7 +33,7 @@ In practice, the pattern works as a "factory of factories": it groups several re
 - Related products are designed to be used together and that constraint must be enforced.
 - You want to expose a library of products revealing only the interfaces, not the implementations.
 
-### When to avoid
+## When to avoid
 
 - There's only one product family or a single product; a Factory Method or direct construction is enough.
 - New product types are added frequently: each new product requires changing the abstract factory interface and every concrete factory.

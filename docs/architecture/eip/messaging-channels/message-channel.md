@@ -32,7 +32,7 @@ Na prática, o canal é uma abstração oferecida pelo sistema de mensageria (fi
 - Quando se deseja separar tipos de informação em fluxos distintos, cada um com seus produtores e consumidores.
 - Quando é necessário definir, de forma explícita, quais aplicações podem escrever ou ler cada fluxo.
 
-### Quando evitar
+## Quando evitar
 
 - Quando a interação exige resposta imediata e síncrona, a abstração de canal assíncrono só atrapalha; prefira uma chamada direta.
 - Quando o número de canais cresceria sem controle (um por combinação de remetente e destinatário); nesse caso, repense a granularidade ou use roteamento por conteúdo.

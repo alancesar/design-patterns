@@ -30,7 +30,7 @@ As chaves precisam ser únicas ao longo de todas as tabelas, caso contrário ref
 - Quando os dados de cada subtipo são tratados de forma independente.
 - Quando se quer `NOT NULL` por tipo sem joins.
 
-### Quando evitar
+## Quando evitar
 
 - Quando há muitas consultas polimórficas ou referências à superclasse.
 - Quando os campos da superclasse mudam com frequência (a mudança vale para todas as tabelas).

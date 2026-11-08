@@ -36,7 +36,7 @@ The choice of what to group is the central point: tasks with similar scalability
 - Tasks with similar scalability, lifecycle, and release cadence requirements, which can scale as a block.
 - Systems already in production, with monitoring data (a resource-usage "heat map") that makes it possible to identify good consolidation candidates.
 
-### When to avoid
+## When to avoid
 
 - Tasks that perform critical operations requiring fault tolerance and can't be affected by neighbors.
 - Tasks that process highly sensitive or private data and need their own security context.

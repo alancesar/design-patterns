@@ -32,7 +32,7 @@ A `FlyweightFactory` controls the creation and reuse of instances: given a key, 
 - Many groups of objects can be replaced by a few shared objects once the extrinsic state is removed
 - The application doesn't depend on object identity (reference comparisons aren't relevant)
 
-### When to avoid
+## When to avoid
 
 - The number of objects is small or memory isn't a constraint; the gain doesn't justify the complexity
 - The objects' state is mostly unique, leaving little to share

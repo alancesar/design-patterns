@@ -30,7 +30,7 @@ In general, the composer role is taken on by an API Gateway, but it can be a ded
 - When the eventual consistency of a derived view (CQRS) would be an unnecessary cost.
 - When you want the simplest approach to serve the query.
 
-### When to avoid
+## When to avoid
 
 - Queries that require *joins* over large volumes of data, which become inefficient in memory.
 - When the composer's availability is affected by several services called in series or in parallel and there's no tolerance for partial failures.

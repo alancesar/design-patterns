@@ -31,7 +31,7 @@ The cost is a multiplication of channels: each new data type requires a new chan
 - The consumer specializes in a single type of document or command.
 - You want security and monitoring that differ by data type.
 
-### When to avoid
+## When to avoid
 
 - When the number of types is large or changes often, leading to an explosion of channels; consider a format indicator inside the message or a canonical data model.
 - When messages differ only in small details of the same type.

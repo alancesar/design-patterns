@@ -35,7 +35,7 @@ Com isso, autenticação e autorização ficam separadas: o IdP cuida de credenc
 - Aplicações SaaS multi-tenant em que cada tenant usa seu próprio IdP (credenciais corporativas para usuários de empresas, identidades sociais para consumidores).
 - Acesso de cargas de trabalho, como pipelines de CI/CD, automações ou aplicações de tenants, que chamam APIs usando identidades de workload federadas em vez de segredos de longa duração.
 
-### Quando evitar
+## Quando evitar
 
 - Todos os usuários se autenticam em um único IdP e não há expectativa de suportar outros (por exemplo, uma aplicação interna ligada diretamente ao diretório corporativo via VPN ou rede privada).
 - A aplicação usa um mecanismo de autenticação incompatível (como um repositório de usuários próprio) e não lida com protocolos baseados em claims; adaptar sistemas legados pode ser caro e complexo.

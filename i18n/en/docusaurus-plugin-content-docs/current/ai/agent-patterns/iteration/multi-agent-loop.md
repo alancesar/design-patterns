@@ -30,7 +30,7 @@ Shared state carries the result from one round to the next. The final result is 
 - Example from the source: one agent generates content and a critic agent reviews it until it meets a quality standard.
 - When the exit condition can be expressed as an iteration count or as a state reached in the flow.
 
-### When to avoid
+## When to avoid
 
 - A single pass already meets the required quality.
 - There's no reliable exit condition and no iteration cap.

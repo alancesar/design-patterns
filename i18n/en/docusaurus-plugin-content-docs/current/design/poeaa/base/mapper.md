@@ -32,7 +32,7 @@ In PoEAA, the Mapper is the general form. The [Data Mapper](/design/poeaa/data-s
 - When they can be modified, but you want to avoid dependencies between them.
 - When the logic for translating between the two representations deserves to live in a single place.
 
-### When to avoid
+## When to avoid
 
 - When both sides already share a vocabulary and a direct dependency is acceptable.
 - When the Mapper would be just a field-by-field copy, with no meaningful translation, and would only add code.

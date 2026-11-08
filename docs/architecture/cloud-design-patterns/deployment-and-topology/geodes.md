@@ -34,7 +34,7 @@ Diferentemente de um deployment stamp, um geode nunca existe isoladamente: um am
 - Aplicações cloud-native que podem tratar todos os nós como equivalentes para leitura e escrita de dados
 - Cenários de computação próxima à borda (near-edge), em que reduzir o tempo de resposta é prioridade
 
-### Quando evitar
+## Quando evitar
 
 - Quando nem todos os geodes podem ser iguais em relação aos dados, por exemplo por exigências de residência de dados, estado de sessão temporário preso a uma região ou tráfego fortemente concentrado em uma única região (nesse caso, prefira deployment stamps com um roteamento global ciente da localização dos dados)
 - Quando não há necessidade real de distribuição geográfica; zonas de disponibilidade e regiões pareadas podem bastar

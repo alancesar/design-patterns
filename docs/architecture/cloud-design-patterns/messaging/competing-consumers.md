@@ -39,7 +39,7 @@ Quando o sistema de mensageria oferece leitura transacional ou bloqueio temporá
 - O volume de trabalho varia muito e exige uma solução escalável (inclusive escalando até zero quando a fila está vazia).
 - A solução precisa de alta disponibilidade e resiliência quando o processamento de uma tarefa falha.
 
-### Quando evitar
+## Quando evitar
 
 - Não é fácil separar a carga em tarefas discretas, ou há forte dependência entre as tarefas.
 - As tarefas precisam ser executadas de forma síncrona e a aplicação deve aguardar o término de cada uma antes de prosseguir.

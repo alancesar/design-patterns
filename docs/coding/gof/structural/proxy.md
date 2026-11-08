@@ -36,7 +36,7 @@ A diferença em relação a outros wrappers está na intenção: o Proxy não ac
 - Quando se deseja adicionar cache, auditoria ou rate limiting de forma transparente ao cliente.
 - Quando o objeto real vem de uma biblioteca de terceiros e não pode ser alterado.
 
-### Quando evitar
+## Quando evitar
 
 - Quando o objeto real é barato e não há necessidade de controle de acesso: o proxy só acrescenta indireção.
 - Quando a latência extra introduzida pela camada intermediária é crítica.

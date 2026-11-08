@@ -31,7 +31,7 @@ Atenção: não confundir com o Asynchronous Request-Reply do Azure, que usa HTT
 - Espera síncrona: casos simples, com uma requisição pendente por vez.
 - Espera assíncrona: várias requisições concorrentes ou necessidade de se recuperar de falhas do requestor.
 
-### Quando evitar
+## Quando evitar
 
 - Quando não há resposta a devolver; basta Command Message ou Event Message.
 - Quando o requestor não pode ficar acoplado ao tempo de resposta do replier.

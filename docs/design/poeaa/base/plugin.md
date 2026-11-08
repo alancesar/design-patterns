@@ -34,7 +34,7 @@ Com o Plugin, um único arquivo de configuração associa cada interface à impl
 - Quando se quer mudar a configuração sem recompilar ou reimplantar o código.
 - Quando terceiros devem poder adicionar implementações (extensões, drivers, conectores).
 
-### Quando evitar
+## Quando evitar
 
 - Quando há uma única implementação e nenhum motivo para variar por ambiente.
 - Quando a configuração dinâmica tornaria o comportamento difícil de rastrear e depurar, com erros só em tempo de execução.

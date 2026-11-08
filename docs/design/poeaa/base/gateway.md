@@ -33,7 +33,7 @@ Como o cliente depende apenas da interface do Gateway, o recurso pode ser trocad
 - Quando se quer substituir o recurso por um [Service Stub](/design/poeaa/base/service-stub) em testes.
 - Em conjunto com [Separated Interface](/design/poeaa/base/separated-interface), para que a interface fique no código cliente e a implementação em outro pacote.
 
-### Quando evitar
+## Quando evitar
 
 - Quando o recurso tem uma API já simples e estável, e o Gateway apenas repassaria chamadas sem agregar valor.
 - Quando a camada acabaria expondo toda a API original, apenas renomeada.

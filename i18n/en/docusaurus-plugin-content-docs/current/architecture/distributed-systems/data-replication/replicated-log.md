@@ -32,7 +32,7 @@ It's the heart of Raft, ZAB (ZooKeeper), etcd, and Kafka partition replicas.
 - When all replicas must execute the same set of commands in the same order.
 - As the foundation for a Consistent Core.
 
-### When to avoid
+## When to avoid
 
 - Workloads that tolerate eventual consistency and can use simpler asynchronous replication.
 - Heavy write workloads where per-entry consensus is a bottleneck, without batching or pipelining.

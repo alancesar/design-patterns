@@ -32,7 +32,7 @@ Isso não significa que todo mundo faz tudo: arquitetos e analistas podem lidera
 - Quando se percebe que o modelo diz uma coisa e o código faz outra.
 - Para equipes pequenas ou médias capazes de colaborar de perto.
 
-### Quando evitar
+## Quando evitar
 
 - Em organizações em que arquitetos não podem tocar no código por restrições formais; nesse caso, o padrão exige mudança de processo antes.
 - Como justificativa para que todos alterem tudo sem coordenação, sem cuidado com a integração do modelo.

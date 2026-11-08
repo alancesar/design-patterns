@@ -31,7 +31,7 @@ The important distinction is that the message reached its destination but is inv
 - It's important to preserve invalid messages for analysis, correction and possible reprocessing.
 - Several producers send to the same channel and not all of them respect the contract.
 
-### When to avoid
+## When to avoid
 
 - When the failure is transient (for example, a dependency is down): the message is valid and should be retried, not diverted.
 - When the channel is fully controlled and validated at the source, and rejections are practically impossible.

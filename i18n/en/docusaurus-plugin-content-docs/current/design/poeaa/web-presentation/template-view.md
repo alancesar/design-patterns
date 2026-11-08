@@ -29,7 +29,7 @@ The markers can be custom tags, expressions, or, in the more problematic forms, 
 - When the page has a fixed structure with few dynamic spots.
 - When designers and programmers collaborate on the same files.
 
-### When to avoid
+## When to avoid
 
 - When pages require a lot of presentation logic, which tends to leak into the templates.
 - When the same output needs very different formats, in which case Transform View may be better.

@@ -31,7 +31,7 @@ O ganho aparece quando o servidor consegue processar algo enquanto outras requis
 - Cliente e servidor ligados por um canal único e ordenado, com latência de rede relevante.
 - Quando o servidor processa requisições em fila e se beneficia de ter trabalho sempre disponível.
 
-### Quando evitar
+## Quando evitar
 
 - Quando cada requisição depende do resultado da anterior e não pode ser enviada antes.
 - Quando a reordenação por retentativa pode violar garantias de ordem sem um mecanismo de controle.

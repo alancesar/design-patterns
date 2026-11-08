@@ -36,7 +36,7 @@ Because the sidecar is independent of the application's language and runtime, a 
 - You want fine-grained control of resource limits (CPU, memory) for a specific component, isolated from the application.
 - You need to add observability or security controls without coupling dependencies to the application code.
 
-### When to avoid
+## When to avoid
 
 - Inter-process communication needs to be highly optimized; the sidecar's overhead, especially in latency, hurts very frequent interactions.
 - The application is small and the resource cost of one sidecar per instance outweighs the benefits of isolation.

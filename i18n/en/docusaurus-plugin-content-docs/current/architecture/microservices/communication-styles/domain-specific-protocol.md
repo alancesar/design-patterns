@@ -30,7 +30,7 @@ In the microservices context, it is a third option for interprocess communicatio
 - The domain already has an established protocol (email, media streaming, etc.) and there are clients and tools that use it.
 - The domain's requirements, such as latency, continuous streaming, or specific semantics, aren't well served by REST or generic messaging.
 
-### When to avoid
+## When to avoid
 
 - A suitable generic protocol exists, and the team would gain more from the familiarity and tooling of RPI or Messaging.
 - You'd have to invent a proprietary protocol, with high maintenance cost and poor interoperability.

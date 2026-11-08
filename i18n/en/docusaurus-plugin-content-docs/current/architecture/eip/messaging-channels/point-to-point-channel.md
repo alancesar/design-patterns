@@ -32,7 +32,7 @@ Because the channel delivers each message to a single consumer, several receiver
 - Distributing load across several instances of the same service.
 - Request-reply exchanges, where each reply goes back to a single requester.
 
-### When to avoid
+## When to avoid
 
 - When several different consumers each need to receive the same information; use a publish-subscribe channel.
 - When strict processing order is required and there are many concurrent consumers, since concurrency can reorder handling.

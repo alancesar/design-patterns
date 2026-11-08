@@ -33,7 +33,7 @@ The facade contains no domain logic: it only translates, delegates, and usually 
 - When fine-grained interaction would require many remote calls for a single business task.
 - When you want to keep the domain thin and testable, isolating distribution concerns in an edge layer.
 
-### When to avoid
+## When to avoid
 
 - When all clients run in the same process; the coarse interface only gets in the way and hides the intent of the methods.
 - When the facade starts receiving business rules; that turns it into a second domain model.

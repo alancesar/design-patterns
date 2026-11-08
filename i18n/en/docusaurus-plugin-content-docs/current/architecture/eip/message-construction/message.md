@@ -28,7 +28,7 @@ A message has two parts. The header carries metadata used by the infrastructure,
 - Whenever two applications communicate through a message channel.
 - When you want to separate transport metadata from business content.
 
-### When to avoid
+## When to avoid
 
 - When a direct synchronous call solves the case and there's no need for temporal decoupling.
 - For very large volumes of data that don't fit in a message; in that case use a message sequence or a reference to the data.

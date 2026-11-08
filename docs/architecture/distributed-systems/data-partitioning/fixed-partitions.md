@@ -32,7 +32,7 @@ O mapeamento partição → nó precisa ser conhecido pelos clientes ou pelos n�
 - Clusters que crescem e encolhem ao longo do tempo (key-value stores, brokers de mensagens, caches distribuídos).
 - Quando o volume total de dados é previsível o bastante para escolher um número de partições adequado.
 
-### Quando evitar
+## Quando evitar
 
 - Quando as consultas por faixa de chaves são frequentes: o hash espalha chaves vizinhas por todas as partições (veja Key-Range Partitions).
 - Quando o volume de dados é muito imprevisível: partições demais geram sobrecarga de metadados e partições de menos limitam a escalabilidade.

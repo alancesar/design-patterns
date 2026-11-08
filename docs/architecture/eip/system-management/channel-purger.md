@@ -30,7 +30,7 @@ Mensageria persistente e assíncrona pode deixar mensagens perdidas no caminho. 
 - Limpar filas de resposta após falhas de solicitantes.
 - Remover mensagens problemáticas identificadas durante a operação.
 
-### Quando evitar
+## Quando evitar
 
 - Quando as mensagens têm valor de negócio e não podem ser perdidas; prefira movê-las para um [Dead Letter Channel](/architecture/eip/messaging-channels/dead-letter-channel).
 - Sem controle de acesso, pois a operação é destrutiva.

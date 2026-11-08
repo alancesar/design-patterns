@@ -31,7 +31,7 @@ Uma aplicação corporativa pode ser vista como uma série de transações: algu
 - Aplicações que precisam de controle fino sobre as consultas SQL e sobre o desempenho.
 - Sistemas pequenos, protótipos ou módulos de relatório e importação.
 
-### Quando evitar
+## Quando evitar
 
 - Quando as regras são complexas e se repetem entre vários casos de uso: a duplicação entre scripts se acumula.
 - Quando o domínio tem muitas variações de comportamento que se beneficiam de polimorfismo.

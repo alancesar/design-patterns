@@ -31,7 +31,7 @@ It shows up around the Write-Ahead Log, to serialize writes to the log, and in a
 - Applying commands to a replicated state machine.
 - When the shared state is complex and locks would make the code fragile.
 
-### When to avoid
+## When to avoid
 
 - Highly parallelizable workloads where operations are independent (use competing consumers or partitioning).
 - When a single thread is a CPU bottleneck that can't be divided.

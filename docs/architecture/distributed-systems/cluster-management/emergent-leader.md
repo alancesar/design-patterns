@@ -31,7 +31,7 @@ O coordenador decide mudanças de membership e distribui partições (veja [Fixe
 - Quando o papel do coordenador é leve (atribuir partições, tratar membership) e tolera visões temporariamente divergentes.
 - Quando disponibilidade é mais importante que consistência estrita nas decisões de coordenação.
 
-### Quando evitar
+## Quando evitar
 
 - Decisões que exigem exclusividade garantida: durante uma partição de rede, dois lados podem eleger coordenadores diferentes (split brain).
 - Quando a visão de membership não é confiável ou converge devagar.

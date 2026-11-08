@@ -32,7 +32,7 @@ The advantage is low intrusiveness: the core gains immediate visibility without 
 - When the team is large or rotating and needs quick guidance.
 - As a first step, before deciding on a structural separation.
 
-### When to avoid
+## When to avoid
 
 - When the model is small and the core is obvious to everyone.
 - When the distillation document won't be maintained, since it quickly drifts from reality.

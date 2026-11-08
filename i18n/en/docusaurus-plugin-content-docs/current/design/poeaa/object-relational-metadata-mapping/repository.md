@@ -34,7 +34,7 @@ In DDD (Domain-Driven Design), Evans defines the Repository as the mechanism tha
 - When you want a clear boundary between the domain and the persistence infrastructure.
 - When it is desirable to swap the storage for an in-memory version in tests.
 
-### When to avoid
+## When to avoid
 
 - In simple or CRUD systems, where the extra layer doesn't pay off.
 - When the ORM already offers the abstraction and the Repository would only repeat its methods.

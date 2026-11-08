@@ -28,7 +28,7 @@ O registrador pode observar a plataforma de implantação ou executar health che
 - Quando se quer manter o código do serviço livre de lógica de registro.
 - Ambientes poliglotas ou plataformas de implantação que já oferecem o registrador.
 
-### Quando evitar
+## Quando evitar
 
 - Quando é preciso conhecer o estado fino da instância e o registrador só enxerga se está rodando.
 - Quando operar um componente crítico extra não é viável.

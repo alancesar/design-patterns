@@ -29,7 +29,7 @@ Subdomains are classified into three types: core (the competitive differentiator
 - When the domain is complex and benefits from DDD modeling
 - When you want to distinguish what to build (core) from what to buy or outsource (generic)
 
-### When to avoid
+## When to avoid
 
 - In simple domains, where modeling subdomains is a disproportionate effort
 - Without access to domain experts to validate the boundaries

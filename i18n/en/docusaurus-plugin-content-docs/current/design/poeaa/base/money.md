@@ -32,7 +32,7 @@ A key operation is allocation (`allocate`): splitting an amount into parts witho
 - When there is more than one currency in the system.
 - When amounts must be split exactly (installments, expense sharing).
 
-### When to avoid
+## When to avoid
 
 - When the system only displays amounts and never calculates with them, and a plain decimal would do.
 - When a mature money library already exists (for example, `javax.money`, `Joda-Money`, `py-moneyed`) that meets the requirements; in that case, use it instead of writing your own.

@@ -33,7 +33,7 @@ Quanto menor e mais bem conhecido o limite de erro, menor a espera. Por isso o p
 - Existe um limite de erro de relógio conhecido e pequeno, de modo que a espera seja aceitável.
 - O sistema usa timestamps como versões em armazenamento multiversão distribuído.
 
-### Quando evitar
+## Quando evitar
 
 - O limite de erro dos relógios é desconhecido ou grande; a espera fica longa ou, pior, o limite é violado e a garantia se perde.
 - A latência de escrita ou leitura é crítica e a incerteza não é pequena.

@@ -33,7 +33,7 @@ O Special Case é a generalização do [Null Object](/coding/gof/behavioral/null
 - Quando se quer que o cliente trate o caso especial e o normal de forma uniforme (polimorfismo).
 - Para finders que não encontram o registro, devolvendo um objeto especial em vez de `null`.
 
-### Quando evitar
+## Quando evitar
 
 - Quando o chamador precisa realmente distinguir a ausência e agir de forma diferente em cada ponto; nesse caso, um `Optional`/`Maybe` explícito pode ser mais honesto.
 - Quando o caso especial esconderia um erro que deveria falhar rápido (uma ausência inesperada que merece exceção).

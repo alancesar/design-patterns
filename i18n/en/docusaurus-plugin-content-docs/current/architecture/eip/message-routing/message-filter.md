@@ -31,7 +31,7 @@ Many brokers implement the pattern through bindings between queues and routing k
 - Relevance can be decided from the message content
 - You want to reduce unnecessary traffic and processing
 
-### When to avoid
+## When to avoid
 
 - The discarded message is still needed elsewhere; use a router with more than one output
 - Silent discarding would hide important errors; prefer an invalid message channel

@@ -32,7 +32,7 @@ Kafka organizes each partition as a sequence of segments, and Cassandra, ZooKeep
 - When old history needs to be discarded periodically (retention by time or size).
 - When recovery needs to read only the most recent segments.
 
-### When to avoid
+## When to avoid
 
 - Small data volumes, where a single file remains manageable.
 - When the log is ephemeral and discarded entirely on each restart.

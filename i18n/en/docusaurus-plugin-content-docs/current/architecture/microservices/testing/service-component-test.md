@@ -29,7 +29,7 @@ This validates the service's behavior end to end within its boundary, faster and
 - The build pipeline needs fast, deterministic feedback
 - The service has remote dependencies that can be simulated
 
-### When to avoid
+## When to avoid
 
 - The doubles are maintained by hand and diverge from the dependencies' real behavior
 - The service is so simple that unit tests already provide enough confidence

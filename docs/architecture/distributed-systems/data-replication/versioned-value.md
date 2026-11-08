@@ -31,7 +31,7 @@ Aparece em etcd (revisões do MVCC), ZooKeeper (zxid e versão do znode) e Kafka
 - Quando clientes observam mudanças (watch) a partir de uma versão.
 - MVCC e leituras de snapshot.
 
-### Quando evitar
+## Quando evitar
 
 - Dados em que o histórico não é necessário e o espaço é crítico.
 - Armazenamento simples de um único cliente sem concorrência.

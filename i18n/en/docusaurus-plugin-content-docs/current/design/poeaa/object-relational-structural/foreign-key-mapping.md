@@ -30,7 +30,7 @@ Loading of the referenced object is usually deferred with Lazy Load, to avoid lo
 - In one-to-one, many-to-one, and one-to-many associations between entities.
 - When the entities have their own identity and independent lifecycles.
 
-### When to avoid
+## When to avoid
 
 - In many-to-many associations: use Association Table Mapping.
 - When the child depends exclusively on the parent: consider Dependent Mapping.

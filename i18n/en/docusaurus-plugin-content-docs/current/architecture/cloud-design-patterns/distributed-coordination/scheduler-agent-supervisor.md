@@ -33,7 +33,7 @@ The roles are logical and can be implemented in several ways (for example, a dur
 - Background jobs that orchestrate multi-step flows involving remote resources and that must either complete or be cleanly undone (for example, order processing or resource provisioning).
 - Long-running flows where you need to detect timed-out steps and decide between retrying, compensating, or escalating to an operator.
 
-### When to avoid
+## When to avoid
 
 - The task doesn't invoke remote services or access remote resources: there is no distributed failure surface to mitigate, and coordination only adds cost.
 - Simple, single-step operations where local retries (the Retry pattern) are enough.

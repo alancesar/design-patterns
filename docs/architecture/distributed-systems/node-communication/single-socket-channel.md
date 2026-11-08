@@ -33,7 +33,7 @@ Se a conexão cai, o remetente a reabre e reenvia o que ainda não foi confirmad
 - Fluxos de replicação em que a ordem das mensagens importa (log replicado, atualizações de estado).
 - Quando se deseja ordenação e entrega confiável delegadas ao TCP, em vez de numeração e confirmação próprias.
 
-### Quando evitar
+## Quando evitar
 
 - Quando as mensagens são independentes e a ordem não importa: várias conexões podem render mais vazão.
 - Quando uma mensagem grande ou lenta não pode bloquear as demais (head-of-line blocking) e não há como segmentá-las.

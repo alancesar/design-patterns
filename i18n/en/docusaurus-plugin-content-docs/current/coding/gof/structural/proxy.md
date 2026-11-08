@@ -36,7 +36,7 @@ The difference from other wrappers lies in the intent: the Proxy doesn't add bus
 - When you want to add caching, auditing, or rate limiting transparently to the client.
 - When the real object comes from a third-party library and can't be changed.
 
-### When to avoid
+## When to avoid
 
 - When the real object is cheap and there's no need for access control: the proxy only adds indirection.
 - When the extra latency introduced by the intermediate layer is critical.

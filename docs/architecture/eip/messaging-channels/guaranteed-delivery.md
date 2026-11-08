@@ -31,7 +31,7 @@ A garantia vem ao preço de gravar em disco a cada salto, o que aumenta a latên
 - O receptor pode ficar offline e precisa receber o que perdeu quando voltar.
 - A confiabilidade da entrega vale mais que a latência.
 
-### Quando evitar
+## Quando evitar
 
 - Dados efêmeros ou de alta frequência, como leituras de sensores ou métricas, em que perder alguns é aceitável.
 - Cenários de baixa latência em que o custo de gravar em disco a cada salto inviabiliza a vazão necessária.

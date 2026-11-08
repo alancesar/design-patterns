@@ -31,7 +31,7 @@ The coordinator decides membership changes and distributes partitions (see [Fixe
 - When the coordinator's role is lightweight (assigning partitions, handling membership) and tolerates temporarily divergent views.
 - When availability matters more than strict consistency in coordination decisions.
 
-### When to avoid
+## When to avoid
 
 - Decisions that require guaranteed exclusivity: during a network partition, the two sides can elect different coordinators (split brain).
 - When the membership view isn't reliable or converges slowly.

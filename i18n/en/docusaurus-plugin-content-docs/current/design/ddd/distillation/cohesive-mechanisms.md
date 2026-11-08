@@ -32,7 +32,7 @@ It's different from a [Generic Subdomain](/design/ddd/distillation/generic-subdo
 - When the mechanism can be described by a simple, intention-oriented interface.
 - When the same algorithm can serve more than one point in the model or be replaced in the future.
 
-### When to avoid
+## When to avoid
 
 - When the calculation is part of the business rule and should be explicit domain knowledge; extracting it would hide the core.
 - When the logic is too simple to justify a separate structure.

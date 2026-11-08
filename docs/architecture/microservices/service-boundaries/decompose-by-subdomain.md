@@ -29,7 +29,7 @@ Os subdomínios são classificados em três tipos: core (o diferencial competiti
 - Quando o domínio é complexo e se beneficia de modelagem com DDD
 - Quando se quer distinguir o que construir (core) do que comprar ou terceirizar (generic)
 
-### Quando evitar
+## Quando evitar
 
 - Em domínios simples, nos quais a modelagem de subdomínios é um esforço desproporcional
 - Sem acesso a especialistas do domínio para validar os limites

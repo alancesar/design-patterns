@@ -31,7 +31,7 @@ Não confundir com o Service Layer do PoEAA nem com serviços da camada de aplic
 - Quando a operação envolve múltiplos agregados ou entidades.
 - Quando a lógica é stateless e expressa em termos do modelo.
 
-### Quando evitar
+## Quando evitar
 
 - Quando a operação pertence naturalmente a uma entidade ou Value Object.
 - Quando o serviço seria só orquestração técnica (isso é camada de aplicação).

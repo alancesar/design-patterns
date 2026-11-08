@@ -35,7 +35,7 @@ The central implementation decision is between a shallow copy, which shares inte
 - When instances of a class can take on only a few combinations of state, which can be kept as prototypes
 - When you want to reduce the number of subclasses created only to vary the initial configuration
 
-### When to avoid
+## When to avoid
 
 - When objects have many circular references or non-cloneable resources (connections, file handles, threads)
 - When direct creation is cheap and simple, making cloning an unnecessary indirection

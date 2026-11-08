@@ -32,7 +32,7 @@ It's used by Cassandra, Consul (Serf), Akka Cluster, and Riak to propagate membe
 - Systems that accept eventual consistency for metadata.
 - Failure detection at scale, combined with indirect [Heartbeat](/architecture/distributed-systems/data-replication/heartbeat).
 
-### When to avoid
+## When to avoid
 
 - Decisions that require strong consistency or total order (use a [Consistent Core](/architecture/distributed-systems/cluster-management/consistent-core)).
 - Small clusters, where sending to everyone is cheap and simpler.

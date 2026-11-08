@@ -32,7 +32,7 @@ Uma operação-chave é a alocação (`allocate`): dividir um valor em partes se
 - Quando há mais de uma moeda no sistema.
 - Quando é necessário ratear valores exatamente (parcelamento, divisão de despesas).
 
-### Quando evitar
+## Quando evitar
 
 - Quando o sistema só exibe valores e nunca calcula com eles, e um decimal comum bastaria.
 - Quando já existe uma biblioteca madura de dinheiro (por exemplo, `javax.money`, `Joda-Money`, `py-moneyed`) que atende aos requisitos; nesses casos, use-a em vez de escrever a sua.

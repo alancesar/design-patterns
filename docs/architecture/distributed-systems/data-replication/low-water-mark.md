@@ -31,7 +31,7 @@ Um processo em segundo plano verifica periodicamente a marca e remove os segment
 - Quando há snapshots periódicos que tornam o log anterior redundante.
 - Quando existe uma política de retenção por tempo ou tamanho.
 
-### Quando evitar
+## Quando evitar
 
 - Quando é preciso manter todo o histórico para auditoria ou reprodução (por exemplo, event sourcing com retenção infinita).
 - Quando o volume é pequeno e o custo de manter o log inteiro é desprezível.

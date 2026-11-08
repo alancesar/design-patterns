@@ -31,7 +31,7 @@ The Registry is a pattern of last resort: when possible, passing dependencies ex
 - When you only have an identifier and need to resolve it to an object, for example via a [Repository](/design/poeaa/object-relational-metadata-mapping/repository) or finder.
 - In legacy code or frameworks where dependency injection isn't available.
 
-### When to avoid
+## When to avoid
 
 - When dependency injection is feasible: explicit dependencies make the code clearer and more testable.
 - When the Registry would become shared mutable global state, which makes testing and concurrency harder.

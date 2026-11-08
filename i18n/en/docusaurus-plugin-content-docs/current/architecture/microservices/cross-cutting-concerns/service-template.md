@@ -32,7 +32,7 @@ The template usually relies on a Microservice Chassis for the shared framework c
 - When you want to speed up project startup without immediately investing in a shared framework.
 - Together with a chassis, to provide the service-specific skeleton.
 
-### When to avoid
+## When to avoid
 
 - When cross-cutting concerns change often and the changes have to be propagated to many existing services.
 - When there are few services, in which case the template would be overkill.

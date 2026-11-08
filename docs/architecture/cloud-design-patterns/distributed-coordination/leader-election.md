@@ -31,7 +31,7 @@ As instâncias subordinadas monitoram o líder por heartbeat, polling ou expira�
 - É preciso garantir que apenas uma instância execute determinada responsabilidade, com failover automático em caso de falha
 - O sistema escala horizontalmente e instâncias podem ser criadas ou removidas a qualquer momento
 
-### Quando evitar
+## Quando evitar
 
 - Já existe um líder natural ou um processo singleton dedicado que pode ser reiniciado em caso de falha
 - A coordenação pode ser obtida de forma mais leve, por exemplo com bloqueio otimista ou pessimista no acesso a um recurso compartilhado

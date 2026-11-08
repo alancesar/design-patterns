@@ -30,7 +30,7 @@ Persistent, asynchronous messaging can leave stray messages behind. They sit wai
 - Cleaning up reply queues after requester failures.
 - Removing problematic messages identified during operation.
 
-### When to avoid
+## When to avoid
 
 - When the messages have business value and can't be lost; prefer moving them to a [Dead Letter Channel](/architecture/eip/messaging-channels/dead-letter-channel).
 - Without access control, since the operation is destructive.

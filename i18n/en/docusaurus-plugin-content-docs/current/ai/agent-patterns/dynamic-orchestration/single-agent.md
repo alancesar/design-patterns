@@ -30,7 +30,7 @@ It's the recommended starting point before any multi-agent architecture: it lets
 - The start of agent development, to refine logic, prompt, and tools.
 - A single, cohesive scope of responsibility with few tools.
 
-### When to avoid
+## When to avoid
 
 - The agent needs many tools or faces increasingly complex tasks.
 - The agent must manage several distinct responsibilities.

@@ -31,7 +31,7 @@ Como um único cliente pode observar muitos valores, o padrão se apoia em um [S
 - Quando muitos clientes observam poucos valores que mudam raramente.
 - Em conjunto com um [Consistent Core](/architecture/distributed-systems/cluster-management/consistent-core) e [Lease](/architecture/distributed-systems/cluster-management/lease), para saber quando um lease expirou.
 
-### Quando evitar
+## Quando evitar
 
 - Dados que mudam com altíssima frequência: o fluxo de eventos pode ser maior que o do polling, e um stream dedicado é mais adequado.
 - Quando o cliente precisa de todos os eventos sem perda e o protocolo só garante a notificação do estado mais recente.

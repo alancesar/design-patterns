@@ -32,7 +32,7 @@ It's the messaging-world equivalent of the GoF Adapter: it adapts an interface (
 - You need to speak an external partner's standard format while keeping the internal format.
 - You want to concentrate the conversion in a reusable point that can be tested in isolation.
 
-### When to avoid
+## When to avoid
 
 - The formats are already compatible, or the only difference is missing fields (in that case, a Content Enricher is enough).
 - Many applications exchange messages with each other: point-to-point translations explode in number and a Canonical Data Model is more appropriate.

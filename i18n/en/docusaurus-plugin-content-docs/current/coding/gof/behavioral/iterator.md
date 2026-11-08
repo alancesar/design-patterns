@@ -35,7 +35,7 @@ The aggregate acts as an iterator factory through a method such as `createIterat
 - You need multiple traversal strategies or lazy iteration over external sources.
 - You want to reduce duplication of traversal code scattered across the application.
 
-### When to avoid
+## When to avoid
 
 - The collection is simple (a native array or list) and the language already offers adequate iteration; creating your own iterators only adds ceremony.
 - Random access by index is the main use case, and sequential iteration is slower or less expressive.

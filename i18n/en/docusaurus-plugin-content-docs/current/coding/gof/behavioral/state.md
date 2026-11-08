@@ -34,7 +34,7 @@ In practice, the pattern is an object-oriented way to implement a finite state m
 - The same conditionals on the state are repeated across several methods of the class
 - New states tend to appear frequently and should be added in isolation
 
-### When to avoid
+## When to avoid
 
 - The object has few states or its behavior rarely changes; an `enum` with a simple `switch` is more readable
 - Transitions are trivial and there's no state-specific behavior

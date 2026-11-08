@@ -29,7 +29,7 @@ The model itself decides the next step at runtime, so the path isn't predictable
 - Scenarios where a single agent is enough, with lower cost and maintenance than a multi-agent system.
 - Example from the source: a robotics agent plans a path to the goal, moves along a stretch, observes the environment, and replans when it meets new obstacles.
 
-### When to avoid
+## When to avoid
 
 - The flow is known and predictable: a deterministic workflow is cheaper and more stable.
 - Latency is critical, since each round of the cycle increases it.

@@ -35,7 +35,7 @@ Como armazenamento costuma ser muito mais barato que capacidade de computação,
 - Distribuir conteúdo em várias regiões geográficas com uma CDN que faz cache a partir da origem de armazenamento.
 - Monitorar custos e consumo de banda de forma separada dos custos de execução da aplicação.
 
-### Quando evitar
+## Quando evitar
 
 - Quando o conteúdo precisa ser processado ou personalizado a cada requisição (por exemplo, inserir dados específicos do usuário em um documento).
 - Quando o volume de conteúdo estático é muito pequeno e a sobrecarga de mantê-lo em um armazenamento separado supera o benefício.

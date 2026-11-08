@@ -34,7 +34,7 @@ It's the foundation of ORMs such as Hibernate, Entity Framework, and SQLAlchemy,
 - When you want to test business rules without a database.
 - When the schema is inherited and can't be changed.
 
-### When to avoid
+## When to avoid
 
 - In simple CRUD applications, where Active Record solves the problem with far less code.
 - When the team has no ORM experience or tooling and the cost of building a mapper isn't worth it.

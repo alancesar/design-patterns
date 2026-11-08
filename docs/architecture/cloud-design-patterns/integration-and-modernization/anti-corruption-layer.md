@@ -41,7 +41,7 @@ No contexto de microsserviços (microservices.io), o padrão responde à pergunt
 - É necessário integrar com um sistema externo cujo modelo de dados ou contrato não deve influenciar o domínio interno.
 - Há código legado dentro de um monólito que precisa ser isolado de módulos novos.
 
-### Quando evitar
+## Quando evitar
 
 - Não há diferenças semânticas significativas entre o sistema novo e o legado; a camada só adicionaria latência e manutenção.
 - A intenção é colocar regras de negócio ou orquestração na camada: ela deve se limitar à lógica de tradução.

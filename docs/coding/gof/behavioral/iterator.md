@@ -35,7 +35,7 @@ O agregado atua como fábrica de iteradores por meio de um método como `createI
 - Há necessidade de várias estratégias de percurso ou de iteração preguiçosa (lazy) sobre fontes externas.
 - Você quer reduzir duplicação de código de travessia espalhado pela aplicação.
 
-### Quando evitar
+## Quando evitar
 
 - A coleção é simples (um array ou lista nativa) e a linguagem já oferece iteração adequada; criar iteradores próprios só adiciona cerimônia.
 - O acesso aleatório por índice é o caso de uso principal, e a iteração sequencial é mais lenta ou menos expressiva.

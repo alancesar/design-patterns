@@ -36,7 +36,7 @@ No Enterprise Integration Patterns, a Remote Procedure Invocation aplica o encap
 - A equipe prioriza simplicidade e familiaridade com tecnologias como REST e gRPC.
 - Não se deseja introduzir e operar um broker de mensagens.
 
-### Quando evitar
+## Quando evitar
 
 - Quando é preciso notificações, requisição com resposta assíncrona ou publicação/assinatura; nesses casos prefira Messaging.
 - Quando a alta disponibilidade exige que o cliente continue operando mesmo com o serviço fora do ar.

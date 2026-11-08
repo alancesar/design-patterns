@@ -29,7 +29,7 @@ When it receives the reply, the requestor compares the correlation identifier wi
 - In multi-step flows, to group messages belonging to the same conversation.
 - To trace a transaction across components.
 
-### When to avoid
+## When to avoid
 
 - When there's only one pending request per reply channel and ordering is guaranteed.
 - When there's no reply to correlate.

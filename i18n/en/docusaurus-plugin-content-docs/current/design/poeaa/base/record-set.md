@@ -31,7 +31,7 @@ It's the pattern behind structures such as .NET's `DataSet` and `DataTable`, JDB
 - Together with [Table Module](/design/poeaa/domain-logic/table-module) or [Transaction Script](/design/poeaa/domain-logic/transaction-script), which naturally operate on tabular data.
 - For reports and simple maintenance screens (CRUD) where an object model would be overkill.
 
-### When to avoid
+## When to avoid
 
 - When the domain logic is complex and would benefit from a [Domain Model](/design/poeaa/domain-logic/domain-model), since the Record Set pushes toward a table-oriented style.
 - When the domain layer shouldn't know the database structure, since the Record Set reproduces it.

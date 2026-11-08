@@ -29,7 +29,7 @@ A lista fica no cabeçalho, separada do payload de negócio, mantendo dados de c
 - Depuração e análise de impacto em soluções com acoplamento fraco.
 - Quando se quer rastreabilidade sem consultar um repositório externo.
 
-### Quando evitar
+## Quando evitar
 
 - Quando o histórico revelaria topologia interna a destinatários externos.
 - Quando as mensagens são muito pequenas e o cabeçalho crescente pesaria no tráfego.

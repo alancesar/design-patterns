@@ -35,7 +35,7 @@ The style trades the simplicity of a single component for team autonomy and flex
 - Organizations with several cross-functional teams and automated continuous delivery.
 - When subdomains have distinct scalability, availability, security, or technology requirements.
 
-### When to avoid
+## When to avoid
 
 - Small applications, or ones with a still-unstable domain, where service boundaries would be guesswork.
 - Teams without maturity in automation, observability, and operating distributed systems.

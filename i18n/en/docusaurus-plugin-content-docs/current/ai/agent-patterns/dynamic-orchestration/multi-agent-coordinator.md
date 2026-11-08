@@ -32,7 +32,7 @@ Unlike [Magentic Orchestration](/ai/agent-patterns/dynamic-orchestration/magenti
 - Requests that must be classified before a specialist handles them.
 - Quality that benefits from the model's reasoning when choosing the path.
 
-### When to avoid
+## When to avoid
 
 - Routing is fixed and predictable: sequential or parallel flows avoid extra model calls.
 - Cost and latency are hard constraints.

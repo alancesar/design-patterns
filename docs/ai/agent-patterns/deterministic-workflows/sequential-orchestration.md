@@ -36,7 +36,7 @@ Também é conhecido como *pipeline*, *prompt chaining*, *linear delegation* ou,
 - Processos estruturados e repetíveis em que a ordem das etapas nunca muda.
 - Sistemas em que se conhecem a disponibilidade e o desempenho de cada agente, e em que falhas ou atrasos de um agente são toleráveis para a tarefa como um todo.
 
-### Quando evitar
+## Quando evitar
 
 - Estágios que são paralelizáveis sem perda de qualidade nem disputa por estado compartilhado.
 - Poucos estágios que um único agente resolve bem.

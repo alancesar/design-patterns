@@ -32,7 +32,7 @@ Um benefício secundário é encapsular a serialização: o formato de transmiss
 - Quando se quer agrupar o que seriam várias chamadas em uma só.
 - Quando o contrato de dados com o cliente deve evoluir independentemente do modelo de domínio.
 
-### Quando evitar
+## Quando evitar
 
 - Em chamadas locais dentro do mesmo processo: Fowler alerta no artigo LocalDTO que o custo de mapeamento é alto e o benefício é nenhum; prefira uma [Service Layer](/design/poeaa/domain-logic/service-layer) trabalhando com objetos de domínio.
 - Quando o DTO tende a espelhar o domínio campo a campo, apenas duplicando classes sem ganho de isolamento.

@@ -31,7 +31,7 @@ O resultado se comporta como um Lamport Clock, com versões sempre crescentes e 
 - O sistema faz controle de concorrência multiversão e precisa de timestamps de leitura e escrita comparáveis.
 - Os relógios dos nós são razoavelmente sincronizados (NTP), sem hardware especializado.
 
-### Quando evitar
+## Quando evitar
 
 - Basta ordenar por causalidade, sem relação com o tempo real; um Lamport Clock é mais simples.
 - Se for necessária consistência externa estrita entre nós com relógios divergentes, o HLC sozinho não basta: ele dá apenas ordem parcial entre eventos sem relação causal, e é preciso combiná-lo com um Clock-Bound Wait.

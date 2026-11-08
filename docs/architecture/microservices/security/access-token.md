@@ -29,7 +29,7 @@ Esse token acompanha a requisição a cada serviço que a processa. Quando um se
 - Serviços que tomam decisões de autorização com base na identidade, nos papéis ou nos escopos do usuário.
 - Chamadas entre serviços que precisam preservar o contexto do requisitante original.
 
-### Quando evitar
+## Quando evitar
 
 - Sistemas pequenos ou monolíticos, nos quais a sessão tradicional no servidor é suficiente.
 - Cenários que exigem revogação imediata e universal de acesso, se não houver mecanismo para isso (tokens de vida curta, lista de revogação ou introspecção).

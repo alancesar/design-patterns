@@ -34,7 +34,7 @@ Modelos de objetos têm coleções, herança e associações que raramente casam
 - Quando se quer testar regras de negócio sem banco.
 - Quando o esquema é herdado e não pode ser alterado.
 
-### Quando evitar
+## Quando evitar
 
 - Em aplicações CRUD simples, em que Active Record resolve com muito menos código.
 - Quando a equipe não tem experiência nem ferramenta de ORM e o custo de construir um mapper não compensa.

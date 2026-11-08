@@ -36,7 +36,7 @@ Enterprise Integration Patterns presents Messaging as the style that moves small
 - Events need to be broadcast to several interested parties (publish/subscribe).
 - The flow is long or coordinated, as in sagas and CQRS view updates.
 
-### When to avoid
+## When to avoid
 
 - The interaction is a simple synchronous request/response and the team doesn't want to operate a broker.
 - The client needs an immediate response and the complexity of asynchronous request/reply isn't worth it.

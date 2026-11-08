@@ -28,7 +28,7 @@ It's a composition of patterns: a Splitter separates the parts, a router (such a
 - Orders or documents with items that require checks in different systems
 - The final result depends on all the partial responses
 
-### When to avoid
+## When to avoid
 
 - All parts go to the same processor and can be handled in bulk
 - The flow is dynamic or depends on intermediate results; consider the [Process Manager](/architecture/eip/message-routing/process-manager)

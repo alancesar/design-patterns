@@ -30,7 +30,7 @@ It works well as long as the domain model is similar to the database schema; whe
 - When the object model can closely follow the database schema.
 - To quickly deliver CRUD applications, as in Rails and Laravel.
 
-### When to avoid
+## When to avoid
 
 - When the business logic is complex and requires inheritance, collections, and relationships that diverge from the schema.
 - When you want to test the domain without a database.

@@ -34,7 +34,7 @@ Because the chain is assembled at runtime, you can add, remove, or reorder handl
 - The set and order of handlers must be defined or changed dynamically
 - Processing pipelines such as HTTP middleware, servlet filters, interceptors, and UI event handling (event bubbling)
 
-### When to avoid
+## When to avoid
 
 - There is exactly one known, stable handler: a direct call is simpler
 - Every request must be handled and there's no default handler at the end of the chain
