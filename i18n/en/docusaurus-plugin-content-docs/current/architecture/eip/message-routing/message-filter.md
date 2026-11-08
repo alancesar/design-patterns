@@ -63,8 +63,8 @@ The filter lets through only the messages that satisfy the criterion.
 - [Message Router](/architecture/eip/message-routing/message-router) — the filter is a router with one output
 - [Content-Based Router](/architecture/eip/message-routing/content-based-router) — chooses among several outputs by content
 - [Selective Consumer](/architecture/eip/messaging-endpoints/selective-consumer) — filtering done in the consumer
-- [Publish-Subscribe Channel](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — a channel where filters are used per subscriber
-- [Pipes and Filters](/cloud/cloud-design-patterns/messaging/pipes-and-filters) — the filter is a possible stage of the pipeline
+- [Publish-Subscribe Channel](/architecture/cloud-design-patterns/messaging/publisher-subscriber) — a channel where filters are used per subscriber
+- [Pipes and Filters](/architecture/cloud-design-patterns/messaging/pipes-and-filters) — the filter is a possible stage of the pipeline
 
 ## Reference
 

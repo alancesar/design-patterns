@@ -18,7 +18,7 @@ Agentes especializados se comunicam entre si em todas as direções (all-to-all)
 
 É preciso definir uma condição de saída explícita, como número máximo de iterações, limite de tempo ou consenso. Em um projeto de produto, agentes de pesquisa de mercado, engenharia e modelagem financeira debatem trade-offs e convergem para uma especificação.
 
-Comparado ao [Group Chat Orchestration](/ai/agent-patterns/dynamic-orchestration/group-chat-orchestration), que costuma ter um gerente de chat controlando os turnos, o swarm é totalmente descentralizado. Aproxima-se da [Choreography](/cloud/cloud-design-patterns/distributed-coordination/choreography): sem controlador central, cada participante reage aos demais.
+Comparado ao [Group Chat Orchestration](/ai/agent-patterns/dynamic-orchestration/group-chat-orchestration), que costuma ter um gerente de chat controlando os turnos, o swarm é totalmente descentralizado. Aproxima-se da [Choreography](/architecture/cloud-design-patterns/distributed-coordination/choreography): sem controlador central, cada participante reage aos demais.
 
 ## Problemas que resolve
 
@@ -71,7 +71,7 @@ O despachante entrega o pedido a um agente; os agentes debatem entre si e o desp
 
 - [Group Chat Orchestration](/ai/agent-patterns/dynamic-orchestration/group-chat-orchestration) — conversa colaborativa, em geral com gerente de chat.
 - [Handoff Orchestration](/ai/agent-patterns/dynamic-orchestration/handoff-orchestration) — passagem de controle entre agentes, usada também no swarm.
-- [Choreography](/cloud/cloud-design-patterns/distributed-coordination/choreography) — coordenação descentralizada, sem controlador central.
+- [Choreography](/architecture/cloud-design-patterns/distributed-coordination/choreography) — coordenação descentralizada, sem controlador central.
 - [Multi-Agent Coordinator](/ai/agent-patterns/dynamic-orchestration/multi-agent-coordinator) — alternativa centralizada.
 - [Multi-Agent Review and Critique](/ai/agent-patterns/iteration/maker-checker-loop) — crítica estruturada entre dois papéis.
 

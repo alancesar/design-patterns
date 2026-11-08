@@ -63,7 +63,7 @@ Messages arrive out of order, are held in the buffer, and leave in sequence.
 - [Message Sequence](/architecture/eip/message-construction/message-sequence) — provides the numbering used to reorder
 - [Aggregator](/architecture/eip/message-routing/aggregator) — another stateful filter, but one that combines messages
 - [Message Router](/architecture/eip/message-routing/message-router) — routing that can shuffle the order
-- [Sequential Convoy](/cloud/cloud-design-patterns/messaging/sequential-convoy) — processes related messages in order
+- [Sequential Convoy](/architecture/cloud-design-patterns/messaging/sequential-convoy) — processes related messages in order
 
 ## Reference
 

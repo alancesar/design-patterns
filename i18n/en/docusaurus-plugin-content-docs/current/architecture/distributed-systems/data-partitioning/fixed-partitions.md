@@ -68,7 +68,7 @@ The key hash always yields the same partition; only the partition → node table
 
 - [Key-Range Partitions](/architecture/distributed-systems/data-partitioning/key-range-partitions) — an alternative that preserves key order for range queries
 - [Consistent Core](/architecture/distributed-systems/cluster-management/consistent-core) — maintains the partition-to-node mapping consistently
-- [Sharding](/cloud/cloud-design-patterns/data-management/sharding) (cloud) — horizontal partitioning of data across separate data stores
+- [Sharding](/architecture/cloud-design-patterns/data-management/sharding) (cloud) — horizontal partitioning of data across separate data stores
 
 ## Reference
 

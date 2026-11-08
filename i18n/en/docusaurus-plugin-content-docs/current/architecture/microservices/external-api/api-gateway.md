@@ -74,15 +74,15 @@ Clients talk only to the gateway. It routes some requests directly to the respon
 
 ## Related patterns
 
-- [Backend for Front-end](/cloud/cloud-design-patterns/gateways-and-edge/backends-for-frontends) — a variation in which each client type has its own gateway.
-- [Gateway Routing](/cloud/cloud-design-patterns/gateways-and-edge/gateway-routing) — the cloud catalog's equivalent of the API Gateway's routing/proxy function.
-- [Gateway Aggregation](/cloud/cloud-design-patterns/gateways-and-edge/gateway-aggregation) — equivalent to the composition function (fan-out and combining responses).
-- [Gateway Offloading](/cloud/cloud-design-patterns/gateways-and-edge/gateway-offloading) — equivalent to delegating cross-cutting responsibilities (TLS, authentication, monitoring) to the gateway.
+- [Backend for Front-end](/architecture/cloud-design-patterns/gateways-and-edge/backends-for-frontends) — a variation in which each client type has its own gateway.
+- [Gateway Routing](/architecture/cloud-design-patterns/gateways-and-edge/gateway-routing) — the cloud catalog's equivalent of the API Gateway's routing/proxy function.
+- [Gateway Aggregation](/architecture/cloud-design-patterns/gateways-and-edge/gateway-aggregation) — equivalent to the composition function (fan-out and combining responses).
+- [Gateway Offloading](/architecture/cloud-design-patterns/gateways-and-edge/gateway-offloading) — equivalent to delegating cross-cutting responsibilities (TLS, authentication, monitoring) to the gateway.
 - [Microservice Architecture](/architecture/microservices/architectural-style/microservice-architecture) — the architectural style that creates the need for the gateway.
 - [API Composition](/architecture/microservices/service-collaboration/api-composition) — the gateway often implements it to combine data from several services.
 - [Client-side Discovery](/architecture/microservices/service-discovery/client-side-discovery) and [Server-side Discovery](/architecture/microservices/service-discovery/server-side-discovery) — the gateway uses one of them to locate available instances.
 - [Access Token](/architecture/microservices/security/access-token) — the gateway authenticates users and passes identity information on to the services.
-- [Circuit Breaker](/cloud/cloud-design-patterns/resiliency/circuit-breaker) — protects the gateway's calls to services.
+- [Circuit Breaker](/architecture/cloud-design-patterns/resiliency/circuit-breaker) — protects the gateway's calls to services.
 
 ## Reference
 

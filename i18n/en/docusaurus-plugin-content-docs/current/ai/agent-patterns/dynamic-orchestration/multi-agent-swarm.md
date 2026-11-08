@@ -18,7 +18,7 @@ Specialized agents communicate with one another in every direction (all-to-all) 
 
 You need to define an explicit exit condition, such as a maximum number of iterations, a time limit, or consensus. In a product project, market research, engineering, and financial modeling agents debate trade-offs and converge on a specification.
 
-Compared with [Group Chat Orchestration](/ai/agent-patterns/dynamic-orchestration/group-chat-orchestration), which usually has a chat manager controlling the turns, the swarm is fully decentralized. It's close to [Choreography](/cloud/cloud-design-patterns/distributed-coordination/choreography): with no central controller, each participant reacts to the others.
+Compared with [Group Chat Orchestration](/ai/agent-patterns/dynamic-orchestration/group-chat-orchestration), which usually has a chat manager controlling the turns, the swarm is fully decentralized. It's close to [Choreography](/architecture/cloud-design-patterns/distributed-coordination/choreography): with no central controller, each participant reacts to the others.
 
 ## Problems it solves
 
@@ -71,7 +71,7 @@ The dispatcher hands the request to one agent; the agents debate among themselve
 
 - [Group Chat Orchestration](/ai/agent-patterns/dynamic-orchestration/group-chat-orchestration) — collaborative conversation, usually with a chat manager.
 - [Handoff Orchestration](/ai/agent-patterns/dynamic-orchestration/handoff-orchestration) — control passes between agents; also used in the swarm.
-- [Choreography](/cloud/cloud-design-patterns/distributed-coordination/choreography) — decentralized coordination, with no central controller.
+- [Choreography](/architecture/cloud-design-patterns/distributed-coordination/choreography) — decentralized coordination, with no central controller.
 - [Multi-Agent Coordinator](/ai/agent-patterns/dynamic-orchestration/multi-agent-coordinator) — the centralized alternative.
 - [Multi-Agent Review and Critique](/ai/agent-patterns/iteration/maker-checker-loop) — structured critique between two roles.
 

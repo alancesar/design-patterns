@@ -65,10 +65,10 @@ O dado é dividido em mensagens numeradas dentro da mesma sequência e o recepto
 - [Splitter](/architecture/eip/message-routing/splitter) — divide uma mensagem em várias
 - [Resequencer](/architecture/eip/message-routing/resequencer) — restaura a ordem das mensagens
 - [Aggregator](/architecture/eip/message-routing/aggregator) — reúne mensagens relacionadas em uma
-- [Claim Check](/cloud/cloud-design-patterns/messaging/claim-check) — alternativa que envia só uma referência ao dado
+- [Claim Check](/architecture/cloud-design-patterns/messaging/claim-check) — alternativa que envia só uma referência ao dado
 - [Correlation Identifier](/architecture/eip/message-construction/correlation-identifier) — também agrupa mensagens por identificador
 - [Request-Reply](/architecture/eip/message-construction/request-reply) — a resposta pode vir em sequência
-- [Sequential Convoy](/cloud/cloud-design-patterns/messaging/sequential-convoy) — processa mensagens relacionadas em ordem no Azure
+- [Sequential Convoy](/architecture/cloud-design-patterns/messaging/sequential-convoy) — processa mensagens relacionadas em ordem no Azure
 
 ## Referência
 

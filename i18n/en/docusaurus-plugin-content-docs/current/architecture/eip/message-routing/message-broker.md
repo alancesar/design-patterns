@@ -68,7 +68,7 @@ Applications send messages to the broker, which decides the destination of each 
 - [Process Manager](/architecture/eip/message-routing/process-manager) — another central hub, with process state
 - [Message Bus](/architecture/eip/messaging-channels/message-bus) — an alternative integration architecture
 - [Mediator](/coding/gof/behavioral/mediator) — the same principle in class design
-- [Pipes and Filters](/cloud/cloud-design-patterns/messaging/pipes-and-filters) — a comparable style at a smaller scale
+- [Pipes and Filters](/architecture/cloud-design-patterns/messaging/pipes-and-filters) — a comparable style at a smaller scale
 
 ## Reference
 

@@ -35,7 +35,7 @@ Total: 30 patterns in 5 groups. Tags: Distributed guarantee.
 | [Replicated Log](/architecture/distributed-systems/data-replication/replicated-log) | In Replicated Log, each node in the cluster keeps a Write-Ahead Log whose entries hold the user requests and the state needed for consensus. | [`Consistency`](/tags/consistency) [`Fault Tolerance`](/tags/fault-tolerance) [`Durability`](/tags/durability) |
 | [Singular Update Queue](/architecture/distributed-systems/data-replication/singular-update-queue) | A Singular Update Queue uses a work queue processed by a single thread to apply state changes. | [`Consistency`](/tags/consistency) [`Performance`](/tags/performance) |
 | [Request Waiting List](/architecture/distributed-systems/data-replication/request-waiting-list) | A Request Waiting List is a structure that maps a key to a callback function. | [`Consistency`](/tags/consistency) [`Performance`](/tags/performance) |
-| [Idempotent Receiver](/cloud/cloud-design-patterns/messaging/idempotent-consumer) ★ | The Idempotent Consumer pattern designs message consumers so that processing the same message more than once has exactly the same effect as processing it a single time. | [`Reliability`](/tags/reliability) |
+| [Idempotent Receiver](/architecture/cloud-design-patterns/messaging/idempotent-consumer) ★ | The Idempotent Consumer pattern designs message consumers so that processing the same message more than once has exactly the same effect as processing it a single time. | [`Reliability`](/tags/reliability) |
 | [Follower Reads](/architecture/distributed-systems/data-replication/follower-reads) | In Follower Reads, writes still go through the leader, but read-only requests can be served by followers, especially the one closest to the client. | [`Scalability`](/tags/scalability) [`Performance`](/tags/performance) [`Availability`](/tags/availability) |
 | [Versioned Value](/architecture/distributed-systems/data-replication/versioned-value) | In Versioned Value, each value of a key is stored along with a version number that increases on every update. | [`Consistency`](/tags/consistency) [`Performance`](/tags/performance) |
 | [Version Vector](/architecture/distributed-systems/data-replication/version-vector) | The Version Vector associates with each value of a key a vector holding one counter per node in the cluster. | [`Consistency`](/tags/consistency) [`Availability`](/tags/availability) |
@@ -102,4 +102,4 @@ Total: 30 patterns in 5 groups. Tags: Distributed guarantee.
 
 ### Reliability (1)
 
-[Idempotent Receiver](/cloud/cloud-design-patterns/messaging/idempotent-consumer)
+[Idempotent Receiver](/architecture/cloud-design-patterns/messaging/idempotent-consumer)

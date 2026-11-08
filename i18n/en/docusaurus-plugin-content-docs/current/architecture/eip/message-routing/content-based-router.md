@@ -65,7 +65,7 @@ The router reads the order item and forwards it to the inventory system responsi
 - [Message Filter](/architecture/eip/message-routing/message-filter) — discards instead of choosing between destinations
 - [Dynamic Router](/architecture/eip/message-routing/dynamic-router) — rules registered by the recipients themselves
 - [Recipient List](/architecture/eip/message-routing/recipient-list) — when the list of recipients is computed
-- [Gateway Routing](/cloud/cloud-design-patterns/gateways-and-edge/gateway-routing) — routing requests by path or header at a gateway
+- [Gateway Routing](/architecture/cloud-design-patterns/gateways-and-edge/gateway-routing) — routing requests by path or header at a gateway
 
 ## Reference
 

@@ -67,8 +67,8 @@ The request is spread out to the suppliers and the responses are collected into 
 - [Recipient List](/architecture/eip/message-routing/recipient-list) — distributes in the controlled variant
 - [Aggregator](/architecture/eip/message-routing/aggregator) — collects the responses
 - [Composed Message Processor](/architecture/eip/message-routing/composed-message-processor) — splits into distinct parts instead of replicating
-- [Publish-Subscribe Channel](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — used in the auction variant
-- [Gateway Aggregation](/cloud/cloud-design-patterns/gateways-and-edge/gateway-aggregation) — aggregates calls to several services
+- [Publish-Subscribe Channel](/architecture/cloud-design-patterns/messaging/publisher-subscriber) — used in the auction variant
+- [Gateway Aggregation](/architecture/cloud-design-patterns/gateways-and-edge/gateway-aggregation) — aggregates calls to several services
 - [API Composition](/architecture/microservices/service-collaboration/api-composition) — combines data from several services
 
 ## Reference

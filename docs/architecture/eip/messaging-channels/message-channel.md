@@ -63,7 +63,7 @@ A aplicação remetente escreve mensagens no canal e a receptora as lê, sem que
 ## Padrões relacionados
 
 - [Point-to-Point Channel](/architecture/eip/messaging-channels/point-to-point-channel) — especialização em que cada mensagem é consumida por um único receptor.
-- [Publish-Subscribe Channel](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — especialização em que cada assinante recebe uma cópia da mensagem.
+- [Publish-Subscribe Channel](/architecture/cloud-design-patterns/messaging/publisher-subscriber) — especialização em que cada assinante recebe uma cópia da mensagem.
 - [Datatype Channel](/architecture/eip/messaging-channels/datatype-channel) — dedica um canal a cada tipo de dado.
 - [Invalid Message Channel](/architecture/eip/messaging-channels/invalid-message-channel) — canal para mensagens que o receptor não consegue processar.
 - [Channel Adapter](/architecture/eip/messaging-channels/channel-adapter) — conecta uma aplicação existente a um canal.

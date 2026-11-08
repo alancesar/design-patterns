@@ -71,7 +71,7 @@ The root agent delegates to intermediate subagents, which decompose and delegate
 - [Single Agent](/ai/agent-patterns/dynamic-orchestration/single-agent) — the simpler starting point.
 - [Multi-Agent Swarm](/ai/agent-patterns/dynamic-orchestration/multi-agent-swarm) — collaboration with no hierarchy or central supervisor.
 - [Magentic Orchestration](/ai/agent-patterns/dynamic-orchestration/magentic-orchestration) — adaptive planning with a task ledger for open-ended problems.
-- [Scheduler Agent Supervisor](/cloud/cloud-design-patterns/distributed-coordination/scheduler-agent-supervisor) — supervision of distributed tasks.
+- [Scheduler Agent Supervisor](/architecture/cloud-design-patterns/distributed-coordination/scheduler-agent-supervisor) — supervision of distributed tasks.
 
 ## Reference
 

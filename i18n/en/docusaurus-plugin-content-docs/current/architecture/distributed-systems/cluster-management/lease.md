@@ -79,7 +79,7 @@ The client keeps the lease as long as it renews. When it stops renewing, the cor
 - [Heartbeat](/architecture/distributed-systems/data-replication/heartbeat) — the mechanism used to renew the lease.
 - [Clock-Bound Wait](/architecture/distributed-systems/distributed-time/clock-bound-wait) — deals with clock uncertainty, which matters when measuring expiration.
 - [State Watch](/architecture/distributed-systems/cluster-management/state-watch) — other nodes are notified when a lease expires.
-- [Leader Election](/cloud/cloud-design-patterns/distributed-coordination/leader-election) — leader election often implemented with leases.
+- [Leader Election](/architecture/cloud-design-patterns/distributed-coordination/leader-election) — leader election often implemented with leases.
 
 ## Reference
 

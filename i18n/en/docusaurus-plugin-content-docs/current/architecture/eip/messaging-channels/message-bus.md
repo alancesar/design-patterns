@@ -69,7 +69,7 @@ Each application connects to the bus through an adapter, and the bus offers comm
 
 - [Channel Adapter](/architecture/eip/messaging-channels/channel-adapter) — connects each application to the bus.
 - [Datatype Channel](/architecture/eip/messaging-channels/datatype-channel) — directs message types to specific endpoints.
-- [Publish-Subscribe Channel](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — reaches multiple receivers.
+- [Publish-Subscribe Channel](/architecture/cloud-design-patterns/messaging/publisher-subscriber) — reaches multiple receivers.
 - [Message Channel](/architecture/eip/messaging-channels/message-channel) — the channels that make up the bus.
 - [Canonical Data Model](/architecture/eip/message-transformation/canonical-data-model) — a data format common to all participants.
 - [Command Message](/architecture/eip/message-construction/command-message) — a common command structure across systems.

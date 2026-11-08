@@ -66,7 +66,7 @@ O enricher usa uma chave da mensagem para buscar os dados ausentes na fonte e en
 
 - [Content Filter](/architecture/eip/message-transformation/content-filter) — o inverso: remove dados desnecessários em vez de adicionar.
 - [Message Translator](/architecture/eip/message-transformation/message-translator) — o enriquecimento por cálculo se aproxima de uma tradução simples.
-- [Claim Check](/cloud/cloud-design-patterns/messaging/claim-check) — o dado guardado é recuperado depois por um enricher.
+- [Claim Check](/architecture/cloud-design-patterns/messaging/claim-check) — o dado guardado é recuperado depois por um enricher.
 - [Envelope Wrapper](/architecture/eip/message-transformation/envelope-wrapper) — outra forma de adicionar informação à mensagem, voltada aos cabeçalhos.
 - [Message Filter](/architecture/eip/message-routing/message-filter) — descarta mensagens inteiras, não altera o conteúdo.
 - [Message Channel](/architecture/eip/messaging-channels/message-channel) — canal pelo qual a mensagem enriquecida segue.

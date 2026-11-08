@@ -63,7 +63,7 @@ O domínio é dividido em subdomínios de tipos distintos, cada um mapeado para 
 
 - [Decompose by Business Capability](/architecture/microservices/service-boundaries/decompose-by-business-capability) — abordagem alternativa baseada em capacidades de negócio
 - [Service per Team](/architecture/microservices/service-boundaries/service-per-team) — associa os serviços identificados a equipes
-- [Anti-Corruption Layer](/cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer) — protege o modelo de um subdomínio na integração com outros
+- [Anti-Corruption Layer](/architecture/cloud-design-patterns/integration-and-modernization/anti-corruption-layer) — protege o modelo de um subdomínio na integração com outros
 - [Microservice Architecture](/architecture/microservices/architectural-style/microservice-architecture) — o estilo arquitetural que motiva a decomposição
 
 ## Referência

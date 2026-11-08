@@ -17,11 +17,11 @@
   },
   "link.item.label.PoEAA": {
     "message": "PoEAA",
-    "description": "The label of footer link with label=PoEAA linking to /application/poeaa"
+    "description": "The label of footer link with label=PoEAA linking to /design/poeaa"
   },
   "link.item.label.Domain-Driven Design": {
     "message": "Domain-Driven Design",
-    "description": "The label of footer link with label=Domain-Driven Design linking to /application/ddd"
+    "description": "The label of footer link with label=Domain-Driven Design linking to /design/ddd"
   },
   "link.item.label.Enterprise Integration Patterns": {
     "message": "Enterprise Integration Patterns",
@@ -37,7 +37,7 @@
   },
   "link.item.label.Cloud Design Patterns": {
     "message": "Cloud Design Patterns",
-    "description": "The label of footer link with label=Cloud Design Patterns linking to /cloud/cloud-design-patterns"
+    "description": "The label of footer link with label=Cloud Design Patterns linking to /architecture/cloud-design-patterns"
   },
   "link.item.label.AI Agent Design Patterns": {
     "message": "AI Agent Design Patterns",

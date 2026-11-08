@@ -73,7 +73,7 @@ Cada aplicação se conecta ao modelo canônico por um único tradutor, em vez d
 - [Message Bus](/architecture/eip/messaging-channels/message-bus) — a arquitetura de barramento costuma pressupor um modelo canônico.
 - [Message Router](/architecture/eip/message-routing/message-router) — direciona mensagens no formato comum.
 - [Shared Database](/architecture/microservices/service-collaboration/shared-database) — alternativa de integração em que o modelo comum é o esquema compartilhado.
-- [Published Language](/application/ddd/context-mapping/published-language) — conceito equivalente no DDD: linguagem documentada e compartilhada entre contextos.
+- [Published Language](/design/ddd/context-mapping/published-language) — conceito equivalente no DDD: linguagem documentada e compartilhada entre contextos.
 
 ## Referência
 

@@ -66,7 +66,7 @@ Several clients enqueue updates and a single thread applies them to the state in
 - [Write-Ahead Log](/architecture/distributed-systems/data-replication/write-ahead-log) — writes to the log are serialized by this queue
 - [Replicated Log](/architecture/distributed-systems/data-replication/replicated-log) — committed entries are applied in order by a single thread
 - [Request Waiting List](/architecture/distributed-systems/data-replication/request-waiting-list) — registers callbacks for queued requests
-- [Competing Consumers](/cloud/cloud-design-patterns/messaging/competing-consumers) — a contrast: several consumers in parallel, with no global order
+- [Competing Consumers](/architecture/cloud-design-patterns/messaging/competing-consumers) — a contrast: several consumers in parallel, with no global order
 
 ## Reference
 

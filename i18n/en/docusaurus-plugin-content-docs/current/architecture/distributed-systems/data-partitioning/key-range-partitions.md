@@ -70,7 +70,7 @@ The query is routed only to the partition whose range covers the requested span;
 
 - [Fixed Partitions](/architecture/distributed-systems/data-partitioning/fixed-partitions) — a hash-based alternative, without efficient range support
 - [Consistent Core](/architecture/distributed-systems/cluster-management/consistent-core) — maintains the partition mapping consistently
-- [Sharding](/cloud/cloud-design-patterns/data-management/sharding) (cloud) — horizontal partitioning, including a range-based strategy
+- [Sharding](/architecture/cloud-design-patterns/data-management/sharding) (cloud) — horizontal partitioning, including a range-based strategy
 
 ## Reference
 

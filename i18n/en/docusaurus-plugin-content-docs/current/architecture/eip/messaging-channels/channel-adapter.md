@@ -62,13 +62,13 @@ The adapter turns application data or calls into messages and messages into call
 ## Related patterns
 
 - [Message Channel](/architecture/eip/messaging-channels/message-channel) — the channel the adapter connects to.
-- [Messaging Bridge](/cloud/cloud-design-patterns/messaging/messaging-bridge) — formed by pairs of adapters between messaging systems.
+- [Messaging Bridge](/architecture/cloud-design-patterns/messaging/messaging-bridge) — formed by pairs of adapters between messaging systems.
 - [Message Bus](/architecture/eip/messaging-channels/message-bus) — uses adapters to connect each system to the bus.
 - [Message Translator](/architecture/eip/message-transformation/message-translator) — converts the format between application and channel.
 - [Canonical Data Model](/architecture/eip/message-transformation/canonical-data-model) — the common format the adapter translates to.
 - [Transactional Client](/architecture/eip/messaging-endpoints/transactional-client) — ensures atomicity between the application and messaging.
 - [Adapter](/coding/gof/structural/adapter) — same name, but it converts interfaces between classes and doesn't integrate applications through messaging.
-- [Ambassador](/cloud/cloud-design-patterns/integration-and-modernization/ambassador) — helper proxy that also mediates an application's communication with the outside world.
+- [Ambassador](/architecture/cloud-design-patterns/integration-and-modernization/ambassador) — helper proxy that also mediates an application's communication with the outside world.
 
 ## Reference
 

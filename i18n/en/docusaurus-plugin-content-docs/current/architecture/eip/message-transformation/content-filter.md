@@ -62,7 +62,7 @@ The filter receives the full message, discards the unnecessary fields, and deliv
 ## Related patterns
 
 - [Content Enricher](/architecture/eip/message-transformation/content-enricher) — the inverse: adds missing data.
-- [Claim Check](/cloud/cloud-design-patterns/messaging/claim-check) — stores data so it can be retrieved later, whereas the filter discards it for good.
+- [Claim Check](/architecture/cloud-design-patterns/messaging/claim-check) — stores data so it can be retrieved later, whereas the filter discards it for good.
 - [Message Translator](/architecture/eip/message-transformation/message-translator) — the filter can be seen as a translation that reduces the content.
 - [Message Filter](/architecture/eip/message-routing/message-filter) — discards entire messages; the Content Filter removes fields.
 - [Splitter](/architecture/eip/message-routing/splitter) — splits the message into parts, another way to simplify complex structures.

@@ -67,7 +67,7 @@ The receiver validates each message; valid ones follow the normal flow and inval
 - [Datatype Channel](/architecture/eip/messaging-channels/datatype-channel) — per-type channels reduce the chance of a wrong format.
 - [Message Channel](/architecture/eip/messaging-channels/message-channel) — the general channel concept.
 - [Message Expiration](/architecture/eip/message-construction/message-expiration) — expired messages can also be diverted.
-- [Retry](/cloud/cloud-design-patterns/resiliency/retry) — transient failures call for a retry, not diversion as invalid.
+- [Retry](/architecture/cloud-design-patterns/resiliency/retry) — transient failures call for a retry, not diversion as invalid.
 - [Service Activator](/architecture/eip/messaging-endpoints/service-activator) — an endpoint that typically validates and dispatches the message.
 
 ## Reference

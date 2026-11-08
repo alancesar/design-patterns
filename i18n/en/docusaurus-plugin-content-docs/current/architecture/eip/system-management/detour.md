@@ -65,7 +65,7 @@ The router sends the message straight to the destination or through the intermed
 - [Control Bus](/architecture/eip/system-management/control-bus) — triggers the switch between the two outputs.
 - [Wire Tap](/architecture/eip/system-management/wire-tap) — passive observation, whereas the Detour allows intervention.
 - [Content-Based Router](/architecture/eip/message-routing/content-based-router) — the Detour is a router whose decision comes from context rather than content.
-- [Publish-Subscribe Channel](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — an alternative for distributing copies to observers.
+- [Publish-Subscribe Channel](/architecture/cloud-design-patterns/messaging/publisher-subscriber) — an alternative for distributing copies to observers.
 
 ## Reference
 

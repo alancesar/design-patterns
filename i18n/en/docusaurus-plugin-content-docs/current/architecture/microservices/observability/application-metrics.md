@@ -69,7 +69,7 @@ Services expose or send metrics to the central service, which feeds dashboards a
 
 - [Log Aggregation](/architecture/microservices/observability/log-aggregation) — complements metrics with detailed records
 - [Distributed Tracing](/architecture/microservices/observability/distributed-tracing) — shows the path and timing of each request
-- [Health Check API](/cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring) — another health signal consumed by monitoring
+- [Health Check API](/architecture/cloud-design-patterns/resiliency/health-endpoint-monitoring) — another health signal consumed by monitoring
 - [Log Deployments and Changes](/architecture/microservices/observability/log-deployments-and-changes) — a deployment pseudo-metric can be displayed alongside the other metrics
 - [Microservice Chassis](/architecture/microservices/cross-cutting-concerns/microservice-chassis) — can embed the standard instrumentation
 

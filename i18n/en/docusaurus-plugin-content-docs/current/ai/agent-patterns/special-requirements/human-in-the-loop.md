@@ -73,7 +73,7 @@ The flow runs up to the checkpoint, hands the work to an external review system,
 - [Multi-Agent Review and Critique](/ai/agent-patterns/iteration/maker-checker-loop) — the review is done by agents; here the review is human.
 - [Custom Logic](/ai/agent-patterns/special-requirements/custom-logic) — the orchestration code defines where and when to pause for a human.
 - [Handoff Orchestration](/ai/agent-patterns/dynamic-orchestration/handoff-orchestration) — the handoff can have a human as its final destination.
-- [Scheduler Agent Supervisor](/cloud/cloud-design-patterns/distributed-coordination/scheduler-agent-supervisor) — coordinates long-running, stateful steps, such as waiting for an external response.
+- [Scheduler Agent Supervisor](/architecture/cloud-design-patterns/distributed-coordination/scheduler-agent-supervisor) — coordinates long-running, stateful steps, such as waiting for an external response.
 - [Process Manager](/architecture/eip/message-routing/process-manager) — keeps the state of a process that is waiting for external events.
 
 ## Reference

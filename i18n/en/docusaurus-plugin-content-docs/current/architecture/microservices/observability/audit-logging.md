@@ -63,7 +63,7 @@ The service performs the user's action and writes an audit record to a dedicated
 
 ## Related patterns
 
-- [Event Sourcing](/cloud/cloud-design-patterns/data-management/event-sourcing) — a reliable way to get auditing, since all changes are events
+- [Event Sourcing](/architecture/cloud-design-patterns/data-management/event-sourcing) — a reliable way to get auditing, since all changes are events
 - [Domain Event](/architecture/microservices/service-collaboration/domain-event) — domain events can feed the audit log
 - [Log Aggregation](/architecture/microservices/observability/log-aggregation) — centralized technical logs, complementary to business auditing
 - [Log Deployments and Changes](/architecture/microservices/observability/log-deployments-and-changes) — auditing of infrastructure and deployment changes

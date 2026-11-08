@@ -68,9 +68,9 @@ The service writes data and message in the same transaction; the relay reads the
 
 - [Transaction Log Tailing](/architecture/microservices/transactional-messaging/transaction-log-tailing) — a relay implementation that reads the database's transaction log
 - [Polling Publisher](/architecture/microservices/transactional-messaging/polling-publisher) — a relay implementation that periodically queries the outbox
-- [Saga](/cloud/cloud-design-patterns/distributed-coordination/saga) — creates the need to send messages atomically with the database update
-- [Event Sourcing](/cloud/cloud-design-patterns/data-management/event-sourcing) — an alternative approach for publishing events reliably
-- [Idempotent Consumer](/cloud/cloud-design-patterns/messaging/idempotent-consumer) — needed to tolerate duplicate messages from the relay
+- [Saga](/architecture/cloud-design-patterns/distributed-coordination/saga) — creates the need to send messages atomically with the database update
+- [Event Sourcing](/architecture/cloud-design-patterns/data-management/event-sourcing) — an alternative approach for publishing events reliably
+- [Idempotent Consumer](/architecture/cloud-design-patterns/messaging/idempotent-consumer) — needed to tolerate duplicate messages from the relay
 - [Messaging](/architecture/microservices/communication-styles/messaging) — the communication style that uses the broker
 
 ## Reference

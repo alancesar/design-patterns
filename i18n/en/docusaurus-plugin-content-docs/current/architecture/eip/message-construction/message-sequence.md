@@ -65,10 +65,10 @@ The data is split into numbered messages within the same sequence, and the recei
 - [Splitter](/architecture/eip/message-routing/splitter) — splits one message into several
 - [Resequencer](/architecture/eip/message-routing/resequencer) — restores message order
 - [Aggregator](/architecture/eip/message-routing/aggregator) — combines related messages into one
-- [Claim Check](/cloud/cloud-design-patterns/messaging/claim-check) — alternative that sends only a reference to the data
+- [Claim Check](/architecture/cloud-design-patterns/messaging/claim-check) — alternative that sends only a reference to the data
 - [Correlation Identifier](/architecture/eip/message-construction/correlation-identifier) — also groups messages by identifier
 - [Request-Reply](/architecture/eip/message-construction/request-reply) — the reply can come as a sequence
-- [Sequential Convoy](/cloud/cloud-design-patterns/messaging/sequential-convoy) — processes related messages in order on Azure
+- [Sequential Convoy](/architecture/cloud-design-patterns/messaging/sequential-convoy) — processes related messages in order on Azure
 
 ## Reference
 

@@ -69,9 +69,9 @@ Each service accesses only its own database. When it needs data from another ser
 ## Related patterns
 
 - [Microservice Architecture](/architecture/microservices/architectural-style/microservice-architecture) — the architectural style that creates the need for this pattern.
-- [Saga](/cloud/cloud-design-patterns/distributed-coordination/saga) — provides eventually consistent transactions across services.
+- [Saga](/architecture/cloud-design-patterns/distributed-coordination/saga) — provides eventually consistent transactions across services.
 - [API Composition](/architecture/microservices/service-collaboration/api-composition) — a simple way to implement queries that cross services.
-- [CQRS](/cloud/cloud-design-patterns/data-management/cqrs) — maintains views that combine data from several services.
+- [CQRS](/architecture/cloud-design-patterns/data-management/cqrs) — maintains views that combine data from several services.
 - [Shared Database](/architecture/microservices/service-collaboration/shared-database) — the alternative (and anti-pattern) of sharing a single database.
 - [Command-side Replica](/architecture/microservices/service-collaboration/command-side-replica) — locally replicates another service's data for commands.
 

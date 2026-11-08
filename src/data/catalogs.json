@@ -6,19 +6,14 @@
       "description": "Design de classes e objetos."
     },
     {
-      "slug": "application",
-      "label": "Application",
-      "description": "Estrutura interna da aplicação e modelagem de domínio (camadas, persistência, DDD)."
+      "slug": "design",
+      "label": "Design",
+      "description": "Modelagem de domínio e estrutura interna da aplicação (DDD, camadas, persistência)."
     },
     {
       "slug": "architecture",
       "label": "Architecture",
-      "description": "Arquitetura de sistemas (estilos arquiteturais, distribuição, integração, consistência e concorrência)."
-    },
-    {
-      "slug": "cloud",
-      "label": "Cloud",
-      "description": "Aplicações e operação em nuvem e contêineres."
+      "description": "Arquitetura de sistemas e nuvem (estilos arquiteturais, distribuição, integração, consistência, concorrência e operação em nuvem e contêineres)."
     },
     {
       "slug": "ai",
@@ -37,19 +32,19 @@
       "groups": 3
     },
     {
-      "domain": "application",
-      "domainLabel": "Application",
+      "domain": "design",
+      "domainLabel": "Design",
       "title": "Domain-Driven Design",
-      "href": "/application/ddd",
+      "href": "/design/ddd",
       "source": "https://www.domainlanguage.com/ddd/reference/",
       "patterns": 45,
       "groups": 6
     },
     {
-      "domain": "application",
-      "domainLabel": "Application",
+      "domain": "design",
+      "domainLabel": "Design",
       "title": "Patterns of Enterprise Application Architecture",
-      "href": "/application/poeaa",
+      "href": "/design/poeaa",
       "source": "https://martinfowler.com/eaaCatalog/",
       "patterns": 51,
       "groups": 10
@@ -82,10 +77,10 @@
       "groups": 15
     },
     {
-      "domain": "cloud",
-      "domainLabel": "Cloud",
+      "domain": "architecture",
+      "domainLabel": "Architecture",
       "title": "Cloud Design Patterns",
-      "href": "/cloud/cloud-design-patterns",
+      "href": "/architecture/cloud-design-patterns",
       "source": "https://learn.microsoft.com/en-us/azure/architecture/patterns/",
       "patterns": 44,
       "groups": 8

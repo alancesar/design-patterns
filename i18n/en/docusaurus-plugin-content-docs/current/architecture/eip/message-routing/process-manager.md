@@ -67,9 +67,9 @@ The manager keeps the state, sends each step, and picks the next one based on th
 
 - [Routing Slip](/architecture/eip/message-routing/routing-slip) — an alternative for predetermined linear sequences
 - [Message Broker](/architecture/eip/message-routing/message-broker) — routing hub-and-spoke without process state
-- [Saga](/cloud/cloud-design-patterns/distributed-coordination/saga) — coordinating long transactions with compensation
-- [Scheduler Agent Supervisor](/cloud/cloud-design-patterns/distributed-coordination/scheduler-agent-supervisor) — coordination and recovery of distributed tasks
-- [Choreography](/cloud/cloud-design-patterns/distributed-coordination/choreography) — a decentralized alternative, with no coordinator
+- [Saga](/architecture/cloud-design-patterns/distributed-coordination/saga) — coordinating long transactions with compensation
+- [Scheduler Agent Supervisor](/architecture/cloud-design-patterns/distributed-coordination/scheduler-agent-supervisor) — coordination and recovery of distributed tasks
+- [Choreography](/architecture/cloud-design-patterns/distributed-coordination/choreography) — a decentralized alternative, with no coordinator
 
 ## Reference
 

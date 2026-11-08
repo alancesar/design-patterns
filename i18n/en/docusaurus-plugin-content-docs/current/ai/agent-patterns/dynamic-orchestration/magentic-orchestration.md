@@ -81,7 +81,7 @@ The manager builds and updates the task ledger by consulting the specialized age
 - [Maker-Checker Loop](/ai/agent-patterns/iteration/maker-checker-loop) — a verification cycle that can be used inside a task of the plan.
 - [Sequential Orchestration](/ai/agent-patterns/deterministic-workflows/sequential-orchestration) — fixed order, when the plan is known in advance.
 - [Process Manager](/architecture/eip/message-routing/process-manager) — central coordinator that keeps the process state and decides the next step.
-- [Scheduler Agent Supervisor](/cloud/cloud-design-patterns/distributed-coordination/scheduler-agent-supervisor) — coordination and supervision of distributed tasks with failure recovery.
+- [Scheduler Agent Supervisor](/architecture/cloud-design-patterns/distributed-coordination/scheduler-agent-supervisor) — coordination and supervision of distributed tasks with failure recovery.
 
 ## Reference
 

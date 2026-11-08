@@ -68,7 +68,7 @@ Quando a mensagem não pode ser entregue ou excede as tentativas, ela é movida 
 - [Message Channel](/architecture/eip/messaging-channels/message-channel) — o conceito geral de canal.
 - [Message Expiration](/architecture/eip/message-construction/message-expiration) — mensagens expiradas costumam ir ao canal de mortas.
 - [Message Store](/architecture/eip/system-management/message-store) — guarda mensagens para análise posterior.
-- [Retry](/cloud/cloud-design-patterns/resiliency/retry) — as tentativas ocorrem antes de a mensagem ser considerada morta.
+- [Retry](/architecture/cloud-design-patterns/resiliency/retry) — as tentativas ocorrem antes de a mensagem ser considerada morta.
 
 ## Referência
 

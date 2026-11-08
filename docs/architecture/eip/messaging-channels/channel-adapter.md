@@ -62,13 +62,13 @@ O adaptador transforma dados ou chamadas da aplicação em mensagens e mensagens
 ## Padrões relacionados
 
 - [Message Channel](/architecture/eip/messaging-channels/message-channel) — o canal ao qual o adaptador se conecta.
-- [Messaging Bridge](/cloud/cloud-design-patterns/messaging/messaging-bridge) — formado por pares de adaptadores entre sistemas de mensageria.
+- [Messaging Bridge](/architecture/cloud-design-patterns/messaging/messaging-bridge) — formado por pares de adaptadores entre sistemas de mensageria.
 - [Message Bus](/architecture/eip/messaging-channels/message-bus) — usa adaptadores para ligar cada sistema ao barramento.
 - [Message Translator](/architecture/eip/message-transformation/message-translator) — converte o formato entre aplicação e canal.
 - [Canonical Data Model](/architecture/eip/message-transformation/canonical-data-model) — formato comum para o qual o adaptador traduz.
 - [Transactional Client](/architecture/eip/messaging-endpoints/transactional-client) — garante atomicidade entre a aplicação e a mensageria.
 - [Adapter](/coding/gof/structural/adapter) — mesmo nome, mas converte interfaces entre classes, não integra aplicações por mensageria.
-- [Ambassador](/cloud/cloud-design-patterns/integration-and-modernization/ambassador) — proxy auxiliar que também intermedeia a comunicação de uma aplicação com o exterior.
+- [Ambassador](/architecture/cloud-design-patterns/integration-and-modernization/ambassador) — proxy auxiliar que também intermedeia a comunicação de uma aplicação com o exterior.
 
 ## Referência
 

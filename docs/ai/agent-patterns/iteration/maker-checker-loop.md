@@ -90,7 +90,7 @@ O chat manager conduz turnos formais entre maker e checker; o ciclo termina com 
 - [Magentic Orchestration](/ai/agent-patterns/dynamic-orchestration/magentic-orchestration) — o gerente também verifica se o pedido foi atendido ou travou, mas num plano aberto.
 - [Multi-Agent Loop](/ai/agent-patterns/iteration/multi-agent-loop) — padrão do Google do qual este é uma implementação.
 - [Multi-Agent Iterative Refinement](/ai/agent-patterns/iteration/multi-agent-iterative-refinement) — outra implementação do loop, em que os agentes melhoram um resultado no estado da sessão até um limiar de qualidade, sem papel de aprovador.
-- [Circuit Breaker](/cloud/cloud-design-patterns/resiliency/circuit-breaker) — o limite de iterações com fallback lembra a interrupção de tentativas repetidas que não avançam.
+- [Circuit Breaker](/architecture/cloud-design-patterns/resiliency/circuit-breaker) — o limite de iterações com fallback lembra a interrupção de tentativas repetidas que não avançam.
 
 ## Referência
 

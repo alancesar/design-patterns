@@ -61,7 +61,7 @@ The slip lists steps 1 and 3 (step 2 is skipped) and the message travels only th
 ## Related patterns
 
 - [Process Manager](/architecture/eip/message-routing/process-manager) — an alternative for dynamic flows with parallelism
-- [Pipes and Filters](/cloud/cloud-design-patterns/messaging/pipes-and-filters) — the step structure that the Routing Slip makes variable
+- [Pipes and Filters](/architecture/cloud-design-patterns/messaging/pipes-and-filters) — the step structure that the Routing Slip makes variable
 - [Message Router](/architecture/eip/message-routing/message-router) — each step has a local router
 - [Chain of Responsibility](/coding/gof/behavioral/chain-of-responsibility) — a chain of handlers in object orientation
 

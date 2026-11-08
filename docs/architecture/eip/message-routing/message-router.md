@@ -65,9 +65,9 @@ O roteador lê uma mensagem do canal de entrada e a encaminha, sem modificá-la,
 - [Message Filter](/architecture/eip/message-routing/message-filter) — roteador com uma única saída que descarta o que não interessa
 - [Dynamic Router](/architecture/eip/message-routing/dynamic-router) — regras montadas em tempo de execução
 - [Recipient List](/architecture/eip/message-routing/recipient-list) — encaminha a uma lista calculada de destinatários
-- [Pipes and Filters](/cloud/cloud-design-patterns/messaging/pipes-and-filters) — o roteador é um filtro com várias saídas
+- [Pipes and Filters](/architecture/cloud-design-patterns/messaging/pipes-and-filters) — o roteador é um filtro com várias saídas
 - [Message Broker](/architecture/eip/message-routing/message-broker) — compõe roteadores em escala de solução
-- [Gateway Routing](/cloud/cloud-design-patterns/gateways-and-edge/gateway-routing) — roteamento de requisições em um gateway
+- [Gateway Routing](/architecture/cloud-design-patterns/gateways-and-edge/gateway-routing) — roteamento de requisições em um gateway
 
 ## Referência
 

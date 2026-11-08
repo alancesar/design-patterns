@@ -72,7 +72,7 @@ The requestor sends the request over one channel and receives the reply over ano
 - [Document Message](/architecture/eip/message-construction/document-message) — the reply is often a document
 - [Message Expiration](/architecture/eip/message-construction/message-expiration) — avoids requests that missed their deadline
 - [Point-to-Point Channel](/architecture/eip/messaging-channels/point-to-point-channel) — typical reply channel
-- [Asynchronous Request-Reply](/cloud/cloud-design-patterns/messaging/asynchronous-request-reply) — Azure variant based on HTTP 202 and polling, different from EIP's channel pair
+- [Asynchronous Request-Reply](/architecture/cloud-design-patterns/messaging/asynchronous-request-reply) — Azure variant based on HTTP 202 and polling, different from EIP's channel pair
 
 ## Reference
 

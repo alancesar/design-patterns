@@ -85,7 +85,7 @@ O orquestrador envia a mesma entrada a todos os agentes ao mesmo tempo, e o cole
 - [Scatter-Gather](/architecture/eip/message-routing/scatter-gather) — equivalente em integração: distribui a requisição e reúne as respostas.
 - [Aggregator](/architecture/eip/message-routing/aggregator) — correlaciona e combina as saídas dos agentes.
 - [Recipient List](/architecture/eip/message-routing/recipient-list) — seleção de destinatários, análoga à escolha dinâmica de agentes.
-- [Circuit Breaker](/cloud/cloud-design-patterns/resiliency/circuit-breaker) — protege dependências dos agentes contra falhas em cascata.
+- [Circuit Breaker](/architecture/cloud-design-patterns/resiliency/circuit-breaker) — protege dependências dos agentes contra falhas em cascata.
 
 ## Referência
 

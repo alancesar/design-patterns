@@ -63,8 +63,8 @@ Cada novo serviço nasce de uma cópia do template, que pode depender de um chas
 ## Padrões relacionados
 
 - [Microservice Chassis](/architecture/microservices/cross-cutting-concerns/microservice-chassis) — alternativa ou complemento: concentra o código compartilhado, atualizável por versão.
-- [Externalized Configuration](/cloud/cloud-design-patterns/deployment-and-topology/external-configuration-store) — preocupação transversal já resolvida no template.
-- [Health Check API](/cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring) — endpoint incluído no template.
+- [Externalized Configuration](/architecture/cloud-design-patterns/deployment-and-topology/external-configuration-store) — preocupação transversal já resolvida no template.
+- [Health Check API](/architecture/cloud-design-patterns/resiliency/health-endpoint-monitoring) — endpoint incluído no template.
 - [Distributed Tracing](/architecture/microservices/observability/distributed-tracing) — instrumentação já configurada no template.
 
 ## Referência

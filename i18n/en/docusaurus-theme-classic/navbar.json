@@ -11,17 +11,13 @@
     "message": "Coding",
     "description": "Navbar item with label Coding"
   },
-  "item.label.Application": {
-    "message": "Application",
-    "description": "Navbar item with label Application"
+  "item.label.Design": {
+    "message": "Design",
+    "description": "Navbar item with label Design"
   },
   "item.label.Architecture": {
     "message": "Architecture",
     "description": "Navbar item with label Architecture"
-  },
-  "item.label.Cloud": {
-    "message": "Cloud",
-    "description": "Navbar item with label Cloud"
   },
   "item.label.AI": {
     "message": "AI",

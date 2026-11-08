@@ -70,10 +70,10 @@ The command service subscribes to the provider's events to maintain the local re
 
 - [Database per Service](/architecture/microservices/service-collaboration/database-per-service) — creates the need for this pattern.
 - [Domain Event](/architecture/microservices/service-collaboration/domain-event) — generates the events that keep the replica up to date.
-- [CQRS](/cloud/cloud-design-patterns/data-management/cqrs) — structurally identical, but focused on reads.
-- [Saga](/cloud/cloud-design-patterns/distributed-coordination/saga) — an alternative when the data is obtained as a step of the saga.
-- [Materialized View](/cloud/cloud-design-patterns/data-management/materialized-view) — a precomputed view, a concept close to that of the replica.
-- [Idempotent Consumer](/cloud/cloud-design-patterns/messaging/idempotent-consumer) — needed to consume events safely.
+- [CQRS](/architecture/cloud-design-patterns/data-management/cqrs) — structurally identical, but focused on reads.
+- [Saga](/architecture/cloud-design-patterns/distributed-coordination/saga) — an alternative when the data is obtained as a step of the saga.
+- [Materialized View](/architecture/cloud-design-patterns/data-management/materialized-view) — a precomputed view, a concept close to that of the replica.
+- [Idempotent Consumer](/architecture/cloud-design-patterns/messaging/idempotent-consumer) — needed to consume events safely.
 
 ## Reference
 

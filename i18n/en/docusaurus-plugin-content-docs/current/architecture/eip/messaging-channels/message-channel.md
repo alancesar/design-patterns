@@ -63,7 +63,7 @@ The sender application writes messages to the channel and the receiver reads the
 ## Related patterns
 
 - [Point-to-Point Channel](/architecture/eip/messaging-channels/point-to-point-channel) — a specialization in which each message is consumed by a single receiver.
-- [Publish-Subscribe Channel](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — a specialization in which each subscriber receives a copy of the message.
+- [Publish-Subscribe Channel](/architecture/cloud-design-patterns/messaging/publisher-subscriber) — a specialization in which each subscriber receives a copy of the message.
 - [Datatype Channel](/architecture/eip/messaging-channels/datatype-channel) — dedicates one channel to each data type.
 - [Invalid Message Channel](/architecture/eip/messaging-channels/invalid-message-channel) — a channel for messages the receiver can't process.
 - [Channel Adapter](/architecture/eip/messaging-channels/channel-adapter) — connects an existing application to a channel.

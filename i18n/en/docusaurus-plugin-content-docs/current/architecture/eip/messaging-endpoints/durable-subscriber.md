@@ -62,7 +62,7 @@ The broker keeps the messages while the subscriber is away and delivers them whe
 
 ## Related patterns
 
-- [Publish-Subscribe Channel](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — the channel the durable subscriber subscribes to.
+- [Publish-Subscribe Channel](/architecture/cloud-design-patterns/messaging/publisher-subscriber) — the channel the durable subscriber subscribes to.
 - [Guaranteed Delivery](/architecture/eip/messaging-channels/guaranteed-delivery) — message persistence in the broker, the basis of durability.
 - [Point-to-Point Channel](/architecture/eip/messaging-channels/point-to-point-channel) — a channel where the queue already retains messages.
 - [Message Expiration](/architecture/eip/message-construction/message-expiration) — limits the buildup of messages.

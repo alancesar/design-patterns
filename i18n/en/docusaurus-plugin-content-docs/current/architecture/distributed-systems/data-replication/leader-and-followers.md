@@ -79,7 +79,7 @@ The client writes to the leader, which replicates the entry to the followers and
 - [Replicated Log](/architecture/distributed-systems/data-replication/replicated-log) — the leader replicates its log to the followers
 - [Follower Reads](/architecture/distributed-systems/data-replication/follower-reads) — reads served by followers
 - [Emergent Leader](/architecture/distributed-systems/cluster-management/emergent-leader) — an alternative where the leader emerges from the order in which nodes joined
-- [Leader Election](/cloud/cloud-design-patterns/distributed-coordination/leader-election) — cloud pattern for electing a coordinator among instances
+- [Leader Election](/architecture/cloud-design-patterns/distributed-coordination/leader-election) — cloud pattern for electing a coordinator among instances
 
 ## Reference
 

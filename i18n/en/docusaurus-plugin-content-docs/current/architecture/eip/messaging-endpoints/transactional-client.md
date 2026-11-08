@@ -68,7 +68,7 @@ The message only leaves the channel on commit; on rollback it stays available fo
 - [Message Endpoint](/architecture/eip/messaging-endpoints/message-endpoint) — the endpoint is what controls the transaction.
 - [Guaranteed Delivery](/architecture/eip/messaging-channels/guaranteed-delivery) — channel persistence, complementary to transactions.
 - [Dead Letter Channel](/architecture/eip/messaging-channels/dead-letter-channel) — destination for messages that fail repeatedly.
-- [Competing Consumers](/cloud/cloud-design-patterns/messaging/competing-consumers) — rollback returns the message to another consumer.
+- [Competing Consumers](/architecture/cloud-design-patterns/messaging/competing-consumers) — rollback returns the message to another consumer.
 - [Polling Consumer](/architecture/eip/messaging-endpoints/polling-consumer) — can receive within a transaction.
 - [Event-Driven Consumer](/architecture/eip/messaging-endpoints/event-driven-consumer) — likewise, with acknowledgment after the callback.
 - [Transactional Outbox](/architecture/microservices/transactional-messaging/transactional-outbox) — alternative for atomicity between database and messaging.

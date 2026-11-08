@@ -66,7 +66,7 @@ The enricher uses a key from the message to fetch the missing data from the sour
 
 - [Content Filter](/architecture/eip/message-transformation/content-filter) — the inverse: removes unnecessary data instead of adding it.
 - [Message Translator](/architecture/eip/message-transformation/message-translator) — enrichment by computation is close to a simple translation.
-- [Claim Check](/cloud/cloud-design-patterns/messaging/claim-check) — the stored data is later retrieved by an enricher.
+- [Claim Check](/architecture/cloud-design-patterns/messaging/claim-check) — the stored data is later retrieved by an enricher.
 - [Envelope Wrapper](/architecture/eip/message-transformation/envelope-wrapper) — another way to add information to the message, aimed at headers.
 - [Message Filter](/architecture/eip/message-routing/message-filter) — discards entire messages, doesn't change the content.
 - [Message Channel](/architecture/eip/messaging-channels/message-channel) — the channel the enriched message continues through.

@@ -65,7 +65,7 @@ O roteador lê o item do pedido e o encaminha ao sistema de estoque responsável
 - [Message Filter](/architecture/eip/message-routing/message-filter) — descarta em vez de escolher entre destinos
 - [Dynamic Router](/architecture/eip/message-routing/dynamic-router) — regras registradas pelos próprios destinatários
 - [Recipient List](/architecture/eip/message-routing/recipient-list) — quando a lista de destinatários é calculada
-- [Gateway Routing](/cloud/cloud-design-patterns/gateways-and-edge/gateway-routing) — roteamento de requisições por caminho ou cabeçalho em um gateway
+- [Gateway Routing](/architecture/cloud-design-patterns/gateways-and-edge/gateway-routing) — roteamento de requisições por caminho ou cabeçalho em um gateway
 
 ## Referência
 

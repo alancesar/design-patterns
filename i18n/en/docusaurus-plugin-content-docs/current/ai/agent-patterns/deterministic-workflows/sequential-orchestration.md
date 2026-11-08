@@ -82,9 +82,9 @@ The flow follows a fixed order: each agent transforms the previous one's output,
 - [Concurrent Orchestration](/ai/agent-patterns/deterministic-workflows/concurrent-orchestration) — alternative when the stages are independent and can run in parallel; the two can be combined.
 - [Maker-Checker Loop](/ai/agent-patterns/iteration/maker-checker-loop) — adds iteration and review, which the sequential flow doesn't support.
 - [Handoff Orchestration](/ai/agent-patterns/dynamic-orchestration/handoff-orchestration) — also passes work between agents, but the agent decides who comes next, not the flow.
-- [Pipes and Filters](/cloud/cloud-design-patterns/messaging/pipes-and-filters) — the cloud pattern that inspires Sequential, with agents in place of filters.
+- [Pipes and Filters](/architecture/cloud-design-patterns/messaging/pipes-and-filters) — the cloud pattern that inspires Sequential, with agents in place of filters.
 - [Routing Slip](/architecture/eip/message-routing/routing-slip) — defines the sequence of steps per message, analogous to a predefined chain of agents.
-- [Retry](/cloud/cloud-design-patterns/resiliency/retry) — handling of transient failures at each stage.
+- [Retry](/architecture/cloud-design-patterns/resiliency/retry) — handling of transient failures at each stage.
 
 ## Reference
 

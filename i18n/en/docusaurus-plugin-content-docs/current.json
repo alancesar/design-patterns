@@ -23,9 +23,9 @@
     "message": "Behavioral",
     "description": "The label for category 'Behavioral' in sidebar 'catalog'"
   },
-  "sidebar.catalog.category.Application": {
-    "message": "Application",
-    "description": "The label for category 'Application' in sidebar 'catalog'"
+  "sidebar.catalog.category.Design": {
+    "message": "Design",
+    "description": "The label for category 'Design' in sidebar 'catalog'"
   },
   "sidebar.catalog.category.ddd": {
     "message": "DDD",
@@ -223,10 +223,6 @@
     "message": "UI Design",
     "description": "The label for category 'UI Design' in sidebar 'catalog'"
   },
-  "sidebar.catalog.category.Cloud": {
-    "message": "Cloud",
-    "description": "The label for category 'Cloud' in sidebar 'catalog'"
-  },
   "sidebar.catalog.category.cloud-design-patterns": {
     "message": "Cloud Design Patterns",
     "description": "The label for category 'Cloud Design Patterns' in sidebar 'catalog'"
@@ -289,7 +285,7 @@
   },
   "sidebar.catalog.link.ddd-value-object": {
     "message": "Value Object",
-    "description": "The label for link 'Value Object' in sidebar 'catalog', linking to '/application/poeaa/base/value-object?catalog=ddd'"
+    "description": "The label for link 'Value Object' in sidebar 'catalog', linking to '/design/poeaa/base/value-object?catalog=ddd'"
   },
   "sidebar.catalog.link.ddd-domain-event": {
     "message": "Domain Event",
@@ -297,15 +293,15 @@
   },
   "sidebar.catalog.link.ddd-repository": {
     "message": "Repository",
-    "description": "The label for link 'Repository' in sidebar 'catalog', linking to '/application/poeaa/object-relational-metadata-mapping/repository?catalog=ddd'"
+    "description": "The label for link 'Repository' in sidebar 'catalog', linking to '/design/poeaa/object-relational-metadata-mapping/repository?catalog=ddd'"
   },
   "sidebar.catalog.link.ddd-anticorruption-layer": {
     "message": "Anti-Corruption Layer",
-    "description": "The label for link 'Anti-Corruption Layer' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer?catalog=ddd'"
+    "description": "The label for link 'Anti-Corruption Layer' in sidebar 'catalog', linking to '/architecture/cloud-design-patterns/integration-and-modernization/anti-corruption-layer?catalog=ddd'"
   },
   "sidebar.catalog.link.distributed-systems-idempotent-receiver": {
     "message": "Idempotent Receiver",
-    "description": "The label for link 'Idempotent Receiver' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/messaging/idempotent-consumer?catalog=distributed-systems'"
+    "description": "The label for link 'Idempotent Receiver' in sidebar 'catalog', linking to '/architecture/cloud-design-patterns/messaging/idempotent-consumer?catalog=distributed-systems'"
   },
   "sidebar.catalog.link.eip-shared-database": {
     "message": "Shared Database",
@@ -321,66 +317,66 @@
   },
   "sidebar.catalog.link.eip-publish-subscribe-channel": {
     "message": "Publish-Subscribe Channel",
-    "description": "The label for link 'Publish-Subscribe Channel' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/messaging/publisher-subscriber?catalog=eip'"
+    "description": "The label for link 'Publish-Subscribe Channel' in sidebar 'catalog', linking to '/architecture/cloud-design-patterns/messaging/publisher-subscriber?catalog=eip'"
   },
   "sidebar.catalog.link.eip-messaging-bridge": {
     "message": "Messaging Bridge",
-    "description": "The label for link 'Messaging Bridge' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/messaging/messaging-bridge?catalog=eip'"
+    "description": "The label for link 'Messaging Bridge' in sidebar 'catalog', linking to '/architecture/cloud-design-patterns/messaging/messaging-bridge?catalog=eip'"
   },
   "sidebar.catalog.link.eip-pipes-and-filters": {
     "message": "Pipes and Filters",
-    "description": "The label for link 'Pipes and Filters' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/messaging/pipes-and-filters?catalog=eip'"
+    "description": "The label for link 'Pipes and Filters' in sidebar 'catalog', linking to '/architecture/cloud-design-patterns/messaging/pipes-and-filters?catalog=eip'"
   },
   "sidebar.catalog.link.eip-claim-check": {
     "message": "Claim Check",
-    "description": "The label for link 'Claim Check' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/messaging/claim-check?catalog=eip'"
+    "description": "The label for link 'Claim Check' in sidebar 'catalog', linking to '/architecture/cloud-design-patterns/messaging/claim-check?catalog=eip'"
   },
   "sidebar.catalog.link.eip-competing-consumers": {
     "message": "Competing Consumers",
-    "description": "The label for link 'Competing Consumers' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/messaging/competing-consumers?catalog=eip'"
+    "description": "The label for link 'Competing Consumers' in sidebar 'catalog', linking to '/architecture/cloud-design-patterns/messaging/competing-consumers?catalog=eip'"
   },
   "sidebar.catalog.link.eip-idempotent-receiver": {
     "message": "Idempotent Receiver",
-    "description": "The label for link 'Idempotent Receiver' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/messaging/idempotent-consumer?catalog=eip'"
+    "description": "The label for link 'Idempotent Receiver' in sidebar 'catalog', linking to '/architecture/cloud-design-patterns/messaging/idempotent-consumer?catalog=eip'"
   },
   "sidebar.catalog.link.microservices-strangler-application": {
     "message": "Strangler Application",
-    "description": "The label for link 'Strangler Application' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/integration-and-modernization/strangler-fig?catalog=microservices'"
+    "description": "The label for link 'Strangler Application' in sidebar 'catalog', linking to '/architecture/cloud-design-patterns/integration-and-modernization/strangler-fig?catalog=microservices'"
   },
   "sidebar.catalog.link.microservices-anti-corruption-layer": {
     "message": "Anti-Corruption Layer",
-    "description": "The label for link 'Anti-Corruption Layer' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer?catalog=microservices'"
+    "description": "The label for link 'Anti-Corruption Layer' in sidebar 'catalog', linking to '/architecture/cloud-design-patterns/integration-and-modernization/anti-corruption-layer?catalog=microservices'"
   },
   "sidebar.catalog.link.microservices-saga": {
     "message": "Saga",
-    "description": "The label for link 'Saga' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/distributed-coordination/saga?catalog=microservices'"
+    "description": "The label for link 'Saga' in sidebar 'catalog', linking to '/architecture/cloud-design-patterns/distributed-coordination/saga?catalog=microservices'"
   },
   "sidebar.catalog.link.microservices-cqrs": {
     "message": "CQRS",
-    "description": "The label for link 'CQRS' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/data-management/cqrs?catalog=microservices'"
+    "description": "The label for link 'CQRS' in sidebar 'catalog', linking to '/architecture/cloud-design-patterns/data-management/cqrs?catalog=microservices'"
   },
   "sidebar.catalog.link.microservices-event-sourcing": {
     "message": "Event Sourcing",
-    "description": "The label for link 'Event Sourcing' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/data-management/event-sourcing?catalog=microservices'"
+    "description": "The label for link 'Event Sourcing' in sidebar 'catalog', linking to '/architecture/cloud-design-patterns/data-management/event-sourcing?catalog=microservices'"
   },
   "sidebar.catalog.link.microservices-externalized-configuration": {
     "message": "Externalized Configuration",
-    "description": "The label for link 'Externalized Configuration' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/deployment-and-topology/external-configuration-store?catalog=microservices'"
+    "description": "The label for link 'Externalized Configuration' in sidebar 'catalog', linking to '/architecture/cloud-design-patterns/deployment-and-topology/external-configuration-store?catalog=microservices'"
   },
   "sidebar.catalog.link.microservices-idempotent-consumer": {
     "message": "Idempotent Consumer",
-    "description": "The label for link 'Idempotent Consumer' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/messaging/idempotent-consumer?catalog=microservices'"
+    "description": "The label for link 'Idempotent Consumer' in sidebar 'catalog', linking to '/architecture/cloud-design-patterns/messaging/idempotent-consumer?catalog=microservices'"
   },
   "sidebar.catalog.link.microservices-backend-for-front-end": {
     "message": "Backend for Front-end",
-    "description": "The label for link 'Backend for Front-end' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/gateways-and-edge/backends-for-frontends?catalog=microservices'"
+    "description": "The label for link 'Backend for Front-end' in sidebar 'catalog', linking to '/architecture/cloud-design-patterns/gateways-and-edge/backends-for-frontends?catalog=microservices'"
   },
   "sidebar.catalog.link.microservices-circuit-breaker": {
     "message": "Circuit Breaker",
-    "description": "The label for link 'Circuit Breaker' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/resiliency/circuit-breaker?catalog=microservices'"
+    "description": "The label for link 'Circuit Breaker' in sidebar 'catalog', linking to '/architecture/cloud-design-patterns/resiliency/circuit-breaker?catalog=microservices'"
   },
   "sidebar.catalog.link.microservices-health-check-api": {
     "message": "Health Check API",
-    "description": "The label for link 'Health Check API' in sidebar 'catalog', linking to '/cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring?catalog=microservices'"
+    "description": "The label for link 'Health Check API' in sidebar 'catalog', linking to '/architecture/cloud-design-patterns/resiliency/health-endpoint-monitoring?catalog=microservices'"
   }
 }

@@ -71,7 +71,7 @@ O agente raiz delega a subagentes intermediários, que decompõem e delegam até
 - [Single Agent](/ai/agent-patterns/dynamic-orchestration/single-agent) — ponto de partida mais simples.
 - [Multi-Agent Swarm](/ai/agent-patterns/dynamic-orchestration/multi-agent-swarm) — colaboração sem hierarquia nem supervisor central.
 - [Magentic Orchestration](/ai/agent-patterns/dynamic-orchestration/magentic-orchestration) — planejamento adaptativo com task ledger para problemas abertos.
-- [Scheduler Agent Supervisor](/cloud/cloud-design-patterns/distributed-coordination/scheduler-agent-supervisor) — supervisão de tarefas distribuídas.
+- [Scheduler Agent Supervisor](/architecture/cloud-design-patterns/distributed-coordination/scheduler-agent-supervisor) — supervisão de tarefas distribuídas.
 
 ## Referência
 

@@ -74,7 +74,7 @@ The coordinator is always the oldest node in the membership list; when it leaves
 ## Related patterns
 
 - [Leader and Followers](/architecture/distributed-systems/data-replication/leader-and-followers) — a model with explicit election, an alternative to this one.
-- [Leader Election](/cloud/cloud-design-patterns/distributed-coordination/leader-election) — cloud leader election, with explicit coordination.
+- [Leader Election](/architecture/cloud-design-patterns/distributed-coordination/leader-election) — cloud leader election, with explicit coordination.
 - [Gossip Dissemination](/architecture/distributed-systems/cluster-management/gossip-dissemination) — propagates the membership list and node ages.
 - [Consistent Core](/architecture/distributed-systems/cluster-management/consistent-core) — an alternative when you need strongly consistent coordination.
 - [Fixed Partitions](/architecture/distributed-systems/data-partitioning/fixed-partitions) — partitions the coordinator assigns to nodes.

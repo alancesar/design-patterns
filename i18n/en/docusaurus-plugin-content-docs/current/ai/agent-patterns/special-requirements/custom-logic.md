@@ -73,7 +73,7 @@ Example of a refund agent: a parallel check feeds a conditional branch in code (
 - [Human-in-the-Loop](/ai/agent-patterns/special-requirements/human-in-the-loop) — the code defines where to insert human approval.
 - [Content-Based Router](/architecture/eip/message-routing/content-based-router) — rule-based routing on the content, equivalent to the conditional branch.
 - [Process Manager](/architecture/eip/message-routing/process-manager) — orchestration with state and branching.
-- [Scheduler Agent Supervisor](/cloud/cloud-design-patterns/distributed-coordination/scheduler-agent-supervisor) — coordination of distributed steps with supervision.
+- [Scheduler Agent Supervisor](/architecture/cloud-design-patterns/distributed-coordination/scheduler-agent-supervisor) — coordination of distributed steps with supervision.
 
 ## Reference
 

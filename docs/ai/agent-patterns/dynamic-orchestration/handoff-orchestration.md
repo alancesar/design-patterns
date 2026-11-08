@@ -83,7 +83,7 @@ Cada agente decide se resolve ou transfere o controle; só um está ativo por ve
 - [Sequential Orchestration](/ai/agent-patterns/deterministic-workflows/sequential-orchestration) — ordem fixa e predefinida, ao contrário da ordem dinâmica do handoff.
 - [Dynamic Router](/architecture/eip/message-routing/dynamic-router) — roteamento cuja decisão muda conforme o contexto em tempo de execução.
 - [Content-Based Router](/architecture/eip/message-routing/content-based-router) — equivalente determinístico quando a rota sai do conteúdo da entrada inicial.
-- [Choreography](/cloud/cloud-design-patterns/distributed-coordination/choreography) — sem coordenador central, cada participante decide o próximo passo.
+- [Choreography](/architecture/cloud-design-patterns/distributed-coordination/choreography) — sem coordenador central, cada participante decide o próximo passo.
 
 ## Referência
 

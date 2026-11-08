@@ -73,9 +73,9 @@ The gateway authenticates the client once and issues the token; each service val
 ## Related patterns
 
 - [API Gateway](/architecture/microservices/external-api/api-gateway) — authenticates the request at the edge and issues the token that is passed on to the services
-- [Federated Identity](/cloud/cloud-design-patterns/security-and-access/federated-identity) — delegates authentication to an external identity provider, which normally issues the token used here
-- [Gatekeeper](/cloud/cloud-design-patterns/security-and-access/gatekeeper) — the gateway or intermediary that validates requests before they reach the protected services
-- [Valet Key](/cloud/cloud-design-patterns/security-and-access/valet-key) — also uses a restricted access token, but to grant limited, temporary access to a specific resource
+- [Federated Identity](/architecture/cloud-design-patterns/security-and-access/federated-identity) — delegates authentication to an external identity provider, which normally issues the token used here
+- [Gatekeeper](/architecture/cloud-design-patterns/security-and-access/gatekeeper) — the gateway or intermediary that validates requests before they reach the protected services
+- [Valet Key](/architecture/cloud-design-patterns/security-and-access/valet-key) — also uses a restricted access token, but to grant limited, temporary access to a specific resource
 
 ## Reference
 

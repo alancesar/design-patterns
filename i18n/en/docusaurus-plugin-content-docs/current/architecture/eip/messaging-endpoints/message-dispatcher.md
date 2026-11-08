@@ -59,7 +59,7 @@ The dispatcher reads from the channel and distributes each message to a performe
 
 ## Related patterns
 
-- [Competing Consumers](/cloud/cloud-design-patterns/messaging/competing-consumers) — alternative where each consumer reads from the channel.
+- [Competing Consumers](/architecture/cloud-design-patterns/messaging/competing-consumers) — alternative where each consumer reads from the channel.
 - [Selective Consumer](/architecture/eip/messaging-endpoints/selective-consumer) — filtering that the dispatcher can do.
 - [Event-Driven Consumer](/architecture/eip/messaging-endpoints/event-driven-consumer) — a common way to feed the dispatcher.
 - [Polling Consumer](/architecture/eip/messaging-endpoints/polling-consumer) — another way to feed it.

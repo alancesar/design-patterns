@@ -47,8 +47,8 @@ The client usually closes the batch by size (bytes or item count) or by maximum 
 
 - You need to bound both the size and the time of the batch to avoid both excessive latency and huge messages.
 - Apply backpressure when the receiving node can't keep up with the batches.
-- For non-idempotent operations, resending a whole batch can duplicate effects; consider [Idempotent Receiver](/cloud/cloud-design-patterns/messaging/idempotent-consumer).
-- Don't confuse it with [Queue-Based Load Leveling](/cloud/cloud-design-patterns/messaging/queue-based-load-leveling), which uses a queue to smooth load spikes and decouple producer and consumer, without grouping requests for the same destination.
+- For non-idempotent operations, resending a whole batch can duplicate effects; consider [Idempotent Receiver](/architecture/cloud-design-patterns/messaging/idempotent-consumer).
+- Don't confuse it with [Queue-Based Load Leveling](/architecture/cloud-design-patterns/messaging/queue-based-load-leveling), which uses a queue to smooth load spikes and decouple producer and consumer, without grouping requests for the same destination.
 
 ## Diagram
 
@@ -72,9 +72,9 @@ The client accumulates requests in a buffer and sends them as a single batch whe
 - [Request Pipeline](/architecture/distributed-systems/node-communication/request-pipeline) — complementary: the pipeline keeps several requests in flight, and batching reduces the cost of each one.
 - [Single-Socket Channel](/architecture/distributed-systems/node-communication/single-socket-channel) — the channel batches usually travel over, preserving order.
 - [Singular Update Queue](/architecture/distributed-systems/data-replication/singular-update-queue) — the receiver can drain the queue in batches for efficiency.
-- [Idempotent Receiver](/cloud/cloud-design-patterns/messaging/idempotent-consumer) — protects against duplicate effects when a batch is resent.
+- [Idempotent Receiver](/architecture/cloud-design-patterns/messaging/idempotent-consumer) — protects against duplicate effects when a batch is resent.
 - [Message Sequence](/architecture/eip/message-construction/message-sequence) (EIP) — splitting or grouping data into sequences of messages.
-- [Queue-Based Load Leveling](/cloud/cloud-design-patterns/messaging/queue-based-load-leveling) (cloud) — contrast: levels load with a queue instead of grouping requests.
+- [Queue-Based Load Leveling](/architecture/cloud-design-patterns/messaging/queue-based-load-leveling) (cloud) — contrast: levels load with a queue instead of grouping requests.
 
 ## Reference
 

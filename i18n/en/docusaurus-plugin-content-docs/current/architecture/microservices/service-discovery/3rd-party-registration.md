@@ -65,7 +65,7 @@ An external registrar watches the instances and maintains the registry.
 - [Service Registry](/architecture/microservices/service-discovery/service-registry) — where the registrar keeps the instances
 - [Self Registration](/architecture/microservices/service-discovery/self-registration) — an alternative in which the instance registers itself
 - [Client-side Discovery](/architecture/microservices/service-discovery/client-side-discovery) and [Server-side Discovery](/architecture/microservices/service-discovery/server-side-discovery) — consumers of the registry
-- [Health Check API](/cloud/cloud-design-patterns/resiliency/health-endpoint-monitoring) — used by the registrar to check health
+- [Health Check API](/architecture/cloud-design-patterns/resiliency/health-endpoint-monitoring) — used by the registrar to check health
 
 ## Reference
 

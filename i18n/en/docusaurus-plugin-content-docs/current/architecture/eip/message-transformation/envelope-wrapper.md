@@ -66,8 +66,8 @@ The wrapper adds the envelope required by the infrastructure and the unwrapper r
 - [Message Translator](/architecture/eip/message-transformation/message-translator) — converts the format of the content, whereas the wrapper only wraps it.
 - [Content Enricher](/architecture/eip/message-transformation/content-enricher) — can be used to fill in header fields with external data.
 - [Content-Based Router](/architecture/eip/message-routing/content-based-router) — uses the envelope fields to decide the routing.
-- [Messaging Bridge](/cloud/cloud-design-patterns/messaging/messaging-bridge) — connects messaging systems that require different envelopes.
-- [Pipes and Filters](/cloud/cloud-design-patterns/messaging/pipes-and-filters) — wrapper and unwrapper are filters in the processing chain.
+- [Messaging Bridge](/architecture/cloud-design-patterns/messaging/messaging-bridge) — connects messaging systems that require different envelopes.
+- [Pipes and Filters](/architecture/cloud-design-patterns/messaging/pipes-and-filters) — wrapper and unwrapper are filters in the processing chain.
 - [Decorator](/coding/gof/structural/decorator) — also adds responsibilities around an object without changing it.
 
 ## Reference

@@ -62,7 +62,7 @@ O broker guarda as mensagens enquanto o assinante está ausente e as entrega qua
 
 ## Padrões relacionados
 
-- [Publish-Subscribe Channel](/cloud/cloud-design-patterns/messaging/publisher-subscriber) — o canal ao qual o assinante durável se inscreve.
+- [Publish-Subscribe Channel](/architecture/cloud-design-patterns/messaging/publisher-subscriber) — o canal ao qual o assinante durável se inscreve.
 - [Guaranteed Delivery](/architecture/eip/messaging-channels/guaranteed-delivery) — persistência de mensagens no broker, base da durabilidade.
 - [Point-to-Point Channel](/architecture/eip/messaging-channels/point-to-point-channel) — canal em que a fila já retém mensagens.
 - [Message Expiration](/architecture/eip/message-construction/message-expiration) — limita o acúmulo de mensagens.

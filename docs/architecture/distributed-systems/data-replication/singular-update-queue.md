@@ -66,7 +66,7 @@ Vários clientes enfileiram atualizações e uma única thread as aplica ao esta
 - [Write-Ahead Log](/architecture/distributed-systems/data-replication/write-ahead-log) — as gravações no log são serializadas por essa fila
 - [Replicated Log](/architecture/distributed-systems/data-replication/replicated-log) — as entradas confirmadas são aplicadas em ordem por uma thread
 - [Request Waiting List](/architecture/distributed-systems/data-replication/request-waiting-list) — registra callbacks de requisições enfileiradas
-- [Competing Consumers](/cloud/cloud-design-patterns/messaging/competing-consumers) — contraste: vários consumidores em paralelo, sem ordem global
+- [Competing Consumers](/architecture/cloud-design-patterns/messaging/competing-consumers) — contraste: vários consumidores em paralelo, sem ordem global
 
 ## Referência
 

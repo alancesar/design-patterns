@@ -68,9 +68,9 @@ A mensagem sai da aplicação A no seu formato, é convertida pelo tradutor e ch
 - [Content Filter](/architecture/eip/message-transformation/content-filter) — remove dados desnecessários da mensagem.
 - [Envelope Wrapper](/architecture/eip/message-transformation/envelope-wrapper) — adapta a mensagem aos requisitos de cabeçalho da infraestrutura.
 - [Channel Adapter](/architecture/eip/messaging-channels/channel-adapter) — conecta a aplicação ao canal; a tradução do formato fica no tradutor.
-- [Pipes and Filters](/cloud/cloud-design-patterns/messaging/pipes-and-filters) — o tradutor é um filtro dentro de uma cadeia de processamento.
+- [Pipes and Filters](/architecture/cloud-design-patterns/messaging/pipes-and-filters) — o tradutor é um filtro dentro de uma cadeia de processamento.
 - [Adapter](/coding/gof/structural/adapter) — o análogo em orientação a objetos.
-- [Anti-Corruption Layer](/cloud/cloud-design-patterns/integration-and-modernization/anti-corruption-layer) — camada que traduz entre modelos para proteger o domínio.
+- [Anti-Corruption Layer](/architecture/cloud-design-patterns/integration-and-modernization/anti-corruption-layer) — camada que traduz entre modelos para proteger o domínio.
 
 ## Referência
 
