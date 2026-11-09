@@ -18,27 +18,8 @@ New catalogs are added in both languages in the same PR: each page in `docs/` ge
 
 ```bash
 npm install
-npm start          # local dev server at http://localhost:3000
+npm start          # local dev server at http://localhost:3000 (pt-BR only; add `-- --locale en` for English)
 npm run build      # production build to build/ (fails on broken links)
 npm run serve      # serves the build locally (needed to test search)
 npm run typecheck
 ```
-
-## Deploy
-
-Netlify builds the site on every push to `main` (configured in `netlify.toml`) and creates deploy previews for pull requests.
-
-Domain setup (one time):
-
-1. In Netlify: **Add new site → Import from GitHub →** `alancesar/design-patterns`. The build settings come from `netlify.toml`.
-2. In **Domain management → Add a domain**, enter `designpatterns.alancesar.dev` and keep the DNS external.
-3. In Cloudflare (zone `alancesar.dev`), create the record:
-
-   | Type | Name | Target | Proxy |
-   | --- | --- | --- | --- |
-   | CNAME | `designpatterns` | `<site-name>.netlify.app` | **DNS only** (grey cloud) |
-
-   With the proxy on, Netlify can't issue the certificate.
-4. Once the Let's Encrypt certificate is issued, turn on **Force HTTPS** in Netlify.
-
-To check: `dig +short designpatterns.alancesar.dev CNAME` should return `<site-name>.netlify.app`.
