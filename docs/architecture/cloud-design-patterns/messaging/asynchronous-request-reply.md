@@ -33,7 +33,7 @@ O padrão é útil principalmente quando o cliente não consegue receber callbac
 - Integração com workloads que não suportam mecanismos modernos de notificação, como WebSockets ou webhooks
 - Operações de longa duração (geração de relatórios, processamento de arquivos, provisionamento de recursos) expostas por uma API REST
 
-### Quando evitar
+## Quando evitar
 
 - Quando há um serviço próprio para notificações assíncronas (por exemplo, um barramento de eventos como o Azure Event Grid)
 - Quando as respostas precisam ser transmitidas em tempo real; Server-Sent Events (SSE) oferecem um canal push simples sem polling

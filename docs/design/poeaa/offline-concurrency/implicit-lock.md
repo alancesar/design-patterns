@@ -31,7 +31,7 @@ O padrão não é um tipo de bloqueio, e sim uma forma de aplicar os demais padr
 - Quando há uma camada de acesso a dados única, como mappers ou repositórios.
 - Quando se quer que o controle de concorrência seja uma propriedade da infraestrutura, não do caso de uso.
 
-### Quando evitar
+## Quando evitar
 
 - Quando o sistema é pequeno e o bloqueio é necessário em poucos pontos, sendo mais claro fazê-lo explicitamente.
 - Quando o acesso aos dados é disperso e não há um ponto central para embutir a lógica.

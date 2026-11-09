@@ -28,7 +28,7 @@ O Polling Publisher é uma forma de implementar o message relay do Transactional
 - Simplicidade e portabilidade pesam mais que latência mínima.
 - O volume de mensagens é moderado.
 
-### Quando evitar
+## Quando evitar
 
 - Latência muito baixa ou volume alto, pois o polling gera carga e atraso.
 - O banco é NoSQL sem suporte adequado a esse tipo de consulta.

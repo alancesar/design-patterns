@@ -29,7 +29,7 @@ Because capabilities change slowly, the resulting architecture is stable. Each s
 - When designing or refactoring toward a microservices architecture with autonomous teams
 - When the organization has business capabilities that are clearly identifiable and relatively stable
 
-### When to avoid
+## When to avoid
 
 - In small applications, where decomposition only adds complexity
 - When the understanding of the business is still shallow and there's no way to iterate on the boundaries

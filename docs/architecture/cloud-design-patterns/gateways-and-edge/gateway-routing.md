@@ -38,7 +38,7 @@ Um proxy reverso comum, como o Nginx, já implementa o padrão. No Azure, por ex
 - O número de instâncias do serviço varia ao longo do tempo.
 - A estratégia de implantação exige que várias versões do serviço sejam acessadas ao mesmo tempo.
 
-### Quando evitar
+## Quando evitar
 
 - Aplicações simples que usam apenas um ou dois serviços, em que o gateway só acrescenta um salto e mais um componente para operar.
 - Cenários em que o salto extra de rede é inaceitável para a latência e não há ganho de roteamento que compense.

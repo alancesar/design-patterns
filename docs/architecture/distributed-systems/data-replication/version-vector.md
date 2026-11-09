@@ -29,7 +29,7 @@ A resolução pode ser feita pelo cliente, por uma regra como *last-write-wins* 
 - Armazenamentos sem líder (leaderless), com replicação multi-mestre e alta disponibilidade de escrita.
 - Quando conflitos devem ser detectados e resolvidos explicitamente, em vez de silenciosamente descartados.
 
-### Quando evitar
+## Quando evitar
 
 - Sistemas com um líder único, em que a ordem já é definida (use Versioned Value).
 - Clusters muito grandes, pois o vetor cresce com o número de nós.

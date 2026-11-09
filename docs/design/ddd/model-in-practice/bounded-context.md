@@ -33,7 +33,7 @@ O Bounded Context é o alicerce do design estratégico: é nele que a Ubiquitous
 - Quando mais de um time contribui para o mesmo sistema e o modelo começa a ficar incoerente.
 - Ao desenhar a decomposição de um sistema grande, seja em módulos ou em serviços.
 
-### Quando evitar
+## Quando evitar
 
 - Sistemas pequenos, mantidos por um único time, em que um único modelo coeso é suficiente.
 - Quando a fronteira é traçada só por critério técnico (camadas, tecnologia) e ignora o significado do domínio.

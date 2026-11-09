@@ -34,7 +34,7 @@ Since the collaborative behavior lives in a single place, you can change how the
 - Behavior distributed across several classes should be customizable without creating many subclasses
 - You want to centralize orchestration rules among components (for example, UI dialogs, workflows, command handlers in CQRS)
 
-### When to avoid
+## When to avoid
 
 - Few objects with simple interactions — direct calls are clearer
 - The mediator tends to accumulate too many rules and become a hard-to-maintain "god object"

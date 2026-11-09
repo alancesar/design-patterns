@@ -34,7 +34,7 @@ The ambassador can be deployed as a sidecar that follows the application's lifec
 - When a legacy or hard-to-change application needs to meet cloud or cluster connectivity requirements.
 - When you need to support protocols or connectivity patterns that API gateways, service meshes, or standard ingress and egress controls don't handle easily.
 
-### When to avoid
+## When to avoid
 
 - When network request latency is critical and even the small overhead of the proxy is unacceptable.
 - When the connectivity features are consumed by a single language; a client library distributed as a package tends to be simpler.

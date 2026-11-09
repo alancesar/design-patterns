@@ -33,7 +33,7 @@ It isn't one of the 23 patterns in the Gang of Four book, but it's widely used i
 - Latency-sensitive systems that benefit from pre-warming (*warm-up*) the objects
 - When an object's state can be reliably reset before it's reused
 
-### When to avoid
+## When to avoid
 
 - Lightweight objects that are cheap to create; in modern runtimes, the allocator and GC are usually more efficient than a pool
 - Objects with state that's hard to clean, which risks leaking data between uses

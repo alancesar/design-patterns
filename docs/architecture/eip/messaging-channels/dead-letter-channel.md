@@ -31,7 +31,7 @@ Em muitos produtos o mecanismo é automático: depois de um número configurado 
 - Existe limite de tentativas ou de validade, e mensagens que o ultrapassam devem ser separadas.
 - Consumidores podem falhar de forma persistente com certas mensagens (poison messages).
 
-### Quando evitar
+## Quando evitar
 
 - Quando a perda de algumas mensagens é aceitável e o custo de operar o canal não compensa.
 - Quando não há processo para monitorar e tratar o canal: ele vira um depósito esquecido.

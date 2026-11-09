@@ -35,7 +35,7 @@ Multiple tasks, generating requests at widely varying rates, can share the same 
 - The downstream service has hard throughput limits or applies throttling when it reaches a threshold.
 - The work can be processed asynchronously, without the caller needing an immediate response.
 
-### When to avoid
+## When to avoid
 
 - The caller requires a synchronous, low-latency response.
 - The volume is predictably low and steady, so the queue's complexity brings little benefit.

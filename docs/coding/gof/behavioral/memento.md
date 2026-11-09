@@ -33,7 +33,7 @@ O ponto central é o encapsulamento: o Memento expõe uma interface "estreita" p
 - Editores, formulários, jogos (save/load) ou wizards precisam de undo, histórico ou rollback local
 - Operações transacionais em memória que podem precisar ser revertidas
 
-### Quando evitar
+## Quando evitar
 
 - O estado é grande e os snapshots são frequentes, gerando alto consumo de memória — prefira armazenar diferenças ou usar [Command](/coding/gof/behavioral/command) com operações inversas
 - O objeto é simples e totalmente público; uma cópia direta ou um [Prototype](/coding/gof/creational/prototype) resolve

@@ -31,7 +31,7 @@ This logic is generally provided by a microservice chassis or client library, so
 - When you want fewer network hops and fine-grained control of load balancing on the client.
 - When a standardized chassis or library already exists for the language(s) in use.
 
-### When to avoid
+## When to avoid
 
 - Polyglot environments where implementing discovery in each language is expensive.
 - When the platform already offers transparent discovery and routing (use Server-side Discovery).

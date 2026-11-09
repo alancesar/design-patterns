@@ -42,7 +42,7 @@ In the microservices context (microservices.io), the BFF is a variation of the A
 - A microservices architecture requires distinct APIs for web, mobile, and third-party clients, and a single shared API Gateway would become a development bottleneck.
 - Frontend teams need autonomy and independent delivery cycles.
 
-### When to avoid
+## When to avoid
 
 - The interfaces make the same or very similar requests to the backend.
 - Only one interface consumes the backend.

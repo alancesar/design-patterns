@@ -45,7 +45,7 @@ For this to work under concurrency, correctness is guaranteed by the data store 
 - Multiple competing consumers process the same channel, increasing the chance of simultaneous duplicates.
 - Outside of messaging: ETL pipelines that reprocess data, stream processing resumed from a *checkpoint*, scheduled jobs that overlap or restart, and webhook/HTTP endpoints that receive duplicate deliveries.
 
-### When to avoid
+## When to avoid
 
 - The consumer's operations are already naturally idempotent (for example, an *upsert* by business identifier, writing an absolute value instead of an increment, a `PUT` on a resource), making the deduplication bookkeeping a cost with no benefit.
 - The workload tolerates the effects of occasional duplicates, and the cost of maintaining a deduplication store outweighs the impact of a duplicate.

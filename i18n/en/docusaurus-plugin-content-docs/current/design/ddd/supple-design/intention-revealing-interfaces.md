@@ -32,7 +32,7 @@ The pattern is the foundation of Supple Design. Interfaces that reveal intention
 - When business experts and developers need to read the same code or the same tests.
 - When refactoring methods whose name describes the "how" instead of the "what".
 
-### When to avoid
+## When to avoid
 
 - In private, volatile internal details, where a wordy name adds little value.
 - When the concept hasn't been understood yet: a "nice" name for a wrong model only gives false confidence. Deepen the model first.

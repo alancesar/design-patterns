@@ -32,7 +32,7 @@ In general terms, the flow has two steps: a wrapper on the sender side, which ad
 - Encryption, signing, or compression must be applied transparently to the applications.
 - Several systems share an infrastructure with a standardized envelope format.
 
-### When to avoid
+## When to avoid
 
 - The application can already produce and consume the header-based format natively.
 - The envelope adds no useful information for the infrastructure and only adds processing.

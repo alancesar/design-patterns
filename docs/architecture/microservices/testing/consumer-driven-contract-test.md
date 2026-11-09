@@ -29,7 +29,7 @@ A ênfase está no **lado do provedor**: é o provedor que é validado contra os
 - Times diferentes são donos de provedor e consumidores e precisam de um acordo executável
 - Se deseja evoluir a API do provedor com segurança, sem testes end-to-end
 
-### Quando evitar
+## Quando evitar
 
 - Há um único consumidor sob o mesmo time, em que um teste de integração simples basta
 - Os consumidores não conseguem ou não querem manter seus contratos atualizados

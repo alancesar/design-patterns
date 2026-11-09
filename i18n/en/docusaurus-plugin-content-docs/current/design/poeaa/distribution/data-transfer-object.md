@@ -32,7 +32,7 @@ A secondary benefit is encapsulating serialization: the wire format (JSON, XML, 
 - When you want to group what would be several calls into one.
 - When the data contract with the client must evolve independently of the domain model.
 
-### When to avoid
+## When to avoid
 
 - In local calls within the same process: Fowler warns in the LocalDTO article that the mapping cost is high and the benefit is nil; prefer a [Service Layer](/design/poeaa/domain-logic/service-layer) working with domain objects.
 - When the DTO tends to mirror the domain field by field, merely duplicating classes with no isolation gain.

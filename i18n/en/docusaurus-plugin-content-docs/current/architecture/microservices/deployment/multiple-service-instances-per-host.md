@@ -30,7 +30,7 @@ There are two common variations: each instance runs as an independent process (f
 - When there are few services, with dependencies that are compatible with each other.
 - In legacy environments or ones without support for virtualization or containers.
 
-### When to avoid
+## When to avoid
 
 - When services have conflicting resource requirements or dependency versions.
 - When strong isolation and hard CPU and memory limits per instance are required.

@@ -30,7 +30,7 @@ Com isso, um único canal pode se comportar como vários Datatype Channels, o qu
 - Quando um canal carrega vários tipos de mensagem e cada consumidor trata um subconjunto.
 - Quando o sistema de mensageria suporta seletores no servidor.
 
-### Quando evitar
+## Quando evitar
 
 - Quando há canais dedicados por tipo com custo aceitável.
 - Quando mensagens sem consumidor compatível poderiam ficar paradas indefinidamente.

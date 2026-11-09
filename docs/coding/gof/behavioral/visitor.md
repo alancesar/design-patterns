@@ -34,7 +34,7 @@ Assim, cada nova operação vira uma nova classe `ConcreteVisitor` que reúne, e
 - A hierarquia de elementos raramente muda, mas novas operações são adicionadas com frequência
 - Compiladores, interpretadores e ferramentas de análise que percorrem árvores sintáticas (type checking, otimização, geração de código, pretty printing)
 
-### Quando evitar
+## Quando evitar
 
 - A hierarquia de elementos muda com frequência: cada novo tipo exige um novo método em todos os visitantes
 - Há poucas operações e elas pertencem naturalmente aos próprios elementos

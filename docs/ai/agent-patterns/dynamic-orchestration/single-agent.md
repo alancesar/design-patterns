@@ -30,7 +30,7 @@ Um único modelo, um conjunto definido de ferramentas e um prompt de sistema det
 - Início do desenvolvimento de agentes, para refinar lógica, prompt e ferramentas.
 - Escopo de responsabilidade único e coeso, com poucas ferramentas.
 
-### Quando evitar
+## Quando evitar
 
 - O agente precisa de muitas ferramentas ou enfrenta tarefas cada vez mais complexas.
 - O agente deve gerenciar várias responsabilidades distintas.

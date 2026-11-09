@@ -32,7 +32,7 @@ O padrão combina três elementos: uma infraestrutura de comunicação comum (ca
 - A empresa quer um vocabulário comum de comandos e dados entre sistemas.
 - Espera-se incluir novos participantes com frequência.
 
-### Quando evitar
+## Quando evitar
 
 - Poucas aplicações com integração estável, em que ligações diretas bastam.
 - Quando não há disposição para manter um modelo de dados e comandos compartilhado, pois o barramento perde o sentido.

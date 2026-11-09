@@ -38,7 +38,7 @@ In microservices, the Saga is the direct consequence of the Database per Service
 - Eventual consistency is acceptable to the business while the flow is running.
 - Long-running operations where holding distributed locks would be impractical.
 
-### When to avoid
+## When to avoid
 
 - Transactions are tightly coupled and require strict isolation and atomicity.
 - Compensations would have to occur in earlier participants in a way that makes it impossible to define a reliable opposite-effect operation.

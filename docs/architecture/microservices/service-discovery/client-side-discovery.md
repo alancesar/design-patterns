@@ -31,7 +31,7 @@ Em geral essa lógica é fornecida por um microservice chassis ou biblioteca cli
 - Quando se deseja menos saltos de rede e controle fino do balanceamento no cliente.
 - Quando já existe um chassis ou biblioteca padronizada para a(s) linguagem(ns) usada(s).
 
-### Quando evitar
+## Quando evitar
 
 - Ambientes poliglotas em que implementar a descoberta em cada linguagem é caro.
 - Quando a plataforma já oferece descoberta e roteamento transparentes (use Server-side Discovery).

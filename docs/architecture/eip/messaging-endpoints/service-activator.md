@@ -29,7 +29,7 @@ Como o activator cuida de todos os detalhes de mensageria, o serviço é chamado
 - Quando um serviço deve ser invocado por mensagens de comando ou de requisição.
 - Quando o mesmo serviço também é acessível por outros meios (API, chamada local).
 
-### Quando evitar
+## Quando evitar
 
 - Quando o serviço já é nativo de mensageria.
 - Quando a conversão exigida é tão grande que pede um componente de transformação separado.

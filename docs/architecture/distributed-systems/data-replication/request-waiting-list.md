@@ -31,7 +31,7 @@ Também costuma ter um tempo limite, para falhar requisições que não alcança
 - Quando se usam Request Pipeline e Request Batch e há muitas requisições em voo.
 - Em líderes de logs replicados que respondem após o commit.
 
-### Quando evitar
+## Quando evitar
 
 - Comunicação síncrona simples com um único destinatário, em que basta bloquear a chamada.
 - Quando não há necessidade de espera por confirmações.

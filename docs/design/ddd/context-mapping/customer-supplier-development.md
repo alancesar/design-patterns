@@ -32,7 +32,7 @@ Sem esse acordo, o downstream fica à mercê das prioridades do upstream.
 - O upstream tem interesse e autoridade para priorizar necessidades do downstream.
 - É possível manter testes de aceitação compartilhados entre os dois lados.
 
-### Quando evitar
+## Quando evitar
 
 - Quando o upstream não tem incentivo ou poder de atender o downstream, como fornecedores externos ou produtos de prateleira; prefira Conformist ou Anticorruption Layer.
 - Quando os times já são tão próximos que uma Partnership seria mais adequada.

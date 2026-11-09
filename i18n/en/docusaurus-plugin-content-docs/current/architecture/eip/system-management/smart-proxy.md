@@ -29,7 +29,7 @@ When the reply arrives, the proxy looks up the stored address, uses a message ro
 - Getting response-time metrics per service or per client.
 - Instrumenting services that can't be modified.
 
-### When to avoid
+## When to avoid
 
 - If the service publishes to a fixed output channel, two [Wire Taps](/architecture/eip/system-management/wire-tap) are enough.
 - When the proxy's added latency isn't acceptable.

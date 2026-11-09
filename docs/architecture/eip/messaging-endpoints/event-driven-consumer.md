@@ -30,7 +30,7 @@ Atenção à confirmação: confirmar automaticamente na entrega, antes de proce
 - Quando a mensagem deve ser tratada o quanto antes.
 - Quando o volume é irregular e manter consumidores ativos seria desperdício.
 
-### Quando evitar
+## Quando evitar
 
 - Quando o consumidor precisa controlar a taxa de entrada, pois o push pode sobrecarregá-lo.
 - Quando o processamento deve ocorrer só em janelas específicas.

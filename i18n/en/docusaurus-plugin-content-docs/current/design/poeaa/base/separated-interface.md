@@ -32,7 +32,7 @@ It's the basis of the dependency inversion principle and the natural plug-in poi
 - When you want the client to be unaware of how the dependency is implemented.
 - As an extension point for a Gateway with several implementations (real, stub, in-memory).
 
-### When to avoid
+## When to avoid
 
 - When there's a single implementation and no dependency constraint, since the interface only adds indirection.
 - In small code bases or a single package, where the separation brings no benefit.

@@ -32,7 +32,7 @@ Equipes costumam organizar classes em pacotes ou módulos e definir regras de de
 - Quando se quer que o cliente ignore como a dependência é implementada.
 - Como ponto de extensão para um Gateway com várias implementações (real, stub, em memória).
 
-### Quando evitar
+## Quando evitar
 
 - Quando há uma única implementação e nenhuma restrição de dependência, pois a interface só acrescenta indireção.
 - Em código pequeno ou em um único pacote, em que a separação não traz benefício.

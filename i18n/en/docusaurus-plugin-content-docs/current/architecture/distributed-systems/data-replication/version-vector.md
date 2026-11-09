@@ -29,7 +29,7 @@ It's used in Dynamo and Riak; Cassandra opted for timestamps (last-write-wins) i
 - Leaderless stores with multi-master replication and high write availability.
 - When conflicts must be detected and resolved explicitly, rather than silently discarded.
 
-### When to avoid
+## When to avoid
 
 - Single-leader systems, where the order is already defined (use Versioned Value).
 - Very large clusters, since the vector grows with the number of nodes.

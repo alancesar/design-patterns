@@ -30,7 +30,7 @@ O handler decide qual command executar, normalmente com base em um mapeamento de
 - Quando se quer configurar roteamento e filtros de forma centralizada.
 - Quando se precisa de extensibilidade por meio de handlers ou filtros encadeados.
 
-### Quando evitar
+## Quando evitar
 
 - Em sites muito simples, em que o ponto único de entrada é mais complexidade do que benefício.
 - Quando o framework já fornece um, e criar outro por cima seria redundante.

@@ -33,7 +33,7 @@ Ao sugerir onde cada novo conceito deve ficar e quem pode depender de quem, a es
 - Quando as partes do modelo mudam em ritmos diferentes, por exemplo políticas que mudam com frequência sobre operações estáveis.
 - Quando é possível nomear camadas com significado de negócio e ter a maioria dos módulos encaixados nelas.
 
-### Quando evitar
+## Quando evitar
 
 - Sistemas pequenos ou com poucos módulos, em que a estrutura vira cerimônia.
 - Quando as camadas são artificiais e muitos conceitos ficam sem lugar claro ou são forçados a se encaixar.

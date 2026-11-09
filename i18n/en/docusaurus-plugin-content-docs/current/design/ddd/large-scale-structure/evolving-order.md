@@ -32,7 +32,7 @@ In practice, this means starting with no structure (or a very light one), watchi
 - When the team already has enough of a model to recognize patterns that repeat across modules.
 - In projects that practice continuous refactoring and accept changing the structure when understanding changes.
 
-### When to avoid
+## When to avoid
 
 - Small systems, where modules and the Ubiquitous Language already provide enough order and an extra structure is cost with no return.
 - When a large-scale structure is used as a substitute for good context boundaries: the problem is then one of Bounded Context, not of structure.

@@ -32,7 +32,7 @@ Evans alerta que este é um padrão de alto investimento e alto risco: exige um 
 - Quando as equipes precisam de autonomia, mas dependem de um contrato comum estável.
 - Quando há um Abstract Core claro, extraído de componentes existentes por refatoração.
 
-### Quando evitar
+## Quando evitar
 
 - Projetos em que há uma única aplicação ou poucos componentes: o custo da abstração supera o benefício.
 - Domínios ainda em descoberta, onde a abstração central muda a cada iteração e arrasta todos os componentes.

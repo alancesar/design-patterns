@@ -35,7 +35,7 @@ Na prática moderna, a variante mais comum é o builder fluente (métodos encade
 - Você precisa de objetos imutáveis, mas sem construtores gigantes
 - Montagem de estruturas compostas (árvores, consultas SQL, requisições HTTP, mensagens)
 
-### Quando evitar
+## Quando evitar
 
 - O objeto é simples, com poucos campos obrigatórios; um construtor ou factory resolve
 - A linguagem já oferece parâmetros nomeados e valores padrão que eliminam o problema

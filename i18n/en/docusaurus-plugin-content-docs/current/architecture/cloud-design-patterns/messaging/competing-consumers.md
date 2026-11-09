@@ -39,7 +39,7 @@ When the messaging system offers transactional reads or temporary locking (for e
 - The volume of work varies widely and calls for a scalable solution (including scaling down to zero when the queue is empty).
 - The solution needs high availability and resilience when a task's processing fails.
 
-### When to avoid
+## When to avoid
 
 - The workload isn't easy to split into discrete tasks, or the tasks are strongly dependent on each other.
 - The tasks must run synchronously and the application has to wait for each one to finish before moving on.

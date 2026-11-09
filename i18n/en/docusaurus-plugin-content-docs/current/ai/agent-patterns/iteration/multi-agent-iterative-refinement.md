@@ -30,7 +30,7 @@ It's an implementation of the [Multi-Agent Loop](/ai/agent-patterns/iteration/mu
 - The result can be evaluated against a quality threshold (for example, an automated evaluation).
 - Example from the source: an agent drafts a post, critiques its fluency and tone, and rewrites it, repeating until it meets the standard or hits the iteration limit.
 
-### When to avoid
+## When to avoid
 
 - A single pass produces sufficient quality.
 - There's no measurable quality criterion and no iteration cap.

@@ -31,7 +31,7 @@ Because the business transaction spans several requests (and therefore several d
 - When most sessions are read-only or touch different records.
 - In HTTP APIs and web UIs, where locks can't be held across requests.
 
-### When to avoid
+## When to avoid
 
 - When conflicts are frequent or the cost of losing the user's work is high; Pessimistic Offline Lock is a better fit.
 - When the system can't handle commit failures gracefully (no retry or conflict-resolution flow).

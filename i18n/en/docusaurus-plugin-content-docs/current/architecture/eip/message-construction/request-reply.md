@@ -31,7 +31,7 @@ Note: don't confuse it with Azure's Asynchronous Request-Reply, which uses HTTP 
 - Synchronous wait: simple cases, with one pending request at a time.
 - Asynchronous wait: several concurrent requests, or a need to recover from requestor failures.
 
-### When to avoid
+## When to avoid
 
 - When there's no reply to return; Command Message or Event Message is enough.
 - When the requestor can't be coupled to the replier's response time.

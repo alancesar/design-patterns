@@ -32,7 +32,7 @@ Collection agents should be lightweight so they don't penalize the services, and
 - Ephemeral instances, whose local files disappear along with them
 - The need for centralized search, analysis, and alerting over log messages
 
-### When to avoid
+## When to avoid
 
 - Small applications, with few instances, where local logs are enough
 - When the log volume and the cost of the aggregation infrastructure aren't justified

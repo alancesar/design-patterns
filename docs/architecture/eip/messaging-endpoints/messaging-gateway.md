@@ -30,7 +30,7 @@ Como o gateway é uma interface comum, é fácil trocá-lo por um stub em testes
 - Quando várias partes da aplicação precisam enviar mensagens ou solicitar algo via mensageria.
 - Quando se quer poder substituir a mensageria por outra forma de integração com pouco impacto.
 
-### Quando evitar
+## Quando evitar
 
 - Quando a aplicação tem um único ponto de envio trivial e a camada extra seria só indireção.
 - Quando a lógica de negócio precisa controlar de forma fina propriedades da mensagem, que o gateway esconderia.

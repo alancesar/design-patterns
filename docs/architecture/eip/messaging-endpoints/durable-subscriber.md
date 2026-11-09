@@ -28,7 +28,7 @@ Sem isso, um assinante que cai, é reiniciado ou está em manutenção perde tud
 - Quando cada evento é importante e o assinante pode ficar offline.
 - Quando é preciso garantir entrega a assinantes lentos ou intermitentes.
 
-### Quando evitar
+## Quando evitar
 
 - Quando apenas o estado mais recente interessa (mensagens antigas perdem valor).
 - Quando o acúmulo de mensagens para assinantes ausentes pode esgotar o broker.

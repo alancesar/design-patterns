@@ -41,7 +41,7 @@ As a result, the broker carries only small messages, while the external store ha
 - The payload (or part of it) contains sensitive information that shouldn't be visible in the messaging layer; the content goes to a store with dedicated access controls.
 - Messages go through several routing steps that serialize, deserialize, encrypt, or decrypt; carrying only the token reduces repeated processing and accumulated latency.
 
-### When to avoid
+## When to avoid
 
 - End-to-end latency matters more than payload size, and the extra network hops to write and fetch the content aren't acceptable.
 - A transport or tier exists that supports the payload size without a meaningful loss of throughput or latency (for example, the Azure Service Bus Premium tier accepts large messages); sending inline is simpler.

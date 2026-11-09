@@ -30,7 +30,7 @@ Used in ZooKeeper, etcd (Raft), Kafka, and Cassandra to detect node and leader f
 - Clusters that store partitioned or replicated data and need to react to node failures.
 - Leadership based on Leader and Followers, where followers need to know whether the leader is alive.
 
-### When to avoid
+## When to avoid
 
 - Very large clusters where all-to-all traffic is prohibitive (prefer gossip).
 - When the network is so unstable that the timeout produces constant false positives without adaptive tuning.

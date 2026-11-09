@@ -29,7 +29,7 @@ The emphasis is on the **provider side**: the provider is validated against the 
 - Different teams own the provider and the consumers and need an executable agreement
 - You want to evolve the provider's API safely, without end-to-end tests
 
-### When to avoid
+## When to avoid
 
 - There's a single consumer under the same team, in which case a simple integration test is enough
 - Consumers can't or won't keep their contracts up to date

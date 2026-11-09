@@ -32,7 +32,7 @@ A vantagem é a baixa intrusão: o núcleo ganha visibilidade imediata sem a nec
 - Quando a equipe é grande ou rotativa e precisa de orientação rápida.
 - Como primeiro passo, antes de decidir por uma separação estrutural.
 
-### Quando evitar
+## Quando evitar
 
 - Quando o modelo é pequeno e o core é óbvio para todos.
 - Quando o documento de destilação não será mantido, pois ele se descola da realidade rapidamente.

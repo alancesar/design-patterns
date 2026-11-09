@@ -32,7 +32,7 @@ Se um seguidor recebe uma mensagem com geração menor que a que já viu, sabe q
 - Quando é preciso rejeitar mensagens obsoletas após falhas ou partições de rede.
 - Em protocolos de consenso para ordenar propostas concorrentes.
 
-### Quando evitar
+## Quando evitar
 
 - Sistemas sem líder ou com um único servidor, em que não há mandatos concorrentes.
 - Quando a causalidade precisa ser rastreada entre muitos eventos (use relógios lógicos ou vetores).

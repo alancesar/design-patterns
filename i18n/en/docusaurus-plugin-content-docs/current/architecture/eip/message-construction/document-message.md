@@ -29,7 +29,7 @@ The document is treated as a unit, even if it contains smaller parts. What matte
 - When the receiver should decide how to process the content.
 - When reliable delivery matters more than latency, combined with Guaranteed Delivery.
 
-### When to avoid
+## When to avoid
 
 - When you need to order a specific action (use Command Message).
 - When all that matters is signaling that something happened and timing is critical (use Event Message).

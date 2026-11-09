@@ -29,7 +29,7 @@ The router stores these conditions in a rule base. When a message arrives, it ev
 - The set of destinations changes often or at runtime
 - You want to remove the router's dependency on a fixed list
 
-### When to avoid
+## When to avoid
 
 - Destinations and rules are stable; a Content-Based Router is simpler
 - There's no way to guarantee that registrations are trustworthy or authenticated

@@ -31,7 +31,7 @@ This is the base pattern of the router family (Content-Based Router, Message Fil
 - Forwarding rules need to be centralized in a single place
 - The flow should be reconfigurable without touching the processing components
 
-### When to avoid
+## When to avoid
 
 - There is only one possible destination; the router would just be an extra hop
 - The decision can be handled by the channel infrastructure itself (for example, subscriptions on a publish-subscribe channel)

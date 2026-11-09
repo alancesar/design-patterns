@@ -33,7 +33,7 @@ When the cross-cutting requirements change, the owning team publishes a new vers
 - When cross-cutting concerns change often and need to be propagated cheaply.
 - When there's a platform team able to maintain the chassis as an internal product.
 
-### When to avoid
+## When to avoid
 
 - When there are few services or a single team; the cost of maintaining your own framework outweighs the gain.
 - When the environment is highly polyglot and there isn't enough volume to justify a chassis per language.

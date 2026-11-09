@@ -30,7 +30,7 @@ Uma forma confiável de implementar a auditoria é o Event Sourcing, em que cada
 - Domínios regulados ou sensíveis (financeiro, saúde, administração de acessos)
 - Quando é preciso responder a perguntas sobre quem alterou um dado e quando
 
-### Quando evitar
+## Quando evitar
 
 - Quando o rastro de ações não tem valor de negócio, de conformidade ou de segurança
 - Para diagnóstico técnico puro, onde logs e traces são mais adequados

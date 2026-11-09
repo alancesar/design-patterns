@@ -31,7 +31,7 @@ Evans treats the metaphor with caution. It's useful when it fits the domain natu
 - When the metaphor correctly explains the domain's essential behavior and guides design decisions.
 - In systems whose domain is abstract and benefits from a concrete image.
 
-### When to avoid
+## When to avoid
 
 - When the metaphor is forced or merely decorates the documentation, without actually guiding the model.
 - When it leads to wrong conclusions about the domain, because the analogy doesn't hold in every case.

@@ -33,7 +33,7 @@ By suggesting where each new concept should live and who may depend on whom, the
 - When parts of the model change at different paces, for example policies that change often on top of stable operations.
 - When it's possible to name layers with business meaning and have most modules fit into them.
 
-### When to avoid
+## When to avoid
 
 - Small systems or ones with few modules, where the structure becomes ceremony.
 - When the layers are artificial and many concepts have no clear place or are forced to fit.

@@ -33,7 +33,7 @@ On the web, MVC is usually realized by combining more specific patterns: a Page 
 - When you want to test the model's behavior without depending on the presentation.
 - When the same model will have multiple views or input channels.
 
-### When to avoid
+## When to avoid
 
 - In very simple screens or throwaway scripts, where three roles are excessive ceremony.
 - When the framework already imposes another model (for example, MVVM with data binding) and mixing vocabularies only causes confusion.

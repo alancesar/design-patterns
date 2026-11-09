@@ -33,7 +33,7 @@ A escolha do formato (texto delimitado, largura fixa, XML, JSON, formatos legado
 - Os sistemas precisam ficar desacoplados em plataforma e tecnologia, com custo baixo de integração.
 - Grandes volumes de dados são movidos de uma só vez e a latência não é crítica.
 
-### Quando evitar
+## Quando evitar
 
 - Quando os dados precisam estar atualizados quase em tempo real; prefira [Messaging](/architecture/microservices/communication-styles/messaging).
 - Quando é preciso invocar comportamento no sistema remoto e obter resposta imediata; veja [Remote Procedure Invocation](/architecture/microservices/communication-styles/remote-procedure-invocation).

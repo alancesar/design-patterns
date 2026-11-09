@@ -30,7 +30,7 @@ Cada componente da solução se conecta a dois subsistemas: o fluxo de mensagens
 - Necessidade de alterar regras de roteamento ou ligar e desligar rotas dinamicamente.
 - Quando já existe infraestrutura de mensageria que pode ser reaproveitada para o gerenciamento.
 
-### Quando evitar
+## Quando evitar
 
 - Soluções pequenas, com poucos componentes, em que configuração por arquivo ou console local basta.
 - Quando comandos de controle exigem resposta síncrona e garantida que o canal assíncrono não oferece.

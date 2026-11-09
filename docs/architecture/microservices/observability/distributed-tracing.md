@@ -32,7 +32,7 @@ Essa instrumentação costuma vir de um microservice chassis ou de bibliotecas p
 - Requisições que envolvem vários serviços síncronos ou assíncronos
 - Análise de latência e identificação de gargalos
 
-### Quando evitar
+## Quando evitar
 
 - Sistemas com poucos serviços, em que logs correlacionados já bastam
 - Quando o custo de coletar e armazenar todos os traces não se justifica (use amostragem)

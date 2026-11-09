@@ -35,7 +35,7 @@ A decisão central da implementação é entre cópia rasa (shallow copy), que c
 - Quando instâncias de uma classe podem assumir apenas algumas poucas combinações de estado, que podem ser mantidas como protótipos
 - Quando se quer reduzir o número de subclasses criadas apenas para variar a configuração inicial
 
-### Quando evitar
+## Quando evitar
 
 - Quando os objetos têm muitas referências circulares ou recursos não clonáveis (conexões, handles de arquivo, threads)
 - Quando a criação direta é barata e simples, tornando a clonagem uma indireção desnecessária

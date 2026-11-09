@@ -33,7 +33,7 @@ O padrão é o ponto de partida natural de muitas aplicações e continua sendo 
 - Quando transações ACID e interações locais eficientes são mais importantes que autonomia de equipes.
 - Quando a organização não tem maturidade de automação e operação para sistemas distribuídos.
 
-### Quando evitar
+## Quando evitar
 
 - Quando muitas equipes precisam desenvolver e implantar de forma independente e frequente.
 - Quando subdomínios exigem escalabilidade, disponibilidade ou segurança distintas.

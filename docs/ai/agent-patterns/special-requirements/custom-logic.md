@@ -31,7 +31,7 @@ Cada etapa pode ser um agente, uma ferramenta ou uma verificação em código, e
 - Quando é preciso combinar regras predefinidas e raciocínio do modelo.
 - Quando o fluxo de trabalho não corresponde a nenhum modelo padrão.
 
-### Quando evitar
+## Quando evitar
 
 - Um padrão predefinido, suportado pelo framework de agentes, já atende: ele reduz esforço de desenvolvimento e manutenção.
 - A equipe não pode arcar com o projeto, a implementação e a depuração de todo o fluxo de orquestração.

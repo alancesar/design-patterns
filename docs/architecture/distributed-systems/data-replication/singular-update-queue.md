@@ -31,7 +31,7 @@ Aparece em torno do Write-Ahead Log, para serializar escritas no log, e na aplic
 - Aplicação de comandos a uma máquina de estados replicada.
 - Quando o estado compartilhado é complexo e locks fariam o código frágil.
 
-### Quando evitar
+## Quando evitar
 
 - Cargas fortemente paralelizáveis em que as operações são independentes (use competing consumers ou particionamento).
 - Quando uma única thread é gargalo de CPU que não pode ser dividido.

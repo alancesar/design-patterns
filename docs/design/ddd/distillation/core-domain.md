@@ -32,7 +32,7 @@ A distilação é o processo de separar o essencial do que é apenas suporte. O 
 - Quando o software é uma vantagem competitiva e não apenas uma ferramenta de apoio.
 - Quando é preciso priorizar investimento de modelagem, pessoas e tempo.
 
-### Quando evitar
+## Quando evitar
 
 - Sistemas pequenos ou simples, em que todo o modelo cabe na cabeça da equipe e não há o que destilar.
 - Software de apoio sem diferencial competitivo, em que a decisão correta é comprar ou adotar uma solução pronta.

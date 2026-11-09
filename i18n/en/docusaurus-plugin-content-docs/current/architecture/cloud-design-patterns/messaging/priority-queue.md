@@ -34,7 +34,7 @@ With multiple queues, consumers can be organized in two ways: a **single pool**,
 - Some tasks need immediate attention while others can wait or run during lower-demand periods.
 - Different task types require distinct processing characteristics and performance guarantees.
 
-### When to avoid
+## When to avoid
 
 - All work items have similar business importance and strictly FIFO processing matters more than prioritization.
 - Tasks have strong ordering dependencies across priority levels, and reordering them would cause inconsistent results or require complex coordination logic.

@@ -31,7 +31,7 @@ Onde o adaptador se liga depende da arquitetura da aplicação e dos dados de qu
 - Expor dados de um banco ou de uma API como mensagens, e vice-versa.
 - Conectar uma aplicação a vários canais sem alterar seu código interno.
 
-### Quando evitar
+## Quando evitar
 
 - Quando a aplicação pode ser modificada com facilidade para usar a mensageria diretamente por meio de um endpoint próprio.
 - Quando o acesso direto ao banco da aplicação violaria regras de negócio ou o encapsulamento, e há uma API melhor.

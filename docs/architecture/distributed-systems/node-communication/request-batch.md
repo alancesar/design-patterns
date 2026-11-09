@@ -31,7 +31,7 @@ O cliente costuma fechar o lote por tamanho (bytes ou número de itens) ou por t
 - Quando é aceitável trocar um pouco de latência individual por vazão agregada.
 - Em combinação com [Request Pipeline](/architecture/distributed-systems/node-communication/request-pipeline), para aproveitar ao máximo o canal.
 
-### Quando evitar
+## Quando evitar
 
 - Cargas com baixo volume ou sensíveis a latência, em que esperar para formar o lote só atrasa a resposta.
 - Quando as requisições são grandes e já amortizam bem o overhead.

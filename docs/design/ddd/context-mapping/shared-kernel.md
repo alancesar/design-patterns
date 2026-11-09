@@ -31,7 +31,7 @@ Exige disciplina: o kernel não pode ser alterado unilateralmente, e sua existê
 - Quando os times conseguem manter integração contínua e uma comunicação frequente sobre o kernel.
 - Quando o custo de duplicar e traduzir é maior que o custo de coordenar mudanças.
 
-### Quando evitar
+## Quando evitar
 
 - Times com baixa comunicação, em locais ou organizações diferentes, sem como acordar mudanças.
 - Quando o kernel tende a crescer sem controle e transforma os dois contextos em um só, na prática uma Big Ball of Mud.

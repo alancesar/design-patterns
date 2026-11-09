@@ -41,7 +41,7 @@ In the Enterprise Integration Patterns formulation (Hohpe and Woolf), the bridge
 - Connecting geographically distributed systems when the network connection is unreliable.
 - Incrementally migrating a distributed system from one messaging infrastructure to another, moving endpoints as the schedule allows.
 
-### When to avoid
+## When to avoid
 
 - One of the systems depends on a feature of one infrastructure that doesn't exist in the other.
 - The integration is synchronous by nature and the initiating system needs an immediate response.

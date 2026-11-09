@@ -33,7 +33,7 @@ Choosing the format (delimited text, fixed width, XML, JSON, legacy mainframe fo
 - The systems need to stay decoupled in platform and technology, with low integration cost.
 - Large volumes of data are moved at once and latency isn't critical.
 
-### When to avoid
+## When to avoid
 
 - When data must be up to date in near real time; prefer [Messaging](/architecture/microservices/communication-styles/messaging).
 - When you need to invoke behavior in the remote system and get an immediate response; see [Remote Procedure Invocation](/architecture/microservices/communication-styles/remote-procedure-invocation).

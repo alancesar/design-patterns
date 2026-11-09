@@ -29,7 +29,7 @@ Sending the copy is fire-and-forget, so it doesn't delay the main flow. Generall
 - Reports on volumes, latencies, and routes.
 - Reprocessing or later investigation of failures.
 
-### When to avoid
+## When to avoid
 
 - Messages with sensitive data, unless adequate access control and retention are in place.
 - High volumes of large messages, where the full copy has a disproportionate cost.

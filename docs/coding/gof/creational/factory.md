@@ -34,7 +34,7 @@ A lógica de decisão normalmente é um `switch`/`if` ou um mapa de registro (ti
 - Você quer um único ponto para mudar como os objetos são criados (por exemplo, para cache, logging ou injeção de dependências)
 - O número de variantes é pequeno e relativamente estável
 
-### Quando evitar
+## Quando evitar
 
 - Existe apenas uma implementação e nenhuma perspectiva de variação — um construtor direto é mais simples
 - Novas variantes surgem com frequência e alterar o `switch` central fere o princípio aberto/fechado; considere Factory Method ou um registro extensível

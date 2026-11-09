@@ -30,7 +30,7 @@ This way, the discovery logic moves out of the client and into the infrastructur
 - When you want simple clients, with no discovery logic, across several languages.
 - When the cloud or orchestration platform already provides the router.
 
-### When to avoid
+## When to avoid
 
 - When there's no ready-made infrastructure and operating one more replicated component isn't worth it.
 - When the router doesn't support the required protocol (beyond TCP).

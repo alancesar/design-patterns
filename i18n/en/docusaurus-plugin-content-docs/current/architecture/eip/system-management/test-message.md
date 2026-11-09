@@ -29,7 +29,7 @@ The pattern has four roles: a test data generator, an injector that marks the me
 - Continuous monitoring of transformation and routing pipelines.
 - Validating the flow end to end in production, with controlled messages.
 
-### When to avoid
+## When to avoid
 
 - If test messages could cause real side effects (charges, sending emails).
 - When messages can't be marked with a header field and the alternative is to use special values in business fields.

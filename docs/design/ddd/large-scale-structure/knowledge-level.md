@@ -32,7 +32,7 @@ Em vez de espalhar condicionais e subclasses para cada variação, as variaçõe
 - Quando as restrições do modelo variam por instância, por exemplo regras por tipo de produto ou por contrato.
 - Quando os conceitos do nível de conhecimento são estáveis o bastante para serem modelados com clareza.
 
-### Quando evitar
+## Quando evitar
 
 - Quando as variações são poucas e estáveis: subclasses ou Strategy resolvem com menos indireção.
 - Quando a flexibilidade é especulativa: o nível de conhecimento vira um segundo sistema difícil de entender e de depurar.

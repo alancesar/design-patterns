@@ -30,7 +30,7 @@ Many systems route expired messages to a Dead Letter Channel; others simply disc
 - Rate-limited destinations, such as HTTP endpoints, where the backlog grows.
 - To avoid acting on outdated instructions.
 
-### When to avoid
+## When to avoid
 
 - When every message must be processed, no matter how late.
 - When subscribers that join later need to receive old messages; in that case prefer longer retention or durable subscriptions.

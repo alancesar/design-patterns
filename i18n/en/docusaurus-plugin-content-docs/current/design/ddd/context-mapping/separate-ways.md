@@ -31,7 +31,7 @@ As a strategic decision, it should appear in the Context Map so that nobody trie
 - The contexts serve distinct business needs, with no relevant flow between them.
 - It's possible to duplicate a small piece of functionality or use a simple, local solution.
 
-### When to avoid
+## When to avoid
 
 - There are important business flows that depend on data from both contexts.
 - Duplication creates inconsistencies that users notice or that violate business rules.

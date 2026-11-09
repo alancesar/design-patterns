@@ -31,7 +31,7 @@ It's the watches feature of ZooKeeper and etcd, and it's used to track changes i
 - When many clients watch a few values that rarely change.
 - Together with a [Consistent Core](/architecture/distributed-systems/cluster-management/consistent-core) and [Lease](/architecture/distributed-systems/cluster-management/lease), to know when a lease has expired.
 
-### When to avoid
+## When to avoid
 
 - Data that changes at a very high frequency: the event flow can be larger than polling's, and a dedicated stream is a better fit.
 - When the client needs every event with no loss and the protocol only guarantees notification of the latest state.

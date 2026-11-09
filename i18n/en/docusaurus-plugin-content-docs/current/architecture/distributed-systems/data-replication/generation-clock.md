@@ -32,7 +32,7 @@ It's the idea behind Raft's *term*, ZooKeeper ZAB's *epoch*, and Kafka's *leader
 - When stale messages must be rejected after failures or network partitions.
 - In consensus protocols, to order concurrent proposals.
 
-### When to avoid
+## When to avoid
 
 - Leaderless or single-server systems, where there are no concurrent tenures.
 - When causality must be tracked across many events (use logical clocks or vectors).

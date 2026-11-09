@@ -30,7 +30,7 @@ The lifecycle is controlled by the owner: when it's removed, its children are re
 - When the dependent isn't queried independently.
 - In DDD Aggregates, for the objects internal to the aggregate.
 
-### When to avoid
+## When to avoid
 
 - When other objects need to reference the dependent directly.
 - When the collection is very large and rewriting it on every change is expensive.

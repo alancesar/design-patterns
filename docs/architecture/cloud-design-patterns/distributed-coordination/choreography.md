@@ -34,7 +34,7 @@ Com isso, os componentes ficam fracamente acoplados e podem ser adicionados, tro
 - Comunicação entre bounded contexts diferentes, que exige baixo acoplamento entre fronteiras de domínio
 - O orquestrador central se tornou um gargalo de desempenho
 
-### Quando evitar
+## Quando evitar
 
 - A aplicação é complexa e precisa de um componente central com lógica compartilhada para manter os serviços simples
 - A comunicação ponto a ponto entre os componentes é inevitável

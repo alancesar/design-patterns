@@ -32,7 +32,7 @@ Participants and the coordinator use a durable log, such as a Write-Ahead Log, t
 - When strong consistency across partitions matters more than latency.
 - In systems where all participants are trusted and controlled by the same platform.
 
-### When to avoid
+## When to avoid
 
 - When the transaction crosses independent services or different organizations: prefer Saga with compensation.
 - In high-availability scenarios under network partitions, since the protocol blocks.

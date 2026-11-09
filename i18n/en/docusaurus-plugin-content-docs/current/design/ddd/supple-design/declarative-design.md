@@ -32,7 +32,7 @@ The risk is rigidity: a limited declarative language can prevent what the domain
 - When there is a stable model and concepts that combine (for example, Specifications).
 - When the same set of rules serves to validate, select, and build.
 
-### When to avoid
+## When to avoid
 
 - In domains that are still poorly understood, where the declarative language becomes a straitjacket.
 - When the cost of creating and maintaining the engine or DSL outweighs the gain.

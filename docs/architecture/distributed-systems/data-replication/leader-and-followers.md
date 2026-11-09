@@ -32,7 +32,7 @@ O padrão é a base de sistemas como ZooKeeper (ZAB), etcd (Raft), e das partiç
 - Sistemas de consenso, coordenação e armazenamento replicado em que a escrita deve passar por um único ponto.
 - Quando se aceita um mecanismo de eleição em troca de simplificar a replicação.
 
-### Quando evitar
+## Quando evitar
 
 - Cargas que exigem escrita em vários pontos geograficamente distribuídos com baixa latência local (considere multi-líder ou sem líder).
 - Quando o líder único se torna gargalo de escrita e o particionamento é preferível.

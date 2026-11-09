@@ -36,7 +36,7 @@ In Enterprise Integration Patterns, Remote Procedure Invocation applies encapsul
 - The team prioritizes simplicity and familiarity with technologies such as REST and gRPC.
 - You don't want to introduce and operate a message broker.
 
-### When to avoid
+## When to avoid
 
 - When you need notifications, requests with asynchronous responses, or publish/subscribe; in those cases prefer Messaging.
 - When high availability requires the client to keep operating even if the service is down.

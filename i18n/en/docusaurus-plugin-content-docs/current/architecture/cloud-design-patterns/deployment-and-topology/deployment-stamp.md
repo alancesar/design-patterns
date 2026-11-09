@@ -38,7 +38,7 @@ Because the pattern relies on identical copies of the infrastructure, infrastruc
 - You want to limit the blast radius of failures and incidents to a subset of customers
 - The product is a SaaS that needs to grow by adding standardized scale units
 
-### When to avoid
+## When to avoid
 
 - The solution is simple and doesn't need to scale much
 - It's possible to scale vertically or horizontally within a single instance

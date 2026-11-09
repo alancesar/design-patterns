@@ -35,7 +35,7 @@ Também é conhecido como *parallel*, *fan-out/fan-in*, *scatter-gather*, *map-r
 - Coleta de dados de várias fontes ou avaliação simultânea de várias opções.
 - Cenários sensíveis a tempo, em que o processamento paralelo reduz a latência.
 
-### Quando evitar
+## Quando evitar
 
 - Os agentes precisam construir sobre o trabalho uns dos outros ou exigem contexto cumulativo em sequência.
 - A tarefa exige ordem específica de operações ou resultados determinísticos e reproduzíveis numa sequência definida.

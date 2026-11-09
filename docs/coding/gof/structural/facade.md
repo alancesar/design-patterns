@@ -34,7 +34,7 @@ O resultado é uma camada que reduz o acoplamento entre clientes e detalhes de i
 - Para isolar o código cliente de bibliotecas de terceiros ou sistemas legados, facilitando substituí-los.
 - Quando há muitas dependências entre clientes e classes de implementação e se deseja desacoplá-los.
 
-### Quando evitar
+## Quando evitar
 
 - Quando o subsistema já é simples; a fachada só adicionaria uma camada desnecessária.
 - Quando os clientes precisam de todo o poder e flexibilidade do subsistema e a fachada acabaria replicando toda a sua API.

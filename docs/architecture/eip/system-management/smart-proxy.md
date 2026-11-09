@@ -29,7 +29,7 @@ Quando a resposta chega, o proxy consulta o endereço guardado, usa um roteador 
 - Obter métricas de tempo de resposta por serviço ou por cliente.
 - Instrumentar serviços que não podem ser modificados.
 
-### Quando evitar
+## Quando evitar
 
 - Se o serviço publica em um canal de saída fixo, dois [Wire Taps](/architecture/eip/system-management/wire-tap) bastam.
 - Quando a latência adicional do proxy não é aceitável.

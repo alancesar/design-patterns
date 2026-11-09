@@ -36,7 +36,7 @@ No catálogo de microservices.io, portanto, o API Gateway reúne em um só padr�
 - Se quer ocultar do cliente a estrutura interna, a localização das instâncias e os protocolos internos.
 - É necessário um ponto central para autenticar clientes e repassar informações de identidade aos serviços.
 
-### Quando evitar
+## Quando evitar
 
 - A aplicação é um monólito ou possui poucos serviços e um só tipo de cliente, e o acesso direto é suficiente.
 - A equipe não consegue operar mais um componente crítico de produção.

@@ -32,7 +32,7 @@ Na visão do Enterprise Integration Patterns (Hohpe e Woolf), Shared Database é
 - Em aplicações pequenas ou em transição a partir de um monólito, em que poucos times compartilham o mesmo domínio.
 - Quando a consistência forte entre os dados é um requisito inegociável e a autonomia dos serviços é secundária.
 
-### Quando evitar
+## Quando evitar
 
 - Quando a implantação e a evolução independentes dos serviços são objetivos da arquitetura.
 - Quando serviços têm requisitos de armazenamento ou de escala muito diferentes.

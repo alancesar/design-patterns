@@ -30,7 +30,7 @@ Funciona bem enquanto o modelo de domínio é parecido com o esquema do banco; q
 - Quando o modelo de objetos pode seguir de perto o esquema do banco.
 - Para entregar rapidamente aplicações CRUD, como em Rails e Laravel.
 
-### Quando evitar
+## Quando evitar
 
 - Quando a lógica de negócio é complexa e exige heranças, coleções e relacionamentos que divergem do esquema.
 - Quando se quer testar o domínio sem banco de dados.

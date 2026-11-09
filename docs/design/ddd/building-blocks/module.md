@@ -31,7 +31,7 @@ Quando o modelo muda, os módulos também devem ser refatorados, para continuare
 - Quando é possível nomear cada grupo com um conceito do negócio.
 - Para limitar o acoplamento entre áreas do modelo.
 
-### Quando evitar
+## Quando evitar
 
 - Em modelos muito pequenos, onde a divisão só adicionaria cerimônia.
 - Quando os módulos seriam mera cópia das camadas técnicas.

@@ -30,7 +30,7 @@ Um ou mais agentes trabalham em loop, alterando a cada passada um resultado guar
 - O resultado pode ser avaliado por um limiar de qualidade (por exemplo, uma avaliação automática).
 - Exemplo da fonte: um agente redige um post, critica fluidez e tom e o reescreve, repetindo até atingir o padrão ou o limite de iterações.
 
-### Quando evitar
+## Quando evitar
 
 - Uma única passada produz qualidade suficiente.
 - Não há critério de qualidade mensurável nem teto de iterações.

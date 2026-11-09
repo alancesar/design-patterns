@@ -33,7 +33,7 @@ This pattern is the foundation of service autonomy, but it comes at the cost of 
 - When services have quite different storage or scaling needs.
 - When you accept handling consistency between services as eventual, with sagas and derived views.
 
-### When to avoid
+## When to avoid
 
 - Small or monolithic systems, where a single ACID transaction solves the business rules more simply.
 - When business invariants constantly span several services, signaling that the service boundaries may be poorly defined.

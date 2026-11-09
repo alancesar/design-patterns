@@ -29,7 +29,7 @@ Em sistemas amplamente distribuídos, semântica transacional custa caro em dese
 - Quando o processamento de uma mensagem precisa ser tudo ou nada.
 - Quando várias mensagens devem ser publicadas atomicamente.
 
-### Quando evitar
+## Quando evitar
 
 - Em sistemas de alta vazão e muito distribuídos, em que o custo transacional é inaceitável.
 - Quando o consumidor é idempotente e pode usar confirmação simples com reentrega.

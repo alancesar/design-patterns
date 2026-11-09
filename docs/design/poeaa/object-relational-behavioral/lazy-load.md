@@ -32,7 +32,7 @@ Fowler descreve quatro variantes: **lazy initialization** (o campo é nulo até 
 - Quando o custo de carregar o grafo completo supera o custo de consultas pontuais.
 - Quando se quer manter o domínio ignorante de como e quando os dados são buscados.
 
-### Quando evitar
+## Quando evitar
 
 - Quando os dados relacionados são sempre usados; o carregamento adiantado (eager) com `JOIN` é mais eficiente.
 - Quando o acesso tardio ocorre fora da sessão ou transação, gerando erros como `LazyInitializationException`.

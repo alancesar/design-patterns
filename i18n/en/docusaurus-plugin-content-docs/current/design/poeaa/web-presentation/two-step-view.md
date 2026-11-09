@@ -29,7 +29,7 @@ The advantage is that visual decisions are concentrated in the second step. To c
 - When multiple looks are needed over the same logical content.
 - In large portals and enterprise systems, with dozens of standardized screens.
 
-### When to avoid
+## When to avoid
 
 - In small sites, where the intermediate layer is a cost with no return.
 - When pages have very heterogeneous layouts that don't fit into generic elements.

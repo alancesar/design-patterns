@@ -41,7 +41,7 @@ In the microservices context (microservices.io), the pattern answers the questio
 - You need to integrate with an external system whose data model or contract shouldn't influence the internal domain.
 - There is legacy code inside a monolith that needs to be isolated from new modules.
 
-### When to avoid
+## When to avoid
 
 - There are no significant semantic differences between the new and legacy systems; the layer would only add latency and maintenance.
 - The intent is to put business rules or orchestration in the layer: it should be limited to translation logic.

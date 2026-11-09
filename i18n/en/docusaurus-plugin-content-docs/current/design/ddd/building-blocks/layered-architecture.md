@@ -32,7 +32,7 @@ The goal is for the model code to be readable, testable, and evolvable without m
 - When the team wants to isolate business logic from technical concerns.
 - When there are several interfaces (web, API, jobs) over the same model.
 
-### When to avoid
+## When to avoid
 
 - In simple CRUD applications with no relevant domain logic.
 - When the layers become mere call pass-throughs, with no isolation benefit.

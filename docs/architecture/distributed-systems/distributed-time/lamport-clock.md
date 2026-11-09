@@ -30,7 +30,7 @@ O nó devolve o timestamp ao cliente, e o cliente o envia nas requisições segu
 - Não há relógios sincronizados confiáveis, ou não se quer depender deles.
 - Uma versão numérica simples e barata (um inteiro) é suficiente.
 
-### Quando evitar
+## Quando evitar
 
 - Os clientes precisam relacionar a versão a uma data e hora reais; nesse caso, prefira um Hybrid Clock.
 - É necessário detectar escritas concorrentes (conflitos); um único inteiro impõe uma ordem total que esconde a concorrência, e um Version Vector é mais adequado.

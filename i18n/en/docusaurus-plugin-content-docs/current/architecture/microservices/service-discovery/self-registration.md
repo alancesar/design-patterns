@@ -28,7 +28,7 @@ Normally a microservice chassis or client library (for example, the Netflix Eure
 - When the service already uses a chassis that implements registration.
 - When the instance needs to expose richer states than UP/DOWN, such as STARTING or AVAILABLE.
 
-### When to avoid
+## When to avoid
 
 - Polyglot environments where replicating the logic in each language is costly.
 - When you want to keep services decoupled from the registry (prefer 3rd Party Registration).

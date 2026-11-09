@@ -29,7 +29,7 @@ Cada mensagem leva três campos: um identificador de sequência, que agrupa as m
 - Quando uma resposta a uma requisição precisa ser fragmentada.
 - Quando o dado pode ser processado e remontado em partes.
 
-### Quando evitar
+## Quando evitar
 
 - Quando é possível guardar o dado em um armazenamento e enviar só uma referência (Claim Check).
 - Quando a ordem e a completude não podem ser garantidas pela infraestrutura e não há como remontar.

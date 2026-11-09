@@ -32,7 +32,7 @@ Como o modelo é genérico, ele não deve conter conceitos do core, e o core nã
 - Quando o subdomínio é necessário, mas não distingue a empresa dos concorrentes.
 - Quando se quer liberar capacidade da equipe para concentrar-se no core.
 
-### Quando evitar
+## Quando evitar
 
 - Quando o subdomínio, apesar de parecer genérico, contém regras que de fato diferenciam o negócio; nesse caso ele pertence ao core.
 - Quando as soluções prontas impõem um modelo incompatível, forçando contorcer o core para se adaptar a elas.

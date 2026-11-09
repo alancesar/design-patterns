@@ -42,7 +42,7 @@ Também existe a estratégia **geográfica**, que coloca os dados perto dos usu�
 - Tenants diferentes precisam de isolamento físico ou de níveis de serviço diferentes (por exemplo, shards dedicados para clientes de alto valor).
 - Você quer limitar o raio de impacto de falhas ou de manutenção a uma parte dos dados.
 
-### Quando evitar
+## Quando evitar
 
 - Os dados e a vazão cabem em uma única instância, mesmo considerando o crescimento previsto. A escala vertical mantém as consultas simples e preserva as transações.
 - O gargalo está nas leituras. Réplicas de leitura e cache resolvem sem a complexidade de consultas entre shards.

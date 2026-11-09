@@ -30,7 +30,7 @@ Difere do Competing Consumers, em que cada consumidor tem sua própria conexão 
 - Quando se quer concorrência dentro de um único processo consumidor.
 - Quando diferentes tipos de mensagem exigem tratadores distintos.
 
-### Quando evitar
+## Quando evitar
 
 - Quando a ordem das mensagens precisa ser estritamente preservada.
 - Quando o escalonamento horizontal com Competing Consumers é suficiente.

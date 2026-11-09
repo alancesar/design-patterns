@@ -32,7 +32,7 @@ With the data normalized, all downstream processing works with a single structur
 - Identifying the type depends on inspecting the message's content or context.
 - You want consumers to always receive a consistent format.
 
-### When to avoid
+## When to avoid
 
 - There are only one or two known formats: a simple Message Translator does the job.
 - Messages already carry a reliable format indicator; a Content-Based Router with a Format Indicator is enough.

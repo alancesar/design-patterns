@@ -32,7 +32,7 @@ Diferente do [Magentic Orchestration](/ai/agent-patterns/dynamic-orchestration/m
 - Pedidos que precisam ser classificados antes de serem tratados por um especialista.
 - Qualidade que se beneficia do raciocínio do modelo na escolha do caminho.
 
-### Quando evitar
+## Quando evitar
 
 - O roteamento é fixo e previsível: fluxos sequenciais ou paralelos evitam chamadas extras ao modelo.
 - Custo e latência são restrições rígidas.

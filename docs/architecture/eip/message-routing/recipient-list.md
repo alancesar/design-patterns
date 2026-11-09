@@ -32,7 +32,7 @@ Exemplos: um pedido pequeno consulta uma agência de crédito, mas um pedido gra
 - O destinatário certo depende de valor, preferência ou política
 - Precisa-se de controle sobre quem recebe, sem broadcast
 
-### Quando evitar
+## Quando evitar
 
 - Todos os assinantes recebem sempre tudo; um canal publish-subscribe basta
 - Um único destino é escolhido pelo conteúdo; use um Content-Based Router

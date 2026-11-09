@@ -34,7 +34,7 @@ Como o comportamento colaborativo fica em um único lugar, é possível alterar 
 - Um comportamento distribuído entre várias classes deve ser customizável sem criar muitas subclasses
 - Você quer centralizar regras de orquestração entre componentes (por exemplo, diálogos de UI, workflows, handlers de comandos em CQRS)
 
-### Quando evitar
+## Quando evitar
 
 - Poucos objetos com interações simples — chamadas diretas são mais claras
 - O mediador tende a acumular regras demais e virar um "god object" difícil de manter

@@ -38,7 +38,7 @@ A common reverse proxy, such as Nginx, already implements the pattern. On Azure,
 - The number of service instances varies over time.
 - The deployment strategy requires multiple versions of the service to be accessed at the same time.
 
-### When to avoid
+## When to avoid
 
 - Simple applications that use only one or two services, where the gateway just adds a hop and another component to operate.
 - Scenarios where the extra network hop is unacceptable for latency and there's no routing benefit to offset it.

@@ -33,7 +33,7 @@ Não faz parte dos 23 padrões do livro do Gang of Four, mas é amplamente usado
 - Sistemas sensíveis a latência que se beneficiam de pré-aquecimento (*warm-up*) dos objetos
 - Quando é possível reiniciar o estado de um objeto de forma confiável antes de reutilizá-lo
 
-### Quando evitar
+## Quando evitar
 
 - Objetos leves e baratos de criar; em runtimes modernos, o alocador e o GC costumam ser mais eficientes que um pool
 - Objetos com estado difícil de limpar, o que traz risco de vazamento de dados entre usos

@@ -29,7 +29,7 @@ A lógica de análise (monitoramento, auditoria, depuração) fica em um compone
 - Diagnóstico de problemas em ambientes onde não se pode alterar o produtor nem o consumidor.
 - Alimentar um [Message Store](/architecture/eip/system-management/message-store) ou ferramentas de análise com cópias do tráfego.
 
-### Quando evitar
+## Quando evitar
 
 - Em canais publish-subscribe, em que basta adicionar outro assinante.
 - Quando as cópias contêm dados sensíveis e o canal secundário não tem a mesma proteção do original.

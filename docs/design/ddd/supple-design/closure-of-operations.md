@@ -32,7 +32,7 @@ O padrão é especialmente natural em Value Objects, que são imutáveis e podem
 - Quando é possível expressar um cálculo como sequência de passos do mesmo tipo.
 - Em regras que se compõem, como conjuntos de condições ou intervalos de datas.
 
-### Quando evitar
+## Quando evitar
 
 - Quando não há uma operação fechada natural: forçar o tipo distorce o modelo.
 - Quando a operação precisa de informação extra que o conjunto não carrega.

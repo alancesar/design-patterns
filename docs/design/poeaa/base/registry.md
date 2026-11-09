@@ -31,7 +31,7 @@ O Registry é um padrão de último recurso: quando possível, passar as depend�
 - Quando se tem apenas um identificador e é preciso resolvê-lo para um objeto, por exemplo via [Repository](/design/poeaa/object-relational-metadata-mapping/repository) ou finder.
 - Em código legado ou frameworks onde não há injeção de dependência disponível.
 
-### Quando evitar
+## Quando evitar
 
 - Quando a injeção de dependência é viável: dependências explícitas deixam o código mais claro e testável.
 - Quando o Registry viraria um estado global mutável compartilhado, o que dificulta testes e concorrência.

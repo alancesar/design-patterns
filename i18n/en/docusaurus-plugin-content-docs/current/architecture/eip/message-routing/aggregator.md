@@ -32,7 +32,7 @@ Three decisions shape the pattern: how to correlate, when to consider the group 
 - After a Splitter, to reassemble the result
 - In auctions or quotes, to pick the best response
 
-### When to avoid
+## When to avoid
 
 - There is a single response per request; plain request-reply is enough
 - There is no way to correlate messages or to know when the group ends

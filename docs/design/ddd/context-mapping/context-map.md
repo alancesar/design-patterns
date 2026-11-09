@@ -32,7 +32,7 @@ Para Evans, o Context Map é o artefato central da modelagem estratégica: ele e
 - Em iniciativas de modernização, para decidir onde isolar o legado e onde extrair novos serviços.
 - Ao integrar com sistemas externos ou de terceiros, para tornar explícitas as dependências.
 
-### Quando evitar
+## Quando evitar
 
 - Sistemas de contexto único, com um só time e um só modelo, em que o mapa seria cerimônia sem valor.
 - Quando o mapa é desenhado como ideal futuro e nunca confrontado com a realidade; ele passa a enganar em vez de informar.

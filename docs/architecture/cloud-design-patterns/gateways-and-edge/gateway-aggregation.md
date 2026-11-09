@@ -36,7 +36,7 @@ A agregação pode morar no próprio gateway (composição leve, como montar e m
 - Quando se deseja manter os serviços de back-end isolados da rede dos clientes, expondo apenas um ponto de entrada.
 - Quando o back-end precisa evoluir (trocar serviços ou fontes de dados) sem impactar os contratos usados pelos clientes.
 
-### Quando evitar
+## Quando evitar
 
 - Quando o objetivo é reduzir o número de chamadas entre um cliente e um único serviço ao longo de várias operações; nesse caso, uma operação em lote (batch) no próprio serviço tende a ser mais adequada.
 - Quando o cliente ou a aplicação fica próximo dos serviços de back-end e a latência não é um fator relevante.

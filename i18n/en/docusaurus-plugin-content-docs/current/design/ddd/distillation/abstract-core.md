@@ -33,7 +33,7 @@ It's a stronger tool than the [Highlighted Core](/design/ddd/distillation/highli
 - When the core is too large to be segregated in its entirety.
 - When you want specialized modules to be able to vary without affecting one another.
 
-### When to avoid
+## When to avoid
 
 - When the model is still changing quickly and there aren't enough stable concepts to abstract.
 - When few modules interact; the abstractions would be ceremony with no payoff.

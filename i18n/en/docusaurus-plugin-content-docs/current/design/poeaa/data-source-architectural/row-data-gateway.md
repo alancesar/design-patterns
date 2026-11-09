@@ -32,7 +32,7 @@ This keeps persistence code out of the in-memory domain objects, simplifying the
 - When the record format is stable and nearly identical to the table.
 - When code generated automatically from the schema can produce the gateways.
 
-### When to avoid
+## When to avoid
 
 - When there's a Domain Model: the gateway becomes a redundant layer between the model and the database.
 - When there are many tables and the effort of maintaining a gateway and a finder per table isn't worth it.

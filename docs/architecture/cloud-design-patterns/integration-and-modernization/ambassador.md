@@ -34,7 +34,7 @@ O ambassador pode ser implantado como um sidecar que acompanha o ciclo de vida d
 - Quando uma aplicação legada ou difícil de alterar precisa atender a requisitos de conectividade de nuvem ou cluster.
 - Quando é necessário suportar protocolos ou padrões de conectividade que API gateways, service meshes ou controles padrão de entrada e saída não tratam com facilidade.
 
-### Quando evitar
+## Quando evitar
 
 - Quando a latência das requisições de rede é crítica e mesmo o pequeno overhead do proxy é inaceitável.
 - Quando os recursos de conectividade são consumidos por uma única linguagem; uma biblioteca cliente distribuída como pacote tende a ser mais simples.

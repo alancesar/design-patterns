@@ -31,7 +31,7 @@ The language is valid within a Bounded Context; in different contexts, the same 
 - When you notice the same things being given different names in meetings, documents, and code.
 - Together with an evolving model, to validate what has been understood.
 
-### When to avoid
+## When to avoid
 
 - When there's no access to domain experts, since the language ends up invented by developers alone.
 - Trying to impose a single language on the whole company, instead of one per Bounded Context.

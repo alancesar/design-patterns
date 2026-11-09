@@ -29,7 +29,7 @@ Serve para fluxos que não podem ser fixados de antemão: os passos podem não s
 - Quer-se um ponto único para ver o estado e tratar falhas
 - Os passos não são conhecidos de antemão
 
-### Quando evitar
+## Quando evitar
 
 - O fluxo é linear e conhecido; um Routing Slip ou Pipes and Filters basta
 - O coordenador central viraria gargalo ou excesso de engenharia para um problema simples

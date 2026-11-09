@@ -35,7 +35,7 @@ It's also known as *parallel*, *fan-out/fan-in*, *scatter-gather*, *map-reduce* 
 - Collecting data from several sources or evaluating several options at the same time.
 - Time-sensitive scenarios, where parallel processing reduces latency.
 
-### When to avoid
+## When to avoid
 
 - The agents need to build on each other's work or require cumulative context in sequence.
 - The task requires a specific order of operations or deterministic, reproducible results in a defined sequence.

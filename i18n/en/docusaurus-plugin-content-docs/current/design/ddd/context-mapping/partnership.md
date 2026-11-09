@@ -31,7 +31,7 @@ The pattern doesn't appear in the 2003 book; it was added to the DDD Reference a
 - There's good communication between the teams and the ability to synchronize priorities and cadence.
 - The contexts are still evolving rapidly and the interfaces change frequently.
 
-### When to avoid
+## When to avoid
 
 - Distributed teams with little communication, or incompatible time zones and priorities.
 - When one side is an external or third-party vendor, with no way to coordinate planning.

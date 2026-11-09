@@ -32,7 +32,7 @@ O custo é uma refatoração significativa. Elementos que servem tanto ao core q
 - Quando há uma equipe ou um investimento dedicados ao core e é preciso isolar o seu trabalho.
 - Quando o core é grande e o destaque visual não é suficiente para gerenciá-lo.
 
-### Quando evitar
+## Quando evitar
 
 - Quando o core é pequeno ou a separação não traz ganho perceptível de clareza.
 - Quando o custo e o risco de refatorar superam o benefício, caso em que o [Highlighted Core](/design/ddd/distillation/highlighted-core) basta.

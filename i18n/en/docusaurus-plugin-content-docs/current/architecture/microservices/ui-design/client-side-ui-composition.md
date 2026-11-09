@@ -29,7 +29,7 @@ In this pattern, each team develops a client-side UI component, such as an Angul
 - When you want progressive loading of page regions
 - When teams want to publish their components independently
 
-### When to avoid
+## When to avoid
 
 - When SEO or fast initial rendering on low-end devices is critical
 - When many browser calls to several services would be a network problem

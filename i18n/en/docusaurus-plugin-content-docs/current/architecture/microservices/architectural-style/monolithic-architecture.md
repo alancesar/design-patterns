@@ -33,7 +33,7 @@ The pattern is the natural starting point for many applications and remains a go
 - When ACID transactions and efficient local interactions matter more than team autonomy.
 - When the organization lacks the automation and operations maturity for distributed systems.
 
-### When to avoid
+## When to avoid
 
 - When many teams need to develop and deploy independently and frequently.
 - When subdomains require distinct scalability, availability, or security.

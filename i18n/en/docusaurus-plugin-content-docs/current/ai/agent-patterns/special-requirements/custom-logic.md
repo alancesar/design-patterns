@@ -31,7 +31,7 @@ Each step can be an agent, a tool, or a check in code, and the code itself decid
 - When you need to combine predefined rules and model reasoning.
 - When the workflow doesn't match any standard template.
 
-### When to avoid
+## When to avoid
 
 - A predefined pattern supported by the agent framework already meets your needs: it reduces development and maintenance effort.
 - The team can't afford to design, implement, and debug the entire orchestration flow.

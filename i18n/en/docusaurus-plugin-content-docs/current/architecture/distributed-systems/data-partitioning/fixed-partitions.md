@@ -32,7 +32,7 @@ The partition → node mapping must be known to the clients or to the nodes that
 - Clusters that grow and shrink over time (key-value stores, message brokers, distributed caches).
 - When the total data volume is predictable enough to choose a suitable number of partitions.
 
-### When to avoid
+## When to avoid
 
 - When range queries over keys are frequent: the hash spreads neighboring keys across all partitions (see Key-Range Partitions).
 - When the data volume is highly unpredictable: too many partitions create metadata overhead, and too few limit scalability.

@@ -29,7 +29,7 @@ Neste padrão, cada equipe desenvolve uma aplicação web que gera o fragmento H
 - Quando SEO e tempo de primeira renderização são importantes
 - Quando as equipes de serviço querem entregar seus fragmentos de forma independente
 
-### Quando evitar
+## Quando evitar
 
 - Interfaces altamente interativas, que dependem de componentes ricos no cliente
 - Quando a latência de montar muitos fragmentos em série no servidor é inaceitável

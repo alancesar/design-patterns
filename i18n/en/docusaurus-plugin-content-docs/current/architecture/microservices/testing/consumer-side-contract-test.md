@@ -29,7 +29,7 @@ It's the mirror image of [Consumer-driven Contract Test](/architecture/microserv
 - There's a shared contract, also used to validate the provider
 - You want to catch contract changes that break the client early
 
-### When to avoid
+## When to avoid
 
 - There's no contract maintained by the provider, making the stub just an assumption by the consumer
 - The integration is trivial, or both belong to the same team and already have enough integration tests

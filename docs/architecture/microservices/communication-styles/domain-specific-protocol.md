@@ -30,7 +30,7 @@ No contexto de microsserviços, é uma terceira opção de comunicação entre p
 - O domínio já possui protocolo consolidado (e-mail, streaming de mídia etc.) e há clientes e ferramentas que o utilizam.
 - Os requisitos do domínio, como latência, fluxo contínuo ou semântica específica, não são bem atendidos por REST ou mensageria genérica.
 
-### Quando evitar
+## Quando evitar
 
 - Existe protocolo genérico adequado, e a equipe ganharia mais com a familiaridade e as ferramentas de RPI ou Messaging.
 - Seria necessário inventar um protocolo proprietário, com alto custo de manutenção e baixa interoperabilidade.

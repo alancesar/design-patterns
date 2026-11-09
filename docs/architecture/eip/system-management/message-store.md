@@ -29,7 +29,7 @@ O envio da cópia é fire-and-forget, para não atrasar o fluxo principal. Em ge
 - Relatórios sobre volumes, latências e rotas.
 - Reprocessamento ou investigação posterior de falhas.
 
-### Quando evitar
+## Quando evitar
 
 - Mensagens com dados sensíveis, se não houver controle de acesso e retenção adequados.
 - Alto volume de mensagens grandes, em que a cópia completa tem custo desproporcional.

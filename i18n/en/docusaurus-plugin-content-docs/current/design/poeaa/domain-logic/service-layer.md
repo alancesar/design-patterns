@@ -33,7 +33,7 @@ Service Layer encapsulates the coordination of the use case, controls transactio
 - When use cases involve multiple steps, transactions, or resources.
 - When you want a single point for transactions, authorization, and events.
 
-### When to avoid
+## When to avoid
 
 - Simple applications with a single client and trivial logic, where the layer just passes calls through.
 - When services accumulate business rules and hollow out the domain (anemic model).

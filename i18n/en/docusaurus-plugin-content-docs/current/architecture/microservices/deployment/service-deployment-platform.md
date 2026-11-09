@@ -31,7 +31,7 @@ Instead of manually managing hosts, VMs, or containers, the team describes the d
 - When you want to automate deployment, scaling, recovery, and load balancing.
 - When you want to standardize how teams deploy.
 
-### When to avoid
+## When to avoid
 
 - When there are few services and the overhead of operating or learning the platform isn't worth it.
 - When the platform doesn't meet specific networking, compliance, or latency requirements.

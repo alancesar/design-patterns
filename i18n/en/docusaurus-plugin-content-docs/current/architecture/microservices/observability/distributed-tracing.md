@@ -32,7 +32,7 @@ This instrumentation usually comes from a microservice chassis or from standardi
 - Requests involving several synchronous or asynchronous services
 - Latency analysis and bottleneck identification
 
-### When to avoid
+## When to avoid
 
 - Systems with few services, where correlated logs are already enough
 - When the cost of collecting and storing every trace isn't justified (use sampling)

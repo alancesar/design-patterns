@@ -32,7 +32,7 @@ Normalmente há um mapa por classe (ou por tabela) e ele vive no escopo de uma s
 - Quando se quer garantir que a identidade do objeto em memória corresponda à identidade da linha.
 - Em conjunto com Unit of Work, para controlar o que foi lido e alterado.
 
-### Quando evitar
+## Quando evitar
 
 - Com objetos imutáveis, como Value Objects, em que várias cópias não causam inconsistência.
 - Em operações somente de leitura e muito curtas, em que a duplicidade não oferece risco.

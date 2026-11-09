@@ -33,7 +33,7 @@ O Service Layer encapsula a coordenação do caso de uso, controla transações 
 - Quando casos de uso envolvem várias etapas, transações ou recursos.
 - Quando se quer um ponto único para transação, autorização e eventos.
 
-### Quando evitar
+## Quando evitar
 
 - Aplicações simples com um único cliente e lógica trivial, em que a camada só repassa chamadas.
 - Quando serviços acumulam regras de negócio e esvaziam o domínio (modelo anêmico).

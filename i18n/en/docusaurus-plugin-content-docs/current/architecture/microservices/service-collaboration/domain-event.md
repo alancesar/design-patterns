@@ -35,7 +35,7 @@ The pattern itself defines what to publish; reliable publication (atomic with th
 - When derived views or replicas need to be kept up to date.
 - When the business logic is already modeled with aggregates.
 
-### When to avoid
+## When to avoid
 
 - When no other component needs to be notified of the changes.
 - When there's no messaging infrastructure and no way to guarantee publication atomic with the database write.

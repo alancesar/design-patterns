@@ -29,7 +29,7 @@ The classic implementation uses XSLT: the model is produced (or converted) as XM
 - When the presentation should be tested as a pure input-output function.
 - When the transformation technology (XSLT, serializers) is already standard in the organization.
 
-### When to avoid
+## When to avoid
 
 - When designers need to edit the HTML directly; Template View is friendlier.
 - When the team isn't fluent in XSLT or the transformation language, which has a steep learning curve.

@@ -31,7 +31,7 @@ Internamente o provedor usa contêineres ou VMs, mas isso não é gerenciado pel
 - Cargas intermitentes ou com picos imprevisíveis.
 - Quando se quer reduzir ao mínimo a operação de infraestrutura.
 
-### Quando evitar
+## Quando evitar
 
 - Serviços de longa duração ou com estado, como bancos de dados e brokers de mensagens.
 - Serviços que assinam filas de um broker como RabbitMQ.

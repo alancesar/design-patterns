@@ -32,7 +32,7 @@ Os agentes de coleta devem ser leves para não penalizar os serviços, e os logs
 - Instâncias efêmeras, cujos arquivos locais desaparecem junto com elas
 - Necessidade de busca, análise e alertas centralizados sobre mensagens de log
 
-### Quando evitar
+## Quando evitar
 
 - Aplicações pequenas, com poucas instâncias, em que os logs locais bastam
 - Quando o volume de logs e o custo da infraestrutura de agregação não se justificam

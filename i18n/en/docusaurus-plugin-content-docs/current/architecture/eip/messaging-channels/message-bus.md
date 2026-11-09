@@ -32,7 +32,7 @@ The pattern combines three elements: a common communication infrastructure (chan
 - The enterprise wants a common vocabulary of commands and data across systems.
 - New participants are expected to be added frequently.
 
-### When to avoid
+## When to avoid
 
 - A few applications with a stable integration, where direct connections are enough.
 - When there's no willingness to maintain a shared data and command model, because the bus loses its purpose.

@@ -28,7 +28,7 @@ Without this, a subscriber that crashes, restarts, or is down for maintenance lo
 - When every event matters and the subscriber may go offline.
 - When delivery must be guaranteed to slow or intermittent subscribers.
 
-### When to avoid
+## When to avoid
 
 - When only the latest state matters (old messages lose their value).
 - When the buildup of messages for absent subscribers could exhaust the broker.

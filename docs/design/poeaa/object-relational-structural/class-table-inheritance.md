@@ -31,7 +31,7 @@ O esquema espelha o modelo de objetos, mantém o banco normalizado e permite `NO
 - Quando a integridade do esquema é prioridade.
 - Quando referências para a superclasse (chave estrangeira) devem funcionar para qualquer subtipo.
 
-### Quando evitar
+## Quando evitar
 
 - Quando o número de joins por consulta prejudica o desempenho.
 - Quando a hierarquia muda de forma frequente, movendo campos entre tabelas.

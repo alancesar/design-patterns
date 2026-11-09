@@ -32,7 +32,7 @@ Na prática, isso significa começar sem estrutura (ou com uma muito leve), obse
 - Quando a equipe já tem modelo suficiente para reconhecer padrões que se repetem entre módulos.
 - Em projetos que praticam refatoração contínua e aceitam mudar a estrutura quando o entendimento muda.
 
-### Quando evitar
+## Quando evitar
 
 - Sistemas pequenos, em que os módulos e o Ubiquitous Language já dão ordem suficiente e uma estrutura extra é custo sem retorno.
 - Quando se tenta usar uma estrutura de larga escala como substituto de bons limites de contexto: o problema então é de Bounded Context, não de estrutura.

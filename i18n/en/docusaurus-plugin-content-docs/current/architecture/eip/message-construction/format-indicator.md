@@ -29,7 +29,7 @@ There are three ways to build the marker: a version number, which both sides mus
 - When several versions of senders and receivers coexist.
 - In long-lived integrations with independent deployment cycles.
 
-### When to avoid
+## When to avoid
 
 - When the format is fixed and all participants are updated together.
 - When evolution can be handled with compatible optional fields alone, without identifying versions.

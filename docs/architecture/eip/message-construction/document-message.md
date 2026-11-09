@@ -29,7 +29,7 @@ O documento é tratado como uma unidade, ainda que contenha partes menores. O qu
 - Quando o receptor deve decidir como processar o conteúdo.
 - Quando a entrega confiável importa mais do que a latência, combinada com Guaranteed Delivery.
 
-### Quando evitar
+## Quando evitar
 
 - Quando é preciso ordenar uma ação específica (use Command Message).
 - Quando só importa avisar que algo aconteceu e o tempo é crítico (use Event Message).

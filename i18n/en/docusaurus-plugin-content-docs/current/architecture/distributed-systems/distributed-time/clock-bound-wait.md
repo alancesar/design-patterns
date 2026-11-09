@@ -33,7 +33,7 @@ The smaller and better known the error bound, the shorter the wait. That's why t
 - A small, known clock error bound exists, so the wait is acceptable.
 - The system uses timestamps as versions in a distributed multi-version store.
 
-### When to avoid
+## When to avoid
 
 - The clock error bound is unknown or large; the wait gets long or, worse, the bound is violated and the guarantee is lost.
 - Write or read latency is critical and the uncertainty isn't small.

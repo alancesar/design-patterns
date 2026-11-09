@@ -32,7 +32,7 @@ O padrão exige que quem modela se envolva com a implementação, o que dá orig
 - Quando se quer que o código seja a documentação viva do domínio.
 - Em conjunto com uma Ubiquitous Language compartilhada entre negócio e tecnologia.
 
-### Quando evitar
+## Quando evitar
 
 - Em sistemas dominados por operações de dados simples (CRUD), nos quais um modelo rico não traz retorno.
 - Quando a plataforma ou o paradigma escolhido não permite expressar o modelo de forma razoável.

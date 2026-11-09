@@ -30,7 +30,7 @@ The node returns the timestamp to the client, and the client sends it on subsequ
 - There are no reliable synchronized clocks, or you don't want to depend on them.
 - A simple, cheap numeric version (an integer) is enough.
 
-### When to avoid
+## When to avoid
 
 - Clients need to relate the version to a real date and time; in that case, prefer a Hybrid Clock.
 - You need to detect concurrent writes (conflicts); a single integer imposes a total order that hides concurrency, and a Version Vector is a better fit.

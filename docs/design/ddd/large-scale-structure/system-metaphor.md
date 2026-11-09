@@ -31,7 +31,7 @@ Evans trata a metáfora com cautela. Ela é útil quando se ajusta naturalmente 
 - Quando a metáfora explica de forma correta o comportamento essencial do domínio e orienta decisões de design.
 - Em sistemas cujo domínio é abstrato e se beneficia de uma imagem concreta.
 
-### Quando evitar
+## Quando evitar
 
 - Quando a metáfora é forçada ou só enfeita a documentação, sem de fato guiar o modelo.
 - Quando ela leva a conclusões erradas sobre o domínio, porque a analogia não vale em todos os casos.

@@ -33,7 +33,7 @@ With local memory, the approach is simple and fast, but it ties the user to one 
 - When a shared session store (Redis) is available, keeping instances interchangeable.
 - When occasional loss of the session is tolerable.
 
-### When to avoid
+## When to avoid
 
 - When the state must survive restarts and failures without exception; prefer persisting it in a database.
 - When local memory is used across several instances without sticky sessions, which causes "lost" sessions.

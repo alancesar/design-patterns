@@ -32,7 +32,7 @@ The pattern was proposed by David Rice in PoEAA and is the basis of what are now
 - When you want fast, repeatable tests in the development workflow and in continuous integration.
 - When you need to simulate scenarios that are hard to trigger in the real service (errors, slowness, specific data).
 
-### When to avoid
+## When to avoid
 
 - When the real service is cheap, fast, and stable, and testing against it directly is feasible.
 - As the only form of testing: the stub doesn't guarantee the real contract is still valid (also use contract or integration tests).

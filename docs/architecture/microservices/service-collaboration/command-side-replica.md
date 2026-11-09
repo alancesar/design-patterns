@@ -32,7 +32,7 @@ Estruturalmente, é o mesmo mecanismo do CQRS: uma cópia derivada alimentada po
 - Quando o provedor não deve estar no caminho crítico do comando por razões de disponibilidade ou desempenho.
 - Quando a leitura de dados ligeiramente desatualizados é aceitável para a regra de negócio.
 
-### Quando evitar
+## Quando evitar
 
 - Quando os dados precisam estar sempre atuais e a defasagem da réplica não é tolerável.
 - Quando os dados replicados são regulados (por exemplo, dados pessoais), o que amplia as obrigações de segurança e conformidade do serviço de comando.

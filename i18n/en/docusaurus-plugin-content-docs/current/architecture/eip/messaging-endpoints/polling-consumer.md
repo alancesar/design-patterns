@@ -30,7 +30,7 @@ It's the opposite of the Event-Driven Consumer, where the messaging system trigg
 - When the application needs to control when and how many messages it consumes.
 - In batch processing or in defined windows.
 
-### When to avoid
+## When to avoid
 
 - When delivery latency must be minimal and the polling interval would hurt it.
 - When empty polling creates unnecessary cost (for example, services billed per request).

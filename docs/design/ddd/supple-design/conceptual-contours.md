@@ -32,7 +32,7 @@ Os contornos raramente são encontrados na primeira tentativa. A equipe os desco
 - Ao revisar o modelo após novos entendimentos do domínio.
 - Em Aggregates e classes cuja fronteira parece arbitrária.
 
-### Quando evitar
+## Quando evitar
 
 - Antes de conhecer razoavelmente o domínio: a divisão feita cedo tende a ser reformulada.
 - Como desculpa para refatorações sem fim: aplique quando há dor concreta com a mudança.

@@ -35,7 +35,7 @@ Uma implementação típica coloca as requisições em um sistema de mensageria 
 - Para reduzir o uso de memória, retirando da fila apenas o que pode ser processado no intervalo atual
 - Quando é preciso prever throughput e duração de um job
 
-### Quando evitar
+## Quando evitar
 
 - Quando a operação exige conclusão imediata e síncrona com latência muito baixa e não tolera enfileiramento ou processamento adiado
 - Quando o gargalo não é a taxa de requisições, e sim concorrência ou contenção de recursos (CPU saturada, trabalho de longa duração em andamento). Nesses casos, escala ou controle de concorrência resolvem melhor

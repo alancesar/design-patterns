@@ -32,7 +32,7 @@ Com os dados normalizados, todo o processamento posterior trabalha com uma estru
 - A identificação do tipo depende de inspecionar o conteúdo ou o contexto da mensagem.
 - Você quer que os consumidores recebam sempre um formato consistente.
 
-### Quando evitar
+## Quando evitar
 
 - Há apenas um ou dois formatos conhecidos: um Message Translator simples resolve.
 - As mensagens já trazem um indicador de formato confiável; um Content-Based Router com Format Indicator basta.

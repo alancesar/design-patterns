@@ -29,7 +29,7 @@ The focus is on the fact that the event occurred, not on the volume of data. Man
 - With a publish-subscribe channel, when several consumers react to the same event.
 - With Message Expiration, when old events lose their usefulness.
 
-### When to avoid
+## When to avoid
 
 - When the receiver needs to receive complete, reliable data (use Document Message).
 - When you want to command a specific action (use Command Message).

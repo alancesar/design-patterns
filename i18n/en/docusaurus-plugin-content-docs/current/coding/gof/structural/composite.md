@@ -33,7 +33,7 @@ As a result, client code doesn't need to distinguish whether it's dealing with a
 - When the client should ignore the difference between individual objects and compositions
 - When new kinds of leaves or composites may appear without changing client code
 
-### When to avoid
+## When to avoid
 
 - When the structure is flat or has a single level; a simple list is enough
 - When leaves and composites behave very differently, making the common interface artificial or full of operations that make no sense for one side

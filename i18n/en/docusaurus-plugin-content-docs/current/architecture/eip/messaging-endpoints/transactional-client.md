@@ -29,7 +29,7 @@ In widely distributed systems, transactional semantics are expensive in performa
 - When processing a message must be all-or-nothing.
 - When several messages must be published atomically.
 
-### When to avoid
+## When to avoid
 
 - In high-throughput, highly distributed systems where the transactional cost is unacceptable.
 - When the consumer is idempotent and can use simple acknowledgment with redelivery.

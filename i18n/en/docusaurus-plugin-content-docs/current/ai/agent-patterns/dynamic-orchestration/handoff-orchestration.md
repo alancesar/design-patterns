@@ -34,7 +34,7 @@ It's also known as *routing*, *triage*, *transfer*, *dispatch*, or *delegation*.
 - Multidomain problems solved by experts that operate one at a time.
 - Predefined signals and logical relationships that indicate when an agent has reached its limit and which one should take over.
 
-### When to avoid
+## When to avoid
 
 - The right agent, or sequence of agents, can be identified from the initial input: use deterministic routing or a simple dispatcher that classifies and forwards without taking part in the processing.
 - Routing is deterministic and rule-based, with no dynamic interpretation of context.

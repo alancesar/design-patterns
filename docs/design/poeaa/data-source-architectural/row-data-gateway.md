@@ -32,7 +32,7 @@ Isso mantém o código de persistência fora dos objetos de domínio em memória
 - Quando o formato do registro é estável e quase igual à tabela.
 - Quando o código gerado automaticamente a partir do esquema pode produzir os gateways.
 
-### Quando evitar
+## Quando evitar
 
 - Quando há um Domain Model: o gateway vira uma camada redundante entre o modelo e o banco.
 - Quando se tem muitas tabelas e o esforço de manter um gateway e um finder por tabela não compensa.

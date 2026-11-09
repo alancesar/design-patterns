@@ -39,7 +39,7 @@ Throttling is a continuous control loop, not an isolated decision. The system me
 - To offer different service levels per plan or contract (per-tier quotas).
 - To reduce low-value processing at peak times or when the power grid's carbon intensity is high.
 
-### When to avoid
+## When to avoid
 
 - When the load is predictable and the provisioned capacity serves it with room to spare; limits add complexity with no benefit.
 - As a substitute for edge protection against DDoS/WAF: application-level throttling measures legitimate traffic and doesn't absorb volumetric attacks.

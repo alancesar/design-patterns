@@ -32,7 +32,7 @@ Control of the flow stays in the base class, applying the so-called "Hollywood P
 - In frameworks and libraries that offer well-defined extension points (hooks) to client code
 - When refactoring duplicated code in subclasses, promoting the common behavior to the superclass
 
-### When to avoid
+## When to avoid
 
 - When the variable steps need to be swapped at runtime — prefer Strategy (composition)
 - When the algorithm has many customizable steps, producing large hierarchies that are hard to understand

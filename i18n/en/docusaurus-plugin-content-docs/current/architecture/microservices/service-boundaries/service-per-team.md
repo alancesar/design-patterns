@@ -29,7 +29,7 @@ The pattern starts from Conway's law: the architecture reflects the organization
 - When adopting microservices in an organization with small, long-lived teams
 - When you want delivery autonomy and clear long-term responsibility for each service
 
-### When to avoid
+## When to avoid
 
 - When there aren't teams stable enough to take on lasting ownership
 - When the same service inevitably needs to be changed continuously by several teams

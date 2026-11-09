@@ -29,7 +29,7 @@ There's no special message type for this. The command can be an object, structur
 - When you want to queue work and absorb load spikes.
 - Usually on a point-to-point channel, so that only one receiver executes the command.
 
-### When to avoid
+## When to avoid
 
 - When the caller needs the result immediately and can't tolerate waiting.
 - When all you want is to report that something happened (use Event Message).

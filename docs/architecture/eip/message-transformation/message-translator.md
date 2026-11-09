@@ -32,7 +32,7 @@ A tradução pode atuar em vários níveis: estrutura de dados (campos, nomes, t
 - É necessário falar o formato padrão de um parceiro externo mantendo o formato interno.
 - Você quer concentrar a conversão em um ponto reutilizável e testável de forma isolada.
 
-### Quando evitar
+## Quando evitar
 
 - Os formatos já são compatíveis, ou a diferença é só a ausência de campos (nesse caso, um Content Enricher basta).
 - Muitas aplicações trocam mensagens entre si: traduções ponto a ponto explodem em quantidade e um Canonical Data Model é mais adequado.

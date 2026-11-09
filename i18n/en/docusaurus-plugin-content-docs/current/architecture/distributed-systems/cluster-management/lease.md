@@ -30,7 +30,7 @@ Renewal is usually done through [Heartbeat](/architecture/distributed-systems/da
 - Temporary leadership over a partition or task.
 - Ephemeral data tied to the life of a client session.
 
-### When to avoid
+## When to avoid
 
 - When correctness depends on strict exclusivity and the protected resource doesn't validate a fencing token (for example, [Generation Clock](/architecture/distributed-systems/data-replication/generation-clock)): an owner with a long pause can act after the lease has expired.
 - When there's no consistent core to manage the leases.

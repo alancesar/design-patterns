@@ -33,7 +33,7 @@ Como o estado vive no banco, o servidor fica sem estado e qualquer instância po
 - Quando já existe um banco confiável e se quer evitar um componente adicional como o Redis.
 - Quando o estado pendente precisa participar de transações com os dados de negócio.
 
-### Quando evitar
+## Quando evitar
 
 - Quando o estado é pequeno, de curta duração e de alto volume de leitura; o banco vira gargalo.
 - Quando a latência de cada requisição precisa ser mínima.

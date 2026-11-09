@@ -31,7 +31,7 @@ Para escalar, um broker sem estado pode rodar em várias instâncias, consumindo
 - Quer-se um ponto único de gestão do fluxo
 - É preciso desacoplar subsistemas inteiros
 
-### Quando evitar
+## Quando evitar
 
 - Poucos participantes, sem necessidade de intermediário
 - Um broker único viraria gargalo e ponto único de falha

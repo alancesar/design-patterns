@@ -28,7 +28,7 @@ It's the simplest approach to adopt, since it uses only ordinary database querie
 - Simplicity and portability matter more than minimum latency.
 - The message volume is moderate.
 
-### When to avoid
+## When to avoid
 
 - Very low latency or high volume, since polling generates load and delay.
 - The database is NoSQL without adequate support for this kind of query.

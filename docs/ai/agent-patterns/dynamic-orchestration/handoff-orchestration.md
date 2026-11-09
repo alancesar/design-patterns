@@ -34,7 +34,7 @@ Também é conhecido como *routing*, *triage*, *transfer*, *dispatch* ou *delega
 - Problemas multidomínio resolvidos por especialistas que operam um por vez.
 - Sinais e relações lógicas predefinidos que indicam quando um agente chegou ao limite e qual deve assumir.
 
-### Quando evitar
+## Quando evitar
 
 - O agente certo, ou a sequência de agentes, é identificável pela entrada inicial: use roteamento determinístico ou um dispatcher simples que classifica e encaminha sem participar do processamento.
 - O roteamento é determinístico e baseado em regras, sem interpretação dinâmica de contexto.

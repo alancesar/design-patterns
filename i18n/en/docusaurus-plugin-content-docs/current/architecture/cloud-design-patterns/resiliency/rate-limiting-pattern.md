@@ -35,7 +35,7 @@ A typical implementation puts requests into a durable messaging system able to a
 - To reduce memory usage, dequeuing only what can be processed in the current interval
 - When you need to predict a job's throughput and duration
 
-### When to avoid
+## When to avoid
 
 - When the operation requires immediate, synchronous completion with very low latency and can't tolerate queuing or deferred processing
 - When the bottleneck isn't the request rate but concurrency or resource contention (saturated CPU, long-running work in progress). In those cases, scaling or concurrency control works better

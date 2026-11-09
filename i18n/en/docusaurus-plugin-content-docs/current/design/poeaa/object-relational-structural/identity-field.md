@@ -29,7 +29,7 @@ The main decisions are the key type (simple or composite, meaningful or surrogat
 - Whenever domain objects are mapped to table rows with object-relational mapping.
 - When the object's identity must outlive the session lifecycle.
 
-### When to avoid
+## When to avoid
 
 - For Value Objects without identity, which can be mapped as Embedded Value or Serialized LOB.
 - When the model is simple read-only and doesn't need identity between row and object.

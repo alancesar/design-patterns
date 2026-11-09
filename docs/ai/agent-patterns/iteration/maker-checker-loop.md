@@ -36,7 +36,7 @@ Também é conhecido como *evaluator-optimizer*, *generator-verifier*, *critic l
 - Cenários que combinam refinamento iterativo com revisão humana como checker ou como fallback.
 - Quando é possível escrever critérios objetivos para que o checker decida de forma consistente.
 
-### Quando evitar
+## Quando evitar
 
 - Não há critérios de aceitação claros: o checker não consegue decidir de modo consistente.
 - Uma única passada já atende à qualidade necessária, tornando o ciclo custo sem ganho.

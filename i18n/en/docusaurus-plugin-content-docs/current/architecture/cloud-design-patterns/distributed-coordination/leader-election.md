@@ -31,7 +31,7 @@ The follower instances monitor the leader through heartbeat, polling, or lease e
 - You need to guarantee that only one instance performs a given responsibility, with automatic failover on failure
 - The system scales horizontally and instances can be created or removed at any time
 
-### When to avoid
+## When to avoid
 
 - There is already a natural leader or a dedicated singleton process that can be restarted on failure
 - Coordination can be achieved more lightly, for example with optimistic or pessimistic locking on access to a shared resource

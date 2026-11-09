@@ -29,7 +29,7 @@ O roteador guarda essas condições em uma base de regras. Ao chegar uma mensage
 - O conjunto de destinos muda com frequência ou em tempo de execução
 - Quer-se eliminar a dependência do roteador em relação a uma lista fixa
 
-### Quando evitar
+## Quando evitar
 
 - Os destinos e regras são estáveis; um Content-Based Router é mais simples
 - Não há como garantir que os registros sejam confiáveis ou autenticados

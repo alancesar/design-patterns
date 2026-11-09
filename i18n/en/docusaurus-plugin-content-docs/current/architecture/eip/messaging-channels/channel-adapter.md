@@ -31,7 +31,7 @@ Where the adapter attaches depends on the application's architecture and on the 
 - Exposing data from a database or an API as messages, and vice versa.
 - Connecting an application to several channels without changing its internal code.
 
-### When to avoid
+## When to avoid
 
 - When the application can easily be modified to use messaging directly through its own endpoint.
 - When direct access to the application's database would violate business rules or encapsulation, and a better API exists.

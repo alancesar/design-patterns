@@ -31,7 +31,7 @@ The pattern aligns the lock granularity with the model's consistency boundary, r
 - When the cost of managing per-object locks is high.
 - Together with Optimistic or Pessimistic Offline Lock to align locking with the aggregate.
 
-### When to avoid
+## When to avoid
 
 - When objects in the group are frequently edited independently; the coarse lock creates unnecessary contention.
 - When the group is very large, and locking all of it prevents legitimate parallel work.

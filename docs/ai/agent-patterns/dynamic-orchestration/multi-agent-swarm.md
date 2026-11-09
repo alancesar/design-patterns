@@ -32,7 +32,7 @@ Comparado ao [Group Chat Orchestration](/ai/agent-patterns/dynamic-orchestration
 - Projetos como especificação de produto, que equilibram requisitos concorrentes.
 - Quando qualidade e criatividade importam mais que custo e previsibilidade.
 
-### Quando evitar
+## Quando evitar
 
 - Custo e latência precisam ser previsíveis.
 - Uma resposta mais simples basta.

@@ -32,7 +32,7 @@ The effect is a strong reduction in mental load: the developer can call and comp
 - When modeling concepts as Value Objects, which should be immutable.
 - When a query is called in many places and needs to be safe to compose.
 
-### When to avoid
+## When to avoid
 
 - In large objects where copying on every operation is expensive and demonstrably a bottleneck.
 - When the domain is by nature a sequence of state changes (for example, a long process): there the command is legitimate and should be explicit, not hidden.

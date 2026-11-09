@@ -32,7 +32,7 @@ Today the most common form is the JWT in a cookie or header: the token carries i
 - When you want fully stateless servers, with free load balancing across instances.
 - When the data can be signed or encrypted and expiration is acceptable as an invalidation mechanism.
 
-### When to avoid
+## When to avoid
 
 - When the state is large, because the traffic on every request and cookie limits (about 4 KB) make the approach unworkable.
 - When there is sensitive data that must not leave the server, even encrypted.

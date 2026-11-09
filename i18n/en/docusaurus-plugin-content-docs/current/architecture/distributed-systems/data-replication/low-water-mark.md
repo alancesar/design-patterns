@@ -31,7 +31,7 @@ A background process periodically checks the mark and removes the segments that 
 - When periodic snapshots make the earlier log redundant.
 - When there's a retention policy by time or size.
 
-### When to avoid
+## When to avoid
 
 - When the full history must be kept for auditing or replay (for example, event sourcing with infinite retention).
 - When the volume is small and the cost of keeping the whole log is negligible.

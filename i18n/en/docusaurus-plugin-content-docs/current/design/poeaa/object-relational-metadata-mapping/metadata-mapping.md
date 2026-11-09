@@ -31,7 +31,7 @@ It is the foundation of most ORM frameworks, which combine the pattern with [Dat
 - When you want to adopt or build an ORM instead of writing mappers one by one.
 - When you need to generate the schema, DDL, or queries from a single description.
 
-### When to avoid
+## When to avoid
 
 - When there are few tables and manual mapping is simpler to understand.
 - When the mapping is so irregular that the generic engine would need so many exceptions that it would lose its value.

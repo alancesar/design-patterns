@@ -32,7 +32,7 @@ In concurrent environments, instance creation must be protected (synchronization
 - When the single instance should be extensible by subclassing and clients should be able to use the extended version without changing their code.
 - When initialization is expensive and should happen only on demand.
 
-### When to avoid
+## When to avoid
 
 - When the "single" instance is just a convenience: prefer dependency injection with a singleton scope managed by a container.
 - When the class holds shared mutable state, since that creates hidden coupling and makes the system harder to reason about.

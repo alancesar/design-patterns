@@ -33,7 +33,7 @@ As a result, the SQL lives in one place, which helps people who aren't fluent in
 - To encapsulate access to stored procedures, treating them as a gateway.
 - When you want to isolate SQL without the cost of a full object-relational mapping.
 
-### When to avoid
+## When to avoid
 
 - When there's a rich Domain Model with complex rules; a Data Mapper or ORM fits better.
 - When you expect to map inheritance, associations, and collections of objects transparently.

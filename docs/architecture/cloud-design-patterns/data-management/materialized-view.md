@@ -36,7 +36,7 @@ Quando os dados de origem mudam, a visão precisa ser atualizada, seja em respos
 - Você quer combinar armazenamentos diferentes, usando um otimizado para escrita como fonte e outro otimizado para leitura para as visões.
 - Em microsserviços, para consolidar dados de vários serviços sem acoplar seus armazenamentos.
 
-### Quando evitar
+## Quando evitar
 
 - Os dados de origem são simples e fáceis de consultar.
 - Os dados de origem mudam muito rapidamente ou podem ser acessados sem uma visão; o custo de processamento não compensa.

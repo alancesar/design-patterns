@@ -38,7 +38,7 @@ Business logic should never be moved to the gateway: it concentrates only generi
 - When you want to hand responsibility for network security, throttling, or other edge concerns to a specialized team.
 - When you want to standardize policies (for example, WAF, TLS policy, rate limits) at a single control point.
 
-### When to avoid
+## When to avoid
 
 - When the gateway would need to hold service-specific logic or routing rules, coupling backend changes to gateway configuration changes and reducing deployment independence.
 - When the offloaded feature is lightweight and the workload is highly latency-sensitive, so the additional network hop isn't worth it.

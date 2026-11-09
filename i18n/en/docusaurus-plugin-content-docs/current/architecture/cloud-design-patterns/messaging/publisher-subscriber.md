@@ -45,7 +45,7 @@ In the vocabulary of Enterprise Integration Patterns (Hohpe and Woolf), the same
 - The integrated systems accept an eventual consistency model for their data.
 - Consumers have availability requirements or operating windows that differ from the sender's.
 
-### When to avoid
+## When to avoid
 
 - There are few consumers and each needs very different information; the broker adds complexity with no scaling benefit, and direct communication or separate queues may be a better fit.
 - The interaction needs to be near real time or the publisher needs a synchronous response; prefer request-reply.

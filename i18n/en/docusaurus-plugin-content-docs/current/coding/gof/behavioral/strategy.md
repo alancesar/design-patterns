@@ -34,7 +34,7 @@ The strategy is normally chosen by the client and injected into the context — 
 - The algorithm must be selected or replaced dynamically, including through dependency injection
 - Variable business rules, such as pricing policies, discounts, tax calculation, retry/backoff, or load balancing
 
-### When to avoid
+## When to avoid
 
 - There are only one or two stable algorithms that rarely change — a simple conditional is more readable
 - Clients shouldn't need to know the differences between strategies in order to pick one

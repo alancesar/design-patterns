@@ -33,7 +33,7 @@ Na prática, o padrão troca o tratamento condicional espalhado pelo código (`i
 - Você quer fornecer um valor padrão seguro para dependências opcionais (por exemplo, um `NullLogger` em testes)
 - O comportamento neutro pode ser expresso de forma clara e previsível
 
-### Quando evitar
+## Quando evitar
 
 - A ausência do objeto é um erro que precisa ser detectado e reportado; o Null Object esconderia a falha
 - O cliente precisa reagir de forma diferente quando o objeto não existe (nesse caso, prefira `Optional`/`Maybe` ou verificação explícita)

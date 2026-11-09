@@ -36,7 +36,7 @@ It's also known as *pipeline*, *prompt chaining*, *linear delegation* or, in Goo
 - Structured, repeatable processes where the order of the steps never changes.
 - Systems where the availability and performance of each agent are known, and where one agent's failures or delays are tolerable for the task as a whole.
 
-### When to avoid
+## When to avoid
 
 - Stages that can be parallelized without loss of quality or contention over shared state.
 - A few stages that a single agent handles well.

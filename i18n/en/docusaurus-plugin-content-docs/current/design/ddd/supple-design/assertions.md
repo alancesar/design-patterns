@@ -32,7 +32,7 @@ Combined with Side-Effect-Free Functions, the pattern makes the few commands tha
 - When there are consistency rules that every modification must preserve.
 - In hierarchies or extension points where several implementations must honor the same contract.
 
-### When to avoid
+## When to avoid
 
 - In trivial operations, where the assertion merely repeats the name.
 - When the cost of checking the condition at run time is prohibitive; in that case, prefer tests.

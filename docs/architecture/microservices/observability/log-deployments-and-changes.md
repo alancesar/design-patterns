@@ -27,7 +27,7 @@ Uma técnica comum é a ferramenta de deploy publicar uma pseudo-métrica a cada
 - Ambientes com deploys frequentes e várias equipes alterando produção
 - Quando é preciso correlacionar incidentes com versões e mudanças de configuração
 
-### Quando evitar
+## Quando evitar
 
 - Sistemas em que mudanças são raras e já documentadas por outros meios
 

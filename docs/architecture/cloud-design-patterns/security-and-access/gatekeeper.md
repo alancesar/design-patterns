@@ -35,7 +35,7 @@ Diferentemente de um firewall de rede tradicional, o gatekeeper toma decisões o
 - Deseja-se separar a validação e a sanitização das requisições do processamento de negócio.
 - Deseja-se centralizar controles de segurança e throttling em um único ponto de entrada.
 
-### Quando evitar
+## Quando evitar
 
 - Os controles nativos da plataforma do back-end já atendem aos requisitos de segurança e validação sem uma camada adicional.
 - Os saltos de rede e a latência de validação extras violam requisitos rígidos de latência ponta a ponta.

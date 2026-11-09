@@ -32,7 +32,7 @@ A técnica não exige aplicar o formalismo por inteiro. Muitas vezes basta uma p
 - Quando o formalismo se encaixa no problema com poucos ajustes.
 - Quando auditoria e rastreabilidade exigem conceitos reconhecidos pelo mercado.
 
-### Quando evitar
+## Quando evitar
 
 - Quando o formalismo não se aplica bem e é forçado, distorcendo o domínio.
 - Quando a equipe não domina o formalismo e o custo de aprendizado supera o benefício.

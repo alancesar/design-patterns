@@ -30,7 +30,7 @@ Opcionalmente, o registro chama a API de health check de cada instância para co
 - Sempre que se adota Client-side ou Server-side Discovery em ambientes dinâmicos.
 - Quando instâncias escalam automaticamente e mudam de endereço.
 
-### Quando evitar
+## Quando evitar
 
 - Quando a infraestrutura já fornece um registro embutido, sendo desnecessário operar outro.
 - Em sistemas com poucos serviços de endereços estáticos.

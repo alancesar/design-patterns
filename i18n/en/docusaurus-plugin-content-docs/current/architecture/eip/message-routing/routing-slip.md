@@ -29,7 +29,7 @@ Each processing component is wrapped by a router that reads the slip and forward
 - The steps are known at the start and form a linear sequence
 - You want to reuse the same components in different flows
 
-### When to avoid
+## When to avoid
 
 - The next step depends on intermediate results or there are parallel steps; use a [Process Manager](/architecture/eip/message-routing/process-manager)
 - The route is always the same

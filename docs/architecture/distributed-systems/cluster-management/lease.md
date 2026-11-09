@@ -30,7 +30,7 @@ A renovação costuma ser feita por mensagens de [Heartbeat](/architecture/distr
 - Liderança temporária sobre uma partição ou tarefa.
 - Dados efêmeros ligados à vida de uma sessão de cliente.
 
-### Quando evitar
+## Quando evitar
 
 - Quando a correção depende de exclusividade estrita e o recurso protegido não valida um token de fencing (por exemplo, [Generation Clock](/architecture/distributed-systems/data-replication/generation-clock)): um dono com pausa longa pode agir depois de o lease ter expirado.
 - Quando não há um núcleo consistente para gerenciar os leases.

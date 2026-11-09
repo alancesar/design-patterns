@@ -31,7 +31,7 @@ Em Kafka, o high-water mark da partição define o que os consumidores podem ler
 - Quando leituras (inclusive em seguidores) devem ver apenas dados duráveis.
 - Para decidir quais entradas truncar após a eleição de um novo líder.
 
-### Quando evitar
+## Quando evitar
 
 - Sistemas de nó único, em que não há replicação.
 - Quando a visibilidade imediata de dados não confirmados é aceitável (consistência fraca).

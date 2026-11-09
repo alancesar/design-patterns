@@ -36,7 +36,7 @@ It's also known as *evaluator-optimizer*, *generator-verifier*, *critic loops*, 
 - Scenarios that combine iterative refinement with human review as the checker or as a fallback.
 - When you can write objective criteria so the checker decides consistently.
 
-### When to avoid
+## When to avoid
 
 - There are no clear acceptance criteria: the checker can't decide consistently.
 - A single pass already meets the required quality, making the cycle a cost with no gain.

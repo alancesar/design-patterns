@@ -30,7 +30,7 @@ Because the gateway is an ordinary interface, it's easy to swap it for a stub in
 - When several parts of the application need to send messages or request something via messaging.
 - When you want to be able to replace messaging with another form of integration with little impact.
 
-### When to avoid
+## When to avoid
 
 - When the application has a single, trivial send point and the extra layer would just be indirection.
 - When the business logic needs fine-grained control over message properties that the gateway would hide.

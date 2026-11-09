@@ -34,7 +34,7 @@ With Plugin, a single configuration file maps each interface to the environment'
 - When you want to change the configuration without recompiling or redeploying the code.
 - When third parties should be able to add implementations (extensions, drivers, connectors).
 
-### When to avoid
+## When to avoid
 
 - When there's a single implementation and no reason to vary by environment.
 - When dynamic configuration would make behavior hard to trace and debug, with errors only at run time.

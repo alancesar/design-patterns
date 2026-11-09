@@ -31,7 +31,7 @@ The gain shows up when the server can process something while other requests are
 - Client and server connected by a single ordered channel, with significant network latency.
 - When the server processes requests from a queue and benefits from always having work available.
 
-### When to avoid
+## When to avoid
 
 - When each request depends on the result of the previous one and can't be sent earlier.
 - When reordering caused by retries could violate ordering guarantees without a control mechanism.

@@ -31,7 +31,7 @@ The client usually closes the batch by size (bytes or item count) or by maximum 
 - When it is acceptable to trade a bit of individual latency for aggregate throughput.
 - Combined with [Request Pipeline](/architecture/distributed-systems/node-communication/request-pipeline), to make the most of the channel.
 
-### When to avoid
+## When to avoid
 
 - Low-volume or latency-sensitive workloads, where waiting to fill the batch only delays the response.
 - When requests are large and already amortize the overhead well.

@@ -34,7 +34,7 @@ Também é conhecido como *dynamic orchestration*, *task-ledger-based orchestrat
 - Necessidade de um plano de abordagem completo para revisão humana antes ou depois da implementação.
 - Agentes com ferramentas que interagem com sistemas externos, consomem recursos ou alteram sistemas em execução, em que o plano documentado pode ser apresentado ao usuário antes de liberar as tarefas.
 
-### Quando evitar
+## Quando evitar
 
 - O caminho de solução é, ou deve ser, determinístico.
 - Não há necessidade de produzir um ledger.

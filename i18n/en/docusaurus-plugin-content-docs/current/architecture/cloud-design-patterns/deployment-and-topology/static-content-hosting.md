@@ -35,7 +35,7 @@ Since storage is usually much cheaper than compute capacity, the pattern reduces
 - Distributing content across several geographic regions with a CDN that caches from the storage origin.
 - Monitoring costs and bandwidth consumption separately from application execution costs.
 
-### When to avoid
+## When to avoid
 
 - When the content must be processed or personalized on every request (for example, inserting user-specific data into a document).
 - When the volume of static content is very small and the overhead of keeping it in separate storage outweighs the benefit.

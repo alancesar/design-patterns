@@ -31,7 +31,7 @@ A distinção importante é que a mensagem chegou ao destino, mas é inválida p
 - É importante preservar mensagens inválidas para análise, correção e eventual reprocessamento.
 - Vários produtores enviam para o mesmo canal e nem todos respeitam o contrato.
 
-### Quando evitar
+## Quando evitar
 
 - Quando a falha é transitória (por exemplo, dependência fora do ar): a mensagem é válida e deve ser tentada de novo, não desviada.
 - Quando o canal é totalmente controlado e validado na origem, e rejeições são impossíveis na prática.

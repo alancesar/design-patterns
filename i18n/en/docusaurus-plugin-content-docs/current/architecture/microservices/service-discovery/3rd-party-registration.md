@@ -28,7 +28,7 @@ The registrar can watch the deployment platform or run health checks, and regist
 - When you want to keep the service code free of registration logic.
 - Polyglot environments or deployment platforms that already provide the registrar.
 
-### When to avoid
+## When to avoid
 
 - When you need to know the instance's fine-grained state and the registrar only sees whether it's running.
 - When operating an extra critical component isn't feasible.

@@ -30,7 +30,7 @@ O Resequencer não altera o conteúdo, apenas a ordem. Para que a ordem se mante
 - Há paralelismo ou roteamento que embaralha mensagens de uma mesma sequência
 - As mensagens carregam número de sequência
 
-### Quando evitar
+## Quando evitar
 
 - A ordem não importa para o consumidor
 - É possível evitar o problema com um único consumidor ou partições por chave

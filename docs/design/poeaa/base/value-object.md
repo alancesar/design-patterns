@@ -36,7 +36,7 @@ Na prática, um bom Value Object é imutável, compara por valor (implementando 
 - Quando se quer imutabilidade para evitar efeitos colaterais e facilitar concorrência.
 - Em conjunto com [Embedded Value](/design/poeaa/object-relational-structural/embedded-value) para persisti-lo dentro da linha do dono.
 
-### Quando evitar
+## Quando evitar
 
 - Quando o objeto tem ciclo de vida e identidade próprios, que precisam ser rastreados (use uma entidade com [Identity Field](/design/poeaa/object-relational-structural/identity-field)).
 - Quando o conceito muda com frequência e a imutabilidade geraria muita criação de objetos sem benefício.

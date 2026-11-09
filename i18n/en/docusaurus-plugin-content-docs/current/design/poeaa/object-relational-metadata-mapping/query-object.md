@@ -29,7 +29,7 @@ In practice, it is an application of the Interpreter pattern: a set of objects t
 - When you want to isolate the code from the physical database schema.
 - When there are many combinable filters (search screens and reports).
 
-### When to avoid
+## When to avoid
 
 - When queries are few and fixed; simple finder methods are enough.
 - When the query is complex and hand-optimized, and the abstraction would get in the way of performance tuning.

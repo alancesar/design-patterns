@@ -34,7 +34,7 @@ So each new operation becomes a new `ConcreteVisitor` class that gathers, in one
 - The element hierarchy rarely changes, but new operations are added frequently
 - Compilers, interpreters, and analysis tools that traverse syntax trees (type checking, optimization, code generation, pretty printing)
 
-### When to avoid
+## When to avoid
 
 - The element hierarchy changes frequently: each new type requires a new method in every visitor
 - There are few operations and they naturally belong to the elements themselves

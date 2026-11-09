@@ -29,7 +29,7 @@ Na prática, é uma aplicação do padrão Interpreter: um conjunto de objetos c
 - Quando se quer isolar o código do esquema físico do banco.
 - Quando há muitos filtros combináveis (telas de busca e relatórios).
 
-### Quando evitar
+## Quando evitar
 
 - Quando as consultas são poucas e fixas; métodos de busca simples bastam.
 - Quando a consulta é complexa e otimizada por mão, e a abstração atrapalharia o ajuste de desempenho.

@@ -29,7 +29,7 @@ The analysis logic (monitoring, auditing, debugging) lives in a separate compone
 - Diagnosing problems in environments where neither the producer nor the consumer can be changed.
 - Feeding a [Message Store](/architecture/eip/system-management/message-store) or analysis tools with copies of the traffic.
 
-### When to avoid
+## When to avoid
 
 - On publish-subscribe channels, where adding another subscriber is enough.
 - When the copies contain sensitive data and the secondary channel doesn't have the same protection as the original.

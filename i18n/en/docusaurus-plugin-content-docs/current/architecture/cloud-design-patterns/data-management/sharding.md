@@ -42,7 +42,7 @@ There's also the **geographic** strategy, which places data close to users or wi
 - Different tenants need physical isolation or different service levels (for example, dedicated shards for high-value customers).
 - You want to limit the blast radius of failures or maintenance to a part of the data.
 
-### When to avoid
+## When to avoid
 
 - The data and throughput fit on a single instance, even considering expected growth. Vertical scaling keeps queries simple and preserves transactions.
 - The bottleneck is in reads. Read replicas and caching solve it without the complexity of cross-shard queries.

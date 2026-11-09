@@ -29,7 +29,7 @@ Há duas formas de obter isso: absorver a funcionalidade necessária como um mó
 - Em operações críticas de alta disponibilidade e baixa latência que hoje dependem de várias chamadas síncronas
 - Quando os dados de outros serviços podem ser replicados localmente e a consistência eventual é aceitável
 
-### Quando evitar
+## Quando evitar
 
 - Quando a operação exige consistência forte e imediata com dados de outros serviços
 - Quando o custo de CQRS e sagas supera o ganho de disponibilidade

@@ -33,7 +33,7 @@ Na web, o MVC costuma ser realizado combinando padrões mais específicos: um Pa
 - Quando se quer testar o comportamento do model sem depender da apresentação.
 - Quando o mesmo model terá múltiplas views ou canais de entrada.
 
-### Quando evitar
+## Quando evitar
 
 - Em telas muito simples ou scripts descartáveis, onde três papéis são cerimônia excessiva.
 - Quando o framework já impõe outro modelo (por exemplo, MVVM com data binding) e misturar vocabulários só gera confusão.

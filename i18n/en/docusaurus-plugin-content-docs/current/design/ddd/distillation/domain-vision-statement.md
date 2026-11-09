@@ -32,7 +32,7 @@ When there are several contexts or teams, the document helps keep everyone align
 - When multiple teams or contexts need a common north star.
 - When you need to explain to managers and sponsors what justifies the investment in the model.
 
-### When to avoid
+## When to avoid
 
 - When the document would become generic text with no domain-specific information.
 - When nobody commits to keeping it up to date, since an outdated vision confuses more than it guides.

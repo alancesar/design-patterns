@@ -34,7 +34,7 @@ A estratégia normalmente é escolhida pelo cliente e injetada no contexto — v
 - O algoritmo deve ser selecionado ou substituído dinamicamente, inclusive por injeção de dependência
 - Regras de negócio variáveis, como políticas de preço, descontos, cálculo de impostos, retry/backoff ou balanceamento de carga
 
-### Quando evitar
+## Quando evitar
 
 - Há apenas um ou dois algoritmos estáveis que raramente mudam — uma condicional simples é mais legível
 - Os clientes não deveriam precisar conhecer as diferenças entre as estratégias para escolher uma

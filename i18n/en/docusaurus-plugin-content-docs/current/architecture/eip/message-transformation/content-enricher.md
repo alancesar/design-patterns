@@ -32,7 +32,7 @@ As a result, senders don't need to carry every field that any recipient might ev
 - Identifiers must be converted into complete information before routing or processing.
 - Data temporarily stored by a Claim Check must be put back into the message.
 
-### When to avoid
+## When to avoid
 
 - The additional information is unreliable or changes so quickly that the looked-up value ends up inconsistent.
 - The lookup against the external system is slow or has low availability and can become a bottleneck for the flow.

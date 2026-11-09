@@ -30,7 +30,7 @@ The pattern is the safest option when losing the user's work is unacceptable, at
 - When the user's work is long and can't easily be redone.
 - When you need read consistency beyond simple detection of write conflicts.
 
-### When to avoid
+## When to avoid
 
 - When conflicts are rare; Optimistic Offline Lock is simpler and scales better.
 - When the application has extremely high concurrency and can't tolerate waiting.

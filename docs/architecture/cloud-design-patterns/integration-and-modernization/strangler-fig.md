@@ -40,7 +40,7 @@ Na visão do microservices.io (Strangler Application), a pergunta é como migrar
 - Quando se deseja priorizar substituições de maior retorno (ROI) antes das de menor retorno, aproveitando o investimento já feito no sistema atual.
 - Ao decompor um monólito em serviços com fronteiras de domínio bem definidas.
 
-### Quando evitar
+## Quando evitar
 
 - Quando não é possível interceptar as requisições destinadas ao back-end.
 - Quando não há acesso ao código-fonte do legado nem a outro ponto de integração modificável (como o banco de dados) para desativar funcionalidades migradas e redirecionar chamadas internas.

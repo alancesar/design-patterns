@@ -29,7 +29,7 @@ A vantagem é concentrar as decisões visuais na segunda etapa. Para mudar a apa
 - Quando há necessidade de múltiplas aparências sobre o mesmo conteúdo lógico.
 - Em portais e sistemas corporativos grandes, com dezenas de telas padronizadas.
 
-### Quando evitar
+## Quando evitar
 
 - Em sites pequenos, em que a camada intermediária é custo sem retorno.
 - Quando as páginas têm layouts muito heterogêneos que não cabem em elementos genéricos.

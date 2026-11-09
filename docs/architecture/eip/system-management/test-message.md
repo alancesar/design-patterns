@@ -29,7 +29,7 @@ O padrão tem quatro papéis: um gerador de dados de teste, um injetor que marca
 - Monitoramento contínuo de pipelines de transformação e roteamento.
 - Validar o fluxo de ponta a ponta em produção, com mensagens controladas.
 
-### Quando evitar
+## Quando evitar
 
 - Se as mensagens de teste puderem causar efeitos colaterais reais (cobranças, envio de e-mails).
 - Quando não é possível marcar as mensagens com um campo de cabeçalho e a alternativa é usar valores especiais em campos de negócio.

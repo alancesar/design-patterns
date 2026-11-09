@@ -34,7 +34,7 @@ Decorators can be stacked: each layer adds a behavior, and the order of composit
 - When inheritance is impractical, either because it would generate too many subclasses or because the class doesn't allow extension.
 - To apply cross-cutting behaviors (logging, caching, authorization, compression) while keeping the Single Responsibility Principle.
 
-### When to avoid
+## When to avoid
 
 - When the client depends on the identity or concrete type of the object (the decorator is a different object from the wrapped component).
 - When the component's interface is very large, forcing each decorator to delegate dozens of methods.

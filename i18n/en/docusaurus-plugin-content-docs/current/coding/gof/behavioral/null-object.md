@@ -33,7 +33,7 @@ In practice, the pattern swaps the conditional handling scattered across the cod
 - You want to provide a safe default value for optional dependencies (for example, a `NullLogger` in tests)
 - The neutral behavior can be expressed clearly and predictably
 
-### When to avoid
+## When to avoid
 
 - The absence of the object is an error that needs to be detected and reported; the Null Object would hide the failure
 - The client needs to react differently when the object doesn't exist (in that case, prefer `Optional`/`Maybe` or explicit checking)

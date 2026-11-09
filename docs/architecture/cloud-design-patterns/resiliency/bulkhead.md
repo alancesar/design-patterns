@@ -35,7 +35,7 @@ As partições podem ser implementadas com processos, threads, semáforos, cont�
 - Em cenários multi-tenant, para separar tenants (ou grupos de tenants) em partições distintas.
 - Em cargas de IA e inferência sujeitas a cotas e limites de concorrência por implantação, isolando implantações de modelos por workload ou por tenant.
 
-### Quando evitar
+## Quando evitar
 
 - Quando o uso menos eficiente de recursos (capacidade reservada e ociosa em cada partição) não é aceitável.
 - Quando a complexidade adicional de criar, operar e monitorar várias partições não se justifica, como em sistemas pequenos ou com poucas dependências.

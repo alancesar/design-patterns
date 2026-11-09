@@ -31,7 +31,7 @@ It usually also has a timeout, to fail requests that don't reach the quorum.
 - When using Request Pipeline and Request Batch and there are many requests in flight.
 - In replicated-log leaders that respond after the commit.
 
-### When to avoid
+## When to avoid
 
 - Simple synchronous communication with a single recipient, where blocking the call is enough.
 - When there's no need to wait for acknowledgments.

@@ -32,7 +32,7 @@ Como o canal entrega cada mensagem a um só consumidor, vários receptores podem
 - Distribuição de carga entre várias instâncias de um mesmo serviço.
 - Troca de requisição e resposta, em que cada resposta volta a um único solicitante.
 
-### Quando evitar
+## Quando evitar
 
 - Quando vários consumidores diferentes precisam, cada um, receber a mesma informação; use um canal de publicação e assinatura.
 - Quando a ordem estrita de processamento é necessária e há muitos consumidores concorrentes, pois a concorrência pode reordenar o tratamento.

@@ -31,7 +31,7 @@ O estado da execução é preservado durante a pausa. Quando o humano responde (
 - Casos com exigências de conformidade, em que uma pessoa precisa aprovar a liberação do resultado.
 - Fluxos em que informação faltante só um humano pode fornecer.
 
-### Quando evitar
+## Quando evitar
 
 - Tarefas de baixo risco e alto volume, em que a revisão humana vira gargalo sem agregar segurança.
 - Fluxos que precisam de resposta imediata ou rodam sem ninguém disponível para revisar.

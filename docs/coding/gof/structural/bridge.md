@@ -34,7 +34,7 @@ Na prática, o Bridge troca herança por composição: a "ponte" é justamente a
 - Quando se quer esconder detalhes de implementação dependentes de plataforma do código cliente.
 - Ao projetar bibliotecas multiplataforma ou drivers (JDBC, renderizadores gráficos, provedores de nuvem).
 
-### Quando evitar
+## Quando evitar
 
 - Quando existe apenas uma implementação e não há perspectiva real de outras; a indireção vira complexidade gratuita.
 - Quando as duas dimensões não são de fato independentes e a abstração precisa conhecer detalhes de cada implementação.

@@ -32,7 +32,7 @@ A entrega do relay é "pelo menos uma vez": ele pode publicar a mesma mensagem m
 - O banco ou o broker não suportam transações distribuídas.
 - É necessário garantir que nenhum evento seja perdido nem emitido sem a respectiva alteração de dados.
 
-### Quando evitar
+## Quando evitar
 
 - O serviço usa Event Sourcing, em que o event store já cumpre o papel de log de eventos publicável.
 - A perda ocasional de mensagens é aceitável e a complexidade extra não se justifica.

@@ -29,7 +29,7 @@ This token accompanies the request to every service that processes it. When a se
 - Services that make authorization decisions based on the user's identity, roles, or scopes.
 - Calls between services that need to preserve the original requester's context.
 
-### When to avoid
+## When to avoid
 
 - Small or monolithic systems, where traditional server-side sessions are enough.
 - Scenarios that require immediate, universal access revocation, if there's no mechanism for it (short-lived tokens, a revocation list, or introspection).

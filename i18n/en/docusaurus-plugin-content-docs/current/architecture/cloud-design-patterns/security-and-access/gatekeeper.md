@@ -35,7 +35,7 @@ Unlike a traditional network firewall, the gatekeeper makes application-driven d
 - You want to separate request validation and sanitization from business processing.
 - You want to centralize security controls and throttling in a single entry point.
 
-### When to avoid
+## When to avoid
 
 - The back-end platform's native controls already meet security and validation requirements without an additional layer.
 - The extra network hops and validation latency violate strict end-to-end latency requirements.

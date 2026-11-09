@@ -31,7 +31,7 @@ The schema mirrors the object model, keeps the database normalized, and allows `
 - When schema integrity is a priority.
 - When references to the superclass (foreign key) must work for any subtype.
 
-### When to avoid
+## When to avoid
 
 - When the number of joins per query hurts performance.
 - When the hierarchy changes frequently, moving fields between tables.

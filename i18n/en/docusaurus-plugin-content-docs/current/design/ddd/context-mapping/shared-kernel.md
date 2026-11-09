@@ -31,7 +31,7 @@ It takes discipline: the kernel can't be changed unilaterally, and its existence
 - When the teams can maintain continuous integration and frequent communication about the kernel.
 - When the cost of duplicating and translating is greater than the cost of coordinating changes.
 
-### When to avoid
+## When to avoid
 
 - Teams with poor communication, in different locations or organizations, with no way to agree on changes.
 - When the kernel tends to grow out of control and turns the two contexts into one, in practice a Big Ball of Mud.

@@ -38,7 +38,7 @@ In microservice architectures, this context is even more common: a service usual
 - To handle intermittent connectivity problems in distributed environments.
 - To steer traffic based on real-time failure signals, for example to another region in multi-region deployments.
 
-### When to avoid
+## When to avoid
 
 - When accessing local, private application resources, such as in-memory structures. In those cases the circuit only adds overhead.
 - As a substitute for business-logic exception handling.

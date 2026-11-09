@@ -32,7 +32,7 @@ To keep the model simple, it's best to reduce the entity to the essentials: the 
 - When the concept has a lifecycle and history that matter to the business.
 - When the object is referenced by others over time.
 
-### When to avoid
+## When to avoid
 
 - When the concept is defined only by its values and is interchangeable: prefer a [Value Object](/design/poeaa/base/value-object).
 - When tracking identity and lifecycle would be cost with no benefit.

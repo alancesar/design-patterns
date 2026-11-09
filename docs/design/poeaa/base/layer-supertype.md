@@ -31,7 +31,7 @@ Cada camada pode ter o seu próprio Layer Supertype (por exemplo, um para o dom�
 - Para manter identidade, versão ou auditoria em um só lugar, em conjunto com [Identity Field](/design/poeaa/object-relational-structural/identity-field).
 - Para dar a todos os mappers ou repositórios um comportamento comum de acesso ao banco.
 
-### Quando evitar
+## Quando evitar
 
 - Quando a linguagem ou o framework já provê a base necessária e a nova classe só duplicaria isso.
 - Quando o comportamento compartilhado é pequeno e a herança acrescentaria acoplamento desnecessário; composição pode bastar.

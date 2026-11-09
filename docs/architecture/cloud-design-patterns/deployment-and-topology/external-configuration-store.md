@@ -38,7 +38,7 @@ Como as configurações passam a alterar o comportamento das aplicações em tem
 - Quando um serviço de microsserviços precisa ser promovido entre ambientes como o mesmo artefato (por exemplo, imagem de contêiner), recebendo localizações de rede e credenciais de fora.
 - Quando se usa feature flags e liberações progressivas como parte de práticas de implantação segura.
 
-### Quando evitar
+## Quando evitar
 
 - Quando a configuração é simples, local a uma única aplicação e só muda nos ciclos normais de release; o repositório externo adicionaria complexidade operacional sem benefício.
 - Quando não é possível garantir a disponibilidade do repositório externo nem um mecanismo de fallback na inicialização da aplicação.

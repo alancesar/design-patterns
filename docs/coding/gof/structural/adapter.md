@@ -33,7 +33,7 @@ Existem duas variantes: o *object adapter*, que usa composição e guarda uma re
 - Várias implementações heterogêneas devem ser expostas ao cliente por uma interface única.
 - Em testes, para envolver dependências externas atrás de uma interface fácil de substituir por dublês.
 
-### Quando evitar
+## Quando evitar
 
 - Quando é possível (e barato) simplesmente alterar a interface original ou o cliente.
 - Quando a diferença entre as interfaces é tão grande que o "adaptador" vira uma reimplementação inteira; nesse caso, talvez seja um Facade ou um novo serviço.

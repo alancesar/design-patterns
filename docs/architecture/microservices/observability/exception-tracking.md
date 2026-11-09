@@ -30,7 +30,7 @@ As exceções devem continuar sendo registradas nos logs, além de reportadas ao
 - Muitos serviços e instâncias, onde ler logs para achar exceções é inviável
 - Equipes que precisam priorizar e acompanhar a correção de erros
 
-### Quando evitar
+## Quando evitar
 
 - Aplicações pequenas, em que os logs e alertas existentes dão conta
 - Quando dados sensíveis em stack traces e contexto não puderem ser enviados a um serviço externo

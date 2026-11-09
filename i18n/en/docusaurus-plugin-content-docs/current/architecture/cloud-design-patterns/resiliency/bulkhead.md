@@ -35,7 +35,7 @@ Partitions can be implemented with processes, threads, semaphores, containers, v
 - In multi-tenant scenarios, to separate tenants (or groups of tenants) into distinct partitions.
 - In AI and inference workloads subject to per-deployment quotas and concurrency limits, isolating model deployments by workload or by tenant.
 
-### When to avoid
+## When to avoid
 
 - When the less efficient use of resources (idle, reserved capacity in each partition) is not acceptable.
 - When the added complexity of creating, operating, and monitoring multiple partitions isn't justified, as in small systems or those with few dependencies.

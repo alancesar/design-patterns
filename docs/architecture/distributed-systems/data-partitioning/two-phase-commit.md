@@ -32,7 +32,7 @@ Os participantes e o coordenador usam um log durável, como um Write-Ahead Log, 
 - Quando a consistência forte entre partições é mais importante que a latência.
 - Em sistemas em que todos os participantes são confiáveis e controlados pela mesma plataforma.
 
-### Quando evitar
+## Quando evitar
 
 - Quando a transação cruza serviços independentes ou de organizações distintas: prefira Saga com compensação.
 - Em cenários de alta disponibilidade sob partições de rede, pois o protocolo bloqueia.

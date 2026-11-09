@@ -27,7 +27,7 @@ A common technique is for the deployment tool to publish a pseudo-metric each ti
 - Environments with frequent deployments and several teams changing production
 - When you need to correlate incidents with versions and configuration changes
 
-### When to avoid
+## When to avoid
 
 - Systems where changes are rare and already documented by other means
 

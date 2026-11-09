@@ -33,7 +33,7 @@ Special Case is the generalization of the GoF [Null Object](/coding/gof/behavior
 - When you want the client to treat the special and normal cases uniformly (polymorphism).
 - For finders that don't find the record, returning a special object instead of `null`.
 
-### When to avoid
+## When to avoid
 
 - When the caller really needs to distinguish absence and act differently at each point; in that case, an explicit `Optional`/`Maybe` may be more honest.
 - When the special case would hide an error that should fail fast (an unexpected absence that deserves an exception).

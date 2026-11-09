@@ -31,7 +31,7 @@ The pattern isn't a type of lock; it's a way of applying the other locking patte
 - When there's a single data access layer, such as mappers or repositories.
 - When you want concurrency control to be a property of the infrastructure, not of the use case.
 
-### When to avoid
+## When to avoid
 
 - When the system is small and locking is needed in only a few places, so doing it explicitly is clearer.
 - When data access is scattered and there's no central point to build the logic into.

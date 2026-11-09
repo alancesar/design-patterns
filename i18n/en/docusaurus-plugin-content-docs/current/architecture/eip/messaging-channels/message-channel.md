@@ -32,7 +32,7 @@ In practice, the channel is an abstraction offered by the messaging system (queu
 - When you want to separate types of information into distinct flows, each with its own producers and consumers.
 - When you need to explicitly define which applications may write to or read from each flow.
 
-### When to avoid
+## When to avoid
 
 - When the interaction requires an immediate, synchronous response, the asynchronous channel abstraction only gets in the way; prefer a direct call.
 - When the number of channels would grow out of control (one per sender-recipient combination); in that case, rethink the granularity or use content-based routing.

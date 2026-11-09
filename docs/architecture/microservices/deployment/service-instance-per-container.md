@@ -31,7 +31,7 @@ A escala é feita alterando o número de contêineres. Como apenas o processo da
 - Quando há muitos serviços heterogêneos que precisam de isolamento e densidade.
 - Quando se dispõe de um orquestrador ou de uma plataforma de implantação.
 
-### Quando evitar
+## Quando evitar
 
 - Quando a organização não tem maturidade para operar infraestrutura de contêineres.
 - Quando é exigido isolamento mais forte que o oferecido pelo kernel compartilhado.

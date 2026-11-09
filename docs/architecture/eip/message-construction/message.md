@@ -28,7 +28,7 @@ Uma mensagem tem duas partes. O cabeçalho carrega metadados usados pela infraes
 - Sempre que duas aplicações se comunicam por meio de um canal de mensagens.
 - Quando se quer separar metadados de transporte do conteúdo de negócio.
 
-### Quando evitar
+## Quando evitar
 
 - Quando uma chamada síncrona direta resolve o caso e não há necessidade de desacoplamento temporal.
 - Para volumes de dados muito grandes que não cabem em uma mensagem; nesse caso use sequência de mensagens ou referência ao dado.

@@ -30,7 +30,7 @@ A reliable way to implement auditing is Event Sourcing, where every state change
 - Regulated or sensitive domains (finance, healthcare, access administration)
 - When you need to answer questions about who changed a piece of data and when
 
-### When to avoid
+## When to avoid
 
 - When the action trail has no business, compliance, or security value
 - For purely technical diagnosis, where logs and traces are more suitable

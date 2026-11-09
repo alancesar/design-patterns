@@ -33,7 +33,7 @@ Em dados particionados com chave de shard baseada em hash, a tabela de índice p
 - A carga é predominantemente de leitura e os dados indexados mudam com pouca frequência.
 - É aceitável uma breve defasagem (consistência eventual) entre a origem e o índice.
 
-### Quando evitar
+## Quando evitar
 
 - Os dados são muito voláteis: a taxa de escrita supera a capacidade de atualizar os índices, que ficam permanentemente desatualizados.
 - A chave secundária é pouco discriminante (por exemplo, um campo booleano), oferecendo pouca seletividade pelo custo total de armazenamento e throughput.

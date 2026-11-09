@@ -33,7 +33,7 @@ In partitioned data with a hash-based shard key, the index table can organize en
 - The workload is predominantly reads and the indexed data changes infrequently.
 - A brief lag (eventual consistency) between the source and the index is acceptable.
 
-### When to avoid
+## When to avoid
 
 - The data is highly volatile: the write rate exceeds the capacity to update the indexes, which stay permanently stale.
 - The secondary key has low selectivity (for example, a boolean field), offering little selectivity for the total storage and throughput cost.

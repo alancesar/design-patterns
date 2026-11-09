@@ -30,7 +30,7 @@ Assim, a lógica de descoberta sai do cliente e fica na infraestrutura. Exemplos
 - Quando se quer clientes simples, sem lógica de descoberta, em várias linguagens.
 - Quando a plataforma de nuvem ou de orquestração já oferece o roteador.
 
-### Quando evitar
+## Quando evitar
 
 - Quando não há infraestrutura pronta e operar mais um componente replicado não compensa.
 - Quando o roteador não suporta o protocolo necessário (além de TCP).

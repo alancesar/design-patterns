@@ -31,7 +31,7 @@ The pattern works very well with Record Set, in-memory tabular structures provid
 - Logic of moderate complexity, organized around tables.
 - When you want more structure than Transaction Script, without the cost of a Domain Model.
 
-### When to avoid
+## When to avoid
 
 - When the rules require polymorphism, inheritance, and rich relationships between entities.
 - When the logic grows and spreads across many table modules that need to call each other.

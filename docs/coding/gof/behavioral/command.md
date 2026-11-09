@@ -36,7 +36,7 @@ Como os comandos são objetos de primeira classe, podem ser armazenados em hist�
 - Quando operações devem ser registradas e reexecutáveis (journaling, event sourcing simplificado)
 - Quando diferentes gatilhos (botão, atalho, menu, API) devem disparar a mesma operação
 
-### Quando evitar
+## Quando evitar
 
 - Quando a operação é simples, síncrona e chamada de um único lugar: uma chamada direta de método ou uma função/lambda basta
 - Quando não há necessidade de histórico, fila, log ou desacoplamento entre emissor e receptor

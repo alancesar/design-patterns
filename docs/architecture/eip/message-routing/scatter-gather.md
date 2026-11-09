@@ -29,7 +29,7 @@ Há duas variantes. Na de **distribuição**, uma Recipient List envia a requisi
 - Quando a latência total deve ser a do mais lento (ou do primeiro) e não a soma
 - O número de destinatários pode ser fixo ou calculado em tempo de execução
 
-### Quando evitar
+## Quando evitar
 
 - Há um único destino; use um roteador comum
 - Não se tolera tráfego multiplicado ou os destinatários têm custo por consulta alto

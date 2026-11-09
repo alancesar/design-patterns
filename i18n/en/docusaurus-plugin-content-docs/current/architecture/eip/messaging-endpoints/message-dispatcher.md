@@ -30,7 +30,7 @@ It differs from Competing Consumers, where each consumer has its own connection 
 - When you want concurrency inside a single consumer process.
 - When different message types require distinct handlers.
 
-### When to avoid
+## When to avoid
 
 - When message order must be strictly preserved.
 - When horizontal scaling with Competing Consumers is enough.

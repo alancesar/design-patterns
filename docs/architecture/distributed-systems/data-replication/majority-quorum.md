@@ -33,7 +33,7 @@ O padrão aparece em ZooKeeper, etcd, Raft e Paxos para confirmar escritas e ele
 - Eleição de líder e consenso.
 - Tomada de decisões por grupo em que um segmento minoritário isolado não deve continuar operando.
 
-### Quando evitar
+## Quando evitar
 
 - Clusters de dois nós ou com número par, em que o quórum não tolera mais falhas que o ímpar anterior.
 - Quando a latência de esperar a maioria entre regiões distantes é inaceitável e a consistência eventual basta.

@@ -29,7 +29,7 @@ The list lives in the header, separate from the business payload, keeping system
 - Debugging and impact analysis in loosely coupled solutions.
 - When you want traceability without querying an external repository.
 
-### When to avoid
+## When to avoid
 
 - When the history would reveal internal topology to external recipients.
 - When messages are very small and the growing header would weigh on traffic.

@@ -34,7 +34,7 @@ The result is a layer that reduces the coupling between clients and implementati
 - To isolate client code from third-party libraries or legacy systems, making them easier to replace.
 - When there are many dependencies between clients and implementation classes and you want to decouple them.
 
-### When to avoid
+## When to avoid
 
 - When the subsystem is already simple; the facade would only add an unnecessary layer.
 - When clients need the full power and flexibility of the subsystem and the facade would end up replicating its entire API.

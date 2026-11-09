@@ -33,7 +33,7 @@ The central point is encapsulation: the Memento exposes a "narrow" interface to 
 - Editors, forms, games (save/load), or wizards need undo, history, or local rollback
 - In-memory transactional operations that may need to be reverted
 
-### When to avoid
+## When to avoid
 
 - The state is large and snapshots are frequent, causing high memory consumption — prefer storing diffs or using [Command](/coding/gof/behavioral/command) with inverse operations
 - The object is simple and fully public; a direct copy or a [Prototype](/coding/gof/creational/prototype) does the job

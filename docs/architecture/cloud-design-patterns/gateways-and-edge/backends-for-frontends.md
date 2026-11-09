@@ -42,7 +42,7 @@ No contexto de microsserviços (microservices.io), o BFF é uma variação do AP
 - Uma arquitetura de microsserviços exige APIs distintas para clientes web, mobile e de terceiros, e um único API Gateway compartilhado viraria gargalo de desenvolvimento.
 - Times de frontend precisam de autonomia e ciclos de entrega independentes.
 
-### Quando evitar
+## Quando evitar
 
 - As interfaces fazem requisições iguais ou muito parecidas ao backend.
 - Apenas uma interface consome o backend.

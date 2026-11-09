@@ -29,7 +29,7 @@ Não existe um tipo especial de mensagem para isso. O comando pode ser um objeto
 - Quando se quer enfileirar trabalho e absorver picos de carga.
 - Normalmente em um canal ponto a ponto, para que só um receptor execute o comando.
 
-### Quando evitar
+## Quando evitar
 
 - Quando o chamador precisa do resultado imediatamente e não tolera espera.
 - Quando o que se quer é apenas informar que algo ocorreu (use Event Message).

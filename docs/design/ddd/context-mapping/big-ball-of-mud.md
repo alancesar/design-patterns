@@ -31,7 +31,7 @@ Reconhecer um Big Ball of Mud não é aprová-lo, e sim nomear uma realidade par
 - Quando é preciso explicar a fronteira entre um sistema novo e um legado emaranhado.
 - Ao planejar migrações graduais, para decidir o que isolar antes de substituir.
 
-### Quando evitar
+## Quando evitar
 
 - Como meta de design: ele descreve um problema, não uma solução a ser buscada.
 - Para rotular sistemas apenas antigos ou feios; se há estrutura reconhecível, ela deve ser mapeada.

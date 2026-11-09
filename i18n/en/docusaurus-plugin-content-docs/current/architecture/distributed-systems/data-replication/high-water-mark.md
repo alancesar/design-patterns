@@ -31,7 +31,7 @@ In Kafka, the partition's high-water mark defines what consumers can read; in Ra
 - When reads (including on followers) must see only durable data.
 - To decide which entries to truncate after a new leader is elected.
 
-### When to avoid
+## When to avoid
 
 - Single-node systems, where there is no replication.
 - When immediate visibility of unconfirmed data is acceptable (weak consistency).

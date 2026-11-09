@@ -29,7 +29,7 @@ It's meant for flows that can't be fixed in advance: the steps may not be known 
 - You want a single point to see state and handle failures
 - The steps aren't known in advance
 
-### When to avoid
+## When to avoid
 
 - The flow is linear and known; a Routing Slip or Pipes and Filters is enough
 - The central coordinator would become a bottleneck or over-engineering for a simple problem

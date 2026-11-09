@@ -32,7 +32,7 @@ Em ambientes concorrentes, a criação da instância precisa ser protegida (sinc
 - Quando a instância única deve poder ser estendida por subclasses e os clientes devem usar a versão estendida sem alterar seu código.
 - Quando a inicialização é cara e deve ocorrer apenas sob demanda.
 
-### Quando evitar
+## Quando evitar
 
 - Quando o "único" é apenas uma conveniência: prefira injeção de dependência com escopo singleton gerenciado por um container.
 - Quando a classe guarda estado mutável compartilhado, pois isso cria acoplamento oculto e dificulta o raciocínio sobre o sistema.

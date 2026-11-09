@@ -31,7 +31,7 @@ The guarantee comes at the price of writing to disk at every hop, which increase
 - The receiver may go offline and needs to receive what it missed when it comes back.
 - Delivery reliability matters more than latency.
 
-### When to avoid
+## When to avoid
 
 - Ephemeral or high-frequency data, such as sensor readings or metrics, where losing some is acceptable.
 - Low-latency scenarios where the cost of writing to disk at every hop makes the required throughput unattainable.

@@ -32,7 +32,7 @@ Structurally, it's the same mechanism as CQRS: a derived copy fed by events. The
 - When the provider shouldn't be on the command's critical path for availability or performance reasons.
 - When reading slightly stale data is acceptable for the business rule.
 
-### When to avoid
+## When to avoid
 
 - When the data must always be current and replica lag isn't tolerable.
 - When the replicated data is regulated (for example, personal data), which widens the command service's security and compliance obligations.

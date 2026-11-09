@@ -32,7 +32,7 @@ O efeito é uma redução forte da carga mental: o desenvolvedor pode chamar e c
 - Ao modelar conceitos como Value Objects, que devem ser imutáveis.
 - Quando uma consulta é chamada em muitos lugares e precisa ser segura de compor.
 
-### Quando evitar
+## Quando evitar
 
 - Em objetos grandes cuja cópia a cada operação é cara e comprovadamente um gargalo.
 - Quando o domínio é por natureza uma sequência de mudanças de estado (por exemplo, um processo longo): ali o comando é legítimo e deve ser explícito, não escondido.

@@ -29,7 +29,7 @@ O padrão parte da lei de Conway: a arquitetura reflete a estrutura de comunica�
 - Ao adotar microsserviços em uma organização com equipes pequenas e de longa duração
 - Quando se busca autonomia de entrega e responsabilidade clara de longo prazo sobre cada serviço
 
-### Quando evitar
+## Quando evitar
 
 - Quando não há equipes estáveis o bastante para assumir propriedade duradoura
 - Quando um mesmo serviço precisa ser alterado continuamente por várias equipes de forma inevitável

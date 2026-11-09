@@ -32,7 +32,7 @@ Em geral o protocolo é descrito em uma Published Language, que serve de formato
 - É possível manter uma API estável, versionada e documentada.
 - O upstream tem capacidade de evoluir o protocolo para novos requisitos comuns.
 
-### Quando evitar
+## Quando evitar
 
 - Há um único consumidor; um relacionamento Customer/Supplier ou uma interface direta é mais barato.
 - O contexto está em mudança rápida e o protocolo ainda não pode ser estabilizado.

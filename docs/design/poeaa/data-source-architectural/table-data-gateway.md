@@ -33,7 +33,7 @@ Com isso, o SQL fica em um só lugar, facilitando o trabalho de quem não domina
 - Para encapsular o acesso a stored procedures, tratando-as como um gateway.
 - Quando se quer isolar o SQL sem o custo de um mapeamento objeto-relacional completo.
 
-### Quando evitar
+## Quando evitar
 
 - Quando há um Domain Model rico com regras complexas; um Data Mapper ou ORM se adapta melhor.
 - Quando se espera mapear heranças, associações e coleções de objetos de forma transparente.

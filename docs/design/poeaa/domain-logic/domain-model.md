@@ -32,7 +32,7 @@ O modelo deve ser independente de interface de usuário e de persistência; a li
 - Quando há variações de comportamento que se beneficiam de polimorfismo e de padrões como Strategy.
 - Quando a equipe domina modelagem orientada a objetos e pretende investir em uma linguagem ubíqua do domínio.
 
-### Quando evitar
+## Quando evitar
 
 - Aplicações essencialmente CRUD, onde a lógica é mínima.
 - Equipes sem familiaridade com orientação a objetos e mapeamento objeto-relacional.

@@ -30,7 +30,7 @@ Usado em ZooKeeper, etcd (Raft), Kafka e Cassandra para detectar falhas de nós 
 - Clusters que armazenam dados particionados ou replicados e precisam reagir a falhas de nós.
 - Liderança baseada em Leader and Followers, em que seguidores precisam saber se o líder está vivo.
 
-### Quando evitar
+## Quando evitar
 
 - Clusters muito grandes em que o tráfego todos-para-todos é proibitivo (prefira gossip).
 - Quando a rede é tão instável que o tempo limite gera falsos positivos constantes sem ajuste adaptativo.

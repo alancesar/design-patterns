@@ -29,7 +29,7 @@ There are two variants. In the **distribution** variant, a Recipient List sends 
 - When the total latency should be that of the slowest (or the first) rather than the sum
 - The number of recipients can be fixed or computed at runtime
 
-### When to avoid
+## When to avoid
 
 - There is a single destination; use a plain router
 - Multiplied traffic isn't tolerable, or recipients have a high per-query cost

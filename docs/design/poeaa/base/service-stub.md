@@ -32,7 +32,7 @@ O padrão foi proposto por David Rice no PoEAA e é a base do que hoje se chama 
 - Quando se quer testes rápidos e repetíveis no fluxo de desenvolvimento e na integração contínua.
 - Quando é preciso simular cenários difíceis de provocar no serviço real (erros, lentidão, dados específicos).
 
-### Quando evitar
+## Quando evitar
 
 - Quando o serviço real é barato, rápido e estável, e testá-lo diretamente é viável.
 - Como única forma de teste: o stub não garante que o contrato real continua válido (use também testes de contrato ou de integração).

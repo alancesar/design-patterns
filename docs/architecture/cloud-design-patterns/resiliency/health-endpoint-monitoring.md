@@ -40,7 +40,7 @@ Os resultados alimentam alertas, dashboards e ações de remediação controlada
 - Dar sinais de saúde para balanceadores de carga, orquestradores e roteadores de tráfego (remoção de instâncias, autorrecuperação, failover)
 - Validar a disponibilidade a partir de locais que representem os usuários, incluindo DNS, expiração de certificados TLS e conteúdo servido por CDN
 
-### Quando evitar
+## Quando evitar
 
 - Os componentes não expõem uma interface de saúde compatível ou acessível à ferramenta de monitoramento. Nesse caso, prefira métricas de plataforma, alertas baseados em logs ou heartbeats internos
 - Não há como produzir um sinal útil sem degradar a aplicação (consultas pesadas, chamadas caras ou testes de integração completos a cada sondagem). Nesse caso, use a telemetria que a aplicação já coleta, como taxas de erro e dados de dependências

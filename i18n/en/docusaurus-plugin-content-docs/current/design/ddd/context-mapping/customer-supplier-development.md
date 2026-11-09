@@ -32,7 +32,7 @@ Without this agreement, the downstream is at the mercy of the upstream's priorit
 - The upstream has both the interest and the authority to prioritize the downstream's needs.
 - It's possible to maintain acceptance tests shared between both sides.
 
-### When to avoid
+## When to avoid
 
 - When the upstream has no incentive or power to serve the downstream, such as external vendors or off-the-shelf products; prefer Conformist or Anticorruption Layer.
 - When the teams are already so close that a Partnership would be more appropriate.

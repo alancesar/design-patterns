@@ -30,7 +30,7 @@ The challenge is that objects use references and inheritance, features that many
 - When the domain model is rich and must be exchanged through messages without coupling to them.
 - When the message format is defined by third parties or by a canonical model.
 
-### When to avoid
+## When to avoid
 
 - When messages are simple and the data object itself is already the message.
 - When a generic framework serializer does the job with no specific mapping logic.

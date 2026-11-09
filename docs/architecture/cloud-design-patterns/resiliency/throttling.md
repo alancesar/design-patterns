@@ -39,7 +39,7 @@ Throttling é um ciclo de controle contínuo, não uma decisão isolada. O siste
 - Para oferecer níveis de serviço diferentes por plano ou contrato (cotas por tier).
 - Para reduzir processamento de baixo valor em momentos de pico ou de alta intensidade de carbono da rede elétrica.
 
-### Quando evitar
+## Quando evitar
 
 - Quando a carga é previsível e a capacidade provisionada atende com folga; os limites acrescentam complexidade sem benefício.
 - Como substituto de proteção de borda contra DDoS/WAF: throttling na aplicação mede tráfego legítimo e não absorve ataques volumétricos.

@@ -34,7 +34,7 @@ The decision logic is usually a `switch`/`if` or a registry map (type → constr
 - You want a single point to change how objects are created (for example, for caching, logging, or dependency injection)
 - The number of variants is small and relatively stable
 
-### When to avoid
+## When to avoid
 
 - There's only one implementation and no prospect of variation — a direct constructor is simpler
 - New variants appear frequently and changing the central `switch` violates the open/closed principle; consider Factory Method or an extensible registry

@@ -34,7 +34,7 @@ In practice, the Bridge trades inheritance for composition: the "bridge" is prec
 - When you want to hide platform-dependent implementation details from client code.
 - When designing cross-platform libraries or drivers (JDBC, graphics renderers, cloud providers).
 
-### When to avoid
+## When to avoid
 
 - When there's only one implementation and no real prospect of others; the indirection becomes needless complexity.
 - When the two dimensions aren't actually independent and the abstraction needs to know details of each implementation.

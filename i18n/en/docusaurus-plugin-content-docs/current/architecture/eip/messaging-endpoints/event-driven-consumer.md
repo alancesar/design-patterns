@@ -30,7 +30,7 @@ Watch out for acknowledgment: acknowledging automatically on delivery, before pr
 - When the message should be handled as soon as possible.
 - When volume is irregular and keeping consumers active would be wasteful.
 
-### When to avoid
+## When to avoid
 
 - When the consumer needs to control the incoming rate, since push can overload it.
 - When processing should only happen in specific windows.

@@ -31,7 +31,7 @@ Ferramentas de interface de usuário com vínculo a dados (data-aware UI) espera
 - Em conjunto com [Table Module](/design/poeaa/domain-logic/table-module) ou [Transaction Script](/design/poeaa/domain-logic/transaction-script), que operam naturalmente sobre dados tabulares.
 - Para relatórios e telas de manutenção simples (CRUD) em que um modelo de objetos seria exagero.
 
-### Quando evitar
+## Quando evitar
 
 - Quando a lógica de domínio é complexa e se beneficia de um [Domain Model](/design/poeaa/domain-logic/domain-model), pois o Record Set empurra para um estilo orientado a tabelas.
 - Quando a camada de domínio não deve conhecer a estrutura do banco, já que o Record Set a reproduz.

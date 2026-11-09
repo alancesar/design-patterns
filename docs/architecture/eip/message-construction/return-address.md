@@ -28,7 +28,7 @@ O replier lê o endereço de cada requisição e responde nele, sem precisar con
 - Em Request-Reply em que vários requestors usam o mesmo replier.
 - Quando um mesmo requestor quer receber respostas em canais distintos conforme o caso.
 
-### Quando evitar
+## Quando evitar
 
 - Quando todas as respostas vão sempre para um único destino conhecido; um canal fixo basta.
 - Quando não há resposta a enviar.

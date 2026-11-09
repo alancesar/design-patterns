@@ -33,7 +33,7 @@ A notificação pode seguir o modelo *push* (o subject envia os dados alterados 
 - Quando um objeto deve notificar outros sem fazer suposições sobre quem eles são
 - Em sistemas de eventos, interfaces gráficas (MVC), assinaturas de notícias, caches que precisam ser invalidados, etc.
 
-### Quando evitar
+## Quando evitar
 
 - Quando há apenas um dependente fixo e conhecido; uma chamada direta é mais simples
 - Quando a ordem de notificação é crítica e precisa ser garantida

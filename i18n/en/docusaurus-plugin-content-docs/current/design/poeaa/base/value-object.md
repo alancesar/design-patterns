@@ -36,7 +36,7 @@ In practice, a good Value Object is immutable, compares by value (implementing e
 - When you want immutability to avoid side effects and make concurrency easier.
 - Together with [Embedded Value](/design/poeaa/object-relational-structural/embedded-value) to persist it inside the owner's row.
 
-### When to avoid
+## When to avoid
 
 - When the object has its own lifecycle and identity that need to be tracked (use an entity with an [Identity Field](/design/poeaa/object-relational-structural/identity-field)).
 - When the concept changes frequently and immutability would cause a lot of object creation with no benefit.

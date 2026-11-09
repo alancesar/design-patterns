@@ -32,7 +32,7 @@ Em termos gerais, o fluxo tem duas etapas: um wrapper no lado do remetente, que 
 - É preciso aplicar criptografia, assinatura ou compressão de forma transparente às aplicações.
 - Vários sistemas compartilham uma infraestrutura com um formato de envelope padronizado.
 
-### Quando evitar
+## Quando evitar
 
 - A aplicação já consegue produzir e consumir o formato com cabeçalhos nativamente.
 - O envelope não agrega informação útil à infraestrutura e só adiciona processamento.

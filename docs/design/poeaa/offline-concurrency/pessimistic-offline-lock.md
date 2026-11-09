@@ -30,7 +30,7 @@ O padrão é a opção mais segura quando perder o trabalho do usuário é inace
 - Quando o trabalho do usuário é longo e não pode ser refeito facilmente.
 - Quando se precisa de consistência de leitura além da simples detecção de conflitos de escrita.
 
-### Quando evitar
+## Quando evitar
 
 - Quando conflitos são raros; o Optimistic Offline Lock é mais simples e escala melhor.
 - Quando a aplicação é de altíssima concorrência e não tolera esperas.

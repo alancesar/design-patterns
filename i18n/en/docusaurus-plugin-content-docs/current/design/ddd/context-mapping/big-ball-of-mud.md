@@ -31,7 +31,7 @@ Recognizing a Big Ball of Mud is not approving of it; it's naming a reality so y
 - When you need to explain the boundary between a new system and a tangled legacy one.
 - When planning gradual migrations, to decide what to isolate before replacing it.
 
-### When to avoid
+## When to avoid
 
 - As a design goal: it describes a problem, not a solution to pursue.
 - To label systems that are merely old or ugly; if there's a recognizable structure, it should be mapped.

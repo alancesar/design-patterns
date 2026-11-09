@@ -29,7 +29,7 @@ Quem decide o próximo passo é o próprio modelo, em tempo de execução, por i
 - Cenários em que um único agente basta, com custo e manutenção menores que um sistema multiagente.
 - Exemplo da fonte: um agente de robótica traça um caminho até o objetivo, move um trecho, observa o ambiente e replaneja diante de novos obstáculos.
 
-### Quando evitar
+## Quando evitar
 
 - O fluxo é conhecido e previsível: um workflow determinístico é mais barato e estável.
 - A latência é crítica, pois cada volta do ciclo a aumenta.

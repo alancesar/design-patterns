@@ -32,7 +32,7 @@ Na prática, um fluxo de trabalho (workflow) ou orquestrador registra, a cada et
 - Fluxos de longa duração que seguem o modelo de consistência eventual e não podem depender de transações atômicas.
 - A recuperação de falhas exige lógica de domínio, e não apenas um rollback de dados (por exemplo, cancelar reservas de voo e hotel de um itinerário).
 
-### Quando evitar
+## Quando evitar
 
 - As operações podem ser repetidas com segurança e a maioria das falhas é transitória: a lógica de retry costuma bastar, e a compensação só acrescentaria complexidade.
 - O sistema não tolera inconsistência temporária. Nesse caso, prefira mecanismos de consistência forte ou transações atômicas.

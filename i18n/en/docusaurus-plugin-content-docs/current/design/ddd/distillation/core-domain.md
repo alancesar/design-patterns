@@ -32,7 +32,7 @@ Distillation is the process of separating the essential from what is merely supp
 - When the software is a competitive advantage and not just a supporting tool.
 - When you need to prioritize investment of modeling effort, people, and time.
 
-### When to avoid
+## When to avoid
 
 - Small or simple systems, where the whole model fits in the team's head and there's nothing to distill.
 - Supporting software with no competitive differentiation, where the right call is to buy or adopt an off-the-shelf solution.

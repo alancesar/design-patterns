@@ -31,7 +31,7 @@ Como decisão estratégica, deve aparecer no Context Map para que ninguém tente
 - Os contextos atendem a necessidades de negócio distintas, sem fluxo relevante entre eles.
 - É possível duplicar uma pequena funcionalidade ou usar uma solução simples e local.
 
-### Quando evitar
+## Quando evitar
 
 - Há fluxos de negócio importantes que dependem de dados dos dois contextos.
 - A duplicação gera inconsistências que os usuários percebem ou que violam regras do negócio.

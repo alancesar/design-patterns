@@ -33,7 +33,7 @@ Esse padrão é a base para a autonomia dos serviços, mas traz como consequênc
 - Quando serviços têm necessidades de armazenamento ou de escala bastante diferentes.
 - Quando se aceita tratar consistência entre serviços de forma eventual, com sagas e visões derivadas.
 
-### Quando evitar
+## Quando evitar
 
 - Sistemas pequenos ou monolíticos, em que uma única transação ACID resolve as regras de negócio com mais simplicidade.
 - Quando as invariantes de negócio atravessam constantemente vários serviços, sinalizando que as fronteiras dos serviços talvez estejam mal definidas.
