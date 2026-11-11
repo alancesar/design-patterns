@@ -53,18 +53,18 @@ With the data normalized, all downstream processing works with a single structur
 
 ```mermaid
 flowchart LR
-    A["Partner A (CSV)"] --> R["Router: detects the format"]
-    B["Partner B (XML)"] --> R
-    C["Partner C (other format)"] --> R
-    R --> T1["Translator A"]
-    R --> T2["Translator B"]
-    R --> T3["Translator C"]
-    T1 --> N["Common format"]
+    A["Statement CNAB 240"] --> R["Router: detects the format"]
+    B["Statement OFX"] --> R
+    C["Statement camt.053"] --> R
+    R --> T1["Translator CNAB 240"]
+    R --> T2["Translator OFX"]
+    R --> T3["Translator camt.053"]
+    T1 --> N["Common reconciliation format"]
     T2 --> N
     T3 --> N
 ```
 
-The router identifies the format of each message and sends it to the corresponding translator; all translators produce the same common format.
+The router identifies the format of each message and sends it to the corresponding translator; all translators produce the same common format. The source illustrates the pattern with a widget and gadget order.
 
 ## Related patterns
 

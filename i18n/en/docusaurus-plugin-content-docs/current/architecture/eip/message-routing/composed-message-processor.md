@@ -48,16 +48,16 @@ It's a composition of patterns: a Splitter separates the parts, a router (such a
 
 ```mermaid
 flowchart LR
-    M["Order"] --> S["Splitter"]
+    M["Payment batch"] --> S["Splitter"]
     S --> R{"Router"}
-    R --> A["Inventory A"]
-    R --> B["Inventory B"]
+    R --> A["Pix rail"]
+    R --> B["Boleto rail"]
     A --> AG["Aggregator"]
     B --> AG
-    AG --> O["Verified order"]
+    AG --> O["Processed batch (status per item)"]
 ```
 
-The order is split, each item goes to the correct inventory, and the responses are collected into a verified order.
+The batch is split, each payment goes through the correct rail, and the responses are collected into a processed batch, with the status of each item. The source illustrates the pattern with a widget and gadget order.
 
 ## Related patterns
 

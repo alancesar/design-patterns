@@ -50,17 +50,17 @@ Há duas variantes. Na de **distribuição**, uma Recipient List envia a requisi
 
 ```mermaid
 flowchart LR
-    Q["Requisição"] --> RL{"Recipient List ou Publish-Subscribe"}
-    RL --> F1["Fornecedor 1"]
-    RL --> F2["Fornecedor 2"]
-    RL --> F3["Fornecedor 3"]
+    Q["Cotação de câmbio"] --> RL{"Recipient List ou Publish-Subscribe"}
+    RL --> F1["Provedor de liquidez 1"]
+    RL --> F2["Provedor de liquidez 2"]
+    RL --> F3["Provedor de liquidez 3"]
     F1 --> AG["Aggregator"]
     F2 --> AG
     F3 --> AG
-    AG --> R["Melhor resposta"]
+    AG --> R["Melhor taxa"]
 ```
 
-A requisição é espalhada aos fornecedores e as respostas são reunidas em um único resultado.
+A cotação é espalhada aos provedores de liquidez e as taxas são reunidas na melhor oferta. A fonte ilustra o padrão com a cotação de um item do pedido entre fornecedores.
 
 ## Padrões relacionados
 

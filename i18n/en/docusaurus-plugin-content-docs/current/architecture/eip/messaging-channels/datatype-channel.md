@@ -51,13 +51,13 @@ The cost is a multiplication of channels: each new data type requires a new chan
 
 ```mermaid
 flowchart LR
-    S["Sender"] -->|"order"| C1["Orders channel"]
-    S -->|"invoice"| C2["Invoices channel"]
-    C1 --> R1["Order processor"]
-    C2 --> R2["Invoice processor"]
+    S["Sender"] -->|"Pix transfer"| C1["Pix transfers channel"]
+    S -->|"boleto"| C2["Boletos channel"]
+    C1 --> R1["Pix processor"]
+    C2 --> R2["Boleto processor"]
 ```
 
-The sender picks the channel according to the data type, and each processor receives only the format it knows how to handle.
+The sender picks the channel according to the data type, and each processor receives only the format it knows how to handle. The source illustrates the pattern with a widget and gadget order.
 
 ## Related patterns
 

@@ -52,12 +52,13 @@ Em cenários mais sofisticados, o roteador evolui para um mecanismo de regras co
 
 ```mermaid
 flowchart LR
-    P["Pedido validado"] --> R{"Content-Based Router"}
-    R -->|"item do tipo widget"| W["Estoque de widgets"]
-    R -->|"item do tipo gadget"| G["Estoque de gadgets"]
+    P["Instrução de pagamento"] --> R{"Content-Based Router"}
+    R -->|"trilho Pix"| W["Conector de Pix"]
+    R -->|"trilho TED"| G["Conector de TED"]
+    R -->|"trilho boleto"| B["Conector de boleto"]
 ```
 
-O roteador lê o item do pedido e o encaminha ao sistema de estoque responsável por ele.
+O roteador lê o trilho da instrução e a encaminha ao conector responsável por ela. A fonte ilustra o padrão com um pedido de widgets e gadgets.
 
 ## Padrões relacionados
 
