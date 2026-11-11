@@ -7,7 +7,7 @@ tags:
   - Simplicity
   - Testability
 also_in:
-  - application/ddd/building-blocks
+  - design/ddd/building-blocks
 source: https://martinfowler.com/eaaCatalog/valueObject.html
 sidebar_label: "Value Object"
 ---
