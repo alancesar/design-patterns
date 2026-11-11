@@ -51,32 +51,32 @@ Quando o modelo muda, os módulos também devem ser refatorados, para continuare
 
 ```mermaid
 flowchart LR
-    subgraph Shipping["shipping"]
-        S1["Shipment"]
-        S2["Carrier"]
+    subgraph Payments["payments"]
+        P1["PixTransfer"]
+        P2["Boleto"]
     end
-    subgraph Billing["billing"]
-        B1["Invoice"]
-        B2["Payment"]
+    subgraph Ledger["ledger"]
+        L1["Account"]
+        L2["LedgerEntry"]
     end
-    Shipping -->|"depende de"| Billing
+    Payments -->|"depende de"| Ledger
 ```
 
-Os módulos `shipping` e `billing` agrupam conceitos coesos, com dependência explícita e unidirecional.
+Os módulos `payments` e `ledger` agrupam conceitos coesos, com dependência explícita e unidirecional: pagamentos dependem do ledger, e o ledger não conhece pagamentos.
 
 ## Exemplo
 
 Em vez de pacotes `entities`, `services` e `repositories`, o código é organizado por conceito do negócio.
 
 ```text
-com.acme.shipping/
-    Shipment.java
-    Carrier.java
-    ShipmentRepository.java
-com.acme.billing/
-    Invoice.java
-    Payment.java
-    InvoiceRepository.java
+com.fintech.payments/
+    PixTransfer.java
+    Boleto.java
+    PixTransferRepository.java
+com.fintech.ledger/
+    Account.java
+    LedgerEntry.java
+    AccountRepository.java
 ```
 
 ## Padrões relacionados

@@ -53,14 +53,14 @@ The pattern doesn't appear in the 2003 book; it was added to the DDD Reference a
 
 ```mermaid
 flowchart LR
-    A["Catalog Context"] <-->|"Partnership: joint planning and integration"| B["Search Context"]
+    A["Pix Context"] <-->|"Partnership: joint planning and integration"| B["Anti-fraud Context"]
 ```
 
 The bidirectional arrow indicates there's no upstream or downstream: both contexts coordinate changes and interfaces.
 
 ## Example
 
-A marketplace's Catalog team and Search team launch a new attribute-based filtering feature. The catalog needs to publish structured attributes and search needs to index them. The two teams plan the work in the same cycle, define the attribute format together, run joint integration tests every day, and release the feature only when both are ready.
+The fintech's Pix team and Anti-fraud team launch the nighttime limit for Pix transfers: from 8 p.m. to 6 a.m., each transfer has a lower cap, which the customer can raise only after a waiting period (illustrative hours and amounts). Pix needs to apply the limit and query Anti-fraud before sending the order, and Anti-fraud needs to assess late-night signals within the time budget of an instant payment. Neither can deliver without the other. The two teams plan the work in the same cycle, define the risk-check contract together, run joint integration tests every day, and release the feature only when both are ready.
 
 ## Related patterns
 

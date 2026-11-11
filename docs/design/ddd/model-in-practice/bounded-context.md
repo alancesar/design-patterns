@@ -54,24 +54,24 @@ O Bounded Context é o alicerce do design estratégico: é nele que a Ubiquitous
 
 ```mermaid
 flowchart LR
-    subgraph Vendas ["Contexto de Vendas"]
-        V1["Cliente = comprador com carrinho e pedidos"]
+    subgraph Onboarding ["Contexto de Onboarding"]
+        O1["Cliente = proponente com dossiê de KYC e documentos"]
     end
-    subgraph Suporte ["Contexto de Suporte"]
-        S1["Cliente = solicitante de chamados"]
+    subgraph Credito ["Contexto de Crédito"]
+        R1["Cliente = tomador com score e limite"]
     end
     subgraph Cobranca ["Contexto de Cobrança"]
-        C1["Cliente = pagador com contrato e fatura"]
+        C1["Cliente = devedor com parcelas em atraso"]
     end
-    Vendas -->|"traduz"| Cobranca
-    Suporte -->|"traduz"| Vendas
+    Onboarding -->|"traduz"| Credito
+    Credito -->|"traduz"| Cobranca
 ```
 
 O termo "Cliente" tem um modelo próprio em cada contexto, e as setas indicam pontos de tradução entre eles.
 
 ## Exemplo
 
-Uma empresa de telecomunicações tinha uma única classe `Customer` com mais de cem atributos, alterada por vendas, cobrança e suporte. Cada mudança de um time quebrava outro. A equipe separou três Bounded Contexts: em Vendas, o cliente é um lead com propostas e planos; em Cobrança, é o titular de um contrato com faturas e inadimplência; em Suporte, é quem abre chamados e tem um histórico de atendimento.
+Uma fintech tinha uma única classe `Customer` com dezenas de atributos, alterada pelos times de Onboarding, Crédito e Cobrança. Cada mudança de um time quebrava outro, e o status "bloqueado" significava KYC pendente para um time e inadimplência para outro. A equipe separou três Bounded Contexts: em Onboarding, o cliente é um proponente com dossiê de KYC e documentos; em Crédito, é um tomador com `RiskScore` e limite aprovado; em Cobrança, é um devedor com parcelas em atraso e acordos de pagamento.
 
 Cada contexto passou a ter seu modelo, seu código e seu esquema de banco, com um identificador de cliente compartilhado como única ligação. As integrações passaram por uma camada de tradução, e o vocabulário de cada time ficou preciso dentro do seu contexto.
 

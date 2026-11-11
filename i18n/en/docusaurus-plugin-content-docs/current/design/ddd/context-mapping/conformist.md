@@ -53,14 +53,14 @@ It's similar to Shared Kernel in outcome, but the difference is political: here 
 
 ```mermaid
 flowchart LR
-    U["Carrier Shipping API (upstream)"] -->|"upstream model"| D["Checkout Context (downstream, Conformist)"]
+    U["Pix scheme messages, in ISO 20022 (upstream)"] -->|"upstream model"| D["Pix Context (downstream, Conformist)"]
 ```
 
-The Checkout context directly adopts the upstream's concepts, with no translation layer.
+The Pix context directly adopts the concepts of the scheme's messages, with no translation layer.
 
 ## Example
 
-An online store integrates the shipping calculation of a large carrier, whose API defines concepts such as "Volume" and "Delivery Zone". Since the carrier won't change its API to suit the store, the Checkout team adopts those same terms and structures in its context, without building a translator. The decision saves weeks of development and is recorded in the Context Map. If shipping ever becomes a competitive differentiator, the decision will be revisited.
+The fintech connects to the Pix network, whose messages follow the ISO 20022 standard and define concepts such as the `endToEndId`, the payer, the payee, and the reason codes for a return. Since the scheme is defined by the regulator and won't change to suit a single institution, the Pix team adopts those same terms and structures in its context, without building a translator. The decision saves weeks of development and is recorded in the Context Map. If the scheme's model ever starts getting in the way of the fintech's own rules, the decision will be revisited.
 
 ## Related patterns
 

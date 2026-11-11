@@ -28,7 +28,7 @@ The effect is a strong reduction in mental load: the developer can call and comp
 
 ## When to use
 
-- In complex domain calculations (prices, colors, deadlines, rates).
+- In complex domain calculations (prices, interest, deadlines, rates).
 - When modeling concepts as Value Objects, which should be immutable.
 - When a query is called in many places and needs to be safe to compose.
 
@@ -53,51 +53,78 @@ The effect is a strong reduction in mental load: the developer can call and comp
 
 ```mermaid
 classDiagram
-    class Paint {
-        -int volume
-        -PigmentColor color
-        +mixIn(Paint other)
+    class Account {
+        -Money balance
+        +credit(Money amount)
     }
-    class PigmentColor {
-        +mixedWith(PigmentColor other, int w1, int w2) PigmentColor
+    class Money {
+        -long cents
+        +plus(Money other) Money
+        +times(BigDecimal rate) Money
+        +allocate(int[] ratios) List~Money~
     }
-    Paint --> PigmentColor : color
+    Account --> Money : balance
 ```
 
-`Paint.mixIn` is a command that changes state, while `PigmentColor.mixedWith` is a pure function that computes the new color without altering any object.
+`Account.credit` is a command that changes state, while `Money.times` and `Money.allocate` are pure functions that compute new values without altering any object. The book illustrates the pattern with paint mixing.
 
 ## Example
 
-In a paint system, the pigment mixing rule is complex. It lives in `PigmentColor`, an immutable Value Object; the command in `Paint` just applies the result.
+In a digital account, computing the yield and splitting an amount are delicate rules because of rounding. They live in `Money`, an immutable Value Object; the command in `Account` just applies the result. The rate is an illustrative value.
 
 ```java
-public final class PigmentColor {
-    private final double r, g, b;
+public final class Money {
+    private final long cents;
+    private final Currency currency;
 
-    public PigmentColor(double r, double g, double b) {
-        this.r = r; this.g = g; this.b = b;
+    private Money(long cents, Currency currency) {
+        this.cents = cents; this.currency = currency;
     }
 
-    // Pure function: returns a new color, nothing is modified
-    public PigmentColor mixedWith(PigmentColor other, int w1, int w2) {
-        int total = w1 + w2;
-        return new PigmentColor(
-            (r * w1 + other.r * w2) / total,
-            (g * w1 + other.g * w2) / total,
-            (b * w1 + other.b * w2) / total);
+    public static Money brl(long cents) {
+        return new Money(cents, Currency.getInstance("BRL"));
+    }
+
+    public Money plus(Money other) {
+        return new Money(cents + other.cents, currency);
+    }
+
+    // Pure function: returns a new value, nothing is modified
+    public Money times(BigDecimal rate) {
+        long result = BigDecimal.valueOf(cents).multiply(rate)
+            .setScale(0, RoundingMode.HALF_EVEN).longValueExact();
+        return new Money(result, currency);
+    }
+
+    // Pure function: splits without losing cents (the remainder goes to the first shares)
+    public List<Money> allocate(int... ratios) {
+        long totalRatio = Arrays.stream(ratios).sum();
+        long[] shares = new long[ratios.length];
+        long remainder = cents;
+        for (int i = 0; i < ratios.length; i++) {
+            shares[i] = cents * ratios[i] / totalRatio;
+            remainder -= shares[i];
+        }
+        for (int i = 0; i < remainder; i++) shares[i]++;
+        return Arrays.stream(shares)
+            .mapToObj(s -> new Money(s, currency)).toList();
     }
 }
 
-public class Paint {
-    private PigmentColor color;
-    private int volume;
+public class Account {
+    private Money balance;
 
     // Command: simple, just applies the result
-    public void mixIn(Paint other) {
-        color = color.mixedWith(other.color, volume, other.volume);
-        volume += other.volume;
+    public void credit(Money amount) {
+        balance = balance.plus(amount);
     }
+
+    public Money balance() { return balance; }
 }
+
+// Compute (query) and then apply (command)
+Money yield = account.balance().times(new BigDecimal("0.0105"));
+account.credit(yield);
 ```
 
 ## Related patterns

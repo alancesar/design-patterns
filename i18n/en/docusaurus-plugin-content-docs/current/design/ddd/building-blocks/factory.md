@@ -52,37 +52,36 @@ Don't confuse it with the GoF Factory Method and Abstract Factory patterns, whic
 
 ```mermaid
 classDiagram
-    class OrderFactory {
-        +createOrder(customer, items) Order
+    class LoanContractFactory {
+        +create(customer, proposal) LoanContract
     }
-    class Order {
+    class LoanContract {
         <<aggregate root>>
     }
-    class OrderItem
+    class Installment
     class Customer
-    OrderFactory ..> Order : creates
-    OrderFactory ..> Customer
-    Order "1" *-- "*" OrderItem
+    LoanContractFactory ..> LoanContract : creates
+    LoanContractFactory ..> Customer
+    LoanContract "1" *-- "*" Installment
 ```
 
-`OrderFactory` assembles the `Order` with its items and ensures the aggregate is valid when it's handed over.
+`LoanContractFactory` assembles the `LoanContract` with its `Installment` schedule and ensures the aggregate is valid when it's handed over.
 
 ## Example
 
-The factory creates the order already validated, preventing orders with no items or from blocked customers.
+The factory hands over the credit contract already carrying its installment schedule, and refuses to create one for a customer with a restriction.
 
 ```java
-public class OrderFactory {
-    public Order createOrder(Customer customer, List<OrderLine> lines) {
-        if (customer.isBlocked()) {
-            throw new IllegalStateException("Customer is blocked");
+public class LoanContractFactory {
+    public LoanContract create(Customer customer, CreditProposal proposal) {
+        if (customer.hasRestriction()) {
+            throw new IllegalStateException("Customer has a restriction");
         }
-        if (lines.isEmpty()) {
-            throw new IllegalArgumentException("Order has no items");
-        }
-        Order order = new Order(OrderId.next(), customer.id());
-        lines.forEach(l -> order.addItem(l.productId(), l.quantity(), l.price()));
-        return order;
+        LoanContract contract = new LoanContract(ContractId.next(), customer.id(), proposal.principal());
+        List<Installment> schedule = proposal.amortization()
+                .schedule(proposal.principal(), proposal.monthlyRate(), proposal.months());
+        schedule.forEach(contract::addInstallment);
+        return contract;
     }
 }
 ```

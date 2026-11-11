@@ -53,41 +53,51 @@ The pattern is the foundation of Supple Design. Interfaces that reveal intention
 
 ```mermaid
 classDiagram
-    class PaintBefore {
-        +paint(Paint other)
+    class AccountBefore {
+        +process(Money amount)
     }
-    class PaintAfter {
-        +mixIn(Paint other)
-        +volume() int
+    class AccountAfter {
+        +placeHold(Money amount)
+        +availableBalance() Money
     }
-    note for PaintBefore "Name does not reveal whether it mixes, replaces, or adds"
-    note for PaintAfter "Name reveals the effect: the paint receives the mix"
+    note for AccountBefore "Name does not reveal whether it debits, credits, or reserves"
+    note for AccountAfter "Name reveals the effect: reserves balance without debiting"
 ```
 
-In `PaintBefore`, the method doesn't say what happens to the paint; in `PaintAfter`, `mixIn` reveals the intention and the effect.
+In `AccountBefore`, the method doesn't say what happens to the balance; in `AccountAfter`, `placeHold` reveals the intention and the effect. The book illustrates the pattern with paint mixing.
 
 ## Example
 
-A paint module had a method `paint(Paint other)` that actually mixed the other paint into the current volume. The client had to read the method body to find out the effect. Renamed to `mixIn`, the contract is clear and the test says what's expected.
+A digital account had a method `process(Money amount)` that actually set the amount aside from the available balance, without debiting it. The client had to read the method body to find out the effect, and someone had already called it believing it moved the money. Renamed to `placeHold`, the contract is clear and the test says what's expected.
 
 ```java
-public class Paint {
-    private int volume;
-    private PigmentColor color;
+public class Account {
+    private Money balance;
+    private final Money overdraftLimit;
+    private Money held = Money.brl(0);
 
-    // Before: public void paint(Paint other)
-    public void mixIn(Paint other) {
-        color = color.mixedWith(other.color, volume, other.volume);
-        volume += other.volume;
+    public Account(Money balance, Money overdraftLimit) {
+        this.balance = balance;
+        this.overdraftLimit = overdraftLimit;
     }
 
-    public int volume() { return volume; }
+    // Before: public void process(Money amount)
+    public void placeHold(Money amount) {
+        held = held.plus(amount);
+    }
+
+    public Money balance() { return balance; }
+
+    public Money availableBalance() {
+        return balance.plus(overdraftLimit).minus(held);
+    }
 }
 
 // The test writes the contract before the implementation
-Paint blue = new Paint(100, PigmentColor.BLUE);
-blue.mixIn(new Paint(50, PigmentColor.YELLOW));
-assertEquals(150, blue.volume());
+Account account = new Account(Money.brl(100_00), Money.brl(0));
+account.placeHold(Money.brl(30_00));
+assertEquals(Money.brl(70_00), account.availableBalance());
+assertEquals(Money.brl(100_00), account.balance());
 ```
 
 ## Related patterns

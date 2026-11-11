@@ -66,24 +66,35 @@ The interface calls the application, which orchestrates the domain. Infrastructu
 
 ## Example
 
-In an order system, the controller (interface) calls an application service, which loads the aggregate, delegates the rule to the domain, and persists through the repository.
+In a Pix transfer, the `TransferController` (interface) calls the `TransferAppService`, which loads the account, delegates the rule to the domain, and persists through the repository.
 
 ```typescript
-// application
-class CancelOrderService {
-  constructor(private orders: OrderRepository) {}
+// interface
+class TransferController {
+  constructor(private transfers: TransferAppService) {}
 
-  async execute(orderId: string): Promise<void> {
-    const order = await this.orders.findById(orderId);
-    order.cancel(); // rule lives in the domain
-    await this.orders.save(order);
+  async post(req: { from: string; to: string; amountCents: number }) {
+    await this.transfers.execute(req.from, req.to, req.amountCents);
+  }
+}
+
+// application
+class TransferAppService {
+  constructor(private accounts: AccountRepository) {}
+
+  async execute(fromId: string, toId: string, amountCents: number): Promise<void> {
+    const from = await this.accounts.findById(fromId);
+    const to = await this.accounts.findById(toId);
+    from.transferTo(to, amountCents); // rule lives in the domain
+    await this.accounts.save(from);
+    await this.accounts.save(to);
   }
 }
 
 // domain
-interface OrderRepository {
-  findById(id: string): Promise<Order>;
-  save(order: Order): Promise<void>;
+interface AccountRepository {
+  findById(id: string): Promise<Account>;
+  save(account: Account): Promise<void>;
 }
 ```
 

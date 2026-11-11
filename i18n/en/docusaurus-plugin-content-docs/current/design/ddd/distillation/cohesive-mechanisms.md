@@ -55,48 +55,50 @@ It's different from a [Generic Subdomain](/design/ddd/distillation/generic-subdo
 
 ```mermaid
 classDiagram
-    class RouteService {
-        +plan(stops, constraints) Route
+    class LoanOfferService {
+        +offer(proposal, pricing) LoanOffer
     }
-    class RoutePlanner {
+    class RateSolver {
         <<interface>>
-        +findBestPath(graph, origin, destination) Path
+        +solveMonthlyRate(releasedCents, installmentsCents) double
     }
-    class DijkstraPlanner {
-        +findBestPath(graph, origin, destination) Path
+    class NewtonRateSolver {
+        +solveMonthlyRate(releasedCents, installmentsCents) double
     }
-    class AStarPlanner {
-        +findBestPath(graph, origin, destination) Path
+    class BisectionRateSolver {
+        +solveMonthlyRate(releasedCents, installmentsCents) double
     }
-    RouteService --> RoutePlanner
-    RoutePlanner <|.. DijkstraPlanner
-    RoutePlanner <|.. AStarPlanner
+    LoanOfferService --> RateSolver
+    RateSolver <|.. NewtonRateSolver
+    RateSolver <|.. BisectionRateSolver
 ```
 
-The `RouteService` domain service expresses the problem in business terms and delegates pathfinding to a replaceable mechanism behind `RoutePlanner`.
+The `LoanOfferService` domain service expresses the problem in business terms and delegates the numerical calculation of the CET rate to a replaceable mechanism behind `RateSolver`.
 
 ## Example
 
-A freight carrier calculates routes taking delivery windows and vehicle capacity into account. Finding the shortest path in a road graph is a classic computational problem; putting it inside `Shipment` or `Route` would make those classes unreadable.
+A credit fintech builds loan offers with a rate, installments, fees, and IOF, and has to disclose the CET (total effective cost) of each one. The CET is the rate that equates the installments, discounted to present value, to the amount actually released to the customer; that equation has no closed-form solution and requires a numerical method, such as Newton-Raphson or bisection. Putting those iterations inside `LoanOffer` or `PricingRule` would make those classes unreadable.
 
-The team extracts the algorithm into a mechanism with an intention-oriented interface, and the domain simply invokes it with its own concepts.
+The team extracts the calculation into a mechanism with an intention-oriented interface, and the domain simply invokes it with its own concepts.
 
 ```java
-public interface RoutePlanner {
-    Path findBestPath(RoadNetwork network, Location origin, Location destination);
+public interface RateSolver {
+    // Monthly rate that equates the present value of the installments to the released amount.
+    double solveMonthlyRate(long releasedCents, List<Long> installmentsCents);
 }
 
-public class RouteService {
-    private final RoutePlanner planner;
+public class LoanOfferService {
+    private final RateSolver solver;
 
-    public RouteService(RoutePlanner planner) {
-        this.planner = planner;
+    public LoanOfferService(RateSolver solver) {
+        this.solver = solver;
     }
 
-    public Route plan(Shipment shipment, RoadNetwork network) {
-        Path path = planner.findBestPath(
-            network, shipment.origin(), shipment.destination());
-        return Route.from(shipment, path);   // business rule
+    public LoanOffer offer(CreditProposal proposal, PricingRule pricing) {
+        List<Long> installmentsCents = pricing.installmentsFor(proposal);
+        long releasedCents = proposal.amountCents() - pricing.upfrontChargesCents(proposal);
+        double monthlyCet = solver.solveMonthlyRate(releasedCents, installmentsCents);
+        return LoanOffer.of(proposal, installmentsCents, monthlyCet);   // business rule
     }
 }
 ```

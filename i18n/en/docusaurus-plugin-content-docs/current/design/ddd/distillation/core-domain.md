@@ -67,9 +67,9 @@ The domain is divided by strategic value: the core gets the highest investment, 
 
 ## Example
 
-A logistics company competes for market share with faster and cheaper deliveries. Its Core Domain is route optimization and dynamic fleet allocation, where the algorithms and rules that no one else has live. The best engineers work on this model, with operations experts sitting alongside them.
+A credit fintech competes for market share by approving proposals within minutes and with rates adjusted to each customer's risk. Its Core Domain is credit decisioning and risk-based pricing (`CreditPolicy`, `RiskScore`, `PricingRule`, `LimitOffer`), where the models and rules that no one else has live. The best engineers work on this model, with risk analysts sitting alongside them.
 
-Billing, payroll, authentication, and email delivery are necessary, but they don't set the company apart. For those areas, the team adopts an off-the-shelf ERP and identity provider, preserving investment capacity for the routing engine.
+Boleto issuance, authentication, accounting, and email delivery are necessary, but they don't set the company apart. The team hires a partner bank to issue the boletos and adopts an off-the-shelf accounting system and identity provider, preserving investment capacity for the credit decision engine.
 
 ## Related patterns
 

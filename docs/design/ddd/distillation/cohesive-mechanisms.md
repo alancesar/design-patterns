@@ -55,48 +55,50 @@ O modelo de domínio passa a expressar o quê (conceitos e regras de negócio) e
 
 ```mermaid
 classDiagram
-    class RouteService {
-        +plan(stops, constraints) Route
+    class LoanOfferService {
+        +offer(proposal, pricing) LoanOffer
     }
-    class RoutePlanner {
+    class RateSolver {
         <<interface>>
-        +findBestPath(graph, origin, destination) Path
+        +solveMonthlyRate(releasedCents, installmentsCents) double
     }
-    class DijkstraPlanner {
-        +findBestPath(graph, origin, destination) Path
+    class NewtonRateSolver {
+        +solveMonthlyRate(releasedCents, installmentsCents) double
     }
-    class AStarPlanner {
-        +findBestPath(graph, origin, destination) Path
+    class BisectionRateSolver {
+        +solveMonthlyRate(releasedCents, installmentsCents) double
     }
-    RouteService --> RoutePlanner
-    RoutePlanner <|.. DijkstraPlanner
-    RoutePlanner <|.. AStarPlanner
+    LoanOfferService --> RateSolver
+    RateSolver <|.. NewtonRateSolver
+    RateSolver <|.. BisectionRateSolver
 ```
 
-O serviço de domínio `RouteService` expressa o problema em termos de negócio e delega a busca de caminho a um mecanismo substituível por trás de `RoutePlanner`.
+O serviço de domínio `LoanOfferService` expressa o problema em termos de negócio e delega o cálculo numérico da taxa do CET a um mecanismo substituível por trás de `RateSolver`.
 
 ## Exemplo
 
-Uma transportadora calcula rotas considerando janelas de entrega e capacidade dos veículos. A busca de menor caminho em um grafo viário é um problema computacional clássico; colocá-lo dentro de `Shipment` ou `Route` tornaria essas classes ilegíveis.
+Uma fintech de crédito monta ofertas de empréstimo com taxa, parcelas, tarifas e IOF, e precisa informar o CET de cada uma. O CET é a taxa que iguala as parcelas, trazidas a valor presente, ao valor efetivamente liberado ao cliente; essa equação não tem solução fechada e exige um método numérico, como Newton-Raphson ou bisseção. Colocar essas iterações dentro de `LoanOffer` ou `PricingRule` tornaria essas classes ilegíveis.
 
-A equipe extrai o algoritmo para um mecanismo com uma interface voltada à intenção, e o domínio apenas o invoca com seus próprios conceitos.
+A equipe extrai o cálculo para um mecanismo com uma interface voltada à intenção, e o domínio apenas o invoca com seus próprios conceitos.
 
 ```java
-public interface RoutePlanner {
-    Path findBestPath(RoadNetwork network, Location origin, Location destination);
+public interface RateSolver {
+    // Taxa mensal que iguala o valor presente das parcelas ao valor liberado.
+    double solveMonthlyRate(long releasedCents, List<Long> installmentsCents);
 }
 
-public class RouteService {
-    private final RoutePlanner planner;
+public class LoanOfferService {
+    private final RateSolver solver;
 
-    public RouteService(RoutePlanner planner) {
-        this.planner = planner;
+    public LoanOfferService(RateSolver solver) {
+        this.solver = solver;
     }
 
-    public Route plan(Shipment shipment, RoadNetwork network) {
-        Path path = planner.findBestPath(
-            network, shipment.origin(), shipment.destination());
-        return Route.from(shipment, path);   // regra de negócio
+    public LoanOffer offer(CreditProposal proposal, PricingRule pricing) {
+        List<Long> installmentsCents = pricing.installmentsFor(proposal);
+        long releasedCents = proposal.amountCents() - pricing.upfrontChargesCents(proposal);
+        double monthlyCet = solver.solveMonthlyRate(releasedCents, installmentsCents);
+        return LoanOffer.of(proposal, installmentsCents, monthlyCet);   // regra de negócio
     }
 }
 ```

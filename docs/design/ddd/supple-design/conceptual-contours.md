@@ -53,39 +53,40 @@ Os contornos raramente são encontrados na primeira tentativa. A equipe os desco
 
 ```mermaid
 flowchart LR
-    A["Antes: Invoice com preco, imposto e entrega"] -->|"mudanca de imposto afeta tudo"| B["Refatoracao"]
-    B --> C["Pricing"]
-    B --> D["Tax"]
-    B --> E["Shipping"]
+    A["Antes: parcela com juros, IOF e seguro"] -->|"mudanca do IOF afeta tudo"| B["Refatoracao"]
+    B --> C["Interest"]
+    B --> D["Iof"]
+    B --> E["Insurance"]
     C -.->|"mudam separados"| F["Mudancas localizadas"]
     D -.-> F
     E -.-> F
 ```
 
-Ao separar preço, imposto e entrega em unidades que mudam de forma independente, cada mudança de requisito fica restrita a uma delas.
+Ao separar juros, IOF e seguro em unidades que mudam de forma independente, cada mudança de requisito fica restrita a uma delas.
 
 ## Exemplo
 
-Uma classe `Invoice` calculava preço, imposto e frete em um único método. Como as regras de imposto mudam por legislação e as de frete por contrato logístico, cada mudança exigia mexer na mesma classe. A decomposição segue os contornos do domínio.
+O cálculo da parcela de um `LoanContract` somava juros, IOF e seguro em um único método. Como a política de juros muda por decisão comercial, o IOF por legislação e o seguro por contrato com a seguradora, cada mudança exigia mexer na mesma classe. A decomposição segue os contornos do domínio. As regras e os valores são ilustrativos.
 
 ```java
-public class Invoice {
-    private final PricingPolicy pricing;
-    private final TaxPolicy tax;
-    private final ShippingPolicy shipping;
+public class InstallmentCalculator {
+    private final InterestPolicy interest;
+    private final IofPolicy iof;
+    private final InsurancePolicy insurance;
 
-    public Invoice(PricingPolicy p, TaxPolicy t, ShippingPolicy s) {
-        this.pricing = p; this.tax = t; this.shipping = s;
+    public InstallmentCalculator(InterestPolicy i, IofPolicy t, InsurancePolicy s) {
+        this.interest = i; this.iof = t; this.insurance = s;
     }
 
-    public Money total(Order order) {
-        Money subtotal = pricing.priceOf(order);
-        return subtotal
-            .add(tax.taxOn(subtotal))
-            .add(shipping.costFor(order));
+    public Money amountFor(LoanContract contract) {
+        Money principalPart = contract.amortization();
+        return principalPart
+            .plus(interest.interestOn(contract))
+            .plus(iof.iofOn(contract))
+            .plus(insurance.premiumFor(contract));
     }
 }
-// Nova regra de imposto: só TaxPolicy muda.
+// Nova regra de IOF: só IofPolicy muda.
 ```
 
 ## Padrões relacionados

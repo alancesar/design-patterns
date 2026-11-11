@@ -53,14 +53,14 @@ A decisão elimina a complexidade de traduzir entre modelos e dá ao downstream 
 
 ```mermaid
 flowchart LR
-    U["API de Frete do Transportador (upstream)"] -->|"modelo do upstream"| D["Contexto de Checkout (downstream, Conformist)"]
+    U["Mensagens do arranjo Pix, em ISO 20022 (upstream)"] -->|"modelo do upstream"| D["Contexto de Pix (downstream, Conformist)"]
 ```
 
-O contexto de Checkout adota diretamente os conceitos do upstream, sem camada de tradução.
+O contexto de Pix adota diretamente os conceitos das mensagens do arranjo, sem camada de tradução.
 
 ## Exemplo
 
-Uma loja online integra o cálculo de frete de um grande transportador, cuja API define conceitos como "Volume" e "Zona de Entrega". Como o transportador não vai mudar sua API para atender à loja, o time de Checkout adota esses mesmos termos e estruturas em seu contexto, sem criar tradutor. A decisão economiza semanas de desenvolvimento e é registrada no Context Map. Se um dia o frete virar diferencial competitivo, a decisão será revista.
+A fintech se conecta à rede do Pix, cujas mensagens seguem o padrão ISO 20022 e definem conceitos como o `endToEndId`, o pagador, o recebedor e os códigos de motivo de uma devolução. Como o arranjo é definido pelo regulador e não vai mudar para atender a uma instituição, o time de Pix adota esses mesmos termos e estruturas em seu contexto, sem criar tradutor. A decisão economiza semanas de desenvolvimento e é registrada no Context Map. Se um dia o modelo do arranjo começar a atrapalhar regras próprias da fintech, a decisão será revista.
 
 ## Padrões relacionados
 

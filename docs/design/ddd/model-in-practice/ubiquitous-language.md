@@ -64,9 +64,9 @@ A linguagem fica no centro, ligando pessoas, modelo, código e documentos; o uso
 
 ## Exemplo
 
-Em um sistema de logística, os especialistas dizem "consolidar cargas" e "janela de coleta", enquanto o código tinha `mergeShipments()` e `pickupTimeRange`. Durante uma sessão de modelagem, percebeu-se que "consolidar" só se aplica a cargas com o mesmo destino, uma regra que o código não expressava.
+Em uma fintech, o código tinha um único método `refund()` para toda reversão de dinheiro, enquanto os especialistas falavam em devolução, estorno e contestação. Durante uma sessão de modelagem, percebeu-se que são três coisas diferentes: a devolução reverte um Pix recebido, o estorno é um lançamento novo que anula uma compra no cartão, e a contestação é uma disputa aberta pelo portador, que pode ou não terminar em estorno. O código não expressava nenhuma dessas distinções.
 
-O time renomeou os métodos e as classes para `consolidate()` e `PickupWindow`, ajustou os testes para usar as mesmas frases ditas pelos especialistas e passou a rejeitar a consolidação de cargas com destinos diferentes. O ganho foi que a regra, antes implícita, passou a existir tanto no vocabulário quanto no código.
+O time substituiu `refund()` por `PixReturn`, `Reversal` e `Chargeback`, ajustou os testes para usar as mesmas frases ditas pelos especialistas e passou a rejeitar uma devolução que, somada às anteriores, ultrapasse o valor do Pix original. O ganho foi que as regras, antes implícitas, passaram a existir tanto no vocabulário quanto no código.
 
 ## Padrões relacionados
 

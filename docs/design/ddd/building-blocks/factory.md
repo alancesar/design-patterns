@@ -52,37 +52,36 @@ Não se deve confundir com os padrões Factory Method e Abstract Factory do GoF,
 
 ```mermaid
 classDiagram
-    class OrderFactory {
-        +createOrder(customer, items) Order
+    class LoanContractFactory {
+        +create(customer, proposal) LoanContract
     }
-    class Order {
+    class LoanContract {
         <<aggregate root>>
     }
-    class OrderItem
+    class Installment
     class Customer
-    OrderFactory ..> Order : cria
-    OrderFactory ..> Customer
-    Order "1" *-- "*" OrderItem
+    LoanContractFactory ..> LoanContract : cria
+    LoanContractFactory ..> Customer
+    LoanContract "1" *-- "*" Installment
 ```
 
-`OrderFactory` monta o `Order` com seus itens e garante que o agregado seja válido ao ser entregue.
+`LoanContractFactory` monta o `LoanContract` com o cronograma de `Installment` e garante que o agregado seja válido ao ser entregue.
 
 ## Exemplo
 
-A fábrica cria o pedido já validado, impedindo pedidos sem itens ou de clientes bloqueados.
+A fábrica entrega o contrato de crédito já com o cronograma de parcelas, e recusa a criação para cliente com restrição.
 
 ```java
-public class OrderFactory {
-    public Order createOrder(Customer customer, List<OrderLine> lines) {
-        if (customer.isBlocked()) {
-            throw new IllegalStateException("Cliente bloqueado");
+public class LoanContractFactory {
+    public LoanContract create(Customer customer, CreditProposal proposal) {
+        if (customer.hasRestriction()) {
+            throw new IllegalStateException("Cliente com restrição");
         }
-        if (lines.isEmpty()) {
-            throw new IllegalArgumentException("Pedido sem itens");
-        }
-        Order order = new Order(OrderId.next(), customer.id());
-        lines.forEach(l -> order.addItem(l.productId(), l.quantity(), l.price()));
-        return order;
+        LoanContract contract = new LoanContract(ContractId.next(), customer.id(), proposal.principal());
+        List<Installment> schedule = proposal.amortization()
+                .schedule(proposal.principal(), proposal.monthlyRate(), proposal.months());
+        schedule.forEach(contract::addInstallment);
+        return contract;
     }
 }
 ```

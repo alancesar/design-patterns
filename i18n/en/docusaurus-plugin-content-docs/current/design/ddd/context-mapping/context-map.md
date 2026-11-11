@@ -54,20 +54,20 @@ For Evans, the Context Map is the central artifact of strategic modeling: it exp
 
 ```mermaid
 flowchart LR
-    V["Sales"] -->|"Open-host Service + Published Language"| F["Billing"]
-    V -->|"Customer/Supplier"| E["Inventory"]
-    L["Legacy System"] -->|"Conformist"| E
-    F -->|"Anticorruption Layer"| L
-    P["Payments (third party)"] -->|"Open-host Service"| F
+    CD["Digital Account"] -->|"Open-host Service + Published Language"| CR["Credit"]
+    CD -->|"Customer/Supplier"| CA["Cards"]
+    RP["Pix network (SPI and DICT)"] -->|"Conformist"| CD
+    L["Legacy core banking system"] -->|"Anticorruption Layer"| CR
+    BU["Credit bureau (third party)"] -->|"Open-host Service"| CR
 ```
 
 Each edge connects an upstream context to its downstream and is labeled with the relationship pattern that actually holds between them.
 
 ## Example
 
-A retailer has the Sales, Inventory, and Billing contexts, a legacy ERP, and a third-party payment gateway. While drawing the map, the team discovers that Inventory simply adopts the ERP's model (Conformist), that Billing needs a translation layer to talk to the ERP (Anticorruption Layer), and that Sales exposes a stable API to several consumers (Open-host Service).
+The fintech has the Digital Account, Cards, and Credit contexts, a legacy core banking system, and a third-party credit bureau, plus its connection to the Pix network. While drawing the map, the team discovers that Digital Account simply adopts the Pix network's message model (Conformist), that Credit needs a translation layer to read the old contracts in the legacy core (Anticorruption Layer), and that Digital Account exposes a stable API to several consumers (Open-host Service).
 
-With that, the team decides to prioritize the biweekly meeting between Sales and Inventory (Customer/Supplier) and to plan the gradual retirement of the ERP, using the map as a reference for where translations are needed.
+With that, the team decides to prioritize the biweekly meeting between Digital Account and Cards (Customer/Supplier) and to plan the gradual retirement of the legacy core, using the map as a reference for where translations are needed.
 
 ## Related patterns
 

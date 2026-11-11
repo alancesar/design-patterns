@@ -28,7 +28,7 @@ Because the model is generic, it shouldn't contain core concepts, and the core s
 
 ## When to use
 
-- When a mature solution exists on the market for the need (identity, payments, tax calculation, accounting).
+- When a mature solution exists on the market for the need (identity, boleto issuance, tax calculation, accounting).
 - When the subdomain is necessary but doesn't set the company apart from its competitors.
 - When you want to free up team capacity to concentrate on the core.
 
@@ -56,7 +56,7 @@ Because the model is generic, it shouldn't contain core concepts, and the core s
 ```mermaid
 flowchart LR
     A["Core Domain"] -->|"Narrow interface"| B["Identity and access"]
-    A -->|"Narrow interface"| C["Payments"]
+    A -->|"Narrow interface"| C["Boleto issuance"]
     A -->|"Narrow interface"| D["Notifications"]
     B --> E["Off-the-shelf product or library"]
     C --> F["External provider"]
@@ -67,9 +67,9 @@ The core consumes generic subdomains through narrow interfaces, and each of them
 
 ## Example
 
-An insurer's core is policy pricing and risk analysis. To issue payment slips, charge cards, authenticate brokers, and send notifications, it doesn't write its own models: it uses a payment provider, an identity service, and a messaging platform.
+A credit fintech's core is credit decisioning and risk-based pricing. To issue the installment boletos, authenticate customers, keep the books, and send notifications, it doesn't write its own models: it uses a partner bank that issues boletos, an identity service, an off-the-shelf accounting system, and a messaging platform.
 
-The core's code talks only to internal interfaces (`PaymentGateway`, `NotificationSender`), implemented by adapters. When the payment provider is replaced by a cheaper one, only the adapter changes and the policy model stays intact.
+The core's code talks only to internal interfaces (`BoletoIssuer`, `NotificationSender`), implemented by adapters. When the bank issuing the boletos is replaced by one with a lower fee, only the adapter changes and the credit decision model stays intact.
 
 ## Related patterns
 

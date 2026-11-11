@@ -51,32 +51,32 @@ When the model changes, modules should be refactored too, so they keep expressin
 
 ```mermaid
 flowchart LR
-    subgraph Shipping["shipping"]
-        S1["Shipment"]
-        S2["Carrier"]
+    subgraph Payments["payments"]
+        P1["PixTransfer"]
+        P2["Boleto"]
     end
-    subgraph Billing["billing"]
-        B1["Invoice"]
-        B2["Payment"]
+    subgraph Ledger["ledger"]
+        L1["Account"]
+        L2["LedgerEntry"]
     end
-    Shipping -->|"depends on"| Billing
+    Payments -->|"depends on"| Ledger
 ```
 
-The `shipping` and `billing` modules group cohesive concepts, with an explicit, unidirectional dependency.
+The `payments` and `ledger` modules group cohesive concepts, with an explicit, unidirectional dependency: payments depend on the ledger, and the ledger knows nothing about payments.
 
 ## Example
 
 Instead of `entities`, `services`, and `repositories` packages, the code is organized by business concept.
 
 ```text
-com.acme.shipping/
-    Shipment.java
-    Carrier.java
-    ShipmentRepository.java
-com.acme.billing/
-    Invoice.java
-    Payment.java
-    InvoiceRepository.java
+com.fintech.payments/
+    PixTransfer.java
+    Boleto.java
+    PixTransferRepository.java
+com.fintech.ledger/
+    Account.java
+    LedgerEntry.java
+    AccountRepository.java
 ```
 
 ## Related patterns

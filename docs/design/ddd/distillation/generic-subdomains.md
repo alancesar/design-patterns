@@ -28,7 +28,7 @@ Como o modelo é genérico, ele não deve conter conceitos do core, e o core nã
 
 ## Quando usar
 
-- Quando existe solução madura no mercado para a necessidade (identidade, pagamento, cálculo de impostos, contabilidade).
+- Quando existe solução madura no mercado para a necessidade (identidade, emissão de boletos, cálculo de impostos, contabilidade).
 - Quando o subdomínio é necessário, mas não distingue a empresa dos concorrentes.
 - Quando se quer liberar capacidade da equipe para concentrar-se no core.
 
@@ -56,7 +56,7 @@ Como o modelo é genérico, ele não deve conter conceitos do core, e o core nã
 ```mermaid
 flowchart LR
     A["Core Domain"] -->|"Interface estreita"| B["Identidade e acesso"]
-    A -->|"Interface estreita"| C["Pagamentos"]
+    A -->|"Interface estreita"| C["Emissão de boletos"]
     A -->|"Interface estreita"| D["Notificações"]
     B --> E["Produto pronto ou biblioteca"]
     C --> F["Provedor externo"]
@@ -67,9 +67,9 @@ O core consome subdomínios genéricos por interfaces estreitas, e cada um deles
 
 ## Exemplo
 
-Uma seguradora tem como core a precificação de apólices e a análise de risco. Para emitir boletos, cobrar cartões, autenticar corretores e enviar notificações, ela não escreve modelos próprios: usa um provedor de pagamentos, um serviço de identidade e uma plataforma de mensageria.
+Uma fintech de crédito tem como core a decisão de crédito e a precificação por risco. Para emitir os boletos das parcelas, autenticar clientes, manter a contabilidade e enviar notificações, ela não escreve modelos próprios: usa um banco parceiro que emite boletos, um serviço de identidade, um sistema contábil pronto e uma plataforma de mensageria.
 
-O código do core fala apenas com interfaces internas (`PaymentGateway`, `NotificationSender`), implementadas por adaptadores. Quando o provedor de pagamentos é trocado por outro mais barato, só o adaptador muda e o modelo de apólices permanece intacto.
+O código do core fala apenas com interfaces internas (`BoletoIssuer`, `NotificationSender`), implementadas por adaptadores. Quando o banco emissor dos boletos é trocado por outro com tarifa menor, só o adaptador muda e o modelo de decisão de crédito permanece intacto.
 
 ## Padrões relacionados
 

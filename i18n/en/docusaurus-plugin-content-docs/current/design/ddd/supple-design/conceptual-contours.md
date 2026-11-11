@@ -53,39 +53,40 @@ Contours are rarely found on the first attempt. The team discovers them by refac
 
 ```mermaid
 flowchart LR
-    A["Before: Invoice with price, tax, and shipping"] -->|"tax change affects everything"| B["Refactoring"]
-    B --> C["Pricing"]
-    B --> D["Tax"]
-    B --> E["Shipping"]
+    A["Before: installment with interest, IOF, and insurance"] -->|"IOF change affects everything"| B["Refactoring"]
+    B --> C["Interest"]
+    B --> D["Iof"]
+    B --> E["Insurance"]
     C -.->|"change independently"| F["Localized changes"]
     D -.-> F
     E -.-> F
 ```
 
-By separating price, tax, and shipping into units that change independently, each requirement change is confined to one of them.
+By separating interest, IOF, and insurance into units that change independently, each requirement change is confined to one of them.
 
 ## Example
 
-An `Invoice` class calculated price, tax, and shipping in a single method. Because tax rules change with legislation and shipping rules change with logistics contracts, every change meant touching the same class. The decomposition follows the contours of the domain.
+The installment calculation of a `LoanContract` summed interest, IOF, and insurance in a single method. Because the interest policy changes by commercial decision, IOF by legislation, and insurance by contract with the insurer, every change meant touching the same class. The decomposition follows the contours of the domain. The rules and values are illustrative.
 
 ```java
-public class Invoice {
-    private final PricingPolicy pricing;
-    private final TaxPolicy tax;
-    private final ShippingPolicy shipping;
+public class InstallmentCalculator {
+    private final InterestPolicy interest;
+    private final IofPolicy iof;
+    private final InsurancePolicy insurance;
 
-    public Invoice(PricingPolicy p, TaxPolicy t, ShippingPolicy s) {
-        this.pricing = p; this.tax = t; this.shipping = s;
+    public InstallmentCalculator(InterestPolicy i, IofPolicy t, InsurancePolicy s) {
+        this.interest = i; this.iof = t; this.insurance = s;
     }
 
-    public Money total(Order order) {
-        Money subtotal = pricing.priceOf(order);
-        return subtotal
-            .add(tax.taxOn(subtotal))
-            .add(shipping.costFor(order));
+    public Money amountFor(LoanContract contract) {
+        Money principalPart = contract.amortization();
+        return principalPart
+            .plus(interest.interestOn(contract))
+            .plus(iof.iofOn(contract))
+            .plus(insurance.premiumFor(contract));
     }
 }
-// New tax rule: only TaxPolicy changes.
+// New IOF rule: only IofPolicy changes.
 ```
 
 ## Related patterns

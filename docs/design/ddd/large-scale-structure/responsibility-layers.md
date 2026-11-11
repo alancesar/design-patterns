@@ -65,9 +65,9 @@ Cada camada depende apenas das camadas abaixo dela: políticas conhecem operaç�
 
 ## Exemplo
 
-Uma transportadora modela seu domínio em quatro camadas de responsabilidade. Potential reúne o que a empresa possui (veículos, galpões, motoristas). Operations cuida do que está acontecendo (entregas em andamento, rotas ativas). Policy guarda as regras de decisão (priorização de cargas, tabelas de preço), e é a camada que mais muda.
+Uma fintech modela seu domínio em três camadas de responsabilidade. Potential reúne o que cada cliente pode usar (limites concedidos, produtos contratados, como conta, cartão e crédito). Operations cuida do que está acontecendo (transferências Pix, lançamentos no ledger, liquidações). Policy guarda as regras de decisão (tarifas, política de limites, regras antifraude), e é a camada que mais muda.
 
-Ao incluir um novo conceito, "janela de entrega prioritária", a equipe pergunta qual a sua responsabilidade: é uma regra de decisão, portanto fica em Policy, e pode consultar Operations para saber o estado das rotas. Se um módulo de Operations passasse a depender de uma classe de Policy, a regra de dependência seria violada e o design seria revisto para que Operations recebesse a decisão por parâmetro.
+Ao incluir um novo conceito, "limite noturno do Pix" (valor ilustrativo, menor que o diurno), a equipe pergunta qual a sua responsabilidade: é uma regra de decisão, portanto fica em Policy, e pode consultar Operations para somar as transferências da noite. Se o módulo de transferências em Operations passasse a depender de uma classe de Policy, a regra de dependência seria violada e o design seria revisto para que Operations recebesse a decisão (aprovar ou recusar a transferência) por parâmetro.
 
 ## Padrões relacionados
 

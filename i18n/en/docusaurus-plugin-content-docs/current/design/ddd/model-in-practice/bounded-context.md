@@ -54,24 +54,24 @@ The Bounded Context is the foundation of strategic design: it's where the Ubiqui
 
 ```mermaid
 flowchart LR
-    subgraph Vendas ["Sales Context"]
-        V1["Customer = buyer with cart and orders"]
+    subgraph Onboarding ["Onboarding Context"]
+        O1["Customer = applicant with KYC dossier and documents"]
     end
-    subgraph Suporte ["Support Context"]
-        S1["Customer = ticket requester"]
+    subgraph Credito ["Credit Context"]
+        R1["Customer = borrower with score and limit"]
     end
-    subgraph Cobranca ["Billing Context"]
-        C1["Customer = payer with contract and invoice"]
+    subgraph Cobranca ["Collections Context"]
+        C1["Customer = debtor with overdue installments"]
     end
-    Vendas -->|"translates"| Cobranca
-    Suporte -->|"translates"| Vendas
+    Onboarding -->|"translates"| Credito
+    Credito -->|"translates"| Cobranca
 ```
 
 The term "Customer" has its own model in each context, and the arrows indicate translation points between them.
 
 ## Example
 
-A telecommunications company had a single `Customer` class with more than a hundred attributes, changed by sales, billing, and support. Every change by one team broke another. The team split it into three Bounded Contexts: in Sales, the customer is a lead with proposals and plans; in Billing, it's the holder of a contract with invoices and delinquency; in Support, it's whoever opens tickets and has a service history.
+A fintech had a single `Customer` class with dozens of attributes, changed by the Onboarding, Credit, and Collections teams. Every change by one team broke another, and the "blocked" status meant pending KYC to one team and delinquency to another. The team split it into three Bounded Contexts: in Onboarding, the customer is an applicant with a KYC dossier and documents; in Credit, it's a borrower with a `RiskScore` and an approved limit; in Collections, it's a debtor with overdue installments and payment agreements.
 
 Each context got its own model, code, and database schema, with a shared customer identifier as the only link. Integrations went through a translation layer, and each team's vocabulary became precise within its own context.
 

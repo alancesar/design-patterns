@@ -67,9 +67,9 @@ O domínio é dividido por valor estratégico: o core recebe o investimento mais
 
 ## Exemplo
 
-Uma empresa de logística disputa mercado com entregas mais rápidas e baratas. Seu Core Domain é a otimização de rotas e a alocação dinâmica de frota, onde estão os algoritmos e as regras que ninguém mais tem. Os melhores engenheiros trabalham nesse modelo, com especialistas de operações sentados ao lado.
+Uma fintech de crédito disputa mercado aprovando propostas em minutos e com taxas ajustadas ao risco de cada cliente. Seu Core Domain é a decisão de crédito e a precificação por risco (`CreditPolicy`, `RiskScore`, `PricingRule`, `LimitOffer`), onde estão os modelos e as regras que ninguém mais tem. Os melhores engenheiros trabalham nesse modelo, com analistas de risco sentados ao lado.
 
-Faturamento, folha de pagamento, autenticação e envio de e-mails são necessários, mas não diferenciam a empresa. A equipe adota um ERP e um provedor de identidade prontos para essas áreas, preservando a capacidade de investimento para o motor de roteirização.
+Emissão de boletos, autenticação, contabilidade e envio de e-mails são necessários, mas não diferenciam a empresa. A equipe contrata um banco parceiro para emitir os boletos e adota um sistema contábil e um provedor de identidade prontos, preservando a capacidade de investimento para o motor de decisão de crédito.
 
 ## Padrões relacionados
 

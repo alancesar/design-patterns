@@ -54,20 +54,20 @@ Para Evans, o Context Map é o artefato central da modelagem estratégica: ele e
 
 ```mermaid
 flowchart LR
-    V["Vendas"] -->|"Open-host Service + Published Language"| F["Faturamento"]
-    V -->|"Customer/Supplier"| E["Estoque"]
-    L["Sistema Legado"] -->|"Conformist"| E
-    F -->|"Anticorruption Layer"| L
-    P["Pagamentos (terceiro)"] -->|"Open-host Service"| F
+    CD["Conta Digital"] -->|"Open-host Service + Published Language"| CR["Crédito"]
+    CD -->|"Customer/Supplier"| CA["Cartões"]
+    RP["Rede do Pix (SPI e DICT)"] -->|"Conformist"| CD
+    L["Core bancário legado"] -->|"Anticorruption Layer"| CR
+    BU["Bureau de crédito (terceiro)"] -->|"Open-host Service"| CR
 ```
 
 Cada aresta liga um contexto upstream ao seu downstream e é rotulada com o padrão de relacionamento que de fato vigora entre eles.
 
 ## Exemplo
 
-Uma varejista tem os contextos Vendas, Estoque, Faturamento, um ERP legado e um gateway de pagamento de terceiro. Ao desenhar o mapa, o time descobre que Estoque simplesmente adota o modelo do ERP (Conformist), que Faturamento precisa de uma camada de tradução para conversar com o ERP (Anticorruption Layer) e que Vendas expõe uma API estável para vários consumidores (Open-host Service).
+A fintech tem os contextos Conta Digital, Cartões e Crédito, um core bancário legado e um bureau de crédito de terceiro, além da ligação com a rede do Pix. Ao desenhar o mapa, o time descobre que Conta Digital simplesmente adota o modelo de mensagens da rede do Pix (Conformist), que Crédito precisa de uma camada de tradução para ler os contratos antigos do core legado (Anticorruption Layer) e que Conta Digital expõe uma API estável para vários consumidores (Open-host Service).
 
-Com isso, o time decide priorizar a reunião quinzenal entre Vendas e Estoque (Customer/Supplier) e planejar a retirada gradual do ERP, usando o mapa como referência de onde as traduções são necessárias.
+Com isso, o time decide priorizar a reunião quinzenal entre Conta Digital e Cartões (Customer/Supplier) e planejar a retirada gradual do core legado, usando o mapa como referência de onde as traduções são necessárias.
 
 ## Padrões relacionados
 

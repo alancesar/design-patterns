@@ -66,9 +66,9 @@ A continuous cycle: signals in the language and the code lead to conversation, t
 
 ## Example
 
-In an equipment rental system, the late-fee rule was scattered across several methods, with flags like `isPremium` and `isWeekend`. In a conversation with the operations manager, the team heard the term "grace policy", which didn't exist in the code. By making it explicit, they created a `GracePolicy` concept that encapsulates when and how much to charge.
+In a fintech's credit card invoice system, the late-charge rule was scattered across several methods, with flags like `isPayroll` and `isRenegotiated`. In a conversation with the collections manager, the team heard the term "late policy", which brought together the late fee, default interest, and grace days and didn't exist in the code. By making it explicit, they created a `LateFeePolicy` concept that encapsulates when and how much to charge.
 
-The flags disappeared, the rule ended up in one place, and new policies, such as one for corporate customers, became just new variations. The change was only safe because the existing tests were kept and extended during the refactoring.
+The flags disappeared, the rule ended up in one place, and new policies, such as one for business accounts, became just new variations. The change was only safe because the existing tests were kept and extended during the refactoring.
 
 ## Related patterns
 
