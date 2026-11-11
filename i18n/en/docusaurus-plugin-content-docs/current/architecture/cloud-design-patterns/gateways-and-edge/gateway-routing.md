@@ -16,7 +16,7 @@ sidebar_label: "Gateway Routing"
 
 The Gateway Routing pattern puts a gateway in front of a set of applications, services, or deployments and exposes everything through a single endpoint. The gateway inspects each request at layer 7 (URL path, host, headers, port, or source IP) and forwards it to the appropriate backend destination.
 
-This way, the client knows and talks to just one endpoint. The gateway can forward to distinct services (search, cart, checkout), to multiple instances of the same service (load balancing and availability, including across regions), or to different versions of a service (blue-green, canary, gradual rollout). The backend topology is encapsulated in the gateway, and changes to it come down to routing configuration adjustments.
+This way, the client knows and talks to just one endpoint. The gateway can forward to distinct services (accounts, Pix, cards), to multiple instances of the same service (load balancing and availability, including across regions), or to different versions of a service (blue-green, canary, gradual rollout). The backend topology is encapsulated in the gateway, and changes to it come down to routing configuration adjustments.
 
 A common reverse proxy, such as Nginx, already implements the pattern. On Azure, for example, Application Gateway offers regional routing and Front Door offers global routing.
 
@@ -66,16 +66,16 @@ A common reverse proxy, such as Nginx, already implements the pattern. On Azure,
 ```mermaid
 flowchart LR
     C[Client] --> G["Gateway (single endpoint)"]
-    G -->|"/search"| S1[Search service]
-    G -->|"/cart"| S2[Cart service]
-    G -->|"/orders"| S3[Order service]
-    G -->|"90% of traffic"| V1["Checkout v1"]
-    G -->|"10% of traffic (canary)"| V2["Checkout v2"]
-    G -->|"region 1"| R1["Search - region 1 instance"]
-    G -->|"region 2"| R2["Search - region 2 instance"]
+    G -->|"/contas"| S1[Account service]
+    G -->|"/pix"| S2[Pix service]
+    G -->|"/cartoes"| S3[Card service]
+    G -->|"90% of traffic"| V1["Pix v1"]
+    G -->|"10% of traffic (canary)"| V2["Pix v2"]
+    G -->|"region 1"| R1["Statement - region 1 instance"]
+    G -->|"region 2"| R2["Statement - region 2 instance"]
 ```
 
-The client sends all requests to the gateway, which routes them by path to distinct services, splits traffic between versions of the same service, and distributes load across instances in different regions.
+The client sends all requests to the gateway, which routes them by path to distinct services (accounts, Pix, and cards), splits Pix traffic between the current version and a canary version, and distributes the statement load across instances in different regions.
 
 ## Related patterns
 

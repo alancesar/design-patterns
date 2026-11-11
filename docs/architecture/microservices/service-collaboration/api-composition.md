@@ -14,7 +14,7 @@ sidebar_label: "API Composition"
 
 Em uma aplicação com microsserviços e Database per Service, os dados estão espalhados em bancos privados, e consultas que combinam informações de vários serviços deixam de ser um simples *join*. O API Composition resolve isso com um componente chamado *API Composer*, que invoca os serviços que detêm os dados e executa um *join* em memória sobre os resultados.
 
-Em geral, o papel de compositor é assumido por um API Gateway, mas pode ser um serviço dedicado ou um *backend for frontend*. Por exemplo, para listar um cliente com os seus pedidos recentes, o compositor consulta o serviço de clientes, depois o serviço de pedidos, e monta a resposta combinada.
+Em geral, o papel de compositor é assumido por um API Gateway, mas pode ser um serviço dedicado ou um *backend for frontend*. Por exemplo, para montar a visão geral do cliente, o compositor consulta o serviço de contas (saldo), depois o serviço de cartões (fatura aberta), e monta a resposta combinada.
 
 **Relação com Gateway Aggregation:** o Gateway Aggregation, do catálogo de padrões de nuvem, é essencialmente a mesma técnica aplicada no gateway: agregar várias chamadas de back-end em uma única requisição do cliente. A diferença está no enfoque. O Gateway Aggregation é um padrão de borda, focado em reduzir a "tagarelice" (*chattiness*) entre cliente e serviços, e não discute a origem da fragmentação dos dados. O API Composition é um padrão de dados de microsserviços, motivado por Database per Service, que trata especificamente de como implementar consultas e *joins* entre bancos privados, e pode ser executado dentro do gateway ou de qualquer outro serviço. Dizendo de outro modo: o gateway é um lugar onde a composição acontece; a composição é a estratégia de consulta.
 
@@ -55,18 +55,18 @@ Em geral, o papel de compositor é assumido por um API Gateway, mas pode ser um 
 sequenceDiagram
     participant C as Cliente
     participant A as API Composer
-    participant CS as Serviço de clientes
-    participant OS as Serviço de pedidos
-    C->>A: Consultar cliente com pedidos recentes
-    A->>CS: Buscar cliente
-    CS-->>A: Dados do cliente
-    A->>OS: Buscar pedidos do cliente
-    OS-->>A: Lista de pedidos
+    participant ACC as Serviço de contas
+    participant CS as Serviço de cartões
+    C->>A: Consultar visão geral
+    A->>ACC: Buscar saldo
+    ACC-->>A: Saldo da conta
+    A->>CS: Buscar fatura aberta
+    CS-->>A: Fatura aberta
     A->>A: Join em memória
     A-->>C: Resposta combinada
 ```
 
-O compositor chama cada serviço dono dos dados, une os resultados em memória e devolve uma resposta única ao cliente.
+O compositor chama cada serviço dono dos dados, une os resultados em memória e devolve uma resposta única ao cliente. A fonte ilustra o padrão com clientes e pedidos.
 
 ## Padrões relacionados
 

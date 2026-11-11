@@ -28,7 +28,7 @@ In microservices, the Saga is the direct consequence of the Database per Service
 - The infeasibility or high cost of distributed transaction protocols, such as two-phase commit, in cloud environments and with heterogeneous storage technologies.
 - The need to undo partial changes in a controlled way when a step in a distributed business flow fails.
 - Implementing business transactions that cross services without 2PC when each service keeps its own private database (Database per Service).
-- Inconsistent states between services after partial failures in long operations (for example, order created, payment declined, and inventory already reserved).
+- Inconsistent states between services after partial failures in long operations (for example, contract created, funding reserved, and Pix disbursement declined).
 
 ## When to use
 
@@ -70,23 +70,23 @@ In microservices, the Saga is the direct consequence of the Database per Service
 ```mermaid
 flowchart LR
     subgraph Orquestracao["Orchestration"]
-        O["Saga orchestrator"] -->|"1. Create order"| P1["Order service"]
-        O -->|"2. Process payment"| P2["Payment service"]
-        O -->|"3. Reserve inventory"| P3["Inventory service"]
+        O["Saga orchestrator"] -->|"1. Create contract"| P1["Contract service"]
+        O -->|"2. Reserve funding"| P2["Funding service"]
+        O -->|"3. Disburse via Pix"| P3["Payment service"]
         P3 -.->|"Failure"| O
-        O -.->|"Compensate: refund payment"| P2
-        O -.->|"Compensate: cancel order"| P1
+        O -.->|"Compensate: release funding"| P2
+        O -.->|"Compensate: cancel contract"| P1
     end
 
     subgraph Coreografia["Choreography"]
-        C1["Order service"] -->|"Event: order created"| C2["Payment service"]
-        C2 -->|"Event: payment approved"| C3["Inventory service"]
-        C3 -.->|"Event: inventory unavailable"| C2
-        C2 -.->|"Event: payment refunded"| C1
+        C1["Contract service"] -->|"Event: contract created"| C2["Funding service"]
+        C2 -->|"Event: funding reserved"| C3["Payment service"]
+        C3 -.->|"Event: disbursement failed"| C2
+        C2 -.->|"Event: funding released"| C1
     end
 ```
 
-In orchestration, a central component sends commands to each participant and, when a step fails, triggers the compensations in reverse order. In choreography, the services themselves react to each other's events, and the compensations also propagate through events (dashed lines).
+In a loan origination, orchestration has a central component that sends commands to each participant and, when a step fails, triggers the compensations in reverse order. In choreography, the services themselves react to each other's events, and the compensations also propagate through events (dashed lines). Releasing the funding and canceling the contract are new actions that do not erase the original record.
 
 ## Related patterns
 

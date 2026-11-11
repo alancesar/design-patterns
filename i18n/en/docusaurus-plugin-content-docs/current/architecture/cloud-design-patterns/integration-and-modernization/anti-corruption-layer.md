@@ -91,37 +91,38 @@ The services in subsystem A speak only their own model to the Anti-Corruption La
 
 ## Example
 
-A new Orders context needs to look up customers in a legacy ERP, which exposes records with cryptic fields and numeric statuses. Instead of spreading that format throughout the domain, the context defines the `CustomerDirectory` interface in its own language and implements it with a translator that converts the legacy record into an object of its own model.
+A new Digital Account context needs to look up accounts in the legacy core banking system, which exposes records with cryptic fields and numeric statuses. Instead of spreading that format throughout the domain, the context defines the `AccountDirectory` interface in its own language and implements it with a translator that converts the legacy record into an object of its own model.
 
 ```java
-public interface CustomerDirectory {
-    Customer findById(CustomerId id);
+public interface AccountDirectory {
+    Account findById(AccountId id);
 }
 
-public class LegacyErpCustomerDirectory implements CustomerDirectory {
-    private final LegacyErpClient erp;
+public class LegacyCoreAccountDirectory implements AccountDirectory {
+    private final LegacyCoreClient core;
 
-    public LegacyErpCustomerDirectory(LegacyErpClient erp) { this.erp = erp; }
+    public LegacyCoreAccountDirectory(LegacyCoreClient core) { this.core = core; }
 
-    public Customer findById(CustomerId id) {
-        LegacyCustomerRecord r = erp.fetchCli(id.value());
-        return new Customer(
+    public Account findById(AccountId id) {
+        LegacyAccountRecord r = core.fetchCta(id.value());
+        return new Account(
             id,
-            new PersonName(r.nmCli().trim()),
-            translateStatus(r.stCli()));
+            new HolderName(r.nmTit().trim()),
+            translateStatus(r.stCta()));
     }
 
-    private CustomerStatus translateStatus(int code) {
+    private AccountStatus translateStatus(int code) {
         return switch (code) {
-            case 1 -> CustomerStatus.ACTIVE;
-            case 2 -> CustomerStatus.BLOCKED;
-            default -> CustomerStatus.INACTIVE;
+            case 1 -> AccountStatus.ACTIVE;
+            case 2 -> AccountStatus.BLOCKED;
+            case 9 -> AccountStatus.CLOSED;
+            default -> throw new IllegalStateException("Unknown legacy status: " + code);
         };
     }
 }
 ```
 
-The Orders domain only knows `CustomerDirectory` and `Customer`; changes in the ERP are confined to the translator.
+The Digital Account domain only knows `AccountDirectory` and `Account`; changes in the core banking system are confined to the translator.
 
 ## Related patterns
 

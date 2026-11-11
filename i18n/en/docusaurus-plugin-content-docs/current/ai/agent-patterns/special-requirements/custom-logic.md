@@ -52,19 +52,19 @@ Each step can be an agent, a tool, or a check in code, and the code itself decid
 
 ```mermaid
 flowchart TD
-    U["User query"] --> C["Coordinator agent"]
-    C --> P1["Purchase verifier"]
-    C --> P2["Refund eligibility agent"]
+    U["Customer dispute"] --> C["Coordinator agent"]
+    C --> P1["Transaction verifier"]
+    C --> P2["Eligibility agent"]
     P1 --> D{"Eligible?"}
     P2 --> D
-    D -->|"Yes"| R["Refund agent"]
-    D -->|"No"| K["Store credit agent"]
-    K --> K2["Credit decision agent"]
+    D -->|"Yes"| R["Provisional invoice credit agent"]
+    D -->|"No"| K["Denial agent"]
+    K --> K2["Denial justification agent"]
     R --> F["Final response agent"]
     K2 --> F
 ```
 
-Example of a refund agent: a parallel check feeds a conditional branch in code (refund or store credit), and a final agent writes the response.
+Example of a purchase dispute agent: a parallel check feeds a conditional branch in code (provisional invoice credit or denial), and a final agent writes the response.
 
 ## Related patterns
 

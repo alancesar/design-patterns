@@ -51,13 +51,13 @@ Para que as partes possam ser recombinadas depois, é comum que cada mensagem ca
 
 ```mermaid
 flowchart LR
-    M["Pedido com itens"] --> S{"Splitter"}
-    S --> I1["Mensagem do item 1"]
-    S --> I2["Mensagem do item 2"]
-    S --> I3["Mensagem do item 3"]
+    M["Lote de folha de pagamento"] --> S{"Splitter"}
+    S --> I1["Mensagem do pagamento 1"]
+    S --> I2["Mensagem do pagamento 2"]
+    S --> I3["Mensagem do pagamento 3"]
 ```
 
-O pedido composto é dividido em uma mensagem por item, prontas para roteamento independente.
+O lote é dividido em uma mensagem por pagamento, prontas para roteamento independente. A fonte ilustra o padrão com um pedido de vários itens.
 
 ## Padrões relacionados
 

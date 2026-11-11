@@ -49,15 +49,15 @@ Os subdomínios são classificados em três tipos: core (o diferencial competiti
 
 ```mermaid
 flowchart TB
-    D["Domínio: loja online"] --> CORE["Core: Gestão de Pedidos"]
-    D --> SUP["Supporting: Entrega"]
-    D --> GEN["Generic: Pagamentos"]
-    CORE --> S1["Serviço de Pedidos"]
-    SUP --> S2["Serviço de Entrega"]
+    D["Domínio: banco digital"] --> CORE["Core: Decisão de crédito"]
+    D --> SUP["Supporting: Conciliação"]
+    D --> GEN["Generic: Validação de identidade"]
+    CORE --> S1["Serviço de Decisão de crédito"]
+    SUP --> S2["Serviço de Conciliação"]
     GEN --> S3["Produto de mercado ou serviço genérico"]
 ```
 
-O domínio é dividido em subdomínios de tipos distintos, cada um mapeado para um serviço ou solução adequada.
+O domínio é dividido em subdomínios de tipos distintos, cada um mapeado para um serviço ou solução adequada. A fonte ilustra o padrão com pedidos, entrega e pagamentos.
 
 ## Padrões relacionados
 

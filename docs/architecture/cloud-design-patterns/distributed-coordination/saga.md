@@ -28,7 +28,7 @@ Em microsserviços, a Saga é a consequência direta do padrão Database per Ser
 - Inviabilidade ou alto custo de protocolos de transação distribuída, como o two-phase commit, em ambientes de nuvem e com tecnologias de armazenamento heterogêneas.
 - Necessidade de desfazer de forma controlada as alterações parciais quando um passo de um fluxo de negócio distribuído falha.
 - Implementar transações de negócio que atravessam serviços sem 2PC quando cada serviço mantém seu banco privado (Database per Service).
-- Estados inconsistentes entre serviços após falhas parciais em operações longas (por exemplo, pedido criado, pagamento recusado e estoque já reservado).
+- Estados inconsistentes entre serviços após falhas parciais em operações longas (por exemplo, contrato criado, funding reservado e desembolso por Pix recusado).
 
 ## Quando usar
 
@@ -70,23 +70,23 @@ Em microsserviços, a Saga é a consequência direta do padrão Database per Ser
 ```mermaid
 flowchart LR
     subgraph Orquestracao["Orquestração"]
-        O["Orquestrador da saga"] -->|"1. Criar pedido"| P1["Serviço de pedidos"]
-        O -->|"2. Processar pagamento"| P2["Serviço de pagamentos"]
-        O -->|"3. Reservar estoque"| P3["Serviço de estoque"]
+        O["Orquestrador da saga"] -->|"1. Criar contrato"| P1["Serviço de contratos"]
+        O -->|"2. Reservar funding"| P2["Serviço de funding"]
+        O -->|"3. Desembolsar por Pix"| P3["Serviço de pagamentos"]
         P3 -.->|"Falha"| O
-        O -.->|"Compensar: estornar pagamento"| P2
-        O -.->|"Compensar: cancelar pedido"| P1
+        O -.->|"Compensar: liberar funding"| P2
+        O -.->|"Compensar: cancelar contrato"| P1
     end
 
     subgraph Coreografia["Coreografia"]
-        C1["Serviço de pedidos"] -->|"Evento: pedido criado"| C2["Serviço de pagamentos"]
-        C2 -->|"Evento: pagamento aprovado"| C3["Serviço de estoque"]
-        C3 -.->|"Evento: estoque indisponível"| C2
-        C2 -.->|"Evento: pagamento estornado"| C1
+        C1["Serviço de contratos"] -->|"Evento: contrato criado"| C2["Serviço de funding"]
+        C2 -->|"Evento: funding reservado"| C3["Serviço de pagamentos"]
+        C3 -.->|"Evento: desembolso falhou"| C2
+        C2 -.->|"Evento: funding liberado"| C1
     end
 ```
 
-Na orquestração, um componente central envia comandos a cada participante e, quando um passo falha, dispara as compensações em ordem inversa. Na coreografia, os próprios serviços reagem aos eventos uns dos outros, e as compensações também se propagam por eventos (linhas tracejadas).
+Na contratação de um empréstimo, a orquestração tem um componente central que envia comandos a cada participante e, quando um passo falha, dispara as compensações em ordem inversa. Na coreografia, os próprios serviços reagem aos eventos uns dos outros, e as compensações também se propagam por eventos (linhas tracejadas). Liberar o funding e cancelar o contrato são ações novas, que não apagam o registro original.
 
 ## Padrões relacionados
 

@@ -53,13 +53,13 @@ With the data normalized, all downstream processing works with a single structur
 
 ```mermaid
 flowchart LR
-    A["Partner A (CSV)"] --> R["Router: detects the format"]
-    B["Partner B (XML)"] --> R
-    C["Partner C (other format)"] --> R
-    R --> T1["Translator A"]
-    R --> T2["Translator B"]
-    R --> T3["Translator C"]
-    T1 --> N["Common format"]
+    A["CNAB 240 statement"] --> R["Router: detects the format"]
+    B["OFX statement"] --> R
+    C["camt.053 statement"] --> R
+    R --> T1["Translator CNAB 240"]
+    R --> T2["Translator OFX"]
+    R --> T3["Translator camt.053"]
+    T1 --> N["Common reconciliation format"]
     T2 --> N
     T3 --> N
 ```

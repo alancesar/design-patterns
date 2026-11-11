@@ -62,13 +62,13 @@ Também é conhecido como *dynamic orchestration*, *task-ledger-based orchestrat
 flowchart LR
     U["Usuário"] --> M["Agente gerente"]
     M <--> L["Task ledger"]
-    M <--> A1["Agente de diagnóstico"]
-    M <--> A2["Agente de infraestrutura"]
+    M <--> A1["Agente de transações"]
+    M <--> A2["Agente de cadastro"]
     M <--> A3["Agente de comunicação"]
     A1 --> S["Sistemas externos"]
     A2 --> S
     A3 --> S
-    M -->|"Estagnação ou fora do escopo"| H["Humano"]
+    M -->|"Estagnação, fora do escopo ou decisão de bloqueio"| H["Analista humano"]
     M --> R["Resultado"]
 ```
 

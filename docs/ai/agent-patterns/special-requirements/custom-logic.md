@@ -52,19 +52,19 @@ Cada etapa pode ser um agente, uma ferramenta ou uma verificação em código, e
 
 ```mermaid
 flowchart TD
-    U["Consulta do usuário"] --> C["Agente coordenador"]
-    C --> P1["Verificador de compra"]
-    C --> P2["Agente de elegibilidade ao reembolso"]
+    U["Contestação do cliente"] --> C["Agente coordenador"]
+    C --> P1["Verificador da transação"]
+    C --> P2["Agente de elegibilidade"]
     P1 --> D{"Elegível?"}
     P2 --> D
-    D -->|"Sim"| R["Agente de reembolso"]
-    D -->|"Não"| K["Agente de crédito na loja"]
-    K --> K2["Agente de decisão do crédito"]
+    D -->|"Sim"| R["Agente de crédito provisório na fatura"]
+    D -->|"Não"| K["Agente de negativa"]
+    K --> K2["Agente de justificativa da negativa"]
     R --> F["Agente de resposta final"]
     K2 --> F
 ```
 
-Exemplo de um agente de reembolso: uma verificação em paralelo alimenta um ramo condicional no código (reembolso ou crédito na loja), e um agente final redige a resposta.
+Exemplo de um agente de contestação de compra: uma verificação em paralelo alimenta um ramo condicional no código (crédito provisório na fatura ou negativa), e um agente final redige a resposta.
 
 ## Padrões relacionados
 

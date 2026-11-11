@@ -47,11 +47,11 @@ No contexto de microsserviços, é uma terceira opção de comunicação entre p
 
 ```mermaid
 flowchart LR
-    C["Cliente de domínio (ex.: player ou cliente de e-mail)"] -->|"protocolo do domínio (ex.: HLS, SMTP/IMAP)"| S["Serviço do domínio"]
+    C["Bandeira do cartão"] -->|"protocolo do domínio (ex.: ISO 8583)"| S["Autorizador de cartões (emissor)"]
     S -->|"respostas e fluxos no mesmo protocolo"| C
 ```
 
-Cliente e serviço conversam diretamente usando um protocolo estabelecido para o domínio, sem camada genérica de RPI ou de mensageria.
+Cliente e serviço conversam diretamente usando um protocolo estabelecido para o domínio, sem camada genérica de RPI ou de mensageria. A fonte ilustra o padrão com protocolos de mídia e de e-mail.
 
 ## Padrões relacionados
 

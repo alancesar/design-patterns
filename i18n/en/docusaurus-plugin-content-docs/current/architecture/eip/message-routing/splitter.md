@@ -51,13 +51,13 @@ So that the parts can be recombined later, it's common for each message to carry
 
 ```mermaid
 flowchart LR
-    M["Order with items"] --> S{"Splitter"}
-    S --> I1["Item 1 message"]
-    S --> I2["Item 2 message"]
-    S --> I3["Item 3 message"]
+    M["Payroll batch"] --> S{"Splitter"}
+    S --> I1["Payment 1 message"]
+    S --> I2["Payment 2 message"]
+    S --> I3["Payment 3 message"]
 ```
 
-The composite order is split into one message per item, ready for independent routing.
+The composite batch is split into one message per payment, ready for independent routing. The source illustrates the pattern with an order that has several line items.
 
 ## Related patterns
 

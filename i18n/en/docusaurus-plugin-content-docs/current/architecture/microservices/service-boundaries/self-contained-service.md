@@ -15,7 +15,7 @@ sidebar_label: "Self-contained Service"
 
 Self-contained Service designs a service to respond to a synchronous request without having to wait for any other service. This keeps the operation's availability and latency from depending on a chain of remote calls.
 
-There are two ways to achieve this: absorb the needed functionality as a module inside the service itself (for example, merging the order and restaurant services), or collaborate asynchronously, using sagas to maintain consistency and CQRS to keep a local replica of data owned by other services. That way, the service accepts the request, validates it against local data, and completes the rest asynchronously, leaving the order in a pending state until confirmation.
+There are two ways to achieve this: absorb the needed functionality as a module inside the service itself (for example, merging the order and restaurant services), or collaborate asynchronously, using sagas to maintain consistency and CQRS to keep a local replica of data owned by other services. That way, the service accepts the request, validates it against local data, and completes the rest asynchronously, leaving the operation in a pending state until confirmation.
 
 ## Problems it solves
 
@@ -50,18 +50,18 @@ There are two ways to achieve this: absorb the needed functionality as a module 
 ```mermaid
 sequenceDiagram
     participant C as Client
-    participant P as Order Service
-    participant R as Local restaurant replica
+    participant P as Pix Service
+    participant R as Local replica of customer limits
     participant S as Saga
-    C->>P: Create order
-    P->>R: Validate and price with local data
-    R-->>P: Restaurant data
-    P-->>C: Order accepted (pending)
-    P->>S: Start saga
-    S-->>P: Order confirmed or rejected
+    C->>P: Create PixTransfer
+    P->>R: Validate the limit with local data
+    R-->>P: Customer limit
+    P-->>C: Transfer accepted (pending)
+    P->>S: Start settlement saga
+    S-->>P: Transfer settled or rejected
 ```
 
-The service responds without calling other services; completion happens asynchronously through the saga.
+The service responds without calling other services; settlement completes asynchronously through the saga. The source illustrates the pattern with orders and restaurants.
 
 ## Related patterns
 

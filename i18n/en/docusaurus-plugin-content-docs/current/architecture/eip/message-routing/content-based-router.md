@@ -52,12 +52,13 @@ In more sophisticated scenarios, the router evolves into a configurable rules en
 
 ```mermaid
 flowchart LR
-    P["Validated order"] --> R{"Content-Based Router"}
-    R -->|"widget item"| W["Widget inventory"]
-    R -->|"gadget item"| G["Gadget inventory"]
+    P["Payment instruction"] --> R{"Content-Based Router"}
+    R -->|"Pix rail"| W["Pix connector"]
+    R -->|"TED rail"| G["TED connector"]
+    R -->|"boleto rail"| B["Boleto connector"]
 ```
 
-The router reads the order item and forwards it to the inventory system responsible for it.
+The router reads the rail of the payment instruction and forwards it to the connector responsible for it. The source illustrates the pattern with a widget and gadget order.
 
 ## Related patterns
 

@@ -62,18 +62,20 @@ Com isso, os componentes ficam fracamente acoplados e podem ser adicionados, tro
 
 ```mermaid
 flowchart LR
-    C["Cliente"] -->|"Solicita envio"| I["Serviço de ingestão"]
-    I -->|"Publica: envio solicitado"| B[("Message broker")]
-    B -->|"Evento"| P["Serviço de pacotes"]
-    B -->|"Evento"| D["Agendador de drones"]
-    P -->|"Publica: pacote pronto"| B
-    D -->|"Publica: drone agendado"| B
-    B -->|"Eventos correlacionados"| E["Serviço de entrega"]
-    E -->|"Publica: pacote enviado"| B
+    C["Cliente"] -->|"Solicita Pix"| I["Serviço de Pix"]
+    I -->|"Publica: transferência solicitada"| B[("Message broker")]
+    B -->|"Evento"| F["Antifraude"]
+    B -->|"Evento"| LM["Limites"]
+    F -->|"Publica: transferência aprovada"| B
+    LM -->|"Publica: limite reservado"| B
+    B -->|"Eventos correlacionados"| L["Ledger"]
+    L -->|"Publica: débito efetuado"| B
+    B -->|"Evento"| K["Conector SPI"]
+    K -->|"Publica: transferência liquidada"| B
     B -.->|"Falhas"| Q["DLQ e compensações"]
 ```
 
-Nenhum serviço coordena os demais: cada um reage aos eventos do broker e publica o resultado da sua parte. O serviço de entrega só segue depois de receber os dois eventos (pacote pronto e drone agendado), correlacionados pelo identificador da entrega.
+Nenhum serviço coordena os demais: cada um reage aos eventos do broker e publica o resultado da sua parte. O antifraude e o serviço de limites reagem em paralelo a "transferência solicitada", o ledger só debita depois de receber os dois eventos ("transferência aprovada" e "limite reservado") e o conector só envia ao SPI depois de "débito efetuado", todos correlacionados pelo `endToEndId` da transferência. A fonte ilustra o padrão com uma entrega por drones.
 
 ## Padrões relacionados
 

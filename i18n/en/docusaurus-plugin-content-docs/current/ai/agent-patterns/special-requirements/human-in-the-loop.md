@@ -54,19 +54,19 @@ The execution state is preserved during the pause. When the human responds (appr
 
 ```mermaid
 sequenceDiagram
-    participant A1 as Anonymization agent
+    participant A1 as AML reporting agent
     participant S as External review system
-    actor H as Compliance officer
-    participant A2 as Release agent
-    A1->>A1: Anonymizes the dataset
+    actor H as AML analyst
+    participant A2 as Recording agent
+    A1->>A1: Prepares the suspicious-activity report
     A1->>S: Pauses at checkpoint and requests review
     S->>H: Presents the result for validation
     H->>S: Approves, corrects, or rejects
     S->>A1: Resumes the flow with the decision
-    A1->>A2: Proceeds to release, if approved
+    A1->>A2: Proceeds to recording, if approved
 ```
 
-The flow runs up to the checkpoint, hands the work to an external review system, and continues only after the person responds. Example: an agent anonymizes patient data and a compliance officer validates it before release.
+The flow runs up to the checkpoint, hands the work to an external review system, and continues only after the person responds. Example: an agent prepares the report of a suspicious transaction, an AML analyst approves it, and an agent records it.
 
 ## Related patterns
 

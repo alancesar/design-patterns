@@ -13,7 +13,7 @@ sidebar_label: "Command-side Replica"
 
 ## Descrição
 
-Em uma arquitetura com Database per Service, um serviço que executa um comando muitas vezes precisa de dados que pertencem a outro serviço. Por exemplo, o serviço de pedidos, ao criar um pedido, precisa do cardápio do restaurante, mantido pelo serviço de restaurantes, para validar e precificar os itens. Consultar o outro serviço em tempo de execução, de forma síncrona ou como passo de uma saga, aumenta o tráfego de rede e cria dependência de runtime.
+Em uma arquitetura com Database per Service, um serviço que executa um comando muitas vezes precisa de dados que pertencem a outro serviço. Por exemplo, o serviço de transferências, ao criar uma transferência, precisa dos limites do cliente, mantidos por um serviço de limites, para validar a operação. Consultar o outro serviço em tempo de execução, de forma síncrona ou como passo de uma saga, aumenta o tráfego de rede e cria dependência de runtime.
 
 O Command-side Replica resolve isso mantendo, dentro do serviço do comando, uma réplica somente leitura dos dados do provedor. A réplica é atualizada pela assinatura de eventos de domínio publicados pelo serviço provedor. O padrão tem três elementos: o serviço de comando, o serviço provedor (dono dos dados) e o banco da réplica.
 
@@ -56,15 +56,15 @@ Estruturalmente, é o mesmo mecanismo do CQRS: uma cópia derivada alimentada po
 
 ```mermaid
 flowchart LR
-    P["Serviço provedor (restaurantes)"] --> PDB[("Banco do provedor")]
+    P["Serviço provedor (limites)"] --> PDB[("Banco do provedor")]
     P -->|"Eventos de domínio"| B["Mensageria"]
-    B --> C["Serviço de comando (pedidos)"]
+    B --> C["Serviço de comando (transferências)"]
     C --> R[("Réplica somente leitura")]
     C --> CDB[("Banco do serviço de comando")]
-    CL["Cliente"] -->|"createOrder()"| C
+    CL["Cliente"] -->|"createTransfer()"| C
 ```
 
-O serviço de comando assina os eventos do provedor para manter a réplica local, que usa para validar o comando sem chamar o provedor.
+O serviço de comando assina os eventos do provedor para manter a réplica local, que usa para validar o comando sem chamar o provedor. A fonte ilustra o padrão com pedidos e restaurantes.
 
 ## Padrões relacionados
 

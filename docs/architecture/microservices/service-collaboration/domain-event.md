@@ -58,33 +58,41 @@ O padrão em si define o que publicar; a publicação confiável (atômica com a
 
 ```mermaid
 flowchart LR
-    A["Agregado (Pedido)"] -->|"emite"| E["Evento: PedidoCriado"]
-    S["Serviço de pedidos"] --- A
+    A["Agregado (PixCharge)"] -->|"emite"| E["Evento: ChargePaid"]
+    S["Serviço de Pix"] --- A
     S -->|"publica"| B["Mensageria"]
     E -.-> B
-    B --> C1["Serviço de clientes (saga)"]
-    B --> C2["Visão CQRS"]
+    B --> C1["Saga de conciliação"]
+    B --> C2["Visão de extrato"]
     B --> C3["Réplica de outro serviço"]
 ```
 
-O agregado emite o evento, o serviço o publica e diferentes consumidores reagem a ele, cada um à sua maneira.
+O agregado emite o evento, o serviço o publica e diferentes consumidores reagem a ele, cada um à sua maneira. A fonte ilustra o padrão com pedidos.
 
 ## Exemplo
 
-Um pedido registra o evento `OrderCreated` ao ser criado; após persistir o agregado, o serviço publica os eventos acumulados.
+Uma cobrança Pix (`PixCharge`) registra o evento `ChargePaid` quando é paga; após persistir o agregado, o serviço publica os eventos acumulados.
 
 ```java
-public record OrderCreated(String orderId, String customerId, Instant occurredAt) {}
+public record ChargePaid(String chargeId, String txid, long amountCents, Instant occurredAt) {}
 
-public class Order {
+public class PixCharge {
     private final String id;
-    private final String customerId;
+    private final String txid;
+    private final long amountCents;
+    private boolean paid;
     private final List<Object> events = new ArrayList<>();
 
-    public Order(String id, String customerId) {
+    public PixCharge(String id, String txid, long amountCents) {
         this.id = id;
-        this.customerId = customerId;
-        events.add(new OrderCreated(id, customerId, Instant.now()));
+        this.txid = txid;
+        this.amountCents = amountCents;
+    }
+
+    public void markPaid() {
+        if (paid) return;
+        paid = true;
+        events.add(new ChargePaid(id, txid, amountCents, Instant.now()));
     }
 
     public List<Object> pullEvents() {
@@ -94,12 +102,13 @@ public class Order {
     }
 }
 
-public class OrderService {
+public class PixChargeService {
     @Transactional
-    public void create(String id, String customerId) {
-        Order order = new Order(id, customerId);
-        orders.save(order);
-        order.pullEvents().forEach(publisher::publish); // ex.: via Transactional Outbox
+    public void settle(String chargeId) {
+        PixCharge charge = charges.findById(chargeId);
+        charge.markPaid();
+        charges.save(charge);
+        charge.pullEvents().forEach(publisher::publish); // ex.: via Transactional Outbox
     }
 }
 ```

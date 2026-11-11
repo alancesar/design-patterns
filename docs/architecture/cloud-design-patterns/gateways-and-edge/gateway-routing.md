@@ -16,7 +16,7 @@ sidebar_label: "Gateway Routing"
 
 O padrão Gateway Routing coloca um gateway na frente de um conjunto de aplicações, serviços ou implantações e expõe tudo por um único endpoint. O gateway examina cada requisição na camada 7 (caminho da URL, host, cabeçalhos, porta ou IP de origem) e a encaminha ao destino adequado no backend.
 
-Com isso, o cliente conhece e conversa com um só endpoint. O gateway pode encaminhar para serviços distintos (busca, carrinho, checkout), para várias instâncias do mesmo serviço (balanceamento de carga e disponibilidade, inclusive entre regiões) ou para versões diferentes de um serviço (blue-green, canary, rollout gradual). A topologia do backend fica encapsulada no gateway, e mudanças nela se resumem a ajustes de configuração de roteamento.
+Com isso, o cliente conhece e conversa com um só endpoint. O gateway pode encaminhar para serviços distintos (contas, Pix, cartões), para várias instâncias do mesmo serviço (balanceamento de carga e disponibilidade, inclusive entre regiões) ou para versões diferentes de um serviço (blue-green, canary, rollout gradual). A topologia do backend fica encapsulada no gateway, e mudanças nela se resumem a ajustes de configuração de roteamento.
 
 Um proxy reverso comum, como o Nginx, já implementa o padrão. No Azure, por exemplo, o Application Gateway oferece roteamento regional e o Front Door oferece roteamento global.
 
@@ -66,16 +66,16 @@ Um proxy reverso comum, como o Nginx, já implementa o padrão. No Azure, por ex
 ```mermaid
 flowchart LR
     C[Cliente] --> G["Gateway (endpoint único)"]
-    G -->|"/busca"| S1[Serviço de busca]
-    G -->|"/carrinho"| S2[Serviço de carrinho]
-    G -->|"/pedidos"| S3[Serviço de pedidos]
-    G -->|"90% do tráfego"| V1["Checkout v1"]
-    G -->|"10% do tráfego (canary)"| V2["Checkout v2"]
-    G -->|"região 1"| R1["Busca - instância região 1"]
-    G -->|"região 2"| R2["Busca - instância região 2"]
+    G -->|"/contas"| S1[Serviço de contas]
+    G -->|"/pix"| S2[Serviço de Pix]
+    G -->|"/cartoes"| S3[Serviço de cartões]
+    G -->|"90% do tráfego"| V1["Pix v1"]
+    G -->|"10% do tráfego (canary)"| V2["Pix v2"]
+    G -->|"região 1"| R1["Extrato - instância região 1"]
+    G -->|"região 2"| R2["Extrato - instância região 2"]
 ```
 
-O cliente envia todas as requisições para o gateway, que as roteia por caminho para serviços distintos, divide o tráfego entre versões de um mesmo serviço e distribui a carga entre instâncias em regiões diferentes.
+O cliente envia todas as requisições para o gateway, que as roteia por caminho para serviços distintos (contas, Pix e cartões), divide o tráfego do Pix entre a versão atual e uma versão canary e distribui a carga do extrato entre instâncias em regiões diferentes.
 
 ## Padrões relacionados
 

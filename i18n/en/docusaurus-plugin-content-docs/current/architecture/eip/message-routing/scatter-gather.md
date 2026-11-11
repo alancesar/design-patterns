@@ -50,17 +50,17 @@ There are two variants. In the **distribution** variant, a Recipient List sends 
 
 ```mermaid
 flowchart LR
-    Q["Request"] --> RL{"Recipient List or Publish-Subscribe"}
-    RL --> F1["Supplier 1"]
-    RL --> F2["Supplier 2"]
-    RL --> F3["Supplier 3"]
+    Q["Exchange rate quote request"] --> RL{"Recipient List or Publish-Subscribe"}
+    RL --> F1["Liquidity provider 1"]
+    RL --> F2["Liquidity provider 2"]
+    RL --> F3["Liquidity provider 3"]
     F1 --> AG["Aggregator"]
     F2 --> AG
     F3 --> AG
-    AG --> R["Best response"]
+    AG --> R["Best rate"]
 ```
 
-The request is spread out to the suppliers and the responses are collected into a single result.
+The quote request is spread out to the liquidity providers and the rates are collected into the best offer. The source illustrates the pattern with a quote for an order item requested from several vendors.
 
 ## Related patterns
 

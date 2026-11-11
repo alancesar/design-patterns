@@ -16,7 +16,7 @@ sidebar_label: "Multi-Agent Hierarchical Task Decomposition"
 
 Agents are organized in a multi-level hierarchy. A root agent splits a complex task into subtasks and delegates them to lower-level subagents; each level decomposes the work it receives and delegates further, until a worker agent at the lowest level executes the task directly. The source describes it as an implementation of the [Multi-Agent Coordinator](/ai/agent-patterns/dynamic-orchestration/multi-agent-coordinator).
 
-It suits ambiguous, open-ended problems that require multi-step reasoning, such as research, planning, and synthesis. In a research project, for example, the root splits the goal into data collection, analysis, and report writing, and specialized subagents either complete or further decompose each task.
+It suits ambiguous, open-ended problems that require multi-step reasoning, such as research, planning, and synthesis. In a corporate credit analysis, for example, the root splits the goal into financial statement collection, risk analysis, and opinion writing, and specialized subagents either complete or further decompose each task.
 
 ## Problems it solves
 
@@ -54,9 +54,9 @@ It suits ambiguous, open-ended problems that require multi-step reasoning, such 
 ```mermaid
 flowchart TD
     U["User"] --> R["Root agent"]
-    R --> S1["Data collection"]
-    R --> S2["Analysis"]
-    R --> S3["Report writing"]
+    R --> S1["Financial statement collection"]
+    R --> S2["Risk analysis"]
+    R --> S3["Opinion writing"]
     S1 --> W1["Worker agent A"]
     S1 --> W2["Worker agent B"]
     S2 --> W3["Worker agent C"]

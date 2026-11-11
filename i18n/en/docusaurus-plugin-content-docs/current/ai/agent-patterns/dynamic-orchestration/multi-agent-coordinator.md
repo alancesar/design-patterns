@@ -16,7 +16,7 @@ sidebar_label: "Multi-Agent Coordinator"
 
 A central coordinator agent analyzes the user's request, splits it into subtasks, and dispatches each one to a specialized agent (for example, one that queries a database or calls an API). The coordinator uses a model to route tasks dynamically at runtime, in contrast to the parallel pattern, whose dispatch logic is fixed in code.
 
-The typical case is customer service: the coordinator classifies the request as a status inquiry, a return, or a refund and sends it to the matching agent. The specialized agents return their results and the coordinator assembles the response. It's also known as the *coordinator pattern*.
+The typical case is customer service: the coordinator classifies the request as a Pix status inquiry, a card purchase dispute, or a Pix return and sends it to the matching agent. The specialized agents return their results and the coordinator assembles the response. It's also known as the *coordinator pattern*.
 
 Unlike [Magentic Orchestration](/ai/agent-patterns/dynamic-orchestration/magentic-orchestration), which builds and refines a task ledger for open-ended problems with no plan, the coordinator here routes structured business processes and doesn't maintain an iterative, auditable plan. Compared with [Handoff Orchestration](/ai/agent-patterns/dynamic-orchestration/handoff-orchestration), control stays with the coordinator instead of passing from agent to agent.
 
@@ -54,16 +54,16 @@ Unlike [Magentic Orchestration](/ai/agent-patterns/dynamic-orchestration/magenti
 ```mermaid
 flowchart LR
     U["User"] --> C["Coordinator agent"]
-    C -->|"Order status"| A1["Orders agent"]
-    C -->|"Return"| A2["Returns agent"]
-    C -->|"Refund"| A3["Refunds agent"]
+    C -->|"Pix status"| A1["Pix status agent"]
+    C -->|"Purchase dispute"| A2["Disputes agent"]
+    C -->|"Pix return"| A3["Pix returns agent"]
     A1 --> C
     A2 --> C
     A3 --> C
     C --> R["Response"]
 ```
 
-The coordinator classifies the request, routes it to the right specialist, and consolidates the result.
+The coordinator classifies the customer request, routes it to the right specialist, and consolidates the result.
 
 ## Related patterns
 

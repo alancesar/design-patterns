@@ -48,16 +48,16 @@ O Composed Message Processor trata uma mensagem composta: divide-a em submensage
 
 ```mermaid
 flowchart LR
-    M["Pedido"] --> S["Splitter"]
+    M["Lote de pagamentos"] --> S["Splitter"]
     S --> R{"Roteador"}
-    R --> A["Estoque A"]
-    R --> B["Estoque B"]
+    R --> A["Trilho Pix"]
+    R --> B["Trilho boleto"]
     A --> AG["Aggregator"]
     B --> AG
-    AG --> O["Pedido verificado"]
+    AG --> O["Lote processado (status por item)"]
 ```
 
-O pedido é dividido, cada item vai ao estoque correto e as respostas são reunidas em um pedido verificado.
+O lote é dividido, cada pagamento segue pelo trilho correto e as respostas são reunidas em um lote processado, com o status de cada item. A fonte ilustra o padrão com um pedido de widgets e gadgets.
 
 ## Padrões relacionados
 

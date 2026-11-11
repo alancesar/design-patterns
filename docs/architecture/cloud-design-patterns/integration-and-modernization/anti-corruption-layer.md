@@ -91,37 +91,38 @@ Os serviços do subsistema A falam apenas em seu próprio modelo com a Anti-Corr
 
 ## Exemplo
 
-Um novo contexto de Pedidos precisa consultar clientes em um ERP legado, que expõe registros com campos crípticos e status numéricos. Em vez de espalhar esse formato pelo domínio, o contexto define a interface `CustomerDirectory` na própria linguagem e a implementa com um tradutor que converte o registro legado em um objeto do seu modelo.
+Um novo contexto de Conta Digital precisa consultar contas no core bancário legado, que expõe registros com campos crípticos e status numéricos. Em vez de espalhar esse formato pelo domínio, o contexto define a interface `AccountDirectory` na própria linguagem e a implementa com um tradutor que converte o registro legado em um objeto do seu modelo.
 
 ```java
-public interface CustomerDirectory {
-    Customer findById(CustomerId id);
+public interface AccountDirectory {
+    Account findById(AccountId id);
 }
 
-public class LegacyErpCustomerDirectory implements CustomerDirectory {
-    private final LegacyErpClient erp;
+public class LegacyCoreAccountDirectory implements AccountDirectory {
+    private final LegacyCoreClient core;
 
-    public LegacyErpCustomerDirectory(LegacyErpClient erp) { this.erp = erp; }
+    public LegacyCoreAccountDirectory(LegacyCoreClient core) { this.core = core; }
 
-    public Customer findById(CustomerId id) {
-        LegacyCustomerRecord r = erp.fetchCli(id.value());
-        return new Customer(
+    public Account findById(AccountId id) {
+        LegacyAccountRecord r = core.fetchCta(id.value());
+        return new Account(
             id,
-            new PersonName(r.nmCli().trim()),
-            translateStatus(r.stCli()));
+            new HolderName(r.nmTit().trim()),
+            translateStatus(r.stCta()));
     }
 
-    private CustomerStatus translateStatus(int code) {
+    private AccountStatus translateStatus(int code) {
         return switch (code) {
-            case 1 -> CustomerStatus.ACTIVE;
-            case 2 -> CustomerStatus.BLOCKED;
-            default -> CustomerStatus.INACTIVE;
+            case 1 -> AccountStatus.ACTIVE;
+            case 2 -> AccountStatus.BLOCKED;
+            case 9 -> AccountStatus.CLOSED;
+            default -> throw new IllegalStateException("Status legado desconhecido: " + code);
         };
     }
 }
 ```
 
-O domínio de Pedidos só conhece `CustomerDirectory` e `Customer`; mudanças no ERP ficam restritas ao tradutor.
+O domínio de Conta Digital só conhece `AccountDirectory` e `Account`; mudanças no core bancário ficam restritas ao tradutor.
 
 ## Padrões relacionados
 

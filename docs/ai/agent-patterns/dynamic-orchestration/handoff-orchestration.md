@@ -62,14 +62,14 @@ Também é conhecido como *routing*, *triage*, *transfer*, *dispatch* ou *delega
 sequenceDiagram
     actor U as Cliente
     participant T as Agente de triagem
-    participant I as Agente de infraestrutura
-    participant F as Agente financeiro
+    participant I as Agente de cartões
+    participant F as Agente de Pix
     actor H as Atendente humano
     U->>T: Pedido
     T->>T: Avalia e tenta resolver
-    T->>I: Handoff (problema de rede)
-    I->>I: Diagnostica
-    I->>F: Handoff (disputa de cobrança)
+    T->>I: Handoff (compra desconhecida na fatura)
+    I->>I: Analisa a compra
+    I->>F: Handoff (Pix feito para a chave errada)
     F->>H: Handoff (sem agente capaz)
     H->>U: Resposta final
 ```

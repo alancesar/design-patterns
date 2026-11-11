@@ -62,18 +62,20 @@ As a result, components are loosely coupled and can be added, replaced, or remov
 
 ```mermaid
 flowchart LR
-    C["Client"] -->|"Requests shipment"| I["Ingestion service"]
-    I -->|"Publishes: shipment requested"| B[("Message broker")]
-    B -->|"Event"| P["Package service"]
-    B -->|"Event"| D["Drone scheduler"]
-    P -->|"Publishes: package ready"| B
-    D -->|"Publishes: drone scheduled"| B
-    B -->|"Correlated events"| E["Delivery service"]
-    E -->|"Publishes: package shipped"| B
+    C["Client"] -->|"Requests Pix"| I["Pix service"]
+    I -->|"Publishes: transfer requested"| B[("Message broker")]
+    B -->|"Event"| F["Anti-fraud"]
+    B -->|"Event"| LM["Limits"]
+    F -->|"Publishes: transfer approved"| B
+    LM -->|"Publishes: limit reserved"| B
+    B -->|"Correlated events"| L["Ledger"]
+    L -->|"Publishes: debit posted"| B
+    B -->|"Event"| K["SPI connector"]
+    K -->|"Publishes: transfer settled"| B
     B -.->|"Failures"| Q["DLQ and compensations"]
 ```
 
-No service coordinates the others: each one reacts to events from the broker and publishes the result of its own part. The delivery service only proceeds after receiving both events (package ready and drone scheduled), correlated by the delivery identifier.
+No service coordinates the others: each one reacts to events from the broker and publishes the result of its own part. Anti-fraud and the limits service react in parallel to "transfer requested", the ledger only debits after receiving both events ("transfer approved" and "limit reserved"), and the connector only sends to the SPI after "debit posted", all correlated by the transfer's `endToEndId`. The source illustrates the pattern with a drone delivery.
 
 ## Related patterns
 

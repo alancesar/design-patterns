@@ -56,15 +56,15 @@ This pattern is the foundation of service autonomy, but it comes at the cost of 
 
 ```mermaid
 flowchart LR
-    C["Client"] --> OS["Order service"]
-    C --> CS["Customer service"]
-    OS --> ODB[("Orders database")]
-    CS --> CDB[("Customers database")]
-    OS -->|"API"| CS
-    OS -.->|"direct access forbidden"| CDB
+    C["Client"] --> ACC["Account service"]
+    C --> CS["Card service"]
+    ACC --> ADB[("Accounts database")]
+    CS --> CDB[("Cards database")]
+    CS -->|"API"| ACC
+    CS -.->|"direct access forbidden"| ADB
 ```
 
-Each service accesses only its own database. When it needs data from another service, the Order service uses the Customer service's API, never its database.
+Each service accesses only its own database. When it needs data from another service, the Card service uses the Account service's API, never its database. The source illustrates the pattern with orders and customers.
 
 ## Related patterns
 

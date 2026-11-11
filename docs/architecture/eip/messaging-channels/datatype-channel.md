@@ -51,10 +51,10 @@ O custo é multiplicar canais: cada novo tipo de dado exige um novo canal, e o r
 
 ```mermaid
 flowchart LR
-    S["Remetente"] -->|"pedido"| C1["Canal de pedidos"]
-    S -->|"fatura"| C2["Canal de faturas"]
-    C1 --> R1["Processador de pedidos"]
-    C2 --> R2["Processador de faturas"]
+    S["Remetente"] -->|"transferência Pix"| C1["Canal de transferências Pix"]
+    S -->|"boleto"| C2["Canal de boletos"]
+    C1 --> R1["Processador de Pix"]
+    C2 --> R2["Processador de boletos"]
 ```
 
 O remetente escolhe o canal segundo o tipo de dado, e cada processador recebe somente o formato que sabe tratar.

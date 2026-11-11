@@ -51,15 +51,15 @@ Neste padrão, cada equipe desenvolve um componente de UI no lado do cliente, co
 
 ```mermaid
 flowchart LR
-    N["Navegador (esqueleto da página)"] --> C1[Componente de detalhes]
-    N --> C2[Componente de avaliações]
-    N --> C3[Componente de disponibilidade]
-    C1 --> S1[Serviço de catálogo]
-    C2 --> S2[Serviço de avaliações]
-    C3 --> S3[Serviço de estoque]
+    N["App web (esqueleto da tela inicial)"] --> C1[Componente de saldo]
+    N --> C2[Componente de cartão]
+    N --> C3[Componente de ofertas de crédito]
+    C1 --> S1[Serviço de contas]
+    C2 --> S2[Serviço de cartões]
+    C3 --> S3[Serviço de crédito]
 ```
 
-O esqueleto da página no navegador compõe componentes de UI, e cada um consulta o serviço correspondente.
+O esqueleto da tela no app web compõe componentes de UI, e cada um consulta o serviço correspondente. A fonte ilustra o padrão com componentes de produto e estoque.
 
 ## Padrões relacionados
 
