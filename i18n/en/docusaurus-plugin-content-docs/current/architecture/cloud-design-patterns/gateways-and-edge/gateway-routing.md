@@ -66,16 +66,16 @@ A common reverse proxy, such as Nginx, already implements the pattern. On Azure,
 ```mermaid
 flowchart LR
     C[Client] --> G["Gateway (single endpoint)"]
-    G -->|"/search"| S1[Search service]
-    G -->|"/cart"| S2[Cart service]
-    G -->|"/orders"| S3[Order service]
-    G -->|"90% of traffic"| V1["Checkout v1"]
-    G -->|"10% of traffic (canary)"| V2["Checkout v2"]
-    G -->|"region 1"| R1["Search - region 1 instance"]
-    G -->|"region 2"| R2["Search - region 2 instance"]
+    G -->|"/contas"| S1[Account service]
+    G -->|"/pix"| S2[Pix service]
+    G -->|"/cartoes"| S3[Card service]
+    G -->|"90% of traffic"| V1["Pix v1"]
+    G -->|"10% of traffic (canary)"| V2["Pix v2"]
+    G -->|"region 1"| R1["Statement - region 1 instance"]
+    G -->|"region 2"| R2["Statement - region 2 instance"]
 ```
 
-The client sends all requests to the gateway, which routes them by path to distinct services, splits traffic between versions of the same service, and distributes load across instances in different regions.
+The client sends all requests to the gateway, which routes them by path to distinct services (accounts, Pix, and cards), splits Pix traffic between the current version and a canary version, and distributes the statement load across instances in different regions.
 
 ## Related patterns
 

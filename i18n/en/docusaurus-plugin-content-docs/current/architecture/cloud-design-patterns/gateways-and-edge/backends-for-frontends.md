@@ -77,14 +77,14 @@ flowchart LR
     G -.-> O["Monitoring"]
     G --> BW["BFF web"]
     G --> BM["BFF mobile"]
-    BW --> S1["Catalog service"]
-    BW --> S2["Order service"]
+    BW --> S1["Account service"]
+    BW --> S2["Card service"]
     BM --> S1
     BM --> S2
-    BW --> S3["Customer service"]
+    BW --> S3["Investment service"]
 ```
 
-Clients go through a gateway that handles authentication, authorization, and monitoring and routes each request to the BFF for its interface. Each BFF aggregates and adapts the calls to the backend services to the client's needs: the mobile BFF returns lightweight, paginated responses, and the web BFF can aggregate several pages and more data into a single response. In an Azure implementation, for example, the gateway could be API Management and the BFFs could be Azure Functions.
+Clients go through a gateway that handles authentication, authorization, and monitoring and routes each request to the BFF for its interface. Each BFF aggregates and adapts the calls to the backend services to the client's needs: the mobile BFF returns lightweight, paginated responses (for example, balance and latest entries), and the web BFF can aggregate the full statement, the invoice, and the investment portfolio into a single response. In an Azure implementation, for example, the gateway could be API Management and the BFFs could be Azure Functions.
 
 ## Related patterns
 

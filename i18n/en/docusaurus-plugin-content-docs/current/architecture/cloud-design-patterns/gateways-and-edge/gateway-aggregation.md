@@ -63,17 +63,17 @@ The aggregation can live in the gateway itself (lightweight composition, such as
 
 ```mermaid
 flowchart LR
-    C["Client"] -->|"1. Single request"| G["Aggregation gateway"]
-    G -->|"2. Parallel call"| S1["Order service"]
-    G -->|"2. Parallel call"| S2["Delivery service"]
-    G -->|"2. Parallel call"| S3["Customer profile service"]
+    C["App (home screen)"] -->|"1. Single request"| G["Aggregation gateway"]
+    G -->|"2. Parallel call"| S1["Account service (balance)"]
+    G -->|"2. Parallel call"| S2["Card service (open invoice)"]
+    G -->|"2. Parallel call"| S3["Investment service (position)"]
     S1 -.->|"3. Response"| G
     S2 -.->|"3. Response"| G
     S3 -.->|"3. Response"| G
     G -.->|"4. Aggregated response"| C
 ```
 
-The client sends a single request to the gateway, which fires parallel calls to the backend services, combines the results, and returns a single response. The services stay hidden from the client and the multiple calls happen inside the low-latency network.
+The app sends a single request to the gateway to build the home screen. The gateway fires parallel calls to the backend services (balance, open invoice, and investment position), combines the results, and returns a single response. The services stay hidden from the client and the multiple calls happen inside the low-latency network.
 
 ## Related patterns
 

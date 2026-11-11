@@ -30,7 +30,7 @@ In practice, a workflow or orchestrator records, for each completed step, what w
 
 - A business operation involves several steps, services, or data stores and must be undone if a later step fails.
 - Long-running flows that follow the eventual consistency model and can't rely on atomic transactions.
-- Failure recovery requires domain logic, not just a data rollback (for example, canceling the flight and hotel reservations of an itinerary).
+- Failure recovery requires domain logic, not just a data rollback (for example, crediting the source account back when sending a transfer to the settlement system fails).
 
 ## When to avoid
 
@@ -64,17 +64,17 @@ Additional considerations:
 
 ```mermaid
 flowchart LR
-    C["Client"] -->|"Requests operation"| O["Orchestrator"]
-    O -->|"Step 1: book flight"| A["Service A (flight)"]
+    C["Client"] -->|"Requests transfer"| O["Orchestrator"]
+    O -->|"Step 1: debit source account"| A["Ledger"]
     O -->|"Records step and undo action"| L[("Compensation log")]
-    O -->|"Step 2: book hotel"| B["Service B (hotel)"]
+    O -->|"Step 2: send to settlement system"| B["Settlement connector"]
     B -->|"Fails after retries"| O
     L -->|"Reads compensation actions"| O
-    O -->|"Compensation: cancel flight"| A
+    O -->|"Compensation: credit the account back"| A
     O -->|"Operation compensated"| C
 ```
 
-The orchestrator runs the steps and records, for each completed step, the action that undoes it. When step 2 fails unrecoverably, it reads this record and triggers the compensations in reverse order, leaving the system in a consistent state.
+The orchestrator runs the steps and records, for each completed step, the action that undoes it. When sending to the settlement system fails unrecoverably, it reads this record and triggers the compensations in reverse order: the ledger receives a new credit entry that returns the amount to the source account, without erasing the original debit. The source illustrates the pattern with a flight and hotel booking.
 
 ## Related patterns
 
