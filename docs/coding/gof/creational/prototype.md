@@ -90,11 +90,12 @@ classDiagram
 
 ## Exemplo
 
-O cliente salva pagamentos favoritos, como o aluguel e a mesada. Para agendar um novo, o app clona o favorito e muda só a data e o valor, sem reconstruir os dados do recebedor nem a descrição.
+O cliente salva pagamentos favoritos, como o aluguel e a mesada. Para agendar um novo, o app clona o favorito e muda só a data e o valor, sem reconstruir os dados do recebedor nem a descrição e sem saber se o favorito é um Pix ou uma TED.
 
 ```typescript
 interface PaymentOrder {
   clone(): PaymentOrder;
+  reschedule(scheduledFor: string, amountCents: number): void;
 }
 
 class PixPaymentOrder implements PaymentOrder {
@@ -104,6 +105,24 @@ class PixPaymentOrder implements PaymentOrder {
   clone(): PaymentOrder {
     return new PixPaymentOrder(this.receiverKey, this.description,
                                this.amountCents, this.scheduledFor);
+  }
+
+  reschedule(scheduledFor: string, amountCents: number): void {
+    this.scheduledFor = scheduledFor; this.amountCents = amountCents;
+  }
+}
+
+class TedPaymentOrder implements PaymentOrder {
+  constructor(public bankCode: string, public branch: string, public accountNumber: string,
+              public description: string, public amountCents: number, public scheduledFor: string) {}
+
+  clone(): PaymentOrder {
+    return new TedPaymentOrder(this.bankCode, this.branch, this.accountNumber,
+                               this.description, this.amountCents, this.scheduledFor);
+  }
+
+  reschedule(scheduledFor: string, amountCents: number): void {
+    this.scheduledFor = scheduledFor; this.amountCents = amountCents;
   }
 }
 
@@ -123,9 +142,11 @@ class FavoritePayments {
 
 const favorites = new FavoritePayments();
 favorites.register("rent", new PixPaymentOrder("locador@example.com", "Aluguel", 250_000, "2026-12-05"));
+favorites.register("allowance", new TedPaymentOrder("001", "1234", "56789-0", "Mesada", 30_000, "2026-12-10"));
 
-const order = favorites.create("rent") as PixPaymentOrder;
-order.scheduledFor = "2027-01-05"; order.amountCents = 262_500; // o favorito original permanece intacto
+// O cliente clona sem saber se o favorito é Pix ou TED
+const order = favorites.create("rent");
+order.reschedule("2027-01-05", 262_500); // o favorito original permanece intacto
 ```
 
 ## Padrões relacionados
