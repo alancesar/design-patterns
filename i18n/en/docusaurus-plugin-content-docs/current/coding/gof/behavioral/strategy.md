@@ -16,7 +16,7 @@ sidebar_label: "Strategy"
 
 Strategy (also known as Policy) defines a family of algorithms, encapsulates each one in its own object, and makes them interchangeable. This way, the algorithm can vary independently of the clients that use it.
 
-The object that uses the algorithm, called the context (`Context`), holds a reference to a `Strategy` interface and delegates the work to it, without knowing the concrete implementation. Each `ConcreteStrategy` implements the same interface with a variation of the behavior (for example, different ways to calculate shipping, sort data, or compress files).
+The object that uses the algorithm, called the context (`Context`), holds a reference to a `Strategy` interface and delegates the work to it, without knowing the concrete implementation. Each `ConcreteStrategy` implements the same interface with a variation of the behavior (for example, different ways to amortize a loan, sort data, or compress files).
 
 The strategy is normally chosen by the client and injected into the context — via constructor or setter — and can be swapped at runtime. This replaces scattered conditionals with composition, keeping each algorithm isolated, testable, and extensible without changing the context.
 
@@ -86,47 +86,52 @@ The `Client` chooses a `ConcreteStrategy` and hands it to the `Context`, which k
 
 ## Example
 
-An e-commerce store calculates shipping according to the option the customer chose at checkout: standard, express, or store pickup.
+A fintech's credit simulator calculates the installments of a loan using the amortization system the customer chose: SAC, with decreasing installments, or Price, with fixed installments. The rate is illustrative.
 
 ```typescript
-interface ShippingStrategy {
-  calculate(weightKg: number): number;
+interface AmortizationStrategy {
+  // Returns the amount of each installment, in cents.
+  schedule(principalCents: number, monthlyRate: number, months: number): number[];
 }
 
-class StandardShipping implements ShippingStrategy {
-  calculate(weightKg: number): number {
-    return 10 + weightKg * 2;
+class SacAmortization implements AmortizationStrategy {
+  schedule(principalCents: number, monthlyRate: number, months: number): number[] {
+    const amortization = principalCents / months;
+    return Array.from({ length: months }, (_, i) => {
+      const balance = principalCents - amortization * i;
+      return Math.round(amortization + balance * monthlyRate);
+    });
   }
 }
 
-class ExpressShipping implements ShippingStrategy {
-  calculate(weightKg: number): number {
-    return 25 + weightKg * 4;
+class PriceAmortization implements AmortizationStrategy {
+  schedule(principalCents: number, monthlyRate: number, months: number): number[] {
+    const factor = monthlyRate / (1 - Math.pow(1 + monthlyRate, -months));
+    const installment = Math.round(principalCents * factor);
+    return Array.from({ length: months }, () => installment);
   }
 }
 
-class StorePickup implements ShippingStrategy {
-  calculate(): number {
-    return 0;
+class LoanSimulator {
+  constructor(private amortization: AmortizationStrategy) {}
+
+  setAmortization(amortization: AmortizationStrategy): void {
+    this.amortization = amortization;
+  }
+
+  simulate(principalCents: number, monthlyRate: number, months: number): number[] {
+    return this.amortization.schedule(principalCents, monthlyRate, months);
   }
 }
 
-class Checkout {
-  constructor(private shipping: ShippingStrategy) {}
+// R$ 10,000.00 at 2% per month, in 10 installments
+const simulator = new LoanSimulator(new SacAmortization());
+const sac = simulator.simulate(1_000_000, 0.02, 10);
+console.log(sac[0], sac[9]); // 120000 102000
 
-  setShipping(shipping: ShippingStrategy): void {
-    this.shipping = shipping;
-  }
-
-  total(subtotal: number, weightKg: number): number {
-    return subtotal + this.shipping.calculate(weightKg);
-  }
-}
-
-const checkout = new Checkout(new StandardShipping());
-console.log(checkout.total(100, 3)); // 116
-checkout.setShipping(new ExpressShipping());
-console.log(checkout.total(100, 3)); // 137
+simulator.setAmortization(new PriceAmortization());
+const price = simulator.simulate(1_000_000, 0.02, 10);
+console.log(price[0], price[9]); // 111327 111327
 ```
 
 ## Related patterns
