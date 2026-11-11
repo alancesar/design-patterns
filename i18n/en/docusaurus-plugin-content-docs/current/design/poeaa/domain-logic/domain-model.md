@@ -56,47 +56,47 @@ The model should be independent of the user interface and of persistence; the li
 ```mermaid
 classDiagram
     class Customer {
-        +placeOrder(items) Order
+        +currentInvoice() CardInvoice
     }
-    class Order {
-        +addItem(product, qty)
+    class CardInvoice {
+        +addEntry(merchant, amount)
         +total() Money
-        +cancel()
+        +close()
     }
-    class OrderItem {
-        +subtotal() Money
+    class InvoiceEntry {
+        +amount() Money
     }
-    class Product
-    Customer "1" --> "*" Order
-    Order "1" *-- "*" OrderItem
-    OrderItem --> Product
+    class Merchant
+    Customer "1" --> "*" CardInvoice
+    CardInvoice "1" *-- "*" InvoiceEntry
+    InvoiceEntry --> Merchant
 ```
 
-`Customer`, `Order`, `OrderItem`, and `Product` form a network of objects in which each class holds data and the associated rules, such as `total()` and `cancel()`.
+`Customer`, `CardInvoice`, `InvoiceEntry`, and `Merchant` form a network of objects in which each class holds data and the associated rules, such as `total()` and `close()`.
 
 ## Example
 
-An order calculates its own total and prevents cancellation after shipping, rules that live in the entity.
+A card invoice calculates its own total and rejects entries once it is closed, rules that live in the entity.
 
 ```java
-public class Order {
-    private final List<OrderItem> items = new ArrayList<>();
+public class CardInvoice {
+    private final List<InvoiceEntry> entries = new ArrayList<>();
     private Status status = Status.OPEN;
 
-    public void addItem(Product product, int qty) {
-        if (status != Status.OPEN) throw new IllegalStateException("Order is closed");
-        items.add(new OrderItem(product, qty));
+    public void addEntry(Merchant merchant, Money amount) {
+        if (status != Status.OPEN) throw new IllegalStateException("Invoice is closed");
+        entries.add(new InvoiceEntry(merchant, amount));
     }
 
     public Money total() {
-        return items.stream()
-            .map(OrderItem::subtotal)
+        return entries.stream()
+            .map(InvoiceEntry::amount)
             .reduce(Money.ZERO, Money::add);
     }
 
-    public void cancel() {
-        if (status == Status.SHIPPED) throw new IllegalStateException("Already shipped");
-        status = Status.CANCELLED;
+    public void close() {
+        if (status == Status.CLOSED) throw new IllegalStateException("Already closed");
+        status = Status.CLOSED;
     }
 }
 ```

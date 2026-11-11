@@ -49,54 +49,50 @@ Costuma ser usado com Value Object, Money e outros tipos sem identidade.
 
 ```mermaid
 classDiagram
-    class Employee {
-        -String name
-        -Address address
+    class LedgerEntry {
+        -String description
+        -Money amount
     }
-    class Address {
-        -String street
-        -String city
-        -String zip
+    class Money {
+        -long amountCents
+        -String currency
     }
-    class EmployeeTable {
+    class LedgerEntryTable {
         <<table>>
         id
-        name
-        street
-        city
-        zip
+        description
+        amount_cents
+        currency
     }
-    Employee *-- Address
-    Employee ..> EmployeeTable : mapeado para
+    LedgerEntry *-- Money
+    LedgerEntry ..> LedgerEntryTable : mapeado para
 ```
 
-`Address` não tem tabela: seus campos viram colunas de `EmployeeTable`.
+`Money` não tem tabela: seus campos viram colunas de `LedgerEntryTable`.
 
 ## Exemplo
 
-Um `Employee` tem um `Address` embutido; as colunas ficam na tabela do funcionário.
+Um `LedgerEntry` tem um `Money` embutido; as colunas `amount_cents` e `currency` ficam na tabela do lançamento.
 
 ```java
 @Embeddable
-public class Address {
-    private String street;
-    private String city;
-    private String zip;
+public class Money {
+    private long amountCents;
+    private String currency;
 }
 
 @Entity
-public class Employee {
+public class LedgerEntry {
     @Id @GeneratedValue
     private Long id;
-    private String name;
+    private String description;
 
     @Embedded
-    private Address address;
+    private Money amount;
 }
 ```
 
 No EF Core, o equivalente é `OwnsOne`.
-
 ## Padrões relacionados
 
 - [Value Object](/design/poeaa/base/value-object) — o tipo de objeto que costuma ser embutido.

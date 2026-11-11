@@ -50,53 +50,71 @@ It's the simplest of the three inheritance schemas, and has the advantage of req
 
 ```mermaid
 classDiagram
-    class Player {
-        -String name
+    class PaymentInstruction {
+        -Long id
+        -long amountCents
+        -String status
     }
-    class Footballer {
-        -String club
+    class PixTransfer {
+        -String pixKey
+        -String endToEndId
     }
-    class Cricketer {
-        -int battingAverage
+    class TedTransfer {
+        -String bankCode
+        -String branch
+        -String accountNumber
     }
-    class PlayersTable {
+    class PaymentInstructionsTable {
         <<table>>
         id
         type
-        name
-        club
-        batting_average
+        amount_cents
+        status
+        pix_key
+        end_to_end_id
+        bank_code
+        branch
+        account_number
     }
-    Player <|-- Footballer
-    Player <|-- Cricketer
-    Player ..> PlayersTable
+    PaymentInstruction <|-- PixTransfer
+    PaymentInstruction <|-- TedTransfer
+    PaymentInstruction ..> PaymentInstructionsTable
 ```
 
-The whole hierarchy lives in `PlayersTable`; the `type` column identifies the subclass, and the specific columns are null for the others.
+The whole hierarchy lives in `PaymentInstructionsTable`; the `type` column identifies the subclass and the specific columns stay null in the others. Fowler's source illustrates the pattern with a `Player` hierarchy; here it is replaced by `PaymentInstruction`, the same one in all four inheritance patterns.
 
 ## Example
 
-A hierarchy of players is mapped to a single table with a discriminator.
+A hierarchy of payment instructions is mapped to a single table, `payment_instructions`, with a discriminator.
 
 ```java
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type")
-public abstract class Player {
+public abstract class PaymentInstruction {
     @Id @GeneratedValue
     private Long id;
-    private String name;
+    private long amountCents;
+    private String status;
 }
 
 @Entity
-@DiscriminatorValue("FOOTBALLER")
-public class Footballer extends Player {
-    private String club;
+@DiscriminatorValue("PIX")
+public class PixTransfer extends PaymentInstruction {
+    private String pixKey;
+    private String endToEndId;
+}
+
+@Entity
+@DiscriminatorValue("TED")
+public class TedTransfer extends PaymentInstruction {
+    private String bankCode;
+    private String branch;
+    private String accountNumber;
 }
 ```
 
 In EF Core, this is the Table-per-Hierarchy (TPH) pattern.
-
 ## Related patterns
 
 - [Class Table Inheritance](/design/poeaa/object-relational-structural/class-table-inheritance) — one table per class, with joins.

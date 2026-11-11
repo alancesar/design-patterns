@@ -73,14 +73,14 @@ O `Client` guarda apenas o `sessionId`. O `Server` consulta o `SessionStore` (me
 
 ## Exemplo
 
-Um carrinho de compras fica em Redis, indexado pelo identificador de sessão, com expiração de 30 minutos sem atividade.
+O rascunho de uma transferência Pix (chave de destino, valor e etapa de confirmação) fica em Redis, indexado pelo identificador de sessão, com expiração de 5 minutos sem atividade. O prazo curto é ilustrativo: um rascunho abandonado some sozinho.
 
 ```python
 import json, secrets
 import redis
 
 r = redis.Redis()
-TTL = 30 * 60
+TTL = 5 * 60
 
 def create_session(data: dict) -> str:
     session_id = secrets.token_urlsafe(32)
@@ -93,6 +93,14 @@ def load_session(session_id: str) -> dict | None:
         return None
     r.expire(f"session:{session_id}", TTL)  # renova a expiração
     return json.loads(raw)
+
+# rascunho da transferência, antes da confirmação
+session_id = create_session({
+    "step": "review",
+    "pix_key": "maria@example.com",
+    "amount_cents": 25_000,
+})
+draft = load_session(session_id)  # devolve None depois de 5 minutos sem uso
 ```
 
 Aparece como `HttpSession` no Java EE, `Session` no ASP.NET e `express-session` com Redis no Node.js.

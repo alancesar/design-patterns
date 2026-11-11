@@ -55,59 +55,71 @@ This keeps persistence code out of the in-memory domain objects, simplifying the
 
 ```mermaid
 classDiagram
-    class PersonFinder {
+    class PixKeyFinder {
         +find(id)
-        +findByLastName(name)
+        +findByKeyValue(keyValue)
     }
-    class PersonGateway {
+    class PixKeyGateway {
         +id
-        +lastName
-        +firstName
+        +accountId
+        +keyType
+        +keyValue
         +insert()
         +update()
         +delete()
     }
     class TransactionScript
     class Database
-    TransactionScript --> PersonFinder
-    TransactionScript --> PersonGateway
-    PersonFinder ..> PersonGateway : creates
-    PersonGateway --> Database
+    TransactionScript --> PixKeyFinder
+    TransactionScript --> PixKeyGateway
+    PixKeyFinder ..> PixKeyGateway : creates
+    PixKeyGateway --> Database
 ```
 
-The `TransactionScript` uses the `PersonFinder` to get `PersonGateway` instances, each representing one row, and persists them by calling their `insert`, `update`, and `delete` methods.
+The `TransactionScript` uses the `PixKeyFinder` to get `PixKeyGateway` instances, each representing one registered Pix key, and persists them by calling their `insert`, `update`, and `delete` methods.
 
 ## Example
 
-A customer registration script handles one record at a time. Each row of the `customers` table becomes a `CustomerGateway`.
+A Pix key registration script handles one record at a time. Each row of the `pix_keys` table becomes a `PixKeyGateway`, and the `PixKeyFinder` loads the gateways from queries.
 
 ```typescript
-class CustomerGateway {
+class PixKeyGateway {
   constructor(
     private db: Db,
     public id: number | null,
-    public name: string,
-    public email: string,
+    public accountId: number,
+    public keyType: "CPF" | "EMAIL" | "PHONE" | "RANDOM",
+    public keyValue: string,
   ) {}
 
   async insert(): Promise<void> {
     this.id = await this.db.insert(
-      "INSERT INTO customers (name, email) VALUES (?, ?)",
-      [this.name, this.email]);
+      "INSERT INTO pix_keys (account_id, key_type, key_value) VALUES (?, ?, ?)",
+      [this.accountId, this.keyType, this.keyValue]);
   }
 
   async update(): Promise<void> {
     await this.db.exec(
-      "UPDATE customers SET name = ?, email = ? WHERE id = ?",
-      [this.name, this.email, this.id]);
+      "UPDATE pix_keys SET account_id = ?, key_type = ?, key_value = ? WHERE id = ?",
+      [this.accountId, this.keyType, this.keyValue, this.id]);
+  }
+
+  async delete(): Promise<void> {
+    await this.db.exec("DELETE FROM pix_keys WHERE id = ?", [this.id]);
   }
 }
 
-class CustomerFinder {
+class PixKeyFinder {
   constructor(private db: Db) {}
-  async find(id: number): Promise<CustomerGateway> {
-    const r = await this.db.one("SELECT * FROM customers WHERE id = ?", [id]);
-    return new CustomerGateway(this.db, r.id, r.name, r.email);
+
+  async find(id: number): Promise<PixKeyGateway> {
+    const r = await this.db.one("SELECT * FROM pix_keys WHERE id = ?", [id]);
+    return new PixKeyGateway(this.db, r.id, r.account_id, r.key_type, r.key_value);
+  }
+
+  async findByKeyValue(keyValue: string): Promise<PixKeyGateway> {
+    const r = await this.db.one("SELECT * FROM pix_keys WHERE key_value = ?", [keyValue]);
+    return new PixKeyGateway(this.db, r.id, r.account_id, r.key_type, r.key_value);
   }
 }
 ```

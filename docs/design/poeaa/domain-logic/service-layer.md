@@ -56,15 +56,15 @@ O Service Layer encapsula a coordenação do caso de uso, controla transações 
 
 ```mermaid
 sequenceDiagram
-    participant UI as Cliente (web, API, job)
-    participant S as OrderService
+    participant UI as Cliente (API do app, job de agendadas)
+    participant S as PixTransferService
     participant D as Domain Model
     participant R as Repositorio
-    UI->>S: placeOrder(comando)
+    UI->>S: transfer(comando)
     S->>S: abre transacao
-    S->>R: carrega Customer
-    S->>D: customer.placeOrder(itens)
-    S->>R: salva Order
+    S->>R: carrega Account
+    S->>D: account.sendPix(pixKey, amount)
+    S->>R: salva PixTransfer
     S->>S: confirma transacao
     S-->>UI: resultado
 ```
@@ -73,22 +73,22 @@ O serviço abre a transação, carrega objetos, delega a regra ao domínio, pers
 
 ## Exemplo
 
-Um `OrderService` é usado tanto por um controlador REST quanto por um consumidor de fila, concentrando transação e orquestração.
+Um `PixTransferService` é usado tanto pela API do app quanto pelo job de transferências agendadas, concentrando transação e orquestração.
 
 ```java
 @Service
-public class OrderService {
-    private final CustomerRepository customers;
-    private final OrderRepository orders;
-    private final PaymentGateway payments;
+public class PixTransferService {
+    private final AccountRepository accounts;
+    private final PixTransferRepository transfers;
+    private final SpiGateway spi;
 
     @Transactional
-    public OrderId placeOrder(PlaceOrderCommand cmd) {
-        Customer customer = customers.get(cmd.customerId());
-        Order order = customer.placeOrder(cmd.items());   // regra no domínio
-        orders.save(order);
-        payments.authorize(order.id(), order.total());
-        return order.id();
+    public PixTransferId transfer(SendPixCommand cmd) {
+        Account account = accounts.get(cmd.accountId());
+        PixTransfer transfer = account.sendPix(cmd.pixKey(), cmd.amount());   // regra no domínio
+        transfers.save(transfer);
+        spi.submit(transfer.endToEndId(), transfer.amount());
+        return transfer.id();
     }
 }
 ```

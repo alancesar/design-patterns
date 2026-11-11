@@ -50,19 +50,24 @@ Keys must be unique across all the tables; otherwise references to the superclas
 
 ```mermaid
 erDiagram
-    FOOTBALLER {
+    PIX_TRANSFER {
         bigint id PK
-        varchar name
-        varchar club
+        bigint amount_cents
+        varchar status
+        varchar pix_key
+        varchar end_to_end_id
     }
-    CRICKETER {
+    TED_TRANSFER {
         bigint id PK
-        varchar name
-        int batting_average
+        bigint amount_cents
+        varchar status
+        varchar bank_code
+        varchar branch
+        varchar account_number
     }
 ```
 
-Each table repeats `id` and `name`, inherited from `Player`, and adds its own fields; there is no `PLAYER` table.
+Each table repeats `id`, `amount_cents`, and `status`, inherited from `PaymentInstruction`, and adds its own fields; there is no `PAYMENT_INSTRUCTION` table. Fowler's source illustrates the pattern with a `Player` hierarchy; here it is replaced by `PaymentInstruction`, the same one in all four inheritance patterns.
 
 ## Example
 
@@ -71,21 +76,29 @@ A JPA mapping with one table per concrete class.
 ```java
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class Player {
+public abstract class PaymentInstruction {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    private String name;
+    private long amountCents;
+    private String status;
 }
 
 @Entity
-public class Footballer extends Player {
-    private String club;
+public class PixTransfer extends PaymentInstruction {
+    private String pixKey;
+    private String endToEndId;
+}
+
+@Entity
+public class TedTransfer extends PaymentInstruction {
+    private String bankCode;
+    private String branch;
+    private String accountNumber;
 }
 ```
 
 The shared `SEQUENCE` guarantees unique keys across the tables. In EF Core, this is Table-per-Concrete-type (TPC).
-
 ## Related patterns
 
 - [Single Table Inheritance](/design/poeaa/object-relational-structural/single-table-inheritance) — an alternative with one table for the whole hierarchy.

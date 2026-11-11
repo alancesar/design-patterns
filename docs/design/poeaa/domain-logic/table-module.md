@@ -15,7 +15,7 @@ sidebar_label: "Table Module"
 
 O Table Module é uma única instância que trata a lógica de negócio de todas as linhas de uma tabela ou view do banco de dados. Há uma classe por tabela, e seus métodos recebem ou operam sobre um conjunto de dados tabular.
 
-Diferente do Domain Model, que cria um objeto por registro (um objeto para cada pedido), o Table Module tem um único objeto `Orders` que processa todos os pedidos. Para identificar uma linha, o cliente passa uma chave ou o método recebe o registro como argumento.
+Diferente do Domain Model, que cria um objeto por registro (um objeto para cada parcela), o Table Module tem um único objeto `Installments` que processa todas as parcelas. Para identificar uma linha, o cliente passa uma chave ou o método recebe o registro como argumento.
 
 O padrão funciona muito bem com Record Set, estruturas tabulares em memória fornecidas por plataformas como .NET (DataSet), que o integram a ferramentas de interface e de acesso a dados.
 
@@ -55,51 +55,53 @@ O padrão funciona muito bem com Record Set, estruturas tabulares em memória fo
 ```mermaid
 classDiagram
     class Client
-    class OrdersModule {
-        +total(orderId) decimal
-        +applyDiscount(orderId)
+    class ContractsModule {
+        +payoffAmount(contractId) long
     }
-    class OrderItemsModule {
-        +subtotal(orderId) decimal
+    class InstallmentsModule {
+        +outstandingBalance(contractId) long
     }
     class RecordSet
     class TableDataGateway
-    Client --> OrdersModule
-    OrdersModule --> OrderItemsModule
-    OrdersModule --> RecordSet
-    OrderItemsModule --> RecordSet
+    Client --> ContractsModule
+    ContractsModule --> InstallmentsModule
+    ContractsModule --> RecordSet
+    InstallmentsModule --> RecordSet
     TableDataGateway --> RecordSet
 ```
 
-Cada tabela tem um módulo (`OrdersModule`, `OrderItemsModule`) que opera sobre um `RecordSet` carregado por um gateway de tabela.
+Cada tabela tem um módulo (`ContractsModule`, `InstallmentsModule`) que opera sobre um `RecordSet` carregado por um gateway de tabela.
 
 ## Exemplo
 
-Um módulo `Orders` calcula o total de um pedido a partir do conjunto de itens carregado.
+Um módulo `Installments` calcula o saldo devedor de um contrato a partir do conjunto de parcelas carregado, e o módulo `Contracts` usa esse saldo para calcular o valor de quitação antecipada (o desconto é ilustrativo).
 
 ```csharp
-public class OrderItems
+public class Installments
 {
     private readonly DataTable table;
-    public OrderItems(DataTable table) { this.table = table; }
+    public Installments(DataTable table) { this.table = table; }
 
-    public decimal Subtotal(int orderId) =>
+    // Soma as parcelas ainda não pagas do contrato, em centavos.
+    public long OutstandingBalanceCents(int contractId) =>
         table.AsEnumerable()
-             .Where(r => r.Field<int>("OrderId") == orderId)
-             .Sum(r => r.Field<decimal>("Price") * r.Field<int>("Qty"));
+             .Where(r => r.Field<int>("ContractId") == contractId
+                      && r.IsNull("PaidAt"))
+             .Sum(r => r.Field<long>("AmountCents"));
 }
 
-public class Orders
+public class Contracts
 {
     private readonly DataTable table;
-    private readonly OrderItems items;
-    public Orders(DataTable table, OrderItems items) { this.table = table; this.items = items; }
+    private readonly Installments installments;
+    public Contracts(DataTable table, Installments installments) { this.table = table; this.installments = installments; }
 
-    public decimal Total(int orderId)
+    public long PayoffCents(int contractId)
     {
-        var row = table.AsEnumerable().Single(r => r.Field<int>("Id") == orderId);
-        var subtotal = items.Subtotal(orderId);
-        return row.Field<bool>("Vip") ? subtotal * 0.9m : subtotal;
+        var row = table.AsEnumerable().Single(r => r.Field<int>("Id") == contractId);
+        var balance = installments.OutstandingBalanceCents(contractId);
+        var discount = row.Field<decimal>("EarlyPayoffDiscount");   // taxa, por exemplo 0.05m
+        return (long)Math.Round(balance * (1m - discount));
     }
 }
 ```

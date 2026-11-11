@@ -73,20 +73,23 @@ O `InputController` consulta o `ApplicationController`, que localiza o `DomainCo
 
 ## Exemplo
 
-Um pedido passa pelas telas de endereço, pagamento e confirmação. O application controller decide a próxima tela pelo estado.
+A abertura de conta passa pelas telas de dados pessoais, documento, selfie e análise. O application controller decide a próxima tela pelo estado.
 
 ```python
-class CheckoutFlow:
+class OnboardingFlow:
     TRANSITIONS = {
-        ("address", "ok"): "payment",
-        ("payment", "ok"): "confirmation",
-        ("payment", "declined"): "payment_error",
+        ("personal_data", "ok"): "document",
+        ("document", "ok"): "selfie",
+        ("document", "unreadable"): "document_retry",
+        ("selfie", "ok"): "review",
+        ("review", "approved"): "account_opened",
+        ("review", "rejected"): "rejected",
     }
 
     def next_view(self, state: str, result: str) -> str:
         return self.TRANSITIONS.get((state, result), "error")
 
-class CheckoutController:
+class OnboardingController:
     def __init__(self, flow, commands):
         self.flow, self.commands = flow, commands
 

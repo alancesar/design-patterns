@@ -59,46 +59,48 @@ Na prática, um bom Value Object é imutável, compara por valor (implementando 
 
 ```mermaid
 classDiagram
-    class Entity {
+    class Account {
         +id
     }
-    class DateRange {
-        +start
-        +end
-        +includes(date)
-        +overlaps(other)
+    class PixKey {
+        +type
+        +value
         +equals(other)
     }
-    Entity --> DateRange
+    Account --> PixKey
 ```
 
-A entidade `Entity` possui um `DateRange`. O `DateRange` não tem identidade: é comparado e substituído por valor.
+A entidade `Account` possui uma `PixKey`. A `PixKey` não tem identidade: é comparada e substituída por valor.
 
 ## Exemplo
 
-Um sistema de reservas representa o período de hospedagem como um Value Object imutável que valida a si mesmo.
+Uma conta digital representa a chave Pix como um Value Object imutável que valida o próprio formato.
 
 ```python
+import re
 from dataclasses import dataclass
-from datetime import date
+
+_PATTERNS = {
+    "cpf": r"\d{11}",
+    "email": r"[^@\s]+@[^@\s]+\.[^@\s]+",
+    "phone": r"\+55\d{10,11}",
+    "random": r"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+}
 
 @dataclass(frozen=True)
-class DateRange:
-    start: date
-    end: date
+class PixKey:
+    key_type: str
+    value: str
 
     def __post_init__(self):
-        if self.end < self.start:
-            raise ValueError("end deve ser maior ou igual a start")
+        pattern = _PATTERNS.get(self.key_type)
+        if pattern is None:
+            raise ValueError("tipo de chave desconhecido")
+        if not re.fullmatch(pattern, self.value):
+            raise ValueError("formato inválido para o tipo de chave")
 
-    def includes(self, day: date) -> bool:
-        return self.start <= day <= self.end
-
-    def overlaps(self, other: "DateRange") -> bool:
-        return self.start <= other.end and other.start <= self.end
-
-a = DateRange(date(2026, 1, 1), date(2026, 1, 10))
-b = DateRange(date(2026, 1, 1), date(2026, 1, 10))
+a = PixKey("email", "ana@example.com")
+b = PixKey("email", "ana@example.com")
 assert a == b  # igualdade por valor
 ```
 

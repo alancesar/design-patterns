@@ -52,47 +52,47 @@ It's simple and fast for small graphs that are always read and written together,
 
 ```mermaid
 classDiagram
-    class Customer {
+    class Consent {
         -Long id
-        -Department department
+        -List permissions
     }
-    class Department {
+    class Permission {
         -String name
-        -List children
     }
-    class CustomerTable {
+    class ConsentTable {
         <<table>>
         id
-        departments_json
+        permissions_json
     }
-    Customer --> Department
-    Customer ..> CustomerTable : serializes the graph into departments_json
+    Consent --> Permission
+    Consent ..> ConsentTable : serializes the list into permissions_json
 ```
 
-The `Department` graph is serialized into a single `departments_json` column of `CustomerTable`.
+The `Permission` list is serialized into a single `permissions_json` column of `ConsentTable`.
 
 ## Example
 
-A customer has a hierarchy of departments, always read in full. It's stored as JSON.
+An Open Finance `Consent` holds the list of granted permissions, always read as a whole. It is stored as JSON.
 
 ```sql
-CREATE TABLE customer (
+CREATE TABLE consent (
   id BIGINT PRIMARY KEY,
-  name VARCHAR(100),
-  departments JSONB
+  status VARCHAR(20),
+  permissions JSONB
 );
 ```
 
 ```java
 @Entity
-public class Customer {
+public class Consent {
     @Id @GeneratedValue
     private Long id;
 
     @JdbcTypeCode(SqlTypes.JSON)
-    private DepartmentTree departments;
+    private List<Permission> permissions;
 }
 ```
+
 
 ## Related patterns
 

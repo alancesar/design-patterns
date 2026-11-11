@@ -80,24 +80,27 @@ The generic `MetadataMapper` looks up the class's `ClassMap`, which holds one `C
 
 ## Example
 
-An application maps `Customer` to the `customers` table. Instead of writing SQL by hand, JPA annotations serve as the metadata, and Hibernate reads them through reflection to generate the statements.
+An application maps `Account` to the `accounts` table. Instead of writing SQL by hand, JPA annotations serve as the metadata, and Hibernate reads them through reflection to generate the statements. The balance is stored as integer cents.
 
 ```java
 @Entity
-@Table(name = "customers")
-public class Customer {
+@Table(name = "accounts")
+public class Account {
     @Id
     @GeneratedValue
     private Long id;
 
-    @Column(name = "full_name", nullable = false)
-    private String name;
+    @Column(name = "holder_name", nullable = false)
+    private String holderName;
 
     @Embedded
-    private Address address;
+    private Cpf holderCpf;
 
-    @OneToMany(mappedBy = "customer")
-    private List<Order> orders;
+    @Column(name = "balance_cents", nullable = false)
+    private long balanceCents;
+
+    @OneToMany(mappedBy = "account")
+    private List<LedgerEntry> entries;
 }
 ```
 

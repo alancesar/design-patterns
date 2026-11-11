@@ -50,41 +50,41 @@ O ciclo de vida é controlado pelo dono: quando ele é removido, os filhos tamb�
 
 ```mermaid
 classDiagram
-    class Album {
-        +tracks List
+    class LoanContract {
+        +installments List
     }
-    class Track {
-        -String title
+    class Installment {
+        -LocalDate dueDate
+        -long amountCents
     }
-    class AlbumMapper {
-        +insert(album)
-        +update(album)
+    class LoanContractMapper {
+        +insert(contract)
+        +update(contract)
     }
-    Album "1" *-- "many" Track
-    AlbumMapper ..> Album
-    AlbumMapper ..> Track
+    LoanContract "1" *-- "many" Installment
+    LoanContractMapper ..> LoanContract
+    LoanContractMapper ..> Installment
 ```
 
-O `AlbumMapper` salva e carrega o `Album` e as `Track` dependentes; `Track` não tem mapeador próprio.
+O `LoanContractMapper` salva e carrega o `LoanContract` e as `Installment` dependentes; `Installment` não tem mapeador próprio.
 
 ## Exemplo
 
-Um `Order` possui `OrderLine`. As linhas só existem dentro do pedido e são apagadas com ele.
+Um `LoanContract` possui `Installment`. As parcelas só existem dentro do contrato e são apagadas com ele.
 
 ```java
 @Entity
-public class Order {
+public class LoanContract {
     @Id @GeneratedValue
     private Long id;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "order_id")
-    private List<OrderLine> lines = new ArrayList<>();
+    @JoinColumn(name = "loan_contract_id")
+    private List<Installment> installments = new ArrayList<>();
 }
 ```
 
 `cascade` e `orphanRemoval` no JPA implementam o comportamento: o dono controla o ciclo de vida dos filhos.
-
 ## Padrões relacionados
 
 - [Foreign Key Mapping](/design/poeaa/object-relational-structural/foreign-key-mapping) — é a forma geral de mapear associação; o Dependent Mapping é o caso em que o filho não tem vida própria.

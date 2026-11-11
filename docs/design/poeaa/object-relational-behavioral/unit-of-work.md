@@ -76,7 +76,7 @@ O `UnitOfWork` guarda as listas de objetos novos, alterados e removidos. No `com
 
 ## Exemplo
 
-Uma transferência bancária altera duas contas e cria um lançamento. O Unit of Work grava tudo em uma só transação ao final.
+Uma transferência entre contas da fintech altera duas `Account` e cria um `LedgerEntry`. O Unit of Work grava tudo em uma só transação ao final. Os valores são em centavos.
 
 ```python
 class UnitOfWork:
@@ -97,9 +97,9 @@ class UnitOfWork:
             for o in self.deleted: self.mappers[type(o)].delete(o)
 
 uow = UnitOfWork(mappers, conn)
-src.withdraw(100); uow.register_dirty(src)
-dst.deposit(100);  uow.register_dirty(dst)
-uow.register_new(Entry(src, dst, 100))
+source.withdraw(10_000); uow.register_dirty(source)          # valores em centavos
+target.deposit(10_000);  uow.register_dirty(target)
+uow.register_new(LedgerEntry(source, target, amount_cents=10_000))
 uow.commit()
 ```
 

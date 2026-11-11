@@ -48,32 +48,32 @@ If the relationship has attributes of its own (date, role), the association tabl
 
 ```mermaid
 erDiagram
-    EMPLOYEE ||--o{ EMPLOYEE_SKILL : has
-    SKILL ||--o{ EMPLOYEE_SKILL : has
-    EMPLOYEE_SKILL {
-        bigint employee_id PK
-        bigint skill_id PK
+    ACCOUNT ||--o{ ACCOUNT_HOLDER : has
+    HOLDER ||--o{ ACCOUNT_HOLDER : has
+    ACCOUNT_HOLDER {
+        bigint account_id PK
+        bigint holder_id PK
     }
 ```
 
-The `EMPLOYEE_SKILL` table links `EMPLOYEE` and `SKILL`, with a primary key composed of the two foreign keys.
+The `ACCOUNT_HOLDER` table links `ACCOUNT` and `HOLDER`, with a primary key composed of the two foreign keys.
 
 ## Example
 
-Employees have several skills, and a skill belongs to several employees.
+In a joint account, an `Account` has several holders (`Holder`) and a holder can have several accounts.
 
 ```java
 @Entity
-public class Employee {
+public class Account {
     @Id @GeneratedValue
     private Long id;
 
     @ManyToMany
     @JoinTable(
-        name = "employee_skill",
-        joinColumns = @JoinColumn(name = "employee_id"),
-        inverseJoinColumns = @JoinColumn(name = "skill_id"))
-    private Set<Skill> skills = new HashSet<>();
+        name = "account_holder",
+        joinColumns = @JoinColumn(name = "account_id"),
+        inverseJoinColumns = @JoinColumn(name = "holder_id"))
+    private Set<Holder> holders = new HashSet<>();
 }
 ```
 

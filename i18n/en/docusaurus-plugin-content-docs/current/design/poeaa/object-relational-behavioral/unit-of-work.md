@@ -76,7 +76,7 @@ The `UnitOfWork` holds the lists of new, modified, and removed objects. On `comm
 
 ## Example
 
-A bank transfer changes two accounts and creates a ledger entry. The Unit of Work writes everything in a single transaction at the end.
+A transfer between fintech accounts changes two `Account` objects and creates a `LedgerEntry`. The Unit of Work writes everything in a single transaction at the end. Amounts are in cents.
 
 ```python
 class UnitOfWork:
@@ -97,9 +97,9 @@ class UnitOfWork:
             for o in self.deleted: self.mappers[type(o)].delete(o)
 
 uow = UnitOfWork(mappers, conn)
-src.withdraw(100); uow.register_dirty(src)
-dst.deposit(100);  uow.register_dirty(dst)
-uow.register_new(Entry(src, dst, 100))
+source.withdraw(10_000); uow.register_dirty(source)          # amounts in cents
+target.deposit(10_000);  uow.register_dirty(target)
+uow.register_new(LedgerEntry(source, target, amount_cents=10_000))
 uow.commit()
 ```
 

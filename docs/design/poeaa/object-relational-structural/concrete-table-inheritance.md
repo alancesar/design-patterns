@@ -50,19 +50,24 @@ As chaves precisam ser únicas ao longo de todas as tabelas, caso contrário ref
 
 ```mermaid
 erDiagram
-    FOOTBALLER {
+    PIX_TRANSFER {
         bigint id PK
-        varchar name
-        varchar club
+        bigint amount_cents
+        varchar status
+        varchar pix_key
+        varchar end_to_end_id
     }
-    CRICKETER {
+    TED_TRANSFER {
         bigint id PK
-        varchar name
-        int batting_average
+        bigint amount_cents
+        varchar status
+        varchar bank_code
+        varchar branch
+        varchar account_number
     }
 ```
 
-Cada tabela repete `id` e `name`, herdados de `Player`, e acrescenta os campos próprios; não existe tabela `PLAYER`.
+Cada tabela repete `id`, `amount_cents` e `status`, herdados de `PaymentInstruction`, e acrescenta os campos próprios; não existe tabela `PAYMENT_INSTRUCTION`. A fonte do Fowler ilustra o padrão com a hierarquia `Player`; aqui ela é substituída por `PaymentInstruction`, a mesma nos quatro padrões de herança.
 
 ## Exemplo
 
@@ -71,21 +76,29 @@ Um mapeamento JPA com tabela por classe concreta.
 ```java
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class Player {
+public abstract class PaymentInstruction {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    private String name;
+    private long amountCents;
+    private String status;
 }
 
 @Entity
-public class Footballer extends Player {
-    private String club;
+public class PixTransfer extends PaymentInstruction {
+    private String pixKey;
+    private String endToEndId;
+}
+
+@Entity
+public class TedTransfer extends PaymentInstruction {
+    private String bankCode;
+    private String branch;
+    private String accountNumber;
 }
 ```
 
 A `SEQUENCE` compartilhada garante chaves únicas entre as tabelas. No EF Core, é o Table-per-Concrete-type (TPC).
-
 ## Padrões relacionados
 
 - [Single Table Inheritance](/design/poeaa/object-relational-structural/single-table-inheritance) — alternativa com uma tabela para toda a hierarquia.

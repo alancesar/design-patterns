@@ -72,21 +72,28 @@ The `Controller` gets the data and invokes the `Transformer`, which applies the 
 
 ## Example
 
-A list of products in XML is converted into an HTML table by an XSLT stylesheet, with no access to the model.
+An account statement arrives as XML in the style of ISO 20022 `camt.053` (heavily simplified here, with no namespace) and is converted into an HTML table by an XSLT stylesheet, with no access to the model.
 
 ```xml
-<xsl:template match="products">
-  <table>
-    <xsl:apply-templates select="product"/>
-  </table>
-</xsl:template>
+<!-- Input: <Stmt><Ntry><Amt Ccy="BRL">150.00</Amt><CdtDbtInd>DBIT</CdtDbtInd><BookgDt><Dt>2026-03-02</Dt></BookgDt><AddtlNtryInf>Pix sent</AddtlNtryInf></Ntry></Stmt> -->
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:template match="Stmt">
+    <table>
+      <xsl:apply-templates select="Ntry"/>
+    </table>
+  </xsl:template>
 
-<xsl:template match="product">
-  <tr>
-    <td><xsl:value-of select="name"/></td>
-    <td><xsl:value-of select="format-number(price, '0.00')"/></td>
-  </tr>
-</xsl:template>
+  <xsl:template match="Ntry">
+    <tr>
+      <td><xsl:value-of select="BookgDt/Dt"/></td>
+      <td><xsl:value-of select="AddtlNtryInf"/></td>
+      <td>
+        <xsl:if test="CdtDbtInd = 'DBIT'">-</xsl:if>
+        <xsl:value-of select="format-number(Amt, '0.00')"/>
+      </td>
+    </tr>
+  </xsl:template>
+</xsl:stylesheet>
 ```
 
 Today the pattern appears mainly as JSON/XML serialization in APIs (Jackson, `System.Text.Json`) and in report generators. In SPAs, the server delivers data and the client transforms it into UI, which is essentially the same idea moved to the browser.

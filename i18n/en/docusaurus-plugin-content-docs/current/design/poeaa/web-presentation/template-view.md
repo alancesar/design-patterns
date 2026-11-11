@@ -65,15 +65,15 @@ The controller hands the model to the template engine, which loads the page with
 
 ## Example
 
-A page lists a customer's orders. The template contains the HTML and only simple markers; the controller supplies the list.
+A page lists the entries of the credit card invoice. The template contains the HTML and only simple markers; the controller supplies the `CardInvoice`.
 
 ```html
-<!-- orders.html (Thymeleaf) -->
-<h1 th:text="${customer.name}">Customer</h1>
+<!-- invoice.html (Thymeleaf) -->
+<h1 th:text="${invoice.dueDate}">Due date</h1>
 <table>
-  <tr th:each="o : ${orders}">
-    <td th:text="${o.id}">1</td>
-    <td th:text="${#numbers.formatDecimal(o.total, 1, 2)}">0.00</td>
+  <tr th:each="e : ${invoice.entries}">
+    <td th:text="${e.description}">Grocery store</td>
+    <td th:text="${e.amount}">R$ 0.00</td>
   </tr>
 </table>
 ```

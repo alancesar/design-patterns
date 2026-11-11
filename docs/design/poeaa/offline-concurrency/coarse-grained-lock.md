@@ -13,7 +13,7 @@ sidebar_label: "Coarse-Grained Lock"
 
 ## Descrição
 
-O Coarse-Grained Lock bloqueia um conjunto de objetos relacionados com um único bloqueio. Em vez de adquirir um bloqueio para cada objeto de um agregado (por exemplo, o pedido e todos os seus itens), a aplicação protege o grupo inteiro por meio de um ponto único, normalmente a raiz do agregado.
+O Coarse-Grained Lock bloqueia um conjunto de objetos relacionados com um único bloqueio. Em vez de adquirir um bloqueio para cada objeto de um agregado (por exemplo, o contrato de empréstimo e todas as suas parcelas), a aplicação protege o grupo inteiro por meio de um ponto único, normalmente a raiz do agregado.
 
 Para o bloqueio otimista, isso costuma ser feito com um objeto de versão compartilhado: todos os membros do grupo referenciam o mesmo número de versão, e alterar qualquer um incrementa essa versão. Para o bloqueio pessimista, o bloqueio da raiz implica o bloqueio de todo o grupo. Uma variação é o Root Lock, em que cada objeto filho navega até a raiz para obter o bloqueio.
 
@@ -22,7 +22,7 @@ O padrão alinha a granularidade do bloqueio com a fronteira de consistência do
 ## Problemas que resolve
 
 - Adquirir e gerenciar muitos bloqueios individuais é custoso e propenso a erros.
-- Bloquear apenas parte de um agregado deixa o grupo em estado inconsistente (ex.: um item alterado por outro enquanto o pedido é recalculado).
+- Bloquear apenas parte de um agregado deixa o grupo em estado inconsistente (ex.: uma parcela alterada por outro enquanto o contrato é recalculado).
 - Esquecer de bloquear algum membro do grupo quebra a invariante do agregado.
 
 ## Quando usar
@@ -58,48 +58,51 @@ classDiagram
         +id
         +value
     }
-    class Order {
+    class LoanContract {
         +id
     }
-    class OrderLine {
+    class Installment {
         +id
     }
-    class Payment {
+    class Collateral {
         +id
     }
-    Order --> Version : compartilha
-    OrderLine --> Version : compartilha
-    Payment --> Version : compartilha
-    Order "1" --> "*" OrderLine
-    Order "1" --> "*" Payment
+    LoanContract --> Version : compartilha
+    Installment --> Version : compartilha
+    Collateral --> Version : compartilha
+    LoanContract "1" --> "*" Installment
+    LoanContract "1" --> "*" Collateral
 ```
 
-`Order`, `OrderLine` e `Payment` referenciam o mesmo objeto `Version`. Qualquer alteração em um deles incrementa essa versão, e o conflito é detectado para o grupo todo.
+`LoanContract`, `Installment` e `Collateral` referenciam o mesmo objeto `Version`. Qualquer alteração em um deles incrementa essa versão, e o conflito é detectado para o grupo todo.
 
 ## Exemplo
 
-Em um pedido com itens, alterar um item enquanto outra pessoa altera o total deve conflitar. Todos usam a versão da raiz `Order`.
+Em um contrato de empréstimo, renegociar uma parcela enquanto outra pessoa substitui a garantia deve conflitar. Todos usam a versão da raiz `LoanContract`.
 
 ```sql
--- Itens e pedido compartilham a versao do pedido
-UPDATE order_line SET qty = 5 WHERE id = 3;
+-- Parcelas e garantias compartilham a versao do contrato
+UPDATE installment SET due_date = '2026-12-10' WHERE id = 3;
 
-UPDATE orders
+UPDATE loan_contract
    SET version = version + 1
  WHERE id = 10 AND version = 4;  -- 0 linhas => conflito no agregado
 ```
 
 ```java
 @Entity
-class Order {
+class LoanContract {
     @Version long version;
 
     @OneToMany(cascade = CascadeType.ALL)
-    List<OrderLine> lines;
+    List<Installment> installments;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    List<Collateral> collaterals;
 }
 
 // Em JPA, a versao da raiz pode ser incrementada ao alterar filhos:
-// entityManager.lock(order, LockModeType.OPTIMISTIC_FORCE_INCREMENT);
+// entityManager.lock(contract, LockModeType.OPTIMISTIC_FORCE_INCREMENT);
 ```
 
 ## Padrões relacionados

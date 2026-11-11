@@ -75,26 +75,30 @@ The `Query` aggregates several `Criteria`. When executed, it uses the mapping's 
 
 ## Example
 
-An order search screen filters by customer and minimum amount, with optional filters. The JPA Criteria API builds the query in a type-safe way, without writing SQL.
+The statement screen filters an account's ledger entries by period, entry type, and minimum amount, and every filter except the account is optional. The JPA Criteria API builds the query in a type-safe way, without writing SQL.
 
 ```java
 CriteriaBuilder cb = em.getCriteriaBuilder();
-CriteriaQuery<Order> q = cb.createQuery(Order.class);
-Root<Order> o = q.from(Order.class);
+CriteriaQuery<LedgerEntry> q = cb.createQuery(LedgerEntry.class);
+Root<LedgerEntry> e = q.from(LedgerEntry.class);
 
 List<Predicate> filters = new ArrayList<>();
-if (customerId != null) {
-    filters.add(cb.equal(o.get("customer").get("id"), customerId));
+filters.add(cb.equal(e.get("account").get("id"), accountId));
+if (from != null && to != null) {
+    filters.add(cb.between(e.get("bookedAt"), from, to));
 }
-if (minTotal != null) {
-    filters.add(cb.greaterThanOrEqualTo(o.get("total"), minTotal));
+if (type != null) {
+    filters.add(cb.equal(e.get("type"), type));
+}
+if (minAmountCents != null) {
+    filters.add(cb.greaterThanOrEqualTo(e.get("amountCents"), minAmountCents));
 }
 
-q.select(o)
+q.select(e)
  .where(filters.toArray(new Predicate[0]))
- .orderBy(cb.desc(o.get("createdAt")));
+ .orderBy(cb.desc(e.get("bookedAt")));
 
-List<Order> result = em.createQuery(q).getResultList();
+List<LedgerEntry> result = em.createQuery(q).getResultList();
 ```
 
 LINQ in Entity Framework and Specification in Spring Data follow the same idea.

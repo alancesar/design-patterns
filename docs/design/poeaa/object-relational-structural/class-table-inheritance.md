@@ -51,23 +51,27 @@ O esquema espelha o modelo de objetos, mantém o banco normalizado e permite `NO
 
 ```mermaid
 erDiagram
-    PLAYER ||--o| FOOTBALLER : e
-    PLAYER ||--o| CRICKETER : e
-    PLAYER {
+    PAYMENT_INSTRUCTION ||--o| PIX_TRANSFER : e
+    PAYMENT_INSTRUCTION ||--o| TED_TRANSFER : e
+    PAYMENT_INSTRUCTION {
         bigint id PK
-        varchar name
+        bigint amount_cents
+        varchar status
     }
-    FOOTBALLER {
+    PIX_TRANSFER {
         bigint id PK
-        varchar club
+        varchar pix_key
+        varchar end_to_end_id
     }
-    CRICKETER {
+    TED_TRANSFER {
         bigint id PK
-        int batting_average
+        varchar bank_code
+        varchar branch
+        varchar account_number
     }
 ```
 
-`PLAYER` guarda os campos comuns; `FOOTBALLER` e `CRICKETER` guardam os específicos, compartilhando a mesma chave primária.
+`PAYMENT_INSTRUCTION` guarda os campos comuns; `PIX_TRANSFER` e `TED_TRANSFER` guardam os específicos, compartilhando a mesma chave primária. A fonte do Fowler ilustra o padrão com a hierarquia `Player`; aqui ela é substituída por `PaymentInstruction`, a mesma nos quatro padrões de herança.
 
 ## Exemplo
 
@@ -76,21 +80,29 @@ Cada classe tem a própria tabela; o JPA une as tabelas com `JOINED`.
 ```java
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Player {
+public abstract class PaymentInstruction {
     @Id @GeneratedValue
     private Long id;
-    private String name;
+    private long amountCents;
+    private String status;
 }
 
 @Entity
-public class Footballer extends Player {
+public class PixTransfer extends PaymentInstruction {
     @Column(nullable = false)
-    private String club;
+    private String pixKey;
+    private String endToEndId;
+}
+
+@Entity
+public class TedTransfer extends PaymentInstruction {
+    private String bankCode;
+    private String branch;
+    private String accountNumber;
 }
 ```
 
 No EF Core, é o Table-per-Type (TPT).
-
 ## Padrões relacionados
 
 - [Single Table Inheritance](/design/poeaa/object-relational-structural/single-table-inheritance) — alternativa com uma tabela só.

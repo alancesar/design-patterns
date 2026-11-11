@@ -66,20 +66,20 @@ O navegador chama diretamente o controller da página; ele consulta o model e en
 
 ## Exemplo
 
-Uma página de perfil de usuário tem um controller próprio que lê o parâmetro da URL, busca o usuário e renderiza o template.
+A página de comprovante de Pix (`/receipts/{id}`) tem um controller próprio que lê o identificador da URL, busca a `PixTransfer` e renderiza o template.
 
 ```java
-@WebServlet("/profile")
-public class ProfileController extends HttpServlet {
-    private final UserService users = new UserService();
+@WebServlet("/receipts/*")
+public class PixReceiptController extends HttpServlet {
+    private final PixTransferService transfers = new PixTransferService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        long id = Long.parseLong(req.getParameter("id"));
-        User user = users.find(id);
-        req.setAttribute("user", user);
-        req.getRequestDispatcher("/WEB-INF/profile.jsp").forward(req, resp);
+        String id = req.getPathInfo().substring(1);  // /receipts/{id}
+        PixTransfer transfer = transfers.find(id);
+        req.setAttribute("transfer", transfer);
+        req.getRequestDispatcher("/WEB-INF/receipt.jsp").forward(req, resp);
     }
 }
 ```

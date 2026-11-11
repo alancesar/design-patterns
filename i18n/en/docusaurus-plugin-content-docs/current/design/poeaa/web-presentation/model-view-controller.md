@@ -74,25 +74,36 @@ The `Controller` receives the input, changes the `Model`, and selects the `View`
 
 ## Example
 
-In an online store, the product screen shows the same `Product` in an HTML page and in a JSON endpoint for the mobile app. The controller fetches the model and chooses the view.
+In internet banking, the statement screen shows the same `Statement` in an HTML page and in a JSON endpoint for the mobile app. The controller fetches the model and chooses the view.
 
 ```python
-class Product:                      # Model
-    def __init__(self, name, price):
-        self.name, self.price = name, price
+class Statement:                    # Model
+    def __init__(self, account_id, entries):
+        self.account_id, self.entries = account_id, entries  # (date, description, amount_cents)
 
-class ProductController:            # Controller
+class StatementController:          # Controller
     def __init__(self, repo, views):
         self.repo, self.views = repo, views
 
-    def show(self, product_id, fmt="html"):
-        product = self.repo.find(product_id)
-        return self.views[fmt](product)
+    def show(self, account_id, fmt="html"):
+        statement = self.repo.find(account_id)
+        return self.views[fmt](statement)
 
-def html_view(p): return f"<h1>{p.name}</h1><p>$ {p.price:.2f}</p>"
-def json_view(p): return {"name": p.name, "price": p.price}
+def brl(cents):
+    sign = "-" if cents < 0 else ""
+    return f"{sign}R$ {abs(cents) // 100:,}.{abs(cents) % 100:02d}"
 
-controller = ProductController(repo, {"html": html_view, "json": json_view})
+def html_view(s):
+    rows = "".join(f"<tr><td>{d}</td><td>{desc}</td><td>{brl(c)}</td></tr>"
+                   for d, desc, c in s.entries)
+    return f"<h1>Statement</h1><table>{rows}</table>"
+
+def json_view(s):
+    return {"account": s.account_id,
+            "entries": [{"date": d, "description": desc, "amountCents": c}
+                        for d, desc, c in s.entries]}
+
+controller = StatementController(repo, {"html": html_view, "json": json_view})
 ```
 
 Spring MVC, ASP.NET MVC, and Rails implement this pattern. In SPAs, MVC moves to the client (or becomes MVVM/components), and the server exposes only the model as an API.

@@ -58,51 +58,56 @@ Modelos de objetos têm coleções, herança e associações que raramente casam
 ```mermaid
 classDiagram
     class Client
-    class Person {
-        +name
-        +birthDate
-        +calculateAge()
+    class Account {
+        +number
+        +balanceCents
+        +deposit(amountCents)
+        +withdraw(amountCents)
     }
-    class PersonMapper {
+    class AccountMapper {
         +find(id)
-        +insert(person)
-        +update(person)
-        +delete(person)
+        +insert(account)
+        +update(account)
+        +delete(account)
     }
     class Database
-    Client --> PersonMapper
-    Client --> Person
-    PersonMapper ..> Person : maps
-    PersonMapper --> Database
+    Client --> AccountMapper
+    Client --> Account
+    AccountMapper ..> Account : maps
+    AccountMapper --> Database
 ```
 
-O `Person` não conhece o banco nem o `PersonMapper`. O mapper lê e grava no `Database` e converte linhas em objetos `Person`, e vice-versa.
+O `Account` não conhece o banco nem o `AccountMapper`. O mapper lê e grava no `Database` e converte linhas de `contas_correntes` em objetos `Account`, e vice-versa.
 
 ## Exemplo
 
-Uma aplicação de RH tem a entidade `Employee` com regras de negócio, e a tabela `employees` tem colunas diferentes. O mapper faz a tradução e o domínio permanece puro.
+Um banco digital tem a entidade `Account`, com regras de saldo, e uma tabela legada `contas_correntes` com nomes e colunas diferentes. O `AccountMapper` faz a tradução e o domínio permanece puro.
 
 ```java
-class Employee {                       // domínio puro
-    private final String name;
-    private final LocalDate hiredAt;
-    Employee(String name, LocalDate hiredAt) { this.name = name; this.hiredAt = hiredAt; }
-    int yearsOfService() { return Period.between(hiredAt, LocalDate.now()).getYears(); }
+class Account {                        // domínio puro
+    private final String number;
+    private long balanceCents;
+    Account(String number, long balanceCents) { this.number = number; this.balanceCents = balanceCents; }
+    void deposit(long amountCents) { balanceCents += amountCents; }
+    void withdraw(long amountCents) {
+        if (amountCents > balanceCents) throw new IllegalStateException("saldo insuficiente");
+        balanceCents -= amountCents;
+    }
 }
 
-class EmployeeMapper {
+class AccountMapper {
     private final JdbcTemplate jdbc;
-    EmployeeMapper(JdbcTemplate jdbc) { this.jdbc = jdbc; }
+    AccountMapper(JdbcTemplate jdbc) { this.jdbc = jdbc; }
 
-    Employee find(long id) {
+    Account find(long id) {
         return jdbc.queryForObject(
-            "SELECT full_name, hire_date FROM employees WHERE id = ?",
-            (rs, n) -> new Employee(rs.getString("full_name"),
-                                    rs.getDate("hire_date").toLocalDate()),
+            "SELECT num_conta, saldo_centavos FROM contas_correntes WHERE id = ?",
+            (rs, n) -> new Account(rs.getString("num_conta"),
+                                   rs.getLong("saldo_centavos")),
             id);
     }
 
-    void insert(Employee e) { /* INSERT a partir dos campos de Employee */ }
+    void insert(Account a) { /* INSERT a partir dos campos de Account */ }
 }
 ```
 

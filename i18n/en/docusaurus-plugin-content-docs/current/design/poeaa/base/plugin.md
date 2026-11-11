@@ -71,7 +71,7 @@ The `Client` asks the `PluginFactory` for an implementation of the interface. Th
 
 ## Example
 
-An identifier generator has an in-memory implementation for tests and a database-sequence-based one for production. The choice comes from a properties file.
+An identifier generator, used to generate the `endToEndId` of Pix transactions, has an in-memory implementation for tests and a database-sequence-based one for production. The choice comes from a properties file.
 
 ```java
 // plugins.properties (test)
@@ -96,6 +96,7 @@ public class PluginFactory {
 }
 
 IdGenerator ids = PluginFactory.getPlugin(IdGenerator.class);
+String endToEndId = ids.next();
 ```
 
 In frameworks, the equivalents are Spring (profiles and bean configuration), Java's `ServiceLoader`, and .NET's provider system.

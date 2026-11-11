@@ -15,7 +15,7 @@ sidebar_label: "Table Module"
 
 Table Module is a single instance that handles the business logic for all the rows in a database table or view. There is one class per table, and its methods receive or operate on a set of tabular data.
 
-Unlike Domain Model, which creates one object per record (one object for each order), Table Module has a single `Orders` object that processes all the orders. To identify a row, the client passes a key or the method receives the record as an argument.
+Unlike Domain Model, which creates one object per record (one object for each installment), Table Module has a single `Installments` object that processes all the installments. To identify a row, the client passes a key or the method receives the record as an argument.
 
 The pattern works very well with Record Set, in-memory tabular structures provided by platforms such as .NET (DataSet), which integrate them with user interface and data access tools.
 
@@ -55,51 +55,53 @@ The pattern works very well with Record Set, in-memory tabular structures provid
 ```mermaid
 classDiagram
     class Client
-    class OrdersModule {
-        +total(orderId) decimal
-        +applyDiscount(orderId)
+    class ContractsModule {
+        +payoffAmount(contractId) long
     }
-    class OrderItemsModule {
-        +subtotal(orderId) decimal
+    class InstallmentsModule {
+        +outstandingBalance(contractId) long
     }
     class RecordSet
     class TableDataGateway
-    Client --> OrdersModule
-    OrdersModule --> OrderItemsModule
-    OrdersModule --> RecordSet
-    OrderItemsModule --> RecordSet
+    Client --> ContractsModule
+    ContractsModule --> InstallmentsModule
+    ContractsModule --> RecordSet
+    InstallmentsModule --> RecordSet
     TableDataGateway --> RecordSet
 ```
 
-Each table has a module (`OrdersModule`, `OrderItemsModule`) that operates on a `RecordSet` loaded by a table gateway.
+Each table has a module (`ContractsModule`, `InstallmentsModule`) that operates on a `RecordSet` loaded by a table gateway.
 
 ## Example
 
-An `Orders` module calculates an order's total from the loaded set of items.
+An `Installments` module calculates a contract's outstanding balance from the loaded set of installments, and the `Contracts` module uses that balance to calculate the early payoff amount (the discount is illustrative).
 
 ```csharp
-public class OrderItems
+public class Installments
 {
     private readonly DataTable table;
-    public OrderItems(DataTable table) { this.table = table; }
+    public Installments(DataTable table) { this.table = table; }
 
-    public decimal Subtotal(int orderId) =>
+    // Sums the contract's unpaid installments, in cents.
+    public long OutstandingBalanceCents(int contractId) =>
         table.AsEnumerable()
-             .Where(r => r.Field<int>("OrderId") == orderId)
-             .Sum(r => r.Field<decimal>("Price") * r.Field<int>("Qty"));
+             .Where(r => r.Field<int>("ContractId") == contractId
+                      && r.IsNull("PaidAt"))
+             .Sum(r => r.Field<long>("AmountCents"));
 }
 
-public class Orders
+public class Contracts
 {
     private readonly DataTable table;
-    private readonly OrderItems items;
-    public Orders(DataTable table, OrderItems items) { this.table = table; this.items = items; }
+    private readonly Installments installments;
+    public Contracts(DataTable table, Installments installments) { this.table = table; this.installments = installments; }
 
-    public decimal Total(int orderId)
+    public long PayoffCents(int contractId)
     {
-        var row = table.AsEnumerable().Single(r => r.Field<int>("Id") == orderId);
-        var subtotal = items.Subtotal(orderId);
-        return row.Field<bool>("Vip") ? subtotal * 0.9m : subtotal;
+        var row = table.AsEnumerable().Single(r => r.Field<int>("Id") == contractId);
+        var balance = installments.OutstandingBalanceCents(contractId);
+        var discount = row.Field<decimal>("EarlyPayoffDiscount");   // rate, for example 0.05m
+        return (long)Math.Round(balance * (1m - discount));
     }
 }
 ```

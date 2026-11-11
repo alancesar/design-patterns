@@ -75,7 +75,7 @@ The `Mapper` checks the `IdentityMap` before going to the `Database`; if the obj
 
 ## Example
 
-In an order, both the billing module and the shipping module fetch the same `Customer`. With Identity Map, both receive the same instance.
+In a single transfer request, the fraud check and the limit check fetch the same `Account`. With Identity Map, both receive the same instance.
 
 ```typescript
 class IdentityMap<T extends { id: number }> {
@@ -84,18 +84,18 @@ class IdentityMap<T extends { id: number }> {
   put(entity: T): void { this.items.set(entity.id, entity); }
 }
 
-class CustomerMapper {
-  private map = new IdentityMap<Customer>();
+class AccountMapper {
+  private map = new IdentityMap<Account>();
 
   constructor(private db: Database) {}
 
-  find(id: number): Customer {
+  find(id: number): Account {
     const cached = this.map.get(id);
     if (cached) return cached;
-    const row = this.db.queryOne("SELECT * FROM customers WHERE id = ?", [id]);
-    const customer = new Customer(row.id, row.name);
-    this.map.put(customer);
-    return customer;
+    const row = this.db.queryOne("SELECT * FROM accounts WHERE id = ?", [id]);
+    const account = new Account(row.id, row.balance_cents);
+    this.map.put(account);
+    return account;
   }
 }
 

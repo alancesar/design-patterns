@@ -54,48 +54,58 @@ It works well as long as the domain model is similar to the database schema; whe
 ```mermaid
 classDiagram
     class Client
-    class Person {
+    class Card {
         +id
-        +name
-        +birthDate
+        +accountId
+        +status
+        +expiresAt
         +find(id)$
         +save()
         +delete()
-        +calculateAge()
+        +block()
+        +isExpired()
     }
     class Database
-    Client --> Person
-    Person --> Database
+    Client --> Card
+    Card --> Database
 ```
 
-The `Client` uses `Person` directly. `Person` holds the data of one row, contains the domain logic (`calculateAge`), and accesses the `Database` through `save`, `delete`, and `find`.
+The `Client` uses `Card` directly. `Card` holds the data of one row, contains the domain logic (`block` and `isExpired`), and accesses the `Database` through `save`, `delete`, and `find`.
 
 ## Example
 
-A store has products with simple rules, such as applying a discount. The `Product` class represents the row and knows how to save itself, as in the models of Rails ActiveRecord, Django ORM, or Eloquent.
+A card has simple rules, such as blocking and knowing whether it has expired. The `Card` class represents the row and knows how to save itself, as in the models of Rails ActiveRecord, Django ORM, or Eloquent.
 
 ```python
-class Product:
-    def __init__(self, conn, id, name, price):
-        self.conn, self.id, self.name, self.price = conn, id, name, price
+from datetime import date
+
+class Card:
+    def __init__(self, conn, id, account_id, status, expires_at):
+        self.conn, self.id, self.account_id = conn, id, account_id
+        self.status, self.expires_at = status, expires_at
 
     @classmethod
     def find(cls, conn, id):
         r = conn.execute(
-            "SELECT id, name, price FROM products WHERE id = ?", (id,)).fetchone()
-        return cls(conn, *r)
+            "SELECT id, account_id, status, expires_at FROM cards WHERE id = ?",
+            (id,)).fetchone()
+        return cls(conn, r[0], r[1], r[2], date.fromisoformat(r[3]))
 
-    def apply_discount(self, percent):  # domain logic
-        self.price = round(self.price * (1 - percent / 100), 2)
+    def is_expired(self, today=None):  # domain logic
+        return self.expires_at < (today or date.today())
+
+    def block(self):  # domain logic
+        if self.status == "CANCELLED":
+            raise ValueError("a cancelled card cannot be blocked")
+        self.status = "BLOCKED"
 
     def save(self):
         self.conn.execute(
-            "UPDATE products SET name = ?, price = ? WHERE id = ?",
-            (self.name, self.price, self.id))
+            "UPDATE cards SET status = ? WHERE id = ?", (self.status, self.id))
 
-product = Product.find(conn, 7)
-product.apply_discount(10)
-product.save()
+card = Card.find(conn, 7)
+card.block()
+card.save()
 ```
 
 ## Related patterns

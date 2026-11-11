@@ -15,7 +15,7 @@ sidebar_label: "Table Data Gateway"
 
 O Table Data Gateway é um objeto que atua como gateway para uma tabela (ou view) do banco de dados. Uma única instância cuida de todas as linhas da tabela e concentra todo o SQL de consulta, inserção, atualização e exclusão.
 
-O restante da aplicação não escreve SQL: chama métodos como `findById`, `findByCustomer` ou `insert`. Normalmente o gateway não tem estado e devolve estruturas de dados simples, como Record Sets ou DTOs, em vez de objetos de domínio com comportamento.
+O restante da aplicação não escreve SQL: chama métodos como `findById`, `findByPayer` ou `insert`. Normalmente o gateway não tem estado e devolve estruturas de dados simples, como Record Sets ou DTOs, em vez de objetos de domínio com comportamento.
 
 Com isso, o SQL fica em um só lugar, facilitando o trabalho de quem não domina SQL e permitindo que DBAs encontrem e ajustem as consultas quando o esquema muda.
 
@@ -57,50 +57,56 @@ Com isso, o SQL fica em um só lugar, facilitando o trabalho de quem não domina
 ```mermaid
 classDiagram
     class Client
-    class PersonGateway {
+    class BoletoGateway {
         +findAll()
         +findById(id)
-        +insert(name, email)
-        +update(id, name, email)
+        +findByPayer(payerId)
+        +insert(payerId, amountCents, dueDate)
+        +update(id, status)
         +delete(id)
     }
     class Database
-    Client --> PersonGateway
-    PersonGateway --> Database
+    Client --> BoletoGateway
+    BoletoGateway --> Database
 ```
 
-O `Client` (por exemplo, um Transaction Script) chama apenas métodos do `PersonGateway`, que contém o SQL e conversa com o `Database`. Uma instância atende todas as linhas da tabela.
+O `Client` (por exemplo, um Transaction Script de cobrança) chama apenas métodos do `BoletoGateway`, que contém o SQL e conversa com o `Database`. Uma instância atende todas as linhas da tabela.
 
 ## Exemplo
 
-Um sistema de pedidos usa scripts de negócio que precisam consultar e gravar pedidos. Um `OrderGateway` isola o SQL da tabela `orders` e devolve linhas simples.
+Os scripts de cobrança de uma fintech precisam consultar e gravar boletos. Um `BoletoGateway` isola o SQL da tabela `boletos` e devolve linhas simples.
 
 ```python
-class OrderGateway:
+class BoletoGateway:
     def __init__(self, conn):
         self.conn = conn
 
-    def find_by_id(self, order_id):
+    def find_by_id(self, boleto_id):
         cur = self.conn.execute(
-            "SELECT id, customer_id, total FROM orders WHERE id = ?", (order_id,))
+            "SELECT id, payer_id, amount_cents, due_date, status "
+            "FROM boletos WHERE id = ?", (boleto_id,))
         return cur.fetchone()
 
-    def find_by_customer(self, customer_id):
+    def find_overdue(self, today):
         cur = self.conn.execute(
-            "SELECT id, customer_id, total FROM orders WHERE customer_id = ?",
-            (customer_id,))
+            "SELECT id, payer_id, amount_cents, due_date, status "
+            "FROM boletos WHERE status = 'OPEN' AND due_date < ?", (today,))
         return cur.fetchall()
 
-    def insert(self, customer_id, total):
+    def insert(self, payer_id, amount_cents, due_date):
         cur = self.conn.execute(
-            "INSERT INTO orders (customer_id, total) VALUES (?, ?)",
-            (customer_id, total))
+            "INSERT INTO boletos (payer_id, amount_cents, due_date, status) "
+            "VALUES (?, ?, ?, 'OPEN')", (payer_id, amount_cents, due_date))
         return cur.lastrowid
 
+    def update_status(self, boleto_id, status):
+        self.conn.execute(
+            "UPDATE boletos SET status = ? WHERE id = ?", (status, boleto_id))
+
 # Transaction Script
-def close_order(gateway, order_id):
-    order = gateway.find_by_id(order_id)
-    ...
+def flag_overdue_boletos(gateway, today):
+    for boleto in gateway.find_overdue(today):
+        gateway.update_status(boleto["id"], "OVERDUE")
 ```
 
 No .NET, o `TableAdapter` do ADO.NET e a classe DAO do mundo Java seguem ideia semelhante.

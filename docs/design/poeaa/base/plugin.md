@@ -71,7 +71,7 @@ O `Client` pede à `PluginFactory` uma implementação da interface. A fábrica 
 
 ## Exemplo
 
-Um gerador de identificadores tem implementação em memória para testes e outra baseada em sequência do banco para produção. A escolha vem de um arquivo de propriedades.
+Um gerador de identificadores, usado para gerar o `endToEndId` das transações Pix, tem implementação em memória para testes e outra baseada em sequência do banco para produção. A escolha vem de um arquivo de propriedades.
 
 ```java
 // plugins.properties (teste)
@@ -96,6 +96,7 @@ public class PluginFactory {
 }
 
 IdGenerator ids = PluginFactory.getPlugin(IdGenerator.class);
+String endToEndId = ids.next();
 ```
 
 Em frameworks, equivalem ao Spring (perfis e configuração de beans), ao `ServiceLoader` do Java e ao sistema de provedores do .NET.

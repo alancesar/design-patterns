@@ -80,24 +80,27 @@ O `MetadataMapper` genérico consulta o `ClassMap` da classe, que contém um `Co
 
 ## Exemplo
 
-Uma aplicação mapeia `Customer` para a tabela `customers`. Em vez de escrever SQL manual, as anotações JPA servem como metadados, e o Hibernate lê esses dados por reflexão para gerar os comandos.
+Uma aplicação mapeia `Account` para a tabela `accounts`. Em vez de escrever SQL manual, as anotações JPA servem como metadados, e o Hibernate lê esses dados por reflexão para gerar os comandos. O saldo é guardado em centavos inteiros.
 
 ```java
 @Entity
-@Table(name = "customers")
-public class Customer {
+@Table(name = "accounts")
+public class Account {
     @Id
     @GeneratedValue
     private Long id;
 
-    @Column(name = "full_name", nullable = false)
-    private String name;
+    @Column(name = "holder_name", nullable = false)
+    private String holderName;
 
     @Embedded
-    private Address address;
+    private Cpf holderCpf;
 
-    @OneToMany(mappedBy = "customer")
-    private List<Order> orders;
+    @Column(name = "balance_cents", nullable = false)
+    private long balanceCents;
+
+    @OneToMany(mappedBy = "account")
+    private List<LedgerEntry> entries;
 }
 ```
 

@@ -50,53 +50,71 @@ Os campos que não se aplicam a uma subclasse ficam nulos. Ao carregar, o mapead
 
 ```mermaid
 classDiagram
-    class Player {
-        -String name
+    class PaymentInstruction {
+        -Long id
+        -long amountCents
+        -String status
     }
-    class Footballer {
-        -String club
+    class PixTransfer {
+        -String pixKey
+        -String endToEndId
     }
-    class Cricketer {
-        -int battingAverage
+    class TedTransfer {
+        -String bankCode
+        -String branch
+        -String accountNumber
     }
-    class PlayersTable {
+    class PaymentInstructionsTable {
         <<table>>
         id
         type
-        name
-        club
-        batting_average
+        amount_cents
+        status
+        pix_key
+        end_to_end_id
+        bank_code
+        branch
+        account_number
     }
-    Player <|-- Footballer
-    Player <|-- Cricketer
-    Player ..> PlayersTable
+    PaymentInstruction <|-- PixTransfer
+    PaymentInstruction <|-- TedTransfer
+    PaymentInstruction ..> PaymentInstructionsTable
 ```
 
-Toda a hierarquia fica em `PlayersTable`; a coluna `type` identifica a subclasse e as colunas específicas ficam nulas nas demais.
+Toda a hierarquia fica em `PaymentInstructionsTable`; a coluna `type` identifica a subclasse e as colunas específicas ficam nulas nas demais. A fonte do Fowler ilustra o padrão com a hierarquia `Player`; aqui ela é substituída por `PaymentInstruction`, a mesma nos quatro padrões de herança.
 
 ## Exemplo
 
-Uma hierarquia de jogadores é mapeada em uma só tabela com discriminador.
+Uma hierarquia de instruções de pagamento é mapeada em uma só tabela, `payment_instructions`, com discriminador.
 
 ```java
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type")
-public abstract class Player {
+public abstract class PaymentInstruction {
     @Id @GeneratedValue
     private Long id;
-    private String name;
+    private long amountCents;
+    private String status;
 }
 
 @Entity
-@DiscriminatorValue("FOOTBALLER")
-public class Footballer extends Player {
-    private String club;
+@DiscriminatorValue("PIX")
+public class PixTransfer extends PaymentInstruction {
+    private String pixKey;
+    private String endToEndId;
+}
+
+@Entity
+@DiscriminatorValue("TED")
+public class TedTransfer extends PaymentInstruction {
+    private String bankCode;
+    private String branch;
+    private String accountNumber;
 }
 ```
 
 No EF Core, é o padrão Table-per-Hierarchy (TPH).
-
 ## Padrões relacionados
 
 - [Class Table Inheritance](/design/poeaa/object-relational-structural/class-table-inheritance) — uma tabela por classe, com joins.

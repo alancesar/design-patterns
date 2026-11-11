@@ -55,22 +55,22 @@ Equipes costumam organizar classes em pacotes ou módulos e definir regras de de
 ```mermaid
 classDiagram
     namespace DomainPackage {
-        class Client
-        class ReportSource {
+        class ForeignCurrencyConverter
+        class ExchangeRateProvider {
             <<interface>>
-            +load()
+            +rate(from, to)
         }
     }
     namespace InfrastructurePackage {
-        class DatabaseReportSource {
-            +load()
+        class HttpExchangeRateProvider {
+            +rate(from, to)
         }
     }
-    Client --> ReportSource
-    ReportSource <|.. DatabaseReportSource
+    ForeignCurrencyConverter --> ExchangeRateProvider
+    ExchangeRateProvider <|.. HttpExchangeRateProvider
 ```
 
-O `Client` e a interface `ReportSource` ficam no pacote de domínio; a implementação `DatabaseReportSource` fica no pacote de infraestrutura e depende da interface, invertendo a dependência.
+O `ForeignCurrencyConverter` e a interface `ExchangeRateProvider` ficam no pacote de domínio; a implementação `HttpExchangeRateProvider` fica no pacote de infraestrutura e depende da interface, invertendo a dependência.
 
 ## Exemplo
 
@@ -78,13 +78,13 @@ A camada de domínio precisa buscar a taxa de câmbio, mas não pode depender da
 
 ```java
 // pacote: domain
-public interface ExchangeRates {
+public interface ExchangeRateProvider {
     java.math.BigDecimal rate(String from, String to);
 }
 
-public class PriceCalculator {
-    private final ExchangeRates rates;
-    public PriceCalculator(ExchangeRates rates) { this.rates = rates; }
+public class ForeignCurrencyConverter {
+    private final ExchangeRateProvider rates;
+    public ForeignCurrencyConverter(ExchangeRateProvider rates) { this.rates = rates; }
 
     public java.math.BigDecimal convert(java.math.BigDecimal value, String from, String to) {
         return value.multiply(rates.rate(from, to));
@@ -92,9 +92,9 @@ public class PriceCalculator {
 }
 
 // pacote: infrastructure (depende de domain, não o contrário)
-public class HttpExchangeRates implements domain.ExchangeRates {
+public class HttpExchangeRateProvider implements domain.ExchangeRateProvider {
     public java.math.BigDecimal rate(String from, String to) {
-        // chamada HTTP ao provedor
+        // chamada HTTP ao provedor (taxa ilustrativa)
         return new java.math.BigDecimal("5.10");
     }
 }

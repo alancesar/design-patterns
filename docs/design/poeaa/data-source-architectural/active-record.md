@@ -54,48 +54,58 @@ Funciona bem enquanto o modelo de domínio é parecido com o esquema do banco; q
 ```mermaid
 classDiagram
     class Client
-    class Person {
+    class Card {
         +id
-        +name
-        +birthDate
+        +accountId
+        +status
+        +expiresAt
         +find(id)$
         +save()
         +delete()
-        +calculateAge()
+        +block()
+        +isExpired()
     }
     class Database
-    Client --> Person
-    Person --> Database
+    Client --> Card
+    Card --> Database
 ```
 
-O `Client` usa diretamente `Person`, que mantém os dados de uma linha, contém a lógica de domínio (`calculateAge`) e acessa o `Database` por meio de `save`, `delete` e `find`.
+O `Client` usa diretamente `Card`, que mantém os dados de uma linha, contém a lógica de domínio (`block` e `isExpired`) e acessa o `Database` por meio de `save`, `delete` e `find`.
 
 ## Exemplo
 
-Uma loja tem produtos com regras simples, como aplicar desconto. A classe `Product` representa a linha e sabe se salvar, como nos modelos do Rails ActiveRecord, do Django ORM ou do Eloquent.
+Um cartão tem regras simples, como bloquear e saber se está vencido. A classe `Card` representa a linha e sabe se salvar, como nos modelos do Rails ActiveRecord, do Django ORM ou do Eloquent.
 
 ```python
-class Product:
-    def __init__(self, conn, id, name, price):
-        self.conn, self.id, self.name, self.price = conn, id, name, price
+from datetime import date
+
+class Card:
+    def __init__(self, conn, id, account_id, status, expires_at):
+        self.conn, self.id, self.account_id = conn, id, account_id
+        self.status, self.expires_at = status, expires_at
 
     @classmethod
     def find(cls, conn, id):
         r = conn.execute(
-            "SELECT id, name, price FROM products WHERE id = ?", (id,)).fetchone()
-        return cls(conn, *r)
+            "SELECT id, account_id, status, expires_at FROM cards WHERE id = ?",
+            (id,)).fetchone()
+        return cls(conn, r[0], r[1], r[2], date.fromisoformat(r[3]))
 
-    def apply_discount(self, percent):  # lógica de domínio
-        self.price = round(self.price * (1 - percent / 100), 2)
+    def is_expired(self, today=None):  # lógica de domínio
+        return self.expires_at < (today or date.today())
+
+    def block(self):  # lógica de domínio
+        if self.status == "CANCELLED":
+            raise ValueError("cartão cancelado não pode ser bloqueado")
+        self.status = "BLOCKED"
 
     def save(self):
         self.conn.execute(
-            "UPDATE products SET name = ?, price = ? WHERE id = ?",
-            (self.name, self.price, self.id))
+            "UPDATE cards SET status = ? WHERE id = ?", (self.status, self.id))
 
-product = Product.find(conn, 7)
-product.apply_discount(10)
-product.save()
+card = Card.find(conn, 7)
+card.block()
+card.save()
 ```
 
 ## Padrões relacionados

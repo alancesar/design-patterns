@@ -52,47 +52,47 @@ Em vez de mapear cada objeto do grafo para tabelas e chaves estrangeiras, o mape
 
 ```mermaid
 classDiagram
-    class Customer {
+    class Consent {
         -Long id
-        -Department department
+        -List permissions
     }
-    class Department {
+    class Permission {
         -String name
-        -List children
     }
-    class CustomerTable {
+    class ConsentTable {
         <<table>>
         id
-        departments_json
+        permissions_json
     }
-    Customer --> Department
-    Customer ..> CustomerTable : serializa o grafo em departments_json
+    Consent --> Permission
+    Consent ..> ConsentTable : serializa a lista em permissions_json
 ```
 
-O grafo de `Department` é serializado em uma única coluna `departments_json` de `CustomerTable`.
+A lista de `Permission` é serializada em uma única coluna `permissions_json` de `ConsentTable`.
 
 ## Exemplo
 
-Um cliente tem uma hierarquia de departamentos, sempre lida inteira. Ela é guardada como JSON.
+Um `Consent` do Open Finance guarda a lista de permissões concedidas, sempre lida inteira. Ela é guardada como JSON.
 
 ```sql
-CREATE TABLE customer (
+CREATE TABLE consent (
   id BIGINT PRIMARY KEY,
-  name VARCHAR(100),
-  departments JSONB
+  status VARCHAR(20),
+  permissions JSONB
 );
 ```
 
 ```java
 @Entity
-public class Customer {
+public class Consent {
     @Id @GeneratedValue
     private Long id;
 
     @JdbcTypeCode(SqlTypes.JSON)
-    private DepartmentTree departments;
+    private List<Permission> permissions;
 }
 ```
+
 
 ## Padrões relacionados
 

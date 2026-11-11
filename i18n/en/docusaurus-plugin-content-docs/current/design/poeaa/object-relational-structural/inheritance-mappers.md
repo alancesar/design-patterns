@@ -50,44 +50,58 @@ It doesn't matter which schema is chosen (Single Table, Class Table, or Concrete
 
 ```mermaid
 classDiagram
-    class AbstractPlayerMapper {
-        +find(id) Player
-        +insert(player)
-        #loadFields(row, player)
+    class AbstractPaymentInstructionMapper {
+        +find(id) PaymentInstruction
+        +insert(instruction)
+        #loadFields(row, instruction)
     }
-    class FootballerMapper {
-        #loadFields(row, player)
+    class PixTransferMapper {
+        #loadFields(row, instruction)
     }
-    class CricketerMapper {
-        #loadFields(row, player)
+    class TedTransferMapper {
+        #loadFields(row, instruction)
     }
-    AbstractPlayerMapper <|-- FootballerMapper
-    AbstractPlayerMapper <|-- CricketerMapper
+    AbstractPaymentInstructionMapper <|-- PixTransferMapper
+    AbstractPaymentInstructionMapper <|-- TedTransferMapper
 ```
 
-The abstract mapper holds the common flow; each concrete mapper handles its class's fields and calls the superclass's for the inherited fields.
+The abstract mapper holds the common flow; each concrete mapper handles its class's fields and calls the superclass's for the inherited fields. Fowler's source illustrates the pattern with a `Player` hierarchy; here it is replaced by `PaymentInstruction`, the same one in all four inheritance patterns.
 
 ## Example
 
-A hierarchy of `Player`, `Footballer`, and `Cricketer` uses chained mappers.
+A `PaymentInstruction`, `PixTransfer`, and `TedTransfer` hierarchy uses chained mappers.
 
 ```python
-class PlayerMapper:
+class AbstractPaymentInstructionMapper:
     def load(self, row):
-        player = self.create()
-        player.id = row["id"]
-        player.name = row["name"]
-        return player
+        instruction = self.create()
+        instruction.id = row["id"]
+        instruction.amount_cents = row["amount_cents"]
+        instruction.status = row["status"]
+        return instruction
 
-class FootballerMapper(PlayerMapper):
+class PixTransferMapper(AbstractPaymentInstructionMapper):
     def create(self):
-        return Footballer()
+        return PixTransfer()
 
     def load(self, row):
-        player = super().load(row)
-        player.club = row["club"]
-        return player
+        transfer = super().load(row)
+        transfer.pix_key = row["pix_key"]
+        transfer.end_to_end_id = row["end_to_end_id"]
+        return transfer
+
+class TedTransferMapper(AbstractPaymentInstructionMapper):
+    def create(self):
+        return TedTransfer()
+
+    def load(self, row):
+        transfer = super().load(row)
+        transfer.bank_code = row["bank_code"]
+        transfer.branch = row["branch"]
+        transfer.account_number = row["account_number"]
+        return transfer
 ```
+
 
 ## Related patterns
 

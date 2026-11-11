@@ -16,7 +16,7 @@ sidebar_label: "Remote Facade"
 
 The Remote Facade provides a coarse-grained interface over fine-grained objects to make network access efficient. Domain objects stay small, with many simple methods (getters, setters, single-purpose operations), designed for use within the same process. Calls between processes, however, are much more expensive: they involve serialization, routing, security checks, and network latency.
 
-The facade sits at the application boundary and exposes a few methods that do a lot: for example, instead of fetching an order and then each of its items, the remote client gets or updates the entire order in a single call. Each facade method translates the coarse request into local calls to the fine-grained objects.
+The facade sits at the application boundary and exposes a few methods that do a lot: for example, instead of fetching an invoice and then each of its entries, the remote client gets the entire invoice in a single call. Each facade method translates the coarse request into local calls to the fine-grained objects.
 
 The facade contains no domain logic: it only translates, delegates, and usually handles boundary concerns such as security and transactions. It typically works together with the [Data Transfer Object](/design/poeaa/distribution/data-transfer-object), which carries the data exchanged between the two ends.
 
@@ -58,48 +58,47 @@ The facade contains no domain logic: it only translates, delegates, and usually 
 ```mermaid
 classDiagram
     class RemoteClient
-    class OrderRemoteFacade {
-        +getOrder(id) OrderDTO
-        +updateOrder(dto)
+    class InvoiceRemoteFacade {
+        +getInvoice(id) InvoiceDTO
+        +payInvoice(id, paymentCents)
     }
-    class OrderAssembler {
-        +toDTO(order) OrderDTO
-        +updateFrom(dto, order)
+    class InvoiceAssembler {
+        +toDTO(invoice) InvoiceDTO
     }
-    class Order
-    class OrderLine
-    class OrderDTO
-    RemoteClient --> OrderRemoteFacade : remote call
-    OrderRemoteFacade --> OrderAssembler
-    OrderRemoteFacade --> Order
-    Order "1" --> "*" OrderLine
-    OrderAssembler ..> OrderDTO
+    class CardInvoice
+    class InvoiceEntry
+    class InvoiceDTO
+    RemoteClient --> InvoiceRemoteFacade : remote call
+    InvoiceRemoteFacade --> InvoiceAssembler
+    InvoiceRemoteFacade --> CardInvoice
+    CardInvoice "1" --> "*" InvoiceEntry
+    InvoiceAssembler ..> InvoiceDTO
 ```
 
-The `RemoteClient` makes a single call to the `OrderRemoteFacade`, which uses the `OrderAssembler` and the fine-grained objects (`Order`, `OrderLine`) to build or apply a complete `OrderDTO`.
+The `RemoteClient` makes a single call to the `InvoiceRemoteFacade`, which uses the `InvoiceAssembler` and the fine-grained objects (`CardInvoice`, `InvoiceEntry`) to build a complete `InvoiceDTO` or apply a payment.
 
 ## Example
 
-A mobile app needs to display an order with its items. Instead of exposing `Order` and `OrderLine` over the network, a coarse endpoint returns the complete order in one call, and the facade just delegates.
+A digital bank mobile app needs to display the card invoice with its entries. Instead of exposing `CardInvoice` and `InvoiceEntry` over the network, a coarse endpoint returns the complete invoice in one call, and the facade just delegates.
 
 ```typescript
-class OrderRemoteFacade {
+class InvoiceRemoteFacade {
   constructor(
-    private orders: OrderRepository,
-    private assembler: OrderAssembler,
+    private invoices: InvoiceRepository,
+    private assembler: InvoiceAssembler,
   ) {}
 
   // One remote call, several local objects
-  getOrder(id: string): OrderDTO {
-    const order = this.orders.find(id);
-    return this.assembler.toDTO(order); // order + items
+  getInvoice(id: string): InvoiceDTO {
+    const invoice = this.invoices.find(id);
+    return this.assembler.toDTO(invoice); // invoice + entries
   }
 
-  // Updates several parts at once, in a single transaction
-  updateOrder(dto: OrderDTO): void {
-    const order = this.orders.find(dto.id);
-    this.assembler.updateFrom(dto, order);
-    this.orders.save(order);
+  // The payment is applied to the domain object, in a single transaction
+  payInvoice(id: string, paymentCents: number): void {
+    const invoice = this.invoices.find(id);
+    invoice.pay(Money.ofCents(paymentCents));
+    this.invoices.save(invoice);
   }
 }
 ```
