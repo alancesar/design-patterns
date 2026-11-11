@@ -84,13 +84,13 @@ O `Client` obtém um `Reusable` do `ObjectPool` e o devolve ao terminar. O pool 
 
 ## Exemplo
 
-Um serviço HTTP precisa de conexões com o banco de dados; abrir uma conexão a cada requisição é caro, então as conexões são mantidas em um pool limitado.
+Toda mensagem enviada ao SPI precisa ser assinada em um HSM. Abrir uma sessão no HSM é caro e o equipamento aceita poucas sessões simultâneas, então as sessões são mantidas em um pool limitado.
 
 ```python
 import threading
 
-class ConnectionPool:
-    def __init__(self, factory, max_size=10):
+class HsmSessionPool:
+    def __init__(self, factory, max_size=4):
         self._factory = factory
         self._available = []
         self._in_use = set()
@@ -102,25 +102,33 @@ class ConnectionPool:
             while not self._available and len(self._in_use) >= self._max_size:
                 if not self._cond.wait(timeout):
                     raise TimeoutError("pool esgotado")
-            conn = self._available.pop() if self._available else self._factory()
-            if not conn.is_valid():
-                conn = self._factory()
-            self._in_use.add(conn)
-            return conn
+            session = self._available.pop() if self._available else self._factory()
+            if not session.is_valid():
+                session = self._factory()
+            self._in_use.add(session)
+            return session
 
-    def release(self, conn):
+    def release(self, session):
         with self._cond:
-            self._in_use.discard(conn)
-            conn.reset()
-            self._available.append(conn)
+            self._in_use.discard(session)
+            session.reset()
+            self._available.append(session)
             self._cond.notify()
 
-# uso
-conn = pool.acquire()
-try:
-    conn.execute("SELECT 1")
-finally:
-    pool.release(conn)
+class MessageSigner:
+    def __init__(self, pool):
+        self._pool = pool
+
+    def sign(self, message):
+        session = self._pool.acquire()
+        try:
+            return session.sign(message)
+        finally:
+            self._pool.release(session)
+
+# uso: cada mensagem enviada ao SPI é assinada com uma sessão emprestada do pool
+signer = MessageSigner(HsmSessionPool(open_hsm_session, max_size=4))
+signature = signer.sign(pacs008_xml)
 ```
 
 ## Padrões relacionados

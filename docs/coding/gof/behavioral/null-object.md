@@ -78,37 +78,39 @@ classDiagram
 
 ## Exemplo
 
-Um serviço de pedidos recebe um logger opcional. Em vez de testar se o logger existe a cada chamada, o serviço recebe um `NullLogger` quando nenhum logger é configurado.
+O serviço de transferência aplica uma política de tarifa. Contas isentas recebem uma `NoFeePolicy`, que devolve zero, em vez de o serviço testar se existe política a cada transferência. O valor da tarifa é ilustrativo.
 
 ```typescript
-interface Logger {
-  info(message: string): void;
+interface FeePolicy {
+  feeCents(amountCents: number): number;
 }
 
-class ConsoleLogger implements Logger {
-  info(message: string): void {
-    console.log(`[INFO] ${message}`);
+class PerTransferFeePolicy implements FeePolicy {
+  constructor(private readonly flatCents: number) {}
+  feeCents(_amountCents: number): number {
+    return this.flatCents;
   }
 }
 
-class NullLogger implements Logger {
-  static readonly instance = new NullLogger();
-  info(_message: string): void {
-    // não faz nada
+class NoFeePolicy implements FeePolicy {
+  static readonly instance = new NoFeePolicy();
+  feeCents(_amountCents: number): number {
+    return 0;                            // conta isenta: tarifa zero
   }
 }
 
-class OrderService {
-  constructor(private readonly logger: Logger = NullLogger.instance) {}
+class TransferService {
+  constructor(private readonly feePolicy: FeePolicy) {}
 
-  placeOrder(id: string): void {
-    // ... regras de negócio
-    this.logger.info(`Pedido ${id} criado`); // sem if (logger != null)
+  // total debitado da conta
+  transfer(amountCents: number): number {
+    const fee = this.feePolicy.feeCents(amountCents); // sem if (policy != null)
+    return amountCents + fee;
   }
 }
 
-new OrderService(new ConsoleLogger()).placeOrder("42"); // registra log
-new OrderService().placeOrder("43");                    // silencioso
+console.log(new TransferService(new PerTransferFeePolicy(350)).transfer(10_000)); // 10350
+console.log(new TransferService(NoFeePolicy.instance).transfer(10_000));          // 10000
 ```
 
 ## Padrões relacionados

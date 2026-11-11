@@ -83,34 +83,45 @@ The `Context` delegates `request()` to the current `State`. Each `ConcreteState`
 
 ## Example
 
-An e-commerce order goes through the states "pending payment", "paid", and "shipped"; the `pay()` and `ship()` actions are only valid in certain states.
+A Pix charge goes through the states "active", "paid", "expired" and "refunded"; the actions `pay()`, `expire()` and `refund()` are only valid in certain states: `pay()` only applies to an active charge and `refund()` only to a paid one.
 
 ```typescript
-interface OrderState {
-  pay(order: Order): void;
-  ship(order: Order): void;
+interface ChargeState {
+  pay(charge: PixCharge): void;
+  expire(charge: PixCharge): void;
+  refund(charge: PixCharge): void;
 }
 
-class PendingPayment implements OrderState {
-  pay(order: Order) { order.setState(new Paid()); }
-  ship(_: Order) { throw new Error("Order hasn't been paid yet"); }
+class Active implements ChargeState {
+  pay(charge: PixCharge) { charge.setState(new Paid()); }
+  expire(charge: PixCharge) { charge.setState(new Expired()); }
+  refund(_: PixCharge) { throw new Error("An active charge cannot be refunded"); }
 }
 
-class Paid implements OrderState {
-  pay(_: Order) { throw new Error("Order is already paid"); }
-  ship(order: Order) { order.setState(new Shipped()); }
+class Paid implements ChargeState {
+  pay(_: PixCharge) { throw new Error("Charge has already been paid"); }
+  expire(_: PixCharge) { throw new Error("A paid charge does not expire"); }
+  refund(charge: PixCharge) { charge.setState(new Refunded()); }
 }
 
-class Shipped implements OrderState {
-  pay(_: Order) { throw new Error("Order already shipped"); }
-  ship(_: Order) { throw new Error("Order already shipped"); }
+class Expired implements ChargeState {
+  pay(_: PixCharge) { throw new Error("Charge has expired"); }
+  expire(_: PixCharge) { throw new Error("Charge has expired"); }
+  refund(_: PixCharge) { throw new Error("Charge has expired"); }
 }
 
-class Order {
-  private state: OrderState = new PendingPayment();
-  setState(state: OrderState) { this.state = state; }
+class Refunded implements ChargeState {
+  pay(_: PixCharge) { throw new Error("Charge has already been refunded"); }
+  expire(_: PixCharge) { throw new Error("Charge has already been refunded"); }
+  refund(_: PixCharge) { throw new Error("Charge has already been refunded"); }
+}
+
+class PixCharge {
+  private state: ChargeState = new Active();
+  setState(state: ChargeState) { this.state = state; }
   pay() { this.state.pay(this); }
-  ship() { this.state.ship(this); }
+  expire() { this.state.expire(this); }
+  refund() { this.state.refund(this); }
 }
 ```
 

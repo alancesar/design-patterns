@@ -16,14 +16,14 @@ sidebar_label: "Abstract Factory"
 
 Abstract Factory provides an interface for creating families of related or dependent objects without specifying their concrete classes. The client talks only to the abstract factory and to the abstract product interfaces, without knowing which implementation is behind them.
 
-Each concrete factory implements the abstract factory interface and produces a coherent variant of every product in the family (for example, all UI components in the "Windows" style or all in the "Mac" style). Swapping the concrete factory, usually at a single configuration point, swaps the entire family at once.
+Each concrete factory implements the abstract factory interface and produces a coherent variant of every product in the family (for example, the remittance writer and the return parser in the CNAB layout of the same partner bank). Swapping the concrete factory, usually at a single configuration point, swaps the entire family at once.
 
 In practice, the pattern works as a "factory of factories": it groups several related Factory Methods into a single object and ensures consistency among the products it creates.
 
 ## Problems it solves
 
 - Client code becomes coupled to concrete classes when it instantiates objects with `new`, making it hard to swap implementations.
-- Products from different families get mixed by mistake (for example, a button from one theme with a dialog from another).
+- Products from different families get mixed by mistake (for example, generating the remittance file in one bank's layout and reading the return file in another's).
 - Supporting a new platform, theme, or vendor requires changing many places scattered across the code.
 
 ## When to use
@@ -101,40 +101,80 @@ The `Client` uses only `AbstractFactory` and the product interfaces. Each concre
 
 ## Example
 
-A desktop application needs to render buttons and checkboxes with the operating system's native look. The factory is chosen once at startup and the rest of the code doesn't know the concrete classes.
+The fintech exchanges billing files with several partner banks, and each bank has its own CNAB layout. The bank's factory is chosen once and hands out a remittance writer and a return parser that match each other; the rest of the code does not know the concrete classes.
 
 ```typescript
-interface Button { render(): string; }
-interface Checkbox { render(): string; }
+interface Boleto { ourNumber: string; amountCents: number; }
+interface Settlement { ourNumber: string; paidCents: number; }
 
-interface GUIFactory {
-  createButton(): Button;
-  createCheckbox(): Checkbox;
+interface RemessaWriter { write(boletos: Boleto[]): string; }
+interface RetornoParser { parse(file: string): Settlement[]; }
+
+interface CnabFactory {
+  createWriter(): RemessaWriter;
+  createParser(): RetornoParser;
 }
 
-class WinButton implements Button { render() { return "[Win Button]"; } }
-class WinCheckbox implements Checkbox { render() { return "[Win Checkbox]"; } }
-class MacButton implements Button { render() { return "(Mac Button)"; } }
-class MacCheckbox implements Checkbox { render() { return "(Mac Checkbox)"; } }
-
-class WinFactory implements GUIFactory {
-  createButton() { return new WinButton(); }
-  createCheckbox() { return new WinCheckbox(); }
+// Bank A: fields separated by ";" (simplified layout)
+class BankARemessaWriter implements RemessaWriter {
+  write(boletos: Boleto[]) {
+    return boletos.map((b) => `A;${b.ourNumber};${b.amountCents}`).join("\n");
+  }
+}
+class BankARetornoParser implements RetornoParser {
+  parse(file: string) {
+    return file.split("\n").map((line) => {
+      const [, ourNumber, paid] = line.split(";");
+      return { ourNumber, paidCents: Number(paid) };
+    });
+  }
 }
 
-class MacFactory implements GUIFactory {
-  createButton() { return new MacButton(); }
-  createCheckbox() { return new MacCheckbox(); }
+// Bank B: fixed-width columns (simplified layout)
+class BankBRemessaWriter implements RemessaWriter {
+  write(boletos: Boleto[]) {
+    return boletos
+      .map((b) => `B${b.ourNumber.padStart(10, "0")}${String(b.amountCents).padStart(13, "0")}`)
+      .join("\n");
+  }
+}
+class BankBRetornoParser implements RetornoParser {
+  parse(file: string) {
+    return file.split("\n").map((line) => ({
+      ourNumber: line.slice(1, 11),
+      paidCents: Number(line.slice(11, 24)),
+    }));
+  }
 }
 
-function renderForm(factory: GUIFactory): string {
-  return [factory.createButton(), factory.createCheckbox()]
-    .map((w) => w.render())
-    .join(" ");
+class BankACnabFactory implements CnabFactory {
+  createWriter() { return new BankARemessaWriter(); }
+  createParser() { return new BankARetornoParser(); }
 }
 
-const factory: GUIFactory = process.platform === "darwin" ? new MacFactory() : new WinFactory();
-console.log(renderForm(factory));
+class BankBCnabFactory implements CnabFactory {
+  createWriter() { return new BankBRemessaWriter(); }
+  createParser() { return new BankBRetornoParser(); }
+}
+
+class BillingBatchService {
+  private writer: RemessaWriter;
+  private parser: RetornoParser;
+
+  constructor(factory: CnabFactory) {
+    this.writer = factory.createWriter();
+    this.parser = factory.createParser();
+  }
+
+  generateRemessa(boletos: Boleto[]): string { return this.writer.write(boletos); }
+  readRetorno(file: string): Settlement[] { return this.parser.parse(file); }
+}
+
+// The partner bank is chosen once; remittance and return always use the same layout
+const service = new BillingBatchService(new BankBCnabFactory());
+const remessa = service.generateRemessa([{ ourNumber: "42", amountCents: 15000 }]);
+console.log(remessa); // B00000000420000000015000
+console.log(service.readRetorno(remessa)); // [ { ourNumber: '0000000042', paidCents: 15000 } ]
 ```
 
 ## Related patterns

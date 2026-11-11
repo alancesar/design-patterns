@@ -15,7 +15,7 @@ sidebar_label: "Visitor"
 
 Visitor represents an operation to be performed on the elements of an object structure. It lets you define new operations without changing the classes of the elements they operate on, by moving each operation into a separate object, the visitor.
 
-Each element in the structure exposes an `accept(visitor)` method, which simply calls back the visitor's method corresponding to its concrete type (for example, `visitor.visitCircle(this)`). This technique, called *double dispatch*, makes the code that runs depend on both the type of the visitor and the type of the element, without `instanceof` or a `switch` on types.
+Each element in the structure exposes an `accept(visitor)` method, which simply calls back the visitor's method corresponding to its concrete type (for example, `visitor.visitCdb(this)`). This technique, called *double dispatch*, makes the code that runs depend on both the type of the visitor and the type of the element, without `instanceof` or a `switch` on types.
 
 So each new operation becomes a new `ConcreteVisitor` class that gathers, in one place, the behavior for all element types. The pattern is especially useful in stable hierarchies, such as syntax trees (AST), documents, and domain models, on which many different operations are applied.
 
@@ -105,44 +105,58 @@ The `Client` applies a `ConcreteVisitor` to the `ObjectStructure`, which hands t
 
 ## Example
 
-A graphics editor has stable shapes (`Circle` and `Rectangle`) and needs to compute the total area and export the drawing to JSON without adding those methods to the shape classes.
+The investment portfolio has stable asset types (`Cdb`, `Stock` and `FundShare`, the same assets that Composite organizes into portfolios and sub-portfolios), and new operations show up often: computing the tax due, generating the income report. Each operation is a visitor, with no changes to the asset classes. The tax rates in the example are illustrative.
 
 ```typescript
-interface ShapeVisitor<R> {
-  visitCircle(c: Circle): R;
-  visitRectangle(r: Rectangle): R;
+interface AssetVisitor<R> {
+  visitCdb(cdb: Cdb): R;
+  visitStock(stock: Stock): R;
+  visitFundShare(share: FundShare): R;
 }
 
-interface Shape { accept<R>(v: ShapeVisitor<R>): R; }
+interface Asset { accept<R>(v: AssetVisitor<R>): R; }
 
-class Circle implements Shape {
-  constructor(public radius: number) {}
-  accept<R>(v: ShapeVisitor<R>): R { return v.visitCircle(this); }
+class Cdb implements Asset {
+  constructor(public issuer: string, public gainCents: number) {}
+  accept<R>(v: AssetVisitor<R>): R { return v.visitCdb(this); }
 }
 
-class Rectangle implements Shape {
-  constructor(public width: number, public height: number) {}
-  accept<R>(v: ShapeVisitor<R>): R { return v.visitRectangle(this); }
+class Stock implements Asset {
+  constructor(public symbol: string, public gainCents: number) {}
+  accept<R>(v: AssetVisitor<R>): R { return v.visitStock(this); }
 }
 
-class AreaVisitor implements ShapeVisitor<number> {
-  visitCircle(c: Circle) { return Math.PI * c.radius ** 2; }
-  visitRectangle(r: Rectangle) { return r.width * r.height; }
+class FundShare implements Asset {
+  constructor(public fund: string, public gainCents: number) {}
+  accept<R>(v: AssetVisitor<R>): R { return v.visitFundShare(this); }
 }
 
-class JsonExportVisitor implements ShapeVisitor<string> {
-  visitCircle(c: Circle) { return JSON.stringify({ type: "circle", r: c.radius }); }
-  visitRectangle(r: Rectangle) { return JSON.stringify({ type: "rect", w: r.width, h: r.height }); }
+// illustrative rates, not an actual tax rule
+class TaxCalculator implements AssetVisitor<number> {
+  visitCdb(cdb: Cdb) { return Math.round(cdb.gainCents * 0.15); }
+  visitStock(stock: Stock) { return Math.round(stock.gainCents * 0.15); }
+  visitFundShare(share: FundShare) { return Math.round(share.gainCents * 0.20); }
 }
 
-const shapes: Shape[] = [new Circle(1), new Rectangle(2, 3)];
-const total = shapes.reduce((sum, s) => sum + s.accept(new AreaVisitor()), 0);
-const json = shapes.map((s) => s.accept(new JsonExportVisitor()));
+class IncomeReportExporter implements AssetVisitor<string> {
+  visitCdb(cdb: Cdb) { return JSON.stringify({ type: "cdb", issuer: cdb.issuer, gainCents: cdb.gainCents }); }
+  visitStock(stock: Stock) { return JSON.stringify({ type: "stock", symbol: stock.symbol, gainCents: stock.gainCents }); }
+  visitFundShare(share: FundShare) { return JSON.stringify({ type: "fund", fund: share.fund, gainCents: share.gainCents }); }
+}
+
+const assets: Asset[] = [
+  new Cdb("Banco Alfa", 100_000),
+  new Stock("ACME3", 50_000),
+  new FundShare("Fundo Beta", 200_000),
+];
+const totalTaxCents = assets.reduce((sum, a) => sum + a.accept(new TaxCalculator()), 0);
+console.log(totalTaxCents); // 62500
+const report = assets.map((a) => a.accept(new IncomeReportExporter()));
 ```
 
 ## Related patterns
 
-- [Composite](/coding/gof/structural/composite) — Visitor is often applied to run operations over all the nodes of a Composite tree
+- [Composite](/coding/gof/structural/composite) — Visitor is often applied to run operations over all the nodes of a Composite tree, such as the investment portfolio in the example
 - [Iterator](/coding/gof/behavioral/iterator) — can be used to traverse the object structure while the Visitor performs the operation on each element
 - [Interpreter](/coding/gof/behavioral/interpreter) — operations on Interpreter's abstract syntax tree (evaluation, printing, optimization) are usually implemented as visitors
 - [Command](/coding/gof/behavioral/command) — both encapsulate operations in objects; Visitor can be seen as a powerful Command that acts on several element types

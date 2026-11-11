@@ -92,42 +92,65 @@ classDiagram
 
 ## Exemplo
 
-Um serviço de notificações envia mensagens por e-mail, mas alguns clientes também querem receber por SMS e Slack. Em vez de criar subclasses para cada combinação, os canais extras são adicionados como decoradores.
+O serviço de transferência básico só movimenta o dinheiro. Antifraude, limite noturno e trilha de auditoria são camadas empilhadas conforme o tipo de conta, em vez de uma subclasse para cada combinação. Os limites são ilustrativos.
 
 ```typescript
-interface Notifier {
-  send(message: string): void;
+interface TransferRequest {
+  fromAccountId: string;
+  toKey: string;
+  amountCents: number;
+  at: Date;
 }
 
-class EmailNotifier implements Notifier {
-  send(message: string): void {
-    console.log(`Email: ${message}`);
+interface TransferService {
+  transfer(request: TransferRequest): void;
+}
+
+class BasicTransferService implements TransferService {
+  transfer(request: TransferRequest): void {
+    console.log(`Transferindo ${request.amountCents} -> ${request.toKey}`);
   }
 }
 
-abstract class NotifierDecorator implements Notifier {
-  constructor(protected wrapped: Notifier) {}
-  send(message: string): void {
-    this.wrapped.send(message);
+abstract class TransferDecorator implements TransferService {
+  constructor(protected wrapped: TransferService) {}
+  transfer(request: TransferRequest): void {
+    this.wrapped.transfer(request);
   }
 }
 
-class SmsDecorator extends NotifierDecorator {
-  send(message: string): void {
-    super.send(message);
-    console.log(`SMS: ${message}`);
+class FraudCheckDecorator extends TransferDecorator {
+  transfer(request: TransferRequest): void {
+    if (request.amountCents > 5_000_000) throw new Error("Bloqueado pelo antifraude");
+    super.transfer(request);
   }
 }
 
-class SlackDecorator extends NotifierDecorator {
-  send(message: string): void {
-    super.send(message);
-    console.log(`Slack: ${message}`);
+class NightLimitDecorator extends TransferDecorator {
+  transfer(request: TransferRequest): void {
+    const hour = request.at.getHours();
+    const isNight = hour >= 20 || hour < 6;
+    if (isNight && request.amountCents > 100_000) throw new Error("Limite noturno excedido");
+    super.transfer(request);
   }
 }
 
-const notifier: Notifier = new SlackDecorator(new SmsDecorator(new EmailNotifier()));
-notifier.send("Servidor fora do ar"); // Email, SMS e Slack
+class AuditDecorator extends TransferDecorator {
+  transfer(request: TransferRequest): void {
+    console.log(`Audit: ${request.fromAccountId} transfere ${request.amountCents}`);
+    super.transfer(request);
+  }
+}
+
+const service: TransferService = new AuditDecorator(
+  new NightLimitDecorator(new FraudCheckDecorator(new BasicTransferService())),
+);
+service.transfer({
+  fromAccountId: "acc-1",
+  toKey: "ana@example.com",
+  amountCents: 50_000,
+  at: new Date("2026-03-10T23:30:00"),
+}); // auditoria, limite noturno e antifraude aprovam; R$ 500,00 transferidos
 ```
 
 ## Padrões relacionados

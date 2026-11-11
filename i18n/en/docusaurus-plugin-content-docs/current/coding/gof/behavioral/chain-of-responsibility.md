@@ -84,45 +84,49 @@ The `Client` sends the `Request` to the first `Handler` in the chain. Each `Conc
 
 ## Example
 
-An expense reimbursement system routes each request through approval levels: the team lead approves up to $1,000, the manager up to $10,000, and the directors anything above that.
+A personal loan proposal goes up through approval levels: the analyst approves up to R$ 5,000, the coordinator up to R$ 50,000 and the credit committee above that. The approval limits are illustrative.
 
 ```typescript
-abstract class Approver {
-  private next?: Approver;
+abstract class CreditApprover {
+  private next?: CreditApprover;
 
-  setNext(next: Approver): Approver {
+  setNext(next: CreditApprover): CreditApprover {
     this.next = next;
     return next;
   }
 
-  handle(amount: number): string {
-    if (this.next) return this.next.handle(amount);
-    return `Request for ${amount} rejected: no approver`;
+  handle(proposal: CreditProposal): string {
+    if (this.next) return this.next.handle(proposal);
+    return `Proposal ${proposal.id} rejected: no approver`;
   }
 }
 
-class TeamLead extends Approver {
-  handle(amount: number): string {
-    return amount <= 1_000 ? `TeamLead approved ${amount}` : super.handle(amount);
+class CreditProposal {
+  constructor(readonly id: string, readonly amountCents: number) {}
+}
+
+class Analyst extends CreditApprover {
+  handle(proposal: CreditProposal): string {
+    return proposal.amountCents <= 500_000 ? `Analyst approved ${proposal.id}` : super.handle(proposal);
   }
 }
 
-class Manager extends Approver {
-  handle(amount: number): string {
-    return amount <= 10_000 ? `Manager approved ${amount}` : super.handle(amount);
+class Coordinator extends CreditApprover {
+  handle(proposal: CreditProposal): string {
+    return proposal.amountCents <= 5_000_000 ? `Coordinator approved ${proposal.id}` : super.handle(proposal);
   }
 }
 
-class Director extends Approver {
-  handle(amount: number): string {
-    return `Director approved ${amount}`;
+class CreditCommittee extends CreditApprover {
+  handle(proposal: CreditProposal): string {
+    return `CreditCommittee approved ${proposal.id}`;
   }
 }
 
-const chain = new TeamLead();
-chain.setNext(new Manager()).setNext(new Director());
-console.log(chain.handle(500));    // TeamLead approved 500
-console.log(chain.handle(25_000)); // Director approved 25000
+const chain = new Analyst();
+chain.setNext(new Coordinator()).setNext(new CreditCommittee());
+console.log(chain.handle(new CreditProposal("P-101", 300_000)));   // Analyst approved P-101
+console.log(chain.handle(new CreditProposal("P-102", 8_000_000))); // CreditCommittee approved P-102
 ```
 
 ## Related patterns

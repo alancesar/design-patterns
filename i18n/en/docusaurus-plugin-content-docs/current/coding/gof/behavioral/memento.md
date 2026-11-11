@@ -80,40 +80,57 @@ The Originator creates mementos with its state and uses them to restore itself; 
 
 ## Example
 
-A text editor lets you undo edits: before each change, the history (Caretaker) asks the editor (Originator) for a snapshot of the content and cursor position.
+In a loan simulation, the customer changes the amount, term and rate and can go back to earlier simulations: before each change, the history (Caretaker) asks the simulation (Originator) for a snapshot with those three values.
 
 ```typescript
-class EditorMemento {
-  constructor(readonly content: string, readonly cursor: number) {}
+class SimulationSnapshot {
+  constructor(
+    readonly principalCents: number,
+    readonly months: number,
+    readonly monthlyRate: number,
+  ) {}
 }
 
-class Editor {
-  private content = "";
-  private cursor = 0;
+class LoanSimulation {                   // Originator
+  constructor(
+    public principalCents: number,
+    public months: number,
+    public monthlyRate: number,
+  ) {}
 
-  type(text: string) {
-    this.content += text;
-    this.cursor = this.content.length;
+  save(): SimulationSnapshot {
+    return new SimulationSnapshot(this.principalCents, this.months, this.monthlyRate);
   }
-  save(): EditorMemento {
-    return new EditorMemento(this.content, this.cursor);
-  }
-  restore(m: EditorMemento) {
-    this.content = m.content;
-    this.cursor = m.cursor;
+  restore(s: SimulationSnapshot) {
+    this.principalCents = s.principalCents;
+    this.months = s.months;
+    this.monthlyRate = s.monthlyRate;
   }
 }
 
-class History {
-  private stack: EditorMemento[] = [];
-  constructor(private editor: Editor) {}
+class SimulationHistory {                // Caretaker
+  private stack: SimulationSnapshot[] = [];
+  constructor(private simulation: LoanSimulation) {}
 
-  backup() { this.stack.push(this.editor.save()); }
+  backup() { this.stack.push(this.simulation.save()); }
   undo() {
-    const m = this.stack.pop();
-    if (m) this.editor.restore(m);
+    const s = this.stack.pop();
+    if (s) this.simulation.restore(s);
   }
 }
+
+const simulation = new LoanSimulation(1_000_000, 10, 0.02);
+const history = new SimulationHistory(simulation);
+
+history.backup();
+simulation.months = 24;
+history.backup();
+simulation.principalCents = 2_000_000;
+
+history.undo();
+console.log(simulation.principalCents, simulation.months); // 1000000 24
+history.undo();
+console.log(simulation.principalCents, simulation.months); // 1000000 10
 ```
 
 ## Related patterns

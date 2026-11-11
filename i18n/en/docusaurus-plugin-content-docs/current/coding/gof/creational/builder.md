@@ -89,45 +89,58 @@ The `Client` creates a `ConcreteBuilder` and hands it to the `Director`, which c
 
 ## Example
 
-An application builds HTTP requests with a required URL and several optional headers, a timeout, and a body. A fluent builder keeps creation readable and ensures the final request is immutable and valid.
+A Pix charge requires an amount and the receiver's key, and has an optional due date, fine, interest, discount and a message to the payer. A fluent builder keeps creation readable, validates the combinations (fine, interest and discount only make sense with a due date) and hands back an immutable `PixCharge` with the `txid` already generated. Rates and amounts are illustrative.
 
 ```java
-public final class HttpRequest {
-    private final String url, method, body;
-    private final Map<String, String> headers;
-    private final int timeoutMs;
+public final class PixCharge {
+    private final long amountCents;
+    private final String receiverKey, txid, payerMessage;
+    private final LocalDate dueDate;
+    private final double fineRate, dailyInterestRate, discountRate;
 
-    private HttpRequest(Builder b) {
-        url = b.url; method = b.method; body = b.body;
-        headers = Map.copyOf(b.headers); timeoutMs = b.timeoutMs;
+    private PixCharge(Builder b) {
+        amountCents = b.amountCents; receiverKey = b.receiverKey;
+        payerMessage = b.payerMessage; dueDate = b.dueDate;
+        fineRate = b.fineRate; dailyInterestRate = b.dailyInterestRate;
+        discountRate = b.discountRate;
+        txid = UUID.randomUUID().toString().replace("-", "");
     }
 
-    public static Builder builder(String url) { return new Builder(url); }
+    public static Builder builder(long amountCents, String receiverKey) {
+        return new Builder(amountCents, receiverKey);
+    }
 
     public static final class Builder {
-        private final String url;
-        private String method = "GET", body;
-        private final Map<String, String> headers = new HashMap<>();
-        private int timeoutMs = 5000;
+        private final long amountCents;
+        private final String receiverKey;
+        private String payerMessage;
+        private LocalDate dueDate;
+        private double fineRate, dailyInterestRate, discountRate;
 
-        private Builder(String url) { this.url = url; }
-        public Builder method(String m) { this.method = m; return this; }
-        public Builder header(String k, String v) { headers.put(k, v); return this; }
-        public Builder body(String b) { this.body = b; return this; }
-        public Builder timeout(int ms) { this.timeoutMs = ms; return this; }
+        private Builder(long amountCents, String receiverKey) {
+            this.amountCents = amountCents; this.receiverKey = receiverKey;
+        }
+        public Builder dueDate(LocalDate d) { this.dueDate = d; return this; }
+        public Builder fineRate(double r) { this.fineRate = r; return this; }
+        public Builder dailyInterestRate(double r) { this.dailyInterestRate = r; return this; }
+        public Builder discountRate(double r) { this.discountRate = r; return this; }
+        public Builder payerMessage(String m) { this.payerMessage = m; return this; }
 
-        public HttpRequest build() {
-            if (body != null && method.equals("GET"))
-                throw new IllegalStateException("GET does not accept a body");
-            return new HttpRequest(this);
+        public PixCharge build() {
+            if (amountCents <= 0)
+                throw new IllegalStateException("amount must be positive");
+            boolean hasCharges = fineRate > 0 || dailyInterestRate > 0 || discountRate > 0;
+            if (hasCharges && dueDate == null)
+                throw new IllegalStateException("fine, interest and discount require a due date");
+            return new PixCharge(this); // the constructor generates the txid
         }
     }
 }
 
-// Usage
-HttpRequest req = HttpRequest.builder("https://api.example.com/orders")
-    .method("POST").header("Content-Type", "design/json")
-    .body("{\"id\": 42}").timeout(2000).build();
+// Usage: R$ 250.00 with a due date, a 2% fine and 0.033% daily interest
+PixCharge charge = PixCharge.builder(25_000, "pagamentos@fintech.example")
+    .dueDate(LocalDate.of(2026, 12, 10)).fineRate(0.02).dailyInterestRate(0.00033)
+    .payerMessage("December tuition").build();
 ```
 
 ## Related patterns

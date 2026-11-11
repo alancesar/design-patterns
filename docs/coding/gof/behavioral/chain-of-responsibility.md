@@ -84,45 +84,49 @@ O `Client` envia a `Request` ao primeiro `Handler` da cadeia. Cada `ConcreteHand
 
 ## Exemplo
 
-Um sistema de reembolso de despesas encaminha cada pedido por alçadas: o líder de equipe aprova até R$ 1.000, o gerente até R$ 10.000 e a diretoria acima disso.
+Um pedido de crédito pessoal sobe por alçadas: o analista aprova até R$ 5.000, o coordenador até R$ 50.000 e o comitê de crédito acima disso. Os valores das alçadas são ilustrativos.
 
 ```typescript
-abstract class Approver {
-  private next?: Approver;
+abstract class CreditApprover {
+  private next?: CreditApprover;
 
-  setNext(next: Approver): Approver {
+  setNext(next: CreditApprover): CreditApprover {
     this.next = next;
     return next;
   }
 
-  handle(amount: number): string {
-    if (this.next) return this.next.handle(amount);
-    return `Pedido de ${amount} rejeitado: sem aprovador`;
+  handle(proposal: CreditProposal): string {
+    if (this.next) return this.next.handle(proposal);
+    return `Proposta ${proposal.id} rejeitada: sem aprovador`;
   }
 }
 
-class TeamLead extends Approver {
-  handle(amount: number): string {
-    return amount <= 1_000 ? `TeamLead aprovou ${amount}` : super.handle(amount);
+class CreditProposal {
+  constructor(readonly id: string, readonly amountCents: number) {}
+}
+
+class Analyst extends CreditApprover {
+  handle(proposal: CreditProposal): string {
+    return proposal.amountCents <= 500_000 ? `Analyst aprovou ${proposal.id}` : super.handle(proposal);
   }
 }
 
-class Manager extends Approver {
-  handle(amount: number): string {
-    return amount <= 10_000 ? `Manager aprovou ${amount}` : super.handle(amount);
+class Coordinator extends CreditApprover {
+  handle(proposal: CreditProposal): string {
+    return proposal.amountCents <= 5_000_000 ? `Coordinator aprovou ${proposal.id}` : super.handle(proposal);
   }
 }
 
-class Director extends Approver {
-  handle(amount: number): string {
-    return `Director aprovou ${amount}`;
+class CreditCommittee extends CreditApprover {
+  handle(proposal: CreditProposal): string {
+    return `CreditCommittee aprovou ${proposal.id}`;
   }
 }
 
-const chain = new TeamLead();
-chain.setNext(new Manager()).setNext(new Director());
-console.log(chain.handle(500));    // TeamLead aprovou 500
-console.log(chain.handle(25_000)); // Director aprovou 25000
+const chain = new Analyst();
+chain.setNext(new Coordinator()).setNext(new CreditCommittee());
+console.log(chain.handle(new CreditProposal("P-101", 300_000)));   // Analyst aprovou P-101
+console.log(chain.handle(new CreditProposal("P-102", 8_000_000))); // CreditCommittee aprovou P-102
 ```
 
 ## Padrões relacionados

@@ -72,36 +72,46 @@ The `Singleton` class keeps a static reference to its own instance and a private
 
 ## Example
 
-An application needs a single configuration object loaded from disk once and shared by all modules.
+The modules that compute boleto due dates, TED settlement and clearing deadlines need the same calendar of business days and bank holidays, loaded from disk once and shared by all of them. The calendar does not change after loading, which avoids the risk of shared mutable state.
 
 ```java
-public final class AppConfig {
-    private final Properties props = new Properties();
+public final class BusinessCalendar {
+    private final Set<LocalDate> holidays = new HashSet<>();
 
-    private AppConfig() {
-        try (InputStream in = getClass().getResourceAsStream("/app.properties")) {
-            props.load(in);
+    private BusinessCalendar() {
+        try (InputStream in = getClass().getResourceAsStream("/bank-holidays.txt");
+             BufferedReader reader = new BufferedReader(new InputStreamReader(in))) {
+            reader.lines().map(String::trim).filter(l -> !l.isEmpty())
+                  .map(LocalDate::parse).forEach(holidays::add);
         } catch (IOException e) {
-            throw new IllegalStateException("Failed to load configuration", e);
+            throw new IllegalStateException("Failed to load calendar", e);
         }
     }
 
     // Holder: lazy, thread-safe initialization guaranteed by the JVM
     private static class Holder {
-        private static final AppConfig INSTANCE = new AppConfig();
+        private static final BusinessCalendar INSTANCE = new BusinessCalendar();
     }
 
-    public static AppConfig getInstance() {
+    public static BusinessCalendar getInstance() {
         return Holder.INSTANCE;
     }
 
-    public String get(String key) {
-        return props.getProperty(key);
+    public boolean isBusinessDay(LocalDate date) {
+        DayOfWeek day = date.getDayOfWeek();
+        return day != DayOfWeek.SATURDAY && day != DayOfWeek.SUNDAY
+            && !holidays.contains(date);
+    }
+
+    public LocalDate nextBusinessDay(LocalDate date) {
+        LocalDate next = date.plusDays(1);
+        while (!isBusinessDay(next)) next = next.plusDays(1);
+        return next;
     }
 }
 
-// Usage
-String url = AppConfig.getInstance().get("db.url");
+// Usage: boleto due dates, TED settlement and clearing all query the same calendar
+LocalDate settlement = BusinessCalendar.getInstance().nextBusinessDay(LocalDate.of(2026, 12, 24));
 ```
 
 ## Related patterns

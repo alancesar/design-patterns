@@ -86,36 +86,38 @@ O `Client` obtém flyweights pela `FlyweightFactory`, que mantém um cache de `C
 
 ## Exemplo
 
-Um jogo renderiza um milhão de árvores em um mapa. Nome, cor e textura (pesados) são compartilhados por tipo de árvore; apenas as coordenadas ficam em cada árvore.
+A conciliação de cartões mantém milhões de lançamentos em memória. Nome, MCC e logotipo do estabelecimento (pesados) são compartilhados entre os lançamentos do mesmo estabelecimento; apenas valor, data e portador ficam em cada lançamento.
 
 ```java
-record TreeType(String name, String color, byte[] texture) { // flyweight (intrínseco)
-    void draw(Canvas canvas, int x, int y) {
-        canvas.paint(texture, color, x, y);
+record MerchantInfo(String name, String mcc, byte[] logo) { // flyweight (intrínseco)
+    String label() {
+        return name + " (MCC " + mcc + ")";
     }
 }
 
-class TreeTypeFactory {
-    private static final Map<String, TreeType> cache = new ConcurrentHashMap<>();
+class MerchantInfoFactory {
+    private static final Map<String, MerchantInfo> cache = new ConcurrentHashMap<>();
 
-    static TreeType get(String name, String color, byte[] texture) {
-        return cache.computeIfAbsent(name + ":" + color,
-                k -> new TreeType(name, color, texture));
+    static MerchantInfo get(String name, String mcc, byte[] logo) {
+        return cache.computeIfAbsent(name + ":" + mcc,
+                k -> new MerchantInfo(name, mcc, logo));
     }
 }
 
-record Tree(int x, int y, TreeType type) { // contexto (extrínseco)
-    void draw(Canvas canvas) { type.draw(canvas, x, y); }
+record CardEntry(long amountCents, LocalDate date, String holder, MerchantInfo merchant) { // contexto, extrínseco
+    String describe() { return holder + " - " + merchant.label() + ": " + amountCents; }
 }
 
-class Forest {
-    private final List<Tree> trees = new ArrayList<>();
+class ReconciliationBatch {
+    private final List<CardEntry> entries = new ArrayList<>();
 
-    void plant(int x, int y, String name, String color, byte[] texture) {
-        trees.add(new Tree(x, y, TreeTypeFactory.get(name, color, texture)));
+    void add(long amountCents, LocalDate date, String holder,
+             String merchantName, String mcc, byte[] logo) {
+        entries.add(new CardEntry(amountCents, date, holder,
+                MerchantInfoFactory.get(merchantName, mcc, logo)));
     }
 
-    void draw(Canvas canvas) { trees.forEach(t -> t.draw(canvas)); }
+    long totalCents() { return entries.stream().mapToLong(CardEntry::amountCents).sum(); }
 }
 ```
 

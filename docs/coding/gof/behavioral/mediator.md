@@ -91,44 +91,50 @@ O `Mediator` define a interface de comunicação usada pelos colleagues. O `Conc
 
 ## Exemplo
 
-Em uma sala de chat, os usuários não enviam mensagens diretamente uns aos outros: a sala (mediador) recebe a mensagem e a repassa a todos os demais participantes.
+Os bancos participantes não enviam ordens de pagamento diretamente uns aos outros: a câmara de compensação (mediador) recebe a ordem e a entrega ao banco de destino.
 
 ```typescript
-interface ChatMediator {
-  register(user: User): void;
-  send(message: string, sender: User): void;
+interface ClearingHouse {
+  register(bank: ParticipantBank): void;
+  send(order: PaymentOrder): void;
 }
 
-class ChatRoom implements ChatMediator {
-  private users: User[] = [];
-
-  register(user: User): void {
-    this.users.push(user);
-  }
-
-  send(message: string, sender: User): void {
-    this.users
-      .filter((u) => u !== sender)
-      .forEach((u) => u.receive(message, sender.name));
-  }
+interface PaymentOrder {
+  from: string;
+  to: string;
+  amountCents: number;
 }
 
-class User {
-  constructor(public name: string, private room: ChatMediator) {
-    room.register(this);
+class InstantPaymentClearing implements ClearingHouse {
+  private banks = new Map<string, ParticipantBank>();
+
+  register(bank: ParticipantBank): void {
+    this.banks.set(bank.code, bank);
   }
-  send(message: string): void {
-    this.room.send(message, this);
-  }
-  receive(message: string, from: string): void {
-    console.log(`[${this.name}] ${from}: ${message}`);
+
+  send(order: PaymentOrder): void {
+    const destination = this.banks.get(order.to);
+    if (!destination) throw new Error(`Banco ${order.to} não participa da câmara`);
+    destination.receive(order);
   }
 }
 
-const room = new ChatRoom();
-const alice = new User("Alice", room);
-new User("Bob", room);
-alice.send("Olá, Bob!"); // [Bob] Alice: Olá, Bob!
+class ParticipantBank {
+  constructor(public code: string, private clearing: ClearingHouse) {
+    clearing.register(this);
+  }
+  pay(to: string, amountCents: number): void {
+    this.clearing.send({ from: this.code, to, amountCents });
+  }
+  receive(order: PaymentOrder): void {
+    console.log(`[${this.code}] ordem de ${order.from}: ${order.amountCents} centavos`);
+  }
+}
+
+const clearing = new InstantPaymentClearing();
+const alpha = new ParticipantBank("001", clearing);
+new ParticipantBank("237", clearing);
+alpha.pay("237", 15_000); // [237] ordem de 001: 15000 centavos
 ```
 
 ## Padrões relacionados

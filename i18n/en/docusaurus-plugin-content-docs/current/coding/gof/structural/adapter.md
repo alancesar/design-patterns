@@ -77,33 +77,41 @@ The `Client` depends only on the `Target` interface. The `Adapter` implements `T
 
 ## Example
 
-A store uses the internal `PaymentGateway` interface, which works with amounts in dollars (decimal). The new provider `AcmePayClient` exposes an SDK that takes cents and returns a status code; an adapter bridges the two.
+The fintech uses the internal `PixGateway` interface, which works with `Money` and a Pix key. The settlement partner's SDK, `PartnerPixClient`, takes the key as plain text and the amount in cents, and returns a status code; an adapter bridges the two.
 
 ```typescript
-interface PaymentGateway {
-  pay(orderId: string, amount: number): boolean;
+interface Money {
+  cents: number;
 }
 
-// Third-party SDK (we can't change it)
-class AcmePayClient {
-  charge(reference: string, amountInCents: number): { status: string } {
-    return { status: "APPROVED" };
+interface PixKey {
+  type: "CPF" | "EMAIL" | "PHONE" | "EVP";
+  value: string;
+}
+
+interface PixGateway {
+  send(key: PixKey, amount: Money): boolean;
+}
+
+// Partner SDK (we cannot change it)
+class PartnerPixClient {
+  transfer(destinationKey: string, amountInCents: number): { status: string } {
+    return { status: "SETTLED" };
   }
 }
 
-class AcmePayAdapter implements PaymentGateway {
-  constructor(private readonly client: AcmePayClient) {}
+class PartnerPixAdapter implements PixGateway {
+  constructor(private readonly client: PartnerPixClient) {}
 
-  pay(orderId: string, amount: number): boolean {
-    const cents = Math.round(amount * 100);
-    const result = this.client.charge(orderId, cents);
-    return result.status === "APPROVED";
+  send(key: PixKey, amount: Money): boolean {
+    const result = this.client.transfer(key.value, amount.cents);
+    return result.status === "SETTLED";
   }
 }
 
-// The client only knows PaymentGateway
-const gateway: PaymentGateway = new AcmePayAdapter(new AcmePayClient());
-gateway.pay("order-42", 199.9);
+// The client only knows PixGateway
+const gateway: PixGateway = new PartnerPixAdapter(new PartnerPixClient());
+gateway.send({ type: "EMAIL", value: "ana@example.com" }, { cents: 19_990 });
 ```
 
 ## Related patterns

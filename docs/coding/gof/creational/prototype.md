@@ -90,41 +90,42 @@ classDiagram
 
 ## Exemplo
 
-Um editor gráfico oferece formas pré-configuradas (círculo vermelho, retângulo azul). Ao arrastar uma forma para a tela, o editor clona o protótipo correspondente e ajusta apenas a posição.
+O cliente salva pagamentos favoritos, como o aluguel e a mesada. Para agendar um novo, o app clona o favorito e muda só a data e o valor, sem reconstruir os dados do recebedor nem a descrição.
 
 ```typescript
-interface Shape {
-  clone(): Shape;
+interface PaymentOrder {
+  clone(): PaymentOrder;
 }
 
-class Circle implements Shape {
-  constructor(public x: number, public y: number,
-              public radius: number, public color: string) {}
+class PixPaymentOrder implements PaymentOrder {
+  constructor(public receiverKey: string, public description: string,
+              public amountCents: number, public scheduledFor: string) {}
 
-  clone(): Shape {
-    return new Circle(this.x, this.y, this.radius, this.color);
+  clone(): PaymentOrder {
+    return new PixPaymentOrder(this.receiverKey, this.description,
+                               this.amountCents, this.scheduledFor);
   }
 }
 
-class ShapeRegistry {
-  private items = new Map<string, Shape>();
+class FavoritePayments {
+  private items = new Map<string, PaymentOrder>();
 
-  register(key: string, shape: Shape): void {
-    this.items.set(key, shape);
+  register(key: string, order: PaymentOrder): void {
+    this.items.set(key, order);
   }
 
-  create(key: string): Shape {
+  create(key: string): PaymentOrder {
     const proto = this.items.get(key);
-    if (!proto) throw new Error(`Unknown prototype: ${key}`);
+    if (!proto) throw new Error(`Unknown favorite: ${key}`);
     return proto.clone();
   }
 }
 
-const registry = new ShapeRegistry();
-registry.register("red-circle", new Circle(0, 0, 10, "red"));
+const favorites = new FavoritePayments();
+favorites.register("rent", new PixPaymentOrder("locador@example.com", "Aluguel", 250_000, "2026-12-05"));
 
-const c = registry.create("red-circle") as Circle;
-c.x = 120; c.y = 80; // o protótipo original permanece intacto
+const order = favorites.create("rent") as PixPaymentOrder;
+order.scheduledFor = "2027-01-05"; order.amountCents = 262_500; // o favorito original permanece intacto
 ```
 
 ## Padrões relacionados

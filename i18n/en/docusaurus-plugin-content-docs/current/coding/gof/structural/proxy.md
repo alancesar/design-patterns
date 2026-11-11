@@ -84,36 +84,37 @@ The `Client` works only with the `Subject` interface. Both `RealSubject` and `Pr
 
 ## Example
 
-A document viewer displays thumbnails of several high-resolution images. Loading all of them from disk on open would be slow, so each image is represented by a proxy that only loads the file when it needs to be displayed.
+The credit bureau query is slow and charged per call. The `CachingCreditBureauProxy` only queries the bureau when the analysis actually asks for the score and keeps the result for the following calls.
 
 ```typescript
-interface Image {
-  display(): void;
+type Cpf = string;
+
+interface CreditBureau {
+  score(cpf: Cpf): number;
 }
 
-class HighResImage implements Image {
-  constructor(private path: string) {
-    console.log(`Loading ${path} from disk...`); // expensive operation
-  }
-  display(): void {
-    console.log(`Displaying ${this.path}`);
+class RemoteCreditBureau implements CreditBureau {
+  score(cpf: Cpf): number {
+    console.log(`Querying the bureau for ${cpf}...`); // slow operation, charged per call
+    return 720;
   }
 }
 
-class ImageProxy implements Image {
-  private real?: HighResImage;
-  constructor(private path: string) {}
+class CachingCreditBureauProxy implements CreditBureau {
+  private cache = new Map<Cpf, number>();
+  constructor(private real: CreditBureau) {}
 
-  display(): void {
-    if (!this.real) {
-      this.real = new HighResImage(this.path); // lazy loading
+  score(cpf: Cpf): number {
+    if (!this.cache.has(cpf)) {
+      this.cache.set(cpf, this.real.score(cpf)); // on-demand query
     }
-    this.real.display();
+    return this.cache.get(cpf)!;
   }
 }
 
-const gallery: Image[] = [new ImageProxy("a.png"), new ImageProxy("b.png")];
-gallery[0].display(); // loads and displays only a.png
+const bureau: CreditBureau = new CachingCreditBureauProxy(new RemoteCreditBureau());
+bureau.score("123.456.789-09"); // queries the bureau
+bureau.score("123.456.789-09"); // answers from the cache, with no new charge
 ```
 
 ## Related patterns

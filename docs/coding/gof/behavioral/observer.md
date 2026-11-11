@@ -92,42 +92,48 @@ O `ConcreteSubject` guarda seu estado e a lista de `Observer`s registrados, noti
 
 ## Exemplo
 
-Uma loja online precisa avisar diferentes canais (e-mail e painel administrativo) quando o estoque de um produto muda, sem que a classe de estoque conheça esses canais.
+Quando um Pix é creditado, o app precisa enviar um push, o lojista precisa receber um webhook e a conciliação precisa registrar o recebimento, sem que o serviço de recebimento conheça esses canais.
 
 ```typescript
-interface StockObserver {
-  update(sku: string, quantity: number): void;
+interface PixReceivedListener {
+  onPixReceived(txid: string, amountCents: number): void;
 }
 
-class Inventory {
-  private observers: StockObserver[] = [];
-  private stock = new Map<string, number>();
+class PixReceiptService {
+  private listeners: PixReceivedListener[] = [];
 
-  attach(o: StockObserver) { this.observers.push(o); }
-  detach(o: StockObserver) { this.observers = this.observers.filter(x => x !== o); }
+  attach(l: PixReceivedListener) { this.listeners.push(l); }
+  detach(l: PixReceivedListener) { this.listeners = this.listeners.filter(x => x !== l); }
 
-  setQuantity(sku: string, quantity: number) {
-    this.stock.set(sku, quantity);
-    this.observers.forEach(o => o.update(sku, quantity)); // push
+  receive(txid: string, amountCents: number) {
+    // credita na conta e avisa os interessados
+    this.listeners.forEach(l => l.onPixReceived(txid, amountCents)); // push
   }
 }
 
-class EmailAlert implements StockObserver {
-  update(sku: string, quantity: number) {
-    if (quantity === 0) console.log(`E-mail: ${sku} esgotado`);
+class PushNotifier implements PixReceivedListener {
+  onPixReceived(txid: string, amountCents: number) {
+    console.log(`Push: Pix recebido de R$ ${(amountCents / 100).toFixed(2)}`);
   }
 }
 
-class AdminDashboard implements StockObserver {
-  update(sku: string, quantity: number) {
-    console.log(`Dashboard: ${sku} = ${quantity}`);
+class MerchantWebhook implements PixReceivedListener {
+  onPixReceived(txid: string, amountCents: number) {
+    console.log(`Webhook: pix.received ${txid}`);
   }
 }
 
-const inventory = new Inventory();
-inventory.attach(new EmailAlert());
-inventory.attach(new AdminDashboard());
-inventory.setQuantity("SKU-42", 0);
+class ReconciliationRecorder implements PixReceivedListener {
+  onPixReceived(txid: string, amountCents: number) {
+    console.log(`Conciliação: ${txid} = ${amountCents}`);
+  }
+}
+
+const service = new PixReceiptService();
+service.attach(new PushNotifier());
+service.attach(new MerchantWebhook());
+service.attach(new ReconciliationRecorder());
+service.receive("txid-8f3a", 12_990);
 ```
 
 ## Padrões relacionados

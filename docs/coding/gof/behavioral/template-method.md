@@ -83,41 +83,43 @@ classDiagram
 
 ## Exemplo
 
-Um sistema importa dados de diferentes formatos (CSV e JSON). O fluxo é sempre: abrir, ler, converter, validar e salvar; apenas a leitura e a conversão variam conforme o formato.
+O processamento de um arquivo de retorno bancário é sempre: ler, converter em registros, validar e baixar os boletos pagos. Só a leitura e a conversão mudam entre CNAB 240 e CNAB 400 (os mesmos layouts da família de arquivos do Abstract Factory, aqui vistos do lado do retorno).
 
 ```java
-public abstract class DataImporter {
-    // Método template: estrutura fixa do algoritmo
-    public final void importFile(String path) {
+public abstract class RetornoProcessor {
+    // Método template: estrutura fixa do fluxo
+    public final void process(String path) {
         String raw = read(path);
-        List<Record> records = parse(raw);
+        List<PaymentRecord> records = parse(raw);
         validate(records);
-        beforeSave(records); // hook opcional
-        save(records);
+        beforeSettle(records); // hook opcional
+        settle(records);
     }
 
     protected abstract String read(String path);
-    protected abstract List<Record> parse(String raw);
+    protected abstract List<PaymentRecord> parse(String raw);
 
-    protected void validate(List<Record> records) {
+    protected void validate(List<PaymentRecord> records) {
         records.removeIf(r -> !r.isValid());
     }
 
-    protected void beforeSave(List<Record> records) { } // hook
+    protected void beforeSettle(List<PaymentRecord> records) { } // hook
 
-    private void save(List<Record> records) { /* persiste no banco */ }
+    private void settle(List<PaymentRecord> records) { /* baixa os boletos pagos */ }
 }
 
-public class CsvImporter extends DataImporter {
+public class Cnab240Processor extends RetornoProcessor {
     protected String read(String path) { return Files.readString(Path.of(path)); }
-    protected List<Record> parse(String raw) { return CsvParser.parse(raw); }
+    protected List<PaymentRecord> parse(String raw) { return Cnab240Parser.parse(raw); }
 }
 
-public class JsonImporter extends DataImporter {
-    protected String read(String path) { return Files.readString(Path.of(path)); }
-    protected List<Record> parse(String raw) { return JsonParser.parse(raw); }
+public class Cnab400Processor extends RetornoProcessor {
+    protected String read(String path) {
+        return Files.readString(Path.of(path), StandardCharsets.ISO_8859_1);
+    }
+    protected List<PaymentRecord> parse(String raw) { return Cnab400Parser.parse(raw); }
     @Override
-    protected void beforeSave(List<Record> records) { records.forEach(Record::normalize); }
+    protected void beforeSettle(List<PaymentRecord> records) { records.forEach(PaymentRecord::normalize); }
 }
 ```
 

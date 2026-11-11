@@ -91,35 +91,61 @@ O `Client` cria o `ConcreteCommand` e o associa a um `Receiver`; o `Invoker` arm
 
 ## Exemplo
 
-Um editor de texto em que ações como "inserir texto" podem ser desfeitas com Ctrl+Z. Cada ação vira um comando empilhado em um histórico.
+Cada movimentação do ledger de uma conta é um comando com `execute()` e `undo()`, e o histórico permite estornar a última operação. Em contabilidade o estorno é um lançamento novo: o `undo()` posta o lançamento inverso e o original permanece no ledger.
 
 ```typescript
-interface Command { execute(): void; undo(): void; }
+type EntryType = "DEBIT" | "CREDIT";
 
-class TextEditor {                       // Receiver
-  content = "";
-  insert(text: string) { this.content += text; }
-  remove(length: number) { this.content = this.content.slice(0, -length); }
+interface LedgerEntry {
+  type: EntryType;
+  amountCents: number;
+  reversalOf?: number; // estorna o lançamento de índice indicado
 }
 
-class InsertTextCommand implements Command {
-  constructor(private editor: TextEditor, private text: string) {}
-  execute() { this.editor.insert(this.text); }
-  undo() { this.editor.remove(this.text.length); }
+class Account {                          // Receiver
+  readonly entries: LedgerEntry[] = [];
+
+  post(type: EntryType, amountCents: number, reversalOf?: number): number {
+    this.entries.push({ type, amountCents, reversalOf });
+    return this.entries.length - 1;      // o índice do lançamento serve de identificador
+  }
+
+  get balanceCents(): number {
+    return this.entries.reduce(
+      (sum, e) => sum + (e.type === "CREDIT" ? e.amountCents : -e.amountCents), 0);
+  }
 }
 
-class CommandManager {                   // Invoker
-  private history: Command[] = [];
-  run(cmd: Command) { cmd.execute(); this.history.push(cmd); }
+interface LedgerCommand { execute(): void; undo(): void; }
+
+class CreditCommand implements LedgerCommand {
+  private entryId?: number;
+  constructor(private account: Account, private amountCents: number) {}
+  execute() { this.entryId = this.account.post("CREDIT", this.amountCents); }
+  undo() { this.account.post("DEBIT", this.amountCents, this.entryId); }
+}
+
+class DebitCommand implements LedgerCommand {
+  private entryId?: number;
+  constructor(private account: Account, private amountCents: number) {}
+  execute() { this.entryId = this.account.post("DEBIT", this.amountCents); }
+  undo() { this.account.post("CREDIT", this.amountCents, this.entryId); }
+}
+
+class LedgerHistory {                    // Invoker
+  private history: LedgerCommand[] = [];
+  run(cmd: LedgerCommand) { cmd.execute(); this.history.push(cmd); }
   undo() { this.history.pop()?.undo(); }
 }
 
-const editor = new TextEditor();
-const manager = new CommandManager();
-manager.run(new InsertTextCommand(editor, "Hello"));
-manager.run(new InsertTextCommand(editor, ", world"));
-manager.undo();
-console.log(editor.content);             // "Hello"
+const account = new Account();
+const history = new LedgerHistory();
+history.run(new CreditCommand(account, 100_000));
+history.run(new DebitCommand(account, 30_000));
+console.log(account.balanceCents);       // 70000
+history.undo();                          // posta um crédito de estorno; o débito original continua no ledger
+console.log(account.balanceCents);       // 100000
+console.log(account.entries.length);     // 3
 ```
 
 ## Padrões relacionados

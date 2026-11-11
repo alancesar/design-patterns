@@ -78,37 +78,39 @@ classDiagram
 
 ## Example
 
-An order service receives an optional logger. Instead of testing whether the logger exists on every call, the service receives a `NullLogger` when no logger is configured.
+The transfer service applies a fee policy. Exempt accounts get a `NoFeePolicy`, which returns zero, instead of the service checking whether a policy exists on every transfer. The fee amount is illustrative.
 
 ```typescript
-interface Logger {
-  info(message: string): void;
+interface FeePolicy {
+  feeCents(amountCents: number): number;
 }
 
-class ConsoleLogger implements Logger {
-  info(message: string): void {
-    console.log(`[INFO] ${message}`);
+class PerTransferFeePolicy implements FeePolicy {
+  constructor(private readonly flatCents: number) {}
+  feeCents(_amountCents: number): number {
+    return this.flatCents;
   }
 }
 
-class NullLogger implements Logger {
-  static readonly instance = new NullLogger();
-  info(_message: string): void {
-    // does nothing
+class NoFeePolicy implements FeePolicy {
+  static readonly instance = new NoFeePolicy();
+  feeCents(_amountCents: number): number {
+    return 0;                            // exempt account: zero fee
   }
 }
 
-class OrderService {
-  constructor(private readonly logger: Logger = NullLogger.instance) {}
+class TransferService {
+  constructor(private readonly feePolicy: FeePolicy) {}
 
-  placeOrder(id: string): void {
-    // ... business rules
-    this.logger.info(`Order ${id} created`); // no if (logger != null)
+  // total debited from the account
+  transfer(amountCents: number): number {
+    const fee = this.feePolicy.feeCents(amountCents); // no if (policy != null)
+    return amountCents + fee;
   }
 }
 
-new OrderService(new ConsoleLogger()).placeOrder("42"); // logs
-new OrderService().placeOrder("43");                    // silent
+console.log(new TransferService(new PerTransferFeePolicy(350)).transfer(10_000)); // 10350
+console.log(new TransferService(NoFeePolicy.instance).transfer(10_000));          // 10000
 ```
 
 ## Related patterns

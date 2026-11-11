@@ -81,37 +81,49 @@ The `Client` interacts only with the `Facade`, which delegates calls to `Subsyst
 
 ## Example
 
-An e-commerce site needs to complete orders by checking inventory, charging payment, and scheduling delivery. Instead of each controller coordinating these three services, an `OrderFacade` exposes a single `placeOrder` operation.
+Sending a Pix requires resolving the key in DICT, passing the fraud check, debiting the ledger and sending the message to SPI. Instead of each controller coordinating these four services, a `PixTransferFacade` exposes a single `send` operation.
 
 ```typescript
-class InventoryService {
-  reserve(sku: string, qty: number): void { /* ... */ }
+interface PixDestination { ispb: string; account: string; }
+
+class DictClient {
+  resolve(pixKey: string): PixDestination { return { ispb: "00000000", account: "12345-6" }; }
 }
 
-class PaymentService {
-  charge(customerId: string, amount: number): string { return "tx-123"; }
+class FraudService {
+  approve(accountId: string, amountCents: number): boolean { return true; }
 }
 
-class ShippingService {
-  schedule(customerId: string, sku: string): string { return "track-456"; }
+class LedgerService {
+  debit(accountId: string, amountCents: number): string { return "entry-123"; }
 }
 
-class OrderFacade {
+class SpiClient {
+  submit(destination: PixDestination, amountCents: number, entryId: string): string {
+    return "E00000000202603101030abc123"; // endToEndId
+  }
+}
+
+class PixTransferFacade {
   constructor(
-    private inventory = new InventoryService(),
-    private payment = new PaymentService(),
-    private shipping = new ShippingService(),
+    private dict = new DictClient(),
+    private fraud = new FraudService(),
+    private ledger = new LedgerService(),
+    private spi = new SpiClient(),
   ) {}
 
-  placeOrder(customerId: string, sku: string, qty: number, amount: number): string {
-    this.inventory.reserve(sku, qty);
-    this.payment.charge(customerId, amount);
-    return this.shipping.schedule(customerId, sku);
+  send(accountId: string, pixKey: string, amountCents: number): string {
+    const destination = this.dict.resolve(pixKey);
+    if (!this.fraud.approve(accountId, amountCents)) {
+      throw new Error("Transfer rejected by fraud check");
+    }
+    const entryId = this.ledger.debit(accountId, amountCents);
+    return this.spi.submit(destination, amountCents, entryId);
   }
 }
 
 // Client
-const tracking = new OrderFacade().placeOrder("c-1", "SKU-9", 2, 199.9);
+const endToEndId = new PixTransferFacade().send("acc-1", "ana@example.com", 19_990);
 ```
 
 ## Related patterns
