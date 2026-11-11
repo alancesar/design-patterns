@@ -6,7 +6,7 @@ tags:
   - Decoupling
   - Testability
 also_in:
-  - application/ddd/building-blocks
+  - design/ddd/building-blocks
 source: https://martinfowler.com/eaaCatalog/repository.html
 sidebar_label: "Repository"
 ---

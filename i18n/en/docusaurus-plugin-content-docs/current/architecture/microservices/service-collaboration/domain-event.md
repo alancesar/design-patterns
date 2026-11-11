@@ -6,7 +6,7 @@ tags:
   - Reliability
   - Operational Excellence
 also_in:
-  - application/ddd/building-blocks
+  - design/ddd/building-blocks
 source: https://microservices.io/patterns/data/domain-event.html
 sidebar_label: "Domain Event"
 ---

@@ -6,7 +6,7 @@ tags:
   - Operational Excellence
 also_in:
   - architecture/microservices/refactoring-to-services
-  - application/ddd/context-mapping
+  - design/ddd/context-mapping
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/anti-corruption-layer
 sidebar_label: "Anti-Corruption Layer"
 ---
