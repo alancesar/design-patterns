@@ -64,9 +64,9 @@ O sistema começa sem estrutura global, adota uma versão leve ao perceber padr�
 
 ## Exemplo
 
-Uma operadora de logística tem quatro equipes cuidando de roteirização, armazenagem, faturamento e rastreio. No início, cada equipe organiza seus módulos como quer. Após alguns meses, os desenvolvedores percebem que quase todo conceito do sistema fica em um de dois níveis: regras de decisão (política de roteirização, política de cobrança) e operações do dia a dia (movimentar carga, emitir fatura).
+Uma fintech tem quatro equipes cuidando de Pix, Cartões, Crédito e Conciliação. No início, cada equipe organiza seus módulos como quer. Após alguns meses, os desenvolvedores percebem que quase todo conceito do sistema fica em um de dois níveis: políticas (limites, tarifas, regras de risco) e operações do dia a dia (transferir, lançar no ledger, liquidar).
 
-A equipe então adota uma estrutura de Responsibility Layers com apenas essas duas camadas e uma regra simples de dependência. Um ano depois, ao incluir parceiros terceirizados, a divisão em duas camadas se mostra insuficiente e é refinada para três, sem reescrever o sistema: apenas módulos que não se encaixavam foram movidos. A estrutura nunca foi desenhada por completo de antemão, só ajustada quando a dor apareceu.
+As equipes então adotam uma estrutura de Responsibility Layers com apenas essas duas camadas, Policy e Operations, e uma regra simples de dependência. Um ano depois, ao lançar o crédito consignado, a divisão em duas camadas se mostra insuficiente: limites concedidos e produtos contratados não são regras nem operações, e sim o que cada cliente pode usar. A estrutura é refinada para três camadas, com Potential abaixo de Operations, sem reescrever o sistema: apenas os módulos que não se encaixavam foram movidos. A estrutura nunca foi desenhada por completo de antemão, só ajustada quando a dor apareceu.
 
 ## Padrões relacionados
 

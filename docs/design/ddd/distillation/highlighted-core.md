@@ -65,9 +65,9 @@ O modelo permanece inteiro, mas o documento de destilação e as marcações apo
 
 ## Exemplo
 
-Uma seguradora tem um grande módulo de apólices em que a precificação de risco é o core, mas as classes estão misturadas com cadastro, cobrança e relatórios. Refatorar tudo agora atrasaria o roadmap em meses.
+Uma fintech de crédito tem um grande módulo de empréstimos em que a decisão de crédito e a precificação por risco são o core, mas as classes estão misturadas com cadastro, cobrança e relatórios. Refatorar tudo agora atrasaria o roadmap em meses.
 
-A equipe escreve um documento de duas páginas na raiz do repositório, `CORE.md`, listando os conceitos centrais (`RiskProfile`, `PremiumCalculator`, `UnderwritingRule`) e como interagem. Essas classes recebem uma anotação `@CoreDomain`, o diagrama principal as destaca em cor e as revisões de código nelas exigem um segundo revisor sênior.
+A equipe escreve um documento de duas páginas na raiz do repositório, `CORE.md`, listando os conceitos centrais (`CreditPolicy`, `RiskScore`, `PricingRule`) e como interagem. Essas classes recebem uma anotação `@CoreDomain`, o diagrama principal as destaca em cor e as revisões de código nelas exigem um segundo revisor sênior.
 
 ## Padrões relacionados
 

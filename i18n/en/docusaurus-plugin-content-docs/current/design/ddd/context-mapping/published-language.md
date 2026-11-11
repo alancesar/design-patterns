@@ -55,32 +55,32 @@ It often goes hand in hand with Open-host Service: the service defines the proto
 
 ```mermaid
 flowchart LR
-    A["Sales Context"] -->|"translates to"| PL(("Published Language: OrderPlaced v1"))
-    PL -->|"translated by"| B["Billing Context"]
-    PL -->|"translated by"| C["Logistics Context"]
+    A["Payments Context"] -->|"translates to"| PL(("Published Language: PaymentSettled v1"))
+    PL -->|"translated by"| B["Reconciliation Context"]
+    PL -->|"translated by"| C["Notifications Context"]
 ```
 
 Each context translates between its internal model and the published language, without knowing the others' models.
 
 ## Example
 
-The Sales context publishes the `OrderPlaced` event, described in a versioned JSON Schema. Billing and Logistics read this event and translate it into their own models.
+The Payments context publishes the `PaymentSettled` event, described in a versioned JSON Schema. Reconciliation and Notifications read this event and translate it into their own models.
 
 ```json
 {
-  "type": "OrderPlaced",
+  "type": "PaymentSettled",
   "version": 1,
-  "orderId": "ord-1042",
-  "customerId": "cus-77",
+  "paymentId": "pay-1042",
+  "endToEndId": "E12345678202603101432abcde123456",
+  "accountId": "acc-77",
+  "method": "PIX",
   "currency": "BRL",
-  "items": [
-    { "sku": "SKU-9", "quantity": 2, "unitPrice": "49.90" }
-  ],
-  "placedAt": "2026-03-10T14:32:00Z"
+  "amountCents": 4990,
+  "settledAt": "2026-03-10T14:32:00Z"
 }
 ```
 
-The fields are defined in business terms and don't expose Sales' internal tables or classes.
+The fields are defined in business terms and don't expose Payments' internal tables or classes. The amount is in integer cents, so no consumer depends on floating point.
 
 ## Related patterns
 

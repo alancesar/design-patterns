@@ -54,45 +54,65 @@ Combinado com Side-Effect-Free Functions, o padrão deixa visíveis os poucos co
 ```mermaid
 sequenceDiagram
     participant C as Client
-    participant P as Paint
-    C->>P: mixIn(other)
-    Note over P: Pre: other nao e nulo
-    P->>P: atualiza color e volume
-    Note over P: Pos: volume = volume anterior + other.volume
-    P-->>C: concluido
-    Note over P: Invariante: volume nunca e negativo
+    participant A as Account
+    C->>A: debit(amount)
+    Note over A: Pre: amount positivo e saldo não ultrapassa o limite do cheque especial
+    A->>A: atualiza balance
+    Note over A: Pos: balance = balance anterior - amount
+    A-->>C: concluido
+    Note over A: Invariante: balance + overdraftLimit nunca e negativo
 ```
 
-A pré-condição, a pós-condição e o invariante são declarados em torno do comando `mixIn`.
+A pré-condição, a pós-condição e o invariante são declarados em torno do comando `debit`. O livro ilustra o padrão com a mistura de tintas.
 
 ## Exemplo
 
-Em `Paint.mixIn`, a pós-condição é que o volume final é a soma dos volumes. Sem linguagem de contratos, ela vira um teste automatizado e uma checagem no método.
+Em `Account.debit`, a pós-condição é que o saldo final é o saldo inicial menos o valor, e o invariante é que o saldo nunca fica negativo além do limite do cheque especial. Sem linguagem de contratos, elas viram testes automatizados e checagens no método.
 
 ```java
-public class Paint {
-    private int volume;
-    private PigmentColor color;
+public class Account {
+    private Money balance;
+    private final Money overdraftLimit;
+
+    public Account(Money balance, Money overdraftLimit) {
+        this.balance = balance;
+        this.overdraftLimit = overdraftLimit;
+    }
 
     /**
-     * Pós-condição: volume() == volumeAnterior + other.volume().
-     * Invariante: volume() >= 0.
+     * Pré-condição: amount não nulo e positivo, e o saldo não passa do limite.
+     * Pós-condição: balance() == saldoAnterior - amount. Invariante: balance() + overdraftLimit >= 0.
      */
-    public void mixIn(Paint other) {
-        Objects.requireNonNull(other, "other");
-        int before = volume;
-        color = color.mixedWith(other.color, volume, other.volume);
-        volume += other.volume;
-        assert volume == before + other.volume;
-        assert volume >= 0;
+    public void debit(Money amount) {
+        Objects.requireNonNull(amount, "amount");
+        if (!amount.isPositive()) {
+            throw new IllegalArgumentException("amount must be positive");
+        }
+        Money before = balance;
+        Money after = balance.minus(amount);
+        if (after.plus(overdraftLimit).isNegative()) {
+            throw new IllegalStateException("saldo insuficiente");
+        }
+        balance = after;
+        assert balance.equals(before.minus(amount));
+        assert !balance.plus(overdraftLimit).isNegative();
     }
+
+    public Money balance() { return balance; }
 }
 
 @Test
-void mixInSumsVolumes() {
-    Paint a = new Paint(100, PigmentColor.BLUE);
-    a.mixIn(new Paint(50, PigmentColor.YELLOW));
-    assertEquals(150, a.volume());
+void debitSubtractsFromBalance() {
+    Account a = new Account(Money.brl(100_00), Money.brl(50_00));
+    a.debit(Money.brl(30_00));
+    assertEquals(Money.brl(70_00), a.balance());
+}
+
+@Test
+void debitCannotGoBelowTheLimit() {
+    Account a = new Account(Money.brl(100_00), Money.brl(50_00));
+    assertThrows(IllegalStateException.class,
+        () -> a.debit(Money.brl(200_00)));
 }
 ```
 

@@ -53,41 +53,51 @@ O padrão é a base do Supple Design. Interfaces que revelam intenção tornam a
 
 ```mermaid
 classDiagram
-    class PaintBefore {
-        +paint(Paint other)
+    class AccountBefore {
+        +process(Money amount)
     }
-    class PaintAfter {
-        +mixIn(Paint other)
-        +volume() int
+    class AccountAfter {
+        +placeHold(Money amount)
+        +availableBalance() Money
     }
-    note for PaintBefore "Nome nao revela se mistura, substitui ou soma"
-    note for PaintAfter "Nome revela o efeito: a tinta recebe a mistura"
+    note for AccountBefore "Nome nao revela se debita, credita ou reserva"
+    note for AccountAfter "Nome revela o efeito: reserva saldo sem debitar"
 ```
 
-Em `PaintBefore`, o método não diz o que acontece com a tinta; em `PaintAfter`, `mixIn` revela a intenção e o efeito.
+Em `AccountBefore`, o método não diz o que acontece com o saldo; em `AccountAfter`, `placeHold` revela a intenção e o efeito. O livro ilustra o padrão com a mistura de tintas.
 
 ## Exemplo
 
-Um módulo de tintas tinha o método `paint(Paint other)`, que na verdade misturava a outra tinta ao volume atual. O cliente precisava ler o corpo do método para descobrir o efeito. Renomeado para `mixIn`, o contrato fica claro e o teste diz o que se espera.
+Uma conta digital tinha o método `process(Money amount)`, que na verdade reservava o valor do saldo disponível, sem debitar. O cliente precisava ler o corpo do método para descobrir o efeito, e já houve quem o chamasse achando que movimentava o dinheiro. Renomeado para `placeHold`, o contrato fica claro e o teste diz o que se espera.
 
 ```java
-public class Paint {
-    private int volume;
-    private PigmentColor color;
+public class Account {
+    private Money balance;
+    private final Money overdraftLimit;
+    private Money held = Money.brl(0);
 
-    // Antes: public void paint(Paint other)
-    public void mixIn(Paint other) {
-        color = color.mixedWith(other.color, volume, other.volume);
-        volume += other.volume;
+    public Account(Money balance, Money overdraftLimit) {
+        this.balance = balance;
+        this.overdraftLimit = overdraftLimit;
     }
 
-    public int volume() { return volume; }
+    // Antes: public void process(Money amount)
+    public void placeHold(Money amount) {
+        held = held.plus(amount);
+    }
+
+    public Money balance() { return balance; }
+
+    public Money availableBalance() {
+        return balance.plus(overdraftLimit).minus(held);
+    }
 }
 
 // O teste escreve o contrato antes da implementação
-Paint blue = new Paint(100, PigmentColor.BLUE);
-blue.mixIn(new Paint(50, PigmentColor.YELLOW));
-assertEquals(150, blue.volume());
+Account account = new Account(Money.brl(100_00), Money.brl(0));
+account.placeHold(Money.brl(30_00));
+assertEquals(Money.brl(70_00), account.availableBalance());
+assertEquals(Money.brl(100_00), account.balance());
 ```
 
 ## Padrões relacionados

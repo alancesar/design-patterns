@@ -66,24 +66,33 @@ A interface chama a aplicação, que orquestra o domínio. A infraestrutura impl
 
 ## Exemplo
 
-Em um sistema de pedidos, o controlador (interface) chama um serviço de aplicação, que carrega o agregado, delega a regra ao domínio e persiste pelo repositório.
+Em uma transferência Pix, o `TransferController` (interface) chama o `TransferAppService`, que carrega a conta, delega a regra ao domínio e persiste pelo repositório.
 
 ```typescript
-// application
-class CancelOrderService {
-  constructor(private orders: OrderRepository) {}
+// interface
+class TransferController {
+  constructor(private transfers: TransferAppService) {}
 
-  async execute(orderId: string): Promise<void> {
-    const order = await this.orders.findById(orderId);
-    order.cancel(); // regra no domínio
-    await this.orders.save(order);
+  async post(req: { accountId: string; pixKey: string; amountCents: number }) {
+    await this.transfers.execute(req.accountId, req.pixKey, req.amountCents);
+  }
+}
+
+// application
+class TransferAppService {
+  constructor(private accounts: AccountRepository) {}
+
+  async execute(accountId: string, pixKey: string, amountCents: number): Promise<void> {
+    const account = await this.accounts.findById(accountId);
+    account.sendPix(pixKey, Money.ofCents(amountCents)); // regra no domínio
+    await this.accounts.save(account);
   }
 }
 
 // domain
-interface OrderRepository {
-  findById(id: string): Promise<Order>;
-  save(order: Order): Promise<void>;
+interface AccountRepository {
+  findById(id: string): Promise<Account>;
+  save(account: Account): Promise<void>;
 }
 ```
 

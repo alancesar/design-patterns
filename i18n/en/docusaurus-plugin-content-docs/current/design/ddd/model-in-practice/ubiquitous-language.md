@@ -64,9 +64,9 @@ The language sits at the center, connecting people, model, code, and documents; 
 
 ## Example
 
-In a logistics system, the experts say "consolidate shipments" and "pickup window", while the code had `mergeShipments()` and `pickupTimeRange`. During a modeling session, the team realized that "consolidate" only applies to shipments with the same destination, a rule the code didn't express.
+At a fintech, the code had a single `refund()` method for every reversal of money, while the experts talked about returns, reversals, and chargebacks. During a modeling session, the team realized these are three different things: a return reverses a received Pix, a reversal is a new entry that cancels a card purchase, and a chargeback is a dispute opened by the cardholder, which may or may not end in a reversal. The code expressed none of these distinctions.
 
-The team renamed the methods and classes to `consolidate()` and `PickupWindow`, adjusted the tests to use the same phrases the experts say, and started rejecting the consolidation of shipments with different destinations. The gain was that the rule, previously implicit, now exists in both the vocabulary and the code.
+The team replaced `refund()` with `PixReturn`, `Reversal`, and `Chargeback`, adjusted the tests to use the same phrases the experts say, and started rejecting a return that, added to the previous ones, exceeds the amount of the original Pix. The gain was that the rules, previously implicit, now exist in both the vocabulary and the code.
 
 ## Related patterns
 

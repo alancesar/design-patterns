@@ -64,9 +64,9 @@ O modelo e o código se influenciam mutuamente, ligados pela linguagem comum; o 
 
 ## Exemplo
 
-Um time de seguros modelou o conceito de "apólice" com regras de vigência e de cobertura, mas a implementação tinha apenas tabelas e serviços com lógica espalhada. Ao adotar Model-Driven Design, o time criou `Policy`, `Coverage` e `CoveragePeriod` no código, com as regras de vigência dentro dessas classes.
+Um time de crédito modelou o conceito de "contrato de empréstimo" com regras de parcelas e de carência, mas a implementação tinha apenas tabelas e serviços com lógica espalhada. Ao adotar Model-Driven Design, o time criou `LoanContract`, `Installment` e `GracePeriod` no código, com as regras de carência dentro dessas classes.
 
-Quando os especialistas mudaram a regra para permitir cobertura retroativa, a alteração foi feita em um único ponto do código e discutida no próprio modelo. Ao tentar expressar a nova regra, os desenvolvedores perceberam uma ambiguidade no modelo e voltaram à conversa com o negócio antes de implementar.
+Quando os especialistas mudaram a regra para permitir carência também em contratos renegociados, a alteração foi feita em um único ponto do código e discutida no próprio modelo. Ao tentar expressar a nova regra, os desenvolvedores perceberam uma ambiguidade no modelo, se os juros do período de carência eram cobrados na primeira parcela ou incorporados ao saldo devedor, e voltaram à conversa com o negócio antes de implementar.
 
 ## Padrões relacionados
 

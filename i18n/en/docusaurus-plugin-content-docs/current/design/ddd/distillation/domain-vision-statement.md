@@ -67,9 +67,9 @@ The single document feeds different audiences, who then decide and prioritize ba
 
 ## Example
 
-A logistics company writes the following summary for its routing core: "The model lets the dispatcher plan routes that respect delivery windows, vehicle capacity, and driver constraints, recalculating them within minutes when traffic or orders change. The goal is to reduce the cost per delivery while meeting the promised deadlines."
+A credit fintech writes the following summary for its credit decision core: "The model lets us approve or decline a personal loan proposal within minutes, with a limit and a rate adjusted to each customer's risk, based on the customer record, the credit bureau, and the account history. The goal is to grow the portfolio while keeping expected loss within the risk appetite set by the board."
 
-The text doesn't mention databases, queues, or frameworks. It's pinned on the wiki, reviewed every quarter, and used in planning meetings to decide whether a proposal, such as a financial reporting feature, reinforces the core or merely distracts from it.
+The text doesn't mention databases, queues, or frameworks. It's pinned on the wiki, reviewed every quarter, and used in planning meetings to decide whether a proposal, such as an accounting reports feature, reinforces the core or merely distracts from it.
 
 ## Related patterns
 

@@ -72,9 +72,9 @@ O core é extraído para um módulo próprio, e os módulos de suporte e genéri
 
 ## Exemplo
 
-Em um sistema de gestão de frota, o core é o planejamento de manutenção preditiva, mas suas classes estão no mesmo pacote que cadastro de veículos, relatórios e integração com o ERP. Qualquer alteração em relatórios exige recompilar e retestar o core.
+Em uma fintech de crédito, o core é a decisão de crédito, mas suas classes estão no mesmo pacote que o cadastro de clientes, os relatórios regulatórios e a integração com o bureau de crédito. Qualquer alteração em relatórios exige recompilar e retestar o core.
 
-A equipe move `MaintenancePlan`, `WearModel` e `FailureRisk` para um módulo `maintenance-core` sem dependências externas. Cadastro, relatórios e a integração com o ERP passam a depender dele, e os dados usados pelo core chegam por interfaces definidas dentro do próprio módulo. O time dedicado ao core ganha seu ritmo de entrega.
+A equipe move `CreditPolicy`, `RiskScore` e `LimitOffer` para um módulo `credit-decision-core` sem dependências externas. Cadastro, relatórios e a integração com o bureau passam a depender dele, e os dados usados pelo core chegam por interfaces definidas dentro do próprio módulo. O time dedicado ao core ganha seu ritmo de entrega.
 
 ## Padrões relacionados
 

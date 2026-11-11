@@ -53,14 +53,14 @@ O padrão não aparece no livro de 2003; foi incluído no DDD Reference como uma
 
 ```mermaid
 flowchart LR
-    A["Contexto de Catálogo"] <-->|"Partnership: planejamento e integração conjuntos"| B["Contexto de Busca"]
+    A["Contexto de Pix"] <-->|"Partnership: planejamento e integração conjuntos"| B["Contexto de Antifraude"]
 ```
 
 A seta bidirecional indica que não há upstream nem downstream: ambos os contextos coordenam mudanças e interfaces.
 
 ## Exemplo
 
-O time de Catálogo e o time de Busca de um marketplace lançam uma nova funcionalidade de filtros por atributos. O catálogo precisa publicar atributos estruturados e a busca precisa indexá-los. Os dois times planejam o trabalho no mesmo ciclo, definem juntos o formato dos atributos, rodam testes de integração conjuntos todos os dias e só liberam a funcionalidade quando ambos estão prontos.
+O time de Pix e o time de Antifraude da fintech lançam o limite noturno para transferências Pix: das 20h às 6h, cada transferência tem um teto menor, que o cliente só pode aumentar depois de um prazo de espera (horários e valores ilustrativos). O Pix precisa aplicar o limite e consultar o Antifraude antes de enviar a ordem, e o Antifraude precisa avaliar os sinais da madrugada dentro do tempo de um pagamento instantâneo. Nenhum dos dois entrega sem o outro. Os dois times planejam o trabalho no mesmo ciclo, definem juntos o contrato da consulta de risco, rodam testes de integração conjuntos todos os dias e só liberam a funcionalidade quando ambos estão prontos.
 
 ## Padrões relacionados
 

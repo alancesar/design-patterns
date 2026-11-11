@@ -56,55 +56,62 @@ Os módulos especializados dependem do Abstract Core e implementam ou estendem s
 
 ```mermaid
 classDiagram
-    class Insurable {
+    class CreditProduct {
         <<interface>>
-        +riskScore() Score
+        +monthlyRate() Rate
     }
-    class Policy {
+    class Contract {
         <<abstract>>
-        +premium() Money
+        +installment() Money
     }
-    class AutoPolicy {
-        +premium() Money
+    class PersonalLoanContract {
+        +installment() Money
     }
-    class LifePolicy {
-        +premium() Money
+    class PayrollLoanContract {
+        +installment() Money
     }
-    class AutoVehicle {
-        +riskScore() Score
+    class PersonalLoan {
+        +monthlyRate() Rate
     }
-    class Person {
-        +riskScore() Score
+    class PayrollLoan {
+        +monthlyRate() Rate
     }
-    Policy --> Insurable
-    Policy <|-- AutoPolicy
-    Policy <|-- LifePolicy
-    Insurable <|.. AutoVehicle
-    Insurable <|.. Person
+    Contract --> CreditProduct
+    Contract <|-- PersonalLoanContract
+    Contract <|-- PayrollLoanContract
+    CreditProduct <|.. PersonalLoan
+    CreditProduct <|.. PayrollLoan
 ```
 
-`Policy` e `Insurable` formam o núcleo abstrato; os módulos de seguro de automóvel e de vida o especializam sem se conhecerem.
+`Contract` e `CreditProduct` formam o núcleo abstrato; os módulos de crédito pessoal e de consignado o especializam sem se conhecerem.
 
 ## Exemplo
 
-Uma seguradora oferece seguro de automóvel e de vida, com módulos que evoluem em ritmos diferentes. Ambos precisam participar de campanhas, renovações e relatórios de exposição, o que levou a dependências diretas entre os módulos.
+Uma fintech oferece crédito pessoal e consignado, com módulos que evoluem em ritmos diferentes. Ambos precisam participar de campanhas de oferta, renegociações e relatórios de exposição da carteira, o que levou a dependências diretas entre os módulos.
 
-A equipe cria o módulo `insurance-core`, com apenas `Policy`, `Insurable` e `Premium`, em termos abstratos. Os módulos `auto` e `life` o implementam, e renovações e relatórios passam a depender só das abstrações.
+A equipe cria o módulo `credit-core`, com apenas `CreditProduct`, `Contract` e `Installment`, em termos abstratos. Os módulos `personal-loan` e `payroll-loan` o implementam, e renegociações e relatórios passam a depender só das abstrações.
 
 ```java
-// módulo insurance-core
-public interface Insurable { Score riskScore(); }
+// módulo credit-core
+public interface CreditProduct { Rate monthlyRate(); }
 
-public abstract class Policy {
-    protected final Insurable subject;
-    protected Policy(Insurable subject) { this.subject = subject; }
-    public abstract Money premium();
+public abstract class Contract {
+    protected final CreditProduct product;
+    protected final Money principal;
+    protected final int months;
+    protected Contract(CreditProduct product, Money principal, int months) {
+        this.product = product; this.principal = principal; this.months = months;
+    }
+    public abstract Money installment();
 }
 
-// módulo auto (depende de insurance-core)
-public class AutoPolicy extends Policy {
-    public AutoPolicy(AutoVehicle vehicle) { super(vehicle); }
-    public Money premium() { return Money.of(100).times(subject.riskScore()); }
+// módulo payroll-loan (depende de credit-core)
+public class PayrollLoanContract extends Contract {
+    public PayrollLoanContract(PayrollLoan product, Money principal, int months) {
+        super(product, principal, months);
+    }
+    // Parcela fixa (Price), descontada em folha.
+    public Money installment() { return PriceTable.installment(principal, product.monthlyRate(), months); }
 }
 ```
 

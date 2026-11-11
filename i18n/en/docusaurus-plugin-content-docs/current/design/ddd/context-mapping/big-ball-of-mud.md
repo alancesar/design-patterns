@@ -54,16 +54,16 @@ Recognizing a Big Ball of Mud is not approving of it; it's naming a reality so y
 
 ```mermaid
 flowchart LR
-    BBM["Big Ball of Mud (legacy)"] -->|"confusing model"| ACL["Anticorruption Layer"]
-    ACL -->|"translated model"| N1["New Orders context"]
-    ACL -->|"translated model"| N2["New Customers context"]
+    BBM["Big Ball of Mud (legacy core banking system)"] -->|"confusing model"| ACL["Anticorruption Layer"]
+    ACL -->|"translated model"| N1["New Digital Account context"]
+    ACL -->|"translated model"| N2["New Credit context"]
 ```
 
 The tangled legacy system is surrounded by a boundary, and the new contexts access it only through a translation layer.
 
 ## Example
 
-An insurance company has a policy system with twenty years of accumulated additions, in which billing, registration, and claims rules are mixed together in the same schema. The team draws the system as a single context, the "Policy Legacy", in the Context Map. The new Quoting and Claims contexts access the legacy system through an Anticorruption Layer and, over time, take over features incrementally, until the legacy system can be shut down.
+The fintech runs on a core banking system with twenty years of accumulated additions, in which checking account, fee, loan, and collection rules are mixed together in the same schema. The team draws the system as a single context, the "Legacy Core", in the Context Map. The new Digital Account and Credit contexts access the legacy system through an Anticorruption Layer and, over time, take over features incrementally, until the legacy system can be shut down.
 
 ## Related patterns
 

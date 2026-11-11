@@ -28,7 +28,7 @@ O padrão é especialmente natural em Value Objects, que são imutáveis e podem
 
 ## Quando usar
 
-- Em Value Objects com operações naturais de combinação (somar, unir, intersectar, misturar).
+- Em Value Objects com operações naturais de combinação (somar, unir, intersectar).
 - Quando é possível expressar um cálculo como sequência de passos do mesmo tipo.
 - Em regras que se compõem, como conjuntos de condições ou intervalos de datas.
 
@@ -53,14 +53,14 @@ O padrão é especialmente natural em Value Objects, que são imutáveis e podem
 
 ```mermaid
 classDiagram
-    class PigmentColor {
-        +mixedWith(PigmentColor other, int w1, int w2) PigmentColor
+    class Money {
+        +plus(Money other) Money
     }
     class DateRange {
         +intersect(DateRange other) DateRange
         +union(DateRange other) DateRange
     }
-    PigmentColor ..> PigmentColor : retorna o mesmo tipo
+    Money ..> Money : retorna o mesmo tipo
     DateRange ..> DateRange : retorna o mesmo tipo
 ```
 
@@ -68,13 +68,28 @@ Em ambas as classes, a operação recebe e devolve o mesmo tipo, de modo que os 
 
 ## Exemplo
 
-Um intervalo de datas oferece `intersect`, que recebe e devolve `DateRange`. Para encontrar a janela em que três pessoas estão disponíveis, basta encadear as chamadas.
+`Money.plus` recebe e devolve `Money`, então o valor de uma parcela é uma cadeia de somas (principal, juros e seguro). O mesmo vale para um intervalo de datas, que oferece `intersect`, recebe e devolve `DateRange`: para saber em que janela a carência se sobrepõe ao período de cobrança, basta intersectar os dois.
 
 ```typescript
+class Money {
+  private constructor(readonly cents: number, readonly currency: string) {}
+
+  static brl(cents: number): Money {
+    return new Money(cents, "BRL");
+  }
+
+  // Operação fechada: Money -> Money
+  plus(other: Money): Money {
+    return new Money(this.cents + other.cents, this.currency);
+  }
+}
+
+const installment = principalPart.plus(interest).plus(insurance);
+
+// Segundo exemplo: o período de carência
 class DateRange {
   constructor(readonly start: Date, readonly end: Date) {}
 
-  // Operação fechada: DateRange -> DateRange
   intersect(other: DateRange): DateRange | null {
     const start = this.start > other.start ? this.start : other.start;
     const end = this.end < other.end ? this.end : other.end;
@@ -82,9 +97,7 @@ class DateRange {
   }
 }
 
-const common = alice
-  .intersect(bob)!
-  .intersect(carol);
+const overlap = gracePeriod.intersect(billingWindow);
 ```
 
 ## Padrões relacionados

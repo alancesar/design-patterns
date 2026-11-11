@@ -54,13 +54,13 @@ It takes discipline: the kernel can't be changed unilaterally, and its existence
 
 ```mermaid
 flowchart LR
-    subgraph A["Billing Context"]
-        MA["Billing Model"]
+    subgraph A["Digital Account Context"]
+        MA["Digital Account Model"]
     end
-    subgraph B["Subscriptions Context"]
-        MB["Subscriptions Model"]
+    subgraph B["Cards Context"]
+        MB["Cards Model"]
     end
-    K(("Shared Kernel: Money, Plan, Period"))
+    K(("Shared Kernel: Money, Cpf, BusinessCalendar"))
     MA --- K
     MB --- K
 ```
@@ -69,7 +69,7 @@ The two contexts keep their own models but share a delimited core, changed only 
 
 ## Example
 
-The Billing and Subscriptions teams at a software-as-a-service company need to use exactly the same definition of Plan, Period, and Money. They extract these concepts into a shared module, kept in a common repository, with tests run in both teams' pipelines. Any change requires review from both. The rest of the model, such as invoices and renewals, stays within each context.
+The fintech's Digital Account and Cards teams need to use exactly the same definition of `Money`, of `Cpf`, and of the business-day calendar, the `BusinessCalendar`: a different rounding rule or a holiday that only one side knows about is enough for the automatic invoice debit not to match the statement. They extract these concepts into a shared module, kept in a common repository, with tests run in both teams' pipelines. Any change requires review from both. The rest of the model, such as statements, invoices, and purchase authorization, stays within each context.
 
 ## Related patterns
 

@@ -65,9 +65,9 @@ The model stays whole, but the distillation document and the markers point out w
 
 ## Example
 
-An insurer has a large policy module in which risk pricing is the core, but the classes are mixed in with registration, billing, and reporting. Refactoring everything now would delay the roadmap by months.
+A credit fintech has a large loan module in which credit decisioning and risk-based pricing are the core, but the classes are mixed in with registration, collections, and reporting. Refactoring everything now would delay the roadmap by months.
 
-The team writes a two-page document at the repository root, `CORE.md`, listing the core concepts (`RiskProfile`, `PremiumCalculator`, `UnderwritingRule`) and how they interact. Those classes get a `@CoreDomain` annotation, the main diagram highlights them in color, and code reviews on them require a second senior reviewer.
+The team writes a two-page document at the repository root, `CORE.md`, listing the core concepts (`CreditPolicy`, `RiskScore`, `PricingRule`) and how they interact. Those classes get a `@CoreDomain` annotation, the main diagram highlights them in color, and code reviews on them require a second senior reviewer.
 
 ## Related patterns
 

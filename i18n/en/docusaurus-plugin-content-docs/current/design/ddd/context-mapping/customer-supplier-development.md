@@ -55,7 +55,7 @@ Without this agreement, the downstream is at the mercy of the upstream's priorit
 
 ```mermaid
 flowchart LR
-    U["Orders Context (upstream, supplier)"] -->|"interface + acceptance tests"| D["Deliveries Context (downstream, customer)"]
+    U["Payments Context (upstream, supplier)"] -->|"interface + acceptance tests"| D["Reconciliation Context (downstream, customer)"]
     D -.->|"needs and priorities"| U
 ```
 
@@ -63,7 +63,7 @@ The interface flows from the supplier to the customer, while the customer's need
 
 ## Example
 
-The Deliveries context depends on Orders to get weight, volume, and delivery window. Deliveries also needs Orders to expose the handling restriction for fragile items. The teams agree that this need goes into Orders' backlog in the next iteration, and they write automated acceptance tests for the new API together. Orders' pipeline starts running those tests on every change, ensuring Deliveries isn't broken.
+The Reconciliation context depends on Payments to get the amount, account, and status of each Pix sent. To match each payment with what SPI actually settled, Reconciliation also needs Payments to expose the `endToEndId` and the settlement date. The teams agree that this need goes into Payments' backlog in the next iteration, and they write automated acceptance tests for the new API together. Payments' pipeline starts running those tests on every change, ensuring Reconciliation isn't broken.
 
 ## Related patterns
 

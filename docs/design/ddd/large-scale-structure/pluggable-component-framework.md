@@ -77,17 +77,20 @@ O `Framework` conhece apenas a interface `Component`; cada componente concreto i
 
 ## Exemplo
 
-Uma corretora de seguros tem vários produtos (auto, residencial, vida), cada um desenvolvido por uma equipe. Após três produtos prontos, a organização extrai o que eles têm em comum e define um contrato `ProductModule` com operações como cotar, emitir e renovar. A plataforma carrega os módulos e os orquestra.
+Uma fintech tem vários produtos financeiros (crédito pessoal, consignado, CDB), cada um desenvolvido por uma equipe. Após três produtos prontos, a organização extrai o que eles têm em comum e define um contrato `ProductModule` com operações como simular, contratar e liquidar. A plataforma de produtos carrega os módulos e os orquestra.
 
 ```python
 from abc import ABC, abstractmethod
 
 class ProductModule(ABC):
     @abstractmethod
-    def quote(self, request) -> "Quote": ...
+    def simulate(self, request) -> "Simulation": ...
 
     @abstractmethod
-    def issue(self, quote) -> "Policy": ...
+    def contract(self, simulation) -> "Contract": ...
+
+    @abstractmethod
+    def settle(self, contract) -> "Settlement": ...
 
 class Platform:
     def __init__(self):
@@ -96,11 +99,11 @@ class Platform:
     def register(self, product_code: str, module: ProductModule):
         self._modules[product_code] = module
 
-    def quote(self, product_code: str, request):
-        return self._modules[product_code].quote(request)
+    def simulate(self, product_code: str, request):
+        return self._modules[product_code].simulate(request)
 ```
 
-Uma nova equipe pode criar o produto "viagem" implementando `ProductModule` e registrando-o, sem alterar a plataforma nem os outros produtos.
+Uma nova equipe pode criar o produto "LCI" implementando `ProductModule` e registrando-o, sem alterar a plataforma nem os outros produtos.
 
 ## Padrões relacionados
 

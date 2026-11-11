@@ -72,9 +72,9 @@ The core is extracted into a module of its own, and the supporting and generic m
 
 ## Example
 
-In a fleet management system, the core is predictive maintenance planning, but its classes sit in the same package as vehicle registration, reports, and the ERP integration. Any change to reports requires recompiling and retesting the core.
+In a credit fintech, the core is credit decisioning, but its classes sit in the same package as customer registration, regulatory reports, and the credit bureau integration. Any change to reports requires recompiling and retesting the core.
 
-The team moves `MaintenancePlan`, `WearModel`, and `FailureRisk` into a `maintenance-core` module with no external dependencies. Registration, reports, and the ERP integration now depend on it, and the data the core uses arrives through interfaces defined inside the module itself. The team dedicated to the core gets its own delivery pace.
+The team moves `CreditPolicy`, `RiskScore`, and `LimitOffer` into a `credit-decision-core` module with no external dependencies. Registration, reports, and the bureau integration now depend on it, and the data the core uses arrives through interfaces defined inside the module itself. The team dedicated to the core gets its own delivery pace.
 
 ## Related patterns
 

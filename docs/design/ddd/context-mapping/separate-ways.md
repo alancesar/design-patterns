@@ -53,7 +53,7 @@ Como decisão estratégica, deve aparecer no Context Map para que ninguém tente
 
 ```mermaid
 flowchart LR
-    A["Contexto de Fidelidade"] ~~~ B["Contexto de Estoque"]
+    A["Contexto de Cashback"] ~~~ B["Contexto de Câmbio"]
     A --- X["sem integração"]
     B --- X
 ```
@@ -62,7 +62,7 @@ Os dois contextos coexistem no mesmo ecossistema, mas sem qualquer relação de 
 
 ## Exemplo
 
-Uma rede de lojas considera integrar o programa de Fidelidade ao módulo de Gestão de Estoque, para que o estoque considere o volume de clientes fiéis. O time conclui que o ganho é marginal e o custo de manter a integração seria alto. Os contextos seguem caminhos separados: Fidelidade mantém seu cadastro de lojas, mesmo que isso duplique alguns dados, e a decisão é registrada no Context Map.
+A fintech considera integrar o programa de Cashback ao contexto de Câmbio, para que compras no exterior rendam cashback com base na cotação do dia e o Câmbio ofereça tarifas melhores a quem acumula mais cashback. O time conclui que o ganho é marginal e o custo de manter a integração seria alto. Os contextos seguem caminhos separados: Cashback calcula o benefício sobre o valor em reais já lançado na fatura, sem consultar o Câmbio, e o Câmbio mantém sua própria lista de clientes com tarifa promocional, mesmo que isso duplique alguns dados. A decisão é registrada no Context Map.
 
 ## Padrões relacionados
 

@@ -67,9 +67,9 @@ O documento único alimenta diferentes públicos, que passam a decidir e prioriz
 
 ## Exemplo
 
-Uma empresa de logística escreve o seguinte resumo para seu core de roteirização: "O modelo permite ao despachante planejar rotas que respeitam janelas de entrega, capacidade de veículos e restrições de motoristas, recalculando-as em minutos quando o trânsito ou os pedidos mudam. O objetivo é reduzir o custo por entrega mantendo o cumprimento dos prazos prometidos."
+Uma fintech de crédito escreve o seguinte resumo para seu core de decisão de crédito: "O modelo permite aprovar ou recusar uma proposta de crédito pessoal em minutos, com limite e taxa ajustados ao risco de cada cliente, a partir do cadastro, do bureau de crédito e do histórico da conta. O objetivo é fazer a carteira crescer mantendo a perda esperada dentro do apetite de risco definido pela diretoria."
 
-O texto não menciona banco de dados, filas nem frameworks. Ele é fixado na wiki, revisto a cada trimestre e usado em reuniões de planejamento para decidir se uma proposta, como um recurso de relatórios financeiros, reforça o core ou apenas o distrai.
+O texto não menciona banco de dados, filas nem frameworks. Ele é fixado na wiki, revisto a cada trimestre e usado em reuniões de planejamento para decidir se uma proposta, como um recurso de relatórios contábeis, reforça o core ou apenas o distrai.
 
 ## Padrões relacionados
 

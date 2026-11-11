@@ -55,7 +55,7 @@ Sem esse acordo, o downstream fica à mercê das prioridades do upstream.
 
 ```mermaid
 flowchart LR
-    U["Contexto de Pedidos (upstream, fornecedor)"] -->|"interface + testes de aceitação"| D["Contexto de Entregas (downstream, cliente)"]
+    U["Contexto de Pagamentos (upstream, fornecedor)"] -->|"interface + testes de aceitação"| D["Contexto de Conciliação (downstream, cliente)"]
     D -.->|"necessidades e prioridades"| U
 ```
 
@@ -63,7 +63,7 @@ A interface flui do fornecedor para o cliente, enquanto as necessidades do clien
 
 ## Exemplo
 
-O contexto de Entregas depende de Pedidos para saber peso, volume e janela de entrega. Entregas precisa que Pedidos exponha também a restrição de manuseio de itens frágeis. Os times combinam que essa necessidade entra no backlog de Pedidos na próxima iteração e escrevem juntos testes de aceitação automatizados sobre a nova API. O pipeline de Pedidos passa a rodar esses testes em toda mudança, garantindo que Entregas não seja quebrado.
+O contexto de Conciliação depende de Pagamentos para saber valor, conta e situação de cada Pix enviado. Para casar cada pagamento com o que o SPI efetivamente liquidou, Conciliação precisa que Pagamentos exponha também o `endToEndId` e a data de liquidação. Os times combinam que essa necessidade entra no backlog de Pagamentos na próxima iteração e escrevem juntos testes de aceitação automatizados sobre a nova API. O pipeline de Pagamentos passa a rodar esses testes em toda mudança, garantindo que Conciliação não seja quebrada.
 
 ## Padrões relacionados
 

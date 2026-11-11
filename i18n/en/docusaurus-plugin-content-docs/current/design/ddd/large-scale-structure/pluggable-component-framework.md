@@ -77,17 +77,20 @@ The `Framework` only knows the `Component` interface; each concrete component im
 
 ## Example
 
-An insurance broker has several products (auto, home, life), each developed by a different team. After three products are done, the organization extracts what they have in common and defines a `ProductModule` contract with operations such as quote, issue, and renew. The platform loads the modules and orchestrates them.
+A fintech has several financial products (personal loan, payroll loan, CDB), each developed by a different team. After three products are done, the organization extracts what they have in common and defines a `ProductModule` contract with operations such as simulate, contract, and settle. The product platform loads the modules and orchestrates them.
 
 ```python
 from abc import ABC, abstractmethod
 
 class ProductModule(ABC):
     @abstractmethod
-    def quote(self, request) -> "Quote": ...
+    def simulate(self, request) -> "Simulation": ...
 
     @abstractmethod
-    def issue(self, quote) -> "Policy": ...
+    def contract(self, simulation) -> "Contract": ...
+
+    @abstractmethod
+    def settle(self, contract) -> "Settlement": ...
 
 class Platform:
     def __init__(self):
@@ -96,11 +99,11 @@ class Platform:
     def register(self, product_code: str, module: ProductModule):
         self._modules[product_code] = module
 
-    def quote(self, product_code: str, request):
-        return self._modules[product_code].quote(request)
+    def simulate(self, product_code: str, request):
+        return self._modules[product_code].simulate(request)
 ```
 
-A new team can create the "travel" product by implementing `ProductModule` and registering it, without changing the platform or the other products.
+A new team can create the "LCI" product by implementing `ProductModule` and registering it, without changing the platform or the other products.
 
 ## Related patterns
 

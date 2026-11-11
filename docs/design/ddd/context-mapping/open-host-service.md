@@ -55,18 +55,18 @@ Em geral o protocolo é descrito em uma Published Language, que serve de formato
 
 ```mermaid
 flowchart LR
-    U["Contexto de Clientes (upstream)"] --> OHS["Open-host Service: API de Clientes"]
-    OHS --> C1["Marketing"]
-    OHS --> C2["Faturamento"]
-    OHS --> C3["Suporte"]
-    OHS --> C4["Parceiros externos"]
+    U["Contexto de Conta Digital (upstream)"] --> OHS["Open-host Service: API de Contas"]
+    OHS --> C1["App"]
+    OHS --> C2["Internet banking"]
+    OHS --> C3["Backoffice"]
+    OHS --> C4["Parceiros de BaaS"]
 ```
 
-O contexto de Clientes expõe um único protocolo aberto, consumido por vários contextos sem integrações sob medida.
+O contexto de Conta Digital expõe um único protocolo aberto, consumido por vários canais e parceiros sem integrações sob medida.
 
 ## Exemplo
 
-O contexto de Clientes de uma empresa tem quatro consumidores: Marketing, Faturamento, Suporte e parceiros externos. Em vez de criar uma exportação específica para cada um, o time publica uma API versionada, com recursos como `/customers/{id}` e eventos de mudança, descrita em uma Published Language. Quando Marketing pede um campo útil só para ele, o time de Marketing o calcula no próprio contexto a partir da API, sem alterar o protocolo.
+O contexto de Conta Digital da fintech tem quatro consumidores: o app, o internet banking, o backoffice e parceiros de Banking as a Service (BaaS). Em vez de criar uma integração específica para cada um, o time publica uma API versionada, com recursos como `/accounts/{id}/balance` e `/accounts/{id}/statement` e eventos de mudança, descrita em uma Published Language. Quando o backoffice pede um campo útil só para ele, como o saldo médio do mês, o time do backoffice o calcula no próprio contexto a partir da API, sem alterar o protocolo.
 
 ## Padrões relacionados
 

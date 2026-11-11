@@ -66,9 +66,9 @@ Um ciclo contínuo: sinais na linguagem e no código levam à conversa, ao novo 
 
 ## Exemplo
 
-Em um sistema de aluguel de equipamentos, a regra de multa por atraso estava espalhada em vários métodos, com flags como `isPremium` e `isWeekend`. Em uma conversa com a gerente de operações, o time ouviu o termo "política de tolerância", que não existia no código. Ao torná-lo explícito, criaram um conceito `GracePolicy` que encapsula quando e quanto cobrar.
+No sistema de faturas de cartão de uma fintech, a regra de encargos por atraso estava espalhada em vários métodos, com flags como `isPayroll` e `isRenegotiated`. Em uma conversa com a gerente de cobrança, o time ouviu o termo "política de atraso", que reunia multa, juros de mora e dias de tolerância e não existia no código. Ao torná-lo explícito, criaram um conceito `LateFeePolicy` que encapsula quando e quanto cobrar.
 
-As flags desapareceram, a regra ficou em um só lugar e novas políticas, como a de clientes corporativos, passaram a ser apenas novas variações. A mudança só foi segura porque os testes existentes foram mantidos e estendidos durante a refatoração.
+As flags desapareceram, a regra ficou em um só lugar e novas políticas, como a de contas de pessoa jurídica, passaram a ser apenas novas variações. A mudança só foi segura porque os testes existentes foram mantidos e estendidos durante a refatoração.
 
 ## Padrões relacionados
 

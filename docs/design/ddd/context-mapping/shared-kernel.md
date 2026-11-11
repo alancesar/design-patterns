@@ -54,13 +54,13 @@ Exige disciplina: o kernel não pode ser alterado unilateralmente, e sua existê
 
 ```mermaid
 flowchart LR
-    subgraph A["Contexto de Cobrança"]
-        MA["Modelo de Cobrança"]
+    subgraph A["Contexto de Conta Digital"]
+        MA["Modelo de Conta Digital"]
     end
-    subgraph B["Contexto de Assinaturas"]
-        MB["Modelo de Assinaturas"]
+    subgraph B["Contexto de Cartões"]
+        MB["Modelo de Cartões"]
     end
-    K(("Shared Kernel: Money, Plano, Período"))
+    K(("Shared Kernel: Money, Cpf, BusinessCalendar"))
     MA --- K
     MB --- K
 ```
@@ -69,7 +69,7 @@ Os dois contextos mantêm modelos próprios, mas compartilham um núcleo delimit
 
 ## Exemplo
 
-Os times de Cobrança e de Assinaturas de uma empresa de software como serviço precisam usar exatamente a mesma definição de Plano, Período e Money. Eles extraem esses conceitos para um módulo compartilhado, mantido em um repositório comum, com testes executados nos pipelines dos dois times. Qualquer alteração exige revisão de ambos. Todo o resto do modelo, como faturas e renovações, permanece em cada contexto.
+Os times de Conta Digital e de Cartões da fintech precisam usar exatamente a mesma definição de `Money`, de `Cpf` e do calendário de dias úteis, o `BusinessCalendar`: um arredondamento diferente ou um feriado que só um lado conhece basta para o débito automático da fatura não bater com o extrato. Eles extraem esses conceitos para um módulo compartilhado, mantido em um repositório comum, com testes executados nos pipelines dos dois times. Qualquer alteração exige revisão de ambos. Todo o resto do modelo, como extrato, fatura e autorização de compras, permanece em cada contexto.
 
 ## Padrões relacionados
 

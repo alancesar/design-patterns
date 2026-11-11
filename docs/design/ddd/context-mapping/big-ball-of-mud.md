@@ -54,16 +54,16 @@ Reconhecer um Big Ball of Mud não é aprová-lo, e sim nomear uma realidade par
 
 ```mermaid
 flowchart LR
-    BBM["Big Ball of Mud (legado)"] -->|"modelo confuso"| ACL["Anticorruption Layer"]
-    ACL -->|"modelo traduzido"| N1["Novo contexto de Pedidos"]
-    ACL -->|"modelo traduzido"| N2["Novo contexto de Clientes"]
+    BBM["Big Ball of Mud (core bancário legado)"] -->|"modelo confuso"| ACL["Anticorruption Layer"]
+    ACL -->|"modelo traduzido"| N1["Novo contexto de Conta Digital"]
+    ACL -->|"modelo traduzido"| N2["Novo contexto de Crédito"]
 ```
 
 O legado emaranhado é cercado por uma fronteira, e os contextos novos o acessam apenas por uma camada de tradução.
 
 ## Exemplo
 
-Uma seguradora tem um sistema de apólices com vinte anos de acréscimos, em que regras de cobrança, cadastro e sinistros estão misturadas no mesmo esquema. O time desenha o sistema como um único contexto, o "Legado de Apólices", no Context Map. Os novos contextos de Cotação e de Sinistros acessam o legado por uma Anticorruption Layer e, ao longo do tempo, assumem funcionalidades de forma incremental, até que o legado possa ser desligado.
+A fintech opera sobre um core bancário com vinte anos de acréscimos, em que regras de conta corrente, tarifas, empréstimos e cobrança estão misturadas no mesmo esquema. O time desenha o sistema como um único contexto, o "Core Legado", no Context Map. Os novos contextos de Conta Digital e de Crédito acessam o legado por uma Anticorruption Layer e, ao longo do tempo, assumem funcionalidades de forma incremental, até que o legado possa ser desligado.
 
 ## Padrões relacionados
 

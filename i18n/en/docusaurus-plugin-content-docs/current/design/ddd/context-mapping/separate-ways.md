@@ -53,7 +53,7 @@ As a strategic decision, it should appear in the Context Map so that nobody trie
 
 ```mermaid
 flowchart LR
-    A["Loyalty Context"] ~~~ B["Inventory Context"]
+    A["Cashback Context"] ~~~ B["Foreign Exchange Context"]
     A --- X["no integration"]
     B --- X
 ```
@@ -62,7 +62,7 @@ The two contexts coexist in the same ecosystem, but with no integration relation
 
 ## Example
 
-A retail chain considers integrating its Loyalty program with the Inventory Management module, so that inventory takes the volume of loyal customers into account. The team concludes that the gain is marginal and the cost of maintaining the integration would be high. The contexts go their separate ways: Loyalty keeps its own store registry, even though that duplicates some data, and the decision is recorded in the Context Map.
+The fintech considers integrating its Cashback program with the Foreign Exchange context, so that purchases abroad earn cashback based on the day's exchange rate and Foreign Exchange offers better fees to customers who accumulate more cashback. The team concludes that the gain is marginal and the cost of maintaining the integration would be high. The contexts go their separate ways: Cashback computes the benefit on the amount in reais already posted to the invoice, without querying Foreign Exchange, and Foreign Exchange keeps its own list of customers with a promotional fee, even though that duplicates some data. The decision is recorded in the Context Map.
 
 ## Related patterns
 

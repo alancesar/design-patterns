@@ -55,32 +55,32 @@ Costuma andar junto ao Open-host Service: o serviço define o protocolo, e a Pub
 
 ```mermaid
 flowchart LR
-    A["Contexto de Vendas"] -->|"traduz para"| PL(("Published Language: OrderPlaced v1"))
-    PL -->|"traduzido por"| B["Contexto de Faturamento"]
-    PL -->|"traduzido por"| C["Contexto de Logística"]
+    A["Contexto de Pagamentos"] -->|"traduz para"| PL(("Published Language: PaymentSettled v1"))
+    PL -->|"traduzido por"| B["Contexto de Conciliação"]
+    PL -->|"traduzido por"| C["Contexto de Notificações"]
 ```
 
 Cada contexto traduz entre seu modelo interno e a linguagem publicada, sem conhecer o modelo dos demais.
 
 ## Exemplo
 
-O contexto de Vendas publica o evento `OrderPlaced`, descrito em um JSON Schema versionado. Faturamento e Logística leem esse evento e o traduzem para o próprio modelo.
+O contexto de Pagamentos publica o evento `PaymentSettled`, descrito em um JSON Schema versionado. Conciliação e Notificações leem esse evento e o traduzem para o próprio modelo.
 
 ```json
 {
-  "type": "OrderPlaced",
+  "type": "PaymentSettled",
   "version": 1,
-  "orderId": "ord-1042",
-  "customerId": "cus-77",
+  "paymentId": "pay-1042",
+  "endToEndId": "E12345678202603101432abcde123456",
+  "accountId": "acc-77",
+  "method": "PIX",
   "currency": "BRL",
-  "items": [
-    { "sku": "SKU-9", "quantity": 2, "unitPrice": "49.90" }
-  ],
-  "placedAt": "2026-03-10T14:32:00Z"
+  "amountCents": 4990,
+  "settledAt": "2026-03-10T14:32:00Z"
 }
 ```
 
-Os campos são definidos em termos de negócio e não expõem tabelas ou classes internas de Vendas.
+Os campos são definidos em termos de negócio e não expõem tabelas ou classes internas de Pagamentos. O valor vai em centavos inteiros, para que nenhum consumidor dependa de ponto flutuante.
 
 ## Padrões relacionados
 

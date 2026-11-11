@@ -65,9 +65,9 @@ Mudanças de várias pessoas passam por integração frequente, validada por tes
 
 ## Exemplo
 
-Um time de cinco pessoas trabalha no contexto de Reservas de uma companhia aérea. Duas pessoas modelaram, em semanas diferentes, o conceito de "assento bloqueado": uma como uma reserva temporária, outra como uma restrição operacional. Como o time integra o código várias vezes ao dia e faz uma conversa curta sobre o modelo toda manhã, a divergência apareceu em dois dias, e não depois de um mês.
+Um time de cinco pessoas trabalha no contexto de Cartões de uma fintech. Duas pessoas modelaram, em semanas diferentes, o conceito de "bloqueio": uma como o bloqueio do cartão pedido pelo cliente no app, outra como a reserva de limite feita na autorização de uma compra em um hotel ou posto de combustível. Como o time integra o código várias vezes ao dia e faz uma conversa curta sobre o modelo toda manhã, a divergência apareceu em dois dias, e não depois de um mês.
 
-Eles escolheram um único termo, `SeatHold`, para a reserva temporária e `SeatRestriction` para o outro caso, atualizaram os testes e registraram a decisão no glossário. Sem a integração contínua do modelo, as duas versões teriam coexistido no código e causado bugs de regra.
+Eles escolheram `CardBlock` para o bloqueio do cartão e `AuthorizationHold` para a pré-autorização, atualizaram os testes e registraram a decisão no glossário. Sem a integração contínua do modelo, as duas versões teriam coexistido no código e causado bugs de regra, como um desbloqueio no app que liberasse o limite reservado por uma pré-autorização ainda em aberto.
 
 ## Padrões relacionados
 

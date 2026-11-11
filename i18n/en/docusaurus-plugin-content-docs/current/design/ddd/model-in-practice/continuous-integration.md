@@ -65,9 +65,9 @@ Changes from several people go through frequent integration, validated by automa
 
 ## Example
 
-A team of five works in the Reservations context of an airline. Two people modeled the concept of a "blocked seat" in different weeks: one as a temporary hold, the other as an operational restriction. Because the team integrates code several times a day and has a short conversation about the model every morning, the divergence surfaced within two days instead of after a month.
+A team of five works in the Cards context of a fintech. Two people modeled the concept of a "block" in different weeks: one as the card block the customer requests in the app, the other as the limit reserved when a purchase is authorized at a hotel or gas station. Because the team integrates code several times a day and has a short conversation about the model every morning, the divergence surfaced within two days instead of after a month.
 
-They chose a single term, `SeatHold`, for the temporary hold and `SeatRestriction` for the other case, updated the tests, and recorded the decision in the glossary. Without continuous integration of the model, both versions would have coexisted in the code and caused business-rule bugs.
+They chose `CardBlock` for the card block and `AuthorizationHold` for the pre-authorization, updated the tests, and recorded the decision in the glossary. Without continuous integration of the model, both versions would have coexisted in the code and caused business-rule bugs, such as an unblock in the app releasing the limit reserved by a pre-authorization that was still open.
 
 ## Related patterns
 

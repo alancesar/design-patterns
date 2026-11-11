@@ -53,49 +53,65 @@ Quando se consegue um Standalone Class, o ganho é grande: o conceito pode ser e
 
 ```mermaid
 classDiagram
-    class PigmentColor {
-        -double r
-        -double g
-        -double b
-        +mixedWith(PigmentColor other, int w1, int w2) PigmentColor
+    class Money {
+        -long cents
+        -Currency currency
+        +plus(Money other) Money
+        +minus(Money other) Money
     }
-    class Paint {
-        -int volume
-        +mixIn(Paint other)
+    class Account {
+        -Money balance
+        +credit(Money amount)
+        +debit(Money amount)
     }
-    class Inventory
-    class Supplier
-    Paint --> PigmentColor
-    Inventory --> Paint
-    Inventory --> Supplier
+    class Ledger
+    class LedgerEntry
+    Account --> Money
+    Ledger --> Account
+    Ledger --> LedgerEntry
+    LedgerEntry --> Money
 ```
 
-`PigmentColor` depende apenas de tipos primitivos e pode ser entendida sozinha, enquanto `Inventory` concentra as dependências do contexto.
+`Money` depende apenas de tipos primitivos e da moeda, e pode ser entendida sozinha, enquanto `Ledger` concentra as dependências do contexto. O livro ilustra o padrão com a mistura de tintas.
 
 ## Exemplo
 
-A classe `PigmentColor` conhece apenas números. Não referencia `Paint`, `Inventory` nem qualquer serviço, por isso é testada sem preparação alguma.
+A classe `Money` conhece apenas números e moeda. Não referencia `Account`, `Ledger` nem qualquer serviço, por isso é testada sem preparação alguma.
 
 ```java
-public final class PigmentColor {
-    private final double r, g, b;
+public final class Money {
+    private final long cents;
+    private final Currency currency;
 
-    public PigmentColor(double r, double g, double b) {
-        this.r = r; this.g = g; this.b = b;
+    private Money(long cents, Currency currency) {
+        this.cents = cents; this.currency = currency;
     }
 
-    public PigmentColor mixedWith(PigmentColor other, int w1, int w2) {
-        int t = w1 + w2;
-        return new PigmentColor(
-            (r * w1 + other.r * w2) / t,
-            (g * w1 + other.g * w2) / t,
-            (b * w1 + other.b * w2) / t);
+    public static Money brl(long cents) {
+        return new Money(cents, Currency.getInstance("BRL"));
     }
+
+    public Money plus(Money other) {
+        if (!currency.equals(other.currency)) {
+            throw new IllegalArgumentException("moedas diferentes não se somam");
+        }
+        return new Money(cents + other.cents, currency);
+    }
+
+    public Money minus(Money other) {
+        return plus(new Money(-other.cents, other.currency));
+    }
+
+    @Override public boolean equals(Object o) {
+        return o instanceof Money m && cents == m.cents && currency.equals(m.currency);
+    }
+
+    @Override public int hashCode() { return Objects.hash(cents, currency); }
 }
 
 // Teste isolado, sem outros objetos de domínio
-PigmentColor c = new PigmentColor(0, 0, 1)
-    .mixedWith(new PigmentColor(1, 1, 0), 1, 1);
+Money total = Money.brl(10_00).plus(Money.brl(5_50));
+assertEquals(Money.brl(15_50), total);
 ```
 
 ## Padrões relacionados

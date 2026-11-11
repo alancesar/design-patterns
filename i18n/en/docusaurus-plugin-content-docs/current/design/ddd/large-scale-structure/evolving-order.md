@@ -64,9 +64,9 @@ The system starts with no global structure, adopts a light version when it notic
 
 ## Example
 
-A logistics operator has four teams handling routing, warehousing, billing, and tracking. At first, each team organizes its modules however it likes. After a few months, the developers notice that almost every concept in the system sits at one of two levels: decision rules (routing policy, billing policy) and day-to-day operations (moving cargo, issuing invoices).
+A fintech has four teams handling Pix, Cards, Credit, and Reconciliation. At first, each team organizes its modules however it likes. After a few months, the developers notice that almost every concept in the system sits at one of two levels: policies (limits, fees, risk rules) and day-to-day operations (transferring, posting to the ledger, settling).
 
-The team then adopts a Responsibility Layers structure with just those two layers and a simple dependency rule. A year later, when outsourced partners are added, the two-layer split proves insufficient and is refined into three, without rewriting the system: only the modules that didn't fit were moved. The structure was never fully designed up front, only adjusted when the pain showed up.
+The teams then adopt a Responsibility Layers structure with just those two layers, Policy and Operations, and a simple dependency rule. A year later, when payroll loans are launched, the two-layer split proves insufficient: granted limits and contracted products are neither rules nor operations, but what each customer is able to use. The structure is refined into three layers, with Potential below Operations, without rewriting the system: only the modules that didn't fit were moved. The structure was never fully designed up front, only adjusted when the pain showed up.
 
 ## Related patterns
 

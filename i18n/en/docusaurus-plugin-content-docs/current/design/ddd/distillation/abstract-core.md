@@ -56,55 +56,62 @@ It's a stronger tool than the [Highlighted Core](/design/ddd/distillation/highli
 
 ```mermaid
 classDiagram
-    class Insurable {
+    class CreditProduct {
         <<interface>>
-        +riskScore() Score
+        +monthlyRate() Rate
     }
-    class Policy {
+    class Contract {
         <<abstract>>
-        +premium() Money
+        +installment() Money
     }
-    class AutoPolicy {
-        +premium() Money
+    class PersonalLoanContract {
+        +installment() Money
     }
-    class LifePolicy {
-        +premium() Money
+    class PayrollLoanContract {
+        +installment() Money
     }
-    class AutoVehicle {
-        +riskScore() Score
+    class PersonalLoan {
+        +monthlyRate() Rate
     }
-    class Person {
-        +riskScore() Score
+    class PayrollLoan {
+        +monthlyRate() Rate
     }
-    Policy --> Insurable
-    Policy <|-- AutoPolicy
-    Policy <|-- LifePolicy
-    Insurable <|.. AutoVehicle
-    Insurable <|.. Person
+    Contract --> CreditProduct
+    Contract <|-- PersonalLoanContract
+    Contract <|-- PayrollLoanContract
+    CreditProduct <|.. PersonalLoan
+    CreditProduct <|.. PayrollLoan
 ```
 
-`Policy` and `Insurable` form the abstract core; the auto and life insurance modules specialize it without knowing about each other.
+`Contract` and `CreditProduct` form the abstract core; the personal loan and payroll loan modules specialize it without knowing about each other.
 
 ## Example
 
-An insurer offers auto and life insurance, with modules that evolve at different paces. Both need to take part in campaigns, renewals, and exposure reports, which led to direct dependencies between the modules.
+A fintech offers personal loans and payroll-deducted loans, with modules that evolve at different paces. Both need to take part in offer campaigns, renegotiations, and portfolio exposure reports, which led to direct dependencies between the modules.
 
-The team creates the `insurance-core` module, containing only `Policy`, `Insurable`, and `Premium`, in abstract terms. The `auto` and `life` modules implement it, and renewals and reports now depend only on the abstractions.
+The team creates the `credit-core` module, containing only `CreditProduct`, `Contract`, and `Installment`, in abstract terms. The `personal-loan` and `payroll-loan` modules implement it, and renegotiations and reports now depend only on the abstractions.
 
 ```java
-// insurance-core module
-public interface Insurable { Score riskScore(); }
+// credit-core module
+public interface CreditProduct { Rate monthlyRate(); }
 
-public abstract class Policy {
-    protected final Insurable subject;
-    protected Policy(Insurable subject) { this.subject = subject; }
-    public abstract Money premium();
+public abstract class Contract {
+    protected final CreditProduct product;
+    protected final Money principal;
+    protected final int months;
+    protected Contract(CreditProduct product, Money principal, int months) {
+        this.product = product; this.principal = principal; this.months = months;
+    }
+    public abstract Money installment();
 }
 
-// auto module (depends on insurance-core)
-public class AutoPolicy extends Policy {
-    public AutoPolicy(AutoVehicle vehicle) { super(vehicle); }
-    public Money premium() { return Money.of(100).times(subject.riskScore()); }
+// payroll-loan module (depends on credit-core)
+public class PayrollLoanContract extends Contract {
+    public PayrollLoanContract(PayrollLoan product, Money principal, int months) {
+        super(product, principal, months);
+    }
+    // Fixed installment (Price), deducted from payroll.
+    public Money installment() { return PriceTable.installment(principal, product.monthlyRate(), months); }
 }
 ```
 

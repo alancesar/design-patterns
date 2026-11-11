@@ -53,46 +53,53 @@ References between aggregates should be made by identity rather than by direct o
 
 ```mermaid
 classDiagram
-    class Order {
+    class CardAccount {
         <<aggregate root>>
-        +OrderId id
-        +addItem(product, qty)
-        +total() Money
+        +String id
+        +authorize(merchant, amount) AuthorizationHold
+        +availableLimit() Money
     }
-    class OrderItem {
-        +ProductId productId
-        +int quantity
+    class AuthorizationHold {
+        +Money amount
+        +String merchant
     }
-    class ShippingAddress {
+    class Money {
         <<value object>>
     }
     class Customer {
         <<aggregate root>>
     }
-    Order "1" *-- "*" OrderItem
-    Order --> ShippingAddress
-    Order ..> Customer : customerId
+    CardAccount "1" *-- "*" AuthorizationHold
+    CardAccount --> Money : limit
+    CardAccount ..> Customer : customerId
 ```
 
-`Order` is the root and controls `OrderItem` and `ShippingAddress`. The reference to `Customer`, another aggregate, is made by identity only.
+`CardAccount` is the root and controls `AuthorizationHold` and the limit (`Money`). The reference to `Customer`, another aggregate, is made by identity only.
 
 ## Example
 
-The order protects the item-limit invariant; nobody changes `OrderItem` directly.
+The card account protects the limit invariant: the sum of the authorization holds never exceeds the available limit, and nobody changes `AuthorizationHold` directly.
 
 ```typescript
-class Order {
-  private items: OrderItem[] = [];
-  constructor(readonly id: string, readonly customerId: string) {}
+class CardAccount {
+  private holds: AuthorizationHold[] = [];
+  constructor(
+    readonly id: string,
+    readonly customerId: string,
+    private limit: Money,
+  ) {}
 
-  addItem(productId: string, qty: number, price: Money): void {
-    if (qty <= 0) throw new Error("Invalid quantity");
-    if (this.items.length >= 20) throw new Error("Item limit exceeded");
-    this.items.push(new OrderItem(productId, qty, price));
+  authorize(merchant: string, amount: Money): AuthorizationHold {
+    if (amount.isZeroOrNegative()) throw new Error("Invalid amount");
+    if (amount.greaterThan(this.availableLimit())) throw new Error("Insufficient limit");
+    const hold = new AuthorizationHold(merchant, amount);
+    this.holds.push(hold);
+    return hold;
   }
 
-  total(): Money {
-    return this.items.reduce((sum, i) => sum.add(i.subtotal()), Money.zero());
+  availableLimit(): Money {
+    const held = this.holds.reduce((sum, h) => sum.plus(h.amount), Money.zero());
+    return this.limit.minus(held);
   }
 }
 ```

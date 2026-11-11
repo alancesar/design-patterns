@@ -64,9 +64,9 @@ The model and the code influence each other, linked by the shared language; feed
 
 ## Example
 
-An insurance team modeled the concept of a "policy" with validity and coverage rules, but the implementation had only tables and services with scattered logic. By adopting Model-Driven Design, the team created `Policy`, `Coverage`, and `CoveragePeriod` in the code, with the validity rules inside those classes.
+A credit team modeled the concept of a "loan contract" with installment and grace period rules, but the implementation had only tables and services with scattered logic. By adopting Model-Driven Design, the team created `LoanContract`, `Installment`, and `GracePeriod` in the code, with the grace period rules inside those classes.
 
-When the experts changed the rule to allow retroactive coverage, the change was made in a single place in the code and discussed in the model itself. While trying to express the new rule, the developers noticed an ambiguity in the model and went back to the business for a conversation before implementing it.
+When the experts changed the rule to allow a grace period on renegotiated contracts as well, the change was made in a single place in the code and discussed in the model itself. While trying to express the new rule, the developers noticed an ambiguity in the model, whether the interest accrued during the grace period was charged in the first installment or added to the outstanding balance, and went back to the business for a conversation before implementing it.
 
 ## Related patterns
 

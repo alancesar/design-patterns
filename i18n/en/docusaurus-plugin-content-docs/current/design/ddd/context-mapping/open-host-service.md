@@ -55,18 +55,18 @@ The protocol is usually described in a Published Language, which serves as the c
 
 ```mermaid
 flowchart LR
-    U["Customers Context (upstream)"] --> OHS["Open-host Service: Customers API"]
-    OHS --> C1["Marketing"]
-    OHS --> C2["Billing"]
-    OHS --> C3["Support"]
-    OHS --> C4["External partners"]
+    U["Digital Account Context (upstream)"] --> OHS["Open-host Service: Accounts API"]
+    OHS --> C1["App"]
+    OHS --> C2["Internet banking"]
+    OHS --> C3["Back office"]
+    OHS --> C4["BaaS partners"]
 ```
 
-The Customers context exposes a single open protocol, consumed by several contexts without custom integrations.
+The Digital Account context exposes a single open protocol, consumed by several channels and partners without custom integrations.
 
 ## Example
 
-A company's Customers context has four consumers: Marketing, Billing, Support, and external partners. Instead of building a specific export for each one, the team publishes a versioned API, with resources such as `/customers/{id}` and change events, described in a Published Language. When Marketing asks for a field that's useful only to them, the Marketing team computes it in their own context from the API, without changing the protocol.
+The fintech's Digital Account context has four consumers: the app, internet banking, the back office, and Banking as a Service (BaaS) partners. Instead of building a specific integration for each one, the team publishes a versioned API, with resources such as `/accounts/{id}/balance` and `/accounts/{id}/statement` and change events, described in a Published Language. When the back office asks for a field that's useful only to it, such as the month's average balance, the back-office team computes it in its own context from the API, without changing the protocol.
 
 ## Related patterns
 

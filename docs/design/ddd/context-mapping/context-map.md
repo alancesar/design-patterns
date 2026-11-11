@@ -54,20 +54,22 @@ Para Evans, o Context Map é o artefato central da modelagem estratégica: ele e
 
 ```mermaid
 flowchart LR
-    V["Vendas"] -->|"Open-host Service + Published Language"| F["Faturamento"]
-    V -->|"Customer/Supplier"| E["Estoque"]
-    L["Sistema Legado"] -->|"Conformist"| E
-    F -->|"Anticorruption Layer"| L
-    P["Pagamentos (terceiro)"] -->|"Open-host Service"| F
+    CD["Conta Digital"] -->|"Open-host Service + Published Language"| CR["Crédito"]
+    CD -->|"Customer/Supplier"| CA["Cartões"]
+    CD ---|"Shared Kernel"| CA
+    RP["Rede do Pix (SPI e DICT)"] -->|"Conformist"| PX["Pix"]
+    L["Core bancário legado"] -->|"Anticorruption Layer"| CR
+    L -->|"Anticorruption Layer"| CD
+    BU["Bureau de crédito (terceiro)"] -->|"Open-host Service"| CR
 ```
 
 Cada aresta liga um contexto upstream ao seu downstream e é rotulada com o padrão de relacionamento que de fato vigora entre eles.
 
 ## Exemplo
 
-Uma varejista tem os contextos Vendas, Estoque, Faturamento, um ERP legado e um gateway de pagamento de terceiro. Ao desenhar o mapa, o time descobre que Estoque simplesmente adota o modelo do ERP (Conformist), que Faturamento precisa de uma camada de tradução para conversar com o ERP (Anticorruption Layer) e que Vendas expõe uma API estável para vários consumidores (Open-host Service).
+A fintech tem os contextos Conta Digital, Pix, Cartões e Crédito, um core bancário legado e um bureau de crédito de terceiro, além da ligação com a rede do Pix. Ao desenhar o mapa, o time descobre que o contexto de Pix simplesmente adota o modelo de mensagens da rede do Pix (Conformist), que Crédito e Conta Digital precisam de uma camada de tradução para ler os dados antigos do core legado (Anticorruption Layer), que Conta Digital e Cartões compartilham um pequeno núcleo de tipos (Shared Kernel) e que Conta Digital expõe uma API estável para vários consumidores (Open-host Service).
 
-Com isso, o time decide priorizar a reunião quinzenal entre Vendas e Estoque (Customer/Supplier) e planejar a retirada gradual do ERP, usando o mapa como referência de onde as traduções são necessárias.
+Com isso, o time decide priorizar a reunião quinzenal entre Conta Digital e Cartões (Customer/Supplier) e planejar a retirada gradual do core legado, usando o mapa como referência de onde as traduções são necessárias.
 
 ## Padrões relacionados
 
