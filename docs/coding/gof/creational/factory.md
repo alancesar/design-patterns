@@ -60,65 +60,70 @@ A lógica de decisão normalmente é um `switch`/`if` ou um mapa de registro (ti
 ```mermaid
 classDiagram
     class Client
-    class ShapeFactory {
-        +createShape(type) Shape
+    class PaymentMethodFactory {
+        +create(type) PaymentMethod
     }
-    class Shape {
+    class PaymentMethod {
         <<interface>>
-        +draw()
+        +charge(amountCents)
     }
-    class Circle {
-        +draw()
+    class PixPayment {
+        +charge(amountCents)
     }
-    class Square {
-        +draw()
+    class BoletoPayment {
+        +charge(amountCents)
     }
-    Client --> ShapeFactory : usa
-    Client --> Shape : usa
-    ShapeFactory ..> Shape : cria
-    ShapeFactory ..> Circle : instancia
-    ShapeFactory ..> Square : instancia
-    Shape <|.. Circle
-    Shape <|.. Square
+    class CardPayment {
+        +charge(amountCents)
+    }
+    Client --> PaymentMethodFactory : usa
+    Client --> PaymentMethod : usa
+    PaymentMethodFactory ..> PaymentMethod : cria
+    PaymentMethodFactory ..> PixPayment : instancia
+    PaymentMethodFactory ..> BoletoPayment : instancia
+    PaymentMethodFactory ..> CardPayment : instancia
+    PaymentMethod <|.. PixPayment
+    PaymentMethod <|.. BoletoPayment
+    PaymentMethod <|.. CardPayment
 ```
 
-O `Client` solicita um objeto à `ShapeFactory` informando o tipo desejado; a fábrica decide qual classe concreta (`Circle` ou `Square`) instanciar e a devolve como `Shape`. O cliente trabalha apenas com a interface.
+O `Client` solicita um objeto à `PaymentMethodFactory` informando o tipo desejado; a fábrica decide qual classe concreta (`PixPayment`, `BoletoPayment` ou `CardPayment`) instanciar e a devolve como `PaymentMethod`. O cliente trabalha apenas com a interface.
 
 ## Exemplo
 
-Um serviço de notificações precisa enviar mensagens por e-mail, SMS ou push, conforme a preferência salva de cada usuário. A fábrica traduz essa preferência na implementação correta.
+No checkout, o comprador escolhe pagar com Pix, boleto ou cartão. A fábrica traduz essa escolha no `PaymentMethod` correto, e o restante do código só chama `charge()`.
 
 ```typescript
-interface Notifier {
-  send(to: string, message: string): void;
+interface PaymentMethod {
+  charge(amountCents: number): void;
 }
 
-class EmailNotifier implements Notifier {
-  send(to: string, message: string) { /* envia e-mail */ }
+class PixPayment implements PaymentMethod {
+  charge(amountCents: number) { /* gera o QR Code do Pix */ }
 }
 
-class SmsNotifier implements Notifier {
-  send(to: string, message: string) { /* envia SMS */ }
+class BoletoPayment implements PaymentMethod {
+  charge(amountCents: number) { /* emite o boleto */ }
 }
 
-class PushNotifier implements Notifier {
-  send(to: string, message: string) { /* envia push */ }
+class CardPayment implements PaymentMethod {
+  charge(amountCents: number) { /* autoriza a compra no cartão */ }
 }
 
-class NotifierFactory {
-  static create(channel: "email" | "sms" | "push"): Notifier {
-    switch (channel) {
-      case "email": return new EmailNotifier();
-      case "sms":   return new SmsNotifier();
-      case "push":  return new PushNotifier();
-      default: throw new Error(`Canal desconhecido: ${channel}`);
+class PaymentMethodFactory {
+  static create(type: "pix" | "boleto" | "card"): PaymentMethod {
+    switch (type) {
+      case "pix":    return new PixPayment();
+      case "boleto": return new BoletoPayment();
+      case "card":   return new CardPayment();
+      default: throw new Error(`Meio de pagamento desconhecido: ${type}`);
     }
   }
 }
 
 // Cliente
-const notifier = NotifierFactory.create(user.preferredChannel);
-notifier.send(user.contact, "Seu pedido foi enviado!");
+const method = PaymentMethodFactory.create(checkout.selectedMethod);
+method.charge(checkout.totalCents);
 ```
 
 ## Padrões relacionados

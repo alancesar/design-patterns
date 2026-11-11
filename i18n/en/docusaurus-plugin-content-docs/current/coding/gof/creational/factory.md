@@ -60,65 +60,70 @@ The decision logic is usually a `switch`/`if` or a registry map (type → constr
 ```mermaid
 classDiagram
     class Client
-    class ShapeFactory {
-        +createShape(type) Shape
+    class PaymentMethodFactory {
+        +create(type) PaymentMethod
     }
-    class Shape {
+    class PaymentMethod {
         <<interface>>
-        +draw()
+        +charge(amountCents)
     }
-    class Circle {
-        +draw()
+    class PixPayment {
+        +charge(amountCents)
     }
-    class Square {
-        +draw()
+    class BoletoPayment {
+        +charge(amountCents)
     }
-    Client --> ShapeFactory : uses
-    Client --> Shape : uses
-    ShapeFactory ..> Shape : creates
-    ShapeFactory ..> Circle : instantiates
-    ShapeFactory ..> Square : instantiates
-    Shape <|.. Circle
-    Shape <|.. Square
+    class CardPayment {
+        +charge(amountCents)
+    }
+    Client --> PaymentMethodFactory : uses
+    Client --> PaymentMethod : uses
+    PaymentMethodFactory ..> PaymentMethod : creates
+    PaymentMethodFactory ..> PixPayment : instantiates
+    PaymentMethodFactory ..> BoletoPayment : instantiates
+    PaymentMethodFactory ..> CardPayment : instantiates
+    PaymentMethod <|.. PixPayment
+    PaymentMethod <|.. BoletoPayment
+    PaymentMethod <|.. CardPayment
 ```
 
-The `Client` requests an object from the `ShapeFactory`, specifying the desired type; the factory decides which concrete class (`Circle` or `Square`) to instantiate and returns it as a `Shape`. The client works only with the interface.
+The `Client` requests an object from the `PaymentMethodFactory`, specifying the desired type; the factory decides which concrete class (`PixPayment`, `BoletoPayment` or `CardPayment`) to instantiate and returns it as a `PaymentMethod`. The client works only with the interface.
 
 ## Example
 
-A notification service needs to send messages by email, SMS, or push, depending on each user's saved preference. The factory translates that preference into the right implementation.
+At checkout, the buyer chooses to pay with Pix, boleto or card. The factory translates that choice into the right `PaymentMethod`, and the rest of the code only calls `charge()`.
 
 ```typescript
-interface Notifier {
-  send(to: string, message: string): void;
+interface PaymentMethod {
+  charge(amountCents: number): void;
 }
 
-class EmailNotifier implements Notifier {
-  send(to: string, message: string) { /* sends email */ }
+class PixPayment implements PaymentMethod {
+  charge(amountCents: number) { /* generates the Pix QR code */ }
 }
 
-class SmsNotifier implements Notifier {
-  send(to: string, message: string) { /* sends SMS */ }
+class BoletoPayment implements PaymentMethod {
+  charge(amountCents: number) { /* issues the boleto */ }
 }
 
-class PushNotifier implements Notifier {
-  send(to: string, message: string) { /* sends push */ }
+class CardPayment implements PaymentMethod {
+  charge(amountCents: number) { /* authorizes the card purchase */ }
 }
 
-class NotifierFactory {
-  static create(channel: "email" | "sms" | "push"): Notifier {
-    switch (channel) {
-      case "email": return new EmailNotifier();
-      case "sms":   return new SmsNotifier();
-      case "push":  return new PushNotifier();
-      default: throw new Error(`Unknown channel: ${channel}`);
+class PaymentMethodFactory {
+  static create(type: "pix" | "boleto" | "card"): PaymentMethod {
+    switch (type) {
+      case "pix":    return new PixPayment();
+      case "boleto": return new BoletoPayment();
+      case "card":   return new CardPayment();
+      default: throw new Error(`Unknown payment method: ${type}`);
     }
   }
 }
 
 // Client
-const notifier = NotifierFactory.create(user.preferredChannel);
-notifier.send(user.contact, "Your order has been shipped!");
+const method = PaymentMethodFactory.create(checkout.selectedMethod);
+method.charge(checkout.totalCents);
 ```
 
 ## Related patterns

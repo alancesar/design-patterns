@@ -84,36 +84,38 @@ O `Client` trabalha apenas com a interface `Subject`. Tanto `RealSubject` quanto
 
 ## Exemplo
 
-Um visualizador de documentos exibe miniaturas de várias imagens em alta resolução. Carregar todas do disco na abertura seria lento, então cada imagem é representada por um proxy que só carrega o arquivo quando ela precisa ser exibida.
+A consulta ao bureau de crédito é lenta e cobrada por chamada. O `CachingCreditBureauProxy` só consulta o bureau quando a análise realmente pede o score e guarda o resultado para as chamadas seguintes.
 
 ```typescript
-interface Image {
-  display(): void;
+type Cpf = string;
+
+interface CreditBureau {
+  score(cpf: Cpf): number;
 }
 
-class HighResImage implements Image {
-  constructor(private path: string) {
-    console.log(`Carregando ${path} do disco...`); // operação cara
-  }
-  display(): void {
-    console.log(`Exibindo ${this.path}`);
+class RemoteCreditBureau implements CreditBureau {
+  score(cpf: Cpf): number {
+    console.log(`Consultando o bureau para ${cpf}...`); // operação lenta e cobrada por chamada
+    return 720;
   }
 }
 
-class ImageProxy implements Image {
-  private real?: HighResImage;
-  constructor(private path: string) {}
+class CachingCreditBureauProxy implements CreditBureau {
+  private real?: CreditBureau;
+  private cache = new Map<Cpf, number>();
 
-  display(): void {
-    if (!this.real) {
-      this.real = new HighResImage(this.path); // lazy loading
+  score(cpf: Cpf): number {
+    if (!this.cache.has(cpf)) {
+      this.real ??= new RemoteCreditBureau(); // criado só na primeira consulta
+      this.cache.set(cpf, this.real.score(cpf)); // consulta sob demanda
     }
-    this.real.display();
+    return this.cache.get(cpf)!;
   }
 }
 
-const gallery: Image[] = [new ImageProxy("a.png"), new ImageProxy("b.png")];
-gallery[0].display(); // carrega e exibe apenas a.png
+const bureau: CreditBureau = new CachingCreditBureauProxy();
+bureau.score("123.456.789-09"); // consulta o bureau
+bureau.score("123.456.789-09"); // responde do cache, sem nova cobrança
 ```
 
 ## Padrões relacionados

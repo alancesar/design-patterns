@@ -92,41 +92,50 @@ The `Creator` declares the abstract method `createProduct()` and uses the `Produ
 
 ## Example
 
-A notification service has a common flow (build the message, send it, log it), but the channel varies: email or SMS. Each subclass decides which `Notifier` to create.
+Every transfer follows the same flow (check the balance, create the instruction, record it in the ledger), but the instruction varies by rail: Pix or TED. Each subclass decides which `PaymentInstruction` to create.
 
 ```typescript
-interface Notifier {
-  send(to: string, message: string): void;
+interface TransferRequest {
+  fromAccountId: string;
+  destination: string;
+  amountCents: number;
 }
 
-class EmailNotifier implements Notifier {
-  send(to: string, message: string) { console.log(`Email to ${to}: ${message}`); }
+interface PaymentInstruction {
+  send(): string;
 }
 
-class SmsNotifier implements Notifier {
-  send(to: string, message: string) { console.log(`SMS to ${to}: ${message}`); }
+class PixInstruction implements PaymentInstruction {
+  constructor(private request: TransferRequest) {}
+  send() { return `Pix transfer of ${this.request.amountCents} cents to key ${this.request.destination} (SPI)`; }
 }
 
-abstract class NotificationService {
-  protected abstract createNotifier(): Notifier; // Factory Method
+class TedInstruction implements PaymentInstruction {
+  constructor(private request: TransferRequest) {}
+  send() { return `TED of ${this.request.amountCents} cents to ${this.request.destination} (next window)`; }
+}
 
-  notify(to: string, message: string): void {
-    const notifier = this.createNotifier();
-    notifier.send(to, message);
-    console.log(`log: notification sent to ${to}`);
+abstract class TransferProcessor {
+  protected abstract createInstruction(request: TransferRequest): PaymentInstruction; // Factory Method
+
+  process(request: TransferRequest, balanceCents: number): void {
+    if (balanceCents < request.amountCents) throw new Error("insufficient balance");
+    const instruction = this.createInstruction(request);
+    console.log(instruction.send());
+    console.log(`ledger: debit of ${request.amountCents} cents on ${request.fromAccountId}`);
   }
 }
 
-class EmailNotificationService extends NotificationService {
-  protected createNotifier(): Notifier { return new EmailNotifier(); }
+class PixTransferProcessor extends TransferProcessor {
+  protected createInstruction(request: TransferRequest): PaymentInstruction { return new PixInstruction(request); }
 }
 
-class SmsNotificationService extends NotificationService {
-  protected createNotifier(): Notifier { return new SmsNotifier(); }
+class TedTransferProcessor extends TransferProcessor {
+  protected createInstruction(request: TransferRequest): PaymentInstruction { return new TedInstruction(request); }
 }
 
-const service: NotificationService = new SmsNotificationService();
-service.notify("+5511999999999", "Your order has been shipped");
+const processor: TransferProcessor = new PixTransferProcessor();
+processor.process({ fromAccountId: "0001-1", destination: "maria@example.com", amountCents: 12_500 }, 50_000);
 ```
 
 ## Related patterns

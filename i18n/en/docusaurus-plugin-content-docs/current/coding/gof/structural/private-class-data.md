@@ -77,35 +77,39 @@ The `Client` uses the `MainClass`, which internally composes a `DataClass`. The 
 
 ## Example
 
-A `Circle` class receives its radius, color, and origin at creation, and those values can't change afterward. The data lives in `CircleData`, which allows read access only.
+A `Card` receives the number token, the expiry date and the cardholder name at issuance, and these values cannot change afterwards. The data lives in `CardData`, which is read-only, and methods such as `isExpired()` only read it.
 
 ```java
-public final class CircleData {
-    private final double radius;
-    private final String color;
-    private final Point origin;
+public final class CardData {
+    private final String numberToken;
+    private final YearMonth expiry;
+    private final String holderName;
 
-    public CircleData(double radius, String color, Point origin) {
-        this.radius = radius;
-        this.color = color;
-        this.origin = origin;
+    public CardData(String numberToken, YearMonth expiry, String holderName) {
+        this.numberToken = numberToken;
+        this.expiry = expiry;
+        this.holderName = holderName;
     }
 
-    public double getRadius() { return radius; }
-    public String getColor() { return color; }
-    public Point getOrigin() { return origin; }
+    public String getNumberToken() { return numberToken; }
+    public YearMonth getExpiry() { return expiry; }
+    public String getHolderName() { return holderName; }
 }
 
-public class Circle {
-    private final CircleData data;
+public class Card {
+    private final CardData data;
 
-    public Circle(double radius, String color, Point origin) {
-        this.data = new CircleData(radius, color, origin);
+    public Card(String numberToken, YearMonth expiry, String holderName) {
+        this.data = new CardData(numberToken, expiry, holderName);
     }
 
-    public double circumference() { return 2 * Math.PI * data.getRadius(); }
-    public double area() { return Math.PI * data.getRadius() * data.getRadius(); }
-    public void draw() { System.out.println("Drawing " + data.getColor() + " circle"); }
+    public boolean isExpired(LocalDate today) {
+        return YearMonth.from(today).isAfter(data.getExpiry());
+    }
+
+    public String describe() {
+        return data.getHolderName() + " (" + data.getNumberToken() + ")";
+    }
 }
 ```
 

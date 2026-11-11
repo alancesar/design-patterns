@@ -16,14 +16,14 @@ sidebar_label: "Abstract Factory"
 
 O Abstract Factory fornece uma interface para criar famílias de objetos relacionados ou dependentes sem especificar suas classes concretas. O cliente conversa apenas com a fábrica abstrata e com as interfaces abstratas dos produtos, sem saber qual implementação está por trás.
 
-Cada fábrica concreta implementa a interface da fábrica abstrata e produz uma variante coerente de todos os produtos da família (por exemplo, todos os componentes de UI no estilo "Windows" ou todos no estilo "Mac"). Trocar a fábrica concreta, normalmente em um único ponto de configuração, troca a família inteira de uma vez.
+Cada fábrica concreta implementa a interface da fábrica abstrata e produz uma variante coerente de todos os produtos da família (por exemplo, o gerador de remessa e o leitor de retorno no layout CNAB de um mesmo banco parceiro). Trocar a fábrica concreta, normalmente em um único ponto de configuração, troca a família inteira de uma vez.
 
 Na prática, o padrão funciona como uma "fábrica de fábricas": agrupa vários Factory Methods relacionados em um único objeto e garante a consistência entre os produtos criados.
 
 ## Problemas que resolve
 
 - O código cliente fica acoplado a classes concretas ao instanciar objetos com `new`, dificultando a troca de implementações.
-- Produtos de famílias diferentes acabam sendo misturados por engano (por exemplo, um botão de um tema com uma caixa de diálogo de outro).
+- Produtos de famílias diferentes acabam sendo misturados por engano (por exemplo, gerar a remessa no layout de um banco e ler o retorno no layout de outro).
 - Suportar uma nova plataforma, tema ou fornecedor exige alterar vários pontos espalhados pelo código.
 
 ## Quando usar
@@ -101,40 +101,80 @@ O `Client` usa apenas `AbstractFactory` e as interfaces de produto. Cada fábric
 
 ## Exemplo
 
-Uma aplicação desktop precisa renderizar botões e checkboxes com a aparência nativa do sistema operacional. A fábrica é escolhida uma vez na inicialização e o restante do código não conhece as classes concretas.
+A fintech troca arquivos de cobrança com vários bancos parceiros, e cada banco tem seu próprio layout CNAB. A fábrica do banco é escolhida uma vez e entrega um gerador de remessa e um leitor de retorno que combinam entre si; o restante do código não conhece as classes concretas.
 
 ```typescript
-interface Button { render(): string; }
-interface Checkbox { render(): string; }
+interface Boleto { ourNumber: string; amountCents: number; }
+interface Settlement { ourNumber: string; paidCents: number; }
 
-interface GUIFactory {
-  createButton(): Button;
-  createCheckbox(): Checkbox;
+interface RemessaWriter { write(boletos: Boleto[]): string; }
+interface RetornoParser { parse(file: string): Settlement[]; }
+
+interface CnabFactory {
+  createWriter(): RemessaWriter;
+  createParser(): RetornoParser;
 }
 
-class WinButton implements Button { render() { return "[Win Button]"; } }
-class WinCheckbox implements Checkbox { render() { return "[Win Checkbox]"; } }
-class MacButton implements Button { render() { return "(Mac Button)"; } }
-class MacCheckbox implements Checkbox { render() { return "(Mac Checkbox)"; } }
-
-class WinFactory implements GUIFactory {
-  createButton() { return new WinButton(); }
-  createCheckbox() { return new WinCheckbox(); }
+// Banco A: campos separados por ";" (layout simplificado)
+class BankARemessaWriter implements RemessaWriter {
+  write(boletos: Boleto[]) {
+    return boletos.map((b) => `A;${b.ourNumber};${b.amountCents}`).join("\n");
+  }
+}
+class BankARetornoParser implements RetornoParser {
+  parse(file: string) {
+    return file.split("\n").map((line) => {
+      const [, ourNumber, paid] = line.split(";");
+      return { ourNumber, paidCents: Number(paid) };
+    });
+  }
 }
 
-class MacFactory implements GUIFactory {
-  createButton() { return new MacButton(); }
-  createCheckbox() { return new MacCheckbox(); }
+// Banco B: colunas de largura fixa (layout simplificado)
+class BankBRemessaWriter implements RemessaWriter {
+  write(boletos: Boleto[]) {
+    return boletos
+      .map((b) => `B${b.ourNumber.padStart(10, "0")}${String(b.amountCents).padStart(13, "0")}`)
+      .join("\n");
+  }
+}
+class BankBRetornoParser implements RetornoParser {
+  parse(file: string) {
+    return file.split("\n").map((line) => ({
+      ourNumber: line.slice(1, 11),
+      paidCents: Number(line.slice(11, 24)),
+    }));
+  }
 }
 
-function renderForm(factory: GUIFactory): string {
-  return [factory.createButton(), factory.createCheckbox()]
-    .map((w) => w.render())
-    .join(" ");
+class BankACnabFactory implements CnabFactory {
+  createWriter() { return new BankARemessaWriter(); }
+  createParser() { return new BankARetornoParser(); }
 }
 
-const factory: GUIFactory = process.platform === "darwin" ? new MacFactory() : new WinFactory();
-console.log(renderForm(factory));
+class BankBCnabFactory implements CnabFactory {
+  createWriter() { return new BankBRemessaWriter(); }
+  createParser() { return new BankBRetornoParser(); }
+}
+
+class BillingBatchService {
+  private writer: RemessaWriter;
+  private parser: RetornoParser;
+
+  constructor(factory: CnabFactory) {
+    this.writer = factory.createWriter();
+    this.parser = factory.createParser();
+  }
+
+  generateRemessa(boletos: Boleto[]): string { return this.writer.write(boletos); }
+  readRetorno(file: string): Settlement[] { return this.parser.parse(file); }
+}
+
+// O banco parceiro é escolhido uma vez; remessa e retorno sempre usam o mesmo layout
+const service = new BillingBatchService(new BankBCnabFactory());
+const remessa = service.generateRemessa([{ ourNumber: "42", amountCents: 15000 }]);
+console.log(remessa); // B00000000420000000015000
+console.log(service.readRetorno(remessa)); // [ { ourNumber: '0000000042', paidCents: 15000 } ]
 ```
 
 ## Padrões relacionados

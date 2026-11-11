@@ -91,35 +91,61 @@ The `Client` creates the `ConcreteCommand` and associates it with a `Receiver`; 
 
 ## Example
 
-A text editor where actions such as "insert text" can be undone with Ctrl+Z. Each action becomes a command pushed onto a history.
+Each movement in an account's ledger is a command with `execute()` and `undo()`, and the history lets you reverse the last operation. In accounting a reversal is a new entry: `undo()` posts the inverse entry and the original stays in the ledger.
 
 ```typescript
-interface Command { execute(): void; undo(): void; }
+type EntryType = "DEBIT" | "CREDIT";
 
-class TextEditor {                       // Receiver
-  content = "";
-  insert(text: string) { this.content += text; }
-  remove(length: number) { this.content = this.content.slice(0, -length); }
+interface LedgerEntry {
+  type: EntryType;
+  amountCents: number;
+  reversalOf?: number; // reverses the entry at the given index
 }
 
-class InsertTextCommand implements Command {
-  constructor(private editor: TextEditor, private text: string) {}
-  execute() { this.editor.insert(this.text); }
-  undo() { this.editor.remove(this.text.length); }
+class Account {                          // Receiver
+  readonly entries: LedgerEntry[] = [];
+
+  post(type: EntryType, amountCents: number, reversalOf?: number): number {
+    this.entries.push({ type, amountCents, reversalOf });
+    return this.entries.length - 1;      // the entry index serves as its identifier
+  }
+
+  get balanceCents(): number {
+    return this.entries.reduce(
+      (sum, e) => sum + (e.type === "CREDIT" ? e.amountCents : -e.amountCents), 0);
+  }
 }
 
-class CommandManager {                   // Invoker
-  private history: Command[] = [];
-  run(cmd: Command) { cmd.execute(); this.history.push(cmd); }
+interface LedgerCommand { execute(): void; undo(): void; }
+
+class CreditCommand implements LedgerCommand {
+  private entryId?: number;
+  constructor(private account: Account, private amountCents: number) {}
+  execute() { this.entryId = this.account.post("CREDIT", this.amountCents); }
+  undo() { this.account.post("DEBIT", this.amountCents, this.entryId); }
+}
+
+class DebitCommand implements LedgerCommand {
+  private entryId?: number;
+  constructor(private account: Account, private amountCents: number) {}
+  execute() { this.entryId = this.account.post("DEBIT", this.amountCents); }
+  undo() { this.account.post("CREDIT", this.amountCents, this.entryId); }
+}
+
+class LedgerHistory {                    // Invoker
+  private history: LedgerCommand[] = [];
+  run(cmd: LedgerCommand) { cmd.execute(); this.history.push(cmd); }
   undo() { this.history.pop()?.undo(); }
 }
 
-const editor = new TextEditor();
-const manager = new CommandManager();
-manager.run(new InsertTextCommand(editor, "Hello"));
-manager.run(new InsertTextCommand(editor, ", world"));
-manager.undo();
-console.log(editor.content);             // "Hello"
+const account = new Account();
+const history = new LedgerHistory();
+history.run(new CreditCommand(account, 100_000));
+history.run(new DebitCommand(account, 30_000));
+console.log(account.balanceCents);       // 70000
+history.undo();                          // posts a reversal credit; the original debit stays in the ledger
+console.log(account.balanceCents);       // 100000
+console.log(account.entries.length);     // 3
 ```
 
 ## Related patterns

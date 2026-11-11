@@ -85,7 +85,7 @@ The `Client` builds (or receives) the tree of `AbstractExpression` and calls `in
 
 ## Example
 
-A promotions system evaluates boolean rules such as `vip_customer AND (high_value OR first_purchase)` against the data of each order.
+The fraud service evaluates boolean rules such as `high_amount AND (new_device OR night_time)` against the signals of each transaction. The context is a map of signals, and each rule is an expression tree.
 
 ```typescript
 interface Expression {
@@ -114,11 +114,14 @@ class Or implements Expression {
 }
 
 const rule = new And(
-  new Variable("vip_customer"),
-  new Or(new Variable("high_value"), new Variable("first_purchase")),
+  new Variable("high_amount"),
+  new Or(new Variable("new_device"), new Variable("night_time")),
 );
-const ctx = new Map([["vip_customer", true], ["first_purchase", true]]);
+const ctx = new Map([["high_amount", true], ["night_time", true]]);
 console.log(rule.interpret(ctx)); // true
+
+const calm = new Map([["high_amount", true]]);
+console.log(rule.interpret(calm)); // false
 ```
 
 ## Related patterns

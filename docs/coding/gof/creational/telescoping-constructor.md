@@ -58,60 +58,61 @@ Ainda assim, a técnica tem méritos reais: produz objetos imutáveis e completa
 ```mermaid
 classDiagram
     class Client
-    class NutritionFacts {
-        -int servingSize
-        -int servings
-        -int calories
-        -int fat
-        -int sodium
-        +NutritionFacts(servingSize, servings)
-        +NutritionFacts(servingSize, servings, calories)
-        +NutritionFacts(servingSize, servings, calories, fat)
-        +NutritionFacts(servingSize, servings, calories, fat, sodium)
+    class Boleto {
+        -long amountCents
+        -LocalDate dueDate
+        -double fine
+        -double dailyInterest
+        -double discount
+        +Boleto(amountCents, dueDate)
+        +Boleto(amountCents, dueDate, fine)
+        +Boleto(amountCents, dueDate, fine, dailyInterest)
+        +Boleto(amountCents, dueDate, fine, dailyInterest, discount)
     }
-    Client ..> NutritionFacts : new
+    Client ..> Boleto : new
 ```
 
-O `Client` instancia `NutritionFacts` escolhendo o construtor com a quantidade de argumentos de que precisa. Cada construtor menor delega (via `this(...)`) para o próximo, passando um valor padrão, até chegar ao construtor completo, que atribui todos os campos.
+O `Client` instancia `Boleto` escolhendo o construtor com a quantidade de argumentos de que precisa. Cada construtor menor delega (via `this(...)`) para o próximo, passando um valor padrão, até chegar ao construtor completo, que atribui todos os campos.
 
 ## Exemplo
 
-Uma classe de informações nutricionais exige porção e número de porções, enquanto calorias, gordura e sódio são opcionais com padrão zero.
+Um `Boleto` exige valor e vencimento, enquanto multa, juros ao dia e desconto por antecipação são opcionais, com padrão zero.
 
 ```java
-public final class NutritionFacts {
-    private final int servingSize; // obrigatório
-    private final int servings;    // obrigatório
-    private final int calories;    // opcional
-    private final int fat;         // opcional
-    private final int sodium;      // opcional
+public final class Boleto {
+    private final long amountCents;   // obrigatório
+    private final LocalDate dueDate;  // obrigatório
+    private final double fine;        // opcional (taxa)
+    private final double dailyInterest; // opcional (taxa ao dia)
+    private final double discount;    // opcional (taxa)
 
-    public NutritionFacts(int servingSize, int servings) {
-        this(servingSize, servings, 0);
+    public Boleto(long amountCents, LocalDate dueDate) {
+        this(amountCents, dueDate, 0);
     }
-    public NutritionFacts(int servingSize, int servings, int calories) {
-        this(servingSize, servings, calories, 0);
+    public Boleto(long amountCents, LocalDate dueDate, double fine) {
+        this(amountCents, dueDate, fine, 0);
     }
-    public NutritionFacts(int servingSize, int servings, int calories, int fat) {
-        this(servingSize, servings, calories, fat, 0);
+    public Boleto(long amountCents, LocalDate dueDate, double fine, double dailyInterest) {
+        this(amountCents, dueDate, fine, dailyInterest, 0);
     }
-    public NutritionFacts(int servingSize, int servings, int calories, int fat, int sodium) {
-        if (servingSize <= 0 || servings <= 0) throw new IllegalArgumentException();
-        this.servingSize = servingSize;
-        this.servings = servings;
-        this.calories = calories;
-        this.fat = fat;
-        this.sodium = sodium;
+    public Boleto(long amountCents, LocalDate dueDate, double fine,
+                  double dailyInterest, double discount) {
+        if (amountCents <= 0 || dueDate == null) throw new IllegalArgumentException();
+        this.amountCents = amountCents;
+        this.dueDate = dueDate;
+        this.fine = fine;
+        this.dailyInterest = dailyInterest;
+        this.discount = discount;
     }
 }
 
-// Uso: o que significa cada número? Trocar fat e sodium compila sem erro.
-NutritionFacts cola = new NutritionFacts(240, 8, 100, 0, 35);
+// Uso: o que significa cada número? Trocar fine e discount compila sem erro.
+Boleto boleto = new Boleto(150_000, LocalDate.of(2026, 12, 10), 0.02, 0.00033, 0.05);
 ```
 
 ## Padrões relacionados
 
-- [Builder](/coding/gof/creational/builder) — alternativa recomendada quando há muitos parâmetros opcionais; oferece chamadas legíveis e combinações arbitrárias mantendo a imutabilidade
+- [Builder](/coding/gof/creational/builder) — alternativa recomendada quando há muitos parâmetros opcionais; o `PixCharge` do exemplo do Builder resolve o mesmo problema com chamadas legíveis e combinações arbitrárias, mantendo a imutabilidade
 - [Factory Method](/coding/gof/creational/factory-method) — métodos de criação com nomes descritivos podem substituir sobrecargas ambíguas de construtores
 - [Factory](/coding/gof/creational/factory) — encapsula a escolha de valores padrão e a criação, escondendo a cadeia de construtores do cliente
 - [Prototype](/coding/gof/creational/prototype) — outra forma de evitar longas listas de parâmetros: clonar um objeto pré-configurado e ajustar apenas o necessário

@@ -85,7 +85,7 @@ O `Client` monta (ou recebe) a árvore de `AbstractExpression` e chama `interpre
 
 ## Exemplo
 
-Um sistema de promoções avalia regras booleanas como `cliente_vip AND (valor_alto OR primeira_compra)` contra os dados de cada pedido.
+O antifraude avalia regras booleanas como `high_amount AND (new_device OR night_time)` contra os sinais de cada transação. O contexto é um mapa com os sinais, e cada regra é uma árvore de expressões.
 
 ```typescript
 interface Expression {
@@ -114,11 +114,14 @@ class Or implements Expression {
 }
 
 const rule = new And(
-  new Variable("cliente_vip"),
-  new Or(new Variable("valor_alto"), new Variable("primeira_compra")),
+  new Variable("high_amount"),
+  new Or(new Variable("new_device"), new Variable("night_time")),
 );
-const ctx = new Map([["cliente_vip", true], ["primeira_compra", true]]);
+const ctx = new Map([["high_amount", true], ["night_time", true]]);
 console.log(rule.interpret(ctx)); // true
+
+const calm = new Map([["high_amount", true]]);
+console.log(rule.interpret(calm)); // false
 ```
 
 ## Padrões relacionados

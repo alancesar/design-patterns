@@ -58,60 +58,61 @@ Still, the technique has real merits: it produces immutable, fully initialized o
 ```mermaid
 classDiagram
     class Client
-    class NutritionFacts {
-        -int servingSize
-        -int servings
-        -int calories
-        -int fat
-        -int sodium
-        +NutritionFacts(servingSize, servings)
-        +NutritionFacts(servingSize, servings, calories)
-        +NutritionFacts(servingSize, servings, calories, fat)
-        +NutritionFacts(servingSize, servings, calories, fat, sodium)
+    class Boleto {
+        -long amountCents
+        -LocalDate dueDate
+        -double fine
+        -double dailyInterest
+        -double discount
+        +Boleto(amountCents, dueDate)
+        +Boleto(amountCents, dueDate, fine)
+        +Boleto(amountCents, dueDate, fine, dailyInterest)
+        +Boleto(amountCents, dueDate, fine, dailyInterest, discount)
     }
-    Client ..> NutritionFacts : new
+    Client ..> Boleto : new
 ```
 
-The `Client` instantiates `NutritionFacts` by choosing the constructor with the number of arguments it needs. Each smaller constructor delegates (via `this(...)`) to the next one, passing a default value, until reaching the full constructor, which assigns all the fields.
+The `Client` instantiates `Boleto` by choosing the constructor with the number of arguments it needs. Each smaller constructor delegates (via `this(...)`) to the next one, passing a default value, until reaching the full constructor, which assigns all the fields.
 
 ## Example
 
-A nutrition facts class requires a serving size and a number of servings, while calories, fat, and sodium are optional with a default of zero.
+A `Boleto` requires an amount and a due date, while the fine, daily interest and early-payment discount are optional, defaulting to zero.
 
 ```java
-public final class NutritionFacts {
-    private final int servingSize; // required
-    private final int servings;    // required
-    private final int calories;    // optional
-    private final int fat;         // optional
-    private final int sodium;      // optional
+public final class Boleto {
+    private final long amountCents;   // required
+    private final LocalDate dueDate;  // required
+    private final double fine;        // optional (rate)
+    private final double dailyInterest; // optional (daily rate)
+    private final double discount;    // optional (rate)
 
-    public NutritionFacts(int servingSize, int servings) {
-        this(servingSize, servings, 0);
+    public Boleto(long amountCents, LocalDate dueDate) {
+        this(amountCents, dueDate, 0);
     }
-    public NutritionFacts(int servingSize, int servings, int calories) {
-        this(servingSize, servings, calories, 0);
+    public Boleto(long amountCents, LocalDate dueDate, double fine) {
+        this(amountCents, dueDate, fine, 0);
     }
-    public NutritionFacts(int servingSize, int servings, int calories, int fat) {
-        this(servingSize, servings, calories, fat, 0);
+    public Boleto(long amountCents, LocalDate dueDate, double fine, double dailyInterest) {
+        this(amountCents, dueDate, fine, dailyInterest, 0);
     }
-    public NutritionFacts(int servingSize, int servings, int calories, int fat, int sodium) {
-        if (servingSize <= 0 || servings <= 0) throw new IllegalArgumentException();
-        this.servingSize = servingSize;
-        this.servings = servings;
-        this.calories = calories;
-        this.fat = fat;
-        this.sodium = sodium;
+    public Boleto(long amountCents, LocalDate dueDate, double fine,
+                  double dailyInterest, double discount) {
+        if (amountCents <= 0 || dueDate == null) throw new IllegalArgumentException();
+        this.amountCents = amountCents;
+        this.dueDate = dueDate;
+        this.fine = fine;
+        this.dailyInterest = dailyInterest;
+        this.discount = discount;
     }
 }
 
-// Usage: what does each number mean? Swapping fat and sodium compiles without error.
-NutritionFacts cola = new NutritionFacts(240, 8, 100, 0, 35);
+// Usage: what does each number mean? Swapping fine and discount compiles fine.
+Boleto boleto = new Boleto(150_000, LocalDate.of(2026, 12, 10), 0.02, 0.00033, 0.05);
 ```
 
 ## Related patterns
 
-- [Builder](/coding/gof/creational/builder) — the recommended alternative when there are many optional parameters; offers readable calls and arbitrary combinations while keeping immutability
+- [Builder](/coding/gof/creational/builder) — the recommended alternative when there are many optional parameters; the `PixCharge` in the Builder example solves the same problem with readable calls and arbitrary combinations, while keeping immutability
 - [Factory Method](/coding/gof/creational/factory-method) — creation methods with descriptive names can replace ambiguous constructor overloads
 - [Factory](/coding/gof/creational/factory) — encapsulates the choice of default values and the creation, hiding the constructor chain from the client
 - [Prototype](/coding/gof/creational/prototype) — another way to avoid long parameter lists: clone a pre-configured object and adjust only what's needed

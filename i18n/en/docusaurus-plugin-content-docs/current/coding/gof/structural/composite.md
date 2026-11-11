@@ -82,40 +82,50 @@ The `Client` depends only on `Component`. `Leaf` implements the operation direct
 
 ## Example
 
-In a file system, a folder's size is the sum of the sizes of its files and subfolders. The client computes the size of any node without knowing whether it's a file or a folder.
+An investment portfolio contains assets and sub-portfolios, such as "Emergency Fund" and "Retirement". The current value of a portfolio is the sum of the values of its items, and the client asks for the value of any node without knowing whether it is an asset or a portfolio. Illustrative values.
 
 ```typescript
-interface FileSystemNode {
+class Money {
+  constructor(readonly cents: number) {}
+  plus(other: Money): Money { return new Money(this.cents + other.cents); }
+}
+
+interface Holding {
   getName(): string;
-  getSize(): number;
+  currentValue(): Money;
 }
 
-class File implements FileSystemNode {
-  constructor(private name: string, private size: number) {}
+class Asset implements Holding {
+  constructor(private name: string, private value: Money) {}
   getName() { return this.name; }
-  getSize() { return this.size; }
+  currentValue() { return this.value; }
 }
 
-class Folder implements FileSystemNode {
-  private children: FileSystemNode[] = [];
+class Portfolio implements Holding {
+  private children: Holding[] = [];
   constructor(private name: string) {}
-  add(node: FileSystemNode) { this.children.push(node); return this; }
-  remove(node: FileSystemNode) { this.children = this.children.filter(c => c !== node); }
+  add(holding: Holding) { this.children.push(holding); return this; }
+  remove(holding: Holding) { this.children = this.children.filter(c => c !== holding); }
   getName() { return this.name; }
-  getSize() { return this.children.reduce((total, c) => total + c.getSize(), 0); }
+  currentValue() {
+    return this.children.reduce((total, c) => total.plus(c.currentValue()), new Money(0));
+  }
 }
 
-const src = new Folder("src").add(new File("app.ts", 120)).add(new File("util.ts", 40));
-const root = new Folder("project").add(src).add(new File("README.md", 10));
+const reserve = new Portfolio("Emergency Fund").add(new Asset("CDB Daily Liquidity", new Money(2_000_000)));
+const retirement = new Portfolio("Retirement")
+  .add(new Asset("CDB 2029", new Money(1_500_000)))
+  .add(new Asset("Multimarket Fund", new Money(800_000)));
+const portfolio = new Portfolio("Portfolio").add(reserve).add(retirement);
 
-console.log(root.getSize()); // 170
+console.log(portfolio.currentValue().cents); // 4300000 (R$ 43,000.00)
 ```
 
 ## Related patterns
 
 - [Decorator](/coding/gof/structural/decorator) — has a similar recursive structure, but a decorator has a single child and adds responsibilities, while the Composite aggregates several children
 - [Iterator](/coding/gof/behavioral/iterator) — used to traverse the component tree without exposing its internal structure
-- [Visitor](/coding/gof/behavioral/visitor) — lets you apply new operations across the whole tree without changing the `Leaf` and `Composite` classes
+- [Visitor](/coding/gof/behavioral/visitor) — lets you apply new operations across the whole tree without changing the `Leaf` and `Composite` classes (the same investment portfolio is the example there, with operations such as tax and income reports)
 - [Chain of Responsibility](/coding/gof/behavioral/chain-of-responsibility) — often uses the component's parent reference as the successor in the chain
 - [Flyweight](/coding/gof/structural/flyweight) — leaves can be shared as flyweights to save memory in large trees
 - [Interpreter](/coding/gof/behavioral/interpreter) — the Interpreter's abstract syntax tree is an application of the Composite

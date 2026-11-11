@@ -92,41 +92,50 @@ O `Creator` declara o método abstrato `createProduct()` e usa o `Product` em `s
 
 ## Exemplo
 
-Um serviço de notificações tem um fluxo comum (montar a mensagem, enviar, registrar log), mas o canal varia: e-mail ou SMS. Cada subclasse decide qual `Notifier` criar.
+Toda transferência segue o mesmo fluxo (validar saldo, criar a instrução, registrar no ledger), mas a instrução varia conforme o trilho: Pix ou TED. Cada subclasse decide qual `PaymentInstruction` criar.
 
 ```typescript
-interface Notifier {
-  send(to: string, message: string): void;
+interface TransferRequest {
+  fromAccountId: string;
+  destination: string;
+  amountCents: number;
 }
 
-class EmailNotifier implements Notifier {
-  send(to: string, message: string) { console.log(`Email para ${to}: ${message}`); }
+interface PaymentInstruction {
+  send(): string;
 }
 
-class SmsNotifier implements Notifier {
-  send(to: string, message: string) { console.log(`SMS para ${to}: ${message}`); }
+class PixInstruction implements PaymentInstruction {
+  constructor(private request: TransferRequest) {}
+  send() { return `Pix de ${this.request.amountCents} centavos para a chave ${this.request.destination} (SPI)`; }
 }
 
-abstract class NotificationService {
-  protected abstract createNotifier(): Notifier; // Factory Method
+class TedInstruction implements PaymentInstruction {
+  constructor(private request: TransferRequest) {}
+  send() { return `TED de ${this.request.amountCents} centavos para ${this.request.destination} (próxima janela)`; }
+}
 
-  notify(to: string, message: string): void {
-    const notifier = this.createNotifier();
-    notifier.send(to, message);
-    console.log(`log: notificação enviada para ${to}`);
+abstract class TransferProcessor {
+  protected abstract createInstruction(request: TransferRequest): PaymentInstruction; // Factory Method
+
+  process(request: TransferRequest, balanceCents: number): void {
+    if (balanceCents < request.amountCents) throw new Error("saldo insuficiente");
+    const instruction = this.createInstruction(request);
+    console.log(instruction.send());
+    console.log(`ledger: débito de ${request.amountCents} centavos em ${request.fromAccountId}`);
   }
 }
 
-class EmailNotificationService extends NotificationService {
-  protected createNotifier(): Notifier { return new EmailNotifier(); }
+class PixTransferProcessor extends TransferProcessor {
+  protected createInstruction(request: TransferRequest): PaymentInstruction { return new PixInstruction(request); }
 }
 
-class SmsNotificationService extends NotificationService {
-  protected createNotifier(): Notifier { return new SmsNotifier(); }
+class TedTransferProcessor extends TransferProcessor {
+  protected createInstruction(request: TransferRequest): PaymentInstruction { return new TedInstruction(request); }
 }
 
-const service: NotificationService = new SmsNotificationService();
-service.notify("+5511999999999", "Seu pedido foi enviado");
+const processor: TransferProcessor = new PixTransferProcessor();
+processor.process({ fromAccountId: "0001-1", destination: "maria@example.com", amountCents: 12_500 }, 50_000);
 ```
 
 ## Padrões relacionados

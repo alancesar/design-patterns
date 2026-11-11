@@ -82,40 +82,50 @@ O `Client` depende apenas de `Component`. `Leaf` implementa a operação diretam
 
 ## Exemplo
 
-Em um sistema de arquivos, o tamanho de uma pasta é a soma dos tamanhos de seus arquivos e subpastas. O cliente calcula o tamanho de qualquer nó sem saber se é arquivo ou pasta.
+Uma carteira de investimentos contém ativos e subcarteiras, como "Reserva" e "Aposentadoria". O valor atual de uma carteira é a soma dos valores de seus itens, e o cliente pede o valor de qualquer nó sem saber se é um ativo ou uma carteira. Valores ilustrativos.
 
 ```typescript
-interface FileSystemNode {
+class Money {
+  constructor(readonly cents: number) {}
+  plus(other: Money): Money { return new Money(this.cents + other.cents); }
+}
+
+interface Holding {
   getName(): string;
-  getSize(): number;
+  currentValue(): Money;
 }
 
-class File implements FileSystemNode {
-  constructor(private name: string, private size: number) {}
+class Asset implements Holding {
+  constructor(private name: string, private value: Money) {}
   getName() { return this.name; }
-  getSize() { return this.size; }
+  currentValue() { return this.value; }
 }
 
-class Folder implements FileSystemNode {
-  private children: FileSystemNode[] = [];
+class Portfolio implements Holding {
+  private children: Holding[] = [];
   constructor(private name: string) {}
-  add(node: FileSystemNode) { this.children.push(node); return this; }
-  remove(node: FileSystemNode) { this.children = this.children.filter(c => c !== node); }
+  add(holding: Holding) { this.children.push(holding); return this; }
+  remove(holding: Holding) { this.children = this.children.filter(c => c !== holding); }
   getName() { return this.name; }
-  getSize() { return this.children.reduce((total, c) => total + c.getSize(), 0); }
+  currentValue() {
+    return this.children.reduce((total, c) => total.plus(c.currentValue()), new Money(0));
+  }
 }
 
-const src = new Folder("src").add(new File("app.ts", 120)).add(new File("util.ts", 40));
-const root = new Folder("project").add(src).add(new File("README.md", 10));
+const reserve = new Portfolio("Reserva").add(new Asset("CDB Liquidez Diária", new Money(2_000_000)));
+const retirement = new Portfolio("Aposentadoria")
+  .add(new Asset("CDB 2029", new Money(1_500_000)))
+  .add(new Asset("Fundo Multimercado", new Money(800_000)));
+const portfolio = new Portfolio("Carteira").add(reserve).add(retirement);
 
-console.log(root.getSize()); // 170
+console.log(portfolio.currentValue().cents); // 4300000 (R$ 43.000,00)
 ```
 
 ## Padrões relacionados
 
 - [Decorator](/coding/gof/structural/decorator) — tem estrutura recursiva semelhante, mas um decorador possui um único filho e adiciona responsabilidades, enquanto o Composite agrega vários filhos
 - [Iterator](/coding/gof/behavioral/iterator) — usado para percorrer a árvore de componentes sem expor sua estrutura interna
-- [Visitor](/coding/gof/behavioral/visitor) — permite aplicar novas operações sobre toda a árvore sem alterar as classes de `Leaf` e `Composite`
+- [Visitor](/coding/gof/behavioral/visitor) — permite aplicar novas operações sobre toda a árvore sem alterar as classes de `Leaf` e `Composite` (a mesma carteira de investimentos serve de exemplo ali, com operações como imposto e informe de rendimentos)
 - [Chain of Responsibility](/coding/gof/behavioral/chain-of-responsibility) — costuma usar a referência ao pai do componente como sucessor na cadeia
 - [Flyweight](/coding/gof/structural/flyweight) — folhas podem ser compartilhadas como flyweights para economizar memória em árvores grandes
 - [Interpreter](/coding/gof/behavioral/interpreter) — a árvore sintática abstrata do Interpreter é uma aplicação do Composite

@@ -14,7 +14,7 @@ sidebar_label: "Bridge"
 
 ## Descrição
 
-O Bridge desacopla uma abstração da sua implementação para que ambas possam variar de forma independente. Em vez de criar uma hierarquia única que combina todas as variações (por exemplo, `WindowsCircle`, `LinuxCircle`, `WindowsSquare`...), o padrão separa o problema em duas hierarquias: a da **abstração** (o que o cliente usa) e a do **implementador** (como o trabalho de baixo nível é feito).
+O Bridge desacopla uma abstração da sua implementação para que ambas possam variar de forma independente. Em vez de criar uma hierarquia única que combina todas as variações (por exemplo, `OneTimePixCharge`, `RecurringPixCharge`, `OneTimeBoletoCharge`...), o padrão separa o problema em duas hierarquias: a da **abstração** (o que o cliente usa) e a do **implementador** (como o trabalho de baixo nível é feito).
 
 A abstração mantém uma referência para um objeto implementador e delega a ele as operações primitivas. Novas abstrações refinadas e novas implementações concretas podem ser adicionadas sem que uma afete a outra, e a implementação pode até ser trocada em tempo de execução.
 
@@ -22,7 +22,7 @@ Na prática, o Bridge troca herança por composição: a "ponte" é justamente a
 
 ## Problemas que resolve
 
-- Explosão combinatória de subclasses quando duas dimensões de variação (ex.: forma e plataforma de renderização) são modeladas em uma única hierarquia.
+- Explosão combinatória de subclasses quando duas dimensões de variação (ex.: tipo de cobrança e trilho de liquidação) são modeladas em uma única hierarquia.
 - Acoplamento permanente entre a abstração e uma implementação específica definido em tempo de compilação.
 - Mudanças na implementação que forçam recompilação ou alteração do código cliente.
 - Dificuldade de compartilhar uma mesma implementação entre várias abstrações.
@@ -87,36 +87,46 @@ classDiagram
 
 ## Exemplo
 
-Um sistema de notificações tem tipos de mensagem (alerta, lembrete) e canais de envio (e-mail, SMS). Com Bridge, cada tipo de mensagem delega o envio a um canal, evitando classes como `EmailAlert` e `SmsReminder`.
+Um sistema de cobranças tem tipos de cobrança (avulsa, recorrente) e trilhos de liquidação (Pix, boleto, cartão). Com Bridge, cada cobrança delega a liquidação a um trilho, evitando classes como `RecurringPixCharge` e `OneTimeBoletoCharge`.
 
 ```typescript
-interface MessageSender {
-  send(to: string, body: string): void;
+interface SettlementRail {
+  settle(reference: string, amountCents: number): void;
 }
 
-class EmailSender implements MessageSender {
-  send(to: string, body: string) { console.log(`Email to ${to}: ${body}`); }
+class PixRail implements SettlementRail {
+  settle(reference: string, amountCents: number) { console.log(`Pix settled ${reference}: ${amountCents}`); }
 }
 
-class SmsSender implements MessageSender {
-  send(to: string, body: string) { console.log(`SMS to ${to}: ${body}`); }
+class BoletoRail implements SettlementRail {
+  settle(reference: string, amountCents: number) { console.log(`Boleto settled ${reference}: ${amountCents}`); }
 }
 
-abstract class Notification {
-  constructor(protected sender: MessageSender) {}
-  abstract notify(to: string, text: string): void;
+class CardRail implements SettlementRail {
+  settle(reference: string, amountCents: number) { console.log(`Card settled ${reference}: ${amountCents}`); }
 }
 
-class AlertNotification extends Notification {
-  notify(to: string, text: string) { this.sender.send(to, `[ALERT] ${text}`); }
+abstract class Charge {
+  constructor(protected rail: SettlementRail) {}
+  abstract collect(reference: string, amountCents: number): void;
 }
 
-class ReminderNotification extends Notification {
-  notify(to: string, text: string) { this.sender.send(to, `Reminder: ${text}`); }
+class OneTimeCharge extends Charge {
+  collect(reference: string, amountCents: number) { this.rail.settle(reference, amountCents); }
 }
 
-new AlertNotification(new SmsSender()).notify("+5511999999999", "CPU at 95%");
-new ReminderNotification(new EmailSender()).notify("ana@example.com", "Meeting at 3pm");
+class RecurringCharge extends Charge {
+  constructor(rail: SettlementRail, private readonly cycles: number) { super(rail); }
+
+  collect(reference: string, amountCents: number) {
+    for (let n = 1; n <= this.cycles; n++) {
+      this.rail.settle(`${reference}-${n}`, amountCents);
+    }
+  }
+}
+
+new OneTimeCharge(new PixRail()).collect("inv-12", 15_000);
+new RecurringCharge(new CardRail(), 3).collect("sub-77", 4_990);
 ```
 
 ## Padrões relacionados

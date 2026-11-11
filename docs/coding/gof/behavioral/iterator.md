@@ -92,38 +92,85 @@ O `Client` obtém um `Iterator` a partir do `Aggregate` e percorre os elementos 
 
 ## Exemplo
 
-Uma playlist de músicas pode ser percorrida em ordem normal ou aleatória; o player apenas consome um iterador, sem saber como a playlist armazena as faixas.
+O extrato de uma conta tem milhares de lançamentos e a API os devolve em páginas com cursor. O consumidor só chama `hasNext()` e `next()`: o `PagedStatementIterator` busca a próxima página quando a atual acaba, e o `ReverseStatementIterator` percorre a mesma coleção do lançamento mais recente para o mais antigo.
 
 ```typescript
-interface Iterator<T> {
+interface StatementEntry {
+  date: string;
+  description: string;
+  amountCents: number;
+}
+
+interface Page {
+  entries: StatementEntry[];
+  nextCursor?: number;
+}
+
+interface StatementIterator {
   hasNext(): boolean;
-  next(): T;
+  next(): StatementEntry;
 }
 
-class Playlist {
-  constructor(private songs: string[]) {}
+class Statement {
+  constructor(private entries: StatementEntry[], private pageSize = 2) {}
 
-  createIterator(): Iterator<string> {
-    return new SequentialIterator(this.songs);
+  // simula a API paginada: devolve uma página e o cursor da próxima
+  fetchPage(cursor = 0): Page {
+    const end = cursor + this.pageSize;
+    return {
+      entries: this.entries.slice(cursor, end),
+      nextCursor: end < this.entries.length ? end : undefined,
+    };
   }
 
-  createShuffleIterator(): Iterator<string> {
-    const shuffled = [...this.songs].sort(() => Math.random() - 0.5);
-    return new SequentialIterator(shuffled);
+  createIterator(): StatementIterator {
+    return new PagedStatementIterator(this);
+  }
+
+  createReverseIterator(): StatementIterator {
+    return new ReverseStatementIterator(this.entries); // simplificação: lê os lançamentos já carregados
   }
 }
 
-class SequentialIterator<T> implements Iterator<T> {
+class PagedStatementIterator implements StatementIterator {
+  private buffer: StatementEntry[] = [];
   private position = 0;
-  constructor(private items: T[]) {}
+  private cursor: number | undefined = 0;
+  constructor(private statement: Statement) {}
 
-  hasNext(): boolean { return this.position < this.items.length; }
-  next(): T { return this.items[this.position++]; }
+  hasNext(): boolean { this.fill(); return this.position < this.buffer.length; }
+  next(): StatementEntry { this.fill(); return this.buffer[this.position++]; }
+
+  private fill(): void {
+    if (this.position < this.buffer.length || this.cursor === undefined) return;
+    const page = this.statement.fetchPage(this.cursor); // só busca quando a página atual acabou
+    this.buffer = page.entries;
+    this.position = 0;
+    this.cursor = page.nextCursor;
+  }
 }
 
-const playlist = new Playlist(["Intro", "Track 1", "Track 2"]);
-const it = playlist.createShuffleIterator();
-while (it.hasNext()) console.log(`Tocando: ${it.next()}`);
+class ReverseStatementIterator implements StatementIterator {
+  private position: number;
+  constructor(private entries: StatementEntry[]) {
+    this.position = entries.length - 1;
+  }
+
+  hasNext(): boolean { return this.position >= 0; }
+  next(): StatementEntry { return this.entries[this.position--]; }
+}
+
+const statement = new Statement([
+  { date: "2026-03-01", description: "Pix recebido", amountCents: 25_000 },
+  { date: "2026-03-02", description: "Boleto pago", amountCents: -8_990 },
+  { date: "2026-03-03", description: "Compra no cartão", amountCents: -4_550 },
+]);
+
+const it = statement.createIterator();
+while (it.hasNext()) console.log(it.next().description);  // Pix recebido, Boleto pago, Compra no cartão
+
+const recent = statement.createReverseIterator();
+console.log(recent.next().description);                   // Compra no cartão
 ```
 
 ## Padrões relacionados
