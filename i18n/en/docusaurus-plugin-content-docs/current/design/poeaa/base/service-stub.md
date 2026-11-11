@@ -55,55 +55,56 @@ The pattern was proposed by David Rice in PoEAA and is the basis of what are now
 
 ```mermaid
 classDiagram
-    class TaxService {
+    class CreditBureau {
         <<interface>>
-        +rateFor(region)
+        +scoreFor(cpf)
     }
-    class RemoteTaxService {
-        +rateFor(region)
+    class RemoteCreditBureau {
+        +scoreFor(cpf)
     }
-    class TaxServiceStub {
-        +rateFor(region)
+    class CreditBureauStub {
+        +scoreFor(cpf)
     }
-    class CheckoutService
-    CheckoutService --> TaxService
-    TaxService <|.. RemoteTaxService
-    TaxService <|.. TaxServiceStub
+    class CreditAnalysisService
+    CreditAnalysisService --> CreditBureau
+    CreditBureau <|.. RemoteCreditBureau
+    CreditBureau <|.. CreditBureauStub
 ```
 
-The `CheckoutService` depends on the `TaxService` interface. In production it uses `RemoteTaxService`; in tests, `TaxServiceStub`, which answers from memory.
+The `CreditAnalysisService` depends on the `CreditBureau` interface. In production it uses `RemoteCreditBureau`; in tests, `CreditBureauStub`, which answers from memory.
 
 ## Example
 
-A checkout calculates tax by calling a remote service. In tests, a stub returns fixed rates.
+Credit analysis queries the applicant's score at the credit bureau, a remote service. In tests, a stub returns fixed scores (illustrative values).
 
 ```java
-interface TaxService {
-    java.math.BigDecimal rateFor(String region);
+interface CreditBureau {
+    int scoreFor(String cpf);
 }
 
-class TaxServiceStub implements TaxService {
-    private final java.util.Map<String, java.math.BigDecimal> rates = java.util.Map.of(
-        "SP", new java.math.BigDecimal("0.18"),
-        "RJ", new java.math.BigDecimal("0.20"));
+class CreditBureauStub implements CreditBureau {
+    private final java.util.Map<String, Integer> scores = java.util.Map.of(
+        "111.111.111-11", 820,
+        "222.222.222-22", 380);
 
-    public java.math.BigDecimal rateFor(String region) {
-        return rates.getOrDefault(region, java.math.BigDecimal.ZERO);
+    public int scoreFor(String cpf) {
+        return scores.getOrDefault(cpf, 0);
     }
 }
 
-class CheckoutService {
-    private final TaxService taxService;
-    CheckoutService(TaxService taxService) { this.taxService = taxService; }
+class CreditAnalysisService {
+    private final CreditBureau bureau;
+    CreditAnalysisService(CreditBureau bureau) { this.bureau = bureau; }
 
-    java.math.BigDecimal total(java.math.BigDecimal net, String region) {
-        return net.add(net.multiply(taxService.rateFor(region)));
+    boolean approves(String cpf, int minimumScore) {
+        return bureau.scoreFor(cpf) >= minimumScore;
     }
 }
 
 // Test
-var checkout = new CheckoutService(new TaxServiceStub());
-// checkout.total(new BigDecimal("100"), "SP") -> 118.00
+var analysis = new CreditAnalysisService(new CreditBureauStub());
+// analysis.approves("111.111.111-11", 600) -> true
+// analysis.approves("222.222.222-22", 600) -> false
 ```
 
 Tools such as WireMock, MockServer, and mocking libraries produce stubs without writing them by hand.

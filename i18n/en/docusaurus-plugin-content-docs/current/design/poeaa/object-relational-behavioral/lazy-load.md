@@ -82,7 +82,7 @@ In the virtual proxy variant, the `Client` uses the `Subject` interface without 
 
 ## Example
 
-A `Customer` has a list of orders that is only needed on the history screen. With a value holder, the query happens on first access.
+An `Account` has a list of ledger entries (`LedgerEntry`) that is only needed when the customer opens the statement. With a value holder, the query happens on first access.
 
 ```java
 class ValueHolder<T> {
@@ -98,14 +98,14 @@ class ValueHolder<T> {
     }
 }
 
-class Customer {
-    private final ValueHolder<List<Order>> orders;
+class Account {
+    private final ValueHolder<List<LedgerEntry>> entries;
 
-    Customer(long id, OrderMapper mapper) {
-        this.orders = new ValueHolder<>(() -> mapper.findByCustomer(id));
+    Account(long id, LedgerEntryMapper mapper) {
+        this.entries = new ValueHolder<>(() -> mapper.findByAccount(id));
     }
 
-    List<Order> getOrders() { return orders.getValue(); }
+    List<LedgerEntry> getEntries() { return entries.getValue(); }
 }
 ```
 

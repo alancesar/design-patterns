@@ -57,15 +57,15 @@ classDiagram
         +id
         +version
     }
-    class Customer
-    class Order
-    class Product
-    DomainObject <|-- Customer
-    DomainObject <|-- Order
-    DomainObject <|-- Product
+    class Account
+    class Card
+    class LedgerEntry
+    DomainObject <|-- Account
+    DomainObject <|-- Card
+    DomainObject <|-- LedgerEntry
 ```
 
-`Customer`, `Order` e `Product` herdam o identificador e a versão de `DomainObject`, o supertipo da camada de domínio.
+`Account`, `Card` e `LedgerEntry` herdam o identificador e a versão de `DomainObject`, o supertipo da camada de domínio.
 
 ## Exemplo
 
@@ -84,15 +84,21 @@ class DomainObject:
     def __hash__(self) -> int:
         return hash(self.id)
 
-class Customer(DomainObject):
-    def __init__(self, name: str, id: UUID | None = None):
+class Account(DomainObject):
+    def __init__(self, holder: str, id: UUID | None = None):
         super().__init__(id)
-        self.name = name
+        self.holder = holder
 
-class Order(DomainObject):
-    def __init__(self, customer: Customer, id: UUID | None = None):
+class Card(DomainObject):
+    def __init__(self, account: Account, id: UUID | None = None):
         super().__init__(id)
-        self.customer = customer
+        self.account = account
+
+class LedgerEntry(DomainObject):
+    def __init__(self, account: Account, amount_cents: int, id: UUID | None = None):
+        super().__init__(id)
+        self.account = account
+        self.amount_cents = amount_cents
 ```
 
 Exemplos conhecidos: `BaseEntity` em projetos Hibernate, `ApplicationRecord` no Rails e `Entity<TId>` em bibliotecas de DDD.

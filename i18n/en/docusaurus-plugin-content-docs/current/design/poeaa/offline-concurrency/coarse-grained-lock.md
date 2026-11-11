@@ -13,7 +13,7 @@ sidebar_label: "Coarse-Grained Lock"
 
 ## Description
 
-Coarse-Grained Lock locks a set of related objects with a single lock. Instead of acquiring a lock for each object in an aggregate (for example, an order and all its line items), the application protects the whole group through a single point, usually the aggregate root.
+Coarse-Grained Lock locks a set of related objects with a single lock. Instead of acquiring a lock for each object in an aggregate (for example, a loan contract and all its installments), the application protects the whole group through a single point, usually the aggregate root.
 
 For optimistic locking, this is usually done with a shared version object: all members of the group reference the same version number, and changing any of them increments that version. For pessimistic locking, locking the root implies locking the whole group. One variation is the Root Lock, where each child object navigates up to the root to obtain the lock.
 
@@ -22,7 +22,7 @@ The pattern aligns the lock granularity with the model's consistency boundary, r
 ## Problems it solves
 
 - Acquiring and managing many individual locks is costly and error-prone.
-- Locking only part of an aggregate leaves the group in an inconsistent state (e.g., a line item changed by someone else while the order is being recalculated).
+- Locking only part of an aggregate leaves the group in an inconsistent state (e.g., an installment changed by someone else while the contract is being recalculated).
 - Forgetting to lock one member of the group breaks the aggregate's invariant.
 
 ## When to use
@@ -58,48 +58,51 @@ classDiagram
         +id
         +value
     }
-    class Order {
+    class LoanContract {
         +id
     }
-    class OrderLine {
+    class Installment {
         +id
     }
-    class Payment {
+    class Collateral {
         +id
     }
-    Order --> Version : shares
-    OrderLine --> Version : shares
-    Payment --> Version : shares
-    Order "1" --> "*" OrderLine
-    Order "1" --> "*" Payment
+    LoanContract --> Version : shares
+    Installment --> Version : shares
+    Collateral --> Version : shares
+    LoanContract "1" --> "*" Installment
+    LoanContract "1" --> "*" Collateral
 ```
 
-`Order`, `OrderLine`, and `Payment` reference the same `Version` object. Any change to one of them increments that version, and the conflict is detected for the whole group.
+`LoanContract`, `Installment`, and `Collateral` reference the same `Version` object. Any change to one of them increments that version, and the conflict is detected for the whole group.
 
 ## Example
 
-In an order with line items, changing a line item while someone else changes the total should conflict. Everyone uses the version of the `Order` root.
+In a loan contract, renegotiating an installment while someone else replaces the collateral should conflict. Everyone uses the version of the `LoanContract` root.
 
 ```sql
--- Line items and order share the order's version
-UPDATE order_line SET qty = 5 WHERE id = 3;
+-- Installments and collaterals share the contract's version
+UPDATE installment SET due_date = '2026-12-10' WHERE id = 3;
 
-UPDATE orders
+UPDATE loan_contract
    SET version = version + 1
  WHERE id = 10 AND version = 4;  -- 0 rows => conflict on the aggregate
 ```
 
 ```java
 @Entity
-class Order {
+class LoanContract {
     @Version long version;
 
     @OneToMany(cascade = CascadeType.ALL)
-    List<OrderLine> lines;
+    List<Installment> installments;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    List<Collateral> collaterals;
 }
 
 // In JPA, the root's version can be incremented when children change:
-// entityManager.lock(order, LockModeType.OPTIMISTIC_FORCE_INCREMENT);
+// entityManager.lock(contract, LockModeType.OPTIMISTIC_FORCE_INCREMENT);
 ```
 
 ## Related patterns

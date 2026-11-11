@@ -55,10 +55,10 @@ It's the most direct way to structure domain logic and works well as long as the
 ```mermaid
 classDiagram
     class Presentation
-    class OrderScripts {
-        +placeOrder(customerId, items)
-        +cancelOrder(orderId)
-        +recognizeRevenue(contractId)
+    class PaymentScripts {
+        +payBoleto(accountId, barcode, amountCents)
+        +reversePayment(paymentId)
+        +reconcileSettlements(fileId)
     }
     class Gateway {
         +find(id)
@@ -66,40 +66,39 @@ classDiagram
         +update(row)
     }
     class Database
-    Presentation --> OrderScripts
-    OrderScripts --> Gateway
+    Presentation --> PaymentScripts
+    PaymentScripts --> Gateway
     Gateway --> Database
 ```
 
-The presentation layer calls one script per request. The scripts, grouped in `OrderScripts`, use a thin gateway to access the `Database`.
+The presentation layer calls one script per request. The scripts, grouped in `PaymentScripts`, use a thin gateway to access the `Database`.
 
 ## Example
 
-An order system needs to calculate the total with a discount and save the order. A single procedure does all the work.
+The fintech app needs to pay a boleto: check the balance, debit the account, and record the payment. A single procedure does all the work, in one transaction.
 
 ```python
-class OrderScripts:
+class PaymentScripts:
     def __init__(self, db):
         self.db = db
 
-    def place_order(self, customer_id: int, items: list[dict]) -> int:
+    def pay_boleto(self, account_id: int, barcode: str, amount_cents: int) -> int:
         with self.db.transaction():
-            total = sum(i["price"] * i["qty"] for i in items)
-            customer = self.db.fetch_one(
-                "SELECT vip FROM customers WHERE id = %s", customer_id
+            account = self.db.fetch_one(
+                "SELECT balance_cents FROM accounts WHERE id = %s FOR UPDATE",
+                account_id,
             )
-            if customer["vip"]:
-                total *= 0.9
-            order_id = self.db.insert(
-                "INSERT INTO orders (customer_id, total) VALUES (%s, %s)",
-                customer_id, total,
+            if account["balance_cents"] < amount_cents:
+                raise ValueError("Insufficient balance")
+            self.db.execute(
+                "UPDATE accounts SET balance_cents = balance_cents - %s WHERE id = %s",
+                amount_cents, account_id,
             )
-            for i in items:
-                self.db.insert(
-                    "INSERT INTO order_items (order_id, sku, qty) VALUES (%s, %s, %s)",
-                    order_id, i["sku"], i["qty"],
-                )
-            return order_id
+            return self.db.insert(
+                "INSERT INTO boleto_payments (account_id, barcode, amount_cents) "
+                "VALUES (%s, %s, %s)",
+                account_id, barcode, amount_cents,
+            )
 ```
 
 ## Related patterns

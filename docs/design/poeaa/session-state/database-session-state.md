@@ -74,7 +74,7 @@ O `Client` mantém apenas o `sessionId`. Qualquer servidor lê e grava o estado 
 
 ## Exemplo
 
-Um cadastro de seguro com várias etapas é salvo a cada passo em uma tabela `session_state`, com expiração em 7 dias. O usuário pode voltar de outro dispositivo e continuar.
+A proposta de crédito consignado, preenchida em várias etapas, é salva a cada passo em uma tabela `session_state`, com expiração em 7 dias. O cliente pode começar no celular e retomar de outro dispositivo, pelo mesmo `session_id` de retomada.
 
 ```python
 import json

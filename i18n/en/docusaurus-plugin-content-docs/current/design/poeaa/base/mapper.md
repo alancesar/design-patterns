@@ -71,25 +71,25 @@ The `Mapper` knows `SubsystemA` and `SubsystemB`, but they hold no reference to 
 
 ## Example
 
-A billing module and an email-sending module shouldn't know each other. A mapper reads invoices from the first and produces messages for the second.
+A card invoice module and a notification module shouldn't know each other. A mapper reads invoices from the first and produces messages for the second.
 
 ```typescript
-interface Invoice { customerEmail: string; total: number; dueDate: Date }
+interface CardInvoice { holderEmail: string; totalCents: number; dueDate: Date }
 interface EmailMessage { to: string; subject: string; body: string }
 
-class InvoiceToEmailMapper {
-  map(invoice: Invoice): EmailMessage {
+class CardInvoiceToEmailMapper {
+  map(invoice: CardInvoice): EmailMessage {
     return {
-      to: invoice.customerEmail,
+      to: invoice.holderEmail,
       subject: "Your invoice",
-      body: `Amount: ${invoice.total.toFixed(2)} — due: ${invoice.dueDate.toISOString().slice(0, 10)}`,
+      body: `Amount: R$ ${(invoice.totalCents / 100).toFixed(2)} — due: ${invoice.dueDate.toISOString().slice(0, 10)}`,
     };
   }
 }
 
-// The billing module doesn't know about email; the email module doesn't know about invoices.
-const message = new InvoiceToEmailMapper().map({
-  customerEmail: "a@b.com", total: 120, dueDate: new Date(),
+// The invoice module doesn't know about notifications; the notification module doesn't know about invoices.
+const message = new CardInvoiceToEmailMapper().map({
+  holderEmail: "ana@example.com", totalCents: 128990, dueDate: new Date(),
 });
 ```
 

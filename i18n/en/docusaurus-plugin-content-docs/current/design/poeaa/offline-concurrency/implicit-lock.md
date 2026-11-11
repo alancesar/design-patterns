@@ -63,15 +63,15 @@ classDiagram
         +acquire(id, owner)
         +release(owner)
     }
-    class CustomerMapper {
+    class AccountMapper {
         +find(id)
     }
-    BusinessLogic --> CustomerMapper : uses
-    CustomerMapper --|> LayerSupertype
+    BusinessLogic --> AccountMapper : uses
+    AccountMapper --|> LayerSupertype
     LayerSupertype --> LockManager : acquires automatically
 ```
 
-The business code only uses the `CustomerMapper`. The `LayerSupertype`, which the mapper inherits from, acquires the lock from the `LockManager` whenever an object is loaded or changed.
+The business code only uses the `AccountMapper`. The `LayerSupertype`, which the mapper inherits from, acquires the lock from the `LockManager` whenever an object is loaded or changed.
 
 ## Example
 
@@ -91,13 +91,13 @@ abstract class LockingMapper<T extends { id: string }> {
   protected abstract load(id: string): Promise<T>;
 }
 
-class CustomerMapper extends LockingMapper<Customer> {
-  protected resourceKey(id: string) { return `customer:${id}`; }
-  protected async load(id: string) { /* SELECT ... */ return {} as Customer; }
+class AccountMapper extends LockingMapper<Account> {
+  protected resourceKey(id: string) { return `account:${id}`; }
+  protected async load(id: string) { /* SELECT ... */ return {} as Account; }
 }
 
 // Use case: doesn't mention locks
-const customer = await customerMapper.findForUpdate("42");
+const account = await accountMapper.findForUpdate("42");
 ```
 
 Frameworks like Hibernate apply the `@Version` check implicitly on every `flush`, with no extra code in the domain.

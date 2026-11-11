@@ -59,12 +59,12 @@ classDiagram
         <<interface>>
         +process(request)
     }
-    class BookCommand
-    class OrderCommand
+    class TransferCommand
+    class StatementCommand
     class View
     FrontController --> Command : seleciona e executa
-    Command <|.. BookCommand
-    Command <|.. OrderCommand
+    Command <|.. TransferCommand
+    Command <|.. StatementCommand
     Command --> View : escolhe
 ```
 
@@ -77,8 +77,8 @@ Todas as requisições passam por um servlet que mapeia o caminho para um comman
 ```java
 public class FrontServlet extends HttpServlet {
     private final Map<String, Command> routes = Map.of(
-        "/books", new BookCommand(),
-        "/orders", new OrderCommand());
+        "/transfers", new TransferCommand(),
+        "/statements", new StatementCommand());
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp)

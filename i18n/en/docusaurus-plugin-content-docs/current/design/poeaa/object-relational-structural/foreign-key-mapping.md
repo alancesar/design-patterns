@@ -50,40 +50,40 @@ Loading of the referenced object is usually deferred with Lazy Load, to avoid lo
 
 ```mermaid
 erDiagram
-    ALBUM ||--o{ TRACK : contains
-    ALBUM {
+    ACCOUNT ||--o{ CARD : has
+    ACCOUNT {
         bigint id PK
-        varchar title
+        varchar holder_name
     }
-    TRACK {
+    CARD {
         bigint id PK
-        bigint album_id FK
-        varchar title
+        bigint account_id FK
+        varchar last_digits
     }
 ```
 
-Each `TRACK` holds `album_id`, the foreign key that points to the `ALBUM` it belongs to.
+Each `CARD` holds `account_id`, the foreign key that points to the `ACCOUNT` it belongs to.
 
 ## Example
 
-An `Order` belongs to a `Customer`. The `customer_id` column holds the reference.
+A `Card` belongs to an `Account`. The `account_id` column holds the reference.
 
 ```java
 @Entity
-public class Order {
+public class Card {
     @Id @GeneratedValue
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
+    @JoinColumn(name = "account_id")
+    private Account account;
 }
 ```
 
 ```sql
-CREATE TABLE orders (
+CREATE TABLE card (
   id BIGINT PRIMARY KEY,
-  customer_id BIGINT NOT NULL REFERENCES customer(id)
+  account_id BIGINT NOT NULL REFERENCES account(id)
 );
 ```
 

@@ -65,15 +65,15 @@ O controller entrega o model ao motor de templates, que carrega a página com ma
 
 ## Exemplo
 
-Uma página lista pedidos do cliente. O template contém o HTML e apenas marcadores simples; o controller fornece a lista.
+Uma página lista os lançamentos da fatura do cartão. O template contém o HTML e apenas marcadores simples; o controller fornece a `CardInvoice`.
 
 ```html
-<!-- orders.html (Thymeleaf) -->
-<h1 th:text="${customer.name}">Cliente</h1>
+<!-- invoice.html (Thymeleaf) -->
+<h1 th:text="${invoice.dueDate}">Vencimento</h1>
 <table>
-  <tr th:each="o : ${orders}">
-    <td th:text="${o.id}">1</td>
-    <td th:text="${#numbers.formatDecimal(o.total, 1, 2)}">0,00</td>
+  <tr th:each="e : ${invoice.entries}">
+    <td th:text="${e.description}">Mercado</td>
+    <td th:text="${e.amount}">R$ 0,00</td>
   </tr>
 </table>
 ```

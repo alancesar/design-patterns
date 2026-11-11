@@ -56,15 +56,15 @@ Service Layer encapsulates the coordination of the use case, controls transactio
 
 ```mermaid
 sequenceDiagram
-    participant UI as Client (web, API, job)
-    participant S as OrderService
+    participant UI as Client (app API, scheduled-transfers job)
+    participant S as PixTransferService
     participant D as Domain Model
     participant R as Repository
-    UI->>S: placeOrder(command)
+    UI->>S: transfer(command)
     S->>S: begins transaction
-    S->>R: loads Customer
-    S->>D: customer.placeOrder(items)
-    S->>R: saves Order
+    S->>R: loads Account
+    S->>D: account.sendPix(pixKey, amount)
+    S->>R: saves PixTransfer
     S->>S: commits transaction
     S-->>UI: result
 ```
@@ -73,22 +73,23 @@ The service begins the transaction, loads objects, delegates the rule to the dom
 
 ## Example
 
-An `OrderService` is used by both a REST controller and a queue consumer, concentrating transaction handling and orchestration.
+A `PixTransferService` is used by both the app API and the scheduled-transfers job, concentrating transaction handling and orchestration.
 
 ```java
 @Service
-public class OrderService {
-    private final CustomerRepository customers;
-    private final OrderRepository orders;
-    private final PaymentGateway payments;
+public class PixTransferService {
+    private final AccountRepository accounts;
+    private final PixTransferRepository transfers;
+    private final SpiGateway spi;
 
     @Transactional
-    public OrderId placeOrder(PlaceOrderCommand cmd) {
-        Customer customer = customers.get(cmd.customerId());
-        Order order = customer.placeOrder(cmd.items());   // rule in the domain
-        orders.save(order);
-        payments.authorize(order.id(), order.total());
-        return order.id();
+    public PixTransferId transfer(SendPixCommand cmd) {
+        Account account = accounts.get(cmd.accountId());
+        PixTransfer transfer = account.sendPix(cmd.pixKey(), cmd.amount());   // rule in the domain
+        transfers.save(transfer);
+        // in production, the SPI submission happens after the commit (for example, via an outbox)
+        spi.submit(transfer.endToEndId(), transfer.amount());
+        return transfer.id();
     }
 }
 ```

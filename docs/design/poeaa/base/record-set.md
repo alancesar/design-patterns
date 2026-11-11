@@ -72,26 +72,28 @@ A interface e a lógica de negócio operam sobre o mesmo `RecordSet`, que é car
 
 ## Exemplo
 
-Uma tela de pedidos exibe linhas vindas do banco e uma regra de negócio calcula o total sobre elas antes de a tela ser vinculada ao mesmo conjunto.
+Uma tela de extrato exibe linhas vindas do banco e uma regra de negócio calcula o saldo do período sobre elas antes de a tela ser vinculada ao mesmo conjunto.
 
 ```csharp
 using System.Data;
 
-DataTable orders = new DataTable("Orders");
-orders.Columns.Add("Id", typeof(int));
-orders.Columns.Add("Quantity", typeof(int));
-orders.Columns.Add("UnitPrice", typeof(decimal));
+DataTable statement = new DataTable("Statement");
+statement.Columns.Add("Id", typeof(int));
+statement.Columns.Add("Description", typeof(string));
+statement.Columns.Add("AmountCents", typeof(long));
 
-orders.Rows.Add(1, 2, 10.50m);
-orders.Rows.Add(2, 5, 3.00m);
+statement.Rows.Add(1, "Pix recebido", 150000L);
+statement.Rows.Add(2, "Boleto pago", -45000L);
+statement.Rows.Add(3, "Compra no cartão", -12990L);
 
 // Regra de negócio operando sobre o Record Set
-decimal total = 0;
-foreach (DataRow row in orders.Rows)
-    total += (int)row["Quantity"] * (decimal)row["UnitPrice"];
+long balanceCents = 0;
+foreach (DataRow row in statement.Rows)
+    balanceCents += (long)row["AmountCents"];
+// balanceCents -> 92010 (R$ 920,10)
 
 // A mesma tabela pode ser vinculada a uma grade de UI
-// grid.DataSource = orders;
+// grid.DataSource = statement;
 ```
 
 ## Padrões relacionados

@@ -54,23 +54,23 @@ classDiagram
         -Long id
         +getId() Long
     }
-    class Customer {
-        -String name
+    class Account {
+        -String holderName
     }
-    class CustomerTable {
+    class AccountTable {
         <<table>>
         id PK
-        name
+        holder_name
     }
-    DomainObject <|-- Customer
-    Customer ..> CustomerTable : mapeado para
+    DomainObject <|-- Account
+    Account ..> AccountTable : mapeado para
 ```
 
-O `DomainObject` guarda o campo `id`, que corresponde à chave primária da linha em `CustomerTable`. Os objetos de domínio herdam o campo.
+O `DomainObject` guarda o campo `id`, que corresponde à chave primária da linha em `AccountTable`. Os objetos de domínio herdam o campo.
 
 ## Exemplo
 
-Uma loja mapeia `Customer` para a tabela `customer`. O campo `id` é gerado pelo banco e preenchido após o `INSERT`.
+Uma fintech mapeia `Account` para a tabela `account`. O campo `id` é gerado pelo banco e preenchido após o `INSERT`.
 
 ```java
 @MappedSuperclass
@@ -84,10 +84,10 @@ public abstract class DomainObject {
 }
 
 @Entity
-public class Customer extends DomainObject {
-    private String name;
-    protected Customer() {}
-    public Customer(String name) { this.name = name; }
+public class Account extends DomainObject {
+    private String holderName;
+    protected Account() {}
+    public Account(String holderName) { this.holderName = holderName; }
 }
 ```
 

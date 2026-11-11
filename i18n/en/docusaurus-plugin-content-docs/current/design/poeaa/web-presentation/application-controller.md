@@ -73,20 +73,23 @@ The `InputController` consults the `ApplicationController`, which locates the `D
 
 ## Example
 
-An order goes through the address, payment, and confirmation screens. The application controller decides the next screen based on the state.
+Account opening goes through the personal data, document, selfie, and review screens. The application controller decides the next screen based on the state.
 
 ```python
-class CheckoutFlow:
+class OnboardingFlow:
     TRANSITIONS = {
-        ("address", "ok"): "payment",
-        ("payment", "ok"): "confirmation",
-        ("payment", "declined"): "payment_error",
+        ("personal_data", "ok"): "document",
+        ("document", "ok"): "selfie",
+        ("document", "unreadable"): "document_retry",
+        ("selfie", "ok"): "review",
+        ("review", "approved"): "account_opened",
+        ("review", "rejected"): "rejected",
     }
 
     def next_view(self, state: str, result: str) -> str:
         return self.TRANSITIONS.get((state, result), "error")
 
-class CheckoutController:
+class OnboardingController:
     def __init__(self, flow, commands):
         self.flow, self.commands = flow, commands
 

@@ -72,7 +72,7 @@ O `Client` usa somente o `Gateway`, que traduz suas chamadas em operações espe
 
 ## Exemplo
 
-Uma loja precisa consultar a cotação de moedas em um serviço HTTP de terceiros. Um `ExchangeRateGateway` esconde a URL, o JSON e o cliente HTTP, e expõe uma operação em termos do domínio.
+Uma conta global precisa consultar a taxa de câmbio de referência em um serviço HTTP de terceiros. Um `ExchangeRateGateway` esconde a URL, o JSON e o cliente HTTP, e expõe uma operação em termos do domínio.
 
 ```python
 import json
@@ -89,11 +89,12 @@ class ExchangeRateGateway:
             payload = json.load(response)
         return Decimal(str(payload["rate"]))
 
-class PriceConverter:
+class BalanceConverter:
     def __init__(self, gateway: ExchangeRateGateway):
         self._gateway = gateway
 
     def convert(self, amount: Decimal, source: str, target: str) -> Decimal:
+        # converte o saldo da conta global pela taxa de referência
         return amount * self._gateway.rate(source, target)
 ```
 

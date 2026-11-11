@@ -56,47 +56,47 @@ O modelo deve ser independente de interface de usuário e de persistência; a li
 ```mermaid
 classDiagram
     class Customer {
-        +placeOrder(items) Order
+        +currentInvoice() CardInvoice
     }
-    class Order {
-        +addItem(product, qty)
+    class CardInvoice {
+        +addEntry(merchant, amount)
         +total() Money
-        +cancel()
+        +close()
     }
-    class OrderItem {
-        +subtotal() Money
+    class InvoiceEntry {
+        +amount() Money
     }
-    class Product
-    Customer "1" --> "*" Order
-    Order "1" *-- "*" OrderItem
-    OrderItem --> Product
+    class Merchant
+    Customer "1" --> "*" CardInvoice
+    CardInvoice "1" *-- "*" InvoiceEntry
+    InvoiceEntry --> Merchant
 ```
 
-`Customer`, `Order`, `OrderItem` e `Product` formam uma rede de objetos em que cada classe contém dados e as regras associadas, como `total()` e `cancel()`.
+`Customer`, `CardInvoice`, `InvoiceEntry` e `Merchant` formam uma rede de objetos em que cada classe contém dados e as regras associadas, como `total()` e `close()`.
 
 ## Exemplo
 
-Um pedido calcula o próprio total e impede cancelamento após o envio, regras que moram na entidade.
+Uma fatura de cartão calcula o próprio total e recusa lançamentos depois de fechada, regras que moram na entidade.
 
 ```java
-public class Order {
-    private final List<OrderItem> items = new ArrayList<>();
+public class CardInvoice {
+    private final List<InvoiceEntry> entries = new ArrayList<>();
     private Status status = Status.OPEN;
 
-    public void addItem(Product product, int qty) {
-        if (status != Status.OPEN) throw new IllegalStateException("Pedido fechado");
-        items.add(new OrderItem(product, qty));
+    public void addEntry(Merchant merchant, Money amount) {
+        if (status != Status.OPEN) throw new IllegalStateException("Fatura fechada");
+        entries.add(new InvoiceEntry(merchant, amount));
     }
 
     public Money total() {
-        return items.stream()
-            .map(OrderItem::subtotal)
+        return entries.stream()
+            .map(InvoiceEntry::amount)
             .reduce(Money.ZERO, Money::add);
     }
 
-    public void cancel() {
-        if (status == Status.SHIPPED) throw new IllegalStateException("Já enviado");
-        status = Status.CANCELLED;
+    public void close() {
+        if (status == Status.CLOSED) throw new IllegalStateException("Já fechada");
+        status = Status.CLOSED;
     }
 }
 ```

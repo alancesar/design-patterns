@@ -55,59 +55,60 @@ O Special Case é a generalização do [Null Object](/coding/gof/behavioral/null
 
 ```mermaid
 classDiagram
-    class Customer {
+    class Merchant {
         <<interface>>
         +name()
-        +discount()
+        +category()
     }
-    class RegularCustomer {
+    class KnownMerchant {
         +name()
-        +discount()
+        +category()
     }
-    class UnknownCustomer {
+    class UnknownMerchant {
         +name()
-        +discount()
+        +category()
     }
-    class CustomerFinder {
-        +find(id) Customer
+    class MerchantFinder {
+        +find(id) Merchant
     }
-    Customer <|.. RegularCustomer
-    Customer <|.. UnknownCustomer
-    CustomerFinder ..> Customer
+    Merchant <|.. KnownMerchant
+    Merchant <|.. UnknownMerchant
+    MerchantFinder ..> Merchant
 ```
 
-`UnknownCustomer` e `RegularCustomer` implementam `Customer`. O `CustomerFinder` devolve o `UnknownCustomer` quando não encontra o cliente, e o código cliente não precisa checar nulo.
+`UnknownMerchant` e `KnownMerchant` implementam `Merchant`. O `MerchantFinder` devolve o `UnknownMerchant` quando não encontra o estabelecimento, e o código cliente não precisa checar nulo.
 
 ## Exemplo
 
-Uma companhia de energia pode ter imóveis sem cliente identificado. Em vez de `null`, o finder devolve um `UnknownCustomer` com comportamento padrão.
+Lançamentos de cartão podem chegar sem estabelecimento identificado. Em vez de `null`, o finder devolve um `UnknownMerchant` com comportamento padrão, e o lançamento segue normalmente para a fatura.
 
 ```typescript
-interface Customer {
+interface Merchant {
   name(): string;
-  billingPlan(): string;
+  category(): string;
 }
 
-class RegularCustomer implements Customer {
-  constructor(private readonly customerName: string, private readonly plan: string) {}
-  name() { return this.customerName; }
-  billingPlan() { return this.plan; }
+class KnownMerchant implements Merchant {
+  constructor(private readonly merchantName: string, private readonly merchantCategory: string) {}
+  name() { return this.merchantName; }
+  category() { return this.merchantCategory; }
 }
 
-class UnknownCustomer implements Customer {
-  name() { return "ocupante"; }
-  billingPlan() { return "tarifa-padrao"; }
+class UnknownMerchant implements Merchant {
+  name() { return "estabelecimento não identificado"; }
+  category() { return "sem-categoria"; }
 }
 
-class CustomerFinder {
-  constructor(private readonly store: Map<string, Customer>) {}
-  find(id: string): Customer {
-    return this.store.get(id) ?? new UnknownCustomer();
+class MerchantFinder {
+  constructor(private readonly store: Map<string, Merchant>) {}
+  find(id: string): Merchant {
+    return this.store.get(id) ?? new UnknownMerchant();
   }
 }
 
-// Sem if (customer === null) em lugar nenhum
-const label = `${finder.find("x-1").name()} / ${finder.find("x-1").billingPlan()}`;
+// Sem if (merchant === null) em lugar nenhum
+const finder = new MerchantFinder(new Map());
+const label = `${finder.find("m-1").name()} / ${finder.find("m-1").category()}`;
 ```
 
 Exemplos conhecidos: `Collections.emptyList()` no Java, `AnonymousUser` em frameworks web e `Float.POSITIVE_INFINITY` como valor especial de um tipo numérico.

@@ -71,25 +71,25 @@ O `Mapper` conhece o `SubsystemA` e o `SubsystemB`, mas eles não têm referênc
 
 ## Exemplo
 
-Um módulo de cobrança e um módulo de envio de e-mails não devem se conhecer. Um mapper lê faturas do primeiro e produz mensagens para o segundo.
+Um módulo de faturas de cartão e um módulo de notificações não devem se conhecer. Um mapper lê faturas do primeiro e produz mensagens para o segundo.
 
 ```typescript
-interface Invoice { customerEmail: string; total: number; dueDate: Date }
+interface CardInvoice { holderEmail: string; totalCents: number; dueDate: Date }
 interface EmailMessage { to: string; subject: string; body: string }
 
-class InvoiceToEmailMapper {
-  map(invoice: Invoice): EmailMessage {
+class CardInvoiceToEmailMapper {
+  map(invoice: CardInvoice): EmailMessage {
     return {
-      to: invoice.customerEmail,
+      to: invoice.holderEmail,
       subject: "Sua fatura",
-      body: `Valor: ${invoice.total.toFixed(2)} — vencimento: ${invoice.dueDate.toISOString().slice(0, 10)}`,
+      body: `Valor: R$ ${(invoice.totalCents / 100).toFixed(2)} — vencimento: ${invoice.dueDate.toISOString().slice(0, 10)}`,
     };
   }
 }
 
-// O módulo de cobrança não conhece e-mail; o de e-mail não conhece faturas.
-const message = new InvoiceToEmailMapper().map({
-  customerEmail: "a@b.com", total: 120, dueDate: new Date(),
+// O módulo de faturas não conhece notificações; o de notificações não conhece faturas.
+const message = new CardInvoiceToEmailMapper().map({
+  holderEmail: "ana@example.com", totalCents: 128990, dueDate: new Date(),
 });
 ```
 

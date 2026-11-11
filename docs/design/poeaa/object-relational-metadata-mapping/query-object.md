@@ -75,26 +75,30 @@ O `Query` agrega vários `Criteria`. Ao executar, usa o `ClassMap` do mapeamento
 
 ## Exemplo
 
-Uma tela de busca de pedidos filtra por cliente e por valor mínimo, com filtros opcionais. A Criteria API do JPA monta a consulta com tipos, sem escrever SQL.
+A tela de extrato filtra os lançamentos de uma conta por período, tipo de lançamento e valor mínimo, e todos os filtros, exceto a conta, são opcionais. A Criteria API do JPA monta a consulta com tipos, sem escrever SQL.
 
 ```java
 CriteriaBuilder cb = em.getCriteriaBuilder();
-CriteriaQuery<Order> q = cb.createQuery(Order.class);
-Root<Order> o = q.from(Order.class);
+CriteriaQuery<LedgerEntry> q = cb.createQuery(LedgerEntry.class);
+Root<LedgerEntry> e = q.from(LedgerEntry.class);
 
 List<Predicate> filters = new ArrayList<>();
-if (customerId != null) {
-    filters.add(cb.equal(o.get("customer").get("id"), customerId));
+filters.add(cb.equal(e.get("account").get("id"), accountId));
+if (from != null && to != null) {
+    filters.add(cb.between(e.get("bookedAt"), from, to));
 }
-if (minTotal != null) {
-    filters.add(cb.greaterThanOrEqualTo(o.get("total"), minTotal));
+if (type != null) {
+    filters.add(cb.equal(e.get("type"), type));
+}
+if (minAmountCents != null) {
+    filters.add(cb.greaterThanOrEqualTo(e.get("amountCents"), minAmountCents));
 }
 
-q.select(o)
+q.select(e)
  .where(filters.toArray(new Predicate[0]))
- .orderBy(cb.desc(o.get("createdAt")));
+ .orderBy(cb.desc(e.get("bookedAt")));
 
-List<Order> result = em.createQuery(q).getResultList();
+List<LedgerEntry> result = em.createQuery(q).getResultList();
 ```
 
 LINQ no Entity Framework e o Specification em Spring Data seguem a mesma ideia.

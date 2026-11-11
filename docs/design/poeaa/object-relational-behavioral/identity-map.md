@@ -75,7 +75,7 @@ O `Mapper` consulta o `IdentityMap` antes de ir ao `Database`; se o objeto não 
 
 ## Exemplo
 
-Em um pedido, tanto o módulo de cobrança quanto o de entrega buscam o mesmo `Customer`. Com o Identity Map, ambos recebem a mesma instância.
+Em uma mesma requisição de transferência, a verificação de antifraude e a verificação de limite buscam a mesma `Account`. Com o Identity Map, ambas recebem a mesma instância.
 
 ```typescript
 class IdentityMap<T extends { id: number }> {
@@ -84,18 +84,18 @@ class IdentityMap<T extends { id: number }> {
   put(entity: T): void { this.items.set(entity.id, entity); }
 }
 
-class CustomerMapper {
-  private map = new IdentityMap<Customer>();
+class AccountMapper {
+  private map = new IdentityMap<Account>();
 
   constructor(private db: Database) {}
 
-  find(id: number): Customer {
+  find(id: number): Account {
     const cached = this.map.get(id);
     if (cached) return cached;
-    const row = this.db.queryOne("SELECT * FROM customers WHERE id = ?", [id]);
-    const customer = new Customer(row.id, row.name);
-    this.map.put(customer);
-    return customer;
+    const row = this.db.queryOne("SELECT * FROM accounts WHERE id = ?", [id]);
+    const account = new Account(row.id, row.balance_cents);
+    this.map.put(account);
+    return account;
   }
 }
 

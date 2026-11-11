@@ -66,20 +66,20 @@ The browser calls the page's controller directly; it queries the model and hands
 
 ## Example
 
-A user profile page has its own controller that reads the URL parameter, fetches the user, and renders the template.
+The Pix receipt page (`/receipts/{id}`) has its own controller that reads the identifier from the URL, fetches the `PixTransfer`, and renders the template.
 
 ```java
-@WebServlet("/profile")
-public class ProfileController extends HttpServlet {
-    private final UserService users = new UserService();
+@WebServlet("/receipts/*")
+public class PixReceiptController extends HttpServlet {
+    private final PixTransferService transfers = new PixTransferService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        long id = Long.parseLong(req.getParameter("id"));
-        User user = users.find(id);
-        req.setAttribute("user", user);
-        req.getRequestDispatcher("/WEB-INF/profile.jsp").forward(req, resp);
+        String id = req.getPathInfo().substring(1);  // /receipts/{id}
+        PixTransfer transfer = transfers.find(id);
+        req.setAttribute("transfer", transfer);
+        req.getRequestDispatcher("/WEB-INF/receipt.jsp").forward(req, resp);
     }
 }
 ```

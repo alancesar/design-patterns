@@ -57,11 +57,11 @@ sequenceDiagram
     participant B as Session B
     participant LM as Lock Manager
     participant DB as Database
-    A->>LM: acquire lock (order 10)
+    A->>LM: acquire lock (dossier 8841)
     LM-->>A: granted
-    B->>LM: acquire lock (order 10)
+    B->>LM: acquire lock (dossier 8841)
     LM-->>B: denied
-    A->>DB: reads and edits order 10
+    A->>DB: reads and edits dossier 8841
     A->>DB: writes changes
     A->>LM: release lock
     B->>LM: retry
@@ -72,12 +72,12 @@ Session A obtains the lock and works without competition. Session B is rejected 
 
 ## Example
 
-A document editing system allows only one writer to edit a contract at a time. A lock table with a primary key on the resource guarantees exclusivity: the `INSERT` fails if someone else already holds the lock.
+At a fintech, only one analyst works on a KYC dossier at a time (the same goes for a chargeback dispute). A lock table with a primary key on the resource guarantees exclusivity: the `INSERT` fails if another analyst already holds the lock.
 
 ```sql
 CREATE TABLE app_lock (
-  resource_id VARCHAR(100) PRIMARY KEY,
-  owner       VARCHAR(100) NOT NULL,
+  resource_id VARCHAR(100) PRIMARY KEY,  -- e.g.: 'kyc-dossier:8841'
+  owner       VARCHAR(100) NOT NULL,     -- analyst that owns the lock
   expires_at  TIMESTAMP    NOT NULL
 );
 ```
@@ -91,13 +91,15 @@ def acquire(conn, resource_id, owner, ttl_seconds=300):
         )
         return True
     except UniqueViolation:
-        return False  # another user holds the lock
+        return False  # another analyst holds the lock
 
 def release(conn, resource_id, owner):
     conn.execute(
         "DELETE FROM app_lock WHERE resource_id = ? AND owner = ?",
         (resource_id, owner),
     )
+
+# acquire(conn, "kyc-dossier:8841", "analyst-17")
 ```
 
 ## Related patterns

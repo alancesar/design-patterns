@@ -58,51 +58,56 @@ It's the foundation of ORMs such as Hibernate, Entity Framework, and SQLAlchemy,
 ```mermaid
 classDiagram
     class Client
-    class Person {
-        +name
-        +birthDate
-        +calculateAge()
+    class Account {
+        +number
+        +balanceCents
+        +deposit(amountCents)
+        +withdraw(amountCents)
     }
-    class PersonMapper {
+    class AccountMapper {
         +find(id)
-        +insert(person)
-        +update(person)
-        +delete(person)
+        +insert(account)
+        +update(account)
+        +delete(account)
     }
     class Database
-    Client --> PersonMapper
-    Client --> Person
-    PersonMapper ..> Person : maps
-    PersonMapper --> Database
+    Client --> AccountMapper
+    Client --> Account
+    AccountMapper ..> Account : maps
+    AccountMapper --> Database
 ```
 
-`Person` knows nothing about the database or the `PersonMapper`. The mapper reads from and writes to the `Database` and converts rows into `Person` objects, and vice versa.
+`Account` knows nothing about the database or the `AccountMapper`. The mapper reads from and writes to the `Database` and converts `contas_correntes` rows into `Account` objects, and vice versa.
 
 ## Example
 
-An HR application has an `Employee` entity with business rules, and the `employees` table has different columns. The mapper does the translation and the domain stays pure.
+A digital bank has an `Account` entity with balance rules, and a legacy `contas_correntes` table with different names and columns. The `AccountMapper` does the translation and the domain stays pure.
 
 ```java
-class Employee {                       // pure domain
-    private final String name;
-    private final LocalDate hiredAt;
-    Employee(String name, LocalDate hiredAt) { this.name = name; this.hiredAt = hiredAt; }
-    int yearsOfService() { return Period.between(hiredAt, LocalDate.now()).getYears(); }
+class Account {                        // pure domain
+    private final String number;
+    private long balanceCents;
+    Account(String number, long balanceCents) { this.number = number; this.balanceCents = balanceCents; }
+    void deposit(long amountCents) { balanceCents += amountCents; }
+    void withdraw(long amountCents) {
+        if (amountCents > balanceCents) throw new IllegalStateException("insufficient balance");
+        balanceCents -= amountCents;
+    }
 }
 
-class EmployeeMapper {
+class AccountMapper {
     private final JdbcTemplate jdbc;
-    EmployeeMapper(JdbcTemplate jdbc) { this.jdbc = jdbc; }
+    AccountMapper(JdbcTemplate jdbc) { this.jdbc = jdbc; }
 
-    Employee find(long id) {
+    Account find(long id) {
         return jdbc.queryForObject(
-            "SELECT full_name, hire_date FROM employees WHERE id = ?",
-            (rs, n) -> new Employee(rs.getString("full_name"),
-                                    rs.getDate("hire_date").toLocalDate()),
+            "SELECT num_conta, saldo_centavos FROM contas_correntes WHERE id = ?",
+            (rs, n) -> new Account(rs.getString("num_conta"),
+                                   rs.getLong("saldo_centavos")),
             id);
     }
 
-    void insert(Employee e) { /* INSERT from the fields of Employee */ }
+    void insert(Account a) { /* INSERT from the fields of Account */ }
 }
 ```
 

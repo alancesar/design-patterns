@@ -74,7 +74,7 @@ The `Client` keeps only the `sessionId`. Any server reads and writes the state i
 
 ## Example
 
-A multi-step insurance registration is saved at each step in a `session_state` table, expiring after 7 days. The user can come back from another device and continue.
+A payroll-deducted loan proposal, filled in over several steps, is saved at each step in a `session_state` table, expiring after 7 days. The customer can start on a phone and resume from another device, using the same resume `session_id`.
 
 ```python
 import json

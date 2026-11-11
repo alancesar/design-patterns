@@ -70,29 +70,29 @@ A sessão B grava primeiro e incrementa a versão. A sessão A tenta gravar com 
 
 ## Exemplo
 
-Dois atendentes abrem o mesmo cadastro de cliente. O primeiro salva; o segundo, ao salvar, recebe um erro de conflito em vez de sobrescrever a alteração. Em JPA, basta anotar um campo com `@Version`; em HTTP, o mesmo efeito vem com `ETag` e `If-Match`.
+Dois analistas de crédito abrem o mesmo cliente para alterar o limite de crédito. O primeiro salva; o segundo, ao salvar, recebe um erro de conflito em vez de sobrescrever a alteração. Em JPA, basta anotar um campo com `@Version`; em HTTP, o mesmo efeito vem com `ETag` e `If-Match`. Os valores são ilustrativos.
 
 ```java
 @Entity
-class Customer {
+class Account {
     @Id Long id;
-    String name;
+    long creditLimitCents;
 
     @Version
     long version; // o Hibernate adiciona "AND version = ?" ao UPDATE
 }
 
 try {
-    customer.setName("Novo nome");
+    account.setCreditLimitCents(500_000); // R$ 5.000,00
     entityManager.flush();
 } catch (OptimisticLockException e) {
-    // outro usuario alterou o registro: recarregar e pedir nova decisao
+    // outro analista alterou o limite: recarregar e pedir nova decisao
 }
 ```
 
 ```sql
-UPDATE customer
-   SET name = 'Novo nome', version = version + 1
+UPDATE account
+   SET credit_limit_cents = 500000, version = version + 1
  WHERE id = 42 AND version = 7;  -- 0 linhas => conflito
 ```
 

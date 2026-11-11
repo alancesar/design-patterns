@@ -59,46 +59,48 @@ In practice, a good Value Object is immutable, compares by value (implementing e
 
 ```mermaid
 classDiagram
-    class Entity {
+    class Account {
         +id
     }
-    class DateRange {
-        +start
-        +end
-        +includes(date)
-        +overlaps(other)
+    class PixKey {
+        +keyType
+        +value
         +equals(other)
     }
-    Entity --> DateRange
+    Account --> PixKey
 ```
 
-The `Entity` owns a `DateRange`. The `DateRange` has no identity: it's compared and replaced by value.
+The `Account` entity owns a `PixKey`. The `PixKey` has no identity: it's compared and replaced by value.
 
 ## Example
 
-A booking system represents the stay period as an immutable Value Object that validates itself.
+A digital account represents the Pix key as an immutable Value Object that validates its own format.
 
 ```python
+import re
 from dataclasses import dataclass
-from datetime import date
+
+_PATTERNS = {
+    "cpf": r"\d{11}",
+    "email": r"[^@\s]+@[^@\s]+\.[^@\s]+",
+    "phone": r"\+55\d{10,11}",
+    "random": r"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+}
 
 @dataclass(frozen=True)
-class DateRange:
-    start: date
-    end: date
+class PixKey:
+    key_type: str
+    value: str
 
     def __post_init__(self):
-        if self.end < self.start:
-            raise ValueError("end must be greater than or equal to start")
+        pattern = _PATTERNS.get(self.key_type)
+        if pattern is None:
+            raise ValueError("unknown key type")
+        if not re.fullmatch(pattern, self.value):
+            raise ValueError("invalid format for the key type")
 
-    def includes(self, day: date) -> bool:
-        return self.start <= day <= self.end
-
-    def overlaps(self, other: "DateRange") -> bool:
-        return self.start <= other.end and other.start <= self.end
-
-a = DateRange(date(2026, 1, 1), date(2026, 1, 10))
-b = DateRange(date(2026, 1, 1), date(2026, 1, 10))
+a = PixKey("email", "ana@example.com")
+b = PixKey("email", "ana@example.com")
 assert a == b  # equality by value
 ```
 

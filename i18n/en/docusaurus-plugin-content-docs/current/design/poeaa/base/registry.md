@@ -55,36 +55,41 @@ The Registry is a pattern of last resort: when possible, passing dependencies ex
 classDiagram
     class Registry {
         +getInstance()$
-        +personFinder()
-        +orderService()
+        +accountFinder()
+        +feeTable()
     }
-    class PersonFinder
-    class OrderService
+    class AccountFinder
+    class FeeTable
     class Client
     Client --> Registry
-    Registry --> PersonFinder
-    Registry --> OrderService
+    Registry --> AccountFinder
+    Registry --> FeeTable
 ```
 
-The `Client` asks the `Registry` for the `PersonFinder` or the `OrderService` it needs, without having received either one as a parameter.
+The `Client` asks the `Registry` for the `AccountFinder` or the `FeeTable` it needs, without having received either one as a parameter.
 
 ## Example
 
-Some legacy code needs the person finder in many places. The Registry exposes static access and lets tests swap the implementation.
+Some legacy code needs the account finder and the fee table in many places. The Registry exposes static access and lets tests swap the implementation.
 
 ```java
 public class Registry {
     private static Registry instance = new Registry();
-    private PersonFinder personFinder = new DatabasePersonFinder();
+    private AccountFinder accountFinder = new DatabaseAccountFinder();
+    private FeeTable feeTable = new FeeTable();
 
-    public static PersonFinder personFinder() {
-        return instance.personFinder;
+    public static AccountFinder accountFinder() {
+        return instance.accountFinder;
+    }
+
+    public static FeeTable feeTable() {
+        return instance.feeTable;
     }
 
     // For tests: installs a stub and resets the state
-    public static void initializeForTests(PersonFinder stub) {
+    public static void initializeForTests(AccountFinder stub) {
         instance = new Registry();
-        instance.personFinder = stub;
+        instance.accountFinder = stub;
     }
 
     public static void reset() {
@@ -93,7 +98,7 @@ public class Registry {
 }
 
 // Client
-Person person = Registry.personFinder().find(42L);
+Account account = Registry.accountFinder().find(42L);
 ```
 
 Service locators (`ServiceLocator`) and manually queried application contexts are variations of the Registry.

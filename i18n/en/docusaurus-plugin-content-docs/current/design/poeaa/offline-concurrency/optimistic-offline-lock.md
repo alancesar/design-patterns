@@ -70,29 +70,29 @@ Session B writes first and increments the version. Session A tries to write with
 
 ## Example
 
-Two support agents open the same customer record. The first one saves; the second, on saving, gets a conflict error instead of overwriting the change. In JPA, annotating a field with `@Version` is enough; in HTTP, the same effect comes from `ETag` and `If-Match`.
+Two credit analysts open the same customer to change the credit limit. The first one saves; the second, on saving, gets a conflict error instead of overwriting the change. In JPA, annotating a field with `@Version` is enough; in HTTP, the same effect comes from `ETag` and `If-Match`. The amounts are illustrative.
 
 ```java
 @Entity
-class Customer {
+class Account {
     @Id Long id;
-    String name;
+    long creditLimitCents;
 
     @Version
     long version; // Hibernate adds "AND version = ?" to the UPDATE
 }
 
 try {
-    customer.setName("New name");
+    account.setCreditLimitCents(500_000); // R$ 5,000.00
     entityManager.flush();
 } catch (OptimisticLockException e) {
-    // another user changed the record: reload and ask for a new decision
+    // another analyst changed the limit: reload and ask for a new decision
 }
 ```
 
 ```sql
-UPDATE customer
-   SET name = 'New name', version = version + 1
+UPDATE account
+   SET credit_limit_cents = 500000, version = version + 1
  WHERE id = 42 AND version = 7;  -- 0 rows => conflict
 ```
 

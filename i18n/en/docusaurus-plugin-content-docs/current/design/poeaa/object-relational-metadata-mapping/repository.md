@@ -57,46 +57,44 @@ In DDD (Domain-Driven Design), Evans defines the Repository as the mechanism tha
 
 ```mermaid
 classDiagram
-    class DomainService
-    class OrderRepository {
+    class AccountService
+    class AccountRepository {
         <<interface>>
-        +add(order)
-        +remove(order)
-        +findById(id)
-        +matching(query)
+        +save(account)
+        +findByHolderCpf(cpf)
     }
-    class DataMapperOrderRepository
-    class OrderMapper
-    class Order
-    DomainService --> OrderRepository
-    OrderRepository <|.. DataMapperOrderRepository
-    DataMapperOrderRepository --> OrderMapper
-    OrderRepository ..> Order
+    class JpaAccountRepository
+    class AccountMapper
+    class Account
+    AccountService --> AccountRepository
+    AccountRepository <|.. JpaAccountRepository
+    JpaAccountRepository --> AccountMapper
+    AccountRepository ..> Account
 ```
 
-The `DomainService` uses only the `OrderRepository` interface. The implementation delegates to the `OrderMapper` and returns `Order` objects.
+The `AccountService` uses only the `AccountRepository` interface. The `JpaAccountRepository` implementation delegates to the `AccountMapper` and returns `Account` objects.
 
 ## Example
 
-An order service needs to find and save orders without knowing the database. Spring Data generates the implementation from the interface.
+A digital account service needs to find and save accounts without knowing the database. Spring Data generates the implementation from the interface.
 
 ```java
-public interface OrderRepository extends JpaRepository<Order, Long> {
-    List<Order> findByCustomerIdAndStatus(Long customerId, Status status);
+public interface AccountRepository extends JpaRepository<Account, Long> {
+    Optional<Account> findByHolderCpf(Cpf holderCpf);
 }
 
 @Service
-public class OrderService {
-    private final OrderRepository orders;
+public class AccountService {
+    private final AccountRepository accounts;
 
-    public OrderService(OrderRepository orders) {
-        this.orders = orders;
+    public AccountService(AccountRepository accounts) {
+        this.accounts = accounts;
     }
 
-    public void cancel(Long id) {
-        Order order = orders.findById(id).orElseThrow();
-        order.cancel();
-        orders.save(order);
+    public void block(Cpf holderCpf) {
+        Account account = accounts.findByHolderCpf(holderCpf).orElseThrow();
+        account.block();
+        accounts.save(account);
     }
 }
 ```

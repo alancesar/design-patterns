@@ -58,42 +58,49 @@ A secondary benefit is encapsulating serialization: the wire format (JSON, XML, 
 classDiagram
     class Client
     class RemoteFacade {
-        +getOrder(id) OrderDTO
+        +getAccountSummary(accountId) AccountSummaryDTO
     }
-    class OrderAssembler {
-        +toDTO(order) OrderDTO
-        +toDomain(dto) Order
+    class AccountSummaryAssembler {
+        +toDTO(account, entries) AccountSummaryDTO
     }
-    class OrderDTO {
-        +id
-        +customerName
-        +lines
+    class AccountSummaryDTO {
+        +accountId
+        +balanceCents
+        +limitCents
+        +recentEntries
     }
-    class Order
+    class Account
+    class LedgerEntry
     Client --> RemoteFacade
-    RemoteFacade --> OrderAssembler
-    OrderAssembler ..> OrderDTO : creates
-    OrderAssembler --> Order : reads and updates
+    RemoteFacade --> AccountSummaryAssembler
+    AccountSummaryAssembler ..> AccountSummaryDTO : creates
+    AccountSummaryAssembler --> Account : reads
+    AccountSummaryAssembler --> LedgerEntry : reads
 ```
 
-The `Client` receives an `OrderDTO` from the `RemoteFacade`. The `OrderAssembler` is the only one that knows both the DTO and the domain `Order`.
+The `Client` receives an `AccountSummaryDTO` from the `RemoteFacade`. The `AccountSummaryAssembler` is the only one that knows both the DTO and the `Account` and `LedgerEntry` domain objects.
 
 ## Example
 
-An API returns an order with its customer and items in a single response. The DTO is an immutable record and the assembler converts the entity.
+A digital bank API returns the account summary, with balance, limit and latest entries, in a single response. The DTO is an immutable record and the assembler converts the entities.
 
 ```java
-public record OrderLineDTO(String sku, int quantity, long priceCents) {}
+public record EntryDTO(String description, long amountCents, LocalDate postedAt) {}
 
-public record OrderDTO(String id, String customerName, List<OrderLineDTO> lines) {}
+public record AccountSummaryDTO(
+    String accountId, long balanceCents, long limitCents, List<EntryDTO> recentEntries) {}
 
-public class OrderAssembler {
-    public OrderDTO toDTO(Order order) {
-        List<OrderLineDTO> lines = order.getLines().stream()
-            .map(l -> new OrderLineDTO(
-                l.getProduct().getSku(), l.getQuantity(), l.getPrice().cents()))
+public class AccountSummaryAssembler {
+    public AccountSummaryDTO toDTO(Account account, List<LedgerEntry> entries) {
+        List<EntryDTO> recent = entries.stream()
+            .map(e -> new EntryDTO(
+                e.getDescription(), e.getAmount().cents(), e.getPostedAt()))
             .toList();
-        return new OrderDTO(order.getId(), order.getCustomer().getName(), lines);
+        return new AccountSummaryDTO(
+            account.getId(),
+            account.getBalance().cents(),
+            account.getCreditLimit().cents(),
+            recent);
     }
 }
 ```

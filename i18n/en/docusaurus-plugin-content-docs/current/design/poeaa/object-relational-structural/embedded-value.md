@@ -49,49 +49,46 @@ It's often used with Value Object, Money, and other types without identity.
 
 ```mermaid
 classDiagram
-    class Employee {
-        -String name
-        -Address address
+    class LedgerEntry {
+        -String description
+        -Money amount
     }
-    class Address {
-        -String street
-        -String city
-        -String zip
+    class Money {
+        -long amountCents
+        -String currency
     }
-    class EmployeeTable {
+    class LedgerEntryTable {
         <<table>>
         id
-        name
-        street
-        city
-        zip
+        description
+        amount_cents
+        currency
     }
-    Employee *-- Address
-    Employee ..> EmployeeTable : mapped to
+    LedgerEntry *-- Money
+    LedgerEntry ..> LedgerEntryTable : mapped to
 ```
 
-`Address` has no table: its fields become columns of `EmployeeTable`.
+`Money` has no table: its fields become columns of `LedgerEntryTable`.
 
 ## Example
 
-An `Employee` has an embedded `Address`; the columns live in the employee's table.
+A `LedgerEntry` has an embedded `Money`; the `amount_cents` and `currency` columns live in the entry's table.
 
 ```java
 @Embeddable
-public class Address {
-    private String street;
-    private String city;
-    private String zip;
+public class Money {
+    private long amountCents;
+    private String currency;
 }
 
 @Entity
-public class Employee {
+public class LedgerEntry {
     @Id @GeneratedValue
     private Long id;
-    private String name;
+    private String description;
 
     @Embedded
-    private Address address;
+    private Money amount;
 }
 ```
 

@@ -55,10 +55,10 @@ Uma aplicação corporativa pode ser vista como uma série de transações: algu
 ```mermaid
 classDiagram
     class Presentation
-    class OrderScripts {
-        +placeOrder(customerId, items)
-        +cancelOrder(orderId)
-        +recognizeRevenue(contractId)
+    class PaymentScripts {
+        +payBoleto(accountId, barcode, amountCents)
+        +reversePayment(paymentId)
+        +reconcileSettlements(fileId)
     }
     class Gateway {
         +find(id)
@@ -66,40 +66,39 @@ classDiagram
         +update(row)
     }
     class Database
-    Presentation --> OrderScripts
-    OrderScripts --> Gateway
+    Presentation --> PaymentScripts
+    PaymentScripts --> Gateway
     Gateway --> Database
 ```
 
-A camada de apresentação chama um script por requisição. Os scripts, agrupados em `OrderScripts`, usam um gateway fino para acessar o `Database`.
+A camada de apresentação chama um script por requisição. Os scripts, agrupados em `PaymentScripts`, usam um gateway fino para acessar o `Database`.
 
 ## Exemplo
 
-Um sistema de pedidos precisa calcular o total com desconto e gravar o pedido. Um único procedimento faz todo o trabalho.
+O app da fintech precisa pagar um boleto: validar o saldo, debitar a conta e gravar o pagamento. Um único procedimento faz todo o trabalho, em uma só transação.
 
 ```python
-class OrderScripts:
+class PaymentScripts:
     def __init__(self, db):
         self.db = db
 
-    def place_order(self, customer_id: int, items: list[dict]) -> int:
+    def pay_boleto(self, account_id: int, barcode: str, amount_cents: int) -> int:
         with self.db.transaction():
-            total = sum(i["price"] * i["qty"] for i in items)
-            customer = self.db.fetch_one(
-                "SELECT vip FROM customers WHERE id = %s", customer_id
+            account = self.db.fetch_one(
+                "SELECT balance_cents FROM accounts WHERE id = %s FOR UPDATE",
+                account_id,
             )
-            if customer["vip"]:
-                total *= 0.9
-            order_id = self.db.insert(
-                "INSERT INTO orders (customer_id, total) VALUES (%s, %s)",
-                customer_id, total,
+            if account["balance_cents"] < amount_cents:
+                raise ValueError("Saldo insuficiente")
+            self.db.execute(
+                "UPDATE accounts SET balance_cents = balance_cents - %s WHERE id = %s",
+                amount_cents, account_id,
             )
-            for i in items:
-                self.db.insert(
-                    "INSERT INTO order_items (order_id, sku, qty) VALUES (%s, %s, %s)",
-                    order_id, i["sku"], i["qty"],
-                )
-            return order_id
+            return self.db.insert(
+                "INSERT INTO boleto_payments (account_id, barcode, amount_cents) "
+                "VALUES (%s, %s, %s)",
+                account_id, barcode, amount_cents,
+            )
 ```
 
 ## Padrões relacionados

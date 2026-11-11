@@ -57,11 +57,11 @@ sequenceDiagram
     participant B as Sessao B
     participant LM as Lock Manager
     participant DB as Banco de dados
-    A->>LM: adquirir bloqueio (pedido 10)
+    A->>LM: adquirir bloqueio (dossiê 8841)
     LM-->>A: concedido
-    B->>LM: adquirir bloqueio (pedido 10)
+    B->>LM: adquirir bloqueio (dossiê 8841)
     LM-->>B: negado
-    A->>DB: le e edita pedido 10
+    A->>DB: le e edita dossiê 8841
     A->>DB: grava alteracoes
     A->>LM: liberar bloqueio
     B->>LM: tentar novamente
@@ -72,12 +72,12 @@ A sessão A obtém o bloqueio e trabalha sem concorrência. A sessão B é recus
 
 ## Exemplo
 
-Um sistema de edição de documentos permite que apenas um redator edite um contrato por vez. Uma tabela de bloqueios com chave primária no recurso garante a exclusividade: o `INSERT` falha se outro já detém o bloqueio.
+Em uma fintech, só um analista trabalha em um dossiê de KYC por vez (o mesmo vale para uma contestação). Uma tabela de bloqueios com chave primária no recurso garante a exclusividade: o `INSERT` falha se outro analista já detém o bloqueio.
 
 ```sql
 CREATE TABLE app_lock (
-  resource_id VARCHAR(100) PRIMARY KEY,
-  owner       VARCHAR(100) NOT NULL,
+  resource_id VARCHAR(100) PRIMARY KEY,  -- ex.: 'kyc-dossier:8841'
+  owner       VARCHAR(100) NOT NULL,     -- analista dono do bloqueio
   expires_at  TIMESTAMP    NOT NULL
 );
 ```
@@ -91,13 +91,15 @@ def acquire(conn, resource_id, owner, ttl_seconds=300):
         )
         return True
     except UniqueViolation:
-        return False  # outro usuario detem o bloqueio
+        return False  # outro analista detem o bloqueio
 
 def release(conn, resource_id, owner):
     conn.execute(
         "DELETE FROM app_lock WHERE resource_id = ? AND owner = ?",
         (resource_id, owner),
     )
+
+# acquire(conn, "kyc-dossier:8841", "analyst-17")
 ```
 
 ## Padrões relacionados

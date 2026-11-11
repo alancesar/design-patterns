@@ -72,26 +72,28 @@ The interface and the business logic operate on the same `RecordSet`, which is l
 
 ## Example
 
-An orders screen displays rows coming from the database, and a business rule calculates the total over them before the screen is bound to the same set.
+A statement screen displays rows coming from the database, and a business rule calculates the period balance over them before the screen is bound to the same set.
 
 ```csharp
 using System.Data;
 
-DataTable orders = new DataTable("Orders");
-orders.Columns.Add("Id", typeof(int));
-orders.Columns.Add("Quantity", typeof(int));
-orders.Columns.Add("UnitPrice", typeof(decimal));
+DataTable statement = new DataTable("Statement");
+statement.Columns.Add("Id", typeof(int));
+statement.Columns.Add("Description", typeof(string));
+statement.Columns.Add("AmountCents", typeof(long));
 
-orders.Rows.Add(1, 2, 10.50m);
-orders.Rows.Add(2, 5, 3.00m);
+statement.Rows.Add(1, "Pix received", 150000L);
+statement.Rows.Add(2, "Boleto payment", -45000L);
+statement.Rows.Add(3, "Card purchase", -12990L);
 
 // Business rule operating on the Record Set
-decimal total = 0;
-foreach (DataRow row in orders.Rows)
-    total += (int)row["Quantity"] * (decimal)row["UnitPrice"];
+long balanceCents = 0;
+foreach (DataRow row in statement.Rows)
+    balanceCents += (long)row["AmountCents"];
+// balanceCents -> 92010 (R$ 920.10)
 
 // The same table can be bound to a UI grid
-// grid.DataSource = orders;
+// grid.DataSource = statement;
 ```
 
 ## Related patterns

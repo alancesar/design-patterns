@@ -55,59 +55,60 @@ Special Case is the generalization of the GoF [Null Object](/coding/gof/behavior
 
 ```mermaid
 classDiagram
-    class Customer {
+    class Merchant {
         <<interface>>
         +name()
-        +discount()
+        +category()
     }
-    class RegularCustomer {
+    class KnownMerchant {
         +name()
-        +discount()
+        +category()
     }
-    class UnknownCustomer {
+    class UnknownMerchant {
         +name()
-        +discount()
+        +category()
     }
-    class CustomerFinder {
-        +find(id) Customer
+    class MerchantFinder {
+        +find(id) Merchant
     }
-    Customer <|.. RegularCustomer
-    Customer <|.. UnknownCustomer
-    CustomerFinder ..> Customer
+    Merchant <|.. KnownMerchant
+    Merchant <|.. UnknownMerchant
+    MerchantFinder ..> Merchant
 ```
 
-`UnknownCustomer` and `RegularCustomer` implement `Customer`. The `CustomerFinder` returns the `UnknownCustomer` when it doesn't find the customer, and the client code doesn't need to check for null.
+`UnknownMerchant` and `KnownMerchant` implement `Merchant`. The `MerchantFinder` returns the `UnknownMerchant` when it doesn't find the merchant, and the client code doesn't need to check for null.
 
 ## Example
 
-A utility company may have properties with no identified customer. Instead of `null`, the finder returns an `UnknownCustomer` with default behavior.
+Card entries may arrive without an identified merchant. Instead of `null`, the finder returns an `UnknownMerchant` with default behavior, and the entry goes on to the invoice normally.
 
 ```typescript
-interface Customer {
+interface Merchant {
   name(): string;
-  billingPlan(): string;
+  category(): string;
 }
 
-class RegularCustomer implements Customer {
-  constructor(private readonly customerName: string, private readonly plan: string) {}
-  name() { return this.customerName; }
-  billingPlan() { return this.plan; }
+class KnownMerchant implements Merchant {
+  constructor(private readonly merchantName: string, private readonly merchantCategory: string) {}
+  name() { return this.merchantName; }
+  category() { return this.merchantCategory; }
 }
 
-class UnknownCustomer implements Customer {
-  name() { return "occupant"; }
-  billingPlan() { return "standard-rate"; }
+class UnknownMerchant implements Merchant {
+  name() { return "unidentified merchant"; }
+  category() { return "uncategorized"; }
 }
 
-class CustomerFinder {
-  constructor(private readonly store: Map<string, Customer>) {}
-  find(id: string): Customer {
-    return this.store.get(id) ?? new UnknownCustomer();
+class MerchantFinder {
+  constructor(private readonly store: Map<string, Merchant>) {}
+  find(id: string): Merchant {
+    return this.store.get(id) ?? new UnknownMerchant();
   }
 }
 
-// No if (customer === null) anywhere
-const label = `${finder.find("x-1").name()} / ${finder.find("x-1").billingPlan()}`;
+// No if (merchant === null) anywhere
+const finder = new MerchantFinder(new Map());
+const label = `${finder.find("m-1").name()} / ${finder.find("m-1").category()}`;
 ```
 
 Well-known examples: `Collections.emptyList()` in Java, `AnonymousUser` in web frameworks, and `Float.POSITIVE_INFINITY` as a special value of a numeric type.

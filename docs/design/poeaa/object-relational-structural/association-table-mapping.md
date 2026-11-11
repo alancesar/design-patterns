@@ -48,32 +48,32 @@ Se a relação tiver atributos próprios (data, papel), a tabela de associação
 
 ```mermaid
 erDiagram
-    EMPLOYEE ||--o{ EMPLOYEE_SKILL : tem
-    SKILL ||--o{ EMPLOYEE_SKILL : tem
-    EMPLOYEE_SKILL {
-        bigint employee_id PK
-        bigint skill_id PK
+    ACCOUNT ||--o{ ACCOUNT_HOLDER : tem
+    HOLDER ||--o{ ACCOUNT_HOLDER : tem
+    ACCOUNT_HOLDER {
+        bigint account_id PK
+        bigint holder_id PK
     }
 ```
 
-A tabela `EMPLOYEE_SKILL` liga `EMPLOYEE` e `SKILL`, com chave primária composta pelas duas chaves estrangeiras.
+A tabela `ACCOUNT_HOLDER` liga `ACCOUNT` e `HOLDER`, com chave primária composta pelas duas chaves estrangeiras.
 
 ## Exemplo
 
-Funcionários possuem várias habilidades e uma habilidade pertence a vários funcionários.
+Em uma conta conjunta, uma `Account` tem vários titulares (`Holder`) e um titular pode ter várias contas.
 
 ```java
 @Entity
-public class Employee {
+public class Account {
     @Id @GeneratedValue
     private Long id;
 
     @ManyToMany
     @JoinTable(
-        name = "employee_skill",
-        joinColumns = @JoinColumn(name = "employee_id"),
-        inverseJoinColumns = @JoinColumn(name = "skill_id"))
-    private Set<Skill> skills = new HashSet<>();
+        name = "account_holder",
+        joinColumns = @JoinColumn(name = "account_id"),
+        inverseJoinColumns = @JoinColumn(name = "holder_id"))
+    private Set<Holder> holders = new HashSet<>();
 }
 ```
 
