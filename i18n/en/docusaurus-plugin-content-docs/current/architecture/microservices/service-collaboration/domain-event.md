@@ -58,7 +58,7 @@ The pattern itself defines what to publish; reliable publication (atomic with th
 
 ```mermaid
 flowchart LR
-    A["Aggregate (Charge)"] -->|"emits"| E["Event: ChargePaid"]
+    A["Aggregate (PixCharge)"] -->|"emits"| E["Event: ChargePaid"]
     S["Pix service"] --- A
     S -->|"publishes"| B["Messaging"]
     E -.-> B

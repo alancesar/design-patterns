@@ -15,7 +15,7 @@ sidebar_label: "Self-contained Service"
 
 Self-contained Service designs a service to respond to a synchronous request without having to wait for any other service. This keeps the operation's availability and latency from depending on a chain of remote calls.
 
-There are two ways to achieve this: absorb the needed functionality as a module inside the service itself (for example, merging the order and restaurant services), or collaborate asynchronously, using sagas to maintain consistency and CQRS to keep a local replica of data owned by other services. That way, the service accepts the request, validates it against local data, and completes the rest asynchronously, leaving the order in a pending state until confirmation.
+There are two ways to achieve this: absorb the needed functionality as a module inside the service itself (for example, merging the order and restaurant services), or collaborate asynchronously, using sagas to maintain consistency and CQRS to keep a local replica of data owned by other services. That way, the service accepts the request, validates it against local data, and completes the rest asynchronously, leaving the operation in a pending state until confirmation.
 
 ## Problems it solves
 

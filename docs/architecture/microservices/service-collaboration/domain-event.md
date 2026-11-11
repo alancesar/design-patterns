@@ -58,7 +58,7 @@ O padrão em si define o que publicar; a publicação confiável (atômica com a
 
 ```mermaid
 flowchart LR
-    A["Agregado (Cobrança)"] -->|"emite"| E["Evento: ChargePaid"]
+    A["Agregado (PixCharge)"] -->|"emite"| E["Evento: ChargePaid"]
     S["Serviço de Pix"] --- A
     S -->|"publica"| B["Mensageria"]
     E -.-> B

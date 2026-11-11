@@ -65,15 +65,17 @@ flowchart LR
     C["Cliente"] -->|"Solicita Pix"| I["Serviço de Pix"]
     I -->|"Publica: transferência solicitada"| B[("Message broker")]
     B -->|"Evento"| F["Antifraude"]
+    B -->|"Evento"| LM["Limites"]
     F -->|"Publica: transferência aprovada"| B
-    B -->|"Evento"| L["Ledger"]
+    LM -->|"Publica: limite reservado"| B
+    B -->|"Eventos correlacionados"| L["Ledger"]
     L -->|"Publica: débito efetuado"| B
     B -->|"Evento"| K["Conector SPI"]
     K -->|"Publica: transferência liquidada"| B
     B -.->|"Falhas"| Q["DLQ e compensações"]
 ```
 
-Nenhum serviço coordena os demais: cada um reage aos eventos do broker e publica o resultado da sua parte. O antifraude só avalia depois de "transferência solicitada", o ledger só debita depois de "transferência aprovada" e o conector só envia ao SPI depois de "débito efetuado", todos correlacionados pelo `endToEndId` da transferência. A fonte ilustra o padrão com uma entrega por drones.
+Nenhum serviço coordena os demais: cada um reage aos eventos do broker e publica o resultado da sua parte. O antifraude e o serviço de limites reagem em paralelo a "transferência solicitada", o ledger só debita depois de receber os dois eventos ("transferência aprovada" e "limite reservado") e o conector só envia ao SPI depois de "débito efetuado", todos correlacionados pelo `endToEndId` da transferência. A fonte ilustra o padrão com uma entrega por drones.
 
 ## Padrões relacionados
 

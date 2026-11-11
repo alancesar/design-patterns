@@ -47,7 +47,7 @@ In the microservices context, it is a third option for interprocess communicatio
 
 ```mermaid
 flowchart LR
-    C["Card authorizer"] -->|"domain protocol (e.g., ISO 8583)"| S["Card network"]
+    C["Card network"] -->|"domain protocol (e.g., ISO 8583)"| S["Card authorizer (issuer)"]
     S -->|"responses and streams over the same protocol"| C
 ```
 

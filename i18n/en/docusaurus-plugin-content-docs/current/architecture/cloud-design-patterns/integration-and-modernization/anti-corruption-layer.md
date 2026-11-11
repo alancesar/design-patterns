@@ -115,7 +115,8 @@ public class LegacyCoreAccountDirectory implements AccountDirectory {
         return switch (code) {
             case 1 -> AccountStatus.ACTIVE;
             case 2 -> AccountStatus.BLOCKED;
-            default -> AccountStatus.CLOSED;
+            case 9 -> AccountStatus.CLOSED;
+            default -> throw new IllegalStateException("Unknown legacy status: " + code);
         };
     }
 }

@@ -47,7 +47,7 @@ No contexto de microsserviços, é uma terceira opção de comunicação entre p
 
 ```mermaid
 flowchart LR
-    C["Autorizador de cartões"] -->|"protocolo do domínio (ex.: ISO 8583)"| S["Bandeira do cartão"]
+    C["Bandeira do cartão"] -->|"protocolo do domínio (ex.: ISO 8583)"| S["Autorizador de cartões (emissor)"]
     S -->|"respostas e fluxos no mesmo protocolo"| C
 ```
 

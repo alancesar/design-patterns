@@ -57,7 +57,7 @@ flowchart LR
     S --> I3["Payment 3 message"]
 ```
 
-The composite batch is split into one message per payment, ready for independent routing. The source illustrates the pattern with a widget and gadget order.
+The composite batch is split into one message per payment, ready for independent routing. The source illustrates the pattern with an order that has several line items.
 
 ## Related patterns
 

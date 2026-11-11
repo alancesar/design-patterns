@@ -68,7 +68,7 @@ flowchart LR
     A1 --> S["Sistemas externos"]
     A2 --> S
     A3 --> S
-    M -->|"Decisão de bloqueio ou fora do escopo"| H["Analista humano"]
+    M -->|"Estagnação, fora do escopo ou decisão de bloqueio"| H["Analista humano"]
     M --> R["Resultado"]
 ```
 

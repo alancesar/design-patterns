@@ -54,7 +54,7 @@ O estado da execução é preservado durante a pausa. Quando o humano responde (
 
 ```mermaid
 sequenceDiagram
-    participant A1 as Agente de comunicação
+    participant A1 as Agente de PLD
     participant S as Sistema de revisão externo
     actor H as Analista de PLD
     participant A2 as Agente de registro

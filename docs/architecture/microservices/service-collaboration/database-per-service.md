@@ -60,11 +60,11 @@ flowchart LR
     C --> CS["Serviço de cartões"]
     ACC --> ADB[("Banco de contas")]
     CS --> CDB[("Banco de cartões")]
-    ACC -->|"API"| CS
-    ACC -.->|"acesso direto proibido"| CDB
+    CS -->|"API"| ACC
+    CS -.->|"acesso direto proibido"| ADB
 ```
 
-Cada serviço acessa apenas o seu próprio banco. Quando precisa de dados de outro serviço, o Serviço de contas usa a API do Serviço de cartões, nunca o banco dele. A fonte ilustra o padrão com pedidos e clientes.
+Cada serviço acessa apenas o seu próprio banco. Quando precisa de dados de outro serviço, o Serviço de cartões usa a API do Serviço de contas, nunca o banco dele. A fonte ilustra o padrão com pedidos e clientes.
 
 ## Padrões relacionados
 

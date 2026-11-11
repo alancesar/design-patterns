@@ -57,7 +57,7 @@ flowchart LR
     C2 --> R2["Boleto processor"]
 ```
 
-The sender picks the channel according to the data type, and each processor receives only the format it knows how to handle. The source illustrates the pattern with a widget and gadget order.
+The sender picks the channel according to the data type, and each processor receives only the format it knows how to handle.
 
 ## Related patterns
 

@@ -57,7 +57,7 @@ flowchart LR
     C2 --> R2["Processador de boletos"]
 ```
 
-O remetente escolhe o canal segundo o tipo de dado, e cada processador recebe somente o formato que sabe tratar. A fonte ilustra o padrão com um pedido de widgets e gadgets.
+O remetente escolhe o canal segundo o tipo de dado, e cada processador recebe somente o formato que sabe tratar.
 
 ## Padrões relacionados
 

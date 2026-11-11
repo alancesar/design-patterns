@@ -15,7 +15,7 @@ sidebar_label: "Self-contained Service"
 
 Self-contained Service projeta um serviço para responder a uma requisição síncrona sem precisar esperar por nenhum outro serviço. Isso evita que a disponibilidade e a latência da operação dependam de uma cadeia de chamadas remotas.
 
-Há duas formas de obter isso: absorver a funcionalidade necessária como um módulo dentro do próprio serviço (por exemplo, unir os serviços de pedidos e de restaurantes) ou colaborar de forma assíncrona, usando sagas para manter a consistência e CQRS para manter uma réplica local dos dados pertencentes a outros serviços. Assim, o serviço aceita a requisição, valida com dados locais e conclui o restante de forma assíncrona, deixando o pedido em estado pendente até a confirmação.
+Há duas formas de obter isso: absorver a funcionalidade necessária como um módulo dentro do próprio serviço (por exemplo, unir os serviços de pedidos e de restaurantes) ou colaborar de forma assíncrona, usando sagas para manter a consistência e CQRS para manter uma réplica local dos dados pertencentes a outros serviços. Assim, o serviço aceita a requisição, valida com dados locais e conclui o restante de forma assíncrona, deixando a operação em estado pendente até a confirmação.
 
 ## Problemas que resolve
 

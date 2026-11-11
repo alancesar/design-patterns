@@ -28,7 +28,7 @@ Em microsserviços, a Saga é a consequência direta do padrão Database per Ser
 - Inviabilidade ou alto custo de protocolos de transação distribuída, como o two-phase commit, em ambientes de nuvem e com tecnologias de armazenamento heterogêneas.
 - Necessidade de desfazer de forma controlada as alterações parciais quando um passo de um fluxo de negócio distribuído falha.
 - Implementar transações de negócio que atravessam serviços sem 2PC quando cada serviço mantém seu banco privado (Database per Service).
-- Estados inconsistentes entre serviços após falhas parciais em operações longas (por exemplo, pedido criado, pagamento recusado e estoque já reservado).
+- Estados inconsistentes entre serviços após falhas parciais em operações longas (por exemplo, contrato criado, funding reservado e desembolso por Pix recusado).
 
 ## Quando usar
 

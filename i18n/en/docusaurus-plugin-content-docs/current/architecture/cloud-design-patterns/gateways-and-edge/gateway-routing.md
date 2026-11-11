@@ -16,7 +16,7 @@ sidebar_label: "Gateway Routing"
 
 The Gateway Routing pattern puts a gateway in front of a set of applications, services, or deployments and exposes everything through a single endpoint. The gateway inspects each request at layer 7 (URL path, host, headers, port, or source IP) and forwards it to the appropriate backend destination.
 
-This way, the client knows and talks to just one endpoint. The gateway can forward to distinct services (search, cart, checkout), to multiple instances of the same service (load balancing and availability, including across regions), or to different versions of a service (blue-green, canary, gradual rollout). The backend topology is encapsulated in the gateway, and changes to it come down to routing configuration adjustments.
+This way, the client knows and talks to just one endpoint. The gateway can forward to distinct services (accounts, Pix, cards), to multiple instances of the same service (load balancing and availability, including across regions), or to different versions of a service (blue-green, canary, gradual rollout). The backend topology is encapsulated in the gateway, and changes to it come down to routing configuration adjustments.
 
 A common reverse proxy, such as Nginx, already implements the pattern. On Azure, for example, Application Gateway offers regional routing and Front Door offers global routing.
 

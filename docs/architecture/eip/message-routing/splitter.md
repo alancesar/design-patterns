@@ -57,7 +57,7 @@ flowchart LR
     S --> I3["Mensagem do pagamento 3"]
 ```
 
-O lote é dividido em uma mensagem por pagamento, prontas para roteamento independente. A fonte ilustra o padrão com um pedido de widgets e gadgets.
+O lote é dividido em uma mensagem por pagamento, prontas para roteamento independente. A fonte ilustra o padrão com um pedido de vários itens.
 
 ## Padrões relacionados
 

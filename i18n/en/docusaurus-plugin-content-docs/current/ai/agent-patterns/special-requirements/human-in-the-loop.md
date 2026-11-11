@@ -54,7 +54,7 @@ The execution state is preserved during the pause. When the human responds (appr
 
 ```mermaid
 sequenceDiagram
-    participant A1 as Communication agent
+    participant A1 as AML reporting agent
     participant S as External review system
     actor H as AML analyst
     participant A2 as Recording agent

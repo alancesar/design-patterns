@@ -51,7 +51,7 @@ In this pattern, each team develops a client-side UI component, such as an Angul
 
 ```mermaid
 flowchart LR
-    N["App (home screen skeleton)"] --> C1[Balance component]
+    N["Web app (home screen skeleton)"] --> C1[Balance component]
     N --> C2[Card component]
     N --> C3[Credit offers component]
     C1 --> S1[Account service]
@@ -59,7 +59,7 @@ flowchart LR
     C3 --> S3[Credit service]
 ```
 
-The home screen skeleton in the app composes UI components, and each one queries its corresponding service. The source illustrates the pattern with product and inventory components.
+The home screen skeleton in the web app composes UI components, and each one queries its corresponding service. The source illustrates the pattern with product and inventory components.
 
 ## Related patterns
 

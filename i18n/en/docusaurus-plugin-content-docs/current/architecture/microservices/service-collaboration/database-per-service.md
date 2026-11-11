@@ -60,11 +60,11 @@ flowchart LR
     C --> CS["Card service"]
     ACC --> ADB[("Accounts database")]
     CS --> CDB[("Cards database")]
-    ACC -->|"API"| CS
-    ACC -.->|"direct access forbidden"| CDB
+    CS -->|"API"| ACC
+    CS -.->|"direct access forbidden"| ADB
 ```
 
-Each service accesses only its own database. When it needs data from another service, the Account service uses the Card service's API, never its database. The source illustrates the pattern with orders and customers.
+Each service accesses only its own database. When it needs data from another service, the Card service uses the Account service's API, never its database. The source illustrates the pattern with orders and customers.
 
 ## Related patterns
 

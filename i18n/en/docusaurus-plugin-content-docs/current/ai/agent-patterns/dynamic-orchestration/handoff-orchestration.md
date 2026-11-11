@@ -67,7 +67,7 @@ sequenceDiagram
     actor H as Human agent
     U->>T: Request
     T->>T: Evaluates and tries to resolve
-    T->>I: Handoff (unknown purchase on the invoice)
+    T->>I: Handoff (unrecognized purchase on the card bill)
     I->>I: Analyzes the purchase
     I->>F: Handoff (Pix sent to the wrong key)
     F->>H: Handoff (no capable agent)

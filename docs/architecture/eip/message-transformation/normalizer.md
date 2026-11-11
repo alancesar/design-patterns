@@ -64,7 +64,7 @@ flowchart LR
     T3 --> N
 ```
 
-O roteador identifica o formato de cada mensagem e a envia ao tradutor correspondente; todos os tradutores produzem o mesmo formato comum. A fonte ilustra o padrão com um pedido de widgets e gadgets.
+O roteador identifica o formato de cada mensagem e a envia ao tradutor correspondente; todos os tradutores produzem o mesmo formato comum.
 
 ## Padrões relacionados
 

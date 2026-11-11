@@ -28,7 +28,7 @@ In microservices, the Saga is the direct consequence of the Database per Service
 - The infeasibility or high cost of distributed transaction protocols, such as two-phase commit, in cloud environments and with heterogeneous storage technologies.
 - The need to undo partial changes in a controlled way when a step in a distributed business flow fails.
 - Implementing business transactions that cross services without 2PC when each service keeps its own private database (Database per Service).
-- Inconsistent states between services after partial failures in long operations (for example, order created, payment declined, and inventory already reserved).
+- Inconsistent states between services after partial failures in long operations (for example, contract created, funding reserved, and Pix disbursement declined).
 
 ## When to use
 

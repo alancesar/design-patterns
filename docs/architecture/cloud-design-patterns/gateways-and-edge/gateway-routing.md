@@ -16,7 +16,7 @@ sidebar_label: "Gateway Routing"
 
 O padrão Gateway Routing coloca um gateway na frente de um conjunto de aplicações, serviços ou implantações e expõe tudo por um único endpoint. O gateway examina cada requisição na camada 7 (caminho da URL, host, cabeçalhos, porta ou IP de origem) e a encaminha ao destino adequado no backend.
 
-Com isso, o cliente conhece e conversa com um só endpoint. O gateway pode encaminhar para serviços distintos (busca, carrinho, checkout), para várias instâncias do mesmo serviço (balanceamento de carga e disponibilidade, inclusive entre regiões) ou para versões diferentes de um serviço (blue-green, canary, rollout gradual). A topologia do backend fica encapsulada no gateway, e mudanças nela se resumem a ajustes de configuração de roteamento.
+Com isso, o cliente conhece e conversa com um só endpoint. O gateway pode encaminhar para serviços distintos (contas, Pix, cartões), para várias instâncias do mesmo serviço (balanceamento de carga e disponibilidade, inclusive entre regiões) ou para versões diferentes de um serviço (blue-green, canary, rollout gradual). A topologia do backend fica encapsulada no gateway, e mudanças nela se resumem a ajustes de configuração de roteamento.
 
 Um proxy reverso comum, como o Nginx, já implementa o padrão. No Azure, por exemplo, o Application Gateway oferece roteamento regional e o Front Door oferece roteamento global.
 
