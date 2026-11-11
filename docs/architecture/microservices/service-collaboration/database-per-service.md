@@ -56,15 +56,15 @@ Esse padrão é a base para a autonomia dos serviços, mas traz como consequênc
 
 ```mermaid
 flowchart LR
-    C["Cliente"] --> OS["Serviço de pedidos"]
-    C --> CS["Serviço de clientes"]
-    OS --> ODB[("Banco de pedidos")]
-    CS --> CDB[("Banco de clientes")]
-    OS -->|"API"| CS
-    OS -.->|"acesso direto proibido"| CDB
+    C["Cliente"] --> ACC["Serviço de contas"]
+    C --> CS["Serviço de cartões"]
+    ACC --> ADB[("Banco de contas")]
+    CS --> CDB[("Banco de cartões")]
+    ACC -->|"API"| CS
+    ACC -.->|"acesso direto proibido"| CDB
 ```
 
-Cada serviço acessa apenas o seu próprio banco. Quando precisa de dados de outro serviço, o Serviço de pedidos usa a API do Serviço de clientes, nunca o banco dele.
+Cada serviço acessa apenas o seu próprio banco. Quando precisa de dados de outro serviço, o Serviço de contas usa a API do Serviço de cartões, nunca o banco dele. A fonte ilustra o padrão com pedidos e clientes.
 
 ## Padrões relacionados
 

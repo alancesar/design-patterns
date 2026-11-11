@@ -59,17 +59,17 @@ The style trades the simplicity of a single component for team autonomy and flex
 ```mermaid
 flowchart LR
     C[Client] --> GW[API Gateway]
-    GW --> S1[Order Service]
-    GW --> S2[Customer Service]
-    GW --> S3[Delivery Service]
-    S1 --> DB1[(Orders DB)]
-    S2 --> DB2[(Customers DB)]
-    S3 --> DB3[(Deliveries DB)]
-    S1 -. "messages / calls" .-> S2
-    S1 -. "messages / calls" .-> S3
+    GW --> S1[Account Service]
+    GW --> S2[Pix Service]
+    GW --> S3[Card Service]
+    S1 --> DB1[(Accounts DB)]
+    S2 --> DB2[(Pix DB)]
+    S3 --> DB3[(Cards DB)]
+    S2 -. "messages / calls" .-> S1
+    S3 -. "messages / calls" .-> S1
 ```
 
-Each service is deployed independently, owns its own database, and is accessed through an API Gateway; collaboration between services happens through messages or remote calls.
+Each service is deployed independently, owns its own database, and is accessed through an API Gateway; collaboration between services happens through messages or remote calls. The source illustrates the pattern with orders and deliveries.
 
 ## Related patterns
 

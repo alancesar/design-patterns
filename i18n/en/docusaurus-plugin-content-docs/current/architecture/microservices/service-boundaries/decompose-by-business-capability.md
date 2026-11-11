@@ -49,17 +49,17 @@ Because capabilities change slowly, the resulting architecture is stable. Each s
 
 ```mermaid
 flowchart LR
-    N["Business (online store)"] --> C1["Capability: Catalog"]
-    N --> C2["Capability: Inventory"]
-    N --> C3["Capability: Orders"]
-    N --> C4["Capability: Delivery"]
-    C1 --> S1["Catalog Service"]
-    C2 --> S2["Inventory Service"]
-    C3 --> S3["Order Service"]
-    C4 --> S4["Delivery Service"]
+    N["Business (digital bank)"] --> C1["Capability: Onboarding"]
+    N --> C2["Capability: Accounts"]
+    N --> C3["Capability: Payments"]
+    N --> C4["Capability: Credit"]
+    C1 --> S1["Onboarding Service"]
+    C2 --> S2["Account Service"]
+    C3 --> S3["Payment Service"]
+    C4 --> S4["Credit Service"]
 ```
 
-Each business capability gives rise to a service with its own responsibility.
+Each business capability gives rise to a service with its own responsibility. The source illustrates the pattern with an online store (catalog, inventory, orders, and delivery).
 
 ## Related patterns
 

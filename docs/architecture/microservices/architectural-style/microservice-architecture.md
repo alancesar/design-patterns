@@ -59,17 +59,17 @@ O estilo troca a simplicidade de um componente único por autonomia de equipes e
 ```mermaid
 flowchart LR
     C[Cliente] --> GW[API Gateway]
-    GW --> S1[Serviço de Pedidos]
-    GW --> S2[Serviço de Clientes]
-    GW --> S3[Serviço de Entregas]
-    S1 --> DB1[(Banco de Pedidos)]
-    S2 --> DB2[(Banco de Clientes)]
-    S3 --> DB3[(Banco de Entregas)]
-    S1 -. "mensagens / chamadas" .-> S2
-    S1 -. "mensagens / chamadas" .-> S3
+    GW --> S1[Serviço de Contas]
+    GW --> S2[Serviço de Pix]
+    GW --> S3[Serviço de Cartões]
+    S1 --> DB1[(Banco de Contas)]
+    S2 --> DB2[(Banco de Pix)]
+    S3 --> DB3[(Banco de Cartões)]
+    S2 -. "mensagens / chamadas" .-> S1
+    S3 -. "mensagens / chamadas" .-> S1
 ```
 
-Cada serviço é implantado de forma independente, possui seu próprio banco e é acessado por um API Gateway; a colaboração entre serviços ocorre por mensagens ou chamadas remotas.
+Cada serviço é implantado de forma independente, possui seu próprio banco e é acessado por um API Gateway; a colaboração entre serviços ocorre por mensagens ou chamadas remotas. A fonte ilustra o padrão com pedidos e entregas.
 
 ## Padrões relacionados
 

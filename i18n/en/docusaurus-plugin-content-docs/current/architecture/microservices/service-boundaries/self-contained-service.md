@@ -50,18 +50,18 @@ There are two ways to achieve this: absorb the needed functionality as a module 
 ```mermaid
 sequenceDiagram
     participant C as Client
-    participant P as Order Service
-    participant R as Local restaurant replica
+    participant P as Pix Service
+    participant R as Local replica of customer limits
     participant S as Saga
-    C->>P: Create order
-    P->>R: Validate and price with local data
-    R-->>P: Restaurant data
-    P-->>C: Order accepted (pending)
-    P->>S: Start saga
-    S-->>P: Order confirmed or rejected
+    C->>P: Create PixTransfer
+    P->>R: Validate the limit with local data
+    R-->>P: Customer limit
+    P-->>C: Transfer accepted (pending)
+    P->>S: Start settlement saga
+    S-->>P: Transfer settled or rejected
 ```
 
-The service responds without calling other services; completion happens asynchronously through the saga.
+The service responds without calling other services; settlement completes asynchronously through the saga. The source illustrates the pattern with orders and restaurants.
 
 ## Related patterns
 

@@ -49,14 +49,14 @@ The pattern starts from Conway's law: the architecture reflects the organization
 
 ```mermaid
 flowchart LR
-    T1["Orders Team"] --> S1["Order Service"]
-    T2["Catalog Team"] --> S2["Catalog Service"]
-    T3["Delivery Team"] --> S3["Delivery Service"]
+    T1["Pix Team"] --> S1["Pix Service"]
+    T2["Cards Team"] --> S2["Card Service"]
+    T3["Credit Team"] --> S3["Credit Service"]
     S1 -->|"API"| S2
     S1 -->|"API"| S3
 ```
 
-Each team owns a service and the services communicate through APIs, keeping coupling low.
+Each team owns a service and the services communicate through APIs, keeping coupling low. The source illustrates the pattern with orders, catalog, and delivery teams.
 
 ## Related patterns
 

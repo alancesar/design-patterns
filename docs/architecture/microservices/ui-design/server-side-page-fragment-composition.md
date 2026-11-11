@@ -52,15 +52,15 @@ Neste padrão, cada equipe desenvolve uma aplicação web que gera o fragmento H
 ```mermaid
 flowchart LR
     N[Navegador] --> P["Compositor de página (templates)"]
-    P --> F1["Fragmento: detalhes do livro"]
-    P --> F2["Fragmento: avaliações"]
-    P --> F3["Fragmento: disponibilidade"]
-    F1 --> S1[Serviço de catálogo]
-    F2 --> S2[Serviço de avaliações]
-    F3 --> S3[Serviço de estoque]
+    P --> F1["Fragmento: saldo"]
+    P --> F2["Fragmento: fatura"]
+    P --> F3["Fragmento: investimentos"]
+    F1 --> S1[Serviço de contas]
+    F2 --> S2[Serviço de cartões]
+    F3 --> S3[Serviço de investimentos]
 ```
 
-O compositor de página monta no servidor os fragmentos HTML gerados por cada serviço e devolve a página completa ao navegador.
+O compositor de página monta no servidor os fragmentos HTML gerados por cada serviço e devolve a página inicial do internet banking completa ao navegador. A fonte ilustra o padrão com a página de um livro.
 
 ## Padrões relacionados
 

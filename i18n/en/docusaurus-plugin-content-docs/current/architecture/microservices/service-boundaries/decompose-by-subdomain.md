@@ -49,15 +49,15 @@ Subdomains are classified into three types: core (the competitive differentiator
 
 ```mermaid
 flowchart TB
-    D["Domain: online store"] --> CORE["Core: Order Management"]
-    D --> SUP["Supporting: Delivery"]
-    D --> GEN["Generic: Payments"]
-    CORE --> S1["Order Service"]
-    SUP --> S2["Delivery Service"]
+    D["Domain: digital bank"] --> CORE["Core: Credit Decision"]
+    D --> SUP["Supporting: Reconciliation"]
+    D --> GEN["Generic: Identity Verification"]
+    CORE --> S1["Credit Decision Service"]
+    SUP --> S2["Reconciliation Service"]
     GEN --> S3["Off-the-shelf product or generic service"]
 ```
 
-The domain is divided into subdomains of distinct types, each mapped to a suitable service or solution.
+The domain is divided into subdomains of distinct types, each mapped to a suitable service or solution. The source illustrates the pattern with orders, delivery, and payments.
 
 ## Related patterns
 

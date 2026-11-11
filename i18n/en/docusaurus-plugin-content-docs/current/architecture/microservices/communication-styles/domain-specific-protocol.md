@@ -47,11 +47,11 @@ In the microservices context, it is a third option for interprocess communicatio
 
 ```mermaid
 flowchart LR
-    C["Domain client (e.g., media player or email client)"] -->|"domain protocol (e.g., HLS, SMTP/IMAP)"| S["Domain service"]
+    C["Card authorizer"] -->|"domain protocol (e.g., ISO 8583)"| S["Card network"]
     S -->|"responses and streams over the same protocol"| C
 ```
 
-Client and service talk directly using a protocol established for the domain, with no generic RPI or messaging layer.
+Client and service talk directly using a protocol established for the domain, with no generic RPI or messaging layer. The source illustrates the pattern with media and email protocols.
 
 ## Related patterns
 

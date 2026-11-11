@@ -53,14 +53,14 @@ From the Enterprise Integration Patterns perspective (Hohpe and Woolf), Shared D
 
 ```mermaid
 flowchart LR
-    OS["Order service"] --> DB[("Shared database")]
-    CS["Customer service"] --> DB
-    PS["Payment service"] --> DB
-    DB --- T1["Order tables"]
-    DB --- T2["Customer tables"]
+    ACC["Account service"] --> DB[("Shared database")]
+    CS["Card service"] --> DB
+    LS["Credit service"] --> DB
+    DB --- T1["Account tables"]
+    DB --- T2["Card tables"]
 ```
 
-All services read and write to the same database, which simplifies transactions and queries but creates strong coupling through the shared schema.
+All services read and write to the same database, which simplifies transactions and queries but creates strong coupling through the shared schema. The source illustrates the pattern with orders, customers, and payments.
 
 ## Related patterns
 

@@ -14,7 +14,7 @@ sidebar_label: "API Composition"
 
 In an application with microservices and Database per Service, the data is spread across private databases, and queries that combine information from several services are no longer a simple *join*. API Composition solves this with a component called the *API Composer*, which invokes the services that hold the data and performs an in-memory *join* over the results.
 
-In general, the composer role is taken on by an API Gateway, but it can be a dedicated service or a *backend for frontend*. For example, to list a customer with their recent orders, the composer queries the customer service, then the order service, and assembles the combined response.
+In general, the composer role is taken on by an API Gateway, but it can be a dedicated service or a *backend for frontend*. For example, to build the customer overview, the composer queries the account service (balance), then the card service (open invoice), and assembles the combined response.
 
 **Relationship with Gateway Aggregation:** Gateway Aggregation, from the cloud pattern catalog, is essentially the same technique applied at the gateway: aggregating several backend calls into a single client request. The difference is in the focus. Gateway Aggregation is an edge pattern, focused on reducing the *chattiness* between client and services, and it doesn't discuss the origin of the data fragmentation. API Composition is a microservices data pattern, motivated by Database per Service, that specifically addresses how to implement queries and *joins* across private databases, and it can run inside the gateway or in any other service. Put another way: the gateway is a place where composition happens; composition is the query strategy.
 
@@ -55,18 +55,18 @@ In general, the composer role is taken on by an API Gateway, but it can be a ded
 sequenceDiagram
     participant C as Client
     participant A as API Composer
-    participant CS as Customer service
-    participant OS as Order service
-    C->>A: Query customer with recent orders
-    A->>CS: Fetch customer
-    CS-->>A: Customer data
-    A->>OS: Fetch customer's orders
-    OS-->>A: Order list
+    participant ACC as Account service
+    participant CS as Card service
+    C->>A: Query overview
+    A->>ACC: Fetch balance
+    ACC-->>A: Account balance
+    A->>CS: Fetch open invoice
+    CS-->>A: Open invoice
     A->>A: In-memory join
     A-->>C: Combined response
 ```
 
-The composer calls each service that owns the data, joins the results in memory, and returns a single response to the client.
+The composer calls each service that owns the data, joins the results in memory, and returns a single response to the client. The source illustrates the pattern with customers and orders.
 
 ## Related patterns
 

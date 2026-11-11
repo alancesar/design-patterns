@@ -13,7 +13,7 @@ sidebar_label: "Command-side Replica"
 
 ## Description
 
-In an architecture with Database per Service, a service that executes a command often needs data that belongs to another service. For example, the order service, when creating an order, needs the restaurant's menu, maintained by the restaurant service, to validate and price the items. Querying the other service at runtime, synchronously or as a step of a saga, increases network traffic and creates a runtime dependency.
+In an architecture with Database per Service, a service that executes a command often needs data that belongs to another service. For example, the transfer service, when creating a transfer, needs the customer's limits, maintained by a limits service, to validate the operation. Querying the other service at runtime, synchronously or as a step of a saga, increases network traffic and creates a runtime dependency.
 
 Command-side Replica solves this by keeping, inside the command's service, a read-only replica of the provider's data. The replica is updated by subscribing to domain events published by the provider service. The pattern has three elements: the command service, the provider service (the data owner), and the replica database.
 
@@ -56,15 +56,15 @@ Structurally, it's the same mechanism as CQRS: a derived copy fed by events. The
 
 ```mermaid
 flowchart LR
-    P["Provider service (restaurants)"] --> PDB[("Provider database")]
+    P["Provider service (limits)"] --> PDB[("Provider database")]
     P -->|"Domain events"| B["Messaging"]
-    B --> C["Command service (orders)"]
+    B --> C["Command service (transfers)"]
     C --> R[("Read-only replica")]
     C --> CDB[("Command service database")]
-    CL["Client"] -->|"createOrder()"| C
+    CL["Client"] -->|"createTransfer()"| C
 ```
 
-The command service subscribes to the provider's events to maintain the local replica, which it uses to validate the command without calling the provider.
+The command service subscribes to the provider's events to maintain the local replica, which it uses to validate the command without calling the provider. The source illustrates the pattern with orders and restaurants.
 
 ## Related patterns
 

@@ -50,18 +50,18 @@ Há duas formas de obter isso: absorver a funcionalidade necessária como um mó
 ```mermaid
 sequenceDiagram
     participant C as Cliente
-    participant P as Serviço de Pedidos
-    participant R as Réplica local de restaurantes
+    participant P as Serviço de Pix
+    participant R as Réplica local de limites do cliente
     participant S as Saga
-    C->>P: Criar pedido
-    P->>R: Validar e precificar com dados locais
-    R-->>P: Dados do restaurante
-    P-->>C: Pedido aceito (pendente)
-    P->>S: Iniciar saga
-    S-->>P: Pedido confirmado ou rejeitado
+    C->>P: Criar PixTransfer
+    P->>R: Validar o limite com dados locais
+    R-->>P: Limite do cliente
+    P-->>C: Transferência aceita (pendente)
+    P->>S: Iniciar saga de liquidação
+    S-->>P: Transferência liquidada ou rejeitada
 ```
 
-O serviço responde sem chamar outros serviços; a conclusão ocorre de forma assíncrona por meio da saga.
+O serviço responde sem chamar outros serviços; a liquidação termina de forma assíncrona por meio da saga. A fonte ilustra o padrão com pedidos e restaurantes.
 
 ## Padrões relacionados
 

@@ -60,17 +60,17 @@ In the microservices.io catalog, then, the API Gateway brings together in a sing
 
 ```mermaid
 flowchart LR
-    W["Web application"] --> G["API Gateway"]
+    W["Internet banking"] --> G["API Gateway"]
     M["Mobile app"] --> G
-    T["Third-party applications"] --> G
-    G -->|"routing"| S1["Product service"]
-    G -->|"composition"| S2["Pricing service"]
-    G -->|"composition"| S3["Inventory service"]
-    G -->|"composition"| S4["Reviews service"]
+    T["Open Finance partners"] --> G
+    G -->|"routing"| S1["Account service"]
+    G -->|"composition"| S2["Pix service"]
+    G -->|"composition"| S3["Card service"]
+    G -->|"composition"| S4["Investment service"]
     G -.->|"authentication"| A["Identity provider"]
 ```
 
-Clients talk only to the gateway. It routes some requests directly to the responsible service, composes responses from several services for others, and applies authentication before forwarding.
+Clients talk only to the gateway. It routes some requests directly to the responsible service, composes responses from several services for others, and applies authentication before forwarding. The source illustrates the pattern with product, pricing, inventory, and reviews services.
 
 ## Related patterns
 
