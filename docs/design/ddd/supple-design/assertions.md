@@ -56,7 +56,7 @@ sequenceDiagram
     participant C as Client
     participant A as Account
     C->>A: debit(amount)
-    Note over A: Pre: amount positivo e saldo continua acima do limite
+    Note over A: Pre: amount positivo e saldo não ultrapassa o limite do cheque especial
     A->>A: atualiza balance
     Note over A: Pos: balance = balance anterior - amount
     A-->>C: concluido
@@ -67,7 +67,7 @@ A pré-condição, a pós-condição e o invariante são declarados em torno do 
 
 ## Exemplo
 
-Em `Account.debit`, a pós-condição é que o saldo final é o saldo inicial menos o valor, e o invariante é que o saldo nunca fica abaixo do limite do cheque especial. Sem linguagem de contratos, elas viram testes automatizados e checagens no método.
+Em `Account.debit`, a pós-condição é que o saldo final é o saldo inicial menos o valor, e o invariante é que o saldo nunca fica negativo além do limite do cheque especial. Sem linguagem de contratos, elas viram testes automatizados e checagens no método.
 
 ```java
 public class Account {

@@ -73,8 +73,8 @@ In a Pix transfer, the `TransferController` (interface) calls the `TransferAppSe
 class TransferController {
   constructor(private transfers: TransferAppService) {}
 
-  async post(req: { from: string; to: string; amountCents: number }) {
-    await this.transfers.execute(req.from, req.to, req.amountCents);
+  async post(req: { accountId: string; pixKey: string; amountCents: number }) {
+    await this.transfers.execute(req.accountId, req.pixKey, req.amountCents);
   }
 }
 
@@ -82,12 +82,10 @@ class TransferController {
 class TransferAppService {
   constructor(private accounts: AccountRepository) {}
 
-  async execute(fromId: string, toId: string, amountCents: number): Promise<void> {
-    const from = await this.accounts.findById(fromId);
-    const to = await this.accounts.findById(toId);
-    from.transferTo(to, amountCents); // rule lives in the domain
-    await this.accounts.save(from);
-    await this.accounts.save(to);
+  async execute(accountId: string, pixKey: string, amountCents: number): Promise<void> {
+    const account = await this.accounts.findById(accountId);
+    account.sendPix(pixKey, Money.ofCents(amountCents)); // rule lives in the domain
+    await this.accounts.save(account);
   }
 }
 

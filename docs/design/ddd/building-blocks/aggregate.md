@@ -55,7 +55,7 @@ Referências entre agregados devem ser feitas por identidade, e não por referê
 classDiagram
     class CardAccount {
         <<aggregate root>>
-        +CardAccountId id
+        +String id
         +authorize(merchant, amount) AuthorizationHold
         +availableLimit() Money
     }
@@ -63,18 +63,18 @@ classDiagram
         +Money amount
         +String merchant
     }
-    class CardLimit {
+    class Money {
         <<value object>>
     }
     class Customer {
         <<aggregate root>>
     }
     CardAccount "1" *-- "*" AuthorizationHold
-    CardAccount --> CardLimit
+    CardAccount --> Money : limit
     CardAccount ..> Customer : customerId
 ```
 
-`CardAccount` é a raiz e controla `AuthorizationHold` e `CardLimit`. A referência a `Customer`, outro agregado, é feita apenas por identidade.
+`CardAccount` é a raiz e controla `AuthorizationHold` e o limite (`Money`). A referência a `Customer`, outro agregado, é feita apenas por identidade.
 
 ## Exemplo
 
@@ -98,8 +98,8 @@ class CardAccount {
   }
 
   availableLimit(): Money {
-    const held = this.holds.reduce((sum, h) => sum.add(h.amount), Money.zero());
-    return this.limit.subtract(held);
+    const held = this.holds.reduce((sum, h) => sum.plus(h.amount), Money.zero());
+    return this.limit.minus(held);
   }
 }
 ```

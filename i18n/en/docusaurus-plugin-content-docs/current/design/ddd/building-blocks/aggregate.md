@@ -55,7 +55,7 @@ References between aggregates should be made by identity rather than by direct o
 classDiagram
     class CardAccount {
         <<aggregate root>>
-        +CardAccountId id
+        +String id
         +authorize(merchant, amount) AuthorizationHold
         +availableLimit() Money
     }
@@ -63,18 +63,18 @@ classDiagram
         +Money amount
         +String merchant
     }
-    class CardLimit {
+    class Money {
         <<value object>>
     }
     class Customer {
         <<aggregate root>>
     }
     CardAccount "1" *-- "*" AuthorizationHold
-    CardAccount --> CardLimit
+    CardAccount --> Money : limit
     CardAccount ..> Customer : customerId
 ```
 
-`CardAccount` is the root and controls `AuthorizationHold` and `CardLimit`. The reference to `Customer`, another aggregate, is made by identity only.
+`CardAccount` is the root and controls `AuthorizationHold` and the limit (`Money`). The reference to `Customer`, another aggregate, is made by identity only.
 
 ## Example
 
@@ -98,8 +98,8 @@ class CardAccount {
   }
 
   availableLimit(): Money {
-    const held = this.holds.reduce((sum, h) => sum.add(h.amount), Money.zero());
-    return this.limit.subtract(held);
+    const held = this.holds.reduce((sum, h) => sum.plus(h.amount), Money.zero());
+    return this.limit.minus(held);
   }
 }
 ```

@@ -65,7 +65,7 @@ Each layer depends only on the layers below it: policies know about operations, 
 
 ## Example
 
-A fintech models its domain in three responsibility layers. Potential gathers what each customer is able to use (granted limits, contracted products such as account, card, and credit). Operations handles what is happening (Pix transfers, ledger entries, settlements). Policy holds the decision rules (fees, limit policy, anti-fraud rules), and is the layer that changes the most.
+A fintech models its domain in responsibility layers; the example follows three of them. Potential gathers what each customer is able to use (granted limits, contracted products such as account, card, and credit). Operations handles what is happening (Pix transfers, ledger entries, settlements). Policy holds the decision rules (fees, limit policy, anti-fraud rules), and is the layer that changes the most.
 
 When adding a new concept, "Pix nighttime limit" (an illustrative value, lower than the daytime one), the team asks what its responsibility is: it's a decision rule, so it lives in Policy, and it can query Operations to add up the night's transfers. If the transfers module in Operations started depending on a Policy class, the dependency rule would be violated and the design would be revisited so that Operations receives the decision (approve or decline the transfer) as a parameter.
 

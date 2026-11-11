@@ -56,7 +56,7 @@ sequenceDiagram
     participant C as Client
     participant A as Account
     C->>A: debit(amount)
-    Note over A: Pre: amount is positive and the balance stays above the limit
+    Note over A: Pre: amount is positive and the balance stays within the overdraft limit
     A->>A: updates balance
     Note over A: Post: balance = previous balance - amount
     A-->>C: done
@@ -67,7 +67,7 @@ The precondition, the postcondition, and the invariant are declared around the `
 
 ## Example
 
-In `Account.debit`, the postcondition is that the final balance is the initial balance minus the amount, and the invariant is that the balance never falls below the overdraft limit. Without a contract language, they become automated tests and checks in the method.
+In `Account.debit`, the postcondition is that the final balance is the initial balance minus the amount, and the invariant is that the balance never goes negative by more than the overdraft limit. Without a contract language, they become automated tests and checks in the method.
 
 ```java
 public class Account {

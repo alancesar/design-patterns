@@ -60,7 +60,7 @@ A seta bidirecional indica que não há upstream nem downstream: ambos os contex
 
 ## Exemplo
 
-O time de Pix e o time de Antifraude da fintech lançam o limite noturno para transferências Pix: das 20h às 6h, cada transferência tem um teto menor, que o cliente só pode aumentar depois de um período de carência (horários e valores ilustrativos). O Pix precisa aplicar o limite e consultar o Antifraude antes de enviar a ordem, e o Antifraude precisa avaliar os sinais da madrugada dentro do tempo de um pagamento instantâneo. Nenhum dos dois entrega sem o outro. Os dois times planejam o trabalho no mesmo ciclo, definem juntos o contrato da consulta de risco, rodam testes de integração conjuntos todos os dias e só liberam a funcionalidade quando ambos estão prontos.
+O time de Pix e o time de Antifraude da fintech lançam o limite noturno para transferências Pix: das 20h às 6h, cada transferência tem um teto menor, que o cliente só pode aumentar depois de um prazo de espera (horários e valores ilustrativos). O Pix precisa aplicar o limite e consultar o Antifraude antes de enviar a ordem, e o Antifraude precisa avaliar os sinais da madrugada dentro do tempo de um pagamento instantâneo. Nenhum dos dois entrega sem o outro. Os dois times planejam o trabalho no mesmo ciclo, definem juntos o contrato da consulta de risco, rodam testes de integração conjuntos todos os dias e só liberam a funcionalidade quando ambos estão prontos.
 
 ## Padrões relacionados
 

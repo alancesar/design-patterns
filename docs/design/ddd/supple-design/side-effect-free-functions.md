@@ -102,7 +102,7 @@ public final class Money {
         long[] shares = new long[ratios.length];
         long remainder = cents;
         for (int i = 0; i < ratios.length; i++) {
-            shares[i] = cents * ratios[i] / totalRatio;
+            shares[i] = Math.floorDiv(cents * ratios[i], totalRatio);
             remainder -= shares[i];
         }
         for (int i = 0; i < remainder; i++) shares[i]++;

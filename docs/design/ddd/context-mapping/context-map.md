@@ -56,8 +56,10 @@ Para Evans, o Context Map é o artefato central da modelagem estratégica: ele e
 flowchart LR
     CD["Conta Digital"] -->|"Open-host Service + Published Language"| CR["Crédito"]
     CD -->|"Customer/Supplier"| CA["Cartões"]
-    RP["Rede do Pix (SPI e DICT)"] -->|"Conformist"| CD
+    CD ---|"Shared Kernel"| CA
+    RP["Rede do Pix (SPI e DICT)"] -->|"Conformist"| PX["Pix"]
     L["Core bancário legado"] -->|"Anticorruption Layer"| CR
+    L -->|"Anticorruption Layer"| CD
     BU["Bureau de crédito (terceiro)"] -->|"Open-host Service"| CR
 ```
 
@@ -65,7 +67,7 @@ Cada aresta liga um contexto upstream ao seu downstream e é rotulada com o padr
 
 ## Exemplo
 
-A fintech tem os contextos Conta Digital, Cartões e Crédito, um core bancário legado e um bureau de crédito de terceiro, além da ligação com a rede do Pix. Ao desenhar o mapa, o time descobre que Conta Digital simplesmente adota o modelo de mensagens da rede do Pix (Conformist), que Crédito precisa de uma camada de tradução para ler os contratos antigos do core legado (Anticorruption Layer) e que Conta Digital expõe uma API estável para vários consumidores (Open-host Service).
+A fintech tem os contextos Conta Digital, Pix, Cartões e Crédito, um core bancário legado e um bureau de crédito de terceiro, além da ligação com a rede do Pix. Ao desenhar o mapa, o time descobre que o contexto de Pix simplesmente adota o modelo de mensagens da rede do Pix (Conformist), que Crédito e Conta Digital precisam de uma camada de tradução para ler os dados antigos do core legado (Anticorruption Layer), que Conta Digital e Cartões compartilham um pequeno núcleo de tipos (Shared Kernel) e que Conta Digital expõe uma API estável para vários consumidores (Open-host Service).
 
 Com isso, o time decide priorizar a reunião quinzenal entre Conta Digital e Cartões (Customer/Supplier) e planejar a retirada gradual do core legado, usando o mapa como referência de onde as traduções são necessárias.
 

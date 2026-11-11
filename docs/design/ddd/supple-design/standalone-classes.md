@@ -101,6 +101,12 @@ public final class Money {
     public Money minus(Money other) {
         return plus(new Money(-other.cents, other.currency));
     }
+
+    @Override public boolean equals(Object o) {
+        return o instanceof Money m && cents == m.cents && currency.equals(m.currency);
+    }
+
+    @Override public int hashCode() { return Objects.hash(cents, currency); }
 }
 
 // Teste isolado, sem outros objetos de domínio

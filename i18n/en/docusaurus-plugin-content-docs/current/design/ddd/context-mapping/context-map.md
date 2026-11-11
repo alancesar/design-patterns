@@ -56,8 +56,10 @@ For Evans, the Context Map is the central artifact of strategic modeling: it exp
 flowchart LR
     CD["Digital Account"] -->|"Open-host Service + Published Language"| CR["Credit"]
     CD -->|"Customer/Supplier"| CA["Cards"]
-    RP["Pix network (SPI and DICT)"] -->|"Conformist"| CD
+    CD ---|"Shared Kernel"| CA
+    RP["Pix network (SPI and DICT)"] -->|"Conformist"| PX["Pix"]
     L["Legacy core banking system"] -->|"Anticorruption Layer"| CR
+    L -->|"Anticorruption Layer"| CD
     BU["Credit bureau (third party)"] -->|"Open-host Service"| CR
 ```
 
@@ -65,7 +67,7 @@ Each edge connects an upstream context to its downstream and is labeled with the
 
 ## Example
 
-The fintech has the Digital Account, Cards, and Credit contexts, a legacy core banking system, and a third-party credit bureau, plus its connection to the Pix network. While drawing the map, the team discovers that Digital Account simply adopts the Pix network's message model (Conformist), that Credit needs a translation layer to read the old contracts in the legacy core (Anticorruption Layer), and that Digital Account exposes a stable API to several consumers (Open-host Service).
+The fintech has the Digital Account, Pix, Cards, and Credit contexts, a legacy core banking system, and a third-party credit bureau, plus its connection to the Pix network. While drawing the map, the team discovers that the Pix context simply adopts the Pix network's message model (Conformist), that Credit and Digital Account need a translation layer to read the old data in the legacy core (Anticorruption Layer), that Digital Account and Cards share a small kernel of types (Shared Kernel), and that Digital Account exposes a stable API to several consumers (Open-host Service).
 
 With that, the team decides to prioritize the biweekly meeting between Digital Account and Cards (Customer/Supplier) and to plan the gradual retirement of the legacy core, using the map as a reference for where translations are needed.
 

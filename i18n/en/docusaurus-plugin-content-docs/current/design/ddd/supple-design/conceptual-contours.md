@@ -74,12 +74,12 @@ public class InstallmentCalculator {
     private final IofPolicy iof;
     private final InsurancePolicy insurance;
 
-    public InstallmentCalculator(InterestPolicy i, IofPolicy t, InsurancePolicy s) {
-        this.interest = i; this.iof = t; this.insurance = s;
+    public InstallmentCalculator(InterestPolicy interest, IofPolicy iof, InsurancePolicy insurance) {
+        this.interest = interest; this.iof = iof; this.insurance = insurance;
     }
 
     public Money amountFor(LoanContract contract) {
-        Money principalPart = contract.amortization();
+        Money principalPart = contract.principalPortion();
         return principalPart
             .plus(interest.interestOn(contract))
             .plus(iof.iofOn(contract))

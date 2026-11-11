@@ -59,14 +59,14 @@ flowchart LR
     OHS --> C1["App"]
     OHS --> C2["Internet banking"]
     OHS --> C3["Backoffice"]
-    OHS --> C4["Instituições de Open Finance"]
+    OHS --> C4["Parceiros de BaaS"]
 ```
 
 O contexto de Conta Digital expõe um único protocolo aberto, consumido por vários canais e parceiros sem integrações sob medida.
 
 ## Exemplo
 
-O contexto de Conta Digital da fintech tem quatro consumidores: o app, o internet banking, o backoffice e instituições parceiras de Open Finance. Em vez de criar uma integração específica para cada um, o time publica uma API versionada, com recursos como `/accounts/{id}/balance` e `/accounts/{id}/statement` e eventos de mudança, descrita em uma Published Language. Quando o backoffice pede um campo útil só para ele, como o saldo médio do mês, o time do backoffice o calcula no próprio contexto a partir da API, sem alterar o protocolo.
+O contexto de Conta Digital da fintech tem quatro consumidores: o app, o internet banking, o backoffice e parceiros de Banking as a Service (BaaS). Em vez de criar uma integração específica para cada um, o time publica uma API versionada, com recursos como `/accounts/{id}/balance` e `/accounts/{id}/statement` e eventos de mudança, descrita em uma Published Language. Quando o backoffice pede um campo útil só para ele, como o saldo médio do mês, o time do backoffice o calcula no próprio contexto a partir da API, sem alterar o protocolo.
 
 ## Padrões relacionados
 
