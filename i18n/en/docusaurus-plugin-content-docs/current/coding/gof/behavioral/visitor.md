@@ -105,7 +105,7 @@ The `Client` applies a `ConcreteVisitor` to the `ObjectStructure`, which hands t
 
 ## Example
 
-The investment portfolio has stable asset types (`Cdb`, `Stock` and `FundShare`, the same assets that Composite organizes into portfolios and sub-portfolios), and new operations show up often: computing the tax due, generating the income report. Each operation is a visitor, with no changes to the asset classes. The tax rates in the example are illustrative.
+The investment portfolio has stable asset types (`Cdb`, `Stock` and `FundShare`; the same portfolio that Composite organizes into sub-portfolios), and new operations show up often: computing the tax due, generating the income report. Each operation is a visitor, with no changes to the asset classes. The tax rates in the example are illustrative.
 
 ```typescript
 interface AssetVisitor<R> {

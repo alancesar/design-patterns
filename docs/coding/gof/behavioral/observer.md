@@ -107,7 +107,7 @@ class PixReceiptService {
 
   receive(txid: string, amountCents: number) {
     // credita na conta e avisa os interessados
-    this.listeners.forEach(l => l.onPixReceived(txid, amountCents)); // push
+    this.listeners.forEach(l => l.onPixReceived(txid, amountCents)); // modelo push: os dados vão no evento
   }
 }
 

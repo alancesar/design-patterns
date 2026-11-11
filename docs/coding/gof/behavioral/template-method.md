@@ -83,12 +83,12 @@ classDiagram
 
 ## Exemplo
 
-O processamento de um arquivo de retorno bancário é sempre: ler, converter em registros, validar e baixar os boletos pagos. Só a leitura e a conversão mudam entre CNAB 240 e CNAB 400 (os mesmos layouts da família de arquivos do Abstract Factory, aqui vistos do lado do retorno).
+O processamento de um arquivo de retorno bancário é sempre: ler, converter em registros, validar e baixar os boletos pagos. Só a leitura e a conversão mudam entre CNAB 240 e CNAB 400 (o Abstract Factory usa os mesmos arquivos CNAB, mas varia o layout por banco parceiro; aqui o foco é o fluxo de processamento do retorno).
 
 ```java
 public abstract class RetornoProcessor {
     // Método template: estrutura fixa do fluxo
-    public final void process(String path) {
+    public final void process(String path) throws IOException {
         String raw = read(path);
         List<PaymentRecord> records = parse(raw);
         validate(records);
@@ -96,7 +96,7 @@ public abstract class RetornoProcessor {
         settle(records);
     }
 
-    protected abstract String read(String path);
+    protected abstract String read(String path) throws IOException;
     protected abstract List<PaymentRecord> parse(String raw);
 
     protected void validate(List<PaymentRecord> records) {
@@ -109,12 +109,12 @@ public abstract class RetornoProcessor {
 }
 
 public class Cnab240Processor extends RetornoProcessor {
-    protected String read(String path) { return Files.readString(Path.of(path)); }
+    protected String read(String path) throws IOException { return Files.readString(Path.of(path)); }
     protected List<PaymentRecord> parse(String raw) { return Cnab240Parser.parse(raw); }
 }
 
 public class Cnab400Processor extends RetornoProcessor {
-    protected String read(String path) {
+    protected String read(String path) throws IOException {
         return Files.readString(Path.of(path), StandardCharsets.ISO_8859_1);
     }
     protected List<PaymentRecord> parse(String raw) { return Cnab400Parser.parse(raw); }

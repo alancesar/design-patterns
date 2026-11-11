@@ -128,7 +128,7 @@ class Statement {
   }
 
   createReverseIterator(): StatementIterator {
-    return new ReverseStatementIterator(this.entries);
+    return new ReverseStatementIterator(this.entries); // simplificação: lê os lançamentos já carregados
   }
 }
 

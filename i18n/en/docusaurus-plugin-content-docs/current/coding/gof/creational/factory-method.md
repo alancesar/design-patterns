@@ -96,8 +96,8 @@ Every transfer follows the same flow (check the balance, create the instruction,
 
 ```typescript
 interface TransferRequest {
-  fromAccount: string;
-  toKey: string;
+  fromAccountId: string;
+  destination: string;
   amountCents: number;
 }
 
@@ -107,12 +107,12 @@ interface PaymentInstruction {
 
 class PixInstruction implements PaymentInstruction {
   constructor(private request: TransferRequest) {}
-  send() { return `Pix transfer of ${this.request.amountCents} cents to key ${this.request.toKey} (SPI)`; }
+  send() { return `Pix transfer of ${this.request.amountCents} cents to key ${this.request.destination} (SPI)`; }
 }
 
 class TedInstruction implements PaymentInstruction {
   constructor(private request: TransferRequest) {}
-  send() { return `TED of ${this.request.amountCents} cents to ${this.request.toKey} (next window)`; }
+  send() { return `TED of ${this.request.amountCents} cents to ${this.request.destination} (next window)`; }
 }
 
 abstract class TransferProcessor {
@@ -122,7 +122,7 @@ abstract class TransferProcessor {
     if (balanceCents < request.amountCents) throw new Error("insufficient balance");
     const instruction = this.createInstruction(request);
     console.log(instruction.send());
-    console.log(`ledger: debit of ${request.amountCents} cents on ${request.fromAccount}`);
+    console.log(`ledger: debit of ${request.amountCents} cents on ${request.fromAccountId}`);
   }
 }
 
@@ -135,7 +135,7 @@ class TedTransferProcessor extends TransferProcessor {
 }
 
 const processor: TransferProcessor = new PixTransferProcessor();
-processor.process({ fromAccount: "0001-1", toKey: "maria@example.com", amountCents: 12_500 }, 50_000);
+processor.process({ fromAccountId: "0001-1", destination: "maria@example.com", amountCents: 12_500 }, 50_000);
 ```
 
 ## Related patterns

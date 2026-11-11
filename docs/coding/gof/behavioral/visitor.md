@@ -105,7 +105,7 @@ O `Client` aplica um `ConcreteVisitor` à `ObjectStructure`, que repassa o visit
 
 ## Exemplo
 
-A carteira de investimentos tem tipos de ativo estáveis (`Cdb`, `Stock` e `FundShare`, os mesmos ativos que o Composite organiza em carteiras e subcarteiras), e novas operações aparecem com frequência: calcular o imposto devido, gerar o informe de rendimentos. Cada operação é um visitante, sem alterar as classes dos ativos. As alíquotas do exemplo são ilustrativas.
+A carteira de investimentos tem tipos de ativo estáveis (`Cdb`, `Stock` e `FundShare`; a mesma carteira que o Composite organiza em subcarteiras), e novas operações aparecem com frequência: calcular o imposto devido, gerar o informe de rendimentos. Cada operação é um visitante, sem alterar as classes dos ativos. As alíquotas do exemplo são ilustrativas.
 
 ```typescript
 interface AssetVisitor<R> {

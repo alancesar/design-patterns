@@ -100,7 +100,7 @@ class LedgerService {
 
 class SpiClient {
   submit(destination: PixDestination, amountCents: number, entryId: string): string {
-    return "E00000000202603101030abc123"; // endToEndId
+    return "E00000000202603101030abcdef12345"; // endToEndId
   }
 }
 

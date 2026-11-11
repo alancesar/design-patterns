@@ -115,7 +115,7 @@ class Portfolio implements Holding {
 const reserve = new Portfolio("Reserva").add(new Asset("CDB Liquidez Diária", new Money(2_000_000)));
 const retirement = new Portfolio("Aposentadoria")
   .add(new Asset("CDB 2029", new Money(1_500_000)))
-  .add(new Asset("FundShare Multimercado", new Money(800_000)));
+  .add(new Asset("Fundo Multimercado", new Money(800_000)));
 const portfolio = new Portfolio("Carteira").add(reserve).add(retirement);
 
 console.log(portfolio.currentValue().cents); // 4300000 (R$ 43.000,00)

@@ -101,18 +101,19 @@ class RemoteCreditBureau implements CreditBureau {
 }
 
 class CachingCreditBureauProxy implements CreditBureau {
+  private real?: CreditBureau;
   private cache = new Map<Cpf, number>();
-  constructor(private real: CreditBureau) {}
 
   score(cpf: Cpf): number {
     if (!this.cache.has(cpf)) {
+      this.real ??= new RemoteCreditBureau(); // criado só na primeira consulta
       this.cache.set(cpf, this.real.score(cpf)); // consulta sob demanda
     }
     return this.cache.get(cpf)!;
   }
 }
 
-const bureau: CreditBureau = new CachingCreditBureauProxy(new RemoteCreditBureau());
+const bureau: CreditBureau = new CachingCreditBureauProxy();
 bureau.score("123.456.789-09"); // consulta o bureau
 bureau.score("123.456.789-09"); // responde do cache, sem nova cobrança
 ```

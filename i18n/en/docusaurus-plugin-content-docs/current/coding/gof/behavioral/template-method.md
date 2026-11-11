@@ -83,12 +83,12 @@ classDiagram
 
 ## Example
 
-Processing a bank return file always follows the same flow: read, convert into records, validate and settle the paid boletos. Only reading and conversion change between CNAB 240 and CNAB 400 (the same layouts as the file family in Abstract Factory, seen here from the return side).
+Processing a bank return file always follows the same flow: read, convert into records, validate and settle the paid boletos. Only reading and conversion change between CNAB 240 and CNAB 400 (Abstract Factory uses the same CNAB files but varies the layout by partner bank; here the focus is the return-processing flow).
 
 ```java
 public abstract class RetornoProcessor {
     // Template method: fixed structure of the flow
-    public final void process(String path) {
+    public final void process(String path) throws IOException {
         String raw = read(path);
         List<PaymentRecord> records = parse(raw);
         validate(records);
@@ -96,7 +96,7 @@ public abstract class RetornoProcessor {
         settle(records);
     }
 
-    protected abstract String read(String path);
+    protected abstract String read(String path) throws IOException;
     protected abstract List<PaymentRecord> parse(String raw);
 
     protected void validate(List<PaymentRecord> records) {
@@ -109,12 +109,12 @@ public abstract class RetornoProcessor {
 }
 
 public class Cnab240Processor extends RetornoProcessor {
-    protected String read(String path) { return Files.readString(Path.of(path)); }
+    protected String read(String path) throws IOException { return Files.readString(Path.of(path)); }
     protected List<PaymentRecord> parse(String raw) { return Cnab240Parser.parse(raw); }
 }
 
 public class Cnab400Processor extends RetornoProcessor {
-    protected String read(String path) {
+    protected String read(String path) throws IOException {
         return Files.readString(Path.of(path), StandardCharsets.ISO_8859_1);
     }
     protected List<PaymentRecord> parse(String raw) { return Cnab400Parser.parse(raw); }

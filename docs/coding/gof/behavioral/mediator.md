@@ -96,10 +96,10 @@ Os bancos participantes não enviam ordens de pagamento diretamente uns aos outr
 ```typescript
 interface ClearingHouse {
   register(bank: ParticipantBank): void;
-  send(order: PaymentOrder): void;
+  send(order: ClearingOrder): void;
 }
 
-interface PaymentOrder {
+interface ClearingOrder {
   from: string;
   to: string;
   amountCents: number;
@@ -112,7 +112,7 @@ class InstantPaymentClearing implements ClearingHouse {
     this.banks.set(bank.code, bank);
   }
 
-  send(order: PaymentOrder): void {
+  send(order: ClearingOrder): void {
     const destination = this.banks.get(order.to);
     if (!destination) throw new Error(`Banco ${order.to} não participa da câmara`);
     destination.receive(order);
@@ -126,7 +126,7 @@ class ParticipantBank {
   pay(to: string, amountCents: number): void {
     this.clearing.send({ from: this.code, to, amountCents });
   }
-  receive(order: PaymentOrder): void {
+  receive(order: ClearingOrder): void {
     console.log(`[${this.code}] ordem de ${order.from}: ${order.amountCents} centavos`);
   }
 }

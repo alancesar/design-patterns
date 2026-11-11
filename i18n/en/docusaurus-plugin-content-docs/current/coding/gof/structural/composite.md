@@ -82,7 +82,7 @@ The `Client` depends only on `Component`. `Leaf` implements the operation direct
 
 ## Example
 
-An investment portfolio contains assets and sub-portfolios, such as "Reserva" (emergency fund) and "Aposentadoria" (retirement). The current value of a portfolio is the sum of the values of its items, and the client asks for the value of any node without knowing whether it is an asset or a portfolio. Illustrative values.
+An investment portfolio contains assets and sub-portfolios, such as "Emergency Fund" and "Retirement". The current value of a portfolio is the sum of the values of its items, and the client asks for the value of any node without knowing whether it is an asset or a portfolio. Illustrative values.
 
 ```typescript
 class Money {
@@ -112,11 +112,11 @@ class Portfolio implements Holding {
   }
 }
 
-const reserve = new Portfolio("Reserva").add(new Asset("CDB Daily Liquidity", new Money(2_000_000)));
-const retirement = new Portfolio("Aposentadoria")
+const reserve = new Portfolio("Emergency Fund").add(new Asset("CDB Daily Liquidity", new Money(2_000_000)));
+const retirement = new Portfolio("Retirement")
   .add(new Asset("CDB 2029", new Money(1_500_000)))
-  .add(new Asset("FundShare Multimercado", new Money(800_000)));
-const portfolio = new Portfolio("Carteira").add(reserve).add(retirement);
+  .add(new Asset("Multimarket Fund", new Money(800_000)));
+const portfolio = new Portfolio("Portfolio").add(reserve).add(retirement);
 
 console.log(portfolio.currentValue().cents); // 4300000 (R$ 43,000.00)
 ```
