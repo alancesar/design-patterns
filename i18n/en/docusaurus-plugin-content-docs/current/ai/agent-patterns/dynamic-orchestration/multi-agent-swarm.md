@@ -16,7 +16,7 @@ sidebar_label: "Multi-Agent Swarm"
 
 Specialized agents communicate with one another in every direction (all-to-all) and iteratively refine a solution to a complex problem. A dispatcher agent sends the request to the agent best suited to start; from there the agents share findings, critique proposals, and hand work off to one another. There's no central supervisor: the dispatcher only facilitates communication between the swarm and the user.
 
-You need to define an explicit exit condition, such as a maximum number of iterations, a time limit, or consensus. In a product project, market research, engineering, and financial modeling agents debate trade-offs and converge on a specification.
+You need to define an explicit exit condition, such as a maximum number of iterations, a time limit, or consensus. In a credit committee, risk, sales, and compliance agents debate trade-offs and converge on an opinion.
 
 Compared with [Group Chat Orchestration](/ai/agent-patterns/dynamic-orchestration/group-chat-orchestration), which usually has a chat manager controlling the turns, the swarm is fully decentralized. It's close to [Choreography](/architecture/cloud-design-patterns/distributed-coordination/choreography): with no central controller, each participant reacts to the others.
 
@@ -29,7 +29,7 @@ Compared with [Group Chat Orchestration](/ai/agent-patterns/dynamic-orchestratio
 ## When to use
 
 - Ambiguous or highly complex problems where debate between perspectives improves the result.
-- Projects such as product specification, which balance competing requirements.
+- Decisions such as the opinion of a credit committee, which balance competing requirements.
 - When quality and creativity matter more than cost and predictability.
 
 ## When to avoid
@@ -55,14 +55,14 @@ Compared with [Group Chat Orchestration](/ai/agent-patterns/dynamic-orchestratio
 ```mermaid
 flowchart LR
     U["User"] --> D["Dispatcher agent"]
-    D --> M["Market agent"]
-    M <--> E["Engineering agent"]
-    E <--> F["Finance agent"]
+    D --> M["Risk agent"]
+    M <--> E["Sales agent"]
+    E <--> F["Compliance agent"]
     F <--> M
     M --> D
     E --> D
     F --> D
-    D --> R["Final specification"]
+    D --> R["Final opinion"]
 ```
 
 The dispatcher hands the request to one agent; the agents debate among themselves, and the dispatcher returns the result once the exit condition is met.

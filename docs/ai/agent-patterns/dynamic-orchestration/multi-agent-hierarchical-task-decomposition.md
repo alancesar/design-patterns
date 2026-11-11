@@ -16,7 +16,7 @@ sidebar_label: "Multi-Agent Hierarchical Task Decomposition"
 
 Os agentes se organizam em uma hierarquia de vários níveis. Um agente raiz divide uma tarefa complexa em subtarefas e as delega a subagentes de nível inferior; cada nível decompõe o trabalho recebido e delega mais adiante, até que um agente trabalhador no nível mais baixo execute a tarefa diretamente. A fonte o descreve como uma implementação do [Multi-Agent Coordinator](/ai/agent-patterns/dynamic-orchestration/multi-agent-coordinator).
 
-É indicado para problemas ambíguos e abertos que exigem raciocínio em várias etapas, como pesquisa, planejamento e síntese. Em um projeto de pesquisa, por exemplo, o raiz divide o objetivo em coleta de dados, análise e redação do relatório, e subagentes especializados concluem ou decompõem ainda mais cada tarefa.
+É indicado para problemas ambíguos e abertos que exigem raciocínio em várias etapas, como pesquisa, planejamento e síntese. Em uma análise de crédito de empresa, por exemplo, o raiz divide o objetivo em coleta de balanços, análise de risco e redação do parecer, e subagentes especializados concluem ou decompõem ainda mais cada tarefa.
 
 ## Problemas que resolve
 
@@ -54,9 +54,9 @@ Os agentes se organizam em uma hierarquia de vários níveis. Um agente raiz div
 ```mermaid
 flowchart TD
     U["Usuário"] --> R["Agente raiz"]
-    R --> S1["Coleta de dados"]
-    R --> S2["Análise"]
-    R --> S3["Redação do relatório"]
+    R --> S1["Coleta de balanços"]
+    R --> S2["Análise de risco"]
+    R --> S3["Redação do parecer"]
     S1 --> W1["Agente trabalhador A"]
     S1 --> W2["Agente trabalhador B"]
     S2 --> W3["Agente trabalhador C"]

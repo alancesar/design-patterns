@@ -54,19 +54,19 @@ O estado da execução é preservado durante a pausa. Quando o humano responde (
 
 ```mermaid
 sequenceDiagram
-    participant A1 as Agente de anonimização
+    participant A1 as Agente de comunicação
     participant S as Sistema de revisão externo
-    actor H as Responsável de conformidade
-    participant A2 as Agente de liberação
-    A1->>A1: Anonimiza o conjunto de dados
+    actor H as Analista de PLD
+    participant A2 as Agente de registro
+    A1->>A1: Prepara a comunicação da operação suspeita
     A1->>S: Pausa no checkpoint e solicita revisão
     S->>H: Apresenta o resultado para validação
     H->>S: Aprova, corrige ou rejeita
     S->>A1: Retoma o fluxo com a decisão
-    A1->>A2: Segue para a liberação, se aprovado
+    A1->>A2: Segue para o registro, se aprovado
 ```
 
-O fluxo roda até o checkpoint, entrega o trabalho a um sistema externo de revisão e só continua depois da resposta da pessoa. Exemplo: um agente anonimiza dados de pacientes e um responsável de conformidade valida antes da liberação.
+O fluxo roda até o checkpoint, entrega o trabalho a um sistema externo de revisão e só continua depois da resposta da pessoa. Exemplo: um agente prepara a comunicação de uma operação suspeita, um analista de PLD aprova e um agente registra.
 
 ## Padrões relacionados
 

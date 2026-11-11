@@ -16,7 +16,7 @@ sidebar_label: "Multi-Agent Swarm"
 
 Agentes especializados se comunicam entre si em todas as direções (all-to-all) e refinam iterativamente uma solução para um problema complexo. Um agente despachante envia o pedido ao agente mais apto a começar; a partir daí os agentes compartilham descobertas, criticam propostas e passam o trabalho uns aos outros. Não há supervisor central: o despachante apenas facilita a comunicação entre o enxame e o usuário.
 
-É preciso definir uma condição de saída explícita, como número máximo de iterações, limite de tempo ou consenso. Em um projeto de produto, agentes de pesquisa de mercado, engenharia e modelagem financeira debatem trade-offs e convergem para uma especificação.
+É preciso definir uma condição de saída explícita, como número máximo de iterações, limite de tempo ou consenso. Em um comitê de crédito, agentes de risco, comercial e compliance debatem trade-offs e convergem para um parecer.
 
 Comparado ao [Group Chat Orchestration](/ai/agent-patterns/dynamic-orchestration/group-chat-orchestration), que costuma ter um gerente de chat controlando os turnos, o swarm é totalmente descentralizado. Aproxima-se da [Choreography](/architecture/cloud-design-patterns/distributed-coordination/choreography): sem controlador central, cada participante reage aos demais.
 
@@ -29,7 +29,7 @@ Comparado ao [Group Chat Orchestration](/ai/agent-patterns/dynamic-orchestration
 ## Quando usar
 
 - Problemas ambíguos ou altamente complexos em que o debate entre perspectivas melhora o resultado.
-- Projetos como especificação de produto, que equilibram requisitos concorrentes.
+- Decisões como o parecer de um comitê de crédito, que equilibram requisitos concorrentes.
 - Quando qualidade e criatividade importam mais que custo e previsibilidade.
 
 ## Quando evitar
@@ -55,14 +55,14 @@ Comparado ao [Group Chat Orchestration](/ai/agent-patterns/dynamic-orchestration
 ```mermaid
 flowchart LR
     U["Usuário"] --> D["Agente despachante"]
-    D --> M["Agente de mercado"]
-    M <--> E["Agente de engenharia"]
-    E <--> F["Agente financeiro"]
+    D --> M["Agente de risco"]
+    M <--> E["Agente comercial"]
+    E <--> F["Agente de compliance"]
     F <--> M
     M --> D
     E --> D
     F --> D
-    D --> R["Especificação final"]
+    D --> R["Parecer final"]
 ```
 
 O despachante entrega o pedido a um agente; os agentes debatem entre si e o despachante devolve o resultado ao atingir a condição de saída.

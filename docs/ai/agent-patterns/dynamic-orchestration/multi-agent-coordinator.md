@@ -16,7 +16,7 @@ sidebar_label: "Multi-Agent Coordinator"
 
 Um agente coordenador central analisa o pedido do usuário, divide-o em subtarefas e despacha cada uma para um agente especializado (por exemplo, um que consulta um banco de dados ou chama uma API). O coordenador usa um modelo para rotear as tarefas dinamicamente em tempo de execução, em contraste com o padrão paralelo, cuja lógica de despacho é fixa no código.
 
-O caso típico é o atendimento ao cliente: o coordenador classifica o pedido como consulta de status, devolução ou reembolso e o envia ao agente correspondente. Os agentes especializados devolvem seus resultados e o coordenador monta a resposta. Também é conhecido como *coordinator pattern*.
+O caso típico é o atendimento ao cliente: o coordenador classifica o pedido como consulta de status de um Pix, contestação de compra no cartão ou devolução de Pix e o envia ao agente correspondente. Os agentes especializados devolvem seus resultados e o coordenador monta a resposta. Também é conhecido como *coordinator pattern*.
 
 Diferente do [Magentic Orchestration](/ai/agent-patterns/dynamic-orchestration/magentic-orchestration), que constrói e refina um task ledger para problemas abertos sem plano, o coordenador aqui roteia processos de negócio estruturados e não mantém um plano auditável iterativo. Em relação ao [Handoff Orchestration](/ai/agent-patterns/dynamic-orchestration/handoff-orchestration), o controle permanece com o coordenador, em vez de passar de agente em agente.
 
@@ -54,16 +54,16 @@ Diferente do [Magentic Orchestration](/ai/agent-patterns/dynamic-orchestration/m
 ```mermaid
 flowchart LR
     U["Usuário"] --> C["Agente coordenador"]
-    C -->|"Status do pedido"| A1["Agente de pedidos"]
-    C -->|"Devolução"| A2["Agente de devoluções"]
-    C -->|"Reembolso"| A3["Agente de reembolsos"]
+    C -->|"Status de um Pix"| A1["Agente de status de Pix"]
+    C -->|"Contestação de compra"| A2["Agente de contestações"]
+    C -->|"Devolução de Pix"| A3["Agente de devoluções de Pix"]
     A1 --> C
     A2 --> C
     A3 --> C
     C --> R["Resposta"]
 ```
 
-O coordenador classifica o pedido, roteia para o especialista adequado e consolida o resultado.
+O coordenador classifica o pedido do cliente, roteia para o especialista adequado e consolida o resultado.
 
 ## Padrões relacionados
 
