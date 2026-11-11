@@ -16,7 +16,7 @@ sidebar_label: "Strategy"
 
 O Strategy (também conhecido como Policy) define uma família de algoritmos, encapsula cada um deles em um objeto próprio e os torna intercambiáveis. Assim, o algoritmo pode variar independentemente dos clientes que o utilizam.
 
-O objeto que usa o algoritmo, chamado de contexto (`Context`), guarda uma referência a uma interface `Strategy` e delega a ela o trabalho, sem conhecer a implementação concreta. Cada `ConcreteStrategy` implementa a mesma interface com uma variação do comportamento (por exemplo, diferentes formas de calcular frete, ordenar dados ou comprimir arquivos).
+O objeto que usa o algoritmo, chamado de contexto (`Context`), guarda uma referência a uma interface `Strategy` e delega a ela o trabalho, sem conhecer a implementação concreta. Cada `ConcreteStrategy` implementa a mesma interface com uma variação do comportamento (por exemplo, diferentes formas de amortizar um empréstimo, ordenar dados ou comprimir arquivos).
 
 A estratégia normalmente é escolhida pelo cliente e injetada no contexto — via construtor ou setter — e pode ser trocada em tempo de execução. Isso substitui condicionais espalhadas por composição, mantendo cada algoritmo isolado, testável e extensível sem alterar o contexto.
 
@@ -86,47 +86,52 @@ O `Client` escolhe uma `ConcreteStrategy` e a entrega ao `Context`, que mantém 
 
 ## Exemplo
 
-Um e-commerce calcula o frete de acordo com a modalidade escolhida pelo cliente no checkout: padrão, expressa ou retirada na loja.
+O simulador de crédito de uma fintech calcula as parcelas de um empréstimo pelo sistema de amortização escolhido pelo cliente: SAC, com parcelas decrescentes, ou Price, com parcelas fixas. A taxa é ilustrativa.
 
 ```typescript
-interface ShippingStrategy {
-  calculate(weightKg: number): number;
+interface AmortizationStrategy {
+  // Devolve o valor de cada parcela, em centavos.
+  schedule(principalCents: number, monthlyRate: number, months: number): number[];
 }
 
-class StandardShipping implements ShippingStrategy {
-  calculate(weightKg: number): number {
-    return 10 + weightKg * 2;
+class SacAmortization implements AmortizationStrategy {
+  schedule(principalCents: number, monthlyRate: number, months: number): number[] {
+    const amortization = principalCents / months;
+    return Array.from({ length: months }, (_, i) => {
+      const balance = principalCents - amortization * i;
+      return Math.round(amortization + balance * monthlyRate);
+    });
   }
 }
 
-class ExpressShipping implements ShippingStrategy {
-  calculate(weightKg: number): number {
-    return 25 + weightKg * 4;
+class PriceAmortization implements AmortizationStrategy {
+  schedule(principalCents: number, monthlyRate: number, months: number): number[] {
+    const factor = monthlyRate / (1 - Math.pow(1 + monthlyRate, -months));
+    const installment = Math.round(principalCents * factor);
+    return Array.from({ length: months }, () => installment);
   }
 }
 
-class StorePickup implements ShippingStrategy {
-  calculate(): number {
-    return 0;
+class LoanSimulator {
+  constructor(private amortization: AmortizationStrategy) {}
+
+  setAmortization(amortization: AmortizationStrategy): void {
+    this.amortization = amortization;
+  }
+
+  simulate(principalCents: number, monthlyRate: number, months: number): number[] {
+    return this.amortization.schedule(principalCents, monthlyRate, months);
   }
 }
 
-class Checkout {
-  constructor(private shipping: ShippingStrategy) {}
+// R$ 10.000,00 a 2% ao mês, em 10 parcelas
+const simulator = new LoanSimulator(new SacAmortization());
+const sac = simulator.simulate(1_000_000, 0.02, 10);
+console.log(sac[0], sac[9]); // 120000 102000
 
-  setShipping(shipping: ShippingStrategy): void {
-    this.shipping = shipping;
-  }
-
-  total(subtotal: number, weightKg: number): number {
-    return subtotal + this.shipping.calculate(weightKg);
-  }
-}
-
-const checkout = new Checkout(new StandardShipping());
-console.log(checkout.total(100, 3)); // 116
-checkout.setShipping(new ExpressShipping());
-console.log(checkout.total(100, 3)); // 137
+simulator.setAmortization(new PriceAmortization());
+const price = simulator.simulate(1_000_000, 0.02, 10);
+console.log(price[0], price[9]); // 111327 111327
 ```
 
 ## Padrões relacionados

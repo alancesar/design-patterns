@@ -26,6 +26,7 @@ Hierarchy is **domain → catalog → group → pattern**: `docs/<domain>/<catal
 - **Shared patterns:** a pattern that belongs to several catalogs has a single document, in the catalog that owns it. The other catalogs reference it from `sidebars.ts` with a `link` item (`href: "/<owner path>?catalog=<slug>"`, `className: "sidebar-shared"`, which renders a ★), and the document lists them in `also_in`.
 - **Tags** are in English and span groups. Architecture and cloud catalogs use the Well-Architected pillars; GoF and PoEAA use design goals.
 - Pattern names, categories, tags and code identifiers stay in English even in the pt-BR text.
+- **Examples use one fictional Brazilian fintech** (digital account, Pix, boleto, cards, personal credit, fixed-income investments). `Exemplo` sections and diagrams that show a concrete implementation take their scenario from it and share class names across pages (`Account`, `Money`, `LedgerEntry`, `PixCharge`, `LoanContract`, `Card`). Diagrams that show only the pattern's roles stay generic. Money is never a float (use `Money` or integer cents), a reversal is a new ledger entry, and rates, limits and fees are illustrative. `docs/coding/gof/behavioral/strategy.md` is the model.
 
 ## Structure that spans several files
 
