@@ -89,6 +89,7 @@ Uma hierarquia de instruções de pagamento é mapeada em uma só tabela, `payme
 
 ```java
 @Entity
+@Table(name = "payment_instructions")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type")
 public abstract class PaymentInstruction {
@@ -115,6 +116,7 @@ public class TedTransfer extends PaymentInstruction {
 ```
 
 No EF Core, é o padrão Table-per-Hierarchy (TPH).
+
 ## Padrões relacionados
 
 - [Class Table Inheritance](/design/poeaa/object-relational-structural/class-table-inheritance) — uma tabela por classe, com joins.

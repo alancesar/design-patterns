@@ -93,6 +93,7 @@ public class LedgerEntry {
 ```
 
 No EF Core, o equivalente é `OwnsOne`.
+
 ## Padrões relacionados
 
 - [Value Object](/design/poeaa/base/value-object) — o tipo de objeto que costuma ser embutido.

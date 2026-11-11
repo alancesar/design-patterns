@@ -87,6 +87,7 @@ public class PixTransferService {
         Account account = accounts.get(cmd.accountId());
         PixTransfer transfer = account.sendPix(cmd.pixKey(), cmd.amount());   // rule in the domain
         transfers.save(transfer);
+        // in production, the SPI submission happens after the commit (for example, via an outbox)
         spi.submit(transfer.endToEndId(), transfer.amount());
         return transfer.id();
     }

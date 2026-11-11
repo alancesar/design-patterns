@@ -51,15 +51,16 @@ It doesn't matter which schema is chosen (Single Table, Class Table, or Concrete
 ```mermaid
 classDiagram
     class AbstractPaymentInstructionMapper {
-        +find(id) PaymentInstruction
-        +insert(instruction)
-        #loadFields(row, instruction)
+        +load(row) PaymentInstruction
+        #create() PaymentInstruction
     }
     class PixTransferMapper {
-        #loadFields(row, instruction)
+        +load(row) PaymentInstruction
+        #create() PaymentInstruction
     }
     class TedTransferMapper {
-        #loadFields(row, instruction)
+        +load(row) PaymentInstruction
+        #create() PaymentInstruction
     }
     AbstractPaymentInstructionMapper <|-- PixTransferMapper
     AbstractPaymentInstructionMapper <|-- TedTransferMapper
@@ -101,7 +102,6 @@ class TedTransferMapper(AbstractPaymentInstructionMapper):
         transfer.account_number = row["account_number"]
         return transfer
 ```
-
 
 ## Related patterns
 

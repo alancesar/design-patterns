@@ -91,7 +91,8 @@ class StatementController:          # Controller
 
 def brl(cents):
     sign = "-" if cents < 0 else ""
-    return f"{sign}R$ {abs(cents) // 100:,}.{abs(cents) % 100:02d}"
+    reais = f"{abs(cents) // 100:,}".replace(",", ".")
+    return f"{sign}R$ {reais},{abs(cents) % 100:02d}"
 
 def html_view(s):
     rows = "".join(f"<tr><td>{d}</td><td>{desc}</td><td>{brl(c)}</td></tr>"

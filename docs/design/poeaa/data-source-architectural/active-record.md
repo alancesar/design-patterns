@@ -61,7 +61,6 @@ classDiagram
         +expiresAt
         +find(id)$
         +save()
-        +delete()
         +block()
         +isExpired()
     }
@@ -70,7 +69,7 @@ classDiagram
     Card --> Database
 ```
 
-O `Client` usa diretamente `Card`, que mantém os dados de uma linha, contém a lógica de domínio (`block` e `isExpired`) e acessa o `Database` por meio de `save`, `delete` e `find`.
+O `Client` usa diretamente `Card`, que mantém os dados de uma linha, contém a lógica de domínio (`block` e `isExpired`) e acessa o `Database` por meio de `save` e `find`.
 
 ## Exemplo
 

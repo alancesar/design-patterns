@@ -15,7 +15,7 @@ sidebar_label: "Table Data Gateway"
 
 O Table Data Gateway é um objeto que atua como gateway para uma tabela (ou view) do banco de dados. Uma única instância cuida de todas as linhas da tabela e concentra todo o SQL de consulta, inserção, atualização e exclusão.
 
-O restante da aplicação não escreve SQL: chama métodos como `findById`, `findByPayer` ou `insert`. Normalmente o gateway não tem estado e devolve estruturas de dados simples, como Record Sets ou DTOs, em vez de objetos de domínio com comportamento.
+O restante da aplicação não escreve SQL: chama métodos como `findById`, `findOverdue` ou `insert`. Normalmente o gateway não tem estado e devolve estruturas de dados simples, como Record Sets ou DTOs, em vez de objetos de domínio com comportamento.
 
 Com isso, o SQL fica em um só lugar, facilitando o trabalho de quem não domina SQL e permitindo que DBAs encontrem e ajustem as consultas quando o esquema muda.
 
@@ -58,12 +58,10 @@ Com isso, o SQL fica em um só lugar, facilitando o trabalho de quem não domina
 classDiagram
     class Client
     class BoletoGateway {
-        +findAll()
         +findById(id)
-        +findByPayer(payerId)
+        +findOverdue(today)
         +insert(payerId, amountCents, dueDate)
-        +update(id, status)
-        +delete(id)
+        +updateStatus(id, status)
     }
     class Database
     Client --> BoletoGateway
@@ -106,7 +104,7 @@ class BoletoGateway:
 # Transaction Script
 def flag_overdue_boletos(gateway, today):
     for boleto in gateway.find_overdue(today):
-        gateway.update_status(boleto["id"], "OVERDUE")
+        gateway.update_status(boleto[0], "OVERDUE")  # id é a primeira coluna
 ```
 
 No .NET, o `TableAdapter` do ADO.NET e a classe DAO do mundo Java seguem ideia semelhante.

@@ -51,15 +51,16 @@ Tanto faz o esquema escolhido (Single Table, Class Table ou Concrete Table): a e
 ```mermaid
 classDiagram
     class AbstractPaymentInstructionMapper {
-        +find(id) PaymentInstruction
-        +insert(instruction)
-        #loadFields(row, instruction)
+        +load(row) PaymentInstruction
+        #create() PaymentInstruction
     }
     class PixTransferMapper {
-        #loadFields(row, instruction)
+        +load(row) PaymentInstruction
+        #create() PaymentInstruction
     }
     class TedTransferMapper {
-        #loadFields(row, instruction)
+        +load(row) PaymentInstruction
+        #create() PaymentInstruction
     }
     AbstractPaymentInstructionMapper <|-- PixTransferMapper
     AbstractPaymentInstructionMapper <|-- TedTransferMapper
@@ -101,7 +102,6 @@ class TedTransferMapper(AbstractPaymentInstructionMapper):
         transfer.account_number = row["account_number"]
         return transfer
 ```
-
 
 ## Padrões relacionados
 

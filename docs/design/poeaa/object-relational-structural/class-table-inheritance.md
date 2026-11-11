@@ -103,6 +103,7 @@ public class TedTransfer extends PaymentInstruction {
 ```
 
 No EF Core, é o Table-per-Type (TPT).
+
 ## Padrões relacionados
 
 - [Single Table Inheritance](/design/poeaa/object-relational-structural/single-table-inheritance) — alternativa com uma tabela só.

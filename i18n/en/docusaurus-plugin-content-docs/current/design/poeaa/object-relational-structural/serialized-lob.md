@@ -62,13 +62,13 @@ classDiagram
     class ConsentTable {
         <<table>>
         id
-        permissions_json
+        permissions
     }
     Consent --> Permission
-    Consent ..> ConsentTable : serializes the list into permissions_json
+    Consent ..> ConsentTable : serializes the list into permissions
 ```
 
-The `Permission` list is serialized into a single `permissions_json` column of `ConsentTable`.
+The `Permission` list is serialized into a single `permissions` column of `ConsentTable`.
 
 ## Example
 
@@ -92,7 +92,6 @@ public class Consent {
     private List<Permission> permissions;
 }
 ```
-
 
 ## Related patterns
 

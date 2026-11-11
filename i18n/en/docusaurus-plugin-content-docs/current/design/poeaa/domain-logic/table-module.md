@@ -55,22 +55,22 @@ The pattern works very well with Record Set, in-memory tabular structures provid
 ```mermaid
 classDiagram
     class Client
-    class ContractsModule {
-        +payoffAmount(contractId) long
+    class Contracts {
+        +PayoffCents(contractId) long
     }
-    class InstallmentsModule {
-        +outstandingBalance(contractId) long
+    class Installments {
+        +OutstandingBalanceCents(contractId) long
     }
     class RecordSet
     class TableDataGateway
-    Client --> ContractsModule
-    ContractsModule --> InstallmentsModule
-    ContractsModule --> RecordSet
-    InstallmentsModule --> RecordSet
+    Client --> Contracts
+    Contracts --> Installments
+    Contracts --> RecordSet
+    Installments --> RecordSet
     TableDataGateway --> RecordSet
 ```
 
-Each table has a module (`ContractsModule`, `InstallmentsModule`) that operates on a `RecordSet` loaded by a table gateway.
+Each table has a module (`Contracts`, `Installments`) that operates on a `RecordSet` loaded by a table gateway.
 
 ## Example
 

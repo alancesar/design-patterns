@@ -56,7 +56,7 @@ Uma aplicação corporativa pode ser vista como uma série de transações: algu
 classDiagram
     class Presentation
     class PaymentScripts {
-        +payBoleto(accountId, barcode)
+        +payBoleto(accountId, barcode, amountCents)
         +reversePayment(paymentId)
         +reconcileSettlements(fileId)
     }

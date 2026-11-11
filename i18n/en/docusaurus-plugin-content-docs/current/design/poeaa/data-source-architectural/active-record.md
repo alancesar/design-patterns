@@ -61,7 +61,6 @@ classDiagram
         +expiresAt
         +find(id)$
         +save()
-        +delete()
         +block()
         +isExpired()
     }
@@ -70,7 +69,7 @@ classDiagram
     Card --> Database
 ```
 
-The `Client` uses `Card` directly. `Card` holds the data of one row, contains the domain logic (`block` and `isExpired`), and accesses the `Database` through `save`, `delete`, and `find`.
+The `Client` uses `Card` directly. `Card` holds the data of one row, contains the domain logic (`block` and `isExpired`), and accesses the `Database` through `save` and `find`.
 
 ## Example
 

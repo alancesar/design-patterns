@@ -63,7 +63,7 @@ classDiagram
         +id
     }
     class PixKey {
-        +type
+        +keyType
         +value
         +equals(other)
     }

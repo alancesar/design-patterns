@@ -83,7 +83,7 @@ statement.Columns.Add("Description", typeof(string));
 statement.Columns.Add("AmountCents", typeof(long));
 
 statement.Rows.Add(1, "Pix received", 150000L);
-statement.Rows.Add(2, "Boleto paid", -45000L);
+statement.Rows.Add(2, "Boleto payment", -45000L);
 statement.Rows.Add(3, "Card purchase", -12990L);
 
 // Business rule operating on the Record Set

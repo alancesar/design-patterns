@@ -85,6 +85,7 @@ public class LoanContract {
 ```
 
 `cascade` and `orphanRemoval` in JPA implement the behavior: the owner controls the children's lifecycle.
+
 ## Related patterns
 
 - [Foreign Key Mapping](/design/poeaa/object-relational-structural/foreign-key-mapping) — the general way to map an association; Dependent Mapping is the case where the child has no life of its own.

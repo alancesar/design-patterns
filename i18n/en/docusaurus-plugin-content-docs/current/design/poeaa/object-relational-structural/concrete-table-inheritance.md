@@ -99,6 +99,7 @@ public class TedTransfer extends PaymentInstruction {
 ```
 
 The shared `SEQUENCE` guarantees unique keys across the tables. In EF Core, this is Table-per-Concrete-type (TPC).
+
 ## Related patterns
 
 - [Single Table Inheritance](/design/poeaa/object-relational-structural/single-table-inheritance) — an alternative with one table for the whole hierarchy.

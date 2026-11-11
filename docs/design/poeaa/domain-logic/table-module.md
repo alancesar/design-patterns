@@ -55,22 +55,22 @@ O padrão funciona muito bem com Record Set, estruturas tabulares em memória fo
 ```mermaid
 classDiagram
     class Client
-    class ContractsModule {
-        +payoffAmount(contractId) long
+    class Contracts {
+        +PayoffCents(contractId) long
     }
-    class InstallmentsModule {
-        +outstandingBalance(contractId) long
+    class Installments {
+        +OutstandingBalanceCents(contractId) long
     }
     class RecordSet
     class TableDataGateway
-    Client --> ContractsModule
-    ContractsModule --> InstallmentsModule
-    ContractsModule --> RecordSet
-    InstallmentsModule --> RecordSet
+    Client --> Contracts
+    Contracts --> Installments
+    Contracts --> RecordSet
+    Installments --> RecordSet
     TableDataGateway --> RecordSet
 ```
 
-Cada tabela tem um módulo (`ContractsModule`, `InstallmentsModule`) que opera sobre um `RecordSet` carregado por um gateway de tabela.
+Cada tabela tem um módulo (`Contracts`, `Installments`) que opera sobre um `RecordSet` carregado por um gateway de tabela.
 
 ## Exemplo
 

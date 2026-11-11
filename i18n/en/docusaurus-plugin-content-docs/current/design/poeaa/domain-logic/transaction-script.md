@@ -56,7 +56,7 @@ It's the most direct way to structure domain logic and works well as long as the
 classDiagram
     class Presentation
     class PaymentScripts {
-        +payBoleto(accountId, barcode)
+        +payBoleto(accountId, barcode, amountCents)
         +reversePayment(paymentId)
         +reconcileSettlements(fileId)
     }
