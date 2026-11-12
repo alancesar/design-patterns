@@ -1,0 +1,1 @@
+- [x] Etiquetas sem descrição (ex.: https://designpatterns.alancesar.dev/tags/team-autonomy): adicionado `tags.yml` com label, permalink e descrição das 27 etiquetas, em pt-BR (`docs/tags.yml`) e em inglês (`i18n/en/docusaurus-plugin-content-docs/current/tags.yml`).

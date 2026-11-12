@@ -1,0 +1,135 @@
+"Adaptability":
+  label: "Adaptability"
+  permalink: "/adaptability"
+  description: "Capacidade de absorver mudanças de requisitos, tecnologia ou ambiente sem reescrever o que já existe."
+
+"Availability":
+  label: "Availability"
+  permalink: "/availability"
+  description: "Manter o sistema acessível e respondendo mesmo diante de falhas, picos ou manutenções."
+
+"Consistency":
+  label: "Consistency"
+  permalink: "/consistency"
+  description: "Garantir que dados, estados e comportamentos permaneçam coerentes entre componentes, réplicas e operações."
+
+"Cost Optimization":
+  label: "Cost Optimization"
+  permalink: "/cost-optimization"
+  description: "Entregar o valor necessário pelo menor custo, evitando gasto com recursos ociosos ou superdimensionados."
+
+"Decoupling":
+  label: "Decoupling"
+  permalink: "/decoupling"
+  description: "Reduzir a dependência entre partes do sistema para que possam evoluir, ser testadas e substituídas de forma independente."
+
+"Durability":
+  label: "Durability"
+  permalink: "/durability"
+  description: "Garantir que dados e resultados confirmados não se percam, mesmo após falhas ou reinicializações."
+
+"Encapsulation":
+  label: "Encapsulation"
+  permalink: "/encapsulation"
+  description: "Esconder detalhes internos atrás de uma interface estável, limitando o que o restante do código precisa saber."
+
+"Extensibility":
+  label: "Extensibility"
+  permalink: "/extensibility"
+  description: "Facilitar a adição de novos comportamentos ou variações sem modificar o código existente."
+
+"Fault Tolerance":
+  label: "Fault Tolerance"
+  permalink: "/fault-tolerance"
+  description: "Continuar operando de forma aceitável quando componentes falham, isolando e contendo o impacto."
+
+"Human Oversight":
+  label: "Human Oversight"
+  permalink: "/human-oversight"
+  description: "Manter pessoas no circuito para revisar, aprovar ou corrigir decisões e ações de agentes de IA."
+
+"Operational Excellence":
+  label: "Operational Excellence"
+  permalink: "/operational-excellence"
+  description: "Operar, monitorar e evoluir o sistema com processos repetíveis, observabilidade e melhoria contínua."
+
+"Output Quality":
+  label: "Output Quality"
+  permalink: "/output-quality"
+  description: "Aumentar a precisão, a relevância e a confiabilidade das respostas produzidas por modelos e agentes de IA."
+
+"Parallelism":
+  label: "Parallelism"
+  permalink: "/parallelism"
+  description: "Executar trabalho de forma concorrente para reduzir o tempo total e aproveitar melhor os recursos."
+
+"Performance":
+  label: "Performance"
+  permalink: "/performance"
+  description: "Reduzir latência e aumentar a vazão das operações do código."
+
+"Performance Efficiency":
+  label: "Performance Efficiency"
+  permalink: "/performance-efficiency"
+  description: "Usar recursos computacionais de forma eficiente para atender à demanda e se adaptar quando ela muda."
+
+"Predictability":
+  label: "Predictability"
+  permalink: "/predictability"
+  description: "Tornar o comportamento do sistema previsível e determinístico, reduzindo surpresas em tempo de execução."
+
+"Reliability":
+  label: "Reliability"
+  permalink: "/reliability"
+  description: "Fazer o sistema cumprir sua função de forma correta e consistente, e se recuperar rapidamente de falhas."
+
+"Resource Efficiency":
+  label: "Resource Efficiency"
+  permalink: "/resource-efficiency"
+  description: "Economizar memória, tokens, chamadas e demais recursos escassos ao executar uma tarefa."
+
+"Runtime Flexibility":
+  label: "Runtime Flexibility"
+  permalink: "/runtime-flexibility"
+  description: "Permitir trocar ou combinar comportamentos em tempo de execução, em vez de fixá-los na compilação."
+
+"Scalability":
+  label: "Scalability"
+  permalink: "/scalability"
+  description: "Crescer para atender maior carga ou volume de dados adicionando recursos, sem redesenhar o sistema."
+
+"Security":
+  label: "Security"
+  permalink: "/security"
+  description: "Proteger dados, acessos e operações contra uso indevido, vazamento e ataques."
+
+"Shared Understanding":
+  label: "Shared Understanding"
+  permalink: "/shared-understanding"
+  description: "Alinhar equipe técnica e de negócio em uma linguagem e um modelo comuns do domínio."
+
+"Simplicity":
+  label: "Simplicity"
+  permalink: "/simplicity"
+  description: "Manter o design simples de entender, usar e manter, evitando complexidade acidental."
+
+"Specialization":
+  label: "Specialization"
+  permalink: "/specialization"
+  description: "Dividir responsabilidades entre componentes ou agentes focados, cada um excelente em uma tarefa específica."
+
+"Strategic Focus":
+  label: "Strategic Focus"
+  permalink: "/strategic-focus"
+  description: "Concentrar esforço de modelagem e investimento no que é o núcleo estratégico do negócio."
+
+"Team Autonomy":
+  label: "Team Autonomy"
+  permalink: "/team-autonomy"
+  description: "Permitir que equipes trabalhem, decidam e entreguem de forma independente, com poucas dependências entre si."
+
+"Testability":
+  label: "Testability"
+  permalink: "/testability"
+  description: "Facilitar o teste isolado e automatizado do código, com dependências fáceis de substituir."
+

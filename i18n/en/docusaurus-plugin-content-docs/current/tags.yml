@@ -1,0 +1,135 @@
+"Adaptability":
+  label: "Adaptability"
+  permalink: "/adaptability"
+  description: "Absorbing changes in requirements, technology or environment without rewriting what already exists."
+
+"Availability":
+  label: "Availability"
+  permalink: "/availability"
+  description: "Keeping the system reachable and responding despite failures, spikes or maintenance."
+
+"Consistency":
+  label: "Consistency"
+  permalink: "/consistency"
+  description: "Keeping data, state and behavior coherent across components, replicas and operations."
+
+"Cost Optimization":
+  label: "Cost Optimization"
+  permalink: "/cost-optimization"
+  description: "Delivering the needed value at the lowest cost, avoiding spend on idle or oversized resources."
+
+"Decoupling":
+  label: "Decoupling"
+  permalink: "/decoupling"
+  description: "Reducing dependencies between parts of the system so they can evolve, be tested and be replaced independently."
+
+"Durability":
+  label: "Durability"
+  permalink: "/durability"
+  description: "Ensuring that committed data and results are not lost, even after failures or restarts."
+
+"Encapsulation":
+  label: "Encapsulation"
+  permalink: "/encapsulation"
+  description: "Hiding internal details behind a stable interface, limiting what the rest of the code needs to know."
+
+"Extensibility":
+  label: "Extensibility"
+  permalink: "/extensibility"
+  description: "Making it easy to add new behavior or variations without modifying existing code."
+
+"Fault Tolerance":
+  label: "Fault Tolerance"
+  permalink: "/fault-tolerance"
+  description: "Continuing to operate acceptably when components fail, isolating and containing the impact."
+
+"Human Oversight":
+  label: "Human Oversight"
+  permalink: "/human-oversight"
+  description: "Keeping people in the loop to review, approve or correct decisions and actions of AI agents."
+
+"Operational Excellence":
+  label: "Operational Excellence"
+  permalink: "/operational-excellence"
+  description: "Operating, monitoring and evolving the system with repeatable processes, observability and continuous improvement."
+
+"Output Quality":
+  label: "Output Quality"
+  permalink: "/output-quality"
+  description: "Improving the accuracy, relevance and reliability of the outputs produced by AI models and agents."
+
+"Parallelism":
+  label: "Parallelism"
+  permalink: "/parallelism"
+  description: "Running work concurrently to cut total time and make better use of resources."
+
+"Performance":
+  label: "Performance"
+  permalink: "/performance"
+  description: "Reducing latency and increasing the throughput of code operations."
+
+"Performance Efficiency":
+  label: "Performance Efficiency"
+  permalink: "/performance-efficiency"
+  description: "Using computing resources efficiently to meet demand and adapt as it changes."
+
+"Predictability":
+  label: "Predictability"
+  permalink: "/predictability"
+  description: "Making system behavior predictable and deterministic, reducing runtime surprises."
+
+"Reliability":
+  label: "Reliability"
+  permalink: "/reliability"
+  description: "Making the system perform its function correctly and consistently, and recover quickly from failures."
+
+"Resource Efficiency":
+  label: "Resource Efficiency"
+  permalink: "/resource-efficiency"
+  description: "Saving memory, tokens, calls and other scarce resources while performing a task."
+
+"Runtime Flexibility":
+  label: "Runtime Flexibility"
+  permalink: "/runtime-flexibility"
+  description: "Allowing behaviors to be swapped or combined at runtime instead of fixed at compile time."
+
+"Scalability":
+  label: "Scalability"
+  permalink: "/scalability"
+  description: "Growing to handle more load or data by adding resources, without redesigning the system."
+
+"Security":
+  label: "Security"
+  permalink: "/security"
+  description: "Protecting data, access and operations against misuse, leaks and attacks."
+
+"Shared Understanding":
+  label: "Shared Understanding"
+  permalink: "/shared-understanding"
+  description: "Aligning technical and business people on a common language and model of the domain."
+
+"Simplicity":
+  label: "Simplicity"
+  permalink: "/simplicity"
+  description: "Keeping the design easy to understand, use and maintain, avoiding accidental complexity."
+
+"Specialization":
+  label: "Specialization"
+  permalink: "/specialization"
+  description: "Splitting responsibilities among focused components or agents, each excelling at one specific task."
+
+"Strategic Focus":
+  label: "Strategic Focus"
+  permalink: "/strategic-focus"
+  description: "Concentrating modeling effort and investment on what is the strategic core of the business."
+
+"Team Autonomy":
+  label: "Team Autonomy"
+  permalink: "/team-autonomy"
+  description: "Letting teams work, decide and deliver independently, with few dependencies on one another."
+
+"Testability":
+  label: "Testability"
+  permalink: "/testability"
+  description: "Making code easy to test in isolation and automatically, with dependencies that are easy to replace."
+
