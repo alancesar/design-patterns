@@ -1,7 +1,7 @@
 "Adaptability":
   label: "Adaptability"
   permalink: "/adaptability"
-  description: "Capacidade de absorver mudanças de requisitos, tecnologia ou ambiente sem reescrever o que já existe."
+  description: "Ajustar o plano e o fluxo de execução conforme a tarefa e os resultados intermediários, em vez de seguir um roteiro fixo."
 
 "Availability":
   label: "Availability"
@@ -58,15 +58,10 @@
   permalink: "/output-quality"
   description: "Aumentar a precisão, a relevância e a confiabilidade das respostas produzidas por modelos e agentes de IA."
 
-"Parallelism":
-  label: "Parallelism"
-  permalink: "/parallelism"
-  description: "Executar trabalho de forma concorrente para reduzir o tempo total e aproveitar melhor os recursos."
-
 "Performance":
   label: "Performance"
   permalink: "/performance"
-  description: "Reduzir latência e aumentar a vazão das operações do código."
+  description: "Reduzir a latência e aumentar a vazão, evitando esperas e acessos desnecessários ou executando trabalho independente em paralelo."
 
 "Performance Efficiency":
   label: "Performance Efficiency"
@@ -76,7 +71,7 @@
 "Predictability":
   label: "Predictability"
   permalink: "/predictability"
-  description: "Tornar o comportamento do sistema previsível e determinístico, reduzindo surpresas em tempo de execução."
+  description: "Tornar o comportamento dos agentes previsível e reproduzível, com etapas e critérios de parada definidos de antemão."
 
 "Reliability":
   label: "Reliability"
@@ -86,7 +81,7 @@
 "Resource Efficiency":
   label: "Resource Efficiency"
   permalink: "/resource-efficiency"
-  description: "Economizar memória, tokens, chamadas e demais recursos escassos ao executar uma tarefa."
+  description: "Economizar memória e evitar o custo de criar ou carregar objetos caros, compartilhando ou reaproveitando instâncias."
 
 "Runtime Flexibility":
   label: "Runtime Flexibility"
@@ -106,7 +101,7 @@
 "Shared Understanding":
   label: "Shared Understanding"
   permalink: "/shared-understanding"
-  description: "Alinhar equipe técnica e de negócio em uma linguagem e um modelo comuns do domínio."
+  description: "Alinhar especialistas do negócio, desenvolvedores e equipes em torno de uma linguagem e de um modelo comuns do domínio."
 
 "Simplicity":
   label: "Simplicity"
@@ -121,7 +116,7 @@
 "Strategic Focus":
   label: "Strategic Focus"
   permalink: "/strategic-focus"
-  description: "Concentrar esforço de modelagem e investimento no que é o núcleo estratégico do negócio."
+  description: "Concentrar esforço de modelagem e investimento no que diferencia o negócio: o seu núcleo estratégico."
 
 "Team Autonomy":
   label: "Team Autonomy"

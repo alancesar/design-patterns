@@ -23,7 +23,7 @@ Total: 15 padrões em 4 grupos. Etiquetas: Objetivo de orquestração.
 | Padrão | Resumo | Etiquetas | Origem |
 | --- | --- | --- | --- |
 | [Sequential Orchestration](/ai/agent-patterns/deterministic-workflows/sequential-orchestration) | O Sequential Orchestration encadeia agentes de IA numa ordem linear predefinida. | [`Predictability`](/tags/predictability) [`Specialization`](/tags/specialization) | Azure, Google |
-| [Concurrent Orchestration](/ai/agent-patterns/deterministic-workflows/concurrent-orchestration) | O Concurrent Orchestration executa vários agentes de IA ao mesmo tempo sobre a mesma tarefa, de modo que cada um traga uma análise independente a partir da sua perspectiva ou especialização. | [`Parallelism`](/tags/parallelism) [`Specialization`](/tags/specialization) [`Output Quality`](/tags/output-quality) | Azure, Google |
+| [Concurrent Orchestration](/ai/agent-patterns/deterministic-workflows/concurrent-orchestration) | O Concurrent Orchestration executa vários agentes de IA ao mesmo tempo sobre a mesma tarefa, de modo que cada um traga uma análise independente a partir da sua perspectiva ou especialização. | [`Performance`](/tags/performance) [`Specialization`](/tags/specialization) [`Output Quality`](/tags/output-quality) | Azure, Google |
 
 ## Dynamic Orchestration (7) {#dynamic-orchestration}
 
@@ -63,7 +63,7 @@ Total: 15 padrões em 4 grupos. Etiquetas: Objetivo de orquestração.
 
 [Sequential Orchestration](/ai/agent-patterns/deterministic-workflows/sequential-orchestration), [Concurrent Orchestration](/ai/agent-patterns/deterministic-workflows/concurrent-orchestration), [Single Agent](/ai/agent-patterns/dynamic-orchestration/single-agent), [Multi-Agent Coordinator](/ai/agent-patterns/dynamic-orchestration/multi-agent-coordinator), [Multi-Agent Hierarchical Task Decomposition](/ai/agent-patterns/dynamic-orchestration/multi-agent-hierarchical-task-decomposition), [Handoff Orchestration](/ai/agent-patterns/dynamic-orchestration/handoff-orchestration)
 
-### Parallelism (1)
+### Performance (1)
 
 [Concurrent Orchestration](/ai/agent-patterns/deterministic-workflows/concurrent-orchestration)
 
