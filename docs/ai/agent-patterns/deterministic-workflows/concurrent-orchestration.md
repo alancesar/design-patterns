@@ -3,7 +3,7 @@ title: Concurrent Orchestration
 pattern_slug: concurrent-orchestration
 category: Deterministic Workflows
 tags:
-  - Parallelism
+  - Performance
   - Specialization
   - Output Quality
 origin: Azure, Google

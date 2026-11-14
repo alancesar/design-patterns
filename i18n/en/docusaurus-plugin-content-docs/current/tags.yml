@@ -1,7 +1,7 @@
 "Adaptability":
   label: "Adaptability"
   permalink: "/adaptability"
-  description: "Absorbing changes in requirements, technology or environment without rewriting what already exists."
+  description: "Adjusting the plan and execution flow to the task and intermediate results, instead of following a fixed script."
 
 "Availability":
   label: "Availability"
@@ -58,15 +58,10 @@
   permalink: "/output-quality"
   description: "Improving the accuracy, relevance and reliability of the outputs produced by AI models and agents."
 
-"Parallelism":
-  label: "Parallelism"
-  permalink: "/parallelism"
-  description: "Running work concurrently to cut total time and make better use of resources."
-
 "Performance":
   label: "Performance"
   permalink: "/performance"
-  description: "Reducing latency and increasing the throughput of code operations."
+  description: "Reducing latency and increasing throughput by avoiding unnecessary waits and round trips, or by running independent work in parallel."
 
 "Performance Efficiency":
   label: "Performance Efficiency"
@@ -76,7 +71,7 @@
 "Predictability":
   label: "Predictability"
   permalink: "/predictability"
-  description: "Making system behavior predictable and deterministic, reducing runtime surprises."
+  description: "Making agent behavior predictable and reproducible, with steps and stopping criteria defined up front."
 
 "Reliability":
   label: "Reliability"
@@ -86,7 +81,7 @@
 "Resource Efficiency":
   label: "Resource Efficiency"
   permalink: "/resource-efficiency"
-  description: "Saving memory, tokens, calls and other scarce resources while performing a task."
+  description: "Saving memory and avoiding the cost of creating or loading expensive objects by sharing or reusing instances."
 
 "Runtime Flexibility":
   label: "Runtime Flexibility"
@@ -106,7 +101,7 @@
 "Shared Understanding":
   label: "Shared Understanding"
   permalink: "/shared-understanding"
-  description: "Aligning technical and business people on a common language and model of the domain."
+  description: "Aligning business experts, developers and teams around a common language and model of the domain."
 
 "Simplicity":
   label: "Simplicity"
@@ -121,7 +116,7 @@
 "Strategic Focus":
   label: "Strategic Focus"
   permalink: "/strategic-focus"
-  description: "Concentrating modeling effort and investment on what is the strategic core of the business."
+  description: "Concentrating modeling effort and investment on what sets the business apart: its strategic core."
 
 "Team Autonomy":
   label: "Team Autonomy"

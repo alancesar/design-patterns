@@ -23,7 +23,7 @@ Total: 15 patterns in 4 groups. Tags: Orchestration goal.
 | Pattern | Summary | Tags | Origin |
 | --- | --- | --- | --- |
 | [Sequential Orchestration](/ai/agent-patterns/deterministic-workflows/sequential-orchestration) | Sequential Orchestration chains AI agents in a predefined linear order. | [`Predictability`](/tags/predictability) [`Specialization`](/tags/specialization) | Azure, Google |
-| [Concurrent Orchestration](/ai/agent-patterns/deterministic-workflows/concurrent-orchestration) | Concurrent Orchestration runs several AI agents at the same time on the same task, so that each one brings an independent analysis from its own perspective or specialty. | [`Parallelism`](/tags/parallelism) [`Specialization`](/tags/specialization) [`Output Quality`](/tags/output-quality) | Azure, Google |
+| [Concurrent Orchestration](/ai/agent-patterns/deterministic-workflows/concurrent-orchestration) | Concurrent Orchestration runs several AI agents at the same time on the same task, so that each one brings an independent analysis from its own perspective or specialty. | [`Performance`](/tags/performance) [`Specialization`](/tags/specialization) [`Output Quality`](/tags/output-quality) | Azure, Google |
 
 ## Dynamic Orchestration (7) {#dynamic-orchestration}
 
@@ -63,7 +63,7 @@ Total: 15 patterns in 4 groups. Tags: Orchestration goal.
 
 [Sequential Orchestration](/ai/agent-patterns/deterministic-workflows/sequential-orchestration), [Concurrent Orchestration](/ai/agent-patterns/deterministic-workflows/concurrent-orchestration), [Single Agent](/ai/agent-patterns/dynamic-orchestration/single-agent), [Multi-Agent Coordinator](/ai/agent-patterns/dynamic-orchestration/multi-agent-coordinator), [Multi-Agent Hierarchical Task Decomposition](/ai/agent-patterns/dynamic-orchestration/multi-agent-hierarchical-task-decomposition), [Handoff Orchestration](/ai/agent-patterns/dynamic-orchestration/handoff-orchestration)
 
-### Parallelism (1)
+### Performance (1)
 
 [Concurrent Orchestration](/ai/agent-patterns/deterministic-workflows/concurrent-orchestration)
 
