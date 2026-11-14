@@ -8,6 +8,8 @@ tags:
 origin: GoF
 source: https://iretha.github.io/design-patterns/cheat-sheet
 sidebar_label: "Decorator"
+mdx:
+  format: mdx
 ---
 
 # Decorator
@@ -94,6 +96,194 @@ classDiagram
 
 The basic transfer service only moves the money. Fraud check, night limit and audit trail are layers stacked according to the account type, instead of one subclass for each combination. The limits are illustrative.
 
+<Tabs groupId="lang" queryString>
+<TabItem value="java" label="Java">
+
+```java
+record TransferRequest(String fromAccountId, String toKey, long amountCents, LocalDateTime at) {}
+
+interface TransferService {
+    void transfer(TransferRequest request);
+}
+
+class BasicTransferService implements TransferService {
+    public void transfer(TransferRequest request) {
+        System.out.println("Transferring " + request.amountCents() + " -> " + request.toKey());
+    }
+}
+
+abstract class TransferDecorator implements TransferService {
+    protected final TransferService wrapped;
+
+    TransferDecorator(TransferService wrapped) { this.wrapped = wrapped; }
+
+    public void transfer(TransferRequest request) {
+        wrapped.transfer(request);
+    }
+}
+
+class FraudCheckDecorator extends TransferDecorator {
+    FraudCheckDecorator(TransferService wrapped) { super(wrapped); }
+
+    @Override
+    public void transfer(TransferRequest request) {
+        if (request.amountCents() > 5_000_000) throw new IllegalStateException("Blocked by fraud check");
+        super.transfer(request);
+    }
+}
+
+class NightLimitDecorator extends TransferDecorator {
+    NightLimitDecorator(TransferService wrapped) { super(wrapped); }
+
+    @Override
+    public void transfer(TransferRequest request) {
+        int hour = request.at().getHour();
+        boolean isNight = hour >= 20 || hour < 6;
+        if (isNight && request.amountCents() > 100_000) throw new IllegalStateException("Night limit exceeded");
+        super.transfer(request);
+    }
+}
+
+class AuditDecorator extends TransferDecorator {
+    AuditDecorator(TransferService wrapped) { super(wrapped); }
+
+    @Override
+    public void transfer(TransferRequest request) {
+        System.out.println("Audit: " + request.fromAccountId() + "transfers" + request.amountCents());
+        super.transfer(request);
+    }
+}
+
+TransferService service = new AuditDecorator(
+    new NightLimitDecorator(new FraudCheckDecorator(new BasicTransferService())));
+service.transfer(new TransferRequest(
+    "acc-1", "ana@example.com", 50_000, LocalDateTime.of(2026, 3, 10, 23, 30)));
+// audit, night limit and fraud check pass; R$ 500.00 transferred
+```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python
+from dataclasses import dataclass
+from datetime import datetime
+from typing import Protocol
+
+@dataclass(frozen=True)
+class TransferRequest:
+    from_account_id: str
+    to_key: str
+    amount_cents: int
+    at: datetime
+
+class TransferService(Protocol):
+    def transfer(self, request: TransferRequest) -> None: ...
+
+class BasicTransferService:
+    def transfer(self, request: TransferRequest) -> None:
+        print(f"Transferring {request.amount_cents} -> {request.to_key}")
+
+class TransferDecorator:
+    def __init__(self, wrapped: TransferService) -> None:
+        self._wrapped = wrapped
+
+    def transfer(self, request: TransferRequest) -> None:
+        self._wrapped.transfer(request)
+
+class FraudCheckDecorator(TransferDecorator):
+    def transfer(self, request: TransferRequest) -> None:
+        if request.amount_cents > 5_000_000:
+            raise PermissionError("Blocked by fraud check")
+        super().transfer(request)
+
+class NightLimitDecorator(TransferDecorator):
+    def transfer(self, request: TransferRequest) -> None:
+        is_night = request.at.hour >= 20 or request.at.hour < 6
+        if is_night and request.amount_cents > 100_000:
+            raise PermissionError("Night limit exceeded")
+        super().transfer(request)
+
+class AuditDecorator(TransferDecorator):
+    def transfer(self, request: TransferRequest) -> None:
+        print(f"Audit: {request.from_account_id}transfers{request.amount_cents}")
+        super().transfer(request)
+
+service: TransferService = AuditDecorator(
+    NightLimitDecorator(FraudCheckDecorator(BasicTransferService()))
+)
+service.transfer(TransferRequest("acc-1", "ana@example.com", 50_000, datetime(2026, 3, 10, 23, 30)))
+# audit, night limit and fraud check pass; R$ 500.00 transferred
+```
+
+</TabItem>
+<TabItem value="go" label="Go">
+
+```go
+type TransferRequest struct {
+	FromAccountID string
+	ToKey         string
+	AmountCents   int64
+	At            time.Time
+}
+
+type TransferService interface {
+	Transfer(request TransferRequest) error
+}
+
+type BasicTransferService struct{}
+
+func (BasicTransferService) Transfer(request TransferRequest) error {
+	fmt.Printf("Transferring %d -> %s\n", request.AmountCents, request.ToKey)
+	return nil
+}
+
+// Each decorator implements TransferService and wraps another TransferService.
+type FraudCheckDecorator struct{ Wrapped TransferService }
+
+func (d FraudCheckDecorator) Transfer(request TransferRequest) error {
+	if request.AmountCents > 5_000_000 {
+		return errors.New("blocked by fraud check")
+	}
+	return d.Wrapped.Transfer(request)
+}
+
+type NightLimitDecorator struct{ Wrapped TransferService }
+
+func (d NightLimitDecorator) Transfer(request TransferRequest) error {
+	hour := request.At.Hour()
+	isNight := hour >= 20 || hour < 6
+	if isNight && request.AmountCents > 100_000 {
+		return errors.New("night limit exceeded")
+	}
+	return d.Wrapped.Transfer(request)
+}
+
+type AuditDecorator struct{ Wrapped TransferService }
+
+func (d AuditDecorator) Transfer(request TransferRequest) error {
+	fmt.Printf("Audit: %stransfers%d\n", request.FromAccountID, request.AmountCents)
+	return d.Wrapped.Transfer(request)
+}
+
+func main() {
+	var service TransferService = AuditDecorator{
+		NightLimitDecorator{FraudCheckDecorator{BasicTransferService{}}},
+	}
+	err := service.Transfer(TransferRequest{
+		FromAccountID: "acc-1",
+		ToKey:         "ana@example.com",
+		AmountCents:   50_000,
+		At:            time.Date(2026, 3, 10, 23, 30, 0, 0, time.Local),
+	}) // audit, night limit and fraud check pass; R$ 500.00 transferred
+	if err != nil {
+		fmt.Println(err)
+	}
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
 ```typescript
 interface TransferRequest {
   fromAccountId: string;
@@ -152,6 +342,9 @@ service.transfer({
   at: new Date("2026-03-10T23:30:00"),
 }); // audit, night limit and fraud check pass; R$ 500.00 transferred
 ```
+
+</TabItem>
+</Tabs>
 
 ## Related patterns
 

@@ -8,6 +8,8 @@ tags:
 origin: Classic
 source: https://iretha.github.io/design-patterns/cheat-sheet
 sidebar_label: "Factory"
+mdx:
+  format: mdx
 ---
 
 # Factory
@@ -93,6 +95,124 @@ The `Client` requests an object from the `PaymentMethodFactory`, specifying the 
 
 At checkout, the buyer chooses to pay with Pix, boleto or card. The factory translates that choice into the right `PaymentMethod`, and the rest of the code only calls `charge()`.
 
+<Tabs groupId="lang" queryString>
+<TabItem value="java" label="Java">
+
+```java
+interface PaymentMethod {
+    void charge(long amountCents);
+}
+
+class PixPayment implements PaymentMethod {
+    public void charge(long amountCents) { /* generates the Pix QR code */ }
+}
+
+class BoletoPayment implements PaymentMethod {
+    public void charge(long amountCents) { /* issues the boleto */ }
+}
+
+class CardPayment implements PaymentMethod {
+    public void charge(long amountCents) { /* authorizes the card purchase */ }
+}
+
+class PaymentMethodFactory {
+    static PaymentMethod create(String type) {
+        return switch (type) {
+            case "pix"    -> new PixPayment();
+            case "boleto" -> new BoletoPayment();
+            case "card"   -> new CardPayment();
+            default -> throw new IllegalArgumentException("Unknown payment method: " + type);
+        };
+    }
+}
+
+// Client
+PaymentMethod method = PaymentMethodFactory.create(checkout.selectedMethod());
+method.charge(checkout.totalCents());
+```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python
+from typing import Protocol
+
+class PaymentMethod(Protocol):
+    def charge(self, amount_cents: int) -> None: ...
+
+class PixPayment:
+    def charge(self, amount_cents: int) -> None:
+        ...  # generates the Pix QR code
+
+class BoletoPayment:
+    def charge(self, amount_cents: int) -> None:
+        ...  # issues the boleto
+
+class CardPayment:
+    def charge(self, amount_cents: int) -> None:
+        ...  # authorizes the card purchase
+
+class PaymentMethodFactory:
+    _methods = {"pix": PixPayment, "boleto": BoletoPayment, "card": CardPayment}
+
+    @classmethod
+    def create(cls, type: str) -> PaymentMethod:
+        try:
+            return cls._methods[type]()
+        except KeyError:
+            raise ValueError(f"Unknown payment method: {type}") from None
+
+# Client
+method = PaymentMethodFactory.create(checkout.selected_method)
+method.charge(checkout.total_cents)
+```
+
+</TabItem>
+<TabItem value="go" label="Go">
+
+```go
+type PaymentMethod interface {
+	Charge(amountCents int64)
+}
+
+type PixPayment struct{}
+
+func (PixPayment) Charge(amountCents int64) { /* generates the Pix QR code */ }
+
+type BoletoPayment struct{}
+
+func (BoletoPayment) Charge(amountCents int64) { /* issues the boleto */ }
+
+type CardPayment struct{}
+
+func (CardPayment) Charge(amountCents int64) { /* authorizes the card purchase */ }
+
+func NewPaymentMethod(kind string) (PaymentMethod, error) {
+	switch kind {
+	case "pix":
+		return PixPayment{}, nil
+	case "boleto":
+		return BoletoPayment{}, nil
+	case "card":
+		return CardPayment{}, nil
+	default:
+		return nil, fmt.Errorf("unknown payment method: %s", kind)
+	}
+}
+
+func main() {
+	// Client
+	method, err := NewPaymentMethod(checkout.SelectedMethod)
+	if err != nil {
+		return
+	}
+	method.Charge(checkout.TotalCents)
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
 ```typescript
 interface PaymentMethod {
   charge(amountCents: number): void;
@@ -125,6 +245,9 @@ class PaymentMethodFactory {
 const method = PaymentMethodFactory.create(checkout.selectedMethod);
 method.charge(checkout.totalCents);
 ```
+
+</TabItem>
+</Tabs>
 
 ## Related patterns
 

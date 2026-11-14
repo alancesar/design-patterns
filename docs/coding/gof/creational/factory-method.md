@@ -8,6 +8,8 @@ tags:
 origin: GoF
 source: https://iretha.github.io/design-patterns/cheat-sheet
 sidebar_label: "Factory Method"
+mdx:
+  format: mdx
 ---
 
 # Factory Method
@@ -94,6 +96,167 @@ O `Creator` declara o método abstrato `createProduct()` e usa o `Product` em `s
 
 Toda transferência segue o mesmo fluxo (validar saldo, criar a instrução, registrar no ledger), mas a instrução varia conforme o trilho: Pix ou TED. Cada subclasse decide qual `PaymentInstruction` criar.
 
+<Tabs groupId="lang" queryString>
+<TabItem value="java" label="Java">
+
+```java
+record TransferRequest(String fromAccountId, String destination, long amountCents) {}
+
+interface PaymentInstruction {
+    String send();
+}
+
+record PixInstruction(TransferRequest request) implements PaymentInstruction {
+    public String send() {
+        return "Pix de " + request.amountCents() + " centavos para a chave " + request.destination() + " (SPI)";
+    }
+}
+
+record TedInstruction(TransferRequest request) implements PaymentInstruction {
+    public String send() {
+        return "TED de " + request.amountCents() + " centavos para " + request.destination() + " (próxima janela)";
+    }
+}
+
+abstract class TransferProcessor {
+    protected abstract PaymentInstruction createInstruction(TransferRequest request); // Factory Method
+
+    void process(TransferRequest request, long balanceCents) {
+        if (balanceCents < request.amountCents()) throw new IllegalStateException("saldo insuficiente");
+        PaymentInstruction instruction = createInstruction(request);
+        System.out.println(instruction.send());
+        System.out.println("ledger: débito de " + request.amountCents() + " centavos em " + request.fromAccountId());
+    }
+}
+
+class PixTransferProcessor extends TransferProcessor {
+    protected PaymentInstruction createInstruction(TransferRequest request) { return new PixInstruction(request); }
+}
+
+class TedTransferProcessor extends TransferProcessor {
+    protected PaymentInstruction createInstruction(TransferRequest request) { return new TedInstruction(request); }
+}
+
+TransferProcessor processor = new PixTransferProcessor();
+processor.process(new TransferRequest("0001-1", "maria@example.com", 12_500), 50_000);
+```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python
+from abc import ABC, abstractmethod
+from dataclasses import dataclass
+from typing import Protocol
+
+@dataclass(frozen=True)
+class TransferRequest:
+    from_account_id: str
+    destination: str
+    amount_cents: int
+
+class PaymentInstruction(Protocol):
+    def send(self) -> str: ...
+
+@dataclass(frozen=True)
+class PixInstruction:
+    request: TransferRequest
+
+    def send(self) -> str:
+        return f"Pix de {self.request.amount_cents} centavos para a chave {self.request.destination} (SPI)"
+
+@dataclass(frozen=True)
+class TedInstruction:
+    request: TransferRequest
+
+    def send(self) -> str:
+        return f"TED de {self.request.amount_cents} centavos para {self.request.destination} (próxima janela)"
+
+class TransferProcessor(ABC):
+    @abstractmethod
+    def _create_instruction(self, request: TransferRequest) -> PaymentInstruction:  # Factory Method
+        ...
+
+    def process(self, request: TransferRequest, balance_cents: int) -> None:
+        if balance_cents < request.amount_cents:
+            raise ValueError("saldo insuficiente")
+        instruction = self._create_instruction(request)
+        print(instruction.send())
+        print(f"ledger: débito de {request.amount_cents} centavos em {request.from_account_id}")
+
+class PixTransferProcessor(TransferProcessor):
+    def _create_instruction(self, request: TransferRequest) -> PaymentInstruction:
+        return PixInstruction(request)
+
+class TedTransferProcessor(TransferProcessor):
+    def _create_instruction(self, request: TransferRequest) -> PaymentInstruction:
+        return TedInstruction(request)
+
+processor: TransferProcessor = PixTransferProcessor()
+processor.process(TransferRequest("0001-1", "maria@example.com", 12_500), 50_000)
+```
+
+</TabItem>
+<TabItem value="go" label="Go">
+
+```go
+type TransferRequest struct {
+	FromAccountID string
+	Destination   string
+	AmountCents   int64
+}
+
+type PaymentInstruction interface {
+	Send() string
+}
+
+type PixInstruction struct{ request TransferRequest }
+
+func (i PixInstruction) Send() string {
+	return fmt.Sprintf("Pix de %d centavos para a chave %s (SPI)", i.request.AmountCents, i.request.Destination)
+}
+
+type TedInstruction struct{ request TransferRequest }
+
+func (i TedInstruction) Send() string {
+	return fmt.Sprintf("TED de %d centavos para %s (próxima janela)", i.request.AmountCents, i.request.Destination)
+}
+
+// Go não tem classes abstratas: o factory method é uma função guardada no processador.
+type TransferProcessor struct {
+	createInstruction func(TransferRequest) PaymentInstruction // Factory Method
+}
+
+func (p TransferProcessor) Process(request TransferRequest, balanceCents int64) error {
+	if balanceCents < request.AmountCents {
+		return errors.New("saldo insuficiente")
+	}
+	instruction := p.createInstruction(request)
+	fmt.Println(instruction.Send())
+	fmt.Printf("ledger: débito de %d centavos em %s\n", request.AmountCents, request.FromAccountID)
+	return nil
+}
+
+func NewPixTransferProcessor() TransferProcessor {
+	return TransferProcessor{func(r TransferRequest) PaymentInstruction { return PixInstruction{r} }}
+}
+
+func NewTedTransferProcessor() TransferProcessor {
+	return TransferProcessor{func(r TransferRequest) PaymentInstruction { return TedInstruction{r} }}
+}
+
+func main() {
+	processor := NewPixTransferProcessor()
+	err := processor.Process(TransferRequest{"0001-1", "maria@example.com", 12_500}, 50_000)
+	if err != nil {
+		fmt.Println(err)
+	}
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
 ```typescript
 interface TransferRequest {
   fromAccountId: string;
@@ -137,6 +300,9 @@ class TedTransferProcessor extends TransferProcessor {
 const processor: TransferProcessor = new PixTransferProcessor();
 processor.process({ fromAccountId: "0001-1", destination: "maria@example.com", amountCents: 12_500 }, 50_000);
 ```
+
+</TabItem>
+</Tabs>
 
 ## Padrões relacionados
 

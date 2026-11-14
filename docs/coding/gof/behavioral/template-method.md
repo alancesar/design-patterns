@@ -7,6 +7,8 @@ tags:
 origin: GoF
 source: https://iretha.github.io/design-patterns/cheat-sheet
 sidebar_label: "Template Method"
+mdx:
+  format: mdx
 ---
 
 # Template Method
@@ -85,6 +87,9 @@ classDiagram
 
 O processamento de um arquivo de retorno bancário é sempre: ler, converter em registros, validar e baixar os boletos pagos. Só a leitura e a conversão mudam entre CNAB 240 e CNAB 400 (o Abstract Factory usa os mesmos arquivos CNAB, mas varia o layout por banco parceiro; aqui o foco é o fluxo de processamento do retorno).
 
+<Tabs groupId="lang" queryString>
+<TabItem value="java" label="Java">
+
 ```java
 public abstract class RetornoProcessor {
     // Método template: estrutura fixa do fluxo
@@ -122,6 +127,123 @@ public class Cnab400Processor extends RetornoProcessor {
     protected void beforeSettle(List<PaymentRecord> records) { records.forEach(PaymentRecord::normalize); }
 }
 ```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python
+from abc import ABC, abstractmethod
+from pathlib import Path
+
+class RetornoProcessor(ABC):
+    def process(self, path: str) -> None:
+        """Método template: estrutura fixa do fluxo."""
+        raw = self._read(path)
+        records = self._parse(raw)
+        records = self._validate(records)
+        self._before_settle(records)  # hook opcional
+        self._settle(records)
+
+    @abstractmethod
+    def _read(self, path: str) -> str: ...
+
+    @abstractmethod
+    def _parse(self, raw: str) -> list[PaymentRecord]: ...
+
+    def _validate(self, records: list[PaymentRecord]) -> list[PaymentRecord]:
+        return [r for r in records if r.is_valid()]
+
+    def _before_settle(self, records: list[PaymentRecord]) -> None:  # hook
+        pass
+
+    def _settle(self, records: list[PaymentRecord]) -> None:
+        ...  # baixa os boletos pagos
+
+class Cnab240Processor(RetornoProcessor):
+    def _read(self, path: str) -> str:
+        return Path(path).read_text(encoding="utf-8")
+
+    def _parse(self, raw: str) -> list[PaymentRecord]:
+        return Cnab240Parser.parse(raw)
+
+class Cnab400Processor(RetornoProcessor):
+    def _read(self, path: str) -> str:
+        return Path(path).read_text(encoding="iso-8859-1")
+
+    def _parse(self, raw: str) -> list[PaymentRecord]:
+        return Cnab400Parser.parse(raw)
+
+    def _before_settle(self, records: list[PaymentRecord]) -> None:
+        for record in records:
+            record.normalize()
+```
+
+</TabItem>
+<TabItem value="go" label="Go">
+
+```go
+// Go não tem herança: o fluxo fixo é uma função, e os passos que variam vêm de uma interface.
+type RetornoFormat interface {
+	Read(path string) (string, error)
+	Parse(raw string) []PaymentRecord
+}
+
+// Hook opcional: só os formatos que precisam dele implementam esta interface.
+type BeforeSettler interface {
+	BeforeSettle(records []PaymentRecord)
+}
+
+// Método template: estrutura fixa do fluxo
+func ProcessRetorno(format RetornoFormat, path string) error {
+	raw, err := format.Read(path)
+	if err != nil {
+		return err
+	}
+	records := validate(format.Parse(raw))
+	if hook, ok := format.(BeforeSettler); ok {
+		hook.BeforeSettle(records) // hook opcional
+	}
+	settle(records)
+	return nil
+}
+
+func validate(records []PaymentRecord) []PaymentRecord {
+	return slices.DeleteFunc(records, func(r PaymentRecord) bool { return !r.IsValid() })
+}
+
+func settle(records []PaymentRecord) { /* baixa os boletos pagos */ }
+
+type Cnab240 struct{}
+
+func (Cnab240) Read(path string) (string, error) {
+	data, err := os.ReadFile(path)
+	return string(data), err
+}
+
+func (Cnab240) Parse(raw string) []PaymentRecord { return parseCnab240(raw) }
+
+type Cnab400 struct{}
+
+func (Cnab400) Read(path string) (string, error) {
+	data, err := os.ReadFile(path)
+	runes := make([]rune, len(data)) // ISO-8859-1: cada byte é um code point
+	for i, b := range data {
+		runes[i] = rune(b)
+	}
+	return string(runes), err
+}
+
+func (Cnab400) Parse(raw string) []PaymentRecord { return parseCnab400(raw) }
+
+func (Cnab400) BeforeSettle(records []PaymentRecord) {
+	for i := range records {
+		records[i].Normalize()
+	}
+}
+```
+
+</TabItem>
+</Tabs>
 
 ## Padrões relacionados
 

@@ -8,6 +8,8 @@ tags:
 origin: GoF
 source: https://iretha.github.io/design-patterns/cheat-sheet
 sidebar_label: "Composite"
+mdx:
+  format: mdx
 ---
 
 # Composite
@@ -84,6 +86,164 @@ O `Client` depende apenas de `Component`. `Leaf` implementa a operação diretam
 
 Uma carteira de investimentos contém ativos e subcarteiras, como "Reserva" e "Aposentadoria". O valor atual de uma carteira é a soma dos valores de seus itens, e o cliente pede o valor de qualquer nó sem saber se é um ativo ou uma carteira. Valores ilustrativos.
 
+<Tabs groupId="lang" queryString>
+<TabItem value="java" label="Java">
+
+```java
+record Money(long cents) {
+    Money plus(Money other) { return new Money(cents + other.cents); }
+}
+
+interface Holding {
+    String getName();
+    Money currentValue();
+}
+
+record Asset(String name, Money value) implements Holding {
+    public String getName() { return name; }
+    public Money currentValue() { return value; }
+}
+
+class Portfolio implements Holding {
+    private final String name;
+    private final List<Holding> children = new ArrayList<>();
+
+    Portfolio(String name) { this.name = name; }
+
+    Portfolio add(Holding holding) { children.add(holding); return this; }
+    void remove(Holding holding) { children.remove(holding); }
+
+    public String getName() { return name; }
+    public Money currentValue() {
+        return children.stream().map(Holding::currentValue).reduce(new Money(0), Money::plus);
+    }
+}
+
+Portfolio reserve = new Portfolio("Reserva").add(new Asset("CDB Liquidez Diária", new Money(2_000_000)));
+Portfolio retirement = new Portfolio("Aposentadoria")
+    .add(new Asset("CDB 2029", new Money(1_500_000)))
+    .add(new Asset("Fundo Multimercado", new Money(800_000)));
+Portfolio portfolio = new Portfolio("Carteira").add(reserve).add(retirement);
+
+System.out.println(portfolio.currentValue().cents()); // 4300000 (R$ 43.000,00)
+```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import Protocol
+
+@dataclass(frozen=True)
+class Money:
+    cents: int
+
+    def __add__(self, other: Money) -> Money:
+        return Money(self.cents + other.cents)
+
+class Holding(Protocol):
+    name: str
+
+    def current_value(self) -> Money: ...
+
+@dataclass(frozen=True)
+class Asset:
+    name: str
+    value: Money
+
+    def current_value(self) -> Money:
+        return self.value
+
+class Portfolio:
+    def __init__(self, name: str) -> None:
+        self.name = name
+        self._children: list[Holding] = []
+
+    def add(self, holding: Holding) -> Portfolio:
+        self._children.append(holding)
+        return self
+
+    def remove(self, holding: Holding) -> None:
+        self._children.remove(holding)
+
+    def current_value(self) -> Money:
+        return sum((child.current_value() for child in self._children), Money(0))
+
+reserve = Portfolio("Reserva").add(Asset("CDB Liquidez Diária", Money(2_000_000)))
+retirement = (
+    Portfolio("Aposentadoria")
+    .add(Asset("CDB 2029", Money(1_500_000)))
+    .add(Asset("Fundo Multimercado", Money(800_000)))
+)
+portfolio = Portfolio("Carteira").add(reserve).add(retirement)
+
+print(portfolio.current_value().cents)  # 4300000 (R$ 43.000,00)
+```
+
+</TabItem>
+<TabItem value="go" label="Go">
+
+```go
+type Money struct{ Cents int64 }
+
+func (m Money) Plus(other Money) Money { return Money{m.Cents + other.Cents} }
+
+type Holding interface {
+	Name() string
+	CurrentValue() Money
+}
+
+type Asset struct {
+	name  string
+	value Money
+}
+
+func (a Asset) Name() string        { return a.name }
+func (a Asset) CurrentValue() Money { return a.value }
+
+type Portfolio struct {
+	name     string
+	children []Holding
+}
+
+func NewPortfolio(name string) *Portfolio { return &Portfolio{name: name} }
+
+func (p *Portfolio) Add(holding Holding) *Portfolio {
+	p.children = append(p.children, holding)
+	return p
+}
+
+func (p *Portfolio) Remove(holding Holding) {
+	p.children = slices.DeleteFunc(p.children, func(c Holding) bool { return c == holding })
+}
+
+func (p *Portfolio) Name() string { return p.name }
+
+func (p *Portfolio) CurrentValue() Money {
+	total := Money{}
+	for _, child := range p.children {
+		total = total.Plus(child.CurrentValue())
+	}
+	return total
+}
+
+func main() {
+	reserve := NewPortfolio("Reserva").Add(Asset{"CDB Liquidez Diária", Money{2_000_000}})
+	retirement := NewPortfolio("Aposentadoria").
+		Add(Asset{"CDB 2029", Money{1_500_000}}).
+		Add(Asset{"Fundo Multimercado", Money{800_000}})
+	portfolio := NewPortfolio("Carteira").Add(reserve).Add(retirement)
+
+	fmt.Println(portfolio.CurrentValue().Cents) // 4300000 (R$ 43.000,00)
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
 ```typescript
 class Money {
   constructor(readonly cents: number) {}
@@ -120,6 +280,9 @@ const portfolio = new Portfolio("Carteira").add(reserve).add(retirement);
 
 console.log(portfolio.currentValue().cents); // 4300000 (R$ 43.000,00)
 ```
+
+</TabItem>
+</Tabs>
 
 ## Padrões relacionados
 

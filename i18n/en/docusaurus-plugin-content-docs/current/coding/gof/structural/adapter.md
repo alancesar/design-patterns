@@ -7,6 +7,8 @@ tags:
 origin: GoF
 source: https://iretha.github.io/design-patterns/cheat-sheet
 sidebar_label: "Adapter"
+mdx:
+  format: mdx
 ---
 
 # Adapter
@@ -79,6 +81,125 @@ The `Client` depends only on the `Target` interface. The `Adapter` implements `T
 
 The fintech uses the internal `PixGateway` interface, which works with `Money` and a Pix key. The settlement partner's SDK, `PartnerPixClient`, takes the key as plain text and the amount in cents, and returns a status code; an adapter bridges the two.
 
+<Tabs groupId="lang" queryString>
+<TabItem value="java" label="Java">
+
+```java
+record Money(long cents) {}
+
+enum PixKeyType { CPF, EMAIL, PHONE, EVP }
+
+record PixKey(PixKeyType type, String value) {}
+
+interface PixGateway {
+    boolean send(PixKey key, Money amount);
+}
+
+// Partner SDK (we cannot change it)
+class PartnerPixClient {
+    record Result(String status) {}
+
+    Result transfer(String destinationKey, long amountInCents) {
+        return new Result("SETTLED");
+    }
+}
+
+class PartnerPixAdapter implements PixGateway {
+    private final PartnerPixClient client;
+
+    PartnerPixAdapter(PartnerPixClient client) { this.client = client; }
+
+    public boolean send(PixKey key, Money amount) {
+        PartnerPixClient.Result result = client.transfer(key.value(), amount.cents());
+        return result.status().equals("SETTLED");
+    }
+}
+
+// The client only knows PixGateway
+PixGateway gateway = new PartnerPixAdapter(new PartnerPixClient());
+gateway.send(new PixKey(PixKeyType.EMAIL, "ana@example.com"), new Money(19_990));
+```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python
+from dataclasses import dataclass
+from typing import Protocol
+
+@dataclass(frozen=True)
+class Money:
+    cents: int
+
+@dataclass(frozen=True)
+class PixKey:
+    type: str  # "CPF", "EMAIL", "PHONE" or "EVP"
+    value: str
+
+class PixGateway(Protocol):
+    def send(self, key: PixKey, amount: Money) -> bool: ...
+
+# Partner SDK (we cannot change it)
+class PartnerPixClient:
+    def transfer(self, destination_key: str, amount_in_cents: int) -> dict:
+        return {"status": "SETTLED"}
+
+class PartnerPixAdapter:
+    def __init__(self, client: PartnerPixClient) -> None:
+        self._client = client
+
+    def send(self, key: PixKey, amount: Money) -> bool:
+        result = self._client.transfer(key.value, amount.cents)
+        return result["status"] == "SETTLED"
+
+# The client only knows PixGateway
+gateway: PixGateway = PartnerPixAdapter(PartnerPixClient())
+gateway.send(PixKey("EMAIL", "ana@example.com"), Money(19_990))
+```
+
+</TabItem>
+<TabItem value="go" label="Go">
+
+```go
+type Money struct{ Cents int64 }
+
+type PixKey struct {
+	Type  string // "CPF", "EMAIL", "PHONE" or "EVP"
+	Value string
+}
+
+type PixGateway interface {
+	Send(key PixKey, amount Money) bool
+}
+
+// Partner SDK (we cannot change it)
+type PartnerPixClient struct{}
+
+type PartnerResult struct{ Status string }
+
+func (PartnerPixClient) Transfer(destinationKey string, amountInCents int64) PartnerResult {
+	return PartnerResult{Status: "SETTLED"}
+}
+
+type PartnerPixAdapter struct {
+	client PartnerPixClient
+}
+
+func (a PartnerPixAdapter) Send(key PixKey, amount Money) bool {
+	result := a.client.Transfer(key.Value, amount.Cents)
+	return result.Status == "SETTLED"
+}
+
+func main() {
+	// The client only knows PixGateway
+	var gateway PixGateway = PartnerPixAdapter{client: PartnerPixClient{}}
+	gateway.Send(PixKey{"EMAIL", "ana@example.com"}, Money{19_990})
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
 ```typescript
 interface Money {
   cents: number;
@@ -113,6 +234,9 @@ class PartnerPixAdapter implements PixGateway {
 const gateway: PixGateway = new PartnerPixAdapter(new PartnerPixClient());
 gateway.send({ type: "EMAIL", value: "ana@example.com" }, { cents: 19_990 });
 ```
+
+</TabItem>
+</Tabs>
 
 ## Related patterns
 

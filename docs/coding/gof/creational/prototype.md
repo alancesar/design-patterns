@@ -8,6 +8,8 @@ tags:
 origin: GoF
 source: https://iretha.github.io/design-patterns/cheat-sheet
 sidebar_label: "Prototype"
+mdx:
+  format: mdx
 ---
 
 # Prototype
@@ -92,6 +94,210 @@ classDiagram
 
 O cliente salva pagamentos favoritos, como o aluguel e a mesada. Para agendar um novo, o app clona o favorito e muda só a data e o valor, sem reconstruir os dados do recebedor nem a descrição e sem saber se o favorito é um Pix ou uma TED.
 
+<Tabs groupId="lang" queryString>
+<TabItem value="java" label="Java">
+
+```java
+interface PaymentOrder {
+    PaymentOrder copy();
+    void reschedule(String scheduledFor, long amountCents);
+}
+
+class PixPaymentOrder implements PaymentOrder {
+    String receiverKey, description, scheduledFor;
+    long amountCents;
+
+    PixPaymentOrder(String receiverKey, String description, long amountCents, String scheduledFor) {
+        this.receiverKey = receiverKey; this.description = description;
+        this.amountCents = amountCents; this.scheduledFor = scheduledFor;
+    }
+
+    public PaymentOrder copy() {
+        return new PixPaymentOrder(receiverKey, description, amountCents, scheduledFor);
+    }
+
+    public void reschedule(String scheduledFor, long amountCents) {
+        this.scheduledFor = scheduledFor; this.amountCents = amountCents;
+    }
+}
+
+class TedPaymentOrder implements PaymentOrder {
+    String bankCode, branch, accountNumber, description, scheduledFor;
+    long amountCents;
+
+    TedPaymentOrder(String bankCode, String branch, String accountNumber,
+                    String description, long amountCents, String scheduledFor) {
+        this.bankCode = bankCode; this.branch = branch; this.accountNumber = accountNumber;
+        this.description = description; this.amountCents = amountCents; this.scheduledFor = scheduledFor;
+    }
+
+    public PaymentOrder copy() {
+        return new TedPaymentOrder(bankCode, branch, accountNumber, description, amountCents, scheduledFor);
+    }
+
+    public void reschedule(String scheduledFor, long amountCents) {
+        this.scheduledFor = scheduledFor; this.amountCents = amountCents;
+    }
+}
+
+class FavoritePayments {
+    private final Map<String, PaymentOrder> items = new HashMap<>();
+
+    void register(String key, PaymentOrder order) {
+        items.put(key, order);
+    }
+
+    PaymentOrder create(String key) {
+        PaymentOrder proto = items.get(key);
+        if (proto == null) throw new IllegalArgumentException("Unknown favorite: " + key);
+        return proto.copy();
+    }
+}
+
+FavoritePayments favorites = new FavoritePayments();
+favorites.register("rent", new PixPaymentOrder("locador@example.com", "Aluguel", 250_000, "2026-12-05"));
+favorites.register("allowance", new TedPaymentOrder("001", "1234", "56789-0", "Mesada", 30_000, "2026-12-10"));
+
+// O cliente clona sem saber se o favorito é Pix ou TED
+PaymentOrder order = favorites.create("rent");
+order.reschedule("2027-01-05", 262_500); // o favorito original permanece intacto
+```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python
+from __future__ import annotations
+
+import copy
+from dataclasses import dataclass
+from typing import Protocol
+
+class PaymentOrder(Protocol):
+    def clone(self) -> PaymentOrder: ...
+    def reschedule(self, scheduled_for: str, amount_cents: int) -> None: ...
+
+@dataclass
+class PixPaymentOrder:
+    receiver_key: str
+    description: str
+    amount_cents: int
+    scheduled_for: str
+
+    def clone(self) -> PaymentOrder:
+        return copy.copy(self)
+
+    def reschedule(self, scheduled_for: str, amount_cents: int) -> None:
+        self.scheduled_for, self.amount_cents = scheduled_for, amount_cents
+
+@dataclass
+class TedPaymentOrder:
+    bank_code: str
+    branch: str
+    account_number: str
+    description: str
+    amount_cents: int
+    scheduled_for: str
+
+    def clone(self) -> PaymentOrder:
+        return copy.copy(self)
+
+    def reschedule(self, scheduled_for: str, amount_cents: int) -> None:
+        self.scheduled_for, self.amount_cents = scheduled_for, amount_cents
+
+class FavoritePayments:
+    def __init__(self) -> None:
+        self._items: dict[str, PaymentOrder] = {}
+
+    def register(self, key: str, order: PaymentOrder) -> None:
+        self._items[key] = order
+
+    def create(self, key: str) -> PaymentOrder:
+        if key not in self._items:
+            raise KeyError(f"Unknown favorite: {key}")
+        return self._items[key].clone()
+
+favorites = FavoritePayments()
+favorites.register("rent", PixPaymentOrder("locador@example.com", "Aluguel", 250_000, "2026-12-05"))
+favorites.register("allowance", TedPaymentOrder("001", "1234", "56789-0", "Mesada", 30_000, "2026-12-10"))
+
+# O cliente clona sem saber se o favorito é Pix ou TED
+order = favorites.create("rent")
+order.reschedule("2027-01-05", 262_500)  # o favorito original permanece intacto
+```
+
+</TabItem>
+<TabItem value="go" label="Go">
+
+```go
+type PaymentOrder interface {
+	Clone() PaymentOrder
+	Reschedule(scheduledFor string, amountCents int64)
+}
+
+type PixPaymentOrder struct {
+	ReceiverKey, Description string
+	AmountCents              int64
+	ScheduledFor             string
+}
+
+func (o *PixPaymentOrder) Clone() PaymentOrder {
+	clone := *o // a atribuição copia todos os campos
+	return &clone
+}
+
+func (o *PixPaymentOrder) Reschedule(scheduledFor string, amountCents int64) {
+	o.ScheduledFor, o.AmountCents = scheduledFor, amountCents
+}
+
+type TedPaymentOrder struct {
+	BankCode, Branch, AccountNumber, Description string
+	AmountCents                                  int64
+	ScheduledFor                                 string
+}
+
+func (o *TedPaymentOrder) Clone() PaymentOrder {
+	clone := *o
+	return &clone
+}
+
+func (o *TedPaymentOrder) Reschedule(scheduledFor string, amountCents int64) {
+	o.ScheduledFor, o.AmountCents = scheduledFor, amountCents
+}
+
+type FavoritePayments struct {
+	items map[string]PaymentOrder
+}
+
+func (f *FavoritePayments) Register(key string, order PaymentOrder) {
+	f.items[key] = order
+}
+
+func (f *FavoritePayments) Create(key string) (PaymentOrder, error) {
+	proto, ok := f.items[key]
+	if !ok {
+		return nil, fmt.Errorf("unknown favorite: %s", key)
+	}
+	return proto.Clone(), nil
+}
+
+func main() {
+	favorites := &FavoritePayments{items: map[string]PaymentOrder{}}
+	favorites.Register("rent", &PixPaymentOrder{"locador@example.com", "Aluguel", 250_000, "2026-12-05"})
+	favorites.Register("allowance", &TedPaymentOrder{"001", "1234", "56789-0", "Mesada", 30_000, "2026-12-10"})
+
+	// O cliente clona sem saber se o favorito é Pix ou TED
+	order, err := favorites.Create("rent")
+	if err != nil {
+		return
+	}
+	order.Reschedule("2027-01-05", 262_500) // o favorito original permanece intacto
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
 ```typescript
 interface PaymentOrder {
   clone(): PaymentOrder;
@@ -148,6 +354,9 @@ favorites.register("allowance", new TedPaymentOrder("001", "1234", "56789-0", "M
 const order = favorites.create("rent");
 order.reschedule("2027-01-05", 262_500); // o favorito original permanece intacto
 ```
+
+</TabItem>
+</Tabs>
 
 ## Padrões relacionados
 

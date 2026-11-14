@@ -120,6 +120,7 @@ code {
 pre code,
 .prism-code {
   border: none;
+  tab-size: 4; /* Go examples are indented with tabs */
 }
 
 .theme-code-block {

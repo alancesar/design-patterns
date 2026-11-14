@@ -7,6 +7,8 @@ tags:
 origin: Classic
 source: https://iretha.github.io/design-patterns/cheat-sheet
 sidebar_label: "Object Pool"
+mdx:
+  format: mdx
 ---
 
 # Object Pool
@@ -86,6 +88,65 @@ O `Client` obtém um `Reusable` do `ObjectPool` e o devolve ao terminar. O pool 
 
 Toda mensagem enviada ao SPI precisa ser assinada em um HSM. Abrir uma sessão no HSM é caro e o equipamento aceita poucas sessões simultâneas, então as sessões são mantidas em um pool limitado.
 
+<Tabs groupId="lang" queryString>
+<TabItem value="java" label="Java">
+
+```java
+interface HsmSession {
+    boolean isValid();
+    void reset();
+    byte[] sign(String message);
+}
+
+class HsmSessionPool {
+    private final Supplier<HsmSession> factory;
+    private final Deque<HsmSession> available = new ArrayDeque<>();
+    private final Semaphore permits;
+
+    HsmSessionPool(Supplier<HsmSession> factory, int maxSize) {
+        this.factory = factory;
+        this.permits = new Semaphore(maxSize);
+    }
+
+    HsmSession acquire(Duration timeout) throws InterruptedException, TimeoutException {
+        if (!permits.tryAcquire(timeout.toMillis(), TimeUnit.MILLISECONDS))
+            throw new TimeoutException("pool esgotado");
+        HsmSession session;
+        synchronized (available) { session = available.poll(); }
+        if (session == null || !session.isValid()) session = factory.get();
+        return session;
+    }
+
+    void release(HsmSession session) {
+        session.reset();
+        synchronized (available) { available.push(session); }
+        permits.release();
+    }
+}
+
+class MessageSigner {
+    private final HsmSessionPool pool;
+
+    MessageSigner(HsmSessionPool pool) { this.pool = pool; }
+
+    byte[] sign(String message) throws InterruptedException, TimeoutException {
+        HsmSession session = pool.acquire(Duration.ofSeconds(5));
+        try {
+            return session.sign(message);
+        } finally {
+            pool.release(session);
+        }
+    }
+}
+
+// uso: cada mensagem enviada ao SPI é assinada com uma sessão emprestada do pool
+MessageSigner signer = new MessageSigner(new HsmSessionPool(openHsmSession, 4));
+byte[] signature = signer.sign(pacs008Xml);
+```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
 ```python
 import threading
 
@@ -130,6 +191,75 @@ class MessageSigner:
 signer = MessageSigner(HsmSessionPool(open_hsm_session, max_size=4))
 signature = signer.sign(pacs008_xml)
 ```
+
+</TabItem>
+<TabItem value="go" label="Go">
+
+```go
+type HsmSession interface {
+	IsValid() bool
+	Reset()
+	Sign(message string) []byte
+}
+
+type HsmSessionPool struct {
+	factory func() HsmSession
+	idle    chan HsmSession // sessões devolvidas, prontas para reuso
+	permits chan struct{}   // limita as sessões emprestadas ao mesmo tempo
+}
+
+func NewHsmSessionPool(factory func() HsmSession, maxSize int) *HsmSessionPool {
+	return &HsmSessionPool{
+		factory: factory,
+		idle:    make(chan HsmSession, maxSize),
+		permits: make(chan struct{}, maxSize),
+	}
+}
+
+func (p *HsmSessionPool) Acquire(timeout time.Duration) (HsmSession, error) {
+	select {
+	case p.permits <- struct{}{}:
+	case <-time.After(timeout):
+		return nil, errors.New("pool esgotado")
+	}
+	select {
+	case session := <-p.idle:
+		if session.IsValid() {
+			return session, nil
+		}
+	default:
+	}
+	return p.factory(), nil
+}
+
+func (p *HsmSessionPool) Release(session HsmSession) {
+	session.Reset()
+	p.idle <- session
+	<-p.permits
+}
+
+type MessageSigner struct {
+	pool *HsmSessionPool
+}
+
+func (s *MessageSigner) Sign(message string) ([]byte, error) {
+	session, err := s.pool.Acquire(5 * time.Second)
+	if err != nil {
+		return nil, err
+	}
+	defer s.pool.Release(session)
+	return session.Sign(message), nil
+}
+
+func main() {
+	// uso: cada mensagem enviada ao SPI é assinada com uma sessão emprestada do pool
+	signer := &MessageSigner{pool: NewHsmSessionPool(openHsmSession, 4)}
+	signature, err := signer.Sign(pacs008XML)
+}
+```
+
+</TabItem>
+</Tabs>
 
 ## Padrões relacionados
 

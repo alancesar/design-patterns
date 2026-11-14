@@ -8,6 +8,8 @@ tags:
 origin: GoF
 source: https://iretha.github.io/design-patterns/cheat-sheet
 sidebar_label: "State"
+mdx:
+  format: mdx
 ---
 
 # State
@@ -85,6 +87,160 @@ O `Context` delega `request()` ao `State` atual. Cada `ConcreteState` implementa
 
 Uma cobrança Pix passa pelos estados "ativa", "paga", "expirada" e "devolvida"; as ações `pay()`, `expire()` e `refund()` só são válidas em determinados estados: `pay()` só vale para a cobrança ativa e `refund()` só para a paga.
 
+<Tabs groupId="lang" queryString>
+<TabItem value="java" label="Java">
+
+```java
+interface ChargeState {
+    void pay(PixCharge charge);
+    void expire(PixCharge charge);
+    void refund(PixCharge charge);
+}
+
+class Active implements ChargeState {
+    public void pay(PixCharge charge) { charge.setState(new Paid()); }
+    public void expire(PixCharge charge) { charge.setState(new Expired()); }
+    public void refund(PixCharge charge) { throw new IllegalStateException("Cobrança ativa não pode ser devolvida"); }
+}
+
+class Paid implements ChargeState {
+    public void pay(PixCharge charge) { throw new IllegalStateException("Cobrança já foi paga"); }
+    public void expire(PixCharge charge) { throw new IllegalStateException("Cobrança paga não expira"); }
+    public void refund(PixCharge charge) { charge.setState(new Refunded()); }
+}
+
+class Expired implements ChargeState {
+    public void pay(PixCharge charge) { throw new IllegalStateException("Cobrança expirada"); }
+    public void expire(PixCharge charge) { throw new IllegalStateException("Cobrança expirada"); }
+    public void refund(PixCharge charge) { throw new IllegalStateException("Cobrança expirada"); }
+}
+
+class Refunded implements ChargeState {
+    public void pay(PixCharge charge) { throw new IllegalStateException("Cobrança já devolvida"); }
+    public void expire(PixCharge charge) { throw new IllegalStateException("Cobrança já devolvida"); }
+    public void refund(PixCharge charge) { throw new IllegalStateException("Cobrança já devolvida"); }
+}
+
+class PixCharge {
+    private ChargeState state = new Active();
+
+    void setState(ChargeState state) { this.state = state; }
+    void pay() { state.pay(this); }
+    void expire() { state.expire(this); }
+    void refund() { state.refund(this); }
+}
+```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python
+from __future__ import annotations
+
+from typing import Protocol
+
+class InvalidTransition(Exception):
+    pass
+
+class ChargeState(Protocol):
+    def pay(self, charge: PixCharge) -> None: ...
+    def expire(self, charge: PixCharge) -> None: ...
+    def refund(self, charge: PixCharge) -> None: ...
+
+class Active:
+    def pay(self, charge: PixCharge) -> None:
+        charge.state = Paid()
+
+    def expire(self, charge: PixCharge) -> None:
+        charge.state = Expired()
+
+    def refund(self, charge: PixCharge) -> None:
+        raise InvalidTransition("Cobrança ativa não pode ser devolvida")
+
+class Paid:
+    def pay(self, charge: PixCharge) -> None:
+        raise InvalidTransition("Cobrança já foi paga")
+
+    def expire(self, charge: PixCharge) -> None:
+        raise InvalidTransition("Cobrança paga não expira")
+
+    def refund(self, charge: PixCharge) -> None:
+        charge.state = Refunded()
+
+class Expired:
+    def pay(self, charge: PixCharge) -> None:
+        raise InvalidTransition("Cobrança expirada")
+
+    expire = refund = pay  # toda ação falha do mesmo jeito
+
+class Refunded:
+    def pay(self, charge: PixCharge) -> None:
+        raise InvalidTransition("Cobrança já devolvida")
+
+    expire = refund = pay  # toda ação falha do mesmo jeito
+
+class PixCharge:
+    def __init__(self) -> None:
+        self.state: ChargeState = Active()
+
+    def pay(self) -> None:
+        self.state.pay(self)
+
+    def expire(self) -> None:
+        self.state.expire(self)
+
+    def refund(self) -> None:
+        self.state.refund(self)
+```
+
+</TabItem>
+<TabItem value="go" label="Go">
+
+```go
+type ChargeState interface {
+	Pay(charge *PixCharge) error
+	Expire(charge *PixCharge) error
+	Refund(charge *PixCharge) error
+}
+
+type Active struct{}
+
+func (Active) Pay(charge *PixCharge) error    { charge.state = Paid{}; return nil }
+func (Active) Expire(charge *PixCharge) error { charge.state = Expired{}; return nil }
+func (Active) Refund(*PixCharge) error        { return errors.New("cobrança ativa não pode ser devolvida") }
+
+type Paid struct{}
+
+func (Paid) Pay(*PixCharge) error           { return errors.New("cobrança já foi paga") }
+func (Paid) Expire(*PixCharge) error        { return errors.New("cobrança paga não expira") }
+func (Paid) Refund(charge *PixCharge) error { charge.state = Refunded{}; return nil }
+
+type Expired struct{}
+
+func (Expired) Pay(*PixCharge) error    { return errors.New("cobrança expirada") }
+func (Expired) Expire(*PixCharge) error { return errors.New("cobrança expirada") }
+func (Expired) Refund(*PixCharge) error { return errors.New("cobrança expirada") }
+
+type Refunded struct{}
+
+func (Refunded) Pay(*PixCharge) error    { return errors.New("cobrança já devolvida") }
+func (Refunded) Expire(*PixCharge) error { return errors.New("cobrança já devolvida") }
+func (Refunded) Refund(*PixCharge) error { return errors.New("cobrança já devolvida") }
+
+type PixCharge struct {
+	state ChargeState
+}
+
+func NewPixCharge() *PixCharge { return &PixCharge{state: Active{}} }
+
+func (c *PixCharge) Pay() error    { return c.state.Pay(c) }
+func (c *PixCharge) Expire() error { return c.state.Expire(c) }
+func (c *PixCharge) Refund() error { return c.state.Refund(c) }
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
 ```typescript
 interface ChargeState {
   pay(charge: PixCharge): void;
@@ -124,6 +280,9 @@ class PixCharge {
   refund() { this.state.refund(this); }
 }
 ```
+
+</TabItem>
+</Tabs>
 
 ## Padrões relacionados
 

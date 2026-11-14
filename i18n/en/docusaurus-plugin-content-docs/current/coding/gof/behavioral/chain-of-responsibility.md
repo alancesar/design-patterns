@@ -8,6 +8,8 @@ tags:
 origin: GoF
 source: https://iretha.github.io/design-patterns/cheat-sheet
 sidebar_label: "Chain of Responsibility"
+mdx:
+  format: mdx
 ---
 
 # Chain of Responsibility
@@ -86,6 +88,149 @@ The `Client` sends the `Request` to the first `Handler` in the chain. Each `Conc
 
 A personal loan proposal goes up through approval levels: the analyst approves up to R$ 5,000, the coordinator up to R$ 50,000 and the credit committee above that. The approval limits are illustrative.
 
+<Tabs groupId="lang" queryString>
+<TabItem value="java" label="Java">
+
+```java
+record CreditProposal(String id, long amountCents) {}
+
+abstract class CreditApprover {
+    private CreditApprover next;
+
+    CreditApprover setNext(CreditApprover next) {
+        this.next = next;
+        return next;
+    }
+
+    String handle(CreditProposal proposal) {
+        if (next != null) return next.handle(proposal);
+        return "Proposal " + proposal.id() + " rejected: no approver";
+    }
+}
+
+class Analyst extends CreditApprover {
+    @Override
+    String handle(CreditProposal proposal) {
+        return proposal.amountCents() <= 500_000 ? "Analystapproved" + proposal.id() : super.handle(proposal);
+    }
+}
+
+class Coordinator extends CreditApprover {
+    @Override
+    String handle(CreditProposal proposal) {
+        return proposal.amountCents() <= 5_000_000 ? "Coordinatorapproved" + proposal.id() : super.handle(proposal);
+    }
+}
+
+class CreditCommittee extends CreditApprover {
+    @Override
+    String handle(CreditProposal proposal) {
+        return "CreditCommitteeapproved" + proposal.id();
+    }
+}
+
+CreditApprover chain = new Analyst();
+chain.setNext(new Coordinator()).setNext(new CreditCommittee());
+System.out.println(chain.handle(new CreditProposal("P-101", 300_000)));   // AnalystapprovedP-101
+System.out.println(chain.handle(new CreditProposal("P-102", 8_000_000))); // CreditCommitteeapprovedP-102
+```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import Optional
+
+@dataclass(frozen=True)
+class CreditProposal:
+    id: str
+    amount_cents: int
+
+class CreditApprover:
+    def __init__(self) -> None:
+        self._next: Optional[CreditApprover] = None
+
+    def set_next(self, next_approver: CreditApprover) -> CreditApprover:
+        self._next = next_approver
+        return next_approver
+
+    def handle(self, proposal: CreditProposal) -> str:
+        if self._next:
+            return self._next.handle(proposal)
+        return f"Proposal {proposal.id} rejected: no approver"
+
+class Analyst(CreditApprover):
+    def handle(self, proposal: CreditProposal) -> str:
+        if proposal.amount_cents <= 500_000:
+            return f"Analystapproved{proposal.id}"
+        return super().handle(proposal)
+
+class Coordinator(CreditApprover):
+    def handle(self, proposal: CreditProposal) -> str:
+        if proposal.amount_cents <= 5_000_000:
+            return f"Coordinatorapproved{proposal.id}"
+        return super().handle(proposal)
+
+class CreditCommittee(CreditApprover):
+    def handle(self, proposal: CreditProposal) -> str:
+        return f"CreditCommitteeapproved{proposal.id}"
+
+chain = Analyst()
+chain.set_next(Coordinator()).set_next(CreditCommittee())
+print(chain.handle(CreditProposal("P-101", 300_000)))    # AnalystapprovedP-101
+print(chain.handle(CreditProposal("P-102", 8_000_000)))  # CreditCommitteeapprovedP-102
+```
+
+</TabItem>
+<TabItem value="go" label="Go">
+
+```go
+type CreditProposal struct {
+	ID          string
+	AmountCents int64
+}
+
+type CreditApprover interface {
+	Handle(proposal CreditProposal) string
+}
+
+// Go has no inheritance: each link holds the next one and delegates to it by composition.
+type LimitApprover struct {
+	Name       string
+	LimitCents int64
+	Next       CreditApprover
+}
+
+func (a LimitApprover) Handle(proposal CreditProposal) string {
+	if proposal.AmountCents <= a.LimitCents {
+		return fmt.Sprintf("%sapproved%s", a.Name, proposal.ID)
+	}
+	if a.Next != nil {
+		return a.Next.Handle(proposal)
+	}
+	return fmt.Sprintf("Proposal %s rejected: no approver", proposal.ID)
+}
+
+type CreditCommittee struct{}
+
+func (CreditCommittee) Handle(proposal CreditProposal) string {
+	return "CreditCommitteeapproved" + proposal.ID
+}
+
+func main() {
+	coordinator := LimitApprover{Name: "Coordinator", LimitCents: 5_000_000, Next: CreditCommittee{}}
+	chain := LimitApprover{Name: "Analyst", LimitCents: 500_000, Next: coordinator}
+	fmt.Println(chain.Handle(CreditProposal{"P-101", 300_000}))   // AnalystapprovedP-101
+	fmt.Println(chain.Handle(CreditProposal{"P-102", 8_000_000})) // CreditCommitteeapprovedP-102
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
 ```typescript
 abstract class CreditApprover {
   private next?: CreditApprover;
@@ -128,6 +273,9 @@ chain.setNext(new Coordinator()).setNext(new CreditCommittee());
 console.log(chain.handle(new CreditProposal("P-101", 300_000)));   // Analyst approved P-101
 console.log(chain.handle(new CreditProposal("P-102", 8_000_000))); // CreditCommittee approved P-102
 ```
+
+</TabItem>
+</Tabs>
 
 ## Related patterns
 

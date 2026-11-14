@@ -7,6 +7,8 @@ tags:
 origin: Classic
 source: https://iretha.github.io/design-patterns/cheat-sheet
 sidebar_label: "Private Class Data"
+mdx:
+  format: mdx
 ---
 
 # Private Class Data
@@ -79,6 +81,9 @@ O `Client` usa a `MainClass`, que compõe internamente uma `DataClass`. A `DataC
 
 Um `Card` recebe o token do número, a validade e o nome do portador na emissão, e esses valores não podem mudar depois. Os dados ficam em `CardData`, que só permite leitura, e métodos como `isExpired()` apenas leem.
 
+<Tabs groupId="lang" queryString>
+<TabItem value="java" label="Java">
+
 ```java
 public final class CardData {
     private final String numberToken;
@@ -112,6 +117,73 @@ public class Card {
     }
 }
 ```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python
+from dataclasses import dataclass
+from datetime import date
+
+@dataclass(frozen=True)  # frozen: os campos não podem ser reatribuídos depois da criação
+class CardData:
+    number_token: str
+    expiry_year: int
+    expiry_month: int
+    holder_name: str
+
+class Card:
+    def __init__(self, number_token: str, expiry_year: int, expiry_month: int, holder_name: str) -> None:
+        self._data = CardData(number_token, expiry_year, expiry_month, holder_name)
+
+    def is_expired(self, today: date) -> bool:
+        return (today.year, today.month) > (self._data.expiry_year, self._data.expiry_month)
+
+    def describe(self) -> str:
+        return f"{self._data.holder_name} ({self._data.number_token})"
+```
+
+</TabItem>
+<TabItem value="go" label="Go">
+
+```go
+// Em Go a visibilidade é por pacote: CardData vive em um pacote próprio, com campos
+// não exportados, e Card (em outro pacote) só consegue ler pelos métodos.
+type CardData struct {
+	numberToken string
+	expiryYear  int
+	expiryMonth time.Month
+	holderName  string
+}
+
+func NewCardData(numberToken string, expiryYear int, expiryMonth time.Month, holderName string) CardData {
+	return CardData{numberToken, expiryYear, expiryMonth, holderName}
+}
+
+func (d CardData) NumberToken() string       { return d.numberToken }
+func (d CardData) Expiry() (int, time.Month) { return d.expiryYear, d.expiryMonth }
+func (d CardData) HolderName() string        { return d.holderName }
+
+type Card struct {
+	data CardData
+}
+
+func NewCard(numberToken string, expiryYear int, expiryMonth time.Month, holderName string) *Card {
+	return &Card{data: NewCardData(numberToken, expiryYear, expiryMonth, holderName)}
+}
+
+func (c *Card) IsExpired(today time.Time) bool {
+	year, month := c.data.Expiry()
+	return today.Year() > year || (today.Year() == year && today.Month() > month)
+}
+
+func (c *Card) Describe() string {
+	return fmt.Sprintf("%s (%s)", c.data.HolderName(), c.data.NumberToken())
+}
+```
+
+</TabItem>
+</Tabs>
 
 ## Padrões relacionados
 

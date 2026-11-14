@@ -8,6 +8,8 @@ tags:
 origin: GoF
 source: https://iretha.github.io/design-patterns/cheat-sheet
 sidebar_label: "Proxy"
+mdx:
+  format: mdx
 ---
 
 # Proxy
@@ -86,6 +88,110 @@ The `Client` works only with the `Subject` interface. Both `RealSubject` and `Pr
 
 The credit bureau query is slow and charged per call. The `CachingCreditBureauProxy` only queries the bureau when the analysis actually asks for the score and keeps the result for the following calls.
 
+<Tabs groupId="lang" queryString>
+<TabItem value="java" label="Java">
+
+```java
+interface CreditBureau {
+    int score(String cpf);
+}
+
+class RemoteCreditBureau implements CreditBureau {
+    public int score(String cpf) {
+        System.out.println("Querying the bureau for " + cpf + "..."); // slow operation, charged per call
+        return 720;
+    }
+}
+
+class CachingCreditBureauProxy implements CreditBureau {
+    private CreditBureau real;
+    private final Map<String, Integer> cache = new HashMap<>();
+
+    public int score(String cpf) {
+        if (!cache.containsKey(cpf)) {
+            if (real == null) real = new RemoteCreditBureau(); // created only on the first query
+            cache.put(cpf, real.score(cpf)); // on-demand query
+        }
+        return cache.get(cpf);
+    }
+}
+
+CreditBureau bureau = new CachingCreditBureauProxy();
+bureau.score("123.456.789-09"); // queries the bureau
+bureau.score("123.456.789-09"); // answers from the cache, with no new charge
+```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python
+from typing import Optional, Protocol
+
+class CreditBureau(Protocol):
+    def score(self, cpf: str) -> int: ...
+
+class RemoteCreditBureau:
+    def score(self, cpf: str) -> int:
+        print(f"Querying the bureau for {cpf}...")  # slow operation, charged per call
+        return 720
+
+class CachingCreditBureauProxy:
+    def __init__(self) -> None:
+        self._real: Optional[CreditBureau] = None
+        self._cache: dict[str, int] = {}
+
+    def score(self, cpf: str) -> int:
+        if cpf not in self._cache:
+            if self._real is None:
+                self._real = RemoteCreditBureau()  # created only on the first query
+            self._cache[cpf] = self._real.score(cpf)  # on-demand query
+        return self._cache[cpf]
+
+bureau: CreditBureau = CachingCreditBureauProxy()
+bureau.score("123.456.789-09")  # queries the bureau
+bureau.score("123.456.789-09")  # answers from the cache, with no new charge
+```
+
+</TabItem>
+<TabItem value="go" label="Go">
+
+```go
+type CreditBureau interface {
+	Score(cpf string) int
+}
+
+type RemoteCreditBureau struct{}
+
+func (RemoteCreditBureau) Score(cpf string) int {
+	fmt.Printf("Querying the bureau for %s...\n", cpf) // slow operation, charged per call
+	return 720
+}
+
+type CachingCreditBureauProxy struct {
+	real  CreditBureau
+	cache map[string]int
+}
+
+func (p *CachingCreditBureauProxy) Score(cpf string) int {
+	if _, ok := p.cache[cpf]; !ok {
+		if p.real == nil {
+			p.real = RemoteCreditBureau{} // created only on the first query
+		}
+		p.cache[cpf] = p.real.Score(cpf) // on-demand query
+	}
+	return p.cache[cpf]
+}
+
+func main() {
+	var bureau CreditBureau = &CachingCreditBureauProxy{cache: map[string]int{}}
+	bureau.Score("123.456.789-09") // queries the bureau
+	bureau.Score("123.456.789-09") // answers from the cache, with no new charge
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
 ```typescript
 type Cpf = string;
 
@@ -117,6 +223,9 @@ const bureau: CreditBureau = new CachingCreditBureauProxy();
 bureau.score("123.456.789-09"); // queries the bureau
 bureau.score("123.456.789-09"); // answers from the cache, with no new charge
 ```
+
+</TabItem>
+</Tabs>
 
 ## Related patterns
 

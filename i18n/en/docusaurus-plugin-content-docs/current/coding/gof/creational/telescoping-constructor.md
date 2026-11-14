@@ -7,6 +7,8 @@ tags:
 origin: Classic
 source: https://iretha.github.io/design-patterns/cheat-sheet
 sidebar_label: "Telescoping Constructor"
+mdx:
+  format: mdx
 ---
 
 # Telescoping Constructor
@@ -78,6 +80,9 @@ The `Client` instantiates `Boleto` by choosing the constructor with the number o
 
 A `Boleto` requires an amount and a due date, while the fine, daily interest and early-payment discount are optional, defaulting to zero.
 
+<Tabs groupId="lang" queryString>
+<TabItem value="java" label="Java">
+
 ```java
 public final class Boleto {
     private final long amountCents;   // required
@@ -109,6 +114,70 @@ public final class Boleto {
 // Usage: what does each number mean? Swapping fine and discount compiles fine.
 Boleto boleto = new Boleto(150_000, LocalDate.of(2026, 12, 10), 0.02, 0.00033, 0.05);
 ```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python
+from datetime import date
+
+# Python has no overloading: default parameters, passed by position, form the same telescope.
+class Boleto:
+    def __init__(self, amount_cents: int, due_date: date, fine: float = 0,
+                 daily_interest: float = 0, discount: float = 0) -> None:
+        if amount_cents <= 0 or due_date is None:
+            raise ValueError
+        self.amount_cents = amount_cents      # required
+        self.due_date = due_date              # required
+        self.fine = fine                      # optional (rate)
+        self.daily_interest = daily_interest  # optional (daily rate)
+        self.discount = discount              # optional (rate)
+
+# Usage: what does each number mean? Swapping fine and discount raises no error at all.
+boleto = Boleto(150_000, date(2026, 12, 10), 0.02, 0.00033, 0.05)
+```
+
+</TabItem>
+<TabItem value="go" label="Go">
+
+```go
+type Boleto struct {
+	amountCents   int64     // required
+	dueDate       time.Time // required
+	fine          float64   // optional (rate)
+	dailyInterest float64   // optional (daily rate)
+	discount      float64   // optional (rate)
+}
+
+// Go has no overloading: the telescope shows up as a family of constructors.
+func NewBoleto(amountCents int64, dueDate time.Time) (*Boleto, error) {
+	return NewBoletoWithFine(amountCents, dueDate, 0)
+}
+
+func NewBoletoWithFine(amountCents int64, dueDate time.Time, fine float64) (*Boleto, error) {
+	return NewBoletoWithInterest(amountCents, dueDate, fine, 0)
+}
+
+func NewBoletoWithInterest(amountCents int64, dueDate time.Time, fine, dailyInterest float64) (*Boleto, error) {
+	return NewBoletoWithDiscount(amountCents, dueDate, fine, dailyInterest, 0)
+}
+
+func NewBoletoWithDiscount(amountCents int64, dueDate time.Time, fine, dailyInterest, discount float64) (*Boleto, error) {
+	if amountCents <= 0 || dueDate.IsZero() {
+		return nil, errors.New("invalid boleto")
+	}
+	return &Boleto{amountCents, dueDate, fine, dailyInterest, discount}, nil
+}
+
+func main() {
+	// Usage: what does each number mean? Swapping fine and discount compiles fine.
+	dueDate := time.Date(2026, 12, 10, 0, 0, 0, 0, time.UTC)
+	boleto, err := NewBoletoWithDiscount(150_000, dueDate, 0.02, 0.00033, 0.05)
+}
+```
+
+</TabItem>
+</Tabs>
 
 ## Related patterns
 

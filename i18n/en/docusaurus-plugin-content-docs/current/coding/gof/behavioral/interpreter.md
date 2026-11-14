@@ -7,6 +7,8 @@ tags:
 origin: GoF
 source: https://iretha.github.io/design-patterns/cheat-sheet
 sidebar_label: "Interpreter"
+mdx:
+  format: mdx
 ---
 
 # Interpreter
@@ -87,6 +89,123 @@ The `Client` builds (or receives) the tree of `AbstractExpression` and calls `in
 
 The fraud service evaluates boolean rules such as `high_amount AND (new_device OR night_time)` against the signals of each transaction. The context is a map of signals, and each rule is an expression tree.
 
+<Tabs groupId="lang" queryString>
+<TabItem value="java" label="Java">
+
+```java
+interface Expression {
+    boolean interpret(Map<String, Boolean> ctx);
+}
+
+record Variable(String name) implements Expression {
+    public boolean interpret(Map<String, Boolean> ctx) {
+        return ctx.getOrDefault(name, false);
+    }
+}
+
+record And(Expression left, Expression right) implements Expression {
+    public boolean interpret(Map<String, Boolean> ctx) {
+        return left.interpret(ctx) && right.interpret(ctx);
+    }
+}
+
+record Or(Expression left, Expression right) implements Expression {
+    public boolean interpret(Map<String, Boolean> ctx) {
+        return left.interpret(ctx) || right.interpret(ctx);
+    }
+}
+
+Expression rule = new And(
+    new Variable("high_amount"),
+    new Or(new Variable("new_device"), new Variable("night_time")));
+Map<String, Boolean> ctx = Map.of("high_amount", true, "night_time", true);
+System.out.println(rule.interpret(ctx)); // true
+
+Map<String, Boolean> calm = Map.of("high_amount", true);
+System.out.println(rule.interpret(calm)); // false
+```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python
+from dataclasses import dataclass
+from typing import Protocol
+
+class Expression(Protocol):
+    def interpret(self, ctx: dict[str, bool]) -> bool: ...
+
+@dataclass(frozen=True)
+class Variable:
+    name: str
+
+    def interpret(self, ctx: dict[str, bool]) -> bool:
+        return ctx.get(self.name, False)
+
+@dataclass(frozen=True)
+class And:
+    left: Expression
+    right: Expression
+
+    def interpret(self, ctx: dict[str, bool]) -> bool:
+        return self.left.interpret(ctx) and self.right.interpret(ctx)
+
+@dataclass(frozen=True)
+class Or:
+    left: Expression
+    right: Expression
+
+    def interpret(self, ctx: dict[str, bool]) -> bool:
+        return self.left.interpret(ctx) or self.right.interpret(ctx)
+
+rule = And(Variable("high_amount"), Or(Variable("new_device"), Variable("night_time")))
+ctx = {"high_amount": True, "night_time": True}
+print(rule.interpret(ctx))  # True
+
+calm = {"high_amount": True}
+print(rule.interpret(calm))  # False
+```
+
+</TabItem>
+<TabItem value="go" label="Go">
+
+```go
+type Expression interface {
+	Interpret(ctx map[string]bool) bool
+}
+
+type Variable string
+
+func (v Variable) Interpret(ctx map[string]bool) bool { return ctx[string(v)] }
+
+type And struct{ Left, Right Expression }
+
+func (e And) Interpret(ctx map[string]bool) bool {
+	return e.Left.Interpret(ctx) && e.Right.Interpret(ctx)
+}
+
+type Or struct{ Left, Right Expression }
+
+func (e Or) Interpret(ctx map[string]bool) bool {
+	return e.Left.Interpret(ctx) || e.Right.Interpret(ctx)
+}
+
+func main() {
+	rule := And{
+		Variable("high_amount"),
+		Or{Variable("new_device"), Variable("night_time")},
+	}
+	ctx := map[string]bool{"high_amount": true, "night_time": true}
+	fmt.Println(rule.Interpret(ctx)) // true
+
+	calm := map[string]bool{"high_amount": true}
+	fmt.Println(rule.Interpret(calm)) // false
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
 ```typescript
 interface Expression {
   interpret(ctx: Map<string, boolean>): boolean;
@@ -123,6 +242,9 @@ console.log(rule.interpret(ctx)); // true
 const calm = new Map([["high_amount", true]]);
 console.log(rule.interpret(calm)); // false
 ```
+
+</TabItem>
+</Tabs>
 
 ## Related patterns
 

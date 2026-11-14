@@ -8,6 +8,8 @@ tags:
 origin: GoF
 source: https://iretha.github.io/design-patterns/cheat-sheet
 sidebar_label: "Bridge"
+mdx:
+  format: mdx
 ---
 
 # Bridge
@@ -89,6 +91,163 @@ classDiagram
 
 Um sistema de cobranças tem tipos de cobrança (avulsa, recorrente) e trilhos de liquidação (Pix, boleto, cartão). Com Bridge, cada cobrança delega a liquidação a um trilho, evitando classes como `RecurringPixCharge` e `OneTimeBoletoCharge`.
 
+<Tabs groupId="lang" queryString>
+<TabItem value="java" label="Java">
+
+```java
+interface SettlementRail {
+    void settle(String reference, long amountCents);
+}
+
+class PixRail implements SettlementRail {
+    public void settle(String reference, long amountCents) {
+        System.out.println("Pix settled " + reference + ": " + amountCents);
+    }
+}
+
+class BoletoRail implements SettlementRail {
+    public void settle(String reference, long amountCents) {
+        System.out.println("Boleto settled " + reference + ": " + amountCents);
+    }
+}
+
+class CardRail implements SettlementRail {
+    public void settle(String reference, long amountCents) {
+        System.out.println("Card settled " + reference + ": " + amountCents);
+    }
+}
+
+abstract class Charge {
+    protected final SettlementRail rail;
+
+    Charge(SettlementRail rail) { this.rail = rail; }
+
+    abstract void collect(String reference, long amountCents);
+}
+
+class OneTimeCharge extends Charge {
+    OneTimeCharge(SettlementRail rail) { super(rail); }
+
+    void collect(String reference, long amountCents) { rail.settle(reference, amountCents); }
+}
+
+class RecurringCharge extends Charge {
+    private final int cycles;
+
+    RecurringCharge(SettlementRail rail, int cycles) { super(rail); this.cycles = cycles; }
+
+    void collect(String reference, long amountCents) {
+        for (int n = 1; n <= cycles; n++) {
+            rail.settle(reference + "-" + n, amountCents);
+        }
+    }
+}
+
+new OneTimeCharge(new PixRail()).collect("inv-12", 15_000);
+new RecurringCharge(new CardRail(), 3).collect("sub-77", 4_990);
+```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python
+from abc import ABC, abstractmethod
+from typing import Protocol
+
+class SettlementRail(Protocol):
+    def settle(self, reference: str, amount_cents: int) -> None: ...
+
+class PixRail:
+    def settle(self, reference: str, amount_cents: int) -> None:
+        print(f"Pix settled {reference}: {amount_cents}")
+
+class BoletoRail:
+    def settle(self, reference: str, amount_cents: int) -> None:
+        print(f"Boleto settled {reference}: {amount_cents}")
+
+class CardRail:
+    def settle(self, reference: str, amount_cents: int) -> None:
+        print(f"Card settled {reference}: {amount_cents}")
+
+class Charge(ABC):
+    def __init__(self, rail: SettlementRail) -> None:
+        self._rail = rail
+
+    @abstractmethod
+    def collect(self, reference: str, amount_cents: int) -> None: ...
+
+class OneTimeCharge(Charge):
+    def collect(self, reference: str, amount_cents: int) -> None:
+        self._rail.settle(reference, amount_cents)
+
+class RecurringCharge(Charge):
+    def __init__(self, rail: SettlementRail, cycles: int) -> None:
+        super().__init__(rail)
+        self._cycles = cycles
+
+    def collect(self, reference: str, amount_cents: int) -> None:
+        for n in range(1, self._cycles + 1):
+            self._rail.settle(f"{reference}-{n}", amount_cents)
+
+OneTimeCharge(PixRail()).collect("inv-12", 15_000)
+RecurringCharge(CardRail(), 3).collect("sub-77", 4_990)
+```
+
+</TabItem>
+<TabItem value="go" label="Go">
+
+```go
+type SettlementRail interface {
+	Settle(reference string, amountCents int64)
+}
+
+type PixRail struct{}
+
+func (PixRail) Settle(reference string, amountCents int64) {
+	fmt.Printf("Pix settled %s: %d\n", reference, amountCents)
+}
+
+type BoletoRail struct{}
+
+func (BoletoRail) Settle(reference string, amountCents int64) {
+	fmt.Printf("Boleto settled %s: %d\n", reference, amountCents)
+}
+
+type CardRail struct{}
+
+func (CardRail) Settle(reference string, amountCents int64) {
+	fmt.Printf("Card settled %s: %d\n", reference, amountCents)
+}
+
+// A abstração guarda a implementação em um campo: as duas hierarquias variam separadas.
+type OneTimeCharge struct {
+	Rail SettlementRail
+}
+
+func (c OneTimeCharge) Collect(reference string, amountCents int64) {
+	c.Rail.Settle(reference, amountCents)
+}
+
+type RecurringCharge struct {
+	Rail   SettlementRail
+	Cycles int
+}
+
+func (c RecurringCharge) Collect(reference string, amountCents int64) {
+	for n := 1; n <= c.Cycles; n++ {
+		c.Rail.Settle(fmt.Sprintf("%s-%d", reference, n), amountCents)
+	}
+}
+
+func main() {
+	OneTimeCharge{Rail: PixRail{}}.Collect("inv-12", 15_000)
+	RecurringCharge{Rail: CardRail{}, Cycles: 3}.Collect("sub-77", 4_990)
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
 ```typescript
 interface SettlementRail {
   settle(reference: string, amountCents: number): void;
@@ -128,6 +287,9 @@ class RecurringCharge extends Charge {
 new OneTimeCharge(new PixRail()).collect("inv-12", 15_000);
 new RecurringCharge(new CardRail(), 3).collect("sub-77", 4_990);
 ```
+
+</TabItem>
+</Tabs>
 
 ## Padrões relacionados
 

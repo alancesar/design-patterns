@@ -8,6 +8,8 @@ tags:
 origin: GoF
 source: https://iretha.github.io/design-patterns/cheat-sheet
 sidebar_label: "Facade"
+mdx:
+  format: mdx
 ---
 
 # Facade
@@ -83,6 +85,146 @@ The `Client` interacts only with the `Facade`, which delegates calls to `Subsyst
 
 Sending a Pix requires resolving the key in DICT, passing the fraud check, debiting the ledger and sending the message to SPI. Instead of each controller coordinating these four services, a `PixTransferFacade` exposes a single `send` operation.
 
+<Tabs groupId="lang" queryString>
+<TabItem value="java" label="Java">
+
+```java
+record PixDestination(String ispb, String account) {}
+
+class DictClient {
+    PixDestination resolve(String pixKey) { return new PixDestination("00000000", "12345-6"); }
+}
+
+class FraudService {
+    boolean approve(String accountId, long amountCents) { return true; }
+}
+
+class LedgerService {
+    String debit(String accountId, long amountCents) { return "entry-123"; }
+}
+
+class SpiClient {
+    String submit(PixDestination destination, long amountCents, String entryId) {
+        return "E00000000202603101030abcdef12345"; // endToEndId
+    }
+}
+
+class PixTransferFacade {
+    private final DictClient dict = new DictClient();
+    private final FraudService fraud = new FraudService();
+    private final LedgerService ledger = new LedgerService();
+    private final SpiClient spi = new SpiClient();
+
+    String send(String accountId, String pixKey, long amountCents) {
+        PixDestination destination = dict.resolve(pixKey);
+        if (!fraud.approve(accountId, amountCents)) {
+            throw new IllegalStateException("Transfer rejected by fraud check");
+        }
+        String entryId = ledger.debit(accountId, amountCents);
+        return spi.submit(destination, amountCents, entryId);
+    }
+}
+
+// Client
+String endToEndId = new PixTransferFacade().send("acc-1", "ana@example.com", 19_990);
+```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class PixDestination:
+    ispb: str
+    account: str
+
+class DictClient:
+    def resolve(self, pix_key: str) -> PixDestination:
+        return PixDestination("00000000", "12345-6")
+
+class FraudService:
+    def approve(self, account_id: str, amount_cents: int) -> bool:
+        return True
+
+class LedgerService:
+    def debit(self, account_id: str, amount_cents: int) -> str:
+        return "entry-123"
+
+class SpiClient:
+    def submit(self, destination: PixDestination, amount_cents: int, entry_id: str) -> str:
+        return "E00000000202603101030abcdef12345"  # endToEndId
+
+class PixTransferFacade:
+    def __init__(self) -> None:
+        self._dict = DictClient()
+        self._fraud = FraudService()
+        self._ledger = LedgerService()
+        self._spi = SpiClient()
+
+    def send(self, account_id: str, pix_key: str, amount_cents: int) -> str:
+        destination = self._dict.resolve(pix_key)
+        if not self._fraud.approve(account_id, amount_cents):
+            raise PermissionError("Transfer rejected by fraud check")
+        entry_id = self._ledger.debit(account_id, amount_cents)
+        return self._spi.submit(destination, amount_cents, entry_id)
+
+# Client
+end_to_end_id = PixTransferFacade().send("acc-1", "ana@example.com", 19_990)
+```
+
+</TabItem>
+<TabItem value="go" label="Go">
+
+```go
+type PixDestination struct{ ISPB, Account string }
+
+type DictClient struct{}
+
+func (DictClient) Resolve(pixKey string) PixDestination {
+	return PixDestination{ISPB: "00000000", Account: "12345-6"}
+}
+
+type FraudService struct{}
+
+func (FraudService) Approve(accountID string, amountCents int64) bool { return true }
+
+type LedgerService struct{}
+
+func (LedgerService) Debit(accountID string, amountCents int64) string { return "entry-123" }
+
+type SpiClient struct{}
+
+func (SpiClient) Submit(destination PixDestination, amountCents int64, entryID string) string {
+	return "E00000000202603101030abcdef12345" // endToEndId
+}
+
+type PixTransferFacade struct {
+	dict   DictClient
+	fraud  FraudService
+	ledger LedgerService
+	spi    SpiClient
+}
+
+func (f PixTransferFacade) Send(accountID, pixKey string, amountCents int64) (string, error) {
+	destination := f.dict.Resolve(pixKey)
+	if !f.fraud.Approve(accountID, amountCents) {
+		return "", errors.New("transfer rejected by fraud check")
+	}
+	entryID := f.ledger.Debit(accountID, amountCents)
+	return f.spi.Submit(destination, amountCents, entryID), nil
+}
+
+func main() {
+	// Client
+	endToEndID, err := PixTransferFacade{}.Send("acc-1", "ana@example.com", 19_990)
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
 ```typescript
 interface PixDestination { ispb: string; account: string; }
 
@@ -125,6 +267,9 @@ class PixTransferFacade {
 // Client
 const endToEndId = new PixTransferFacade().send("acc-1", "ana@example.com", 19_990);
 ```
+
+</TabItem>
+</Tabs>
 
 ## Related patterns
 

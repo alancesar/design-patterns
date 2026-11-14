@@ -8,6 +8,8 @@ tags:
 origin: GoF
 source: https://iretha.github.io/design-patterns/cheat-sheet
 sidebar_label: "Strategy"
+mdx:
+  format: mdx
 ---
 
 # Strategy
@@ -88,6 +90,154 @@ O `Client` escolhe uma `ConcreteStrategy` e a entrega ao `Context`, que mantém 
 
 O simulador de crédito de uma fintech calcula as parcelas de um empréstimo pelo sistema de amortização escolhido pelo cliente: SAC, com parcelas decrescentes, ou Price, com parcelas fixas. A taxa é ilustrativa.
 
+<Tabs groupId="lang" queryString>
+<TabItem value="java" label="Java">
+
+```java
+interface AmortizationStrategy {
+    // Devolve o valor de cada parcela, em centavos.
+    long[] schedule(long principalCents, double monthlyRate, int months);
+}
+
+class SacAmortization implements AmortizationStrategy {
+    public long[] schedule(long principalCents, double monthlyRate, int months) {
+        double amortization = (double) principalCents / months;
+        long[] installments = new long[months];
+        for (int i = 0; i < months; i++) {
+            double balance = principalCents - amortization * i;
+            installments[i] = Math.round(amortization + balance * monthlyRate);
+        }
+        return installments;
+    }
+}
+
+class PriceAmortization implements AmortizationStrategy {
+    public long[] schedule(long principalCents, double monthlyRate, int months) {
+        double factor = monthlyRate / (1 - Math.pow(1 + monthlyRate, -months));
+        long[] installments = new long[months];
+        Arrays.fill(installments, Math.round(principalCents * factor));
+        return installments;
+    }
+}
+
+class LoanSimulator {
+    private AmortizationStrategy amortization;
+
+    LoanSimulator(AmortizationStrategy amortization) { this.amortization = amortization; }
+
+    void setAmortization(AmortizationStrategy amortization) { this.amortization = amortization; }
+
+    long[] simulate(long principalCents, double monthlyRate, int months) {
+        return amortization.schedule(principalCents, monthlyRate, months);
+    }
+}
+
+// R$ 10.000,00 a 2% ao mês, em 10 parcelas
+LoanSimulator simulator = new LoanSimulator(new SacAmortization());
+long[] sac = simulator.simulate(1_000_000, 0.02, 10);
+System.out.println(sac[0] + " " + sac[9]); // 120000 102000
+
+simulator.setAmortization(new PriceAmortization());
+long[] price = simulator.simulate(1_000_000, 0.02, 10);
+System.out.println(price[0] + " " + price[9]); // 111327 111327
+```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python
+from typing import Protocol
+
+class AmortizationStrategy(Protocol):
+    def schedule(self, principal_cents: int, monthly_rate: float, months: int) -> list[int]:
+        """Devolve o valor de cada parcela, em centavos."""
+        ...
+
+class SacAmortization:
+    def schedule(self, principal_cents: int, monthly_rate: float, months: int) -> list[int]:
+        amortization = principal_cents / months
+        return [
+            round(amortization + (principal_cents - amortization * i) * monthly_rate)
+            for i in range(months)
+        ]
+
+class PriceAmortization:
+    def schedule(self, principal_cents: int, monthly_rate: float, months: int) -> list[int]:
+        factor = monthly_rate / (1 - (1 + monthly_rate) ** -months)
+        return [round(principal_cents * factor)] * months
+
+class LoanSimulator:
+    def __init__(self, amortization: AmortizationStrategy) -> None:
+        self.amortization = amortization
+
+    def simulate(self, principal_cents: int, monthly_rate: float, months: int) -> list[int]:
+        return self.amortization.schedule(principal_cents, monthly_rate, months)
+
+# R$ 10.000,00 a 2% ao mês, em 10 parcelas
+simulator = LoanSimulator(SacAmortization())
+sac = simulator.simulate(1_000_000, 0.02, 10)
+print(sac[0], sac[9])  # 120000 102000
+
+simulator.amortization = PriceAmortization()
+price = simulator.simulate(1_000_000, 0.02, 10)
+print(price[0], price[9])  # 111327 111327
+```
+
+</TabItem>
+<TabItem value="go" label="Go">
+
+```go
+type AmortizationStrategy interface {
+	// Devolve o valor de cada parcela, em centavos.
+	Schedule(principalCents int64, monthlyRate float64, months int) []int64
+}
+
+type SacAmortization struct{}
+
+func (SacAmortization) Schedule(principalCents int64, monthlyRate float64, months int) []int64 {
+	amortization := float64(principalCents) / float64(months)
+	installments := make([]int64, months)
+	for i := range installments {
+		balance := float64(principalCents) - amortization*float64(i)
+		installments[i] = int64(math.Round(amortization + balance*monthlyRate))
+	}
+	return installments
+}
+
+type PriceAmortization struct{}
+
+func (PriceAmortization) Schedule(principalCents int64, monthlyRate float64, months int) []int64 {
+	factor := monthlyRate / (1 - math.Pow(1+monthlyRate, float64(-months)))
+	installments := make([]int64, months)
+	for i := range installments {
+		installments[i] = int64(math.Round(float64(principalCents) * factor))
+	}
+	return installments
+}
+
+type LoanSimulator struct {
+	Amortization AmortizationStrategy
+}
+
+func (s *LoanSimulator) Simulate(principalCents int64, monthlyRate float64, months int) []int64 {
+	return s.Amortization.Schedule(principalCents, monthlyRate, months)
+}
+
+func main() {
+	// R$ 10.000,00 a 2% ao mês, em 10 parcelas
+	simulator := &LoanSimulator{Amortization: SacAmortization{}}
+	sac := simulator.Simulate(1_000_000, 0.02, 10)
+	fmt.Println(sac[0], sac[9]) // 120000 102000
+
+	simulator.Amortization = PriceAmortization{}
+	price := simulator.Simulate(1_000_000, 0.02, 10)
+	fmt.Println(price[0], price[9]) // 111327 111327
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
 ```typescript
 interface AmortizationStrategy {
   // Devolve o valor de cada parcela, em centavos.
@@ -133,6 +283,9 @@ simulator.setAmortization(new PriceAmortization());
 const price = simulator.simulate(1_000_000, 0.02, 10);
 console.log(price[0], price[9]); // 111327 111327
 ```
+
+</TabItem>
+</Tabs>
 
 ## Padrões relacionados
 
