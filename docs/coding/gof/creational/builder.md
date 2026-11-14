@@ -8,6 +8,8 @@ tags:
 origin: GoF
 source: https://iretha.github.io/design-patterns/cheat-sheet
 sidebar_label: "Builder"
+mdx:
+  format: mdx
 ---
 
 # Builder
@@ -91,6 +93,9 @@ O `Client` cria um `ConcreteBuilder` e o entrega ao `Director`, que chama os pas
 
 Uma cobrança Pix tem valor e chave do recebedor obrigatórios, e vencimento, multa, juros, desconto e mensagem ao pagador opcionais. Um builder fluente deixa a criação legível, valida as combinações (multa, juros e desconto só fazem sentido com vencimento) e entrega um `PixCharge` imutável, com o `txid` já gerado. Taxas e valores são ilustrativos.
 
+<Tabs groupId="lang" queryString>
+<TabItem value="java" label="Java">
+
 ```java
 public final class PixCharge {
     private final long amountCents;
@@ -142,6 +147,133 @@ PixCharge charge = PixCharge.builder(25_000, "pagamentos@fintech.example")
     .dueDate(LocalDate.of(2026, 12, 10)).fineRate(0.02).dailyInterestRate(0.00033)
     .payerMessage("Mensalidade de dezembro").build();
 ```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python
+from __future__ import annotations
+
+import uuid
+from dataclasses import dataclass, field
+from datetime import date
+from typing import Optional
+
+@dataclass(frozen=True)
+class PixCharge:
+    amount_cents: int
+    receiver_key: str
+    due_date: Optional[date] = None
+    fine_rate: float = 0.0
+    daily_interest_rate: float = 0.0
+    discount_rate: float = 0.0
+    payer_message: Optional[str] = None
+    txid: str = field(default_factory=lambda: uuid.uuid4().hex)  # gerado na criação
+
+class PixChargeBuilder:
+    def __init__(self, amount_cents: int, receiver_key: str) -> None:
+        self._fields: dict = {"amount_cents": amount_cents, "receiver_key": receiver_key}
+
+    def due_date(self, d: date) -> PixChargeBuilder:
+        self._fields["due_date"] = d
+        return self
+
+    def fine_rate(self, r: float) -> PixChargeBuilder:
+        self._fields["fine_rate"] = r
+        return self
+
+    def daily_interest_rate(self, r: float) -> PixChargeBuilder:
+        self._fields["daily_interest_rate"] = r
+        return self
+
+    def discount_rate(self, r: float) -> PixChargeBuilder:
+        self._fields["discount_rate"] = r
+        return self
+
+    def payer_message(self, m: str) -> PixChargeBuilder:
+        self._fields["payer_message"] = m
+        return self
+
+    def build(self) -> PixCharge:
+        f = self._fields
+        if f["amount_cents"] <= 0:
+            raise ValueError("valor deve ser positivo")
+        has_charges = any(f.get(k, 0) > 0 for k in ("fine_rate", "daily_interest_rate", "discount_rate"))
+        if has_charges and "due_date" not in f:
+            raise ValueError("multa, juros e desconto exigem vencimento")
+        return PixCharge(**f)
+
+# Uso: R$ 250,00 com vencimento, multa de 2% e juros de 0,033% ao dia
+charge = (
+    PixChargeBuilder(25_000, "pagamentos@fintech.example")
+    .due_date(date(2026, 12, 10))
+    .fine_rate(0.02)
+    .daily_interest_rate(0.00033)
+    .payer_message("Mensalidade de dezembro")
+    .build()
+)
+```
+
+</TabItem>
+<TabItem value="go" label="Go">
+
+```go
+// Campos não exportados: fora do pacote, um PixCharge só nasce pelo builder.
+type PixCharge struct {
+	amountCents                           int64
+	receiverKey, txid, payerMessage       string
+	dueDate                               time.Time
+	fineRate, dailyInterestRate, discount float64
+}
+
+type PixChargeBuilder struct {
+	charge PixCharge
+}
+
+func NewPixChargeBuilder(amountCents int64, receiverKey string) *PixChargeBuilder {
+	return &PixChargeBuilder{PixCharge{amountCents: amountCents, receiverKey: receiverKey}}
+}
+
+func (b *PixChargeBuilder) DueDate(d time.Time) *PixChargeBuilder { b.charge.dueDate = d; return b }
+func (b *PixChargeBuilder) FineRate(r float64) *PixChargeBuilder  { b.charge.fineRate = r; return b }
+func (b *PixChargeBuilder) DailyInterestRate(r float64) *PixChargeBuilder {
+	b.charge.dailyInterestRate = r
+	return b
+}
+func (b *PixChargeBuilder) DiscountRate(r float64) *PixChargeBuilder { b.charge.discount = r; return b }
+func (b *PixChargeBuilder) PayerMessage(m string) *PixChargeBuilder {
+	b.charge.payerMessage = m
+	return b
+}
+
+func (b *PixChargeBuilder) Build() (PixCharge, error) {
+	c := b.charge
+	if c.amountCents <= 0 {
+		return PixCharge{}, errors.New("valor deve ser positivo")
+	}
+	hasCharges := c.fineRate > 0 || c.dailyInterestRate > 0 || c.discount > 0
+	if hasCharges && c.dueDate.IsZero() {
+		return PixCharge{}, errors.New("multa, juros e desconto exigem vencimento")
+	}
+	id := make([]byte, 16)
+	rand.Read(id)
+	c.txid = hex.EncodeToString(id) // o txid é gerado na criação
+	return c, nil
+}
+
+func main() {
+	// Uso: R$ 250,00 com vencimento, multa de 2% e juros de 0,033% ao dia
+	charge, err := NewPixChargeBuilder(25_000, "pagamentos@fintech.example").
+		DueDate(time.Date(2026, 12, 10, 0, 0, 0, 0, time.UTC)).
+		FineRate(0.02).
+		DailyInterestRate(0.00033).
+		PayerMessage("Mensalidade de dezembro").
+		Build()
+}
+```
+
+</TabItem>
+</Tabs>
 
 ## Padrões relacionados
 

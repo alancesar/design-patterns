@@ -7,6 +7,8 @@ tags:
 origin: GoF
 source: https://iretha.github.io/design-patterns/cheat-sheet
 sidebar_label: "Singleton"
+mdx:
+  format: mdx
 ---
 
 # Singleton
@@ -74,6 +76,9 @@ The `Singleton` class keeps a static reference to its own instance and a private
 
 The modules that compute boleto due dates, TED settlement and clearing deadlines need the same calendar of business days and bank holidays, loaded from disk once and shared by all of them. The calendar does not change after loading, which avoids the risk of shared mutable state.
 
+<Tabs groupId="lang" queryString>
+<TabItem value="java" label="Java">
+
 ```java
 public final class BusinessCalendar {
     private final Set<LocalDate> holidays = new HashSet<>();
@@ -113,6 +118,87 @@ public final class BusinessCalendar {
 // Usage: boleto due dates, TED settlement and clearing all query the same calendar
 LocalDate settlement = BusinessCalendar.getInstance().nextBusinessDay(LocalDate.of(2026, 12, 24));
 ```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python
+from datetime import date, timedelta
+from functools import lru_cache
+
+class BusinessCalendar:
+    def __init__(self, holidays: set[date]) -> None:
+        self._holidays = holidays
+
+    def is_business_day(self, day: date) -> bool:
+        return day.weekday() < 5 and day not in self._holidays  # 5 and 6: Saturday and Sunday
+
+    def next_business_day(self, day: date) -> date:
+        following = day + timedelta(days=1)
+        while not self.is_business_day(following):
+            following += timedelta(days=1)
+        return following
+
+# lru_cache: the calendar is loaded only on the first call and reused on the following ones
+@lru_cache(maxsize=None)
+def business_calendar() -> BusinessCalendar:
+    try:
+        with open("bank-holidays.txt") as file:
+            return BusinessCalendar({date.fromisoformat(line.strip()) for line in file if line.strip()})
+    except OSError as e:
+        raise RuntimeError("Failed to load calendar") from e
+
+# Usage: boleto due dates, TED settlement and clearing all query the same calendar
+settlement = business_calendar().next_business_day(date(2026, 12, 24))
+```
+
+</TabItem>
+<TabItem value="go" label="Go">
+
+```go
+type BusinessCalendar struct {
+	holidays map[string]bool // dates in the 2006-01-02 format
+}
+
+// sync.OnceValue: lazy, thread-safe initialization, executed only once
+var Calendar = sync.OnceValue(func() *BusinessCalendar {
+	file, err := os.Open("bank-holidays.txt")
+	if err != nil {
+		panic(fmt.Errorf("failed to load calendar: %w", err))
+	}
+	defer file.Close()
+
+	calendar := &BusinessCalendar{holidays: map[string]bool{}}
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		if line := strings.TrimSpace(scanner.Text()); line != "" {
+			calendar.holidays[line] = true
+		}
+	}
+	return calendar
+})
+
+func (c *BusinessCalendar) IsBusinessDay(date time.Time) bool {
+	day := date.Weekday()
+	return day != time.Saturday && day != time.Sunday && !c.holidays[date.Format(time.DateOnly)]
+}
+
+func (c *BusinessCalendar) NextBusinessDay(date time.Time) time.Time {
+	next := date.AddDate(0, 0, 1)
+	for !c.IsBusinessDay(next) {
+		next = next.AddDate(0, 0, 1)
+	}
+	return next
+}
+
+func main() {
+	// Usage: boleto due dates, TED settlement and clearing all query the same calendar
+	settlement := Calendar().NextBusinessDay(time.Date(2026, 12, 24, 0, 0, 0, 0, time.UTC))
+}
+```
+
+</TabItem>
+</Tabs>
 
 ## Related patterns
 

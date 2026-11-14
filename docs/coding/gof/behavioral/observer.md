@@ -8,6 +8,8 @@ tags:
 origin: GoF
 source: https://iretha.github.io/design-patterns/cheat-sheet
 sidebar_label: "Observer"
+mdx:
+  format: mdx
 ---
 
 # Observer
@@ -94,6 +96,149 @@ O `ConcreteSubject` guarda seu estado e a lista de `Observer`s registrados, noti
 
 Quando um Pix é creditado, o app precisa enviar um push, o lojista precisa receber um webhook e a conciliação precisa registrar o recebimento, sem que o serviço de recebimento conheça esses canais.
 
+<Tabs groupId="lang" queryString>
+<TabItem value="java" label="Java">
+
+```java
+interface PixReceivedListener {
+    void onPixReceived(String txid, long amountCents);
+}
+
+class PixReceiptService {
+    private final List<PixReceivedListener> listeners = new ArrayList<>();
+
+    void attach(PixReceivedListener l) { listeners.add(l); }
+    void detach(PixReceivedListener l) { listeners.remove(l); }
+
+    void receive(String txid, long amountCents) {
+        // credita na conta e avisa os interessados
+        listeners.forEach(l -> l.onPixReceived(txid, amountCents)); // modelo push: os dados vão no evento
+    }
+}
+
+class PushNotifier implements PixReceivedListener {
+    public void onPixReceived(String txid, long amountCents) {
+        System.out.printf("Push: Pix recebido de R$ %d.%02d%n", amountCents / 100, amountCents % 100);
+    }
+}
+
+class MerchantWebhook implements PixReceivedListener {
+    public void onPixReceived(String txid, long amountCents) {
+        System.out.println("Webhook: pix.received " + txid);
+    }
+}
+
+class ReconciliationRecorder implements PixReceivedListener {
+    public void onPixReceived(String txid, long amountCents) {
+        System.out.println("Conciliação: " + txid + " = " + amountCents);
+    }
+}
+
+PixReceiptService service = new PixReceiptService();
+service.attach(new PushNotifier());
+service.attach(new MerchantWebhook());
+service.attach(new ReconciliationRecorder());
+service.receive("txid-8f3a", 12_990);
+```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python
+from typing import Protocol
+
+class PixReceivedListener(Protocol):
+    def on_pix_received(self, txid: str, amount_cents: int) -> None: ...
+
+class PixReceiptService:
+    def __init__(self) -> None:
+        self._listeners: list[PixReceivedListener] = []
+
+    def attach(self, listener: PixReceivedListener) -> None:
+        self._listeners.append(listener)
+
+    def detach(self, listener: PixReceivedListener) -> None:
+        self._listeners.remove(listener)
+
+    def receive(self, txid: str, amount_cents: int) -> None:
+        # credita na conta e avisa os interessados
+        for listener in self._listeners:
+            listener.on_pix_received(txid, amount_cents)  # modelo push: os dados vão no evento
+
+class PushNotifier:
+    def on_pix_received(self, txid: str, amount_cents: int) -> None:
+        print(f"Push: Pix recebido de R$ {amount_cents // 100}.{amount_cents % 100:02d}")
+
+class MerchantWebhook:
+    def on_pix_received(self, txid: str, amount_cents: int) -> None:
+        print(f"Webhook: pix.received {txid}")
+
+class ReconciliationRecorder:
+    def on_pix_received(self, txid: str, amount_cents: int) -> None:
+        print(f"Conciliação: {txid} = {amount_cents}")
+
+service = PixReceiptService()
+service.attach(PushNotifier())
+service.attach(MerchantWebhook())
+service.attach(ReconciliationRecorder())
+service.receive("txid-8f3a", 12_990)
+```
+
+</TabItem>
+<TabItem value="go" label="Go">
+
+```go
+type PixReceivedListener interface {
+	OnPixReceived(txid string, amountCents int64)
+}
+
+type PixReceiptService struct {
+	listeners []PixReceivedListener
+}
+
+func (s *PixReceiptService) Attach(l PixReceivedListener) { s.listeners = append(s.listeners, l) }
+
+func (s *PixReceiptService) Detach(l PixReceivedListener) {
+	s.listeners = slices.DeleteFunc(s.listeners, func(x PixReceivedListener) bool { return x == l })
+}
+
+func (s *PixReceiptService) Receive(txid string, amountCents int64) {
+	// credita na conta e avisa os interessados
+	for _, l := range s.listeners {
+		l.OnPixReceived(txid, amountCents) // modelo push: os dados vão no evento
+	}
+}
+
+type PushNotifier struct{}
+
+func (PushNotifier) OnPixReceived(txid string, amountCents int64) {
+	fmt.Printf("Push: Pix recebido de R$ %d.%02d\n", amountCents/100, amountCents%100)
+}
+
+type MerchantWebhook struct{}
+
+func (MerchantWebhook) OnPixReceived(txid string, amountCents int64) {
+	fmt.Println("Webhook: pix.received", txid)
+}
+
+type ReconciliationRecorder struct{}
+
+func (ReconciliationRecorder) OnPixReceived(txid string, amountCents int64) {
+	fmt.Printf("Conciliação: %s = %d\n", txid, amountCents)
+}
+
+func main() {
+	service := &PixReceiptService{}
+	service.Attach(PushNotifier{})
+	service.Attach(MerchantWebhook{})
+	service.Attach(ReconciliationRecorder{})
+	service.Receive("txid-8f3a", 12_990)
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
 ```typescript
 interface PixReceivedListener {
   onPixReceived(txid: string, amountCents: number): void;
@@ -135,6 +280,9 @@ service.attach(new MerchantWebhook());
 service.attach(new ReconciliationRecorder());
 service.receive("txid-8f3a", 12_990);
 ```
+
+</TabItem>
+</Tabs>
 
 ## Padrões relacionados
 

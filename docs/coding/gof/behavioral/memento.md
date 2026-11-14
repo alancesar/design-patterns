@@ -7,6 +7,8 @@ tags:
 origin: GoF
 source: https://iretha.github.io/design-patterns/cheat-sheet
 sidebar_label: "Memento"
+mdx:
+  format: mdx
 ---
 
 # Memento
@@ -82,6 +84,172 @@ O Originator cria mementos com seu estado e os usa para se restaurar; o Caretake
 
 Em uma simulação de empréstimo, o cliente altera valor, prazo e taxa e pode voltar às simulações anteriores: antes de cada alteração, o histórico (Caretaker) pede à simulação (Originator) um snapshot com esses três valores.
 
+<Tabs groupId="lang" queryString>
+<TabItem value="java" label="Java">
+
+```java
+record SimulationSnapshot(long principalCents, int months, double monthlyRate) {}
+
+class LoanSimulation {                       // Originator
+    long principalCents;
+    int months;
+    double monthlyRate;
+
+    LoanSimulation(long principalCents, int months, double monthlyRate) {
+        this.principalCents = principalCents;
+        this.months = months;
+        this.monthlyRate = monthlyRate;
+    }
+
+    SimulationSnapshot save() {
+        return new SimulationSnapshot(principalCents, months, monthlyRate);
+    }
+
+    void restore(SimulationSnapshot s) {
+        principalCents = s.principalCents();
+        months = s.months();
+        monthlyRate = s.monthlyRate();
+    }
+}
+
+class SimulationHistory {                    // Caretaker
+    private final Deque<SimulationSnapshot> stack = new ArrayDeque<>();
+    private final LoanSimulation simulation;
+
+    SimulationHistory(LoanSimulation simulation) { this.simulation = simulation; }
+
+    void backup() { stack.push(simulation.save()); }
+    void undo() { if (!stack.isEmpty()) simulation.restore(stack.pop()); }
+}
+
+LoanSimulation simulation = new LoanSimulation(1_000_000, 10, 0.02);
+SimulationHistory history = new SimulationHistory(simulation);
+
+history.backup();
+simulation.months = 24;
+history.backup();
+simulation.principalCents = 2_000_000;
+
+history.undo();
+System.out.println(simulation.principalCents + " " + simulation.months); // 1000000 24
+history.undo();
+System.out.println(simulation.principalCents + " " + simulation.months); // 1000000 10
+```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class SimulationSnapshot:
+    principal_cents: int
+    months: int
+    monthly_rate: float
+
+@dataclass
+class LoanSimulation:  # Originator
+    principal_cents: int
+    months: int
+    monthly_rate: float
+
+    def save(self) -> SimulationSnapshot:
+        return SimulationSnapshot(self.principal_cents, self.months, self.monthly_rate)
+
+    def restore(self, s: SimulationSnapshot) -> None:
+        self.principal_cents = s.principal_cents
+        self.months = s.months
+        self.monthly_rate = s.monthly_rate
+
+class SimulationHistory:  # Caretaker
+    def __init__(self, simulation: LoanSimulation) -> None:
+        self._simulation = simulation
+        self._stack: list[SimulationSnapshot] = []
+
+    def backup(self) -> None:
+        self._stack.append(self._simulation.save())
+
+    def undo(self) -> None:
+        if self._stack:
+            self._simulation.restore(self._stack.pop())
+
+simulation = LoanSimulation(1_000_000, 10, 0.02)
+history = SimulationHistory(simulation)
+
+history.backup()
+simulation.months = 24
+history.backup()
+simulation.principal_cents = 2_000_000
+
+history.undo()
+print(simulation.principal_cents, simulation.months)  # 1000000 24
+history.undo()
+print(simulation.principal_cents, simulation.months)  # 1000000 10
+```
+
+</TabItem>
+<TabItem value="go" label="Go">
+
+```go
+// Campos não exportados: fora do pacote, o snapshot é opaco para o Caretaker.
+type SimulationSnapshot struct {
+	principalCents int64
+	months         int
+	monthlyRate    float64
+}
+
+type LoanSimulation struct { // Originator
+	PrincipalCents int64
+	Months         int
+	MonthlyRate    float64
+}
+
+func (l *LoanSimulation) Save() SimulationSnapshot {
+	return SimulationSnapshot{l.PrincipalCents, l.Months, l.MonthlyRate}
+}
+
+func (l *LoanSimulation) Restore(s SimulationSnapshot) {
+	l.PrincipalCents = s.principalCents
+	l.Months = s.months
+	l.MonthlyRate = s.monthlyRate
+}
+
+type SimulationHistory struct { // Caretaker
+	simulation *LoanSimulation
+	stack      []SimulationSnapshot
+}
+
+func (h *SimulationHistory) Backup() { h.stack = append(h.stack, h.simulation.Save()) }
+
+func (h *SimulationHistory) Undo() {
+	if len(h.stack) == 0 {
+		return
+	}
+	last := h.stack[len(h.stack)-1]
+	h.stack = h.stack[:len(h.stack)-1]
+	h.simulation.Restore(last)
+}
+
+func main() {
+	simulation := &LoanSimulation{PrincipalCents: 1_000_000, Months: 10, MonthlyRate: 0.02}
+	history := &SimulationHistory{simulation: simulation}
+
+	history.Backup()
+	simulation.Months = 24
+	history.Backup()
+	simulation.PrincipalCents = 2_000_000
+
+	history.Undo()
+	fmt.Println(simulation.PrincipalCents, simulation.Months) // 1000000 24
+	history.Undo()
+	fmt.Println(simulation.PrincipalCents, simulation.Months) // 1000000 10
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
 ```typescript
 class SimulationSnapshot {
   constructor(
@@ -132,6 +300,9 @@ console.log(simulation.principalCents, simulation.months); // 1000000 24
 history.undo();
 console.log(simulation.principalCents, simulation.months); // 1000000 10
 ```
+
+</TabItem>
+</Tabs>
 
 ## Padrões relacionados
 

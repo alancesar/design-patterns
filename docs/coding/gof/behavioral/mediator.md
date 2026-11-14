@@ -7,6 +7,8 @@ tags:
 origin: GoF
 source: https://iretha.github.io/design-patterns/cheat-sheet
 sidebar_label: "Mediator"
+mdx:
+  format: mdx
 ---
 
 # Mediator
@@ -93,6 +95,172 @@ O `Mediator` define a interface de comunicação usada pelos colleagues. O `Conc
 
 Os bancos participantes não enviam ordens de pagamento diretamente uns aos outros: a câmara de compensação (mediador) recebe a ordem e a entrega ao banco de destino.
 
+<Tabs groupId="lang" queryString>
+<TabItem value="java" label="Java">
+
+```java
+record ClearingOrder(String from, String to, long amountCents) {}
+
+interface ClearingHouse {
+    void register(ParticipantBank bank);
+    void send(ClearingOrder order);
+}
+
+class InstantPaymentClearing implements ClearingHouse {
+    private final Map<String, ParticipantBank> banks = new HashMap<>();
+
+    public void register(ParticipantBank bank) {
+        banks.put(bank.code(), bank);
+    }
+
+    public void send(ClearingOrder order) {
+        ParticipantBank destination = banks.get(order.to());
+        if (destination == null)
+            throw new IllegalArgumentException("Banco " + order.to() + " não participa da câmara");
+        destination.receive(order);
+    }
+}
+
+class ParticipantBank {
+    private final String code;
+    private final ClearingHouse clearing;
+
+    ParticipantBank(String code, ClearingHouse clearing) {
+        this.code = code;
+        this.clearing = clearing;
+        clearing.register(this);
+    }
+
+    String code() { return code; }
+
+    void pay(String to, long amountCents) {
+        clearing.send(new ClearingOrder(code, to, amountCents));
+    }
+
+    void receive(ClearingOrder order) {
+        System.out.println("[" + code + "] ordem de " + order.from() + ": " + order.amountCents() + " centavos");
+    }
+}
+
+ClearingHouse clearing = new InstantPaymentClearing();
+ParticipantBank alpha = new ParticipantBank("001", clearing);
+new ParticipantBank("237", clearing);
+alpha.pay("237", 15_000); // [237] ordem de 001: 15000 centavos
+```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import Protocol
+
+@dataclass(frozen=True)
+class ClearingOrder:
+    sender: str
+    to: str
+    amount_cents: int
+
+class ClearingHouse(Protocol):
+    def register(self, bank: ParticipantBank) -> None: ...
+    def send(self, order: ClearingOrder) -> None: ...
+
+class InstantPaymentClearing:
+    def __init__(self) -> None:
+        self._banks: dict[str, ParticipantBank] = {}
+
+    def register(self, bank: ParticipantBank) -> None:
+        self._banks[bank.code] = bank
+
+    def send(self, order: ClearingOrder) -> None:
+        destination = self._banks.get(order.to)
+        if destination is None:
+            raise LookupError(f"Banco {order.to} não participa da câmara")
+        destination.receive(order)
+
+class ParticipantBank:
+    def __init__(self, code: str, clearing: ClearingHouse) -> None:
+        self.code = code
+        self._clearing = clearing
+        clearing.register(self)
+
+    def pay(self, to: str, amount_cents: int) -> None:
+        self._clearing.send(ClearingOrder(self.code, to, amount_cents))
+
+    def receive(self, order: ClearingOrder) -> None:
+        print(f"[{self.code}] ordem de {order.sender}: {order.amount_cents} centavos")
+
+clearing = InstantPaymentClearing()
+alpha = ParticipantBank("001", clearing)
+ParticipantBank("237", clearing)
+alpha.pay("237", 15_000)  # [237] ordem de 001: 15000 centavos
+```
+
+</TabItem>
+<TabItem value="go" label="Go">
+
+```go
+type ClearingOrder struct {
+	From, To    string
+	AmountCents int64
+}
+
+type ClearingHouse interface {
+	Register(bank *ParticipantBank)
+	Send(order ClearingOrder) error
+}
+
+type InstantPaymentClearing struct {
+	banks map[string]*ParticipantBank
+}
+
+func (c *InstantPaymentClearing) Register(bank *ParticipantBank) {
+	c.banks[bank.Code] = bank
+}
+
+func (c *InstantPaymentClearing) Send(order ClearingOrder) error {
+	destination, ok := c.banks[order.To]
+	if !ok {
+		return fmt.Errorf("banco %s não participa da câmara", order.To)
+	}
+	destination.Receive(order)
+	return nil
+}
+
+type ParticipantBank struct {
+	Code     string
+	clearing ClearingHouse
+}
+
+func NewParticipantBank(code string, clearing ClearingHouse) *ParticipantBank {
+	bank := &ParticipantBank{Code: code, clearing: clearing}
+	clearing.Register(bank)
+	return bank
+}
+
+func (b *ParticipantBank) Pay(to string, amountCents int64) error {
+	return b.clearing.Send(ClearingOrder{From: b.Code, To: to, AmountCents: amountCents})
+}
+
+func (b *ParticipantBank) Receive(order ClearingOrder) {
+	fmt.Printf("[%s] ordem de %s: %d centavos\n", b.Code, order.From, order.AmountCents)
+}
+
+func main() {
+	clearing := &InstantPaymentClearing{banks: map[string]*ParticipantBank{}}
+	alpha := NewParticipantBank("001", clearing)
+	NewParticipantBank("237", clearing)
+	if err := alpha.Pay("237", 15_000); err != nil { // [237] ordem de 001: 15000 centavos
+		fmt.Println(err)
+	}
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
 ```typescript
 interface ClearingHouse {
   register(bank: ParticipantBank): void;
@@ -136,6 +304,9 @@ const alpha = new ParticipantBank("001", clearing);
 new ParticipantBank("237", clearing);
 alpha.pay("237", 15_000); // [237] ordem de 001: 15000 centavos
 ```
+
+</TabItem>
+</Tabs>
 
 ## Padrões relacionados
 

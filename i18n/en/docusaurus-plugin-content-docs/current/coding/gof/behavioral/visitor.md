@@ -7,6 +7,8 @@ tags:
 origin: GoF
 source: https://iretha.github.io/design-patterns/cheat-sheet
 sidebar_label: "Visitor"
+mdx:
+  format: mdx
 ---
 
 # Visitor
@@ -107,6 +109,190 @@ The `Client` applies a `ConcreteVisitor` to the `ObjectStructure`, which hands t
 
 The investment portfolio has stable asset types (`Cdb`, `Stock` and `FundShare`; the same portfolio that Composite organizes into sub-portfolios), and new operations show up often: computing the tax due, generating the income report. Each operation is a visitor, with no changes to the asset classes. The tax rates in the example are illustrative.
 
+<Tabs groupId="lang" queryString>
+<TabItem value="java" label="Java">
+
+```java
+interface AssetVisitor<R> {
+    R visitCdb(Cdb cdb);
+    R visitStock(Stock stock);
+    R visitFundShare(FundShare share);
+}
+
+interface Asset { <R> R accept(AssetVisitor<R> v); }
+
+record Cdb(String issuer, long gainCents) implements Asset {
+    public <R> R accept(AssetVisitor<R> v) { return v.visitCdb(this); }
+}
+
+record Stock(String symbol, long gainCents) implements Asset {
+    public <R> R accept(AssetVisitor<R> v) { return v.visitStock(this); }
+}
+
+record FundShare(String fund, long gainCents) implements Asset {
+    public <R> R accept(AssetVisitor<R> v) { return v.visitFundShare(this); }
+}
+
+// illustrative rates, not an actual tax rule
+class TaxCalculator implements AssetVisitor<Long> {
+    public Long visitCdb(Cdb cdb) { return Math.round(cdb.gainCents() * 0.15); }
+    public Long visitStock(Stock stock) { return Math.round(stock.gainCents() * 0.15); }
+    public Long visitFundShare(FundShare share) { return Math.round(share.gainCents() * 0.20); }
+}
+
+class IncomeReportExporter implements AssetVisitor<String> {
+    public String visitCdb(Cdb cdb) {
+        return "{\"type\":\"cdb\",\"issuer\":\"%s\",\"gainCents\":%d}".formatted(cdb.issuer(), cdb.gainCents());
+    }
+    public String visitStock(Stock stock) {
+        return "{\"type\":\"stock\",\"symbol\":\"%s\",\"gainCents\":%d}".formatted(stock.symbol(), stock.gainCents());
+    }
+    public String visitFundShare(FundShare share) {
+        return "{\"type\":\"fund\",\"fund\":\"%s\",\"gainCents\":%d}".formatted(share.fund(), share.gainCents());
+    }
+}
+
+List<Asset> assets = List.of(
+    new Cdb("Banco Alfa", 100_000),
+    new Stock("ACME3", 50_000),
+    new FundShare("Fundo Beta", 200_000));
+long totalTaxCents = assets.stream().mapToLong(a -> a.accept(new TaxCalculator())).sum();
+System.out.println(totalTaxCents); // 62500
+List<String> report = assets.stream().map(a -> a.accept(new IncomeReportExporter())).toList();
+```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python
+import json
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class Cdb:
+    issuer: str
+    gain_cents: int
+
+    def accept(self, visitor):
+        return visitor.visit_cdb(self)
+
+@dataclass(frozen=True)
+class Stock:
+    symbol: str
+    gain_cents: int
+
+    def accept(self, visitor):
+        return visitor.visit_stock(self)
+
+@dataclass(frozen=True)
+class FundShare:
+    fund: str
+    gain_cents: int
+
+    def accept(self, visitor):
+        return visitor.visit_fund_share(self)
+
+class TaxCalculator:
+    """Illustrative rates, not an actual tax rule."""
+
+    def visit_cdb(self, cdb: Cdb) -> int:
+        return round(cdb.gain_cents * 0.15)
+
+    def visit_stock(self, stock: Stock) -> int:
+        return round(stock.gain_cents * 0.15)
+
+    def visit_fund_share(self, share: FundShare) -> int:
+        return round(share.gain_cents * 0.20)
+
+class IncomeReportExporter:
+    def visit_cdb(self, cdb: Cdb) -> str:
+        return json.dumps({"type": "cdb", "issuer": cdb.issuer, "gainCents": cdb.gain_cents})
+
+    def visit_stock(self, stock: Stock) -> str:
+        return json.dumps({"type": "stock", "symbol": stock.symbol, "gainCents": stock.gain_cents})
+
+    def visit_fund_share(self, share: FundShare) -> str:
+        return json.dumps({"type": "fund", "fund": share.fund, "gainCents": share.gain_cents})
+
+assets = [Cdb("Banco Alfa", 100_000), Stock("ACME3", 50_000), FundShare("Fundo Beta", 200_000)]
+total_tax_cents = sum(a.accept(TaxCalculator()) for a in assets)
+print(total_tax_cents)  # 62500
+report = [a.accept(IncomeReportExporter()) for a in assets]
+```
+
+</TabItem>
+<TabItem value="go" label="Go">
+
+```go
+// Go has no generic methods: the visitor accumulates the result instead of returning it.
+type AssetVisitor interface {
+	VisitCdb(cdb Cdb)
+	VisitStock(stock Stock)
+	VisitFundShare(share FundShare)
+}
+
+type Asset interface{ Accept(v AssetVisitor) }
+
+type Cdb struct {
+	Issuer    string
+	GainCents int64
+}
+
+func (c Cdb) Accept(v AssetVisitor) { v.VisitCdb(c) }
+
+type Stock struct {
+	Symbol    string
+	GainCents int64
+}
+
+func (s Stock) Accept(v AssetVisitor) { v.VisitStock(s) }
+
+type FundShare struct {
+	Fund      string
+	GainCents int64
+}
+
+func (f FundShare) Accept(v AssetVisitor) { v.VisitFundShare(f) }
+
+// illustrative rates, not an actual tax rule
+type TaxCalculator struct{ TotalCents int64 }
+
+func (t *TaxCalculator) add(gainCents int64, rate float64) {
+	t.TotalCents += int64(math.Round(float64(gainCents) * rate))
+}
+
+func (t *TaxCalculator) VisitCdb(cdb Cdb)               { t.add(cdb.GainCents, 0.15) }
+func (t *TaxCalculator) VisitStock(stock Stock)         { t.add(stock.GainCents, 0.15) }
+func (t *TaxCalculator) VisitFundShare(share FundShare) { t.add(share.GainCents, 0.20) }
+
+type IncomeReportExporter struct{ Lines []string }
+
+func (e *IncomeReportExporter) add(kind, field, value string, gainCents int64) {
+	e.Lines = append(e.Lines, fmt.Sprintf(`{"type":%q,%q:%q,"gainCents":%d}`, kind, field, value, gainCents))
+}
+
+func (e *IncomeReportExporter) VisitCdb(cdb Cdb) { e.add("cdb", "issuer", cdb.Issuer, cdb.GainCents) }
+func (e *IncomeReportExporter) VisitStock(stock Stock) {
+	e.add("stock", "symbol", stock.Symbol, stock.GainCents)
+}
+func (e *IncomeReportExporter) VisitFundShare(share FundShare) {
+	e.add("fund", "fund", share.Fund, share.GainCents)
+}
+
+func main() {
+	assets := []Asset{Cdb{"Banco Alfa", 100_000}, Stock{"ACME3", 50_000}, FundShare{"Fundo Beta", 200_000}}
+	tax, report := &TaxCalculator{}, &IncomeReportExporter{}
+	for _, asset := range assets {
+		asset.Accept(tax)
+		asset.Accept(report)
+	}
+	fmt.Println(tax.TotalCents) // 62500
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
 ```typescript
 interface AssetVisitor<R> {
   visitCdb(cdb: Cdb): R;
@@ -153,6 +339,9 @@ const totalTaxCents = assets.reduce((sum, a) => sum + a.accept(new TaxCalculator
 console.log(totalTaxCents); // 62500
 const report = assets.map((a) => a.accept(new IncomeReportExporter()));
 ```
+
+</TabItem>
+</Tabs>
 
 ## Related patterns
 

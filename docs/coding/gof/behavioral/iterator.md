@@ -8,6 +8,8 @@ tags:
 origin: GoF
 source: https://iretha.github.io/design-patterns/cheat-sheet
 sidebar_label: "Iterator"
+mdx:
+  format: mdx
 ---
 
 # Iterator
@@ -94,6 +96,233 @@ O `Client` obtém um `Iterator` a partir do `Aggregate` e percorre os elementos 
 
 O extrato de uma conta tem milhares de lançamentos e a API os devolve em páginas com cursor. O consumidor só chama `hasNext()` e `next()`: o `PagedStatementIterator` busca a próxima página quando a atual acaba, e o `ReverseStatementIterator` percorre a mesma coleção do lançamento mais recente para o mais antigo.
 
+<Tabs groupId="lang" queryString>
+<TabItem value="java" label="Java">
+
+```java
+record StatementEntry(String date, String description, long amountCents) {}
+
+record Page(List<StatementEntry> entries, Integer nextCursor) {}
+
+class Statement implements Iterable<StatementEntry> {
+    private final List<StatementEntry> entries;
+    private final int pageSize;
+
+    Statement(List<StatementEntry> entries, int pageSize) { this.entries = entries; this.pageSize = pageSize; }
+
+    // simula a API paginada: devolve uma página e o cursor da próxima
+    Page fetchPage(int cursor) {
+        int end = Math.min(cursor + pageSize, entries.size());
+        return new Page(entries.subList(cursor, end), end < entries.size() ? end : null);
+    }
+
+    public Iterator<StatementEntry> iterator() { return new PagedStatementIterator(this); }
+
+    Iterator<StatementEntry> reverseIterator() {
+        return new ReverseStatementIterator(entries); // simplificação: lê os lançamentos já carregados
+    }
+}
+
+class PagedStatementIterator implements Iterator<StatementEntry> {
+    private final Statement statement;
+    private List<StatementEntry> buffer = List.of();
+    private int position = 0;
+    private Integer cursor = 0;
+
+    PagedStatementIterator(Statement statement) { this.statement = statement; }
+
+    public boolean hasNext() { fill(); return position < buffer.size(); }
+    public StatementEntry next() { fill(); return buffer.get(position++); }
+
+    private void fill() {
+        if (position < buffer.size() || cursor == null) return;
+        Page page = statement.fetchPage(cursor); // só busca quando a página atual acabou
+        buffer = page.entries();
+        position = 0;
+        cursor = page.nextCursor();
+    }
+}
+
+class ReverseStatementIterator implements Iterator<StatementEntry> {
+    private final List<StatementEntry> entries;
+    private int position;
+
+    ReverseStatementIterator(List<StatementEntry> entries) { this.entries = entries; position = entries.size() - 1; }
+
+    public boolean hasNext() { return position >= 0; }
+    public StatementEntry next() { return entries.get(position--); }
+}
+
+Statement statement = new Statement(List.of(
+    new StatementEntry("2026-03-01", "Pix recebido", 25_000),
+    new StatementEntry("2026-03-02", "Boleto pago", -8_990),
+    new StatementEntry("2026-03-03", "Compra no cartão", -4_550)), 2);
+
+for (StatementEntry entry : statement) System.out.println(entry.description()); // Pix recebido, Boleto pago, Compra no cartão
+
+Iterator<StatementEntry> recent = statement.reverseIterator();
+System.out.println(recent.next().description());                                // Compra no cartão
+```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python
+from dataclasses import dataclass
+from typing import Iterator, Optional
+
+@dataclass(frozen=True)
+class StatementEntry:
+    date: str
+    description: str
+    amount_cents: int
+
+@dataclass(frozen=True)
+class Page:
+    entries: list[StatementEntry]
+    next_cursor: Optional[int]
+
+class Statement:
+    def __init__(self, entries: list[StatementEntry], page_size: int = 2) -> None:
+        self._entries = entries
+        self._page_size = page_size
+
+    def fetch_page(self, cursor: int = 0) -> Page:
+        """Simula a API paginada: devolve uma página e o cursor da próxima."""
+        end = cursor + self._page_size
+        return Page(self._entries[cursor:end], end if end < len(self._entries) else None)
+
+    def __iter__(self) -> Iterator[StatementEntry]:
+        return PagedStatementIterator(self)
+
+    def __reversed__(self) -> Iterator[StatementEntry]:
+        return ReverseStatementIterator(self._entries)  # simplificação: lê os lançamentos já carregados
+
+class PagedStatementIterator:
+    def __init__(self, statement: Statement) -> None:
+        self._statement = statement
+        self._buffer: list[StatementEntry] = []
+        self._position = 0
+        self._cursor: Optional[int] = 0
+
+    def __iter__(self) -> Iterator[StatementEntry]:
+        return self
+
+    def __next__(self) -> StatementEntry:
+        if self._position >= len(self._buffer):
+            if self._cursor is None:
+                raise StopIteration
+            page = self._statement.fetch_page(self._cursor)  # só busca quando a página atual acabou
+            self._buffer, self._position, self._cursor = page.entries, 0, page.next_cursor
+        entry = self._buffer[self._position]
+        self._position += 1
+        return entry
+
+class ReverseStatementIterator:
+    def __init__(self, entries: list[StatementEntry]) -> None:
+        self._entries = entries
+        self._position = len(entries) - 1
+
+    def __iter__(self) -> Iterator[StatementEntry]:
+        return self
+
+    def __next__(self) -> StatementEntry:
+        if self._position < 0:
+            raise StopIteration
+        entry = self._entries[self._position]
+        self._position -= 1
+        return entry
+
+statement = Statement([
+    StatementEntry("2026-03-01", "Pix recebido", 25_000),
+    StatementEntry("2026-03-02", "Boleto pago", -8_990),
+    StatementEntry("2026-03-03", "Compra no cartão", -4_550),
+])
+
+for entry in statement:
+    print(entry.description)  # Pix recebido, Boleto pago, Compra no cartão
+
+recent = reversed(statement)
+print(next(recent).description)  # Compra no cartão
+```
+
+</TabItem>
+<TabItem value="go" label="Go">
+
+```go
+type StatementEntry struct {
+	Date        string
+	Description string
+	AmountCents int64
+}
+
+type Page struct {
+	Entries    []StatementEntry
+	NextCursor int // -1 quando não há próxima página
+}
+
+type Statement struct {
+	entries  []StatementEntry
+	pageSize int
+}
+
+// simula a API paginada: devolve uma página e o cursor da próxima
+func (s *Statement) FetchPage(cursor int) Page {
+	end := min(cursor+s.pageSize, len(s.entries))
+	next := -1
+	if end < len(s.entries) {
+		next = end
+	}
+	return Page{s.entries[cursor:end], next}
+}
+
+// Em Go, o iterador é uma função iter.Seq, consumida com for range.
+func (s *Statement) All() iter.Seq[StatementEntry] {
+	return func(yield func(StatementEntry) bool) {
+		for cursor := 0; cursor >= 0; {
+			page := s.FetchPage(cursor) // só busca quando a página atual acabou
+			for _, entry := range page.Entries {
+				if !yield(entry) {
+					return
+				}
+			}
+			cursor = page.NextCursor
+		}
+	}
+}
+
+func (s *Statement) Backward() iter.Seq[StatementEntry] {
+	return func(yield func(StatementEntry) bool) {
+		// simplificação: lê os lançamentos já carregados
+		for i := len(s.entries) - 1; i >= 0; i-- {
+			if !yield(s.entries[i]) {
+				return
+			}
+		}
+	}
+}
+
+func main() {
+	statement := &Statement{pageSize: 2, entries: []StatementEntry{
+		{"2026-03-01", "Pix recebido", 25_000},
+		{"2026-03-02", "Boleto pago", -8_990},
+		{"2026-03-03", "Compra no cartão", -4_550},
+	}}
+
+	for entry := range statement.All() {
+		fmt.Println(entry.Description) // Pix recebido, Boleto pago, Compra no cartão
+	}
+
+	for entry := range statement.Backward() {
+		fmt.Println(entry.Description) // Compra no cartão
+		break
+	}
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
 ```typescript
 interface StatementEntry {
   date: string;
@@ -172,6 +401,9 @@ while (it.hasNext()) console.log(it.next().description);  // Pix recebido, Bolet
 const recent = statement.createReverseIterator();
 console.log(recent.next().description);                   // Compra no cartão
 ```
+
+</TabItem>
+</Tabs>
 
 ## Padrões relacionados
 

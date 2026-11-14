@@ -7,6 +7,8 @@ tags:
 origin: Classic
 source: https://iretha.github.io/design-patterns/cheat-sheet
 sidebar_label: "Null Object"
+mdx:
+  format: mdx
 ---
 
 # Null Object
@@ -80,6 +82,116 @@ classDiagram
 
 The transfer service applies a fee policy. Exempt accounts get a `NoFeePolicy`, which returns zero, instead of the service checking whether a policy exists on every transfer. The fee amount is illustrative.
 
+<Tabs groupId="lang" queryString>
+<TabItem value="java" label="Java">
+
+```java
+interface FeePolicy {
+    long feeCents(long amountCents);
+}
+
+record PerTransferFeePolicy(long flatCents) implements FeePolicy {
+    public long feeCents(long amountCents) {
+        return flatCents;
+    }
+}
+
+enum NoFeePolicy implements FeePolicy {
+    INSTANCE;
+
+    public long feeCents(long amountCents) {
+        return 0;                            // exempt account: zero fee
+    }
+}
+
+class TransferService {
+    private final FeePolicy feePolicy;
+
+    TransferService(FeePolicy feePolicy) { this.feePolicy = feePolicy; }
+
+    // total debited from the account
+    long transfer(long amountCents) {
+        long fee = feePolicy.feeCents(amountCents); // no if (policy != null)
+        return amountCents + fee;
+    }
+}
+
+System.out.println(new TransferService(new PerTransferFeePolicy(350)).transfer(10_000)); // 10350
+System.out.println(new TransferService(NoFeePolicy.INSTANCE).transfer(10_000));          // 10000
+```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python
+from typing import Protocol
+
+class FeePolicy(Protocol):
+    def fee_cents(self, amount_cents: int) -> int: ...
+
+class PerTransferFeePolicy:
+    def __init__(self, flat_cents: int) -> None:
+        self._flat_cents = flat_cents
+
+    def fee_cents(self, amount_cents: int) -> int:
+        return self._flat_cents
+
+class NoFeePolicy:
+    def fee_cents(self, amount_cents: int) -> int:
+        return 0  # exempt account: zero fee
+
+NO_FEE = NoFeePolicy()
+
+class TransferService:
+    def __init__(self, fee_policy: FeePolicy) -> None:
+        self._fee_policy = fee_policy
+
+    def transfer(self, amount_cents: int) -> int:
+        """Returns the total debited from the account."""
+        fee = self._fee_policy.fee_cents(amount_cents)  # no if policy is not None
+        return amount_cents + fee
+
+print(TransferService(PerTransferFeePolicy(350)).transfer(10_000))  # 10350
+print(TransferService(NO_FEE).transfer(10_000))                     # 10000
+```
+
+</TabItem>
+<TabItem value="go" label="Go">
+
+```go
+type FeePolicy interface {
+	FeeCents(amountCents int64) int64
+}
+
+type PerTransferFeePolicy struct{ FlatCents int64 }
+
+func (p PerTransferFeePolicy) FeeCents(amountCents int64) int64 { return p.FlatCents }
+
+type NoFeePolicy struct{}
+
+func (NoFeePolicy) FeeCents(amountCents int64) int64 {
+	return 0 // exempt account: zero fee
+}
+
+type TransferService struct {
+	feePolicy FeePolicy
+}
+
+// total debited from the account
+func (s TransferService) Transfer(amountCents int64) int64 {
+	fee := s.feePolicy.FeeCents(amountCents) // no if policy != nil
+	return amountCents + fee
+}
+
+func main() {
+	fmt.Println(TransferService{PerTransferFeePolicy{350}}.Transfer(10_000)) // 10350
+	fmt.Println(TransferService{NoFeePolicy{}}.Transfer(10_000))             // 10000
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
 ```typescript
 interface FeePolicy {
   feeCents(amountCents: number): number;
@@ -112,6 +224,9 @@ class TransferService {
 console.log(new TransferService(new PerTransferFeePolicy(350)).transfer(10_000)); // 10350
 console.log(new TransferService(NoFeePolicy.instance).transfer(10_000));          // 10000
 ```
+
+</TabItem>
+</Tabs>
 
 ## Related patterns
 

@@ -8,6 +8,8 @@ tags:
 origin: GoF
 source: https://iretha.github.io/design-patterns/cheat-sheet
 sidebar_label: "State"
+mdx:
+  format: mdx
 ---
 
 # State
@@ -85,6 +87,160 @@ The `Context` delegates `request()` to the current `State`. Each `ConcreteState`
 
 A Pix charge goes through the states "active", "paid", "expired" and "refunded"; the actions `pay()`, `expire()` and `refund()` are only valid in certain states: `pay()` only applies to an active charge and `refund()` only to a paid one.
 
+<Tabs groupId="lang" queryString>
+<TabItem value="java" label="Java">
+
+```java
+interface ChargeState {
+    void pay(PixCharge charge);
+    void expire(PixCharge charge);
+    void refund(PixCharge charge);
+}
+
+class Active implements ChargeState {
+    public void pay(PixCharge charge) { charge.setState(new Paid()); }
+    public void expire(PixCharge charge) { charge.setState(new Expired()); }
+    public void refund(PixCharge charge) { throw new IllegalStateException("An active charge cannot be refunded"); }
+}
+
+class Paid implements ChargeState {
+    public void pay(PixCharge charge) { throw new IllegalStateException("Charge has already been paid"); }
+    public void expire(PixCharge charge) { throw new IllegalStateException("A paid charge does not expire"); }
+    public void refund(PixCharge charge) { charge.setState(new Refunded()); }
+}
+
+class Expired implements ChargeState {
+    public void pay(PixCharge charge) { throw new IllegalStateException("Charge has expired"); }
+    public void expire(PixCharge charge) { throw new IllegalStateException("Charge has expired"); }
+    public void refund(PixCharge charge) { throw new IllegalStateException("Charge has expired"); }
+}
+
+class Refunded implements ChargeState {
+    public void pay(PixCharge charge) { throw new IllegalStateException("Charge has already been refunded"); }
+    public void expire(PixCharge charge) { throw new IllegalStateException("Charge has already been refunded"); }
+    public void refund(PixCharge charge) { throw new IllegalStateException("Charge has already been refunded"); }
+}
+
+class PixCharge {
+    private ChargeState state = new Active();
+
+    void setState(ChargeState state) { this.state = state; }
+    void pay() { state.pay(this); }
+    void expire() { state.expire(this); }
+    void refund() { state.refund(this); }
+}
+```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python
+from __future__ import annotations
+
+from typing import Protocol
+
+class InvalidTransition(Exception):
+    pass
+
+class ChargeState(Protocol):
+    def pay(self, charge: PixCharge) -> None: ...
+    def expire(self, charge: PixCharge) -> None: ...
+    def refund(self, charge: PixCharge) -> None: ...
+
+class Active:
+    def pay(self, charge: PixCharge) -> None:
+        charge.state = Paid()
+
+    def expire(self, charge: PixCharge) -> None:
+        charge.state = Expired()
+
+    def refund(self, charge: PixCharge) -> None:
+        raise InvalidTransition("An active charge cannot be refunded")
+
+class Paid:
+    def pay(self, charge: PixCharge) -> None:
+        raise InvalidTransition("Charge has already been paid")
+
+    def expire(self, charge: PixCharge) -> None:
+        raise InvalidTransition("A paid charge does not expire")
+
+    def refund(self, charge: PixCharge) -> None:
+        charge.state = Refunded()
+
+class Expired:
+    def pay(self, charge: PixCharge) -> None:
+        raise InvalidTransition("Charge has expired")
+
+    expire = refund = pay  # every action fails the same way
+
+class Refunded:
+    def pay(self, charge: PixCharge) -> None:
+        raise InvalidTransition("Charge has already been refunded")
+
+    expire = refund = pay  # every action fails the same way
+
+class PixCharge:
+    def __init__(self) -> None:
+        self.state: ChargeState = Active()
+
+    def pay(self) -> None:
+        self.state.pay(self)
+
+    def expire(self) -> None:
+        self.state.expire(self)
+
+    def refund(self) -> None:
+        self.state.refund(self)
+```
+
+</TabItem>
+<TabItem value="go" label="Go">
+
+```go
+type ChargeState interface {
+	Pay(charge *PixCharge) error
+	Expire(charge *PixCharge) error
+	Refund(charge *PixCharge) error
+}
+
+type Active struct{}
+
+func (Active) Pay(charge *PixCharge) error    { charge.state = Paid{}; return nil }
+func (Active) Expire(charge *PixCharge) error { charge.state = Expired{}; return nil }
+func (Active) Refund(*PixCharge) error        { return errors.New("an active charge cannot be refunded") }
+
+type Paid struct{}
+
+func (Paid) Pay(*PixCharge) error           { return errors.New("charge has already been paid") }
+func (Paid) Expire(*PixCharge) error        { return errors.New("a paid charge does not expire") }
+func (Paid) Refund(charge *PixCharge) error { charge.state = Refunded{}; return nil }
+
+type Expired struct{}
+
+func (Expired) Pay(*PixCharge) error    { return errors.New("charge has expired") }
+func (Expired) Expire(*PixCharge) error { return errors.New("charge has expired") }
+func (Expired) Refund(*PixCharge) error { return errors.New("charge has expired") }
+
+type Refunded struct{}
+
+func (Refunded) Pay(*PixCharge) error    { return errors.New("charge has already been refunded") }
+func (Refunded) Expire(*PixCharge) error { return errors.New("charge has already been refunded") }
+func (Refunded) Refund(*PixCharge) error { return errors.New("charge has already been refunded") }
+
+type PixCharge struct {
+	state ChargeState
+}
+
+func NewPixCharge() *PixCharge { return &PixCharge{state: Active{}} }
+
+func (c *PixCharge) Pay() error    { return c.state.Pay(c) }
+func (c *PixCharge) Expire() error { return c.state.Expire(c) }
+func (c *PixCharge) Refund() error { return c.state.Refund(c) }
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
 ```typescript
 interface ChargeState {
   pay(charge: PixCharge): void;
@@ -124,6 +280,9 @@ class PixCharge {
   refund() { this.state.refund(this); }
 }
 ```
+
+</TabItem>
+</Tabs>
 
 ## Related patterns
 

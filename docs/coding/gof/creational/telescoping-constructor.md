@@ -7,6 +7,8 @@ tags:
 origin: Classic
 source: https://iretha.github.io/design-patterns/cheat-sheet
 sidebar_label: "Telescoping Constructor"
+mdx:
+  format: mdx
 ---
 
 # Telescoping Constructor
@@ -78,6 +80,9 @@ O `Client` instancia `Boleto` escolhendo o construtor com a quantidade de argume
 
 Um `Boleto` exige valor e vencimento, enquanto multa, juros ao dia e desconto por antecipação são opcionais, com padrão zero.
 
+<Tabs groupId="lang" queryString>
+<TabItem value="java" label="Java">
+
 ```java
 public final class Boleto {
     private final long amountCents;   // obrigatório
@@ -109,6 +114,70 @@ public final class Boleto {
 // Uso: o que significa cada número? Trocar fine e discount compila sem erro.
 Boleto boleto = new Boleto(150_000, LocalDate.of(2026, 12, 10), 0.02, 0.00033, 0.05);
 ```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python
+from datetime import date
+
+# Python não tem sobrecarga: os parâmetros com default, passados por posição, formam o mesmo telescópio.
+class Boleto:
+    def __init__(self, amount_cents: int, due_date: date, fine: float = 0,
+                 daily_interest: float = 0, discount: float = 0) -> None:
+        if amount_cents <= 0 or due_date is None:
+            raise ValueError
+        self.amount_cents = amount_cents      # obrigatório
+        self.due_date = due_date              # obrigatório
+        self.fine = fine                      # opcional (taxa)
+        self.daily_interest = daily_interest  # opcional (taxa ao dia)
+        self.discount = discount              # opcional (taxa)
+
+# Uso: o que significa cada número? Trocar fine e discount não gera erro algum.
+boleto = Boleto(150_000, date(2026, 12, 10), 0.02, 0.00033, 0.05)
+```
+
+</TabItem>
+<TabItem value="go" label="Go">
+
+```go
+type Boleto struct {
+	amountCents   int64     // obrigatório
+	dueDate       time.Time // obrigatório
+	fine          float64   // opcional (taxa)
+	dailyInterest float64   // opcional (taxa ao dia)
+	discount      float64   // opcional (taxa)
+}
+
+// Go não tem sobrecarga: o telescópio aparece como uma família de construtores.
+func NewBoleto(amountCents int64, dueDate time.Time) (*Boleto, error) {
+	return NewBoletoWithFine(amountCents, dueDate, 0)
+}
+
+func NewBoletoWithFine(amountCents int64, dueDate time.Time, fine float64) (*Boleto, error) {
+	return NewBoletoWithInterest(amountCents, dueDate, fine, 0)
+}
+
+func NewBoletoWithInterest(amountCents int64, dueDate time.Time, fine, dailyInterest float64) (*Boleto, error) {
+	return NewBoletoWithDiscount(amountCents, dueDate, fine, dailyInterest, 0)
+}
+
+func NewBoletoWithDiscount(amountCents int64, dueDate time.Time, fine, dailyInterest, discount float64) (*Boleto, error) {
+	if amountCents <= 0 || dueDate.IsZero() {
+		return nil, errors.New("boleto inválido")
+	}
+	return &Boleto{amountCents, dueDate, fine, dailyInterest, discount}, nil
+}
+
+func main() {
+	// Uso: o que significa cada número? Trocar fine e discount compila sem erro.
+	dueDate := time.Date(2026, 12, 10, 0, 0, 0, 0, time.UTC)
+	boleto, err := NewBoletoWithDiscount(150_000, dueDate, 0.02, 0.00033, 0.05)
+}
+```
+
+</TabItem>
+</Tabs>
 
 ## Padrões relacionados
 

@@ -7,6 +7,8 @@ tags:
 origin: GoF
 source: https://iretha.github.io/design-patterns/cheat-sheet
 sidebar_label: "Flyweight"
+mdx:
+  format: mdx
 ---
 
 # Flyweight
@@ -88,6 +90,9 @@ The `Client` obtains flyweights through the `FlyweightFactory`, which maintains 
 
 Card reconciliation keeps millions of entries in memory. The merchant's name, MCC and logo (heavy) are shared among the entries of the same merchant; only the amount, date and cardholder are stored in each entry.
 
+<Tabs groupId="lang" queryString>
+<TabItem value="java" label="Java">
+
 ```java
 record MerchantInfo(String name, String mcc, byte[] logo) { // flyweight (intrinsic)
     String label() {
@@ -120,6 +125,118 @@ class ReconciliationBatch {
     long totalCents() { return entries.stream().mapToLong(CardEntry::amountCents).sum(); }
 }
 ```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python
+from dataclasses import dataclass
+from datetime import date
+
+@dataclass(frozen=True)
+class MerchantInfo:  # flyweight (intrinsic)
+    name: str
+    mcc: str
+    logo: bytes
+
+    def label(self) -> str:
+        return f"{self.name} (MCC {self.mcc})"
+
+class MerchantInfoFactory:
+    _cache: dict[str, MerchantInfo] = {}
+
+    @classmethod
+    def get(cls, name: str, mcc: str, logo: bytes) -> MerchantInfo:
+        # setdefault is atomic in CPython: concurrent threads get the same instance
+        return cls._cache.setdefault(f"{name}:{mcc}", MerchantInfo(name, mcc, logo))
+
+@dataclass(frozen=True)
+class CardEntry:  # context, extrinsic
+    amount_cents: int
+    date: date
+    holder: str
+    merchant: MerchantInfo
+
+    def describe(self) -> str:
+        return f"{self.holder} - {self.merchant.label()}: {self.amount_cents}"
+
+class ReconciliationBatch:
+    def __init__(self) -> None:
+        self._entries: list[CardEntry] = []
+
+    def add(self, amount_cents: int, date: date, holder: str,
+            merchant_name: str, mcc: str, logo: bytes) -> None:
+        merchant = MerchantInfoFactory.get(merchant_name, mcc, logo)
+        self._entries.append(CardEntry(amount_cents, date, holder, merchant))
+
+    def total_cents(self) -> int:
+        return sum(entry.amount_cents for entry in self._entries)
+```
+
+</TabItem>
+<TabItem value="go" label="Go">
+
+```go
+type MerchantInfo struct { // flyweight (intrinsic)
+	Name, MCC string
+	Logo      []byte
+}
+
+func (m *MerchantInfo) Label() string {
+	return fmt.Sprintf("%s (MCC %s)", m.Name, m.MCC)
+}
+
+type MerchantInfoFactory struct {
+	mu    sync.Mutex
+	cache map[string]*MerchantInfo
+}
+
+func NewMerchantInfoFactory() *MerchantInfoFactory {
+	return &MerchantInfoFactory{cache: map[string]*MerchantInfo{}}
+}
+
+func (f *MerchantInfoFactory) Get(name, mcc string, logo []byte) *MerchantInfo {
+	f.mu.Lock()
+	defer f.mu.Unlock()
+	key := name + ":" + mcc
+	if _, ok := f.cache[key]; !ok {
+		f.cache[key] = &MerchantInfo{Name: name, MCC: mcc, Logo: logo}
+	}
+	return f.cache[key]
+}
+
+type CardEntry struct { // context, extrinsic
+	AmountCents int64
+	Date        time.Time
+	Holder      string
+	Merchant    *MerchantInfo
+}
+
+func (e CardEntry) Describe() string {
+	return fmt.Sprintf("%s - %s: %d", e.Holder, e.Merchant.Label(), e.AmountCents)
+}
+
+type ReconciliationBatch struct {
+	merchants *MerchantInfoFactory
+	entries   []CardEntry
+}
+
+func (b *ReconciliationBatch) Add(amountCents int64, date time.Time, holder, merchantName, mcc string, logo []byte) {
+	merchant := b.merchants.Get(merchantName, mcc, logo)
+	b.entries = append(b.entries, CardEntry{amountCents, date, holder, merchant})
+}
+
+func (b *ReconciliationBatch) TotalCents() int64 {
+	var total int64
+	for _, entry := range b.entries {
+		total += entry.AmountCents
+	}
+	return total
+}
+```
+
+</TabItem>
+</Tabs>
 
 ## Related patterns
 
