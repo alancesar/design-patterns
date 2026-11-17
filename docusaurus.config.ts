@@ -25,6 +25,22 @@ const COPYRIGHT = {
   en: `Summaries written by Alan Cesar. The patterns belong to their original authors; see the source link on each page.<br/>© ${year} Alan Cesar. Content under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>, code under MIT. Built with Docusaurus.`,
 };
 
+// Pattern pages open with a "## Descrição" / "## Description" heading, which Docusaurus would
+// otherwise take as the page description (tag pages, search and <meta name="description">).
+// Use the first sentence of that section instead, unless the frontmatter sets one.
+function patternDescription(content: string): string | undefined {
+  const section = content.match(/^## (?:Descrição|Description)[ \t]*\n+([^\n]+)/m);
+  if (!section) {
+    return undefined;
+  }
+  const text = section[1]
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+    .replace(/[*_`]/g, '')
+    .trim();
+  const sentence = text.match(/^.*?[.!?](?=\s+[A-ZÀ-Ý]|$)/);
+  return sentence ? sentence[0] : text;
+}
+
 const config: Config = {
   title: 'Design Patterns',
   tagline: TAGLINE[locale],
@@ -54,6 +70,16 @@ const config: Config = {
   markdown: {
     format: 'detect',
     mermaid: true,
+    parseFrontMatter: async (params) => {
+      const result = await params.defaultParseFrontMatter(params);
+      if (!result.frontMatter.description) {
+        const description = patternDescription(result.content);
+        if (description) {
+          result.frontMatter.description = description;
+        }
+      }
+      return result;
+    },
     hooks: {
       onBrokenMarkdownLinks: 'throw',
     },
