@@ -27,6 +27,14 @@
     "message": "Enterprise Integration Patterns",
     "description": "The label of footer link with label=Enterprise Integration Patterns linking to https://www.enterpriseintegrationpatterns.com/patterns/messaging/"
   },
+  "link.item.label.Patterns for API Design": {
+    "message": "Patterns for API Design",
+    "description": "The label of footer link with label=Patterns for API Design linking to /architecture/api-patterns"
+  },
+  "link.item.label.api-patterns.org": {
+    "message": "api-patterns.org",
+    "description": "The label of footer link with label=api-patterns.org linking to https://api-patterns.org/"
+  },
   "link.item.label.Microservices": {
     "message": "Microservices",
     "description": "The label of footer link with label=Microservices linking to /architecture/microservices"
