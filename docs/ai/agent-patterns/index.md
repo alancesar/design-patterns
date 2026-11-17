@@ -1,6 +1,6 @@
 ---
 title: "AI Agent Design Patterns"
-sidebar_label: "Agent Patterns"
+sidebar_label: "AI Agent Design Patterns"
 ---
 
 # AI Agent Design Patterns

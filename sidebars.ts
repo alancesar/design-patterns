@@ -18,7 +18,7 @@ const sidebars: SidebarsConfig = {
       "items": [
         {
           "type": "category",
-          "label": "GoF",
+          "label": "Design Patterns (GoF e clássicos)",
           "key": "gof",
           "link": {
             "type": "doc",
@@ -95,7 +95,7 @@ const sidebars: SidebarsConfig = {
       "items": [
         {
           "type": "category",
-          "label": "DDD",
+          "label": "Domain-Driven Design",
           "key": "ddd",
           "link": {
             "type": "doc",
@@ -224,7 +224,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           "type": "category",
-          "label": "PoEAA",
+          "label": "Patterns of Enterprise Application Architecture",
           "key": "poeaa",
           "link": {
             "type": "doc",
@@ -380,7 +380,7 @@ const sidebars: SidebarsConfig = {
       "items": [
         {
           "type": "category",
-          "label": "Distributed Systems",
+          "label": "Patterns of Distributed Systems",
           "key": "distributed-systems",
           "link": {
             "type": "doc",
@@ -468,7 +468,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           "type": "category",
-          "label": "EIP",
+          "label": "Enterprise Integration Patterns",
           "key": "eip",
           "link": {
             "type": "doc",
@@ -807,7 +807,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           "type": "category",
-          "label": "Microservices",
+          "label": "Microservices Patterns",
           "key": "microservices",
           "link": {
             "type": "doc",
@@ -1286,7 +1286,7 @@ const sidebars: SidebarsConfig = {
       "items": [
         {
           "type": "category",
-          "label": "Agent Patterns",
+          "label": "AI Agent Design Patterns",
           "key": "agent-patterns",
           "link": {
             "type": "doc",

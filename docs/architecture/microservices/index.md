@@ -1,6 +1,6 @@
 ---
 title: "Microservices Patterns"
-sidebar_label: "Microservices"
+sidebar_label: "Microservices Patterns"
 ---
 
 # Microservices Patterns

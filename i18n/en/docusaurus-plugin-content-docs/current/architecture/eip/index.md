@@ -1,6 +1,6 @@
 ---
 title: "Enterprise Integration Patterns"
-sidebar_label: "EIP"
+sidebar_label: "Enterprise Integration Patterns"
 ---
 
 # Enterprise Integration Patterns

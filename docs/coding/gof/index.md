@@ -1,6 +1,6 @@
 ---
 title: "Design Patterns (GoF e clássicos)"
-sidebar_label: "GoF"
+sidebar_label: "Design Patterns (GoF e clássicos)"
 ---
 
 # Design Patterns (GoF e clássicos)

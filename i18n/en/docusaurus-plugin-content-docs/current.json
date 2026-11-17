@@ -8,8 +8,8 @@
     "description": "The label for category 'Coding' in sidebar 'catalog'"
   },
   "sidebar.catalog.category.gof": {
-    "message": "GoF",
-    "description": "The label for category 'GoF' in sidebar 'catalog'"
+    "message": "Design Patterns (GoF and classics)",
+    "description": "The label for category 'Design Patterns (GoF e clássicos)' in sidebar 'catalog'"
   },
   "sidebar.catalog.category.gof-creational": {
     "message": "Creational",
@@ -28,8 +28,8 @@
     "description": "The label for category 'Design' in sidebar 'catalog'"
   },
   "sidebar.catalog.category.ddd": {
-    "message": "DDD",
-    "description": "The label for category 'DDD' in sidebar 'catalog'"
+    "message": "Domain-Driven Design",
+    "description": "The label for category 'Domain-Driven Design' in sidebar 'catalog'"
   },
   "sidebar.catalog.category.ddd-model-in-practice": {
     "message": "Putting the Model to Work",
@@ -56,8 +56,8 @@
     "description": "The label for category 'Large-scale Structure' in sidebar 'catalog'"
   },
   "sidebar.catalog.category.poeaa": {
-    "message": "PoEAA",
-    "description": "The label for category 'PoEAA' in sidebar 'catalog'"
+    "message": "Patterns of Enterprise Application Architecture",
+    "description": "The label for category 'Patterns of Enterprise Application Architecture' in sidebar 'catalog'"
   },
   "sidebar.catalog.category.poeaa-domain-logic": {
     "message": "Domain Logic",
@@ -104,8 +104,8 @@
     "description": "The label for category 'Architecture' in sidebar 'catalog'"
   },
   "sidebar.catalog.category.distributed-systems": {
-    "message": "Distributed Systems",
-    "description": "The label for category 'Distributed Systems' in sidebar 'catalog'"
+    "message": "Patterns of Distributed Systems",
+    "description": "The label for category 'Patterns of Distributed Systems' in sidebar 'catalog'"
   },
   "sidebar.catalog.category.distributed-systems-data-replication": {
     "message": "Data Replication",
@@ -128,8 +128,8 @@
     "description": "The label for category 'Communication between Nodes' in sidebar 'catalog'"
   },
   "sidebar.catalog.category.eip": {
-    "message": "EIP",
-    "description": "The label for category 'EIP' in sidebar 'catalog'"
+    "message": "Enterprise Integration Patterns",
+    "description": "The label for category 'Enterprise Integration Patterns' in sidebar 'catalog'"
   },
   "sidebar.catalog.category.eip-integration-styles": {
     "message": "Integration Styles",
@@ -160,8 +160,8 @@
     "description": "The label for category 'System Management' in sidebar 'catalog'"
   },
   "sidebar.catalog.category.microservices": {
-    "message": "Microservices",
-    "description": "The label for category 'Microservices' in sidebar 'catalog'"
+    "message": "Microservices Patterns",
+    "description": "The label for category 'Microservices Patterns' in sidebar 'catalog'"
   },
   "sidebar.catalog.category.microservices-architectural-style": {
     "message": "Architectural Style",
@@ -264,8 +264,8 @@
     "description": "The label for category 'AI' in sidebar 'catalog'"
   },
   "sidebar.catalog.category.agent-patterns": {
-    "message": "Agent Patterns",
-    "description": "The label for category 'Agent Patterns' in sidebar 'catalog'"
+    "message": "AI Agent Design Patterns",
+    "description": "The label for category 'AI Agent Design Patterns' in sidebar 'catalog'"
   },
   "sidebar.catalog.category.agent-patterns-deterministic-workflows": {
     "message": "Deterministic Workflows",
