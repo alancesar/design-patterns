@@ -1017,6 +1017,94 @@ const sidebars: SidebarsConfig = {
               ]
             }
           ]
+        },
+        {
+          "type": "category",
+          "label": "Kubernetes Patterns",
+          "key": "kubernetes-patterns",
+          "link": {
+            "type": "doc",
+            "id": "architecture/kubernetes-patterns/index"
+          },
+          "collapsed": true,
+          "items": [
+            {
+              "type": "category",
+              "label": "Foundational",
+              "key": "kubernetes-patterns-foundational",
+              "collapsed": true,
+              "items": [
+                "architecture/kubernetes-patterns/foundational/predictable-demands",
+                "architecture/kubernetes-patterns/foundational/declarative-deployment",
+                "architecture/kubernetes-patterns/foundational/health-probe",
+                "architecture/kubernetes-patterns/foundational/managed-lifecycle",
+                "architecture/kubernetes-patterns/foundational/automated-placement"
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Behavioral",
+              "key": "kubernetes-patterns-behavioral",
+              "collapsed": true,
+              "items": [
+                "architecture/kubernetes-patterns/behavioral/batch-job",
+                "architecture/kubernetes-patterns/behavioral/periodic-job",
+                "architecture/kubernetes-patterns/behavioral/daemon-service",
+                "architecture/kubernetes-patterns/behavioral/singleton-service",
+                "architecture/kubernetes-patterns/behavioral/stateful-service",
+                "architecture/kubernetes-patterns/behavioral/service-discovery",
+                "architecture/kubernetes-patterns/behavioral/self-awareness"
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Structural",
+              "key": "kubernetes-patterns-structural",
+              "collapsed": true,
+              "items": [
+                "architecture/kubernetes-patterns/structural/init-container",
+                {
+                  "type": "link",
+                  "label": "Sidecar",
+                  "href": "/architecture/cloud-design-patterns/integration-and-modernization/sidecar?catalog=kubernetes-patterns",
+                  "className": "sidebar-shared",
+                  "key": "kubernetes-patterns-sidecar"
+                },
+                "architecture/kubernetes-patterns/structural/adapter",
+                {
+                  "type": "link",
+                  "label": "Ambassador",
+                  "href": "/architecture/cloud-design-patterns/integration-and-modernization/ambassador?catalog=kubernetes-patterns",
+                  "className": "sidebar-shared",
+                  "key": "kubernetes-patterns-ambassador"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Configuration",
+              "key": "kubernetes-patterns-configuration",
+              "collapsed": true,
+              "items": [
+                "architecture/kubernetes-patterns/configuration/envvar-configuration",
+                "architecture/kubernetes-patterns/configuration/configuration-resource",
+                "architecture/kubernetes-patterns/configuration/immutable-configuration",
+                "architecture/kubernetes-patterns/configuration/configuration-template"
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Advanced",
+              "key": "kubernetes-patterns-advanced",
+              "collapsed": true,
+              "items": [
+                "architecture/kubernetes-patterns/advanced/controller",
+                "architecture/kubernetes-patterns/advanced/operator",
+                "architecture/kubernetes-patterns/advanced/elastic-scale",
+                "architecture/kubernetes-patterns/advanced/image-builder"
+              ]
+            }
+          ]
         }
       ]
     },

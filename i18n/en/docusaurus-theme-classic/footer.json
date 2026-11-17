@@ -39,6 +39,10 @@
     "message": "Cloud Design Patterns",
     "description": "The label of footer link with label=Cloud Design Patterns linking to /architecture/cloud-design-patterns"
   },
+  "link.item.label.Kubernetes Patterns": {
+    "message": "Kubernetes Patterns",
+    "description": "The label of footer link with label=Kubernetes Patterns linking to /architecture/kubernetes-patterns"
+  },
   "link.item.label.AI Agent Design Patterns": {
     "message": "AI Agent Design Patterns",
     "description": "The label of footer link with label=AI Agent Design Patterns linking to /ai/agent-patterns"
@@ -62,6 +66,10 @@
   "link.item.label.Azure Architecture Center": {
     "message": "Azure Architecture Center",
     "description": "The label of footer link with label=Azure Architecture Center linking to https://learn.microsoft.com/en-us/azure/architecture/patterns/"
+  },
+  "link.item.label.Kubernetes Patterns (livro)": {
+    "message": "Kubernetes Patterns (book)",
+    "description": "The label of footer link with label=Kubernetes Patterns (livro) linking to https://k8spatterns.com/"
   },
   "link.item.label.Azure Architecture Center (AI agents)": {
     "message": "Azure Architecture Center (AI agents)",
