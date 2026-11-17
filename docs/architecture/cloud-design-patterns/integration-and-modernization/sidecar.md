@@ -98,4 +98,4 @@ A aplicação principal e o sidecar rodam lado a lado no mesmo host, compartilha
 ## Referência
 
 - [Documentação no Azure Architecture Center](https://learn.microsoft.com/en-us/azure/architecture/patterns/sidecar)
-- [Kubernetes Patterns, capítulo 15: Sidecar](https://k8spatterns.com/)
+- [Kubernetes Patterns, capítulo 16: Sidecar](https://k8spatterns.com/)

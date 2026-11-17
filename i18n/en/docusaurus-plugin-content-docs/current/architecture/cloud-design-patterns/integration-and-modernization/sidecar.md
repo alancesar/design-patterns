@@ -98,4 +98,4 @@ The main application and the sidecar run side by side on the same host, sharing 
 ## Reference
 
 - [Azure Architecture Center documentation](https://learn.microsoft.com/en-us/azure/architecture/patterns/sidecar)
-- [Kubernetes Patterns, chapter 15: Sidecar](https://k8spatterns.com/)
+- [Kubernetes Patterns, chapter 16: Sidecar](https://k8spatterns.com/)

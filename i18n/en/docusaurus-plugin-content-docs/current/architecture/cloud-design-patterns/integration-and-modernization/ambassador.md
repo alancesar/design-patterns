@@ -92,4 +92,4 @@ The application sends its requests to the ambassador colocated on the same host,
 ## Reference
 
 - [Azure Architecture Center documentation](https://learn.microsoft.com/en-us/azure/architecture/patterns/ambassador)
-- [Kubernetes Patterns, chapter 17: Ambassador](https://k8spatterns.com/)
+- [Kubernetes Patterns, chapter 18: Ambassador](https://k8spatterns.com/)
