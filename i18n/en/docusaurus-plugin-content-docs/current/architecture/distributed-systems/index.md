@@ -1,6 +1,6 @@
 ---
 title: "Patterns of Distributed Systems"
-sidebar_label: "Distributed Systems"
+sidebar_label: "Patterns of Distributed Systems"
 ---
 
 # Patterns of Distributed Systems

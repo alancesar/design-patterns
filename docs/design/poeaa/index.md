@@ -1,6 +1,6 @@
 ---
 title: "Patterns of Enterprise Application Architecture"
-sidebar_label: "PoEAA"
+sidebar_label: "Patterns of Enterprise Application Architecture"
 ---
 
 # Patterns of Enterprise Application Architecture

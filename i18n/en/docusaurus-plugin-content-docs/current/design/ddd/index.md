@@ -1,6 +1,6 @@
 ---
 title: "Domain-Driven Design"
-sidebar_label: "DDD"
+sidebar_label: "Domain-Driven Design"
 ---
 
 # Domain-Driven Design
