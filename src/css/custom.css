@@ -284,3 +284,9 @@ button[class*='collapseSidebarButton'] {
   background-size: 1.6rem 1.6rem;
   opacity: 0.6;
 }
+
+/* Tag pages wrap each pattern title (an h2) in a link. --ifm-heading-color would keep the
+   title in the body text color, so only the hover underline showed the link color. */
+article > a > h2 {
+  color: inherit;
+}
