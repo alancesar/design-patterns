@@ -655,6 +655,158 @@ const sidebars: SidebarsConfig = {
         },
         {
           "type": "category",
+          "label": "Patterns for API Design",
+          "key": "api-patterns",
+          "link": {
+            "type": "doc",
+            "id": "architecture/api-patterns/index"
+          },
+          "collapsed": true,
+          "items": [
+            {
+              "type": "category",
+              "label": "Foundations",
+              "key": "api-patterns-foundations",
+              "collapsed": true,
+              "items": [
+                "architecture/api-patterns/foundations/frontend-integration",
+                "architecture/api-patterns/foundations/backend-integration",
+                "architecture/api-patterns/foundations/public-api",
+                "architecture/api-patterns/foundations/community-api",
+                "architecture/api-patterns/foundations/solution-internal-api"
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Basic Structure",
+              "key": "api-patterns-basic-structure",
+              "collapsed": true,
+              "items": [
+                "architecture/api-patterns/basic-structure/atomic-parameter",
+                "architecture/api-patterns/basic-structure/atomic-parameter-list",
+                "architecture/api-patterns/basic-structure/parameter-tree",
+                "architecture/api-patterns/basic-structure/parameter-forest"
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Endpoint Roles",
+              "key": "api-patterns-endpoint-roles",
+              "collapsed": true,
+              "items": [
+                "architecture/api-patterns/endpoint-roles/processing-resource",
+                "architecture/api-patterns/endpoint-roles/information-holder-resource",
+                "architecture/api-patterns/endpoint-roles/operational-data-holder",
+                "architecture/api-patterns/endpoint-roles/master-data-holder",
+                "architecture/api-patterns/endpoint-roles/reference-data-holder",
+                "architecture/api-patterns/endpoint-roles/link-lookup-resource",
+                "architecture/api-patterns/endpoint-roles/data-transfer-resource"
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Operation Responsibilities",
+              "key": "api-patterns-operation-responsibilities",
+              "collapsed": true,
+              "items": [
+                "architecture/api-patterns/operation-responsibilities/state-creation-operation",
+                "architecture/api-patterns/operation-responsibilities/retrieval-operation",
+                "architecture/api-patterns/operation-responsibilities/state-transition-operation",
+                "architecture/api-patterns/operation-responsibilities/computation-function"
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Element Stereotypes",
+              "key": "api-patterns-element-stereotypes",
+              "collapsed": true,
+              "items": [
+                "architecture/api-patterns/element-stereotypes/data-element",
+                "architecture/api-patterns/element-stereotypes/metadata-element",
+                "architecture/api-patterns/element-stereotypes/id-element",
+                "architecture/api-patterns/element-stereotypes/link-element"
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Special-Purpose Representations",
+              "key": "api-patterns-special-purpose-representations",
+              "collapsed": true,
+              "items": [
+                "architecture/api-patterns/special-purpose-representations/api-key",
+                "architecture/api-patterns/special-purpose-representations/error-report",
+                "architecture/api-patterns/special-purpose-representations/context-representation"
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Message Granularity",
+              "key": "api-patterns-message-granularity",
+              "collapsed": true,
+              "items": [
+                "architecture/api-patterns/message-granularity/embedded-entity",
+                "architecture/api-patterns/message-granularity/linked-information-holder"
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Response Shaping",
+              "key": "api-patterns-response-shaping",
+              "collapsed": true,
+              "items": [
+                "architecture/api-patterns/response-shaping/pagination",
+                "architecture/api-patterns/response-shaping/wish-list",
+                "architecture/api-patterns/response-shaping/wish-template"
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Message Exchange Optimization",
+              "key": "api-patterns-message-exchange-optimization",
+              "collapsed": true,
+              "items": [
+                "architecture/api-patterns/message-exchange-optimization/conditional-request",
+                "architecture/api-patterns/message-exchange-optimization/request-bundle"
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Versioning",
+              "key": "api-patterns-versioning",
+              "collapsed": true,
+              "items": [
+                "architecture/api-patterns/versioning/version-identifier",
+                "architecture/api-patterns/versioning/semantic-versioning"
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Life-Cycle Management",
+              "key": "api-patterns-life-cycle-management",
+              "collapsed": true,
+              "items": [
+                "architecture/api-patterns/life-cycle-management/experimental-preview",
+                "architecture/api-patterns/life-cycle-management/aggressive-obsolescence",
+                "architecture/api-patterns/life-cycle-management/limited-lifetime-guarantee",
+                "architecture/api-patterns/life-cycle-management/two-in-production"
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Documentation",
+              "key": "api-patterns-documentation",
+              "collapsed": true,
+              "items": [
+                "architecture/api-patterns/documentation/api-description",
+                "architecture/api-patterns/documentation/pricing-plan",
+                "architecture/api-patterns/documentation/rate-limit",
+                "architecture/api-patterns/documentation/service-level-agreement"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "category",
           "label": "Microservices",
           "key": "microservices",
           "link": {

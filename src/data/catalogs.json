@@ -70,6 +70,15 @@
     {
       "domain": "architecture",
       "domainLabel": "Architecture",
+      "title": "Patterns for API Design",
+      "href": "/architecture/api-patterns",
+      "source": "https://api-patterns.org/",
+      "patterns": 44,
+      "groups": 12
+    },
+    {
+      "domain": "architecture",
+      "domainLabel": "Architecture",
       "title": "Microservices Patterns",
       "href": "/architecture/microservices",
       "source": "https://microservices.io/patterns/",
