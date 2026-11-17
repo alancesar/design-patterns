@@ -86,6 +86,15 @@
       "groups": 8
     },
     {
+      "domain": "architecture",
+      "domainLabel": "Architecture",
+      "title": "Kubernetes Patterns",
+      "href": "/architecture/kubernetes-patterns",
+      "source": "https://k8spatterns.com/",
+      "patterns": 29,
+      "groups": 6
+    },
+    {
       "domain": "ai",
       "domainLabel": "AI",
       "title": "AI Agent Design Patterns",
