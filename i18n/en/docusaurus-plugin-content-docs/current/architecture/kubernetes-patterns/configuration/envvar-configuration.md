@@ -114,5 +114,5 @@ spec:
 
 ## Reference
 
-- [Kubernetes Patterns, chapter 18: EnvVar Configuration](https://k8spatterns.com/)
+- [Kubernetes Patterns, chapter 19: EnvVar Configuration](https://k8spatterns.com/)
 - [Define Environment Variables for a Container](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/)

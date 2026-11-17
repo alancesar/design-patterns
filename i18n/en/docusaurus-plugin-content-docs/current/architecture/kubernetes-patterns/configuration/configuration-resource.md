@@ -134,6 +134,6 @@ The ConfigMap carries a simple value and a properties file; the Deployment consu
 
 ## Reference
 
-- [Kubernetes Patterns, chapter 19: Configuration Resource](https://k8spatterns.com/)
+- [Kubernetes Patterns, chapter 20: Configuration Resource](https://k8spatterns.com/)
 - [ConfigMaps](https://kubernetes.io/docs/concepts/configuration/configmap/)
 - [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/)

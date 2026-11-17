@@ -18,6 +18,7 @@ The Elastic Scale pattern makes an application's capacity follow the load automa
 
 The most direct form is the **HorizontalPodAutoscaler (HPA)**, which reads metrics (CPU and memory, custom Pod or object metrics and external metrics, such as the depth of a queue) and computes the needed replicas, proportional to the ratio between the current value and the target. The **Vertical Pod Autoscaler (VPA)** recommends or applies requests and limits adjusted to actual consumption, and the **Cluster Autoscaler** adds or removes nodes when there are Pods that do not fit or idle nodes. Manual scaling, imperative or declarative, remains valid for predictable loads.
 
+The HPA does not scale down to zero Pods, and waking up a stopped application requires a trigger. Two add-ons fill that gap and can be used together. **Knative** (Serving) scales stateless HTTP applications with the Knative Pod Autoscaler, based on concurrent requests per Pod, and uses an Activator that holds requests while the application comes up from zero. **KEDA** is event-driven and pull-based: a `ScaledObject` connects the target to an external trigger (a queue or topic, for example), the operator handles activation from 0 to 1 and the HPA, fed by KEDA's metrics service, handles 1 to n. KEDA's `ScaledJob`, in turn, starts Jobs instead of replicas.
 The levels are complementary and independent: tuning the application itself, setting correct requests (VPA), varying the number of Pods (HPA) and varying the number of nodes (Cluster Autoscaler). Autoscalers depend on [Predictable Demands](/architecture/kubernetes-patterns/foundational/predictable-demands) being declared, since the percentages are computed over the requests.
 
 ## Problems it solves
@@ -26,6 +27,7 @@ The levels are complementary and independent: tuning the application itself, set
 - Difficulty in accurately sizing how many replicas and how many resources each container needs
 - Slow, error-prone manual intervention during traffic peaks
 - Infrastructure cost paid during low-demand hours
+- Idle applications that keep consuming resources, since the HPA alone does not scale to zero
 
 ## When to use
 
@@ -33,6 +35,7 @@ The levels are complementary and independent: tuning the application itself, set
 - In stateless services, which scale well horizontally
 - When there is a metric correlated with the number of Pods, such as CPU, requests per second or queue size
 - When the cluster runs on a cloud able to provision and remove nodes on demand
+- With queue or topic consumers, or sporadic loads that should scale to zero, using KEDA; with bursty HTTP services, using Knative
 
 ## When to avoid
 
@@ -41,6 +44,7 @@ The levels are complementary and independent: tuning the application itself, set
 - When the load is stable and predictable: a fixed number of replicas is simpler
 - When requests were not defined, since the usage percentages have no reference
 - Without care, when HPA and VPA act on the same CPU and memory metrics, which can cause double scaling
+- When the cold start latency after scaling to zero is unacceptable, such as on a critical payment path
 
 ## Trade-offs
 
@@ -50,6 +54,7 @@ The levels are complementary and independent: tuning the application itself, set
 | Lower cost, since you pay only for what is needed | Poorly chosen metrics cause excessive scaling or oscillation (thrashing) |
 | Higher availability during traffic peaks | VPA restarts Pods to apply new requests, which can cause interruptions |
 | Scaling at several levels, from Pods to nodes | Configuration and fine tuning are laborious and depend on experimentation |
+| Scales to zero with Knative or KEDA, no cost when idle | Extra add-ons to install and operate, and a cold start when coming up from zero |
 
 - **Metric choice:** prefer a metric correlated, preferably linearly, with the number of Pods, such as CPU or requests per second.
 - **Stabilization:** use stabilization windows and scaling policies to avoid oscillation, especially when scaling down.
@@ -57,6 +62,8 @@ The levels are complementary and independent: tuning the application itself, set
 - **Apply the HPA to the Deployment:** applying it to a managed ReplicaSet loses the configuration on every update.
 - **Readiness:** new replicas should receive traffic only when ready; combine with [Health Probe](/architecture/kubernetes-patterns/foundational/health-probe) and graceful shutdown.
 - **VPA in recommendation mode:** starting with the mode that only suggests values helps tune requests without disruption.
+- **Choosing between HPA, Knative and KEDA:** the HPA uses resource metrics and does not scale to zero; Knative serves HTTP traffic (push) and KEDA serves external metrics such as queue backlog (pull). They are not mutually exclusive.
+- **Scaling to zero:** set a minimum of replicas greater than zero (for example, `min-scale` in Knative) for latency-sensitive paths.
 
 ## Diagram
 
@@ -113,11 +120,12 @@ spec:
 - [Declarative Deployment](/architecture/kubernetes-patterns/foundational/declarative-deployment) — the HPA should be applied to the Deployment, which preserves scaling across updates
 - [Health Probe](/architecture/kubernetes-patterns/foundational/health-probe) — ensures newly created replicas receive traffic only when ready
 - [Automated Placement](/architecture/kubernetes-patterns/foundational/automated-placement) — defines on which nodes new Pods are scheduled, and triggers the Cluster Autoscaler when there is no room
-- [Queue-Based Load Leveling](/architecture/cloud-design-patterns/messaging/queue-based-load-leveling) — queue depth is a useful external metric for scaling consumers
+- [Queue-Based Load Leveling](/architecture/cloud-design-patterns/messaging/queue-based-load-leveling) — queue depth is a useful external metric for scaling consumers, for example with KEDA
+- [Batch Job](/architecture/kubernetes-patterns/behavioral/batch-job) — a Job also scales through parallelism, and KEDA's `ScaledJob` starts Jobs according to external work
 - [Competing Consumers](/architecture/cloud-design-patterns/messaging/competing-consumers) — scaling consumer replicas increases parallelism over the same queue
 
 ## Reference
 
-- [Kubernetes Patterns, chapter 24: Elastic Scale](https://k8spatterns.com/)
+- [Kubernetes Patterns, chapter 29: Elastic Scale](https://k8spatterns.com/)
 - [Horizontal Pod Autoscaling (Kubernetes documentation)](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)
 - [Node Autoscaling (Kubernetes documentation)](https://kubernetes.io/docs/concepts/cluster-administration/node-autoscaling/)

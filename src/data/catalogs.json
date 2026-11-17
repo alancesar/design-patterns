@@ -91,8 +91,8 @@
       "title": "Kubernetes Patterns",
       "href": "/architecture/kubernetes-patterns",
       "source": "https://k8spatterns.com/",
-      "patterns": 24,
-      "groups": 5
+      "patterns": 29,
+      "groups": 6
     },
     {
       "domain": "ai",

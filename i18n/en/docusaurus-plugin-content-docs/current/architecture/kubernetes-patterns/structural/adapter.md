@@ -125,5 +125,5 @@ Both containers share the `logs` volume; the adapter mounts the volume read-only
 
 ## Reference
 
-- [Kubernetes Patterns, chapter 16: Adapter](https://k8spatterns.com/)
+- [Kubernetes Patterns, chapter 17: Adapter](https://k8spatterns.com/)
 - [Pods (Kubernetes documentation)](https://kubernetes.io/docs/concepts/workloads/pods/)

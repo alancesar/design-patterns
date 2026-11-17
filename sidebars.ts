@@ -1051,6 +1051,7 @@ const sidebars: SidebarsConfig = {
                 "architecture/kubernetes-patterns/behavioral/periodic-job",
                 "architecture/kubernetes-patterns/behavioral/daemon-service",
                 "architecture/kubernetes-patterns/behavioral/singleton-service",
+                "architecture/kubernetes-patterns/behavioral/stateless-service",
                 "architecture/kubernetes-patterns/behavioral/stateful-service",
                 "architecture/kubernetes-patterns/behavioral/service-discovery",
                 "architecture/kubernetes-patterns/behavioral/self-awareness"
@@ -1090,6 +1091,18 @@ const sidebars: SidebarsConfig = {
                 "architecture/kubernetes-patterns/configuration/configuration-resource",
                 "architecture/kubernetes-patterns/configuration/immutable-configuration",
                 "architecture/kubernetes-patterns/configuration/configuration-template"
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Security",
+              "key": "kubernetes-patterns-security",
+              "collapsed": true,
+              "items": [
+                "architecture/kubernetes-patterns/security/process-containment",
+                "architecture/kubernetes-patterns/security/network-segmentation",
+                "architecture/kubernetes-patterns/security/secure-configuration",
+                "architecture/kubernetes-patterns/security/access-control"
               ]
             },
             {

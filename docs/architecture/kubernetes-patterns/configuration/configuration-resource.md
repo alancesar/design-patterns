@@ -134,6 +134,6 @@ O ConfigMap carrega um valor simples e um arquivo de propriedades; o Deployment 
 
 ## Referência
 
-- [Kubernetes Patterns, capítulo 19: Configuration Resource](https://k8spatterns.com/)
+- [Kubernetes Patterns, capítulo 20: Configuration Resource](https://k8spatterns.com/)
 - [ConfigMaps](https://kubernetes.io/docs/concepts/configuration/configmap/)
 - [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/)

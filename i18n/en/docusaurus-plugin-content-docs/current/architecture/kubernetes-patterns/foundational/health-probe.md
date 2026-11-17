@@ -15,9 +15,11 @@ sidebar_label: "Health Probe"
 
 The Health Probe pattern makes the application expose signals about its own state to Kubernetes, through probes that the kubelet runs periodically, so that the platform decides whether to restart the container or stop sending it traffic. Checking only that the process is up is not enough: an application can be stuck in a deadlock, out of memory or still warming up, and keep its process alive.
 
-There are three kinds of probe. The **livenessProbe** asks whether the container is still healthy, and the corrective action on failure is to restart it. The **readinessProbe** asks whether it is ready to serve requests, and failure only removes it from the `Service` endpoints, without restarting, giving it time to recover by itself. The **startupProbe** protects slow-starting applications, postponing the other two until the first check passes. Each probe can use an HTTP request (`httpGet`), a TCP connection, a command (`exec`) or, in recent versions, gRPC, with parameters for interval, timeout and tolerated number of failures.
+Before probes, the kubelet already runs the simplest check, the process check: if the container process dies, it restarts the container. That is enough only if the application detects every failure and shuts itself down. For the other cases there are three kinds of probe. The **livenessProbe** asks whether the container is still healthy, and the corrective action on failure is to restart it. The **readinessProbe** asks whether it is ready to serve requests, and failure only removes it from the `Service` endpoints, without restarting, giving it time to recover by itself. The **startupProbe** protects slow-starting applications: liveness and readiness only begin after it succeeds, and the container is restarted if it does not pass within the configured failure limit. Each probe can use an HTTP request (`httpGet`), a TCP connection, a command (`exec`) or, in recent versions, gRPC, with parameters for interval, timeout and tolerated number of failures.
 
-The probe results feed other automation: the rolling update only advances when the new Pod becomes ready, and load balancing only sends requests to ready Pods. Probes are complemented by logs on standard output and by metrics, used for investigation and alerts rather than automatic actions.
+Applications with very slow startup, such as Jakarta EE application servers, could stretch liveness with longer intervals and delays, but those values would also apply after startup and slow down the detection of real failures; so the `startupProbe` has its own parameters, with much larger `periodSeconds` and `failureThreshold`, and often checks for a marker file created at the end of initialization. When Pod readiness depends on something outside the application, such as a cloud load balancer, the Pod's `readinessGates` field adds extra conditions that a controller sets to true; it is an advanced feature, used more by platform add-ons than by applications.
+
+The probe results feed other automation: the rolling update only advances when the new Pod becomes ready, and load balancing only sends requests to ready Pods. Probes are complemented by logs on standard output, the container termination message (`/dev/termination-log`) and by metrics and traces, used for investigation and alerts rather than automatic actions.
 
 ## Problems it solves
 
@@ -31,7 +33,8 @@ The probe results feed other automation: the rolling update only advances when t
 
 - In every service that receives traffic, at least with a `readinessProbe` to control routing
 - When the application can hang without terminating the process, which justifies a `livenessProbe`
-- When startup is slow or variable, in which case the `startupProbe` avoids premature restarts
+- When startup is slow or variable, in which case the `startupProbe` avoids premature restarts without loosening the `livenessProbe` for the rest of the Pod's life
+- When the Pod is only ready after an external condition, such as a cloud load balancer, using `readinessGates`
 - As a prerequisite for zero-downtime rolling updates and reliable autoscaling
 
 ## When to avoid
@@ -52,7 +55,7 @@ The probe results feed other automation: the rolling update only advances when t
 
 - **Lean liveness:** check only whether the process itself can respond, without querying dependencies; leave dependency evaluation to readiness, with care.
 - **Readiness and dependencies:** including dependencies in readiness protects the user, but a shared dependency that is down takes all replicas out of service at the same time.
-- **Parameters:** tune `periodSeconds`, `timeoutSeconds` and `failureThreshold` to real behavior; for slow startup, use `startupProbe`.
+- **Parameters:** tune `periodSeconds`, `timeoutSeconds` and `failureThreshold` to real behavior; for slow startup, use `startupProbe` instead of stretching liveness, whose long intervals would delay failure detection after startup; size `periodSeconds` x `failureThreshold` to cover the worst-case startup.
 - **Shutdown:** the Pod stops receiving traffic when terminated regardless of readiness; combine with SIGTERM handling.
 
 ## Diagram

@@ -122,5 +122,5 @@ Os dois init containers rodam na ordem declarada e a migração é idempotente, 
 
 ## Referência
 
-- [Kubernetes Patterns, capítulo 14: Init Container](https://k8spatterns.com/)
+- [Kubernetes Patterns, capítulo 15: Init Container](https://k8spatterns.com/)
 - [Init Containers (documentação do Kubernetes)](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/)

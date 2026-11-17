@@ -125,5 +125,5 @@ Os dois contêineres compartilham o volume `logs`; o adapter monta o volume some
 
 ## Referência
 
-- [Kubernetes Patterns, capítulo 16: Adapter](https://k8spatterns.com/)
+- [Kubernetes Patterns, capítulo 17: Adapter](https://k8spatterns.com/)
 - [Pods (documentação do Kubernetes)](https://kubernetes.io/docs/concepts/workloads/pods/)

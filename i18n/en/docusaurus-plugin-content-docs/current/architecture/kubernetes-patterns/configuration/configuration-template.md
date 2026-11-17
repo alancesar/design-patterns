@@ -135,6 +135,6 @@ The `boleto-config-templates` image contains the templates and the processor, re
 
 ## Reference
 
-- [Kubernetes Patterns, chapter 21: Configuration Template](https://k8spatterns.com/)
+- [Kubernetes Patterns, chapter 22: Configuration Template](https://k8spatterns.com/)
 - [Init Containers](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/)
 - [ConfigMaps](https://kubernetes.io/docs/concepts/configuration/configmap/)

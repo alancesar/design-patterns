@@ -137,6 +137,6 @@ O `clusterIP: None` cria o Service headless, e `volumeClaimTemplates` gera os vo
 
 ## Referência
 
-- [Kubernetes Patterns, capítulo 11: Stateful Service](https://k8spatterns.com/)
+- [Kubernetes Patterns, capítulo 12: Stateful Service](https://k8spatterns.com/)
 - [StatefulSets na documentação do Kubernetes](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/)
 - [Volumes persistentes na documentação do Kubernetes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)

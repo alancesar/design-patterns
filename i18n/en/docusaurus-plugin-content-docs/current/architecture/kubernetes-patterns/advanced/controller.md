@@ -128,6 +128,6 @@ spec:
 
 ## Reference
 
-- [Kubernetes Patterns, chapter 22: Controller](https://k8spatterns.com/)
+- [Kubernetes Patterns, chapter 27: Controller](https://k8spatterns.com/)
 - [Controllers (Kubernetes documentation)](https://kubernetes.io/docs/concepts/architecture/controller/)
 - [Operator pattern (Kubernetes documentation)](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/)

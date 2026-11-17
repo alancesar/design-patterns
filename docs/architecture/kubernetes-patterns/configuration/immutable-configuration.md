@@ -116,6 +116,6 @@ A imagem `ledger-config` guarda os arquivos do ambiente de produção e copia o 
 
 ## Referência
 
-- [Kubernetes Patterns, capítulo 20: Immutable Configuration](https://k8spatterns.com/)
+- [Kubernetes Patterns, capítulo 21: Immutable Configuration](https://k8spatterns.com/)
 - [Init Containers](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/)
 - [Volumes](https://kubernetes.io/docs/concepts/storage/volumes/)

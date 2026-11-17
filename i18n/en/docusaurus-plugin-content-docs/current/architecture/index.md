@@ -13,4 +13,4 @@ System and cloud architecture (architectural styles, distribution, integration, 
 - [Enterprise Integration Patterns](/architecture/eip): 65 patterns in 7 groups. Source: <https://www.enterpriseintegrationpatterns.com/patterns/messaging/>
 - [Microservices Patterns](/architecture/microservices): 53 patterns in 15 groups. Source: <https://microservices.io/patterns/>
 - [Cloud Design Patterns](/architecture/cloud-design-patterns): 44 patterns in 8 groups. Source: <https://learn.microsoft.com/en-us/azure/architecture/patterns/>
-- [Kubernetes Patterns](/architecture/kubernetes-patterns): 24 patterns in 5 groups. Source: <https://k8spatterns.com/>
+- [Kubernetes Patterns](/architecture/kubernetes-patterns): 29 patterns in 6 groups. Source: <https://k8spatterns.com/>

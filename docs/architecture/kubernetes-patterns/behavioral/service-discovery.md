@@ -129,6 +129,6 @@ Outros serviços chamam `http://pix-service` no mesmo namespace ou `pix-service.
 
 ## Referência
 
-- [Kubernetes Patterns, capítulo 12: Service Discovery](https://k8spatterns.com/)
+- [Kubernetes Patterns, capítulo 13: Service Discovery](https://k8spatterns.com/)
 - [Service na documentação do Kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/)
 - [DNS para Services e Pods na documentação do Kubernetes](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/)

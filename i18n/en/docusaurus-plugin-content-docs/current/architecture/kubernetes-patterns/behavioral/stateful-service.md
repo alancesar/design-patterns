@@ -137,6 +137,6 @@ spec:
 
 ## Reference
 
-- [Kubernetes Patterns, chapter 11: Stateful Service](https://k8spatterns.com/)
+- [Kubernetes Patterns, chapter 12: Stateful Service](https://k8spatterns.com/)
 - [StatefulSets in the Kubernetes documentation](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/)
 - [Persistent volumes in the Kubernetes documentation](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)

@@ -17,7 +17,7 @@ O padrão Operator é um Controller que usa uma CustomResourceDefinition (CRD) p
 
 Um Operator entende dois domínios: o Kubernetes e a aplicação que gerencia. Em vez de um humano executar o runbook de instalar, atualizar, fazer backup ou restaurar um banco de dados, o time declara um recurso como `LedgerDatabase` e o Operator faz o trabalho, relatando o resultado no campo `status`. Como o recurso customizado é servido pela API, ele funciona com `kubectl`, RBAC por tipo, namespaces, versionamento e validação por esquema OpenAPI.
 
-Os CRDs costumam ser de dois tipos: de **instalação** (instalam e operam uma aplicação, como um banco de dados ou um Prometheus) e de **aplicação** (representam um conceito do domínio, como um monitor de serviço). Para casos que a CRD não alcança, existe ainda a agregação de API, com um servidor de API próprio, que dá mais liberdade ao custo de muito mais código. Há frameworks para escrever Operators, como Operator SDK, Kubebuilder e Metacontroller, que mudam com o tempo.
+Os CRDs costumam ser de dois tipos: de **instalação** (instalam e operam uma aplicação, como um banco de dados ou um Prometheus) e de **aplicação** (representam um conceito do domínio, como um monitor de serviço). Para casos que a CRD não alcança, existe ainda a agregação de API, com um servidor de API próprio, que dá mais liberdade ao custo de muito mais código. Três projetos principais ajudam a escrever Operators. O **Kubebuilder**, do SIG API Machinery, é um framework em Go que gera o esqueleto do projeto e tem arquitetura de plugins para outras linguagens. O **Operator Framework**, da CNCF, reúne o Operator SDK (construído sobre o Kubebuilder, com plugins para Ansible, Helm e Java), o Operator Lifecycle Manager (que instala operadores e suas CRDs em nome de usuários sem privilégio, por meio de um recurso `ClusterServiceVersion`) e o OperatorHub, um catálogo público. O **Metacontroller** delega a lógica a um webhook em qualquer linguagem que entenda HTTP e JSON, e ele cuida da reconciliação.
 
 ## Problemas que resolve
 
@@ -50,6 +50,7 @@ Os CRDs costumam ser de dois tipos: de **instalação** (instalam e operam uma a
 | Comportamento reconciliado continuamente, com status visível | Evolução de esquema e versões da CRD exige estratégia de migração |
 
 - **Esquema e status:** declare um esquema OpenAPI e a subresource `status` para que erros de configuração sejam detectados cedo e o resultado seja visível.
+- **Escala:** a subresource `scale` permite que o recurso customizado seja usado com o HorizontalPodAutoscaler, desde que informe o seletor de rótulos.
 - **Ciclo de vida do próprio Operator:** instalar e atualizar o Operator e suas CRDs também precisa de processo, por exemplo com um gerenciador dedicado.
 - **Exagero:** o Kubernetes não é a solução para tudo; modele como CRD apenas o que de fato é declarativo.
 - **Idempotência e falhas:** o laço pode ser reexecutado a qualquer momento e deve tolerar estados parciais.
@@ -138,6 +139,6 @@ spec:
 
 ## Referência
 
-- [Kubernetes Patterns, capítulo 23: Operator](https://k8spatterns.com/)
+- [Kubernetes Patterns, capítulo 28: Operator](https://k8spatterns.com/)
 - [Operator pattern (documentação do Kubernetes)](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/)
 - [Custom Resources (documentação do Kubernetes)](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/)

@@ -137,6 +137,6 @@ As variáveis valem desde o início do contêiner, e os arquivos em `/etc/podinf
 
 ## Referência
 
-- [Kubernetes Patterns, capítulo 13: Self Awareness](https://k8spatterns.com/)
+- [Kubernetes Patterns, capítulo 14: Self Awareness](https://k8spatterns.com/)
 - [Expor informações do Pod por variáveis de ambiente](https://kubernetes.io/docs/tasks/inject-data-application/environment-variable-expose-pod-information/)
 - [Expor informações do Pod por arquivos](https://kubernetes.io/docs/tasks/inject-data-application/downward-api-volume-expose-pod-information/)

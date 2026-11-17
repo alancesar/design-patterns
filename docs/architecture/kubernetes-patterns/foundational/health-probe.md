@@ -15,9 +15,11 @@ sidebar_label: "Health Probe"
 
 O padrão Health Probe faz a aplicação expor ao Kubernetes sinais sobre o seu próprio estado, por meio de sondas que o kubelet executa periodicamente, para que a plataforma decida se deve reiniciar o contêiner ou parar de enviar tráfego a ele. Verificar apenas se o processo está de pé não basta: uma aplicação pode estar travada em um deadlock, sem memória ou ainda aquecendo, e continuar com o processo ativo.
 
-Há três tipos de sonda. A **livenessProbe** pergunta se o contêiner ainda está saudável, e a ação corretiva em caso de falha é reiniciá-lo. A **readinessProbe** pergunta se ele está pronto para atender requisições, e a falha apenas o remove dos endpoints do `Service`, sem reiniciar, dando tempo para que se recupere sozinho. A **startupProbe** protege aplicações de inicialização lenta, adiando as outras duas até que a primeira verificação passe. Cada sonda pode usar uma requisição HTTP (`httpGet`), uma conexão TCP, um comando (`exec`) ou, nas versões recentes, gRPC, com parâmetros de intervalo, tempo limite e número de falhas tolerado.
+Antes das sondas, o kubelet já faz a verificação mais simples, a de processo: se o processo do contêiner morre, ele o reinicia. Isso basta apenas se a aplicação detecta qualquer falha e se encerra sozinha. Para os demais casos há três tipos de sonda. A **livenessProbe** pergunta se o contêiner ainda está saudável, e a ação corretiva em caso de falha é reiniciá-lo. A **readinessProbe** pergunta se ele está pronto para atender requisições, e a falha apenas o remove dos endpoints do `Service`, sem reiniciar, dando tempo para que se recupere sozinho. A **startupProbe** protege aplicações de inicialização lenta: a liveness e a readiness só começam depois que ela é bem-sucedida, e o contêiner é reiniciado se ela não passar dentro do limite de falhas configurado. Cada sonda pode usar uma requisição HTTP (`httpGet`), uma conexão TCP, um comando (`exec`) ou, nas versões recentes, gRPC, com parâmetros de intervalo, tempo limite e número de falhas tolerado.
 
-O resultado das sondas alimenta outras automações: o rolling update só avança quando o novo Pod fica pronto, e o balanceamento de carga só envia requisições a Pods prontos. Complementam as sondas os logs em saída padrão e as métricas, usados para investigação e alertas em vez de ações automáticas.
+Aplicações de inicialização muito lenta, como servidores de aplicação Jakarta EE, podem esticar a liveness com intervalos e atrasos maiores, mas esses valores também valeriam depois da partida e retardariam a detecção de falhas reais; por isso a `startupProbe` tem parâmetros próprios, com `periodSeconds` e `failureThreshold` bem maiores, e muitas vezes verifica a existência de um arquivo-marcador criado ao fim da inicialização. Quando a prontidão do Pod depende de algo externo à aplicação, como um balanceador de carga em nuvem, o campo `readinessGates` do Pod acrescenta condições extras que um controlador marca como verdadeiras; é um recurso avançado, usado mais por extensões da plataforma do que por aplicações.
+
+O resultado das sondas alimenta outras automações: o rolling update só avança quando o novo Pod fica pronto, e o balanceamento de carga só envia requisições a Pods prontos. Complementam as sondas os logs em saída padrão, a mensagem de término do contêiner (`/dev/termination-log`) e as métricas e rastreamentos, usados para investigação e alertas em vez de ações automáticas.
 
 ## Problemas que resolve
 
@@ -31,7 +33,8 @@ O resultado das sondas alimenta outras automações: o rolling update só avanç
 
 - Em todo serviço que recebe tráfego, ao menos com uma `readinessProbe` para controlar o roteamento
 - Quando a aplicação pode travar sem encerrar o processo, justificando uma `livenessProbe`
-- Quando a inicialização é lenta ou variável, caso em que a `startupProbe` evita reinícios prematuros
+- Quando a inicialização é lenta ou variável, caso em que a `startupProbe` evita reinícios prematuros sem afrouxar a `livenessProbe` para o resto da vida do Pod
+- Quando o Pod só está pronto depois de uma condição externa, como um balanceador de carga em nuvem, usando `readinessGates`
 - Como pré-requisito de rolling updates sem downtime e de autoscaling confiável
 
 ## Quando evitar
@@ -52,7 +55,7 @@ O resultado das sondas alimenta outras automações: o rolling update só avanç
 
 - **Liveness enxuta:** verifique apenas se o próprio processo consegue responder, sem consultar dependências; deixe a avaliação de dependências para a readiness, com cuidado.
 - **Readiness e dependências:** incluir dependências na readiness protege o usuário, mas uma dependência compartilhada fora do ar tira todas as réplicas do ar ao mesmo tempo.
-- **Parâmetros:** ajuste `periodSeconds`, `timeoutSeconds` e `failureThreshold` ao comportamento real; na inicialização lenta, use `startupProbe`.
+- **Parâmetros:** ajuste `periodSeconds`, `timeoutSeconds` e `failureThreshold` ao comportamento real; na inicialização lenta, use `startupProbe` em vez de esticar a liveness, cujos intervalos longos atrasariam a detecção de falhas depois da partida; dimensione `periodSeconds` x `failureThreshold` para cobrir o pior caso de inicialização.
 - **Encerramento:** o Pod deixa de receber tráfego ao ser encerrado independentemente da readiness; combine com tratamento de SIGTERM.
 
 ## Diagrama

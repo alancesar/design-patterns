@@ -137,6 +137,6 @@ The variables hold from the container start, and the files in `/etc/podinfo` are
 
 ## Reference
 
-- [Kubernetes Patterns, chapter 13: Self Awareness](https://k8spatterns.com/)
+- [Kubernetes Patterns, chapter 14: Self Awareness](https://k8spatterns.com/)
 - [Expose Pod information through environment variables](https://kubernetes.io/docs/tasks/inject-data-application/environment-variable-expose-pod-information/)
 - [Expose Pod information through files](https://kubernetes.io/docs/tasks/inject-data-application/downward-api-volume-expose-pod-information/)
