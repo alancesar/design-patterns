@@ -5,6 +5,8 @@ category: Integration and Modernization
 tags:
   - Reliability
   - Security
+also_in:
+  - architecture/kubernetes-patterns/structural
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/ambassador
 sidebar_label: "Ambassador"
 ---
@@ -18,6 +20,8 @@ O padrão Ambassador cria serviços auxiliares que enviam requisições de rede 
 Com isso, tarefas transversais de conectividade do cliente, como monitoramento, logging, roteamento, criptografia (TLS/mTLS), autenticação e padrões de resiliência (retry, circuit breaker), saem do código da aplicação e passam para um componente independente de linguagem. O ambassador pode ser atualizado, configurado e operado separadamente, muitas vezes por equipes especializadas em rede, segurança ou plataforma.
 
 O ambassador pode ser implantado como um sidecar que acompanha o ciclo de vida da aplicação, como um daemon ou serviço do sistema compartilhado por vários processos do mesmo host, ou, em ambientes conteinerizados, como um contêiner separado ao lado do contêiner da aplicação.
+
+No Kubernetes, o ambassador é um contêiner no mesmo Pod que escuta em uma porta de localhost; a aplicação fala com ele como se fosse o serviço final, e ele esconde a complexidade de alcançar dependências fora do Pod, como descoberta de serviço no cliente, balanceamento entre shards de um cache ou proteção contra protocolos pouco confiáveis. Como a aplicação só conhece o endereço local, o ambassador pode ser trocado por reconfiguração do Pod, sem tocar no contêiner principal: por exemplo, um cache em memória no desenvolvimento e um cache distribuído em produção.
 
 ## Problemas que resolve
 
@@ -54,6 +58,7 @@ O ambassador pode ser implantado como um sidecar que acompanha o ciclo de vida d
 - **Modelo de implantação:** escolha entre uma instância por cliente (sidecar) ou uma instância compartilhada por host, pesando isolamento contra consumo de recursos.
 - **Idempotência:** só habilite retries automáticos para operações que possam ser repetidas com segurança.
 - **Observabilidade:** o ambassador é um ponto natural para medir latência, registrar chamadas e propagar informações de tracing.
+- **Escopo local:** a porta do ambassador fica acessível só dentro do Pod, o que simplifica a segurança, mas faz cada réplica carregar sua própria instância.
 - **Complexidade operacional:** o ciclo de vida do proxy (atualizações, configuração, saúde) precisa ser gerenciado junto com o da aplicação.
 
 ## Diagrama
@@ -77,6 +82,8 @@ A aplicação envia suas requisições ao ambassador colocalizado no mesmo host,
 ## Padrões relacionados
 
 - [Sidecar](/architecture/cloud-design-patterns/integration-and-modernization/sidecar) — o ambassador é uma especialização do sidecar voltada a conectividade de saída e é frequentemente implantado dessa forma.
+- [Adapter (Kubernetes Patterns)](/architecture/kubernetes-patterns/structural/adapter) — a outra especialização do sidecar: expõe a aplicação de forma uniforme, em vez de intermediar o acesso a serviços externos.
+- [Init Container](/architecture/kubernetes-patterns/structural/init-container) — pode preparar a configuração que o ambassador usará antes de o Pod começar a atender.
 - [Circuit Breaker](/architecture/cloud-design-patterns/resiliency/circuit-breaker) — uma das funcionalidades de resiliência mais comuns de implementar dentro do ambassador.
 - [Retry](/architecture/cloud-design-patterns/resiliency/retry) — o ambassador pode aplicar novas tentativas de forma transparente, desde que as operações sejam idempotentes.
 - [Gateway Offloading](/architecture/cloud-design-patterns/gateways-and-edge/gateway-offloading) — também descarrega preocupações transversais, mas de forma centralizada no lado do servidor, e não junto ao cliente.
@@ -85,3 +92,4 @@ A aplicação envia suas requisições ao ambassador colocalizado no mesmo host,
 ## Referência
 
 - [Documentação no Azure Architecture Center](https://learn.microsoft.com/en-us/azure/architecture/patterns/ambassador)
+- [Kubernetes Patterns, capítulo 17: Ambassador](https://k8spatterns.com/)

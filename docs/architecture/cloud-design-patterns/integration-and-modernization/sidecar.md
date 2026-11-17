@@ -5,6 +5,8 @@ category: Integration and Modernization
 tags:
   - Security
   - Operational Excellence
+also_in:
+  - architecture/kubernetes-patterns/structural
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/sidecar
 sidebar_label: "Sidecar"
 ---
@@ -18,6 +20,8 @@ O padrão Sidecar implanta componentes auxiliares de uma aplicação em um proce
 A aplicação principal cuida da funcionalidade de negócio, enquanto o sidecar assume tarefas periféricas e transversais, como logging, monitoramento, configuração, proxy de rede, criptografia em trânsito e abstração de serviços da plataforma. Cada instância da aplicação recebe sua própria instância de sidecar, que roda no mesmo host e se comunica com ela por um mecanismo local de comunicação entre processos (por exemplo, HTTP ou gRPC em localhost).
 
 Como o sidecar é independente da linguagem e do runtime da aplicação, uma mesma implementação pode atender serviços escritos em tecnologias diferentes, oferecendo uma interface consistente para capacidades da plataforma. A forma mais comum de implementação usa contêineres, mas o conceito vale para qualquer processo coimplantado.
+
+No Kubernetes, o sidecar é um contêiner adicional no mesmo Pod da aplicação. Como o Pod é a unidade de implantação, os dois contêineres vão para o mesmo nó, compartilham o ciclo de vida, podem trocar arquivos por volumes e conversar pela rede local ou por IPC do host. Costuma haver um contêiner principal e um auxiliar que amplia o comportamento do conjunto, mantendo cada imagem com um único propósito e reutilizável. Os contêineres da aplicação sobem em paralelo e sem ordem garantida; quando a ordem importa, combine o sidecar com um Init Container.
 
 ## Problemas que resolve
 
@@ -58,6 +62,7 @@ Como o sidecar é independente da linguagem e do runtime da aplicação, uma mes
 - **Comunicação:** prefira mecanismos de IPC agnósticos de linguagem e framework, salvo quando requisitos de desempenho exigirem algo mais específico.
 - **Alternativas:** avalie se a funcionalidade não seria melhor como serviço separado, daemon tradicional ou biblioteca específica da linguagem (integração mais profunda e menos overhead de rede).
 - **Empacotamento:** contêineres são o formato mais natural, mas a decisão deve considerar o modelo de implantação da plataforma.
+- **Especializações:** quando o sidecar existe só para normalizar a interface da aplicação para quem a observa, chame-o de Adapter; quando serve de proxy para serviços externos, chame-o de Ambassador. O nome mais preciso comunica melhor a intenção.
 - **Custo e complexidade operacional:** o número de sidecars cresce linearmente com as instâncias, impactando custo e gestão de versões.
 
 ## Diagrama
@@ -81,6 +86,8 @@ A aplicação principal e o sidecar rodam lado a lado no mesmo host, compartilha
 ## Padrões relacionados
 
 - [Ambassador](/architecture/cloud-design-patterns/integration-and-modernization/ambassador) — é uma especialização do Sidecar, atuando como proxy de saída para conectividade com serviços remotos.
+- [Adapter (Kubernetes Patterns)](/architecture/kubernetes-patterns/structural/adapter) — especialização do sidecar que expõe a aplicação em uma interface uniforme, como métricas em um formato padrão.
+- [Init Container](/architecture/kubernetes-patterns/structural/init-container) — prepara o Pod antes da partida e pode ser combinado com o sidecar quando a inicialização precisa ser garantida.
 - [Gateway Offloading](/architecture/cloud-design-patterns/gateways-and-edge/gateway-offloading) — também descarrega preocupações transversais, porém de forma centralizada em um gateway em vez de por instância.
 - [Messaging Bridge](/architecture/cloud-design-patterns/messaging/messaging-bridge) — um sidecar pode atuar como adaptador de protocolo ou ponte entre sistemas de mensageria.
 - [Anti-Corruption Layer](/architecture/cloud-design-patterns/integration-and-modernization/anti-corruption-layer) — um sidecar pode isolar a aplicação de interfaces legadas ou incompatíveis.
@@ -91,3 +98,4 @@ A aplicação principal e o sidecar rodam lado a lado no mesmo host, compartilha
 ## Referência
 
 - [Documentação no Azure Architecture Center](https://learn.microsoft.com/en-us/azure/architecture/patterns/sidecar)
+- [Kubernetes Patterns, capítulo 15: Sidecar](https://k8spatterns.com/)
