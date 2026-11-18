@@ -70,7 +70,6 @@ classDiagram
         <<interface>>
         +buildPartA()
         +buildPartB()
-        +getResult() Product
     }
     class ConcreteBuilder {
         -product: Product
@@ -87,11 +86,32 @@ classDiagram
     Client --> ConcreteBuilder
 ```
 
-O `Client` cria um `ConcreteBuilder` e o entrega ao `Director`, que chama os passos de construção na ordem correta; ao final, o cliente obtém o `Product` montado a partir do próprio builder via `getResult()`.
+O `Client` cria um `ConcreteBuilder` e o entrega ao `Director`, que chama os passos de construção na ordem correta; ao final, o cliente obtém o `Product` montado a partir do próprio builder via `getResult()`. Esse método fica só no `ConcreteBuilder`, e não na interface `Builder`, porque builders diferentes podem produzir produtos sem um tipo em comum. O `Director` só conhece a interface e, por isso, não devolve o produto.
 
 ## Exemplo
 
 Uma cobrança Pix tem valor e chave do recebedor obrigatórios, e vencimento, multa, juros, desconto e mensagem ao pagador opcionais. Um builder fluente deixa a criação legível, valida as combinações (multa, juros e desconto só fazem sentido com vencimento) e entrega um `PixCharge` imutável, com o `txid` já gerado. Taxas e valores são ilustrativos.
+
+O exemplo usa a variante fluente do Builder, popularizada por *Effective Java*: não há `Director` nem hierarquia de builders. O próprio cliente faz o papel do `Director`, encadeando os passos que quer, e `build()` substitui o `getResult()`, validando o conjunto antes de criar o produto imutável.
+
+```mermaid
+classDiagram
+    class PixChargeBuilder {
+        -amountCents
+        -receiverKey
+        +dueDate(d) PixChargeBuilder
+        +fineRate(r) PixChargeBuilder
+        +payerMessage(m) PixChargeBuilder
+        +build() PixCharge
+    }
+    class PixCharge {
+        <<immutable>>
+        +txid
+    }
+    class Client
+    Client --> PixChargeBuilder : encadeia os passos
+    PixChargeBuilder ..> PixCharge : cria
+```
 
 <Tabs groupId="lang" queryString>
 <TabItem value="java" label="Java">
