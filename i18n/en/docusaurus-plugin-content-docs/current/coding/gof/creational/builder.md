@@ -70,7 +70,6 @@ classDiagram
         <<interface>>
         +buildPartA()
         +buildPartB()
-        +getResult() Product
     }
     class ConcreteBuilder {
         -product: Product
@@ -87,11 +86,32 @@ classDiagram
     Client --> ConcreteBuilder
 ```
 
-The `Client` creates a `ConcreteBuilder` and hands it to the `Director`, which calls the construction steps in the correct order; at the end, the client gets the assembled `Product` from the builder itself via `getResult()`.
+The `Client` creates a `ConcreteBuilder` and hands it to the `Director`, which calls the construction steps in the correct order; at the end, the client gets the assembled `Product` from the builder itself via `getResult()`. That method lives only in `ConcreteBuilder`, not in the `Builder` interface, because different builders can produce products with no common type. The `Director` only knows the interface and therefore does not return the product.
 
 ## Example
 
 A Pix charge requires an amount and the receiver's key, and has an optional due date, fine, interest, discount and a message to the payer. A fluent builder keeps creation readable, validates the combinations (fine, interest and discount only make sense with a due date) and hands back an immutable `PixCharge` with the `txid` already generated. Rates and amounts are illustrative.
+
+The example uses the fluent variant of Builder, popularized by *Effective Java*: there is no `Director` and no builder hierarchy. The client itself plays the `Director`'s role, chaining the steps it wants, and `build()` replaces `getResult()`, validating the whole before creating the immutable product.
+
+```mermaid
+classDiagram
+    class PixChargeBuilder {
+        -amountCents
+        -receiverKey
+        +dueDate(d) PixChargeBuilder
+        +fineRate(r) PixChargeBuilder
+        +payerMessage(m) PixChargeBuilder
+        +build() PixCharge
+    }
+    class PixCharge {
+        <<immutable>>
+        +txid
+    }
+    class Client
+    Client --> PixChargeBuilder : chains the steps
+    PixChargeBuilder ..> PixCharge : creates
+```
 
 <Tabs groupId="lang" queryString>
 <TabItem value="java" label="Java">
