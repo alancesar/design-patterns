@@ -12,6 +12,6 @@ Arquitetura de sistemas e nuvem (estilos arquiteturais, distribuição, integra�
 - [Patterns of Distributed Systems](/architecture/distributed-systems): 30 padrões em 5 grupos. Fonte: <https://martinfowler.com/articles/patterns-of-distributed-systems/>
 - [Enterprise Integration Patterns](/architecture/eip): 65 padrões em 7 grupos. Fonte: <https://www.enterpriseintegrationpatterns.com/patterns/messaging/>
 - [Patterns for API Design](/architecture/api-patterns): 44 padrões em 12 grupos. Fonte: <https://api-patterns.org/>
-- [Microservices Patterns](/architecture/microservices): 53 padrões em 15 grupos. Fonte: <https://microservices.io/patterns/>
+- [Microservices Patterns](/architecture/microservices): 57 padrões em 16 grupos. Fonte: <https://microservices.io/patterns/>
 - [Cloud Design Patterns](/architecture/cloud-design-patterns): 44 padrões em 8 grupos. Fonte: <https://learn.microsoft.com/en-us/azure/architecture/patterns/>
 - [Kubernetes Patterns](/architecture/kubernetes-patterns): 29 padrões em 6 grupos. Fonte: <https://k8spatterns.com/>

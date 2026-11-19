@@ -931,6 +931,18 @@ const sidebars: SidebarsConfig = {
             },
             {
               "type": "category",
+              "label": "Release",
+              "key": "microservices-release",
+              "collapsed": true,
+              "items": [
+                "architecture/microservices/release/blue-green-deployment",
+                "architecture/microservices/release/canary-release",
+                "architecture/microservices/release/rolling-deployment",
+                "architecture/microservices/release/feature-toggle"
+              ]
+            },
+            {
+              "type": "category",
               "label": "Cross-cutting Concerns",
               "key": "microservices-cross-cutting-concerns",
               "collapsed": true,
