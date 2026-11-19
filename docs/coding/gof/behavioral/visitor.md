@@ -224,69 +224,100 @@ report = [a.accept(IncomeReportExporter()) for a in assets]
 <TabItem value="go" label="Go">
 
 ```go
-// Go não tem métodos genéricos: o visitante acumula o resultado em vez de devolvê-lo.
-type AssetVisitor interface {
-	VisitCdb(cdb Cdb)
-	VisitStock(stock Stock)
-	VisitFundShare(share FundShare)
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+// Go tem generics (desde a 1.18), mas um método não pode ter parâmetros de tipo próprios,
+// como o `<R> R accept(...)` do Java. O visitante genérico AssetVisitor[R] devolve o resultado,
+// e a função genérica Visit faz a ponte entre ele e o Accept dos ativos.
+type AssetVisitor[R any] interface {
+	VisitCdb(cdb Cdb) R
+	VisitStock(stock Stock) R
+	VisitFundShare(share FundShare) R
 }
 
-type Asset interface{ Accept(v AssetVisitor) }
+// Accept recebe este despachante sem tipo de retorno; collector[R] o implementa para cada R.
+type assetDispatcher interface {
+	dispatchCdb(cdb Cdb)
+	dispatchStock(stock Stock)
+	dispatchFundShare(share FundShare)
+}
+
+type Asset interface{ Accept(d assetDispatcher) }
 
 type Cdb struct {
 	Issuer    string
 	GainCents int64
 }
 
-func (c Cdb) Accept(v AssetVisitor) { v.VisitCdb(c) }
+func (c Cdb) Accept(d assetDispatcher) { d.dispatchCdb(c) }
 
 type Stock struct {
 	Symbol    string
 	GainCents int64
 }
 
-func (s Stock) Accept(v AssetVisitor) { v.VisitStock(s) }
+func (s Stock) Accept(d assetDispatcher) { d.dispatchStock(s) }
 
 type FundShare struct {
 	Fund      string
 	GainCents int64
 }
 
-func (f FundShare) Accept(v AssetVisitor) { v.VisitFundShare(f) }
+func (f FundShare) Accept(d assetDispatcher) { d.dispatchFundShare(f) }
+
+type collector[R any] struct {
+	visitor AssetVisitor[R]
+	result  R
+}
+
+func (c *collector[R]) dispatchCdb(cdb Cdb)               { c.result = c.visitor.VisitCdb(cdb) }
+func (c *collector[R]) dispatchStock(stock Stock)         { c.result = c.visitor.VisitStock(stock) }
+func (c *collector[R]) dispatchFundShare(share FundShare) { c.result = c.visitor.VisitFundShare(share) }
+
+// Visit aplica o visitante ao ativo e devolve o resultado tipado (double dispatch via Accept).
+func Visit[R any](a Asset, v AssetVisitor[R]) R {
+	c := &collector[R]{visitor: v}
+	a.Accept(c)
+	return c.result
+}
 
 // alíquotas ilustrativas, não representam regra fiscal
-type TaxCalculator struct{ TotalCents int64 }
+type TaxCalculator struct{}
 
-func (t *TaxCalculator) add(gainCents int64, rate float64) {
-	t.TotalCents += int64(math.Round(float64(gainCents) * rate))
+func taxCents(gainCents int64, rate float64) int64 {
+	return int64(math.Round(float64(gainCents) * rate))
 }
 
-func (t *TaxCalculator) VisitCdb(cdb Cdb)               { t.add(cdb.GainCents, 0.15) }
-func (t *TaxCalculator) VisitStock(stock Stock)         { t.add(stock.GainCents, 0.15) }
-func (t *TaxCalculator) VisitFundShare(share FundShare) { t.add(share.GainCents, 0.20) }
+func (TaxCalculator) VisitCdb(cdb Cdb) int64               { return taxCents(cdb.GainCents, 0.15) }
+func (TaxCalculator) VisitStock(stock Stock) int64         { return taxCents(stock.GainCents, 0.15) }
+func (TaxCalculator) VisitFundShare(share FundShare) int64 { return taxCents(share.GainCents, 0.20) }
 
-type IncomeReportExporter struct{ Lines []string }
+type IncomeReportExporter struct{}
 
-func (e *IncomeReportExporter) add(kind, field, value string, gainCents int64) {
-	e.Lines = append(e.Lines, fmt.Sprintf(`{"type":%q,%q:%q,"gainCents":%d}`, kind, field, value, gainCents))
+func (IncomeReportExporter) VisitCdb(cdb Cdb) string {
+	return fmt.Sprintf(`{"type":"cdb","issuer":%q,"gainCents":%d}`, cdb.Issuer, cdb.GainCents)
 }
-
-func (e *IncomeReportExporter) VisitCdb(cdb Cdb) { e.add("cdb", "issuer", cdb.Issuer, cdb.GainCents) }
-func (e *IncomeReportExporter) VisitStock(stock Stock) {
-	e.add("stock", "symbol", stock.Symbol, stock.GainCents)
+func (IncomeReportExporter) VisitStock(stock Stock) string {
+	return fmt.Sprintf(`{"type":"stock","symbol":%q,"gainCents":%d}`, stock.Symbol, stock.GainCents)
 }
-func (e *IncomeReportExporter) VisitFundShare(share FundShare) {
-	e.add("fund", "fund", share.Fund, share.GainCents)
+func (IncomeReportExporter) VisitFundShare(share FundShare) string {
+	return fmt.Sprintf(`{"type":"fund","fund":%q,"gainCents":%d}`, share.Fund, share.GainCents)
 }
 
 func main() {
 	assets := []Asset{Cdb{"Banco Alfa", 100_000}, Stock{"ACME3", 50_000}, FundShare{"Fundo Beta", 200_000}}
-	tax, report := &TaxCalculator{}, &IncomeReportExporter{}
-	for _, asset := range assets {
-		asset.Accept(tax)
-		asset.Accept(report)
+	var totalTaxCents int64
+	report := []string{}
+	for _, a := range assets {
+		totalTaxCents += Visit[int64](a, TaxCalculator{})
+		report = append(report, Visit[string](a, IncomeReportExporter{}))
 	}
-	fmt.Println(tax.TotalCents) // 62500
+	fmt.Println(totalTaxCents) // 62500
 }
 ```
 
