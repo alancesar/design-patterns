@@ -8,7 +8,11 @@ tags:
   - Performance Efficiency
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling
 sidebar_label: "Queue-Based Load Leveling"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/messaging/queue-based-load-leveling.mdx';
 
 # Queue-Based Load Leveling
 
@@ -63,15 +67,7 @@ Considerações adicionais:
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    T1["Tarefa A"] -- "requisições em taxa variável" --> Q[("Fila de mensagens")]
-    T2["Tarefa B"] --> Q
-    T3["Tarefa C"] --> Q
-    Q -- "consumo em taxa controlada" --> S["Serviço consumidor"]
-    S --> D[("Recurso downstream (ex.: banco de dados)")]
-    Q -. "mensagens com falha persistente" .-> DLQ[("Dead-letter queue")]
-```
+<Diagram />
 
 Várias tarefas publicam mensagens em ritmos irregulares na mesma fila, que absorve os picos; o serviço consome as mensagens no próprio ritmo e protege o recurso downstream, enquanto mensagens que não podem ser processadas são isoladas em uma dead-letter queue.
 

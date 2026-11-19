@@ -8,7 +8,11 @@ tags:
   - Performance Efficiency
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/federated-identity
 sidebar_label: "Federated Identity"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/security-and-access/federated-identity.mdx';
 
 # Federated Identity
 
@@ -58,17 +62,7 @@ Com isso, autenticação e autorização ficam separadas: o IdP cuida de credenc
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    C["Cliente (usuário ou workload)"]
-    I["Provedor de identidade / STS"]
-    S["Serviço"]
-    S -. "1. Confia no IdP/STS" .-> I
-    C -- "2. Autentica-se e solicita token" --> I
-    I -- "3. Emite token com claims" --> C
-    C -- "4. Apresenta o token" --> S
-    S -- "5. Valida o token e autoriza pelas claims" --> S
-```
+<Diagram />
 
 O serviço confia previamente no IdP/STS; o cliente se autentica apenas no IdP e recebe um token com claims, que apresenta ao serviço. O serviço valida o token e aplica suas regras de autorização sem nunca manipular as credenciais do usuário. Um exemplo concreto é o Microsoft Entra ID atuando como IdP com o fluxo Authorization Code + PKCE do OpenID Connect.
 

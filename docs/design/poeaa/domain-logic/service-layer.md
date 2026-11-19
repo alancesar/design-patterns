@@ -8,7 +8,11 @@ tags:
   - Testability
 source: https://martinfowler.com/eaaCatalog/serviceLayer.html
 sidebar_label: "Service Layer"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/domain-logic/service-layer.mdx';
 
 # Service Layer
 
@@ -54,20 +58,7 @@ O Service Layer encapsula a coordenação do caso de uso, controla transações 
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant UI as Cliente (API do app, job de agendadas)
-    participant S as PixTransferService
-    participant D as Domain Model
-    participant R as Repositorio
-    UI->>S: transfer(comando)
-    S->>S: abre transacao
-    S->>R: carrega Account
-    S->>D: account.sendPix(pixKey, amount)
-    S->>R: salva PixTransfer
-    S->>S: confirma transacao
-    S-->>UI: resultado
-```
+<Diagram />
 
 O serviço abre a transação, carrega objetos, delega a regra ao domínio, persiste o resultado e devolve a resposta ao cliente.
 

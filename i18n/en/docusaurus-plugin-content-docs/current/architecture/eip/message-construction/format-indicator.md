@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://www.enterpriseintegrationpatterns.com/FormatIndicator.html
 sidebar_label: "Format Indicator"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-construction/format-indicator.mdx';
 
 # Format Indicator
 
@@ -47,13 +51,7 @@ There are three ways to build the marker: a version number, which both sides mus
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    E["Sender"] -->|"Message with format indicator v2"| C["Channel"]
-    C --> R["Receiver"]
-    R -->|"v1"| H1["v1 handling"]
-    R -->|"v2"| H2["v2 handling"]
-```
+<Diagram />
 
 The receiver reads the format indicator and picks the appropriate handling.
 

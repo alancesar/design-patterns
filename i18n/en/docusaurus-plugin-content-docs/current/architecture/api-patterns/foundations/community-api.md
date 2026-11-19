@@ -7,7 +7,11 @@ tags:
   - Shared Understanding
 source: https://api-patterns.org/
 sidebar_label: "Community API"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/foundations/community-api.mdx';
 
 # Community API
 
@@ -55,20 +59,7 @@ What sets it apart is collective governance: a community-wide API owner is appoi
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    subgraph Extranet
-        W["Web app"]
-        M["Mobile app"]
-        C(["Community API"])
-    end
-    O["Member institutions"] --> W
-    O --> M
-    W --> C
-    M --> C
-    C --> BL["Business logic"]
-    BL --> DB[("Database")]
-```
+<Diagram />
 
 Only community members reach the API, which sits in an access-restricted network.
 

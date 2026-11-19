@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/special-purpose-representations/error-report.mdx';
+
 # Error Report
 
 ## Description
@@ -57,21 +59,7 @@ Protocol codes (such as HTTP 4xx and 5xx statuses) remain useful for intermediar
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class ResponseMessage {
-        +status
-        +payload
-    }
-    class ErrorReport {
-        <<pattern>>
-        +code : string
-        +message : string
-        +requestId : string
-        +timestamp : datetime
-    }
-    ResponseMessage "1" o-- "0..1" ErrorReport : reports failure
-```
+<Diagram />
 
 When the operation fails, the response carries an `ErrorReport` with the code, the description, the request identifier and the moment the error occurred.
 

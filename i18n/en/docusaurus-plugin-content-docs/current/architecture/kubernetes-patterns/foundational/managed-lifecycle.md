@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://k8spatterns.com/
 sidebar_label: "Managed Lifecycle"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/kubernetes-patterns/foundational/managed-lifecycle.mdx';
 
 # Managed Lifecycle
 
@@ -57,19 +61,7 @@ There are also hooks at the container level. **postStart** runs right after the 
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant K as Kubernetes
-    participant S as Service
-    participant C as ledger-service
-    K->>S: Removes the Pod from endpoints
-    K->>C: preStop (short pause)
-    K->>C: SIGTERM
-    C->>C: Stops accepting new requests
-    C->>C: Finishes in-flight requests
-    C-->>K: Process exits
-    Note over K,C: If terminationGracePeriodSeconds passes, Kubernetes sends SIGKILL
-```
+<Diagram />
 
 The Pod leaves load balancing, goes through `preStop` and receives SIGTERM; the application finishes the work in progress and exits, or is killed by force at the end of the grace period.
 

@@ -8,7 +8,11 @@ also_in:
   - architecture/microservices/cross-cutting-concerns
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/external-configuration-store
 sidebar_label: "External Configuration Store"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/deployment-and-topology/external-configuration-store.mdx';
 
 # External Configuration Store
 
@@ -64,27 +68,7 @@ Since configuration now changes application behavior at runtime, it should be tr
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    subgraph Apps["Applications"]
-        A1["Instance A"]
-        A2["Instance B"]
-        A3["Application C"]
-    end
-    C["Local cache"]
-    S["External configuration store"]
-    DB[("Backing store")]
-    K["Secrets vault"]
-    P["Deployment pipeline"]
-
-    A1 --> C
-    A2 --> C
-    A3 --> C
-    C -- "reads and refreshes periodically" --> S
-    S --> DB
-    S -- "secret references" --> K
-    P -- "publishes versioned configuration" --> S
-```
+<Diagram />
 
 Applications read configuration through a local cache, which is refreshed from the centralized external store; the pipeline publishes configuration versions to the store, and secrets remain in a dedicated vault, only referenced.
 

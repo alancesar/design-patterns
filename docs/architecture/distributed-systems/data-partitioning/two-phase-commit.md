@@ -7,7 +7,11 @@ tags:
   - Durability
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/two-phase-commit.html
 sidebar_label: "Two-Phase Commit"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/data-partitioning/two-phase-commit.mdx';
 
 # Two-Phase Commit
 
@@ -54,21 +58,7 @@ Os participantes e o coordenador usam um log durável, como um Write-Ahead Log, 
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant C as Coordenador
-    participant A as Participante A
-    participant B as Participante B
-    C->>A: prepare
-    C->>B: prepare
-    A-->>C: promessa (locks adquiridos)
-    B-->>C: promessa (locks adquiridos)
-    Note over C: Todos prometeram, decisão registrada no log
-    C->>A: commit
-    C->>B: commit
-    A-->>C: confirmado
-    B-->>C: confirmado
-```
+<Diagram />
 
 Se qualquer participante recusar na fase de prepare, o coordenador envia rollback a todos em vez de commit, e os locks são liberados.
 

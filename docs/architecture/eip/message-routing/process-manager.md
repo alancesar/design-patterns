@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://www.enterpriseintegrationpatterns.com/ProcessManager.html
 sidebar_label: "Process Manager"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-routing/process-manager.mdx';
 
 # Process Manager
 
@@ -47,19 +51,7 @@ Serve para fluxos que não podem ser fixados de antemão: os passos podem não s
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant T as Gatilho
-    participant PM as Process Manager
-    participant A as Etapa A
-    participant B as Etapa B
-    T->>PM: inicia processo
-    PM->>A: executa passo 1
-    A-->>PM: resultado
-    PM->>B: executa passo 2 conforme o resultado
-    B-->>PM: resultado
-    PM-->>T: processo concluído
-```
+<Diagram />
 
 O gerente mantém o estado, envia cada passo e escolhe o seguinte com base nas respostas.
 

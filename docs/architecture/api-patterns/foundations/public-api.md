@@ -7,7 +7,11 @@ tags:
   - Evolvability
 source: https://api-patterns.org/
 sidebar_label: "Public API"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/foundations/public-api.mdx';
 
 # Public API
 
@@ -55,15 +59,7 @@ Segurança e confiabilidade ganham peso: use API Keys ou outros mecanismos, endu
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    W["Aplicação web de terceiros"] --> P
-    M["Aplicativo móvel"] --> P
-    S["Sistema parceiro"] --> P
-    P(["Public API"]) --> BE["Backend da fintech"]
-    BE --> DB[("Banco de dados")]
-    D["API Description, Pricing Plan, Rate Limit e SLA"] -.-> P
-```
+<Diagram />
 
 Clientes de qualquer origem acessam o mesmo ponto público, acompanhado de documentação, plano de preços, limites e acordo de nível de serviço.
 

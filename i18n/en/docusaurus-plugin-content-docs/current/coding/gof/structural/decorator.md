@@ -12,6 +12,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/structural/decorator.mdx';
+
 # Decorator
 
 ## Description
@@ -59,36 +61,7 @@ Decorators can be stacked: each layer adds a behavior, and the order of composit
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Component {
-        <<interface>>
-        +operation()
-    }
-    class ConcreteComponent {
-        +operation()
-    }
-    class Decorator {
-        <<abstract>>
-        -component: Component
-        +operation()
-    }
-    class ConcreteDecoratorA {
-        +operation()
-        +addedBehavior()
-    }
-    class ConcreteDecoratorB {
-        -addedState
-        +operation()
-    }
-    class Client
-    Component <|.. ConcreteComponent
-    Component <|.. Decorator
-    Decorator o-- Component : wraps
-    Decorator <|-- ConcreteDecoratorA
-    Decorator <|-- ConcreteDecoratorB
-    Client --> Component
-```
+<Diagram />
 
 `Component` defines the common interface; `ConcreteComponent` is the base object. `Decorator` implements the same interface and holds a reference to a `Component`, delegating calls to it; `ConcreteDecoratorA` and `ConcreteDecoratorB` add behavior before or after that delegation. The `Client` works only with `Component`.
 

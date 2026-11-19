@@ -8,7 +8,11 @@ tags:
 origin: Google
 source: https://docs.cloud.google.com/architecture/choose-design-pattern-agentic-ai-system#coordinator-pattern
 sidebar_label: "Multi-Agent Coordinator"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/ai/agent-patterns/dynamic-orchestration/multi-agent-coordinator.mdx';
 
 # Multi-Agent Coordinator
 
@@ -51,17 +55,7 @@ Diferente do [Magentic Orchestration](/ai/agent-patterns/dynamic-orchestration/m
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    U["Usuário"] --> C["Agente coordenador"]
-    C -->|"Status de um Pix"| A1["Agente de status de Pix"]
-    C -->|"Contestação de compra"| A2["Agente de contestações"]
-    C -->|"Devolução de Pix"| A3["Agente de devoluções de Pix"]
-    A1 --> C
-    A2 --> C
-    A3 --> C
-    C --> R["Resposta"]
-```
+<Diagram />
 
 O coordenador classifica o pedido do cliente, roteia para o especialista adequado e consolida o resultado.
 

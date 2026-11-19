@@ -7,7 +7,11 @@ tags:
   - Reliability
 source: https://k8spatterns.com/
 sidebar_label: "Daemon Service"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/kubernetes-patterns/behavioral/daemon-service.mdx';
 
 # Daemon Service
 
@@ -59,18 +63,7 @@ Other differences from the ReplicaSet: DaemonSet Pods are created with `nodeName
 
 ## Diagram
 
-```mermaid
-flowchart TB
-    DS["DaemonSet: log-agent"] --> N1["Node 1"]
-    DS --> N2["Node 2"]
-    DS --> N3["Node 3"]
-    N1 --> A1["Pod log-agent"]
-    N2 --> A2["Pod log-agent"]
-    N3 --> A3["Pod log-agent"]
-    A1 --> C["Central log collector"]
-    A2 --> C
-    A3 --> C
-```
+<Diagram />
 
 The DaemonSet keeps one agent Pod on every node, and each agent forwards the logs of the Pods on that node, such as those of `pix-service` and `ledger-service`, to the central collector.
 

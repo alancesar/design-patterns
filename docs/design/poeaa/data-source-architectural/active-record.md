@@ -6,7 +6,11 @@ tags:
   - Simplicity
 source: https://martinfowler.com/eaaCatalog/activeRecord.html
 sidebar_label: "Active Record"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/data-source-architectural/active-record.mdx';
 
 # Active Record
 
@@ -51,23 +55,7 @@ Funciona bem enquanto o modelo de domínio é parecido com o esquema do banco; q
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Client
-    class Card {
-        +id
-        +accountId
-        +status
-        +expiresAt
-        +find(id)$
-        +save()
-        +block()
-        +isExpired()
-    }
-    class Database
-    Client --> Card
-    Card --> Database
-```
+<Diagram />
 
 O `Client` usa diretamente `Card`, que mantém os dados de uma linha, contém a lógica de domínio (`block` e `isExpired`) e acessa o `Database` por meio de `save` e `find`.
 

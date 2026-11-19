@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/geodes
 sidebar_label: "Geode"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/deployment-and-topology/geodes.mdx';
 
 # Geode
 
@@ -61,30 +65,7 @@ Additional considerations:
 
 ## Diagram
 
-```mermaid
-flowchart TB
-    U1["Users in the Americas"] --> LB["Global load balancer"]
-    U2["Users in Europe"] --> LB
-    U3["Users in Asia"] --> LB
-
-    LB --> G1
-    LB --> G2
-    LB --> G3
-
-    subgraph G1["Geode - Region A"]
-        A1["API / Compute"] --> D1[("Local data")]
-    end
-    subgraph G2["Geode - Region B"]
-        A2["API / Compute"] --> D2[("Local data")]
-    end
-    subgraph G3["Geode - Region C"]
-        A3["API / Compute"] --> D3[("Local data")]
-    end
-
-    D1 <-->|"Replication"| D2
-    D2 <-->|"Replication"| D3
-    D1 <-->|"Replication"| D3
-```
+<Diagram />
 
 The global load balancer routes each user to the nearest or available geode; each geode is self-contained and processes the request with its own data, while the replication backplane keeps the data identical across all regions, allowing any geode to serve any request.
 

@@ -1,0 +1,8 @@
+```mermaid
+flowchart LR
+    C1["Client 1"] --> Q["Update queue"]
+    C2["Client 2"] --> Q
+    C3["Client 3"] --> Q
+    Q --> T["Single thread"]
+    T --> S[("State or log")]
+```

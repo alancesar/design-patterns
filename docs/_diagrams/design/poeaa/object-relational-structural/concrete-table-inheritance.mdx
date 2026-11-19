@@ -1,0 +1,18 @@
+```mermaid
+erDiagram
+    PIX_TRANSFER {
+        bigint id PK
+        bigint amount_cents
+        varchar status
+        varchar pix_key
+        varchar end_to_end_id
+    }
+    TED_TRANSFER {
+        bigint id PK
+        bigint amount_cents
+        varchar status
+        varchar bank_code
+        varchar branch
+        varchar account_number
+    }
+```

@@ -7,7 +7,11 @@ tags:
   - Extensibility
 source: https://martinfowler.com/eaaCatalog/classTableInheritance.html
 sidebar_label: "Class Table Inheritance"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/object-relational-structural/class-table-inheritance.mdx';
 
 # Class Table Inheritance
 
@@ -49,27 +53,7 @@ O esquema espelha o modelo de objetos, mantém o banco normalizado e permite `NO
 
 ## Diagrama
 
-```mermaid
-erDiagram
-    PAYMENT_INSTRUCTION ||--o| PIX_TRANSFER : e
-    PAYMENT_INSTRUCTION ||--o| TED_TRANSFER : e
-    PAYMENT_INSTRUCTION {
-        bigint id PK
-        bigint amount_cents
-        varchar status
-    }
-    PIX_TRANSFER {
-        bigint id PK
-        varchar pix_key
-        varchar end_to_end_id
-    }
-    TED_TRANSFER {
-        bigint id PK
-        varchar bank_code
-        varchar branch
-        varchar account_number
-    }
-```
+<Diagram />
 
 `PAYMENT_INSTRUCTION` guarda os campos comuns; `PIX_TRANSFER` e `TED_TRANSFER` guardam os específicos, compartilhando a mesma chave primária. A fonte do Fowler ilustra o padrão com a hierarquia `Player`; aqui ela é substituída por `PaymentInstruction`, a mesma nos quatro padrões de herança.
 

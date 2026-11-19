@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://k8spatterns.com/
 sidebar_label: "Init Container"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/kubernetes-patterns/structural/init-container.mdx';
 
 # Init Container
 
@@ -59,18 +63,7 @@ Como pertencem ao mesmo Pod, init containers e contêineres da aplicação compa
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    subgraph Pod["Pod ledger-service"]
-        direction LR
-        I1["Init: aguardar banco"] --> I2["Init: migrar schema"]
-        I2 --> V[("Volume compartilhado")]
-        V --> A["Contêiner ledger-service"]
-    end
-    DB[("PostgreSQL")]
-    I1 -.->|"verifica conexão"| DB
-    I2 -->|"aplica migrações"| DB
-```
+<Diagram />
 
 Os init containers rodam em sequência: primeiro espera-se o banco responder, depois o schema é migrado. Só quando ambos terminam com sucesso o contêiner `ledger-service` é iniciado.
 

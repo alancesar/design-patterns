@@ -8,7 +8,11 @@ tags:
   - Operational Excellence
 source: https://microservices.io/patterns/data/database-per-service.html
 sidebar_label: "Database per Service"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/service-collaboration/database-per-service.mdx';
 
 # Database per Service
 
@@ -54,15 +58,7 @@ Esse padrão é a base para a autonomia dos serviços, mas traz como consequênc
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    C["Cliente"] --> ACC["Serviço de contas"]
-    C --> CS["Serviço de cartões"]
-    ACC --> ADB[("Banco de contas")]
-    CS --> CDB[("Banco de cartões")]
-    CS -->|"API"| ACC
-    CS -.->|"acesso direto proibido"| ADB
-```
+<Diagram />
 
 Cada serviço acessa apenas o seu próprio banco. Quando precisa de dados de outro serviço, o Serviço de cartões usa a API do Serviço de contas, nunca o banco dele. A fonte ilustra o padrão com pedidos e clientes.
 

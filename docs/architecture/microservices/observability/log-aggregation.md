@@ -7,7 +7,11 @@ tags:
   - Reliability
 source: https://microservices.io/patterns/observability/application-logging.html
 sidebar_label: "Log Aggregation"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/observability/log-aggregation.mdx';
 
 # Log Aggregation
 
@@ -50,14 +54,7 @@ Os agentes de coleta devem ser leves para não penalizar os serviços, e os logs
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    A1["Serviço A (instância 1)"] -->|"logs"| C["Serviço de log centralizado"]
-    A2["Serviço A (instância 2)"] -->|"logs"| C
-    B["Serviço B"] -->|"logs"| C
-    C --> S["Busca e análise"]
-    C --> AL["Alertas"]
-```
+<Diagram />
 
 Todas as instâncias enviam seus logs para um serviço central, que oferece busca, análise e alertas.
 

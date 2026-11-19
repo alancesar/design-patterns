@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/response-shaping/wish-list.mdx';
+
 # Wish List
 
 ## Descrição
@@ -57,14 +59,7 @@ A lista costuma ser um [Atomic Parameter List](/architecture/api-patterns/basic-
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    C["Cliente"] -->|"fields=accountId,balanceCents"| E["Endpoint"]
-    E --> L["Avaliador da lista"]
-    L -->|"Filtro ou seleção"| D[("Fonte de dados")]
-    D --> L
-    L -->|"Somente os campos pedidos"| C
-```
+<Diagram />
 
 O avaliador lê a lista de desejos da requisição e restringe a consulta ou a montagem da resposta aos campos enumerados.
 

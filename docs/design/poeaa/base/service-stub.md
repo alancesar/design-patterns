@@ -7,7 +7,11 @@ tags:
   - Decoupling
 source: https://martinfowler.com/eaaCatalog/serviceStub.html
 sidebar_label: "Service Stub"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/base/service-stub.mdx';
 
 # Service Stub
 
@@ -53,23 +57,7 @@ O padrão foi proposto por David Rice no PoEAA e é a base do que hoje se chama 
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class CreditBureau {
-        <<interface>>
-        +scoreFor(cpf)
-    }
-    class RemoteCreditBureau {
-        +scoreFor(cpf)
-    }
-    class CreditBureauStub {
-        +scoreFor(cpf)
-    }
-    class CreditAnalysisService
-    CreditAnalysisService --> CreditBureau
-    CreditBureau <|.. RemoteCreditBureau
-    CreditBureau <|.. CreditBureauStub
-```
+<Diagram />
 
 O `CreditAnalysisService` depende da interface `CreditBureau`. Em produção usa o `RemoteCreditBureau`; nos testes, o `CreditBureauStub`, que responde em memória.
 

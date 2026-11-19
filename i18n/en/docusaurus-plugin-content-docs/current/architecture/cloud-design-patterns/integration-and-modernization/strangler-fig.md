@@ -10,7 +10,11 @@ also_in:
   - architecture/microservices/refactoring-to-services
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/strangler-fig
 sidebar_label: "Strangler Fig"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/integration-and-modernization/strangler-fig.mdx';
 
 # Strangler Fig
 
@@ -67,16 +71,7 @@ From the microservices.io perspective (Strangler Application), the question is h
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    C[Client] --> F["Facade (proxy)"]
-    F -->|"Features not yet migrated"| L[Legacy system]
-    F -->|"Migrated features"| N[New system]
-    N <-->|"Anti-corruption layer"| L
-    L --> DBL[("Monolithic database")]
-    N --> DBN[("Per-domain databases")]
-    DBL -.->|"Initial ETL and CDC"| DBN
-```
+<Diagram />
 
 The client talks only to the facade, which forwards each request to the legacy or the new system depending on the migration state. Over time, all routes point to the new system, the data is extracted into per-domain databases, and the legacy system (and, optionally, the facade) is decommissioned.
 

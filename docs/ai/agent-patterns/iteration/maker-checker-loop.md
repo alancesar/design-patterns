@@ -9,7 +9,11 @@ tags:
 origin: Azure, Google
 source: https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns#maker-checker-loops
 sidebar_label: "Maker-Checker Loop"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/ai/agent-patterns/iteration/maker-checker-loop.mdx';
 
 # Maker-Checker Loop
 
@@ -60,26 +64,7 @@ Também é conhecido como *evaluator-optimizer*, *generator-verifier*, *critic l
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant M as Chat manager
-    participant K as Maker
-    participant C as Checker
-    actor H as Revisor humano
-    M->>K: Tarefa e requisitos
-    loop Até aprovar ou atingir o limite de iterações
-        K->>C: Proposta
-        C->>C: Avalia contra os critérios de aceitação
-        alt Aprovado
-            C->>M: Aprovação
-        else Reprovado
-            C->>K: Feedback específico
-        end
-    end
-    opt Limite de iterações atingido
-        M->>H: Escala com o melhor resultado
-    end
-```
+<Diagram />
 
 O chat manager conduz turnos formais entre maker e checker; o ciclo termina com aprovação ou, ao atingir o limite, com fallback para um humano.
 

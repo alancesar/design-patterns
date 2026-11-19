@@ -8,7 +8,11 @@ tags:
   - Operational Excellence
 source: https://microservices.io/patterns/deployment/service-per-vm.html
 sidebar_label: "Service Instance per VM"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/deployment/service-instance-per-vm.mdx';
 
 # Service Instance per VM
 
@@ -48,16 +52,7 @@ A escala é feita aumentando ou diminuindo o número de VMs, o que plataformas I
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    Build["Pipeline de build"] --> Img["Imagem de VM (AMI)"]
-    Img --> VM1["VM - instância 1"]
-    Img --> VM2["VM - instância 2"]
-    Img --> VM3["VM - instância 3"]
-    LB["Balanceador de carga"] --> VM1
-    LB --> VM2
-    LB --> VM3
-```
+<Diagram />
 
 Uma única imagem de VM gera várias instâncias, atrás de um balanceador de carga.
 

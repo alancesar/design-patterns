@@ -8,7 +8,11 @@ tags:
   - Cost Optimization
 source: https://microservices.io/patterns/deployment/service-deployment-platform.html
 sidebar_label: "Service Deployment Platform"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/deployment/service-deployment-platform.mdx';
 
 # Service Deployment Platform
 
@@ -49,15 +53,7 @@ Instead of manually managing hosts, VMs, or containers, the team describes the d
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    Dev["Team"] -->|"Describes the service"| P["Deployment platform"]
-    P --> S["Service (named group)"]
-    S --> I1["Instance 1"]
-    S --> I2["Instance 2"]
-    S --> I3["Instance 3"]
-    LB["Load balancer"] --> S
-```
+<Diagram />
 
 The team declares the service and the platform keeps the instances running and balanced.
 

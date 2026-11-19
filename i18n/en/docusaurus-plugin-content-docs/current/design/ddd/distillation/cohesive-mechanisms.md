@@ -7,7 +7,11 @@ tags:
   - Decoupling
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Cohesive Mechanisms"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/distillation/cohesive-mechanisms.mdx';
 
 # Cohesive Mechanisms
 
@@ -53,25 +57,7 @@ It's different from a [Generic Subdomain](/design/ddd/distillation/generic-subdo
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class LoanOfferService {
-        +offer(proposal, pricing) LoanOffer
-    }
-    class RateSolver {
-        <<interface>>
-        +solveMonthlyRate(releasedCents, installmentsCents) double
-    }
-    class NewtonRateSolver {
-        +solveMonthlyRate(releasedCents, installmentsCents) double
-    }
-    class BisectionRateSolver {
-        +solveMonthlyRate(releasedCents, installmentsCents) double
-    }
-    LoanOfferService --> RateSolver
-    RateSolver <|.. NewtonRateSolver
-    RateSolver <|.. BisectionRateSolver
-```
+<Diagram />
 
 The `LoanOfferService` domain service expresses the problem in business terms and delegates the numerical calculation of the CET rate to a replaceable mechanism behind `RateSolver`.
 

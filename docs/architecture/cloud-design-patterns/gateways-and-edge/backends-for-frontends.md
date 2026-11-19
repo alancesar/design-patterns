@@ -10,7 +10,11 @@ also_in:
     - architecture/microservices/external-api
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/backends-for-frontends
 sidebar_label: "Backends for Frontends"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/gateways-and-edge/backends-for-frontends.mdx';
 
 # Backends for Frontends
 
@@ -69,20 +73,7 @@ No contexto de microsserviços (microservices.io), o BFF é uma variação do AP
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    W["Cliente web (desktop)"] --> G["Gateway de API"]
-    M["App mobile"] --> G
-    G -.-> I["Provedor de identidade"]
-    G -.-> O["Monitoramento"]
-    G --> BW["BFF web"]
-    G --> BM["BFF mobile"]
-    BW --> S1["Serviço de contas"]
-    BW --> S2["Serviço de cartões"]
-    BM --> S1
-    BM --> S2
-    BW --> S3["Serviço de investimentos"]
-```
+<Diagram />
 
 Os clientes passam por um gateway que trata autenticação, autorização e monitoramento e roteia cada requisição ao BFF da sua interface. Cada BFF agrega e adapta as chamadas aos serviços de backend para a necessidade do cliente: o BFF mobile devolve respostas leves e paginadas (por exemplo, saldo e últimos lançamentos), e o BFF web pode agregar o extrato completo, a fatura e a carteira de investimentos em uma única resposta. Em uma implementação no Azure, por exemplo, o gateway poderia ser o API Management e os BFFs poderiam ser Azure Functions.
 

@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://www.enterpriseintegrationpatterns.com/MessagingMapper.html
 sidebar_label: "Messaging Mapper"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/messaging-endpoints/messaging-mapper.mdx';
 
 # Messaging Mapper
 
@@ -47,12 +51,7 @@ The challenge is that objects use references and inheritance, features that many
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    D["Domain objects"] <--> M["Messaging Mapper"]
-    M <--> E["Message Endpoint"]
-    E <--> C[["Message Channel"]]
-```
+<Diagram />
 
 The mapper sits between the domain and the endpoint, converting in both directions.
 

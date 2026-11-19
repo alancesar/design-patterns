@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://www.enterpriseintegrationpatterns.com/ReturnAddress.html
 sidebar_label: "Return Address"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-construction/return-address.mdx';
 
 # Return Address
 
@@ -46,15 +50,7 @@ The replier reads the address from each request and replies to it, without needi
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant Req as Requestor
-    participant Rep as Replier
-    participant CRep as Requestor's reply channel
-    Req->>Rep: Request with Return Address in the header
-    Rep->>CRep: Reply sent to the given address
-    CRep->>Req: Reply
-```
+<Diagram />
 
 The replier replies on the channel indicated by the request header.
 

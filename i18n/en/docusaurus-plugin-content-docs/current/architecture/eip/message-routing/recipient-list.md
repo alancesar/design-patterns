@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://www.enterpriseintegrationpatterns.com/RecipientList.html
 sidebar_label: "Recipient List"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-routing/recipient-list.mdx';
 
 # Recipient List
 
@@ -50,13 +54,7 @@ Examples: a small order queries one credit agency, but a large order queries sev
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    IN["Message"] --> RL{"Recipient List"}
-    RL -->|"copy"| A["Recipient A"]
-    RL -->|"copy"| C["Recipient C"]
-    RL -.->|"not selected"| B["Recipient B"]
-```
+<Diagram />
 
 The list computed for the message includes A and C, which receive copies; B isn't selected.
 

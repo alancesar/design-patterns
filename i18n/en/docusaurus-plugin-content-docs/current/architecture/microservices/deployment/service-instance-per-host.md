@@ -8,7 +8,11 @@ tags:
   - Operational Excellence
 source: https://microservices.io/patterns/deployment/single-service-per-host.html
 sidebar_label: "Service Instance per Host"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/deployment/service-instance-per-host.mdx';
 
 # Service Instance per Host
 
@@ -49,21 +53,7 @@ The pattern is a general deployment principle and is refined by using virtual ma
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    LB["Load balancer"] --> H1
-    LB --> H2
-    LB --> H3
-    subgraph H1["Host 1"]
-        A1["Service A - instance 1"]
-    end
-    subgraph H2["Host 2"]
-        A2["Service A - instance 2"]
-    end
-    subgraph H3["Host 3"]
-        B1["Service B - instance 1"]
-    end
-```
+<Diagram />
 
 Each service instance occupies a dedicated host.
 

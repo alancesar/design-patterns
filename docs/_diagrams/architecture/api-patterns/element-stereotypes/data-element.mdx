@@ -1,0 +1,7 @@
+```mermaid
+flowchart LR
+    C["Client"] -->|"Data Elements"| API["API endpoint"]
+    API --> M["Mapping"]
+    M --> D["Internal model: tables and entities"]
+    D -.->|"not exposed"| C
+```

@@ -12,6 +12,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/creational/prototype.mdx';
+
 # Prototype
 
 ## Descrição
@@ -59,34 +61,7 @@ A decisão central da implementação é entre cópia rasa (shallow copy), que c
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Prototype {
-        <<interface>>
-        +clone() Prototype
-    }
-    class ConcretePrototypeA {
-        -field String
-        +clone() Prototype
-    }
-    class ConcretePrototypeB {
-        -field String
-        +clone() Prototype
-    }
-    class PrototypeRegistry {
-        -items Map
-        +register(key, prototype)
-        +get(key) Prototype
-    }
-    class Client {
-        +operation()
-    }
-    Prototype <|.. ConcretePrototypeA
-    Prototype <|.. ConcretePrototypeB
-    PrototypeRegistry o-- Prototype
-    Client --> Prototype : clones
-    Client --> PrototypeRegistry
-```
+<Diagram />
 
 `Prototype` declara a operação `clone()`, implementada por `ConcretePrototypeA` e `ConcretePrototypeB`, que copiam o próprio estado. O `Client` cria novos objetos pedindo cópias aos protótipos, opcionalmente obtidos de um `PrototypeRegistry` que os mantém indexados por chave.
 

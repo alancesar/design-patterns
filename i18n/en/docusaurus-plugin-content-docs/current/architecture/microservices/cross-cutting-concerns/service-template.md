@@ -7,7 +7,11 @@ tags:
   - Security
 source: https://microservices.io/patterns/service-template.html
 sidebar_label: "Service Template"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/cross-cutting-concerns/service-template.mdx';
 
 # Service Template
 
@@ -50,13 +54,7 @@ The template usually relies on a Microservice Chassis for the shared framework c
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    T["Service Template (build, cross-cutting concerns, example)"] -- "copy or fork" --> A["Service A"]
-    T -- "copy or fork" --> B["Service B"]
-    T -- "copy or fork" --> C["Service C"]
-    CH["Microservice Chassis"] -. "shared dependency" .-> T
-```
+<Diagram />
 
 Each new service starts from a copy of the template, which can depend on a chassis for the shared code.
 

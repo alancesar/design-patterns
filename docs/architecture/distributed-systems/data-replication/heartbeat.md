@@ -7,7 +7,11 @@ tags:
   - Fault Tolerance
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/heartbeat.html
 sidebar_label: "HeartBeat"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/data-replication/heartbeat.mdx';
 
 # HeartBeat
 
@@ -49,16 +53,7 @@ Usado em ZooKeeper, etcd (Raft), Kafka e Cassandra para detectar falhas de nós 
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant A as Nó A
-    participant B as Nó B
-    loop a cada intervalo
-        A->>B: HeartBeat
-    end
-    Note over B: sem mensagem após o timeout
-    B->>B: marca A como indisponível
-```
+<Diagram />
 
 O nó A envia heartbeats periódicos; quando o nó B deixa de recebê-los dentro do tempo limite, considera A indisponível.
 

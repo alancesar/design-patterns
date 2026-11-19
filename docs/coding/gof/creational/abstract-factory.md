@@ -12,6 +12,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/creational/abstract-factory.mdx';
+
 # Abstract Factory
 
 ## Descrição
@@ -57,47 +59,7 @@ Na prática, o padrão funciona como uma "fábrica de fábricas": agrupa vários
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class AbstractFactory {
-        <<interface>>
-        +createProductA() AbstractProductA
-        +createProductB() AbstractProductB
-    }
-    class ConcreteFactory1 {
-        +createProductA() AbstractProductA
-        +createProductB() AbstractProductB
-    }
-    class ConcreteFactory2 {
-        +createProductA() AbstractProductA
-        +createProductB() AbstractProductB
-    }
-    class AbstractProductA {
-        <<interface>>
-    }
-    class AbstractProductB {
-        <<interface>>
-    }
-    class ProductA1
-    class ProductA2
-    class ProductB1
-    class ProductB2
-    class Client
-
-    AbstractFactory <|.. ConcreteFactory1
-    AbstractFactory <|.. ConcreteFactory2
-    AbstractProductA <|.. ProductA1
-    AbstractProductA <|.. ProductA2
-    AbstractProductB <|.. ProductB1
-    AbstractProductB <|.. ProductB2
-    ConcreteFactory1 ..> ProductA1 : creates
-    ConcreteFactory1 ..> ProductB1 : creates
-    ConcreteFactory2 ..> ProductA2 : creates
-    ConcreteFactory2 ..> ProductB2 : creates
-    Client --> AbstractFactory
-    Client --> AbstractProductA
-    Client --> AbstractProductB
-```
+<Diagram />
 
 O `Client` usa apenas `AbstractFactory` e as interfaces de produto. Cada fábrica concreta (`ConcreteFactory1`, `ConcreteFactory2`) cria uma família coerente de produtos (`ProductA1`/`ProductB1` ou `ProductA2`/`ProductB2`).
 

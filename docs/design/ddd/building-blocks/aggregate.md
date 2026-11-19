@@ -7,7 +7,11 @@ tags:
   - Decoupling
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Aggregate"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/building-blocks/aggregate.mdx';
 
 # Aggregate
 
@@ -51,28 +55,7 @@ Referências entre agregados devem ser feitas por identidade, e não por referê
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class CardAccount {
-        <<aggregate root>>
-        +String id
-        +authorize(merchant, amount) AuthorizationHold
-        +availableLimit() Money
-    }
-    class AuthorizationHold {
-        +Money amount
-        +String merchant
-    }
-    class Money {
-        <<value object>>
-    }
-    class Customer {
-        <<aggregate root>>
-    }
-    CardAccount "1" *-- "*" AuthorizationHold
-    CardAccount --> Money : limit
-    CardAccount ..> Customer : customerId
-```
+<Diagram />
 
 `CardAccount` é a raiz e controla `AuthorizationHold` e o limite (`Money`). A referência a `Customer`, outro agregado, é feita apenas por identidade.
 

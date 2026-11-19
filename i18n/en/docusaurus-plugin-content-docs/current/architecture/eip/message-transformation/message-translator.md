@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://www.enterpriseintegrationpatterns.com/MessageTranslator.html
 sidebar_label: "Message Translator"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-transformation/message-translator.mdx';
 
 # Message Translator
 
@@ -52,11 +56,7 @@ It's the messaging-world equivalent of the GoF Adapter: it adapts an interface (
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    A["Application A (format A)"] --> T["Message Translator"]
-    T --> B["Application B (format B)"]
-```
+<Diagram />
 
 The message leaves application A in its format, is converted by the translator, and reaches application B in the format it understands.
 

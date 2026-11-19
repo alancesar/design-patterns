@@ -8,7 +8,11 @@ tags:
   - Availability
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/gossip-dissemination.html
 sidebar_label: "Gossip Dissemination"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/cluster-management/gossip-dissemination.mdx';
 
 # Gossip Dissemination
 
@@ -55,20 +59,7 @@ Additional considerations:
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant A as Node A
-    participant B as Node B
-    participant C as Node C
-    participant D as Node D
-    Note over A: Learns that Node E joined
-    A->>B: Gossip with updated state
-    B-->>A: Digest of what B knows
-    B->>D: Gossip with updated state
-    A->>C: Gossip with updated state
-    C->>D: Gossip with updated state
-    Note over A,D: All converge to the same view
-```
+<Diagram />
 
 Information originates at one node and spreads in rounds, with each node passing it on to randomly chosen peers.
 

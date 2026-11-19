@@ -7,7 +7,11 @@ tags:
   - Simplicity
 source: https://martinfowler.com/eaaCatalog/concreteTableInheritance.html
 sidebar_label: "Concrete Table Inheritance"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/object-relational-structural/concrete-table-inheritance.mdx';
 
 # Concrete Table Inheritance
 
@@ -48,24 +52,7 @@ As chaves precisam ser únicas ao longo de todas as tabelas, caso contrário ref
 
 ## Diagrama
 
-```mermaid
-erDiagram
-    PIX_TRANSFER {
-        bigint id PK
-        bigint amount_cents
-        varchar status
-        varchar pix_key
-        varchar end_to_end_id
-    }
-    TED_TRANSFER {
-        bigint id PK
-        bigint amount_cents
-        varchar status
-        varchar bank_code
-        varchar branch
-        varchar account_number
-    }
-```
+<Diagram />
 
 Cada tabela repete `id`, `amount_cents` e `status`, herdados de `PaymentInstruction`, e acrescenta os campos próprios; não existe tabela `PAYMENT_INSTRUCTION`. A fonte do Fowler ilustra o padrão com a hierarquia `Player`; aqui ela é substituída por `PaymentInstruction`, a mesma nos quatro padrões de herança.
 

@@ -1,0 +1,8 @@
+```mermaid
+flowchart LR
+    S["Input"] --> A["Subagent 1"]
+    A --> B["Subagent 2"]
+    B --> C{"Exit condition met?"}
+    C -- "No" --> A
+    C -- "Yes" --> R["Result"]
+```

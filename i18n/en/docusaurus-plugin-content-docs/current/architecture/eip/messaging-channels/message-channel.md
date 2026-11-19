@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://www.enterpriseintegrationpatterns.com/MessageChannel.html
 sidebar_label: "Message Channel"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/messaging-channels/message-channel.mdx';
 
 # Message Channel
 
@@ -52,11 +56,7 @@ In practice, the channel is an abstraction offered by the messaging system (queu
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    A["Sender application"] -->|"writes"| C["Message Channel"]
-    C -->|"reads"| B["Receiver application"]
-```
+<Diagram />
 
 The sender application writes messages to the channel and the receiver reads them, without either knowing the other directly.
 

@@ -7,7 +7,11 @@ tags:
   - Performance
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/singular-update-queue.html
 sidebar_label: "Singular Update Queue"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/data-replication/singular-update-queue.mdx';
 
 # Singular Update Queue
 
@@ -50,14 +54,7 @@ It shows up around the Write-Ahead Log, to serialize writes to the log, and in a
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    C1["Client 1"] --> Q["Update queue"]
-    C2["Client 2"] --> Q
-    C3["Client 3"] --> Q
-    Q --> T["Single thread"]
-    T --> S[("State or log")]
-```
+<Diagram />
 
 Several clients enqueue updates and a single thread applies them to the state in order.
 

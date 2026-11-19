@@ -8,7 +8,11 @@ tags:
   - Performance Efficiency
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/valet-key
 sidebar_label: "Valet Key"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/security-and-access/valet-key.mdx';
 
 # Valet Key
 
@@ -64,16 +68,7 @@ As a result, the application keeps control over who accesses what and for how lo
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    C["Client"]
-    V["Key service (application)"]
-    S["Data store"]
-    C -->|"1. Requests access (authenticated)"| V
-    V -->|"2. Validates and returns restricted key (resource, permission, expiry)"| C
-    C -->|"3. Direct upload/download with the key"| S
-    S -.->|"4. Completion event (optional)"| V
-```
+<Diagram />
 
 The client obtains from the application a key with limited scope, permissions, and lifetime, and transfers data directly with the store, which validates the key on its own. The application only takes part in authorization and, if desired, receives events for auditing or revocation.
 

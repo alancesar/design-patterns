@@ -8,7 +8,11 @@ tags:
 origin: Google
 source: https://docs.cloud.google.com/architecture/choose-design-pattern-agentic-ai-system#hierarchical-task-decomposition-pattern
 sidebar_label: "Multi-Agent Hierarchical Task Decomposition"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/ai/agent-patterns/dynamic-orchestration/multi-agent-hierarchical-task-decomposition.mdx';
 
 # Multi-Agent Hierarchical Task Decomposition
 
@@ -51,17 +55,7 @@ It suits ambiguous, open-ended problems that require multi-step reasoning, such 
 
 ## Diagram
 
-```mermaid
-flowchart TD
-    U["User"] --> R["Root agent"]
-    R --> S1["Financial statement collection"]
-    R --> S2["Risk analysis"]
-    R --> S3["Opinion writing"]
-    S1 --> W1["Worker agent A"]
-    S1 --> W2["Worker agent B"]
-    S2 --> W3["Worker agent C"]
-    S3 --> W4["Worker agent D"]
-```
+<Diagram />
 
 The root agent delegates to intermediate subagents, which decompose and delegate until the worker agents execute.
 

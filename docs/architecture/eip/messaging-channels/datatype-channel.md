@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://www.enterpriseintegrationpatterns.com/DatatypeChannel.html
 sidebar_label: "Datatype Channel"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/messaging-channels/datatype-channel.mdx';
 
 # Datatype Channel
 
@@ -49,13 +53,7 @@ O custo é multiplicar canais: cada novo tipo de dado exige um novo canal, e o r
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    S["Remetente"] -->|"transferência Pix"| C1["Canal de transferências Pix"]
-    S -->|"boleto"| C2["Canal de boletos"]
-    C1 --> R1["Processador de Pix"]
-    C2 --> R2["Processador de boletos"]
-```
+<Diagram />
 
 O remetente escolhe o canal segundo o tipo de dado, e cada processador recebe somente o formato que sabe tratar.
 

@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://www.enterpriseintegrationpatterns.com/DatatypeChannel.html
 sidebar_label: "Datatype Channel"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/messaging-channels/datatype-channel.mdx';
 
 # Datatype Channel
 
@@ -49,13 +53,7 @@ The cost is a multiplication of channels: each new data type requires a new chan
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    S["Sender"] -->|"Pix transfer"| C1["Pix transfers channel"]
-    S -->|"boleto"| C2["Boletos channel"]
-    C1 --> R1["Pix processor"]
-    C2 --> R2["Boleto processor"]
-```
+<Diagram />
 
 The sender picks the channel according to the data type, and each processor receives only the format it knows how to handle.
 

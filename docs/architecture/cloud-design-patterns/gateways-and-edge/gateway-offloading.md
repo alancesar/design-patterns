@@ -10,7 +10,11 @@ tags:
   - Performance Efficiency
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/gateway-offloading
 sidebar_label: "Gateway Offloading"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/gateways-and-edge/gateway-offloading.mdx';
 
 # Gateway Offloading
 
@@ -67,19 +71,7 @@ Considerações adicionais:
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    C[Cliente] -- "HTTPS (TLS do cliente)" --> G
-    subgraph G["Gateway"]
-        direction TB
-        T["Terminação TLS"] --> A["Autenticação e WAF"]
-        A --> R["Throttling, logging e monitoramento"]
-        R --> E["Recriptografia TLS"]
-    end
-    G -- "Nova conexão TLS" --> S1["Serviço 1"]
-    G -- "Nova conexão TLS" --> S2["Serviço 2"]
-    G -- "Nova conexão TLS" --> S3["Serviço 3"]
-```
+<Diagram />
 
 O cliente se conecta ao gateway, que termina o TLS, aplica as capacidades compartilhadas (autenticação, inspeção, limitação de taxa, logging) e abre novas conexões criptografadas com os serviços de backend, que ficam livres dessas responsabilidades. Como exemplo pontual, um serviço como o Azure Application Gateway com WAF pode desempenhar esse papel.
 

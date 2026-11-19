@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://microservices.io/patterns/observability/audit-logging.html
 sidebar_label: "Audit Logging"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/observability/audit-logging.mdx';
 
 # Audit Logging
 
@@ -48,16 +52,7 @@ A reliable way to implement auditing is Event Sourcing, where every state change
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant U as User
-    participant S as Service
-    participant A as Audit store
-    U->>S: performs action
-    S->>S: applies the business rule
-    S->>A: writes record (who, what, when)
-    S-->>U: response
-```
+<Diagram />
 
 The service performs the user's action and writes an audit record to a dedicated store.
 

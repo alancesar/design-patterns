@@ -7,7 +7,11 @@ tags:
   - Decoupling
 source: https://martinfowler.com/eaaCatalog/lazyLoad.html
 sidebar_label: "Lazy Load"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/object-relational-behavioral/lazy-load.mdx';
 
 # Lazy Load
 
@@ -53,30 +57,7 @@ Fowler describes four variants: **lazy initialization** (the field is null until
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Client
-    class Subject {
-        <<interface>>
-        +getValue()
-    }
-    class RealObject {
-        +getValue()
-    }
-    class LazyProxy {
-        -realObject
-        +getValue()
-        -load()
-    }
-    class Mapper {
-        +load(id)
-    }
-    Client --> Subject
-    Subject <|.. RealObject
-    Subject <|.. LazyProxy
-    LazyProxy --> Mapper : loads on first access
-    LazyProxy --> RealObject
-```
+<Diagram />
 
 In the virtual proxy variant, the `Client` uses the `Subject` interface without knowing whether it received the real object or the `LazyProxy`. On first access, the proxy uses the `Mapper` to load the `RealObject` and then delegates to it.
 

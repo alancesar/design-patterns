@@ -7,7 +7,11 @@ tags:
   - Decoupling
 source: https://martinfowler.com/eaaCatalog/implicitLock.html
 sidebar_label: "Implicit Lock"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/offline-concurrency/implicit-lock.mdx';
 
 # Implicit Lock
 
@@ -52,24 +56,7 @@ The pattern isn't a type of lock; it's a way of applying the other locking patte
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class BusinessLogic
-    class LayerSupertype {
-        +find(id)
-        +update(entity)
-    }
-    class LockManager {
-        +acquire(id, owner)
-        +release(owner)
-    }
-    class AccountMapper {
-        +find(id)
-    }
-    BusinessLogic --> AccountMapper : uses
-    AccountMapper --|> LayerSupertype
-    LayerSupertype --> LockManager : acquires automatically
-```
+<Diagram />
 
 The business code only uses the `AccountMapper`. The `LayerSupertype`, which the mapper inherits from, acquires the lock from the `LockManager` whenever an object is loaded or changed.
 

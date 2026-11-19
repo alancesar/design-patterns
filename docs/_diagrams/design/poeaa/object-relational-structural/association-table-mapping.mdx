@@ -1,0 +1,9 @@
+```mermaid
+erDiagram
+    ACCOUNT ||--o{ ACCOUNT_HOLDER : has
+    HOLDER ||--o{ ACCOUNT_HOLDER : has
+    ACCOUNT_HOLDER {
+        bigint account_id PK
+        bigint holder_id PK
+    }
+```

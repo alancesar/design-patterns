@@ -8,7 +8,11 @@ tags:
   - Performance Efficiency
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling
 sidebar_label: "Queue-Based Load Leveling"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/messaging/queue-based-load-leveling.mdx';
 
 # Queue-Based Load Leveling
 
@@ -63,15 +67,7 @@ Additional considerations:
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    T1["Task A"] -- "requests at a variable rate" --> Q[("Message queue")]
-    T2["Task B"] --> Q
-    T3["Task C"] --> Q
-    Q -- "consumption at a controlled rate" --> S["Consumer service"]
-    S --> D[("Downstream resource (e.g., database)")]
-    Q -. "persistently failing messages" .-> DLQ[("Dead-letter queue")]
-```
+<Diagram />
 
 Multiple tasks publish messages at irregular rates to the same queue, which absorbs the spikes; the service consumes messages at its own pace and protects the downstream resource, while messages that can't be processed are isolated in a dead-letter queue.
 

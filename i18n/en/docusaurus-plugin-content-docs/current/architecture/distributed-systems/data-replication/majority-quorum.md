@@ -8,7 +8,11 @@ tags:
   - Availability
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/majority-quorum.html
 sidebar_label: "Majority Quorum"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/data-replication/majority-quorum.mdx';
 
 # Majority Quorum
 
@@ -52,15 +56,7 @@ The pattern appears in ZooKeeper, etcd, Raft, and Paxos to commit writes and ele
 
 ## Diagram
 
-```mermaid
-flowchart TB
-    L["Leader"] --> A["Node A: ack"]
-    L --> B["Node B: ack"]
-    L --> C["Node C: no response"]
-    A --> Q{"Majority (2 of 3)?"}
-    B --> Q
-    Q -->|"Yes"| OK["Update committed"]
-```
+<Diagram />
 
 In a three-node cluster, two acknowledgments are enough to consider the update accepted, even with one node unresponsive.
 

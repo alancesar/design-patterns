@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/documentation/rate-limit.mdx';
+
 # Rate Limit
 
 ## Descrição
@@ -58,21 +60,7 @@ Para medir e aplicar o limite, o provedor precisa identificar o cliente, normalm
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant C as Cliente (API Key)
-    participant G as Gateway
-    participant S as API de Cobranças Pix
-    C->>G: POST /v2/pix-charges (1ª a 3ª chamada)
-    G->>S: encaminha
-    S-->>C: 201 Created, X-RateLimit-Remaining: 2, 1, 0
-    C->>G: POST /v2/pix-charges (4ª chamada)
-    G-->>C: 429 Too Many Requests, Retry-After: 42
-    Note over C,G: Janela reinicia e o contador volta a zero
-    C->>G: POST /v2/pix-charges
-    G->>S: encaminha
-    S-->>C: 201 Created
-```
+<Diagram />
 
 O gateway conta as chamadas por cliente em cada janela, deixa passar as que cabem na cota e responde 429 às demais, informando quando tentar de novo.
 

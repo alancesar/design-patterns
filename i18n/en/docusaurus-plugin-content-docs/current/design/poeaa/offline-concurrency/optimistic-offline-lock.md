@@ -7,7 +7,11 @@ tags:
   - Performance
 source: https://martinfowler.com/eaaCatalog/optimisticOfflineLock.html
 sidebar_label: "Optimistic Offline Lock"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/offline-concurrency/optimistic-offline-lock.mdx';
 
 # Optimistic Offline Lock
 
@@ -52,19 +56,7 @@ Because the business transaction spans several requests (and therefore several d
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant A as Session A
-    participant B as Session B
-    participant DB as Database
-    A->>DB: reads record (version 1)
-    B->>DB: reads record (version 1)
-    B->>DB: UPDATE ... WHERE version = 1
-    DB-->>B: 1 row affected (version 2)
-    A->>DB: UPDATE ... WHERE version = 1
-    DB-->>A: 0 rows affected
-    Note over A: Conflict detected: abort and retry
-```
+<Diagram />
 
 Session B writes first and increments the version. Session A tries to write with the old version, affects no rows, and detects the conflict.
 

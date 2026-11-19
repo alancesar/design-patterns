@@ -8,7 +8,11 @@ tags:
   - Performance Efficiency
 source: https://microservices.io/patterns/deployment/serverless-deployment.html
 sidebar_label: "Serverless Deployment"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/deployment/serverless-deployment.mdx';
 
 # Serverless Deployment
 
@@ -51,16 +55,7 @@ Internamente o provedor usa contêineres ou VMs, mas isso não é gerenciado pel
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    Cli["Cliente HTTP"] --> GW["API Gateway"]
-    Evt["Evento (storage, fila, agendamento)"] --> Plat
-    GW --> Plat
-    subgraph Plat["Plataforma serverless"]
-        F1["Função - instância 1"]
-        F2["Função - instância 2"]
-    end
-```
+<Diagram />
 
 A plataforma cria e escala instâncias da função sob demanda, a partir de requisições e eventos.
 

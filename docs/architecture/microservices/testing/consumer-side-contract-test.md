@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://microservices.io/patterns/testing/consumer-side-contract-test.html
 sidebar_label: "Consumer-side Contract Test"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/testing/consumer-side-contract-test.mdx';
 
 # Consumer-side Contract Test
 
@@ -47,18 +51,7 @@ O Consumer-side Contract Test verifica que o cliente de um serviço consegue se 
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant T as Teste do consumidor
-    participant C as Serviço consumidor
-    participant S as Stub do provedor
-    participant K as Contrato
-    K->>S: gera o stub
-    T->>C: dispara o cenário
-    C->>S: requisição
-    S-->>C: resposta definida no contrato
-    C-->>T: resultado verificado
-```
+<Diagram />
 
 O consumidor é testado contra um stub derivado do contrato, sem depender do provedor real.
 

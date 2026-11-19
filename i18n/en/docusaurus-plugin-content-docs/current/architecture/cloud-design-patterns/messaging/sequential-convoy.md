@@ -6,7 +6,11 @@ tags:
   - Reliability
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/sequential-convoy
 sidebar_label: "Sequential Convoy"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/messaging/sequential-convoy.mdx';
 
 # Sequential Convoy
 
@@ -57,14 +61,7 @@ Many brokers offer this behavior natively, through sessions, message groups, or 
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    P[Producer] -->|"messages with category key"| Q[("Queue with sessions")]
-    Q -->|"Category A (FIFO)"| CA[Consumer A]
-    Q -->|"Category B (FIFO)"| CB[Consumer B]
-    Q -->|"Category C (FIFO)"| CC[Consumer C]
-    Q -.->|"poison messages"| DLQ[("Dead-letter queue")]
-```
+<Diagram />
 
 The producer sends interleaved messages from several categories to a single queue; the broker delivers each category exclusively to one consumer, which processes it in order, while different categories advance in parallel.
 

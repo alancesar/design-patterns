@@ -8,7 +8,11 @@ tags:
   - Performance Efficiency
 source: https://www.enterpriseintegrationpatterns.com/MessageExpiration.html
 sidebar_label: "Message Expiration"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-construction/message-expiration.mdx';
 
 # Message Expiration
 
@@ -48,12 +52,7 @@ Many systems route expired messages to a Dead Letter Channel; others simply disc
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    P["Sender (sets the deadline)"] --> Q["Channel"]
-    Q -->|"within the deadline"| C["Consumer"]
-    Q -->|"deadline expired"| D["Dead Letter Channel or discard"]
-```
+<Diagram />
 
 Messages within the deadline go to the consumer; expired ones are discarded or diverted.
 

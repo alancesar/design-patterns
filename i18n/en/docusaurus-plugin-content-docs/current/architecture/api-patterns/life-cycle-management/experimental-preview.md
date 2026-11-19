@@ -7,7 +7,11 @@ tags:
   - Shared Understanding
 source: https://api-patterns.org/
 sidebar_label: "Experimental Preview"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/life-cycle-management/experimental-preview.mdx';
 
 # Experimental Preview
 
@@ -57,13 +61,7 @@ The provider publishes a still-unstable version outside the normal management pr
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    S["Sandbox: /v2beta1"] -->|"Client feedback"| S2["Sandbox: /v2beta2 (incompatible)"]
-    S2 -->|"Client feedback"| P["Production: /v2 (with guarantees)"]
-    S -.->|"No stability guarantees"| X["May go offline"]
-    S2 -.->|"No stability guarantees"| X
-```
+<Diagram />
 
 The beta versions change and may disappear without notice; only the version promoted to production takes on compatibility and lifetime guarantees.
 

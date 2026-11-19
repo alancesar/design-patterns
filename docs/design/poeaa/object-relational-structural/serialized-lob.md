@@ -7,7 +7,11 @@ tags:
   - Performance
 source: https://martinfowler.com/eaaCatalog/serializedLOB.html
 sidebar_label: "Serialized LOB"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/object-relational-structural/serialized-lob.mdx';
 
 # Serialized LOB
 
@@ -50,23 +54,7 @@ Em vez de mapear cada objeto do grafo para tabelas e chaves estrangeiras, o mape
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Consent {
-        -Long id
-        -List permissions
-    }
-    class Permission {
-        -String name
-    }
-    class ConsentTable {
-        <<table>>
-        id
-        permissions
-    }
-    Consent --> Permission
-    Consent ..> ConsentTable : serializa a lista em permissions
-```
+<Diagram />
 
 A lista de `Permission` é serializada em uma única coluna `permissions` de `ConsentTable`.
 

@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://www.enterpriseintegrationpatterns.com/DeadLetterChannel.html
 sidebar_label: "Dead Letter Channel"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/messaging-channels/dead-letter-channel.mdx';
 
 # Dead Letter Channel
 
@@ -51,13 +55,7 @@ In many products the mechanism is automatic: after a configured number of delive
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    P["Producer"] --> C["Source channel"]
-    C --> R["Consumer"]
-    C -.->|"undeliverable or retry limit reached"| D["Dead Letter Channel"]
-    D --> O["Operator / reprocessing"]
-```
+<Diagram />
 
 When a message can't be delivered or exceeds the retry limit, it's moved to the dead letter channel, where an operator or process analyzes it.
 

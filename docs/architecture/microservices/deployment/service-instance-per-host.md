@@ -8,7 +8,11 @@ tags:
   - Operational Excellence
 source: https://microservices.io/patterns/deployment/single-service-per-host.html
 sidebar_label: "Service Instance per Host"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/deployment/service-instance-per-host.mdx';
 
 # Service Instance per Host
 
@@ -49,21 +53,7 @@ O padrão é um princípio geral de implantação e tem como refinamentos o uso 
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    LB["Balanceador de carga"] --> H1
-    LB --> H2
-    LB --> H3
-    subgraph H1["Host 1"]
-        A1["Serviço A - instância 1"]
-    end
-    subgraph H2["Host 2"]
-        A2["Serviço A - instância 2"]
-    end
-    subgraph H3["Host 3"]
-        B1["Serviço B - instância 1"]
-    end
-```
+<Diagram />
 
 Cada instância de serviço ocupa um host exclusivo.
 

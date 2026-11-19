@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/operation-responsibilities/state-creation-operation.mdx';
+
 # State Creation Operation
 
 ## Description
@@ -58,18 +60,7 @@ A common variant is the Event Notification Operation, which just stores the even
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant C as Client
-    participant A as API
-    participant S as Storage
-    C->>A: Reports incident (eventId, data)
-    A->>S: Writes the report
-    S-->>A: Written
-    A-->>C: Received (acknowledgment)
-    C->>A: Resends the same eventId
-    A-->>C: Already received (no new record)
-```
+<Diagram />
 
 The provider only writes and acknowledges. If the same incident arrives again, the identifier lets it answer without creating another record.
 

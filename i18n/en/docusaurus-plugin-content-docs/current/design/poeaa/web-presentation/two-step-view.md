@@ -7,7 +7,11 @@ tags:
   - Extensibility
 source: https://martinfowler.com/eaaCatalog/twoStepView.html
 sidebar_label: "Two Step View"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/web-presentation/two-step-view.mdx';
 
 # Two Step View
 
@@ -50,16 +54,7 @@ The advantage is that visual decisions are concentrated in the second step. To c
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant Controller
-    participant Step1 as LogicalView
-    participant Step2 as FinalRenderer
-    Controller->>Step1: domain data
-    Step1-->>Controller: generic logical page
-    Controller->>Step2: logical page
-    Step2-->>Controller: final HTML with the site's look
-```
+<Diagram />
 
 The first step transforms the data into a logical presentation structure; the second converts it into HTML with the site's look.
 

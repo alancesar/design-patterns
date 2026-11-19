@@ -7,7 +7,11 @@ tags:
   - Simplicity
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Standalone Classes"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/supple-design/standalone-classes.mdx';
 
 # Standalone Classes
 
@@ -51,26 +55,7 @@ When a Standalone Class is achieved, the gain is large: the concept can be under
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Money {
-        -long cents
-        -Currency currency
-        +plus(Money other) Money
-        +minus(Money other) Money
-    }
-    class Account {
-        -Money balance
-        +credit(Money amount)
-        +debit(Money amount)
-    }
-    class Ledger
-    class LedgerEntry
-    Account --> Money
-    Ledger --> Account
-    Ledger --> LedgerEntry
-    LedgerEntry --> Money
-```
+<Diagram />
 
 `Money` depends only on primitive types and the currency, and can be understood on its own, while `Ledger` concentrates the context's dependencies. The book illustrates the pattern with paint mixing.
 

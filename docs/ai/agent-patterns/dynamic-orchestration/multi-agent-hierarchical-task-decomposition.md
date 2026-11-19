@@ -8,7 +8,11 @@ tags:
 origin: Google
 source: https://docs.cloud.google.com/architecture/choose-design-pattern-agentic-ai-system#hierarchical-task-decomposition-pattern
 sidebar_label: "Multi-Agent Hierarchical Task Decomposition"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/ai/agent-patterns/dynamic-orchestration/multi-agent-hierarchical-task-decomposition.mdx';
 
 # Multi-Agent Hierarchical Task Decomposition
 
@@ -51,17 +55,7 @@ Os agentes se organizam em uma hierarquia de vários níveis. Um agente raiz div
 
 ## Diagrama
 
-```mermaid
-flowchart TD
-    U["Usuário"] --> R["Agente raiz"]
-    R --> S1["Coleta de balanços"]
-    R --> S2["Análise de risco"]
-    R --> S3["Redação do parecer"]
-    S1 --> W1["Agente trabalhador A"]
-    S1 --> W2["Agente trabalhador B"]
-    S2 --> W3["Agente trabalhador C"]
-    S3 --> W4["Agente trabalhador D"]
-```
+<Diagram />
 
 O agente raiz delega a subagentes intermediários, que decompõem e delegam até os agentes trabalhadores executarem.
 

@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/deployment-stamp
 sidebar_label: "Deployment Stamps"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/deployment-and-topology/deployment-stamp.mdx';
 
 # Deployment Stamps
 
@@ -65,27 +69,7 @@ Como o padrão depende de cópias idênticas da infraestrutura, a infraestrutura
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    U[Clientes] --> G["Roteador global (ponto de entrada)"]
-    G --> R[Serviço de roteamento]
-    R <--> M[("Catálogo tenant → stamp")]
-    subgraph S1["Stamp 1 - Região A (tenants A, B, C)"]
-        A1[Aplicação] --> D1[(Banco de dados)]
-    end
-    subgraph S2["Stamp 2 - Região A (tenant D)"]
-        A2[Aplicação] --> D2[(Banco de dados)]
-    end
-    subgraph S3["Stamp 3 - Região B (tenants E, F)"]
-        A3[Aplicação] --> D3[(Banco de dados)]
-    end
-    R --> A1
-    R --> A2
-    R --> A3
-    P["Pipeline de IaC"] -.-> S1
-    P -.-> S2
-    P -.-> S3
-```
+<Diagram />
 
 As requisições chegam por um ponto de entrada global, e o serviço de roteamento consulta o catálogo para descobrir em qual stamp está o tenant. Cada stamp é uma cópia completa e independente da aplicação e dos dados, provisionada de forma idêntica por um pipeline de infraestrutura como código.
 

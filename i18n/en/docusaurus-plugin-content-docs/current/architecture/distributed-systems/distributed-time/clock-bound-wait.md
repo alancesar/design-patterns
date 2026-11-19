@@ -7,7 +7,11 @@ tags:
   - Performance
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/clock-bound-wait.html
 sidebar_label: "Clock-Bound Wait"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/distributed-time/clock-bound-wait.mdx';
 
 # Clock-Bound Wait
 
@@ -53,19 +57,7 @@ The smaller and better known the error bound, the shorter the wait. That's why t
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant C as Client
-    participant N as Leader node
-    participant R as Other nodes
-    C->>N: write x
-    Note over N: timestamp t = local clock
-    Note over N: waits until t + maximum error
-    N->>R: replicate x with timestamp t
-    R-->>N: acknowledgment
-    N-->>C: write acknowledged
-    Note over R: any later read will have a timestamp greater than t
-```
+<Diagram />
 
 The write is only acknowledged after local time passes t plus the maximum error, guaranteeing that no clock in the cluster is still before t.
 

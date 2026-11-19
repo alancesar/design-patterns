@@ -7,7 +7,11 @@ tags:
   - Simplicity
 source: https://api-patterns.org/
 sidebar_label: "Solution-Internal API"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/foundations/solution-internal-api.mdx';
 
 # Solution-Internal API
 
@@ -54,15 +58,7 @@ Ser independentemente implantável não significa ser implantado de forma indepe
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    U["Cliente final"] --> FE["Aplicativo (intranet)"]
-    subgraph Aplicacao["Aplicação"]
-        FE -->|"API interna de frontend"| S1["Serviço de contas"]
-        S1 -->|"API interna de backend"| S2["Serviço de cartões"]
-        S1 --> DB[("Banco de dados")]
-    end
-```
+<Diagram />
 
 Todas as chamadas acontecem dentro da fronteira da aplicação: nenhum cliente externo alcança essas APIs diretamente.
 

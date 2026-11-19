@@ -7,7 +7,11 @@ tags:
   - Reliability
 source: https://k8spatterns.com/
 sidebar_label: "Declarative Deployment"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/kubernetes-patterns/foundational/declarative-deployment.mdx';
 
 # Declarative Deployment
 
@@ -57,15 +61,7 @@ On top of these primitives it is possible to build more elaborate release strate
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    D["Deployment pix-service: image 1.5.0"] --> RS2["New ReplicaSet"]
-    D --> RS1["Old ReplicaSet"]
-    RS2 -->|"Starts Pods (maxSurge)"| P2["Pods 1.5.0"]
-    P2 -->|"readinessProbe OK"| SVC["Service pix-service"]
-    RS1 -->|"Reduces Pods (maxUnavailable)"| P1["Pods 1.4.2"]
-    P1 -.->|"Removed when the new ones are ready"| SVC
-```
+<Diagram />
 
 The `Deployment` scales up the new `ReplicaSet` and scales down the old one in controlled steps; a Pod only receives traffic from the `Service` after it passes the `readinessProbe`.
 

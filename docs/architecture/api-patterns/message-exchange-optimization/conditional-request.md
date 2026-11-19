@@ -10,6 +10,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/message-exchange-optimization/conditional-request.mdx';
+
 # Conditional Request
 
 ## Descrição
@@ -57,19 +59,7 @@ O número de mensagens não diminui; o que encolhe é o tamanho das respostas re
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant C as Cliente
-    participant P as Provedor
-    C->>P: GET /accounts/acc-1/statement
-    P-->>C: 200 OK, ETag "ledger-2", corpo completo
-    Note over C: guarda a cópia e o ETag
-    C->>P: GET ... com If-None-Match "ledger-2"
-    P-->>C: 304 Not Modified, sem corpo
-    Note over C: reaproveita a cópia local
-    C->>P: GET ... com If-None-Match "ledger-2"
-    P-->>C: 200 OK, ETag "ledger-3", corpo novo
-```
+<Diagram />
 
 O primeiro retorno traz o corpo e o `ETag`. Enquanto os dados não mudam, a condição se verifica e o provedor devolve só o `304`; quando um novo lançamento altera o estado, o `ETag` muda e a resposta completa volta.
 

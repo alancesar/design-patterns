@@ -7,7 +7,11 @@ tags:
   - Performance
 source: https://martinfowler.com/eaaCatalog/optimisticOfflineLock.html
 sidebar_label: "Optimistic Offline Lock"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/offline-concurrency/optimistic-offline-lock.mdx';
 
 # Optimistic Offline Lock
 
@@ -52,19 +56,7 @@ Como a transação de negócio se estende por várias requisições (e, portanto
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant A as Sessao A
-    participant B as Sessao B
-    participant DB as Banco de dados
-    A->>DB: le registro (versao 1)
-    B->>DB: le registro (versao 1)
-    B->>DB: UPDATE ... WHERE versao = 1
-    DB-->>B: 1 linha afetada (versao 2)
-    A->>DB: UPDATE ... WHERE versao = 1
-    DB-->>A: 0 linhas afetadas
-    Note over A: Conflito detectado: abortar e refazer
-```
+<Diagram />
 
 A sessão B grava primeiro e incrementa a versão. A sessão A tenta gravar com a versão antiga, não afeta nenhuma linha e detecta o conflito.
 

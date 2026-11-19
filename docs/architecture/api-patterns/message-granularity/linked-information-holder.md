@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/message-granularity/linked-information-holder.mdx';
+
 # Linked Information Holder
 
 ## Descrição
@@ -58,17 +60,7 @@ O padrão faz uma promessa implícita ao receptor: o link pode ser seguido. O pr
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant C as API Client
-    participant A as Account Holder
-    participant E as Entries Holder
-    C->>A: GET /accounts/acc-7f3a
-    A-->>C: Resumo da conta e links
-    Note over C: Só segue o link se precisar
-    C->>E: GET /accounts/acc-7f3a/entries
-    E-->>C: Lançamentos
-```
+<Diagram />
 
 A primeira resposta é leve; os dados relacionados vêm em chamadas separadas, sob demanda.
 

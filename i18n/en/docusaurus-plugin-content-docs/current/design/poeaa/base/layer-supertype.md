@@ -7,7 +7,11 @@ tags:
   - Consistency
 source: https://martinfowler.com/eaaCatalog/layerSupertype.html
 sidebar_label: "Layer Supertype"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/base/layer-supertype.mdx';
 
 # Layer Supertype
 
@@ -51,19 +55,7 @@ Each layer can have its own Layer Supertype (for example, one for the domain and
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class DomainObject {
-        +id
-        +version
-    }
-    class Account
-    class Card
-    class LedgerEntry
-    DomainObject <|-- Account
-    DomainObject <|-- Card
-    DomainObject <|-- LedgerEntry
-```
+<Diagram />
 
 `Account`, `Card`, and `LedgerEntry` inherit the identifier and the version from `DomainObject`, the supertype of the domain layer.
 

@@ -7,7 +7,11 @@ tags:
   - Simplicity
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Intention-Revealing Interfaces"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/supple-design/intention-revealing-interfaces.mdx';
 
 # Intention-Revealing Interfaces
 
@@ -51,18 +55,7 @@ The pattern is the foundation of Supple Design. Interfaces that reveal intention
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class AccountBefore {
-        +process(Money amount)
-    }
-    class AccountAfter {
-        +placeHold(Money amount)
-        +availableBalance() Money
-    }
-    note for AccountBefore "Name does not reveal whether it debits, credits, or reserves"
-    note for AccountAfter "Name reveals the effect: reserves balance without debiting"
-```
+<Diagram />
 
 In `AccountBefore`, the method doesn't say what happens to the balance; in `AccountAfter`, `placeHold` reveals the intention and the effect. The book illustrates the pattern with paint mixing.
 

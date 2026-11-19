@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://microservices.io/patterns/ui/server-side-page-fragment-composition.html
 sidebar_label: "Server-side Page Fragment Composition"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/ui-design/server-side-page-fragment-composition.mdx';
 
 # Server-side Page Fragment Composition
 
@@ -49,16 +53,7 @@ Neste padrão, cada equipe desenvolve uma aplicação web que gera o fragmento H
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    N[Navegador] --> P["Compositor de página (templates)"]
-    P --> F1["Fragmento: saldo"]
-    P --> F2["Fragmento: fatura"]
-    P --> F3["Fragmento: investimentos"]
-    F1 --> S1[Serviço de contas]
-    F2 --> S2[Serviço de cartões]
-    F3 --> S3[Serviço de investimentos]
-```
+<Diagram />
 
 O compositor de página monta no servidor os fragmentos HTML gerados por cada serviço e devolve a página inicial do internet banking completa ao navegador. A fonte ilustra o padrão com a página de um livro.
 

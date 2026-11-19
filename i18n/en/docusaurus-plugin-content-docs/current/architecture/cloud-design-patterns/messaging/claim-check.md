@@ -11,7 +11,11 @@ also_in:
   - architecture/eip/message-transformation
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/claim-check
 sidebar_label: "Claim Check"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/messaging/claim-check.mdx';
 
 # Claim Check
 
@@ -67,15 +71,7 @@ As a result, the broker carries only small messages, while the external store ha
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    P[Producer] -->|"1. Stores the payload"| S[("External storage")]
-    P -->|"2. Publishes the claim check"| M[["Messaging system"]]
-    M -->|"3. Delivers the message"| C[Consumer]
-    C -->|"4. Fetches the payload by reference"| S
-    S -.->|"5. Returns the payload"| C
-    C --> R["6. Processes the payload"]
-```
+<Diagram />
 
 The producer writes the payload to the external store and publishes only the reference to the messaging system; the consumer uses that reference to fetch the content directly from the store before processing it.
 

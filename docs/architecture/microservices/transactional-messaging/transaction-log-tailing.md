@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://microservices.io/patterns/data/transaction-log-tailing.html
 sidebar_label: "Transaction Log Tailing"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/transactional-messaging/transaction-log-tailing.mdx';
 
 # Transaction Log Tailing
 
@@ -49,13 +53,7 @@ O mecanismo depende do banco: o binlog do MySQL, o WAL do PostgreSQL ou os strea
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    S["Serviço"] -->|"Transação"| DB[("Banco de dados")]
-    DB --> L["Log de transações"]
-    R["Message relay"] -->|"Acompanha o log"| L
-    R -->|"Publica mensagens do outbox"| B["Message broker"]
-```
+<Diagram />
 
 O relay lê o log de transações do banco, filtra as inserções no outbox e as publica no broker.
 

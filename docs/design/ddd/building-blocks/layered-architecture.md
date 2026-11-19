@@ -7,7 +7,11 @@ tags:
   - Simplicity
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Layered Architecture"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/building-blocks/layered-architecture.mdx';
 
 # Layered Architecture
 
@@ -50,17 +54,7 @@ O objetivo é que o código do modelo possa ser lido, testado e evoluído sem se
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class UserInterface
-    class Application
-    class Domain
-    class Infrastructure
-    UserInterface --> Application
-    Application --> Domain
-    Infrastructure --> Domain
-    Infrastructure ..> Application
-```
+<Diagram />
 
 A interface chama a aplicação, que orquestra o domínio. A infraestrutura implementa as abstrações definidas pelo domínio e serve às demais camadas.
 

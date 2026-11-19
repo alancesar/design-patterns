@@ -7,7 +7,11 @@ tags:
   - Evolvability
 source: https://api-patterns.org/
 sidebar_label: "Link Element"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/element-stereotypes/link-element.mdx';
 
 # Link Element
 
@@ -60,13 +64,7 @@ The most common semantic link types are: **next** (next step of a process), **un
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    C["Client"] -->|"1. GET boleto"| B["/boletos/bol_5521"]
-    B -->|"2. response with links"| C
-    C -->|"3. follows the pay link"| P["/boletos/bol_5521/payment"]
-    C -.->|"or follows the cancel link"| X["/boletos/bol_5521/cancellation"]
-```
+<Diagram />
 
 The boleto response carries links with the valid actions, and the client picks one instead of building the URL itself.
 

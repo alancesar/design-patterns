@@ -7,7 +7,11 @@ tags:
   - Cost Optimization
 source: https://www.enterpriseintegrationpatterns.com/GuaranteedMessaging.html
 sidebar_label: "Guaranteed Delivery"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/messaging-channels/guaranteed-delivery.mdx';
 
 # Guaranteed Delivery
 
@@ -51,20 +55,7 @@ A garantia vem ao preço de gravar em disco a cada salto, o que aumenta a latên
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant S as Remetente
-    participant M1 as Armazenamento local A
-    participant M2 as Armazenamento local B
-    participant R as Receptor
-    S->>M1: envia mensagem
-    M1-->>S: gravada em disco
-    M1->>M2: encaminha mensagem
-    M2-->>M1: gravada em disco
-    M1->>M1: descarta a cópia local
-    M2->>R: entrega mensagem
-    R-->>M2: confirma recebimento
-```
+<Diagram />
 
 Cada salto grava a mensagem em disco antes de confirmar, e a cópia só é descartada quando o próximo armazenamento a assumiu, até a confirmação do receptor.
 

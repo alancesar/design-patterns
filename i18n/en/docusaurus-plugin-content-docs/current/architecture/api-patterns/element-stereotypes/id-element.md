@@ -7,7 +7,11 @@ tags:
   - Decoupling
 source: https://api-patterns.org/
 sidebar_label: "Id Element"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/element-stereotypes/id-element.mdx';
 
 # Id Element
 
@@ -60,12 +64,7 @@ Identifiers can be readable by both people and machines: if users must type them
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    A["Response: Account"] -->|"id: acc_7f3a91"| X["Id Element"]
-    L["Response: LedgerEntry"] -->|"accountId: acc_7f3a91"| X
-    X --> R["GET /accounts/acc_7f3a91"]
-```
+<Diagram />
 
 Two different messages reference the same account by the same Id Element, which lets the client relate them and fetch the details when needed.
 

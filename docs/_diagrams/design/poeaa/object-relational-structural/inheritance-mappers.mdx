@@ -1,0 +1,17 @@
+```mermaid
+classDiagram
+    class AbstractPaymentInstructionMapper {
+        +load(row) PaymentInstruction
+        #create() PaymentInstruction
+    }
+    class PixTransferMapper {
+        +load(row) PaymentInstruction
+        #create() PaymentInstruction
+    }
+    class TedTransferMapper {
+        +load(row) PaymentInstruction
+        #create() PaymentInstruction
+    }
+    AbstractPaymentInstructionMapper <|-- PixTransferMapper
+    AbstractPaymentInstructionMapper <|-- TedTransferMapper
+```

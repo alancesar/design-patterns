@@ -9,7 +9,11 @@ also_in:
   - design/ddd/context-mapping
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/anti-corruption-layer
 sidebar_label: "Anti-Corruption Layer"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/integration-and-modernization/anti-corruption-layer.mdx';
 
 # Anti-Corruption Layer
 
@@ -67,25 +71,7 @@ No contexto de microsserviços (microservices.io), o padrão responde à pergunt
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    subgraph A["Subsistema A (moderno)"]
-        S1[Serviço 1]
-        S2[Serviço 2]
-        S3[Serviço 3]
-    end
-    ACL["Anti-Corruption Layer (tradução de modelos e protocolos)"]
-    subgraph B["Subsistema B (legado ou externo)"]
-        L[Sistema legado]
-        DB[(Base de dados legada)]
-    end
-    S1 -->|"modelo de A"| ACL
-    S2 -->|"modelo de A"| ACL
-    S3 -->|"modelo de A"| ACL
-    ACL -->|"modelo e protocolo de B"| L
-    L --> DB
-    ACL -.->|"respostas traduzidas para o modelo de A"| S1
-```
+<Diagram />
 
 Os serviços do subsistema A falam apenas em seu próprio modelo com a Anti-Corruption Layer, que traduz as chamadas para o modelo e o protocolo do subsistema B e converte as respostas de volta. Nenhum dos lados precisa conhecer a estrutura interna do outro.
 

@@ -7,7 +7,11 @@ tags:
   - Cost Optimization
 source: https://www.enterpriseintegrationpatterns.com/Filter.html
 sidebar_label: "Message Filter"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-routing/message-filter.mdx';
 
 # Message Filter
 
@@ -49,12 +53,7 @@ Muitos brokers implementam o padrão por meio de vínculos entre filas e chaves 
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    IN["Canal de entrada"] --> F{"Message Filter"}
-    F -->|"atende ao critério"| OUT["Canal de saída"]
-    F -->|"não atende"| D["Descartada"]
-```
+<Diagram />
 
 O filtro deixa passar somente as mensagens que satisfazem o critério.
 

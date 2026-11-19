@@ -7,7 +7,11 @@ tags:
   - Simplicity
 source: https://martinfowler.com/eaaCatalog/coarseGrainedLock.html
 sidebar_label: "Coarse-Grained Lock"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/offline-concurrency/coarse-grained-lock.mdx';
 
 # Coarse-Grained Lock
 
@@ -52,27 +56,7 @@ The pattern aligns the lock granularity with the model's consistency boundary, r
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Version {
-        +id
-        +value
-    }
-    class LoanContract {
-        +id
-    }
-    class Installment {
-        +id
-    }
-    class Collateral {
-        +id
-    }
-    LoanContract --> Version : shares
-    Installment --> Version : shares
-    Collateral --> Version : shares
-    LoanContract "1" --> "*" Installment
-    LoanContract "1" --> "*" Collateral
-```
+<Diagram />
 
 `LoanContract`, `Installment`, and `Collateral` reference the same `Version` object. Any change to one of them increments that version, and the conflict is detected for the whole group.
 

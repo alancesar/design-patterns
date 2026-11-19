@@ -7,7 +7,11 @@ tags:
   - Consistency
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Hands-on Modelers"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/model-in-practice/hands-on-modelers.mdx';
 
 # Hands-on Modelers
 
@@ -51,15 +55,7 @@ This doesn't mean everyone does everything: architects and analysts can lead the
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    subgraph Separado ["Separate roles"]
-        A1["Modeler"] -->|"hands off model"| B1["Programmer"]
-    end
-    subgraph Hands ["Hands-on Modelers"]
-        A2["Modeler who codes"] <-->|"same model and code"| B2["Programmer who models"]
-    end
-```
+<Diagram />
 
 In the arrangement with separate roles, the flow is one-way; with Hands-on Modelers, the same people work on both model and code and feedback is continuous.
 

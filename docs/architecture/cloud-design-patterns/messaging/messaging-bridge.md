@@ -9,7 +9,11 @@ also_in:
   - architecture/eip/messaging-channels
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/messaging-bridge
 sidebar_label: "Messaging Bridge"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/messaging/messaging-bridge.mdx';
 
 # Messaging Bridge
 
@@ -66,21 +70,7 @@ Na formulação do Enterprise Integration Patterns (Hohpe e Woolf), a ponte não
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    subgraph A["Infraestrutura de mensageria A (on-premises)"]
-        S["Sistema legado (remetente)"] --> QA["Fila de origem"]
-        QA2["Fila de retorno"] --> S
-    end
-    subgraph B["Infraestrutura de mensageria B (nuvem)"]
-        QB["Fila de destino"] --> R["Novo componente (receptor)"]
-        R --> QB2["Fila de resposta"]
-    end
-    QA --> BR["Messaging Bridge"]
-    BR --> QB
-    QB2 --> BR
-    BR --> QA2
-```
+<Diagram />
 
 O sistema legado publica mensagens em sua infraestrutura nativa; a ponte as consome e repassa, sem alterar o payload, para a fila correspondente na outra infraestrutura, e faz o mesmo no sentido inverso. Nenhum dos lados precisa saber que existe uma ponte entre eles (no exemplo da Microsoft, MSMQ on-premises é conectado ao Azure Service Bus).
 

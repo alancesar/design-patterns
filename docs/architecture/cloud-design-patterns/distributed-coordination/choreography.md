@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/choreography
 sidebar_label: "Choreography"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/distributed-coordination/choreography.mdx';
 
 # Choreography
 
@@ -60,20 +64,7 @@ Com isso, os componentes ficam fracamente acoplados e podem ser adicionados, tro
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    C["Cliente"] -->|"Solicita Pix"| I["Serviço de Pix"]
-    I -->|"Publica: transferência solicitada"| B[("Message broker")]
-    B -->|"Evento"| F["Antifraude"]
-    B -->|"Evento"| LM["Limites"]
-    F -->|"Publica: transferência aprovada"| B
-    LM -->|"Publica: limite reservado"| B
-    B -->|"Eventos correlacionados"| L["Ledger"]
-    L -->|"Publica: débito efetuado"| B
-    B -->|"Evento"| K["Conector SPI"]
-    K -->|"Publica: transferência liquidada"| B
-    B -.->|"Falhas"| Q["DLQ e compensações"]
-```
+<Diagram />
 
 Nenhum serviço coordena os demais: cada um reage aos eventos do broker e publica o resultado da sua parte. O antifraude e o serviço de limites reagem em paralelo a "transferência solicitada", o ledger só debita depois de receber os dois eventos ("transferência aprovada" e "limite reservado") e o conector só envia ao SPI depois de "débito efetuado", todos correlacionados pelo `endToEndId` da transferência. A fonte ilustra o padrão com uma entrega por drones.
 

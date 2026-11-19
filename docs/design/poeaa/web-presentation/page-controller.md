@@ -7,7 +7,11 @@ tags:
   - Testability
 source: https://martinfowler.com/eaaCatalog/pageController.html
 sidebar_label: "Page Controller"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/web-presentation/page-controller.mdx';
 
 # Page Controller
 
@@ -49,18 +53,7 @@ O controller pode ser a própria página (como em scripts CGI, servlets ou code-
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant Browser
-    participant PageController
-    participant Model
-    participant View
-    Browser->>PageController: requisicao da pagina
-    PageController->>Model: executa logica de dominio
-    Model-->>PageController: dados
-    PageController->>View: seleciona e preenche
-    View-->>Browser: resposta HTML
-```
+<Diagram />
 
 O navegador chama diretamente o controller da página; ele consulta o model e entrega os dados à view, que gera a resposta.
 

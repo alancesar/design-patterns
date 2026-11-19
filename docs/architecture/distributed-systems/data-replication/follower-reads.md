@@ -8,7 +8,11 @@ tags:
   - Availability
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/follower-reads.html
 sidebar_label: "Follower Reads"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/data-replication/follower-reads.mdx';
 
 # Follower Reads
 
@@ -49,14 +53,7 @@ Aparece em Kafka (consumidores lendo de réplicas), ZooKeeper (leituras em qualq
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    W["Cliente (escrita)"] --> L["Líder"]
-    L -->|"replica"| F1["Seguidor 1 (região A)"]
-    L -->|"replica"| F2["Seguidor 2 (região B)"]
-    R1["Cliente leitor A"] --> F1
-    R2["Cliente leitor B"] --> F2
-```
+<Diagram />
 
 As escritas vão ao líder, enquanto os clientes leitores consultam o seguidor mais próximo.
 

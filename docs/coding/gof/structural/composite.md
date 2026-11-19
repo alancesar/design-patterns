@@ -12,6 +12,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/structural/composite.mdx';
+
 # Composite
 
 ## Descrição
@@ -57,28 +59,7 @@ Com isso, o código cliente não precisa distinguir se está lidando com um elem
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Client
-    class Component {
-        <<interface>>
-        +operation()
-    }
-    class Leaf {
-        +operation()
-    }
-    class Composite {
-        -children: List~Component~
-        +operation()
-        +add(c: Component)
-        +remove(c: Component)
-        +getChildren() List~Component~
-    }
-    Client --> Component
-    Component <|.. Leaf
-    Component <|.. Composite
-    Composite o-- "0..*" Component : children
-```
+<Diagram />
 
 O `Client` depende apenas de `Component`. `Leaf` implementa a operação diretamente, e `Composite` agrega vários `Component` filhos, delegando a operação a cada um deles de forma recursiva.
 

@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://www.enterpriseintegrationpatterns.com/RoutingTable.html
 sidebar_label: "Routing Slip"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-routing/routing-slip.mdx';
 
 # Routing Slip
 
@@ -47,14 +51,7 @@ Each processing component is wrapped by a router that reads the slip and forward
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    IN["Message"] --> G["Attaches the slip"]
-    G --> E1["Step 1"]
-    E1 --> E3["Step 3"]
-    E3 --> OUT["Output"]
-    E1 -.->|"failure"| EX["Exception channel"]
-```
+<Diagram />
 
 The slip lists steps 1 and 3 (step 2 is skipped) and the message travels only that path.
 

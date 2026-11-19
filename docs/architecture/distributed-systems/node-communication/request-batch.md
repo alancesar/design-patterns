@@ -7,7 +7,11 @@ tags:
   - Scalability
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/request-batch.html
 sidebar_label: "Request Batch"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/node-communication/request-batch.mdx';
 
 # Request Batch
 
@@ -52,18 +56,7 @@ O cliente costuma fechar o lote por tamanho (bytes ou número de itens) ou por t
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant C as Cliente
-    participant B as Buffer de lote
-    participant N as No do cluster
-    C->>B: Requisicao A
-    C->>B: Requisicao B
-    C->>B: Requisicao C
-    B->>N: Lote com A, B e C (tamanho ou tempo atingido)
-    N->>N: Processa cada requisicao
-    N-->>C: Lote de respostas A, B e C
-```
+<Diagram />
 
 O cliente acumula requisições em um buffer e as envia como um único lote quando atinge o limite de tamanho ou de tempo. O nó processa todas e responde também em lote.
 

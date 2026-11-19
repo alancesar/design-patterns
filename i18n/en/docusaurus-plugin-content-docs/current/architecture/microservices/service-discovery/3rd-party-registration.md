@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://microservices.io/patterns/3rd-party-registration.html
 sidebar_label: "3rd Party Registration"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/service-discovery/3rd-party-registration.mdx';
 
 # 3rd Party Registration
 
@@ -45,18 +49,7 @@ The registrar can watch the deployment platform or run health checks, and regist
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant P as Platform
-    participant G as Registrar
-    participant R as Service Registry
-    participant I as Instance
-    P->>I: Starts the instance
-    G->>I: Detects and health-checks
-    G->>R: Registers the instance
-    P->>I: Terminates the instance
-    G->>R: Deregisters the instance
-```
+<Diagram />
 
 An external registrar watches the instances and maintains the registry.
 

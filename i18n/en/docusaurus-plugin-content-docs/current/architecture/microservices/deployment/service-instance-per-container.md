@@ -8,7 +8,11 @@ tags:
   - Cost Optimization
 source: https://microservices.io/patterns/deployment/service-per-container.html
 sidebar_label: "Service Instance per Container"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/deployment/service-instance-per-container.mdx';
 
 # Service Instance per Container
 
@@ -49,21 +53,7 @@ Scaling is done by changing the number of containers. Since only the application
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    Build["Build pipeline"] --> Img["Container image"]
-    Img --> C1["Container - instance 1"]
-    Img --> C2["Container - instance 2"]
-    Img --> C3["Container - instance 3"]
-    subgraph Host["Host with container runtime"]
-        C1
-        C2
-        C3
-    end
-    LB["Load balancer"] --> C1
-    LB --> C2
-    LB --> C3
-```
+<Diagram />
 
 The image produces several containers that share the host's kernel.
 

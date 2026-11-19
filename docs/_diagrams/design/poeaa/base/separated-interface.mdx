@@ -1,0 +1,17 @@
+```mermaid
+classDiagram
+    namespace DomainPackage {
+        class ForeignCurrencyConverter
+        class ExchangeRateProvider {
+            <<interface>>
+            +rate(from, to)
+        }
+    }
+    namespace InfrastructurePackage {
+        class HttpExchangeRateProvider {
+            +rate(from, to)
+        }
+    }
+    ForeignCurrencyConverter --> ExchangeRateProvider
+    ExchangeRateProvider <|.. HttpExchangeRateProvider
+```

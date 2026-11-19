@@ -6,7 +6,11 @@ tags:
   - Performance Efficiency
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/asynchronous-request-reply
 sidebar_label: "Asynchronous Request-Reply"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/messaging/asynchronous-request-reply.mdx';
 
 # Asynchronous Request-Reply
 
@@ -64,26 +68,7 @@ O padrão é útil principalmente quando o cliente não consegue receber callbac
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant C as Cliente
-    participant A as "API"
-    participant Q as "Fila de trabalho"
-    participant W as "Worker"
-    participant S as "Endpoint de status"
-    participant R as "Recurso de resultado"
-    C->>A: "POST /operacoes"
-    A->>Q: "Enfileira o trabalho"
-    A-->>C: "202 Accepted (Location, Retry-After)"
-    Q->>W: "Entrega a mensagem"
-    C->>S: "GET status"
-    S-->>C: "200 OK (status: em execução)"
-    W->>R: "Grava o resultado"
-    C->>S: "GET status"
-    S-->>C: "303 See Other (Location do resultado)"
-    C->>R: "GET resultado"
-    R-->>C: "200 OK"
-```
+<Diagram />
 
 O cliente recebe 202 assim que a requisição é aceita e enfileirada, consulta o endpoint de status respeitando o `Retry-After` e, após a conclusão, é redirecionado com 303 para buscar o resultado final.
 

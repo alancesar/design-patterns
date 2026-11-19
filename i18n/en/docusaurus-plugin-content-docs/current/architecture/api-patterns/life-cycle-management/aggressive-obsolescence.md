@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/life-cycle-management/aggressive-obsolescence.mdx';
+
 # Aggressive Obsolescence
 
 ## Description
@@ -65,13 +67,7 @@ From the release onward, the provider makes clear that it reserves the right to 
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    R["1. Release V1"] --> D["2. Deprecate V1 and announce the removal date"]
-    D -->|"Deprecation period"| M["Clients migrate to V2"]
-    D --> X["3. Remove V1 on the announced date"]
-    M --> X
-```
+<Diagram />
 
 The version is released, then deprecated with a fixed removal date and retired when the deadline ends, whether or not clients have migrated.
 

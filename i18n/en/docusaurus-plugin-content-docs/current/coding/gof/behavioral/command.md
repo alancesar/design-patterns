@@ -12,6 +12,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/behavioral/command.mdx';
+
 # Command
 
 ## Description
@@ -60,34 +62,7 @@ Because commands are first-class objects, they can be stored in a history, compo
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Command {
-        <<interface>>
-        +execute()
-        +undo()
-    }
-    class ConcreteCommand {
-        -receiver: Receiver
-        -state
-        +execute()
-        +undo()
-    }
-    class Receiver {
-        +action()
-    }
-    class Invoker {
-        -history: List~Command~
-        +setCommand(command: Command)
-        +executeCommand()
-    }
-    class Client
-    Command <|.. ConcreteCommand
-    ConcreteCommand --> Receiver
-    Invoker o-- Command
-    Client ..> ConcreteCommand : creates
-    Client ..> Receiver : configures
-```
+<Diagram />
 
 The `Client` creates the `ConcreteCommand` and associates it with a `Receiver`; the `Invoker` stores commands and calls `execute()` without knowing the receiver. The `ConcreteCommand` translates the call into one or more actions on the `Receiver` and can store state for `undo()`.
 

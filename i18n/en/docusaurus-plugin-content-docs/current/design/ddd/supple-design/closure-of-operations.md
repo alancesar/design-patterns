@@ -7,7 +7,11 @@ tags:
   - Decoupling
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Closure of Operations"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/supple-design/closure-of-operations.mdx';
 
 # Closure of Operations
 
@@ -51,18 +55,7 @@ The pattern is especially natural in Value Objects, which are immutable and can 
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Money {
-        +plus(Money other) Money
-    }
-    class DateRange {
-        +intersect(DateRange other) DateRange
-        +union(DateRange other) DateRange
-    }
-    Money ..> Money : returns the same type
-    DateRange ..> DateRange : returns the same type
-```
+<Diagram />
 
 In both classes, the operation takes and returns the same type, so the results can be chained.
 

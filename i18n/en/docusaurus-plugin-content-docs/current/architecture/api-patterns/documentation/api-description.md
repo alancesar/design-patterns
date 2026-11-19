@@ -7,7 +7,11 @@ tags:
   - Evolvability
 source: https://api-patterns.org/
 sidebar_label: "API Description"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/documentation/api-description.mdx';
 
 # API Description
 
@@ -55,17 +59,7 @@ There are two variants at the ends of a spectrum. The **Minimal Description** ho
 
 ## Diagram
 
-```mermaid
-flowchart TB
-    D["API Description"]
-    D --> E["Endpoints and operations"]
-    D --> M["Messages: structure and meaning"]
-    D --> X["Errors and error reports"]
-    D --> B["Behavior: idempotency and state"]
-    D --> V["Version and life cycle"]
-    D --> Q["Security, SLA, pricing plan"]
-    D -.-> C["Clients: reading, code generation, tests"]
-```
+<Diagram />
 
 The description gathers the technical contract plus the semantic and organizational information, and is consumed by people and tools on the client side.
 

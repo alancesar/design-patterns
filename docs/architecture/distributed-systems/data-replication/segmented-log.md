@@ -7,7 +7,11 @@ tags:
   - Durability
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/segmented-log.html
 sidebar_label: "Segmented Log"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/data-replication/segmented-log.mdx';
 
 # Segmented Log
 
@@ -51,13 +55,7 @@ Kafka organiza cada partição como uma sequência de segmentos, e Cassandra, Zo
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    S1[("Segmento 1: 0 a 99")] --> S2[("Segmento 2: 100 a 199")]
-    S2 --> S3[("Segmento 3 (ativo): 200 em diante")]
-    W["Escritas"] --> S3
-    R["Leituras por offset"] -.-> S2
-```
+<Diagram />
 
 O log é uma sequência de segmentos imutáveis mais um segmento ativo, o único que recebe novas escritas.
 

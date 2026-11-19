@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://www.enterpriseintegrationpatterns.com/ContentBasedRouter.html
 sidebar_label: "Content-Based Router"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-routing/content-based-router.mdx';
 
 # Content-Based Router
 
@@ -50,13 +54,7 @@ Em cenários mais sofisticados, o roteador evolui para um mecanismo de regras co
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    P["Instrução de pagamento"] --> R{"Content-Based Router"}
-    R -->|"trilho Pix"| W["Conector de Pix"]
-    R -->|"trilho TED"| G["Conector de TED"]
-    R -->|"trilho boleto"| B["Conector de boleto"]
-```
+<Diagram />
 
 O roteador lê o trilho da instrução e a encaminha ao conector responsável por ela. A fonte ilustra o padrão com um pedido de widgets e gadgets.
 

@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://microservices.io/patterns/testing/service-integration-contract-test.html
 sidebar_label: "Consumer-driven Contract Test"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/testing/consumer-driven-contract-test.mdx';
 
 # Consumer-driven Contract Test
 
@@ -47,13 +51,7 @@ The emphasis is on the **provider side**: the provider is validated against the 
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    C["Consumer team"] -->|"writes"| K["Contract"]
-    K -->|"published to"| P["Provider team"]
-    P -->|"runs in the build"| T["Provider test"]
-    T -->|"validates"| S["Provider service"]
-```
+<Diagram />
 
 The consumer defines the contract and the provider runs it against its own service, validating it in isolation.
 

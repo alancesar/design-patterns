@@ -6,7 +6,11 @@ tags:
   - Reliability
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/leader-election
 sidebar_label: "Leader Election"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/distributed-coordination/leader-election.mdx';
 
 # Leader Election
 
@@ -56,23 +60,7 @@ As instâncias subordinadas monitoram o líder por heartbeat, polling ou expira�
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant A as "Instância A"
-    participant B as "Instância B"
-    participant L as "Serviço de lock distribuído"
-    A->>L: Tenta adquirir lease
-    L-->>A: Lease concedido (líder)
-    B->>L: Tenta adquirir lease
-    L-->>B: Negado (subordinada)
-    loop Enquanto for líder
-        A->>L: Renova lease
-        A->>B: Coordena trabalho
-    end
-    Note over A: Instância A falha
-    B->>L: Tenta adquirir lease após expiração
-    L-->>B: Lease concedido (novo líder)
-```
+<Diagram />
 
 As instâncias disputam um lease em um serviço de lock distribuído; quem o obtém vira líder e o renova periodicamente. Se o líder falhar, o lease expira e outra instância assume a liderança.
 

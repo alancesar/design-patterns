@@ -7,7 +7,11 @@ tags:
   - Reliability
 source: https://www.enterpriseintegrationpatterns.com/Sequencer.html
 sidebar_label: "Splitter"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-routing/splitter.mdx';
 
 # Splitter
 
@@ -49,13 +53,7 @@ So that the parts can be recombined later, it's common for each message to carry
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    M["Payroll batch"] --> S{"Splitter"}
-    S --> I1["Payment 1 message"]
-    S --> I2["Payment 2 message"]
-    S --> I3["Payment 3 message"]
-```
+<Diagram />
 
 The composite batch is split into one message per payment, ready for independent routing. The source illustrates the pattern with an order that has several line items.
 

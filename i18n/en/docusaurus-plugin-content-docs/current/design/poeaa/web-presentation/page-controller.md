@@ -7,7 +7,11 @@ tags:
   - Testability
 source: https://martinfowler.com/eaaCatalog/pageController.html
 sidebar_label: "Page Controller"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/web-presentation/page-controller.mdx';
 
 # Page Controller
 
@@ -49,18 +53,7 @@ The controller can be the page itself (as in CGI scripts, servlets, or code-behi
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant Browser
-    participant PageController
-    participant Model
-    participant View
-    Browser->>PageController: page request
-    PageController->>Model: runs domain logic
-    Model-->>PageController: data
-    PageController->>View: selects and populates
-    View-->>Browser: HTML response
-```
+<Diagram />
 
 The browser calls the page's controller directly; it queries the model and hands the data to the view, which generates the response.
 

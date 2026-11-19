@@ -7,7 +7,11 @@ tags:
   - Evolvability
 source: https://api-patterns.org/
 sidebar_label: "Public API"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/foundations/public-api.mdx';
 
 # Public API
 
@@ -55,15 +59,7 @@ Security and reliability gain weight: use API Keys or other mechanisms, harden t
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    W["Third-party web app"] --> P
-    M["Mobile app"] --> P
-    S["Partner system"] --> P
-    P(["Public API"]) --> BE["Fintech backend"]
-    BE --> DB[("Database")]
-    D["API Description, Pricing Plan, Rate Limit and SLA"] -.-> P
-```
+<Diagram />
 
 Clients from any origin reach the same public entry point, accompanied by documentation, pricing plan, limits and service level agreement.
 

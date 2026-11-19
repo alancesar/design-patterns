@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/special-purpose-representations/api-key.mdx';
+
 # API Key
 
 ## Descrição
@@ -58,20 +60,7 @@ Separar a chave das credenciais da conta do cliente permite emitir várias chave
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant Cliente as Cliente da API
-    participant Endpoint as API protegida
-    participant Registro as Registro de chaves
-    Cliente->>Endpoint: GET /v1/accounts/{id}/balance (Authorization: Bearer chave)
-    Endpoint->>Registro: busca pelo hash da chave
-    alt Chave conhecida e ativa
-        Registro-->>Endpoint: cliente + permissões + plano
-        Endpoint-->>Cliente: 200 OK
-    else Chave ausente, desconhecida ou revogada
-        Endpoint-->>Cliente: 401 Unauthorized
-    end
-```
+<Diagram />
 
 O cliente envia a chave em todas as chamadas; o endpoint a resolve para um cliente cadastrado, que determina permissões, limites e cobrança.
 

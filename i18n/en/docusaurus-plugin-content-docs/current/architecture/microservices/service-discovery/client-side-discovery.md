@@ -7,7 +7,11 @@ tags:
   - Reliability
 source: https://microservices.io/patterns/client-side-discovery.html
 sidebar_label: "Client-side Discovery"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/service-discovery/client-side-discovery.mdx';
 
 # Client-side Discovery
 
@@ -48,16 +52,7 @@ This logic is generally provided by a microservice chassis or client library, so
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant C as Client
-    participant R as Service Registry
-    participant I as Service instance
-    C->>R: Queries available instances
-    R-->>C: List of locations
-    C->>C: Picks an instance (load balancing)
-    C->>I: Sends the request
-```
+<Diagram />
 
 The client queries the registry, picks an instance, and calls it directly.
 

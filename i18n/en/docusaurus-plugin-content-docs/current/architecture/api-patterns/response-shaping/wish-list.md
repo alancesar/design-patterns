@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/response-shaping/wish-list.mdx';
+
 # Wish List
 
 ## Description
@@ -57,14 +59,7 @@ The list is usually an [Atomic Parameter List](/architecture/api-patterns/basic-
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    C["Client"] -->|"fields=accountId,balanceCents"| E["Endpoint"]
-    E --> L["List evaluator"]
-    L -->|"Filter or selection"| D[("Data source")]
-    D --> L
-    L -->|"Only the requested fields"| C
-```
+<Diagram />
 
 The evaluator reads the wish list from the request and restricts the query or the response assembly to the enumerated fields.
 

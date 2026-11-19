@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/operation-responsibilities/retrieval-operation.mdx';
+
 # Retrieval Operation
 
 ## Description
@@ -56,17 +58,7 @@ The operation serves ad hoc or periodic information needs, such as a month's sta
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant C as Client
-    participant A as API
-    participant S as Storage
-    C->>A: Query (account, period, limit)
-    A->>S: Reads state (read-only)
-    S-->>A: Records
-    A-->>C: Report with the records
-    Note over A,S: The provider's state is not changed
-```
+<Diagram />
 
 The query arrives with the search criteria, the provider reads the state without writing, and returns a report with the requested slice.
 

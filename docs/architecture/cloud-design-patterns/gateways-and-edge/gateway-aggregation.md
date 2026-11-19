@@ -9,7 +9,11 @@ tags:
   - Performance Efficiency
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/gateway-aggregation
 sidebar_label: "Gateway Aggregation"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/gateways-and-edge/gateway-aggregation.mdx';
 
 # Gateway Aggregation
 
@@ -61,17 +65,7 @@ A agregação pode morar no próprio gateway (composição leve, como montar e m
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    C["App (tela inicial)"] -->|"1. Requisição única"| G["Gateway de agregação"]
-    G -->|"2. Chamada paralela"| S1["Serviço de contas (saldo)"]
-    G -->|"2. Chamada paralela"| S2["Serviço de cartões (fatura aberta)"]
-    G -->|"2. Chamada paralela"| S3["Serviço de investimentos (posição)"]
-    S1 -.->|"3. Resposta"| G
-    S2 -.->|"3. Resposta"| G
-    S3 -.->|"3. Resposta"| G
-    G -.->|"4. Resposta agregada"| C
-```
+<Diagram />
 
 O app envia uma única requisição ao gateway para montar a tela inicial. O gateway dispara chamadas paralelas aos serviços de back-end (saldo, fatura aberta e posição de investimentos), combina os resultados e devolve uma só resposta. Os serviços permanecem ocultos do cliente e as múltiplas chamadas ocorrem dentro da rede de baixa latência.
 

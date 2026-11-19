@@ -1,0 +1,6 @@
+```mermaid
+flowchart LR
+    P["Sender (sets the deadline)"] --> Q["Channel"]
+    Q -->|"within the deadline"| C["Consumer"]
+    Q -->|"deadline expired"| D["Dead Letter Channel or discard"]
+```

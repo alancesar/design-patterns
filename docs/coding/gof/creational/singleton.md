@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/creational/singleton.mdx';
+
 # Singleton
 
 ## Descrição
@@ -57,18 +59,7 @@ Em ambientes concorrentes, a criação da instância precisa ser protegida (sinc
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Singleton {
-        -instance$ Singleton
-        -Singleton()
-        +getInstance()$ Singleton
-        +operation() void
-    }
-    class Client
-    Client --> Singleton : getInstance()
-    Singleton --> Singleton : instance
-```
+<Diagram />
 
 A classe `Singleton` mantém uma referência estática para a própria instância e um construtor privado; o `Client` não a instancia diretamente, apenas obtém o objeto por meio do método estático `getInstance()`.
 

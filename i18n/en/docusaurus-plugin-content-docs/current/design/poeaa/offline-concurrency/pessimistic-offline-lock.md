@@ -6,7 +6,11 @@ tags:
   - Consistency
 source: https://martinfowler.com/eaaCatalog/pessimisticOfflineLock.html
 sidebar_label: "Pessimistic Offline Lock"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/offline-concurrency/pessimistic-offline-lock.mdx';
 
 # Pessimistic Offline Lock
 
@@ -51,22 +55,7 @@ The pattern is the safest option when losing the user's work is unacceptable, at
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant A as Session A
-    participant B as Session B
-    participant LM as Lock Manager
-    participant DB as Database
-    A->>LM: acquire lock (dossier 8841)
-    LM-->>A: granted
-    B->>LM: acquire lock (dossier 8841)
-    LM-->>B: denied
-    A->>DB: reads and edits dossier 8841
-    A->>DB: writes changes
-    A->>LM: release lock
-    B->>LM: retry
-    LM-->>B: granted
-```
+<Diagram />
 
 Session A obtains the lock and works without competition. Session B is rejected until A releases the resource.
 

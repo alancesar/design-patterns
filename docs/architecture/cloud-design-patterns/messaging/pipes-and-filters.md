@@ -8,7 +8,11 @@ also_in:
   - architecture/eip/message-routing
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/pipes-and-filters
 sidebar_label: "Pipes and Filters"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/messaging/pipes-and-filters.mdx';
 
 # Pipes and Filters
 
@@ -67,21 +71,7 @@ Uma implementação comum usa uma sequência de filas de mensagens como pipes, c
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    S1["Fonte de dados 1"] --> P1(["Pipe"])
-    S2["Fonte de dados 2"] --> P2(["Pipe"])
-    P1 --> F1["Filtro: validar"]
-    P2 --> F1
-    F1 --> P3(["Pipe"])
-    P3 --> F2a["Filtro: transformar (instância 1)"]
-    P3 --> F2b["Filtro: transformar (instância 2)"]
-    F2a --> P4(["Pipe"])
-    F2b --> P4
-    P4 --> F3["Filtro: enriquecer"]
-    F3 --> P5(["Pipe"])
-    P5 --> D["Destino / lógica de negócio"]
-```
+<Diagram />
 
 Dados de diferentes fontes entram no pipeline e passam por filtros independentes conectados por pipes (por exemplo, filas). O filtro mais lento ("transformar") roda com várias instâncias em paralelo para aumentar a vazão, sem afetar as demais etapas.
 

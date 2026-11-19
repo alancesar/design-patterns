@@ -8,7 +8,11 @@ tags:
   - Consistency
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Responsibility Layers"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/large-scale-structure/responsibility-layers.mdx';
 
 # Responsibility Layers
 
@@ -54,12 +58,7 @@ By suggesting where each new concept should live and who may depend on whom, the
 
 ## Diagram
 
-```mermaid
-flowchart TB
-    P["Policy (decisions and rules)"] --> O["Operations (day-to-day activities)"]
-    O --> C["Capability (resources and capabilities)"]
-    C --> PT["Potential (assets and potential)"]
-```
+<Diagram />
 
 Each layer depends only on the layers below it: policies know about operations, operations know about capabilities, and so on, never in the opposite direction.
 

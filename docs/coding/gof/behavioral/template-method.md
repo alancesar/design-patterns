@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/behavioral/template-method.mdx';
+
 # Template Method
 
 ## Descrição
@@ -57,29 +59,7 @@ O controle do fluxo permanece na classe base, aplicando o chamado "Princípio de
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class AbstractClass {
-        <<abstract>>
-        +templateMethod()
-        #primitiveOperation1()*
-        #primitiveOperation2()*
-        #hook()
-    }
-    class ConcreteClassA {
-        #primitiveOperation1()
-        #primitiveOperation2()
-    }
-    class ConcreteClassB {
-        #primitiveOperation1()
-        #primitiveOperation2()
-        #hook()
-    }
-    class Client
-    AbstractClass <|-- ConcreteClassA
-    AbstractClass <|-- ConcreteClassB
-    Client --> AbstractClass : chama templateMethod
-```
+<Diagram />
 
 `AbstractClass` define o `templateMethod`, que invoca as operações primitivas (abstratas) e o `hook` (opcional) em ordem fixa. `ConcreteClassA` e `ConcreteClassB` implementam os passos variáveis, e o `Client` interage apenas com o método template.
 

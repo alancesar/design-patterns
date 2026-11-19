@@ -8,7 +8,11 @@ tags:
   - Operational Excellence
 source: https://k8spatterns.com/
 sidebar_label: "Stateless Service"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/kubernetes-patterns/behavioral/stateless-service.mdx';
 
 # Stateless Service
 
@@ -57,20 +61,7 @@ Um contêiner é sem estado quando não mantém, em memória ou no disco tempor�
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    C["Cliente"] --> S["Service: pix-service"]
-    S --> P1["pix-service-a1b2c"]
-    S --> P2["pix-service-d3e4f"]
-    S --> P3["pix-service-g5h6i"]
-    D["Deployment: pix-service"] --> R["ReplicaSet"]
-    R -.-> P1
-    R -.-> P2
-    R -.-> P3
-    P1 --> DB[("Banco externo")]
-    P2 --> DB
-    P3 --> DB
-```
+<Diagram />
 
 As três réplicas são idênticas e descartáveis: o Service distribui as requisições, o Deployment e o ReplicaSet repõem quem falhar, e todo o estado fica no banco externo.
 

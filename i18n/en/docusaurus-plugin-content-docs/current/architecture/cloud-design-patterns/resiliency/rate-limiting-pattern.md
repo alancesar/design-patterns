@@ -6,7 +6,11 @@ tags:
   - Reliability
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/rate-limiting-pattern
 sidebar_label: "Rate Limiting"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/resiliency/rate-limiting-pattern.mdx';
 
 # Rate Limiting
 
@@ -60,20 +64,7 @@ A typical implementation puts requests into a durable messaging system able to a
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    U[Client] -->|"batch of 10,000 records"| API[API]
-    API --> Q[("Durable queue")]
-    Q -->|"100/s"| P1[Processor 1]
-    Q -->|"100/s"| P2[Processor 2]
-    Q -->|"100/s"| P3[Processor 3]
-    L[("Capacity coordinator (leases)")] -.->|"grants quota"| P1
-    L -.->|"grants quota"| P2
-    L -.->|"grants quota"| P3
-    P1 --> S["Rate-limited service (300 records/s)"]
-    P2 --> S
-    P3 --> S
-```
+<Diagram />
 
 The API accepts the entire load and writes it to a durable queue. The processors pull items at a controlled pace, according to the quota they obtained from the coordinator, so that the sum of the rates never exceeds the target service's limit.
 

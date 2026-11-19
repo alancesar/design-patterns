@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/message-granularity/linked-information-holder.mdx';
+
 # Linked Information Holder
 
 ## Description
@@ -58,17 +60,7 @@ The pattern makes an implicit promise to the receiver: the link can be followed.
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant C as API Client
-    participant A as Account Holder
-    participant E as Entries Holder
-    C->>A: GET /accounts/acc-7f3a
-    A-->>C: Account summary and links
-    Note over C: Follows the link only if needed
-    C->>E: GET /accounts/acc-7f3a/entries
-    E-->>C: Ledger entries
-```
+<Diagram />
 
 The first response is light; the related data comes in separate calls, on demand.
 

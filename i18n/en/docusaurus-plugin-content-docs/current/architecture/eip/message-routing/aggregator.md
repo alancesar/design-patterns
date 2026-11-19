@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://www.enterpriseintegrationpatterns.com/Aggregator.html
 sidebar_label: "Aggregator"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-routing/aggregator.mdx';
 
 # Aggregator
 
@@ -55,14 +59,7 @@ Completeness strategies:
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    A["Response 1 (key K)"] --> AG["Aggregator"]
-    B["Response 2 (key K)"] --> AG
-    C["Response 3 (key K)"] --> AG
-    AG --> S[("Storage by key")]
-    AG -->|"complete group"| O["Aggregated message"]
-```
+<Diagram />
 
 The Aggregator stores messages by correlation key and publishes a single message when the group satisfies the completeness condition.
 

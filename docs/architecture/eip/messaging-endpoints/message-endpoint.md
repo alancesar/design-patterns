@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://www.enterpriseintegrationpatterns.com/MessageEndpoint.html
 sidebar_label: "Message Endpoint"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/messaging-endpoints/message-endpoint.mdx';
 
 # Message Endpoint
 
@@ -48,13 +52,7 @@ Na prática, o endpoint é um padrão "guarda-chuva": os demais padrões do grup
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    A["Aplicação"] --> E1["Message Endpoint (envio)"]
-    E1 --> C[["Message Channel"]]
-    C --> E2["Message Endpoint (recebimento)"]
-    E2 --> B["Aplicação destino"]
-```
+<Diagram />
 
 Cada aplicação acessa o canal por meio de seu endpoint, que traduz entre o mundo da aplicação e o da mensageria.
 

@@ -7,7 +7,11 @@ tags:
   - Performance
 source: https://api-patterns.org/
 sidebar_label: "Data Transfer Resource"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/endpoint-roles/data-transfer-resource.mdx';
 
 # Data Transfer Resource
 
@@ -62,18 +66,7 @@ A propriedade dos dados deve ficar com os clientes, não com o provedor. Há tr�
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant P as Emissor
-    participant T as Data Transfer Resource
-    participant R as Receptor
-    P->>T: Cria e grava o conteúdo
-    T-->>P: Identificador da transferência
-    P-->>R: Avisa o identificador
-    R->>T: Lê o conteúdo
-    T-->>R: Dados
-    R->>T: Confirma e remove
-```
+<Diagram />
 
 O emissor grava no recurso intermediário, o receptor retira depois, e os dois nunca precisam estar conectados ao mesmo tempo.
 

@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://www.enterpriseintegrationpatterns.com/ProcessManager.html
 sidebar_label: "Process Manager"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-routing/process-manager.mdx';
 
 # Process Manager
 
@@ -47,19 +51,7 @@ It's meant for flows that can't be fixed in advance: the steps may not be known 
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant T as Trigger
-    participant PM as Process Manager
-    participant A as Step A
-    participant B as Step B
-    T->>PM: starts process
-    PM->>A: runs step 1
-    A-->>PM: result
-    PM->>B: runs step 2 based on the result
-    B-->>PM: result
-    PM-->>T: process completed
-```
+<Diagram />
 
 The manager keeps the state, sends each step, and picks the next one based on the responses.
 

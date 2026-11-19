@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://www.enterpriseintegrationpatterns.com/ChannelPurger.html
 sidebar_label: "Channel Purger"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/system-management/channel-purger.mdx';
 
 # Channel Purger
 
@@ -49,13 +53,7 @@ Mensageria persistente e assíncrona pode deixar mensagens perdidas no caminho. 
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    P["Produtor"] --> C["Canal"]
-    C --> D["Consumidor"]
-    Op["Operador ou teste"] --> U["Channel Purger"]
-    U -- "remove mensagens" --> C
-```
+<Diagram />
 
 O purger age diretamente sobre o canal, removendo todas as mensagens ou só as que atendem ao critério.
 

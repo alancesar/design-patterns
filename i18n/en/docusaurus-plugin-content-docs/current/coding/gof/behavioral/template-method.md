@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/behavioral/template-method.mdx';
+
 # Template Method
 
 ## Description
@@ -57,29 +59,7 @@ Control of the flow stays in the base class, applying the so-called "Hollywood P
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class AbstractClass {
-        <<abstract>>
-        +templateMethod()
-        #primitiveOperation1()*
-        #primitiveOperation2()*
-        #hook()
-    }
-    class ConcreteClassA {
-        #primitiveOperation1()
-        #primitiveOperation2()
-    }
-    class ConcreteClassB {
-        #primitiveOperation1()
-        #primitiveOperation2()
-        #hook()
-    }
-    class Client
-    AbstractClass <|-- ConcreteClassA
-    AbstractClass <|-- ConcreteClassB
-    Client --> AbstractClass : calls templateMethod
-```
+<Diagram />
 
 `AbstractClass` defines the `templateMethod`, which invokes the primitive (abstract) operations and the (optional) `hook` in a fixed order. `ConcreteClassA` and `ConcreteClassB` implement the variable steps, and the `Client` interacts only with the template method.
 

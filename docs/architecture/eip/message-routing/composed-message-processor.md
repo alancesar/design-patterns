@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://www.enterpriseintegrationpatterns.com/DistributionAggregate.html
 sidebar_label: "Composed Message Processor"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-routing/composed-message-processor.mdx';
 
 # Composed Message Processor
 
@@ -46,16 +50,7 @@ O Composed Message Processor trata uma mensagem composta: divide-a em submensage
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    M["Lote de pagamentos"] --> S["Splitter"]
-    S --> R{"Roteador"}
-    R --> A["Trilho Pix"]
-    R --> B["Trilho boleto"]
-    A --> AG["Aggregator"]
-    B --> AG
-    AG --> O["Lote processado (status por item)"]
-```
+<Diagram />
 
 O lote é dividido, cada pagamento segue pelo trilho correto e as respostas são reunidas em um lote processado, com o status de cada item. A fonte ilustra o padrão com um pedido de widgets e gadgets.
 

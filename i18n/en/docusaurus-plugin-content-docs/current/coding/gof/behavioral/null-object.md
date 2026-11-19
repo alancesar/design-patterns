@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/behavioral/null-object.mdx';
+
 # Null Object
 
 ## Description
@@ -58,23 +60,7 @@ In practice, the pattern swaps the conditional handling scattered across the cod
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Client
-    class AbstractObject {
-        <<interface>>
-        +request()
-    }
-    class RealObject {
-        +request()
-    }
-    class NullObject {
-        +request()
-    }
-    Client --> AbstractObject : uses
-    AbstractObject <|.. RealObject
-    AbstractObject <|.. NullObject
-```
+<Diagram />
 
 `Client` depends only on `AbstractObject`. `RealObject` performs the actual behavior, while `NullObject` implements the same interface with a neutral behavior, letting the client use it without checking for nulls.
 

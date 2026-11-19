@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/operation-responsibilities/state-transition-operation.mdx';
+
 # State Transition Operation
 
 ## Descrição
@@ -59,16 +61,7 @@ A variante Business Activity Processor expõe os estados e as primitivas de uma 
 
 ## Diagrama
 
-```mermaid
-stateDiagram-v2
-    [*] --> REQUESTED
-    REQUESTED --> APPROVED : approve
-    REQUESTED --> CANCELED : cancel
-    APPROVED --> DISBURSED : disburse
-    APPROVED --> CANCELED : cancel
-    DISBURSED --> [*]
-    CANCELED --> [*]
-```
+<Diagram />
 
 Cada operação move o contrato de um estado para outro. Pedidos que não seguem uma das setas, como cancelar um contrato já liberado, são rejeitados.
 

@@ -7,7 +7,11 @@ tags:
   - Fault Tolerance
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/write-ahead-log.html
 sidebar_label: "Write-Ahead Log"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/data-replication/write-ahead-log.mdx';
 
 # Write-Ahead Log
 
@@ -53,14 +57,7 @@ O padrão é a base de vários outros do catálogo: o Segmented Log divide o log
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    C["Cliente"] -->|"1. requisição"| S["Servidor"]
-    S -->|"2. acrescenta comando e faz flush"| L[("Log em disco")]
-    S -->|"3. aplica a mudança"| M["Estado em memória"]
-    S -->|"4. responde"| C
-    L -.->|"após queda: reexecuta"| M
-```
+<Diagram />
 
 O servidor grava o comando no log em disco antes de alterar o estado em memória e só então responde. Após uma falha, o estado é reconstruído reexecutando o log.
 

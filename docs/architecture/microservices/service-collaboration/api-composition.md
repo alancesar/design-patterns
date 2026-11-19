@@ -6,7 +6,11 @@ tags:
   - Performance Efficiency
 source: https://microservices.io/patterns/data/api-composition.html
 sidebar_label: "API Composition"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/service-collaboration/api-composition.mdx';
 
 # API Composition
 
@@ -51,20 +55,7 @@ Em geral, o papel de compositor é assumido por um API Gateway, mas pode ser um 
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant C as Cliente
-    participant A as API Composer
-    participant ACC as Serviço de contas
-    participant CS as Serviço de cartões
-    C->>A: Consultar visão geral
-    A->>ACC: Buscar saldo
-    ACC-->>A: Saldo da conta
-    A->>CS: Buscar fatura aberta
-    CS-->>A: Fatura aberta
-    A->>A: Join em memória
-    A-->>C: Resposta combinada
-```
+<Diagram />
 
 O compositor chama cada serviço dono dos dados, une os resultados em memória e devolve uma resposta única ao cliente. A fonte ilustra o padrão com clientes e pedidos.
 

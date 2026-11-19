@@ -12,6 +12,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/creational/factory-method.mdx';
+
 # Factory Method
 
 ## Descrição
@@ -58,37 +60,7 @@ Diferente da **Factory (Simple Factory)**, que é um único método/classe com c
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Creator {
-        <<abstract>>
-        +someOperation()
-        +createProduct()* Product
-    }
-    class ConcreteCreatorA {
-        +createProduct() Product
-    }
-    class ConcreteCreatorB {
-        +createProduct() Product
-    }
-    class Product {
-        <<interface>>
-        +doStuff()
-    }
-    class ConcreteProductA {
-        +doStuff()
-    }
-    class ConcreteProductB {
-        +doStuff()
-    }
-    Creator <|-- ConcreteCreatorA
-    Creator <|-- ConcreteCreatorB
-    Product <|.. ConcreteProductA
-    Product <|.. ConcreteProductB
-    Creator ..> Product : uses
-    ConcreteCreatorA ..> ConcreteProductA : creates
-    ConcreteCreatorB ..> ConcreteProductB : creates
-```
+<Diagram />
 
 O `Creator` declara o método abstrato `createProduct()` e usa o `Product` em `someOperation()`. Cada `ConcreteCreator` sobrescreve o método de fábrica para instanciar seu `ConcreteProduct` correspondente, sem que o Creator conheça a classe concreta.
 

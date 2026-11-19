@@ -6,7 +6,11 @@ tags:
   - Cost Optimization
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/static-content-hosting
 sidebar_label: "Static Content Hosting"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/deployment-and-topology/static-content-hosting.mdx';
 
 # Static Content Hosting
 
@@ -62,20 +66,7 @@ Additional considerations:
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    C["Client (browser)"]
-    A["Application (compute)"]
-    CDN["CDN / reverse proxy"]
-    S["Static content storage"]
-    P["Deployment pipeline"]
-
-    C -->|"1. Dynamic request"| A
-    A -->|"2. Page with links to the assets"| C
-    C -->|"3. Requests static files"| CDN
-    CDN -->|"Cache miss"| S
-    P -->|"Publishes versioned assets"| S
-```
+<Diagram />
 
 The client gets only the dynamic page from the application, which references the static files; those files are fetched directly from the CDN or proxy, which falls back to storage when there's no cached copy. The deployment pipeline publishes the versioned assets to storage independently of the application.
 

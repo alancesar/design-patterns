@@ -7,7 +7,11 @@ tags:
   - Extensibility
 source: https://martinfowler.com/eaaCatalog/metadataMapping.html
 sidebar_label: "Metadata Mapping"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/object-relational-metadata-mapping/metadata-mapping.mdx';
 
 # Metadata Mapping
 
@@ -52,29 +56,7 @@ Um código genérico lê esses metadados e executa as operações de leitura, in
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class MetadataMapper {
-        +find(id)
-        +insert(obj)
-        +update(obj)
-    }
-    class ClassMap {
-        +tableName
-        +columnMaps
-    }
-    class ColumnMap {
-        +columnName
-        +fieldName
-        +getValue(obj)
-        +setValue(obj, value)
-    }
-    class DomainObject
-    MetadataMapper --> ClassMap
-    ClassMap "1" --> "*" ColumnMap
-    MetadataMapper ..> DomainObject
-    ColumnMap ..> DomainObject
-```
+<Diagram />
 
 O `MetadataMapper` genérico consulta o `ClassMap` da classe, que contém um `ColumnMap` por campo, e usa essas informações para ler e gravar o `DomainObject` sem código específico.
 

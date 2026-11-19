@@ -10,7 +10,11 @@ also_in:
   - architecture/microservices/observability
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/health-endpoint-monitoring
 sidebar_label: "Health Endpoint Monitoring"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/resiliency/health-endpoint-monitoring.mdx';
 
 # Health Endpoint Monitoring
 
@@ -67,27 +71,7 @@ The results feed alerts, dashboards, and controlled remediation actions, such as
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    M["Monitor / Load balancer"]
-    subgraph APP["Application instance"]
-        L["Liveness endpoint: /health/live"]
-        R["Readiness endpoint: /health/ready"]
-    end
-    D[("Database")]
-    S["External service"]
-    AL["Alerts and dashboards"]
-    RT["Routing: removes unhealthy instance"]
-
-    M -->|"periodic probe"| L
-    M -->|"periodic probe"| R
-    L -.->|"200 OK (process responds)"| M
-    R -->|"check with timeout"| D
-    R -->|"check with timeout"| S
-    R -.->|"200 OK or 503 + details"| M
-    M --> AL
-    M -->|"after failure threshold"| RT
-```
+<Diagram />
 
 The monitor periodically queries the liveness endpoint, which doesn't touch dependencies, and the readiness endpoint, which checks the required dependencies with timeouts. When readiness fails repeatedly, the monitor or load balancer raises alerts and stops sending traffic to the instance.
 

@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://www.enterpriseintegrationpatterns.com/CorrelationIdentifier.html
 sidebar_label: "Correlation Identifier"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-construction/correlation-identifier.mdx';
 
 # Correlation Identifier
 
@@ -47,14 +51,7 @@ Ao receber a resposta, o requestor compara o identificador de correlação com o
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant Req as Requestor
-    participant Rep as Replier
-    Req->>Rep: Request (request ID = 42)
-    Rep->>Req: Reply (correlation ID = 42)
-    Note over Req: Associa a resposta à requisição 42
-```
+<Diagram />
 
 O replier devolve o mesmo identificador, e o requestor o usa para encontrar a requisição original.
 

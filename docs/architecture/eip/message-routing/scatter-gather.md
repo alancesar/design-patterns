@@ -7,7 +7,11 @@ tags:
   - Reliability
 source: https://www.enterpriseintegrationpatterns.com/BroadcastAggregate.html
 sidebar_label: "Scatter-Gather"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-routing/scatter-gather.mdx';
 
 # Scatter-Gather
 
@@ -48,17 +52,7 @@ Há duas variantes. Na de **distribuição**, uma Recipient List envia a requisi
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    Q["Cotação de câmbio"] --> RL{"Recipient List ou Publish-Subscribe"}
-    RL --> F1["Provedor de liquidez 1"]
-    RL --> F2["Provedor de liquidez 2"]
-    RL --> F3["Provedor de liquidez 3"]
-    F1 --> AG["Aggregator"]
-    F2 --> AG
-    F3 --> AG
-    AG --> R["Melhor taxa"]
-```
+<Diagram />
 
 A cotação é espalhada aos provedores de liquidez e as taxas são reunidas na melhor oferta. A fonte ilustra o padrão com a cotação de um item do pedido entre fornecedores.
 

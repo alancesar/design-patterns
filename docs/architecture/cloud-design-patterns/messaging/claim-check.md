@@ -11,7 +11,11 @@ also_in:
   - architecture/eip/message-transformation
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/claim-check
 sidebar_label: "Claim Check"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/messaging/claim-check.mdx';
 
 # Claim Check
 
@@ -67,15 +71,7 @@ Com isso, o broker trafega apenas mensagens pequenas, enquanto o armazenamento e
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    P[Produtor] -->|"1. Grava o payload"| S[("Armazenamento externo")]
-    P -->|"2. Publica o claim check"| M[["Sistema de mensageria"]]
-    M -->|"3. Entrega a mensagem"| C[Consumidor]
-    C -->|"4. Busca o payload pela referência"| S
-    S -.->|"5. Retorna o payload"| C
-    C --> R["6. Processa o payload"]
-```
+<Diagram />
 
 O produtor grava o payload no armazenamento externo e publica apenas a referência na mensageria; o consumidor usa essa referência para buscar o conteúdo diretamente no armazenamento antes de processá-lo.
 

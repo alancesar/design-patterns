@@ -8,7 +8,11 @@ tags:
   - Operational Excellence
 source: https://microservices.io/patterns/apigateway.html
 sidebar_label: "API Gateway"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/external-api/api-gateway.mdx';
 
 # API Gateway
 
@@ -58,17 +62,7 @@ In the microservices.io catalog, then, the API Gateway brings together in a sing
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    W["Internet banking"] --> G["API Gateway"]
-    M["Mobile app"] --> G
-    T["Open Finance partners"] --> G
-    G -->|"routing"| S1["Account service"]
-    G -->|"composition"| S2["Pix service"]
-    G -->|"composition"| S3["Card service"]
-    G -->|"composition"| S4["Investment service"]
-    G -.->|"authentication"| A["Identity provider"]
-```
+<Diagram />
 
 Clients talk only to the gateway. It routes some requests directly to the responsible service, composes responses from several services for others, and applies authentication before forwarding. The source illustrates the pattern with product, pricing, inventory, and reviews services.
 

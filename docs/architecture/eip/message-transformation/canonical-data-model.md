@@ -7,7 +7,11 @@ tags:
   - Reliability
 source: https://www.enterpriseintegrationpatterns.com/CanonicalDataModel.html
 sidebar_label: "Canonical Data Model"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-transformation/canonical-data-model.mdx';
 
 # Canonical Data Model
 
@@ -52,15 +56,7 @@ O modelo pertence ao conjunto de aplicações e não a um sistema específico, o
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    A["Aplicação A"] --> TA["Tradutor A"]
-    B["Aplicação B"] --> TB["Tradutor B"]
-    C["Aplicação C"] --> TC["Tradutor C"]
-    TA --> M(("Modelo canônico"))
-    TB --> M
-    TC --> M
-```
+<Diagram />
 
 Cada aplicação se conecta ao modelo canônico por um único tradutor, em vez de manter tradutores para todas as outras aplicações.
 

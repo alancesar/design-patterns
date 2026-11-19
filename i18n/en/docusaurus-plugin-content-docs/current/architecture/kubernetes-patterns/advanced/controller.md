@@ -7,7 +7,11 @@ tags:
   - Reliability
 source: https://k8spatterns.com/
 sidebar_label: "Controller"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/kubernetes-patterns/advanced/controller.mdx';
 
 # Controller
 
@@ -57,15 +61,7 @@ A custom controller is just an application that runs permanently, in any languag
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    U["Platform team"] -->|"Changes ConfigMap"| API["API Server"]
-    API -->|"MODIFIED event"| C["Controller"]
-    C -->|"Observe and analyze"| C
-    C -->|"Act: removes Pods app=pix-service"| API
-    API --> D["Deployment pix-service"]
-    D -->|"Recreates Pods with the new configuration"| P["Pods pix-service"]
-```
+<Diagram />
 
 The controller watches ConfigMap events, uses the annotation to find which Pods depend on it and acts through the API; the Deployment recreates the Pods, which start already with the new configuration.
 

@@ -6,7 +6,11 @@ tags:
   - Security
 source: https://k8spatterns.com/
 sidebar_label: "Secure Configuration"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/kubernetes-patterns/security/secure-configuration.mdx';
 
 # Secure Configuration
 
@@ -56,14 +60,7 @@ In **centralized secret management**, the data lives in a service such as HashiC
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    GIT["Git repository (encrypted values)"] --> OP["Operator in the cluster (decrypts or syncs)"]
-    SMS["External secret manager"] --> OP
-    OP --> SEC["Secret"]
-    SEC -->|"read-only volume"| POD["Pod credit-service"]
-    SMS -->|"CSI Driver or injector"| POD
-```
+<Diagram />
 
 Confidential data reaches the Pod by two paths: converted into a `Secret` by an operator from encrypted or synced data, or mounted straight from an external manager, without going through etcd.
 

@@ -7,7 +7,11 @@ tags:
   - Strategic Focus
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Refactoring Toward Deeper Insight"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/model-in-practice/refactoring-toward-deeper-insight.mdx';
 
 # Refactoring Toward Deeper Insight
 
@@ -52,15 +56,7 @@ The effort should be directed at the Core Domain, where the business's competiti
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    A["Current code and language"] --> B["Signal: awkward term or scattered rule"]
-    B --> C["Conversation with experts"]
-    C --> D["New explicit concept in the model"]
-    D --> E["Code refactoring"]
-    E --> F["Deeper and simpler model"]
-    F --> A
-```
+<Diagram />
 
 A continuous cycle: signals in the language and the code lead to conversation, to the new explicit concept, to refactoring, and to a deeper model.
 

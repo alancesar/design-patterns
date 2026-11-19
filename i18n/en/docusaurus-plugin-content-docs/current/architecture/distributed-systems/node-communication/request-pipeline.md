@@ -7,7 +7,11 @@ tags:
   - Scalability
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/request-pipeline.html
 sidebar_label: "Request Pipeline"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/node-communication/request-pipeline.mdx';
 
 # Request Pipeline
 
@@ -52,17 +56,7 @@ The gain shows up when the server can process something while other requests are
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant C as Client
-    participant S as Server
-    C->>S: Request 1
-    C->>S: Request 2
-    S-->>C: Response 1
-    C->>S: Request 3
-    S-->>C: Response 2
-    S-->>C: Response 3
-```
+<Diagram />
 
 The client sends requests 2 and 3 without waiting for the response to request 1. The responses arrive later and are handled by a separate thread of execution.
 

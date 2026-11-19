@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://www.enterpriseintegrationpatterns.com/ContentFilter.html
 sidebar_label: "Content Filter"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-transformation/content-filter.mdx';
 
 # Content Filter
 
@@ -51,11 +55,7 @@ It's the opposite of the Content Enricher: instead of adding what's missing, it 
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    O["Source"] -->|"Full message"| F["Content Filter"]
-    F -->|"Reduced message"| D["Recipient"]
-```
+<Diagram />
 
 The filter receives the full message, discards the unnecessary fields, and delivers a simplified version to the recipient.
 

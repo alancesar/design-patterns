@@ -7,7 +7,11 @@ tags:
   - Simplicity
 source: https://api-patterns.org/
 sidebar_label: "Solution-Internal API"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/foundations/solution-internal-api.mdx';
 
 # Solution-Internal API
 
@@ -54,15 +58,7 @@ Being independently deployable does not mean being independently deployed. A mod
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    U["End user"] --> FE["App (intranet)"]
-    subgraph Application["Application"]
-        FE -->|"Internal frontend API"| S1["Accounts service"]
-        S1 -->|"Internal backend API"| S2["Cards service"]
-        S1 --> DB[("Database")]
-    end
-```
+<Diagram />
 
 All calls happen inside the application boundary: no external client reaches these APIs directly.
 

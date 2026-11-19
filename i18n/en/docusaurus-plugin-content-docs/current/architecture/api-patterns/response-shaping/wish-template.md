@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/response-shaping/wish-template.mdx';
+
 # Wish Template
 
 ## Description
@@ -57,14 +59,7 @@ The template is usually a [Parameter Tree](/architecture/api-patterns/basic-stru
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    C["Client"] -->|"Template: balanceCents and holder.name"| E["Endpoint"]
-    E --> T["Template processor"]
-    T -->|"Query or filter"| D[("Data source")]
-    D --> T
-    T -->|"Filled template"| C
-```
+<Diagram />
 
 The processor walks the received template, fetches only what was marked and returns a response with the same structure.
 

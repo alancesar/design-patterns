@@ -12,6 +12,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/structural/bridge.mdx';
+
 # Bridge
 
 ## Description
@@ -58,32 +60,7 @@ In practice, the Bridge trades inheritance for composition: the "bridge" is prec
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Abstraction {
-        -Implementor impl
-        +operation()
-    }
-    class RefinedAbstraction {
-        +operation()
-    }
-    class Implementor {
-        <<interface>>
-        +operationImpl()
-    }
-    class ConcreteImplementorA {
-        +operationImpl()
-    }
-    class ConcreteImplementorB {
-        +operationImpl()
-    }
-    class Client
-    Client --> Abstraction
-    Abstraction <|-- RefinedAbstraction
-    Abstraction o-- Implementor : impl
-    Implementor <|.. ConcreteImplementorA
-    Implementor <|.. ConcreteImplementorB
-```
+<Diagram />
 
 `Abstraction` defines the interface used by the `Client` and holds a reference to an `Implementor`; `RefinedAbstraction` extends that interface. `Implementor` declares the primitive operations, carried out by `ConcreteImplementorA` and `ConcreteImplementorB`.
 

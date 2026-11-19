@@ -7,7 +7,11 @@ tags:
   - Team Autonomy
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Pluggable Component Framework"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/large-scale-structure/pluggable-component-framework.mdx';
 
 # Pluggable Component Framework
 
@@ -54,24 +58,7 @@ Evans warns that this is a high-investment, high-risk pattern: it requires a wel
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Component {
-        <<interface>>
-        +handle(request) Result
-    }
-    class Framework {
-        +register(component)
-        +dispatch(request) Result
-    }
-    class PricingComponent
-    class RiskComponent
-    class ReportingComponent
-    Framework --> Component
-    Component <|.. PricingComponent
-    Component <|.. RiskComponent
-    Component <|.. ReportingComponent
-```
+<Diagram />
 
 The `Framework` only knows the `Component` interface; each concrete component implements the contract and can be developed and replaced independently.
 

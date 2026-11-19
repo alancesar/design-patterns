@@ -6,7 +6,11 @@ tags:
   - Security
 source: https://k8spatterns.com/
 sidebar_label: "Network Segmentation"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/kubernetes-patterns/security/network-segmentation.mdx';
 
 # Network Segmentation
 
@@ -55,14 +59,7 @@ The recommended practice is to start from a "deny-all" policy and open only the 
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    PIX["pix-service"] -->|"allowed"| LEDGER["ledger-service"]
-    CARD["card-service"] -->|"allowed"| LEDGER
-    BOLETO["boleto-service"] -.->|"blocked by the NetworkPolicy"| LEDGER
-    LEDGER --> DB[("ledger-db")]
-    EXT["Internet"] -.->|"egress blocked"| LEDGER
-```
+<Diagram />
 
 Only `pix-service` and `card-service` reach `ledger-service`; any other Pod, or external destination, is blocked by the policy that starts from deny-all.
 

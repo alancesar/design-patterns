@@ -10,7 +10,11 @@ also_in:
   - architecture/eip/integration-styles
 source: https://microservices.io/patterns/communication-style/messaging.html
 sidebar_label: "Messaging"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/communication-styles/messaging.mdx';
 
 # Messaging
 
@@ -57,13 +61,7 @@ Considerações adicionais:
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    A["Serviço remetente"] -->|"publica mensagem"| C["Canal de mensagens (broker)"]
-    C -->|"entrega quando pronto"| B["Serviço consumidor"]
-    B -.->|"resposta opcional"| R["Canal de resposta"]
-    R -.-> A
-```
+<Diagram />
 
 O remetente publica a mensagem em um canal e segue seu trabalho; o broker a retém até que o consumidor a processe, podendo haver uma resposta assíncrona por outro canal.
 

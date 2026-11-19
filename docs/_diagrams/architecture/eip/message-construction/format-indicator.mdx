@@ -1,0 +1,7 @@
+```mermaid
+flowchart LR
+    E["Sender"] -->|"Message with format indicator v2"| C["Channel"]
+    C --> R["Receiver"]
+    R -->|"v1"| H1["v1 handling"]
+    R -->|"v2"| H2["v2 handling"]
+```

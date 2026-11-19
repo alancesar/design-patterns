@@ -7,7 +7,11 @@ tags:
   - Reliability
 source: https://www.enterpriseintegrationpatterns.com/MessagingGateway.html
 sidebar_label: "Messaging Gateway"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/messaging-endpoints/messaging-gateway.mdx';
 
 # Messaging Gateway
 
@@ -48,15 +52,7 @@ Como o gateway é uma interface comum, é fácil trocá-lo por um stub em testes
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    A["Lógica de negócio"] -->|"obterScore(cliente)"| G["Messaging Gateway"]
-    G -->|"mensagem"| C[["Canal de requisição"]]
-    C --> S["Serviço remoto"]
-    S --> R[["Canal de resposta"]]
-    R --> G
-    G -->|"score"| A
-```
+<Diagram />
 
 A lógica de negócio chama um método do domínio; o gateway cuida de montar a mensagem, enviá-la e correlacionar a resposta.
 

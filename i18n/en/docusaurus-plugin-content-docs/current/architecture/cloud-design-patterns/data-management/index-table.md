@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/index-table
 sidebar_label: "Index Table"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/data-management/index-table.mdx';
 
 # Index Table
 
@@ -56,16 +60,7 @@ In partitioned data with a hash-based shard key, the index table can organize en
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    App["Application"] -->|"1. Query by secondary key (e.g., city)"| Idx["Index table"]
-    Idx -->|"2. Primary key / shard key"| App
-    App -->|"3. Lookup by primary key"| Fatos["Fact table (source data)"]
-    App -->|"Write"| Fatos
-    Fatos -->|"Change durably captured"| Fila["Change feed / outbox"]
-    Fila --> Worker["Idempotent index updater"]
-    Worker -->|"Updates versioned entries"| Idx
-```
+<Diagram />
 
 The application queries the index table by the secondary key, gets the primary (or shard) key, and fetches the full record from the fact table. Writes to the source are durably captured and propagated asynchronously by an idempotent updater that maintains the indexes.
 

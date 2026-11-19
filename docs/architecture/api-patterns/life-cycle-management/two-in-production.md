@@ -7,7 +7,11 @@ tags:
   - Decoupling
 source: https://api-patterns.org/
 sidebar_label: "Two in Production"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/life-cycle-management/two-in-production.mdx';
 
 # Two in Production
 
@@ -59,19 +63,7 @@ Ao lançar uma versão nova, o provedor retira a mais antiga que ainda estava no
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    subgraph T1["Antes do lançamento"]
-        A1["V1 (ativa)"]
-        A2["V2 (ativa)"]
-    end
-    subgraph T2["Depois do lançamento da V3"]
-        B2["V2 (ativa)"]
-        B3["V3 (ativa)"]
-        B1["V1 (retirada)"]
-    end
-    T1 -->|"Lança V3, retira V1"| T2
-```
+<Diagram />
 
 A janela desliza a cada lançamento: sempre duas versões ativas, e a mais antiga sai quando uma nova entra.
 

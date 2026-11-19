@@ -7,7 +7,11 @@ tags:
   - Performance
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/clock-bound-wait.html
 sidebar_label: "Clock-Bound Wait"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/distributed-time/clock-bound-wait.mdx';
 
 # Clock-Bound Wait
 
@@ -53,19 +57,7 @@ Quanto menor e mais bem conhecido o limite de erro, menor a espera. Por isso o p
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant C as Cliente
-    participant N as No lider
-    participant R as Outros nos
-    C->>N: escrever x
-    Note over N: timestamp t = relógio local
-    Note over N: espera até t + erro máximo
-    N->>R: replicar x com timestamp t
-    R-->>N: confirmação
-    N-->>C: escrita confirmada
-    Note over R: qualquer leitura posterior terá timestamp maior que t
-```
+<Diagram />
 
 A escrita só é confirmada depois que o tempo local passa de t somado ao erro máximo, garantindo que nenhum relógio do cluster ainda esteja antes de t.
 

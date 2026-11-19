@@ -7,7 +7,11 @@ tags:
   - Durability
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/low-watermark.html
 sidebar_label: "Low-Water Mark"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/data-replication/low-water-mark.mdx';
 
 # Low-Water Mark
 
@@ -49,13 +53,7 @@ A background process periodically checks the mark and removes the segments that 
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    A["Discardable entries"] --- B["Low-Water Mark"]
-    B --- C["Retained entries"]
-    C --- D["High-Water Mark"]
-    D --- E["Entries not yet committed"]
-```
+<Diagram />
 
 The log is divided into three zones: what can already be discarded, what is retained and committed, and what has not yet been replicated by the majority.
 

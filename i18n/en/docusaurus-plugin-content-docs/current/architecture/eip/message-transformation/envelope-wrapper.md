@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://www.enterpriseintegrationpatterns.com/EnvelopeWrapper.html
 sidebar_label: "Envelope Wrapper"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-transformation/envelope-wrapper.mdx';
 
 # Envelope Wrapper
 
@@ -51,13 +55,7 @@ In general terms, the flow has two steps: a wrapper on the sender side, which ad
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    A["Source application"] --> W["Wrapper"]
-    W -->|"Message with envelope"| C["Message channel"]
-    C --> U["Unwrapper"]
-    U --> B["Target application"]
-```
+<Diagram />
 
 The wrapper adds the envelope required by the infrastructure and the unwrapper removes it, so the applications work only with the original data.
 

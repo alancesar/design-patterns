@@ -7,7 +7,11 @@ tags:
   - Shared Understanding
 source: https://api-patterns.org/
 sidebar_label: "Frontend Integration"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/foundations/frontend-integration.mdx';
 
 # Frontend Integration
 
@@ -54,18 +58,7 @@ After choosing this type of integration, you still need to decide the API's visi
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    U["End user"] --> UI["Mobile / web app"]
-    subgraph Frontend
-        UI
-    end
-    UI -->|"Frontend Integration API"| API["Backend API"]
-    subgraph Backend
-        API --> BL["Business logic"]
-        BL --> DB[("Persistence")]
-    end
-```
+<Diagram />
 
 The frontend never touches the logic or the data directly: everything goes through the remote API exposed by the backend.
 

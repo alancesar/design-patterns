@@ -7,7 +7,11 @@ tags:
   - Strategic Focus
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Big Ball of Mud"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/context-mapping/big-ball-of-mud.mdx';
 
 # Big Ball of Mud
 
@@ -52,12 +56,7 @@ Reconhecer um Big Ball of Mud não é aprová-lo, e sim nomear uma realidade par
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    BBM["Big Ball of Mud (core bancário legado)"] -->|"modelo confuso"| ACL["Anticorruption Layer"]
-    ACL -->|"modelo traduzido"| N1["Novo contexto de Conta Digital"]
-    ACL -->|"modelo traduzido"| N2["Novo contexto de Crédito"]
-```
+<Diagram />
 
 O legado emaranhado é cercado por uma fronteira, e os contextos novos o acessam apenas por uma camada de tradução.
 

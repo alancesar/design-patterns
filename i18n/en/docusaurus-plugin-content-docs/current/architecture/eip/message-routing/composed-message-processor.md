@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://www.enterpriseintegrationpatterns.com/DistributionAggregate.html
 sidebar_label: "Composed Message Processor"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-routing/composed-message-processor.mdx';
 
 # Composed Message Processor
 
@@ -46,16 +50,7 @@ It's a composition of patterns: a Splitter separates the parts, a router (such a
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    M["Payment batch"] --> S["Splitter"]
-    S --> R{"Router"}
-    R --> A["Pix rail"]
-    R --> B["Boleto rail"]
-    A --> AG["Aggregator"]
-    B --> AG
-    AG --> O["Processed batch (status per item)"]
-```
+<Diagram />
 
 The batch is split, each payment goes through the correct rail, and the responses are collected into a processed batch, with the status of each item. The source illustrates the pattern with a widget and gadget order.
 

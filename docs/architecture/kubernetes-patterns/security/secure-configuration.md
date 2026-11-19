@@ -6,7 +6,11 @@ tags:
   - Security
 source: https://k8spatterns.com/
 sidebar_label: "Secure Configuration"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/kubernetes-patterns/security/secure-configuration.mdx';
 
 # Secure Configuration
 
@@ -56,14 +60,7 @@ No **gerenciamento centralizado de segredos**, os dados ficam em um serviço com
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    GIT["Repositório Git (valores cifrados)"] --> OP["Operador no cluster (decifra ou sincroniza)"]
-    SMS["Gerenciador de segredos externo"] --> OP
-    OP --> SEC["Secret"]
-    SEC -->|"volume somente leitura"| POD["Pod credit-service"]
-    SMS -->|"CSI Driver ou injetor"| POD
-```
+<Diagram />
 
 Os dados confidenciais chegam ao Pod por dois caminhos: convertidos em `Secret` por um operador a partir de dados cifrados ou sincronizados, ou montados direto de um gerenciador externo, sem passar pelo etcd.
 

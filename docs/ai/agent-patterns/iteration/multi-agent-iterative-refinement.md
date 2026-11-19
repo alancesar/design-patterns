@@ -8,7 +8,11 @@ tags:
 origin: Google
 source: https://docs.cloud.google.com/architecture/choose-design-pattern-agentic-ai-system#iterative-refinement-pattern
 sidebar_label: "Multi-Agent Iterative Refinement"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/ai/agent-patterns/iteration/multi-agent-iterative-refinement.mdx';
 
 # Multi-Agent Iterative Refinement
 
@@ -50,16 +54,7 @@ Um ou mais agentes trabalham em loop, alterando a cada passada um resultado guar
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    I["Tarefa"] --> E[("Estado da sessão: resultado")]
-    E --> A["Agente: avaliar e criticar"]
-    A --> B["Agente: reescrever"]
-    B --> E
-    E --> Q{"Limiar de qualidade ou limite de iterações?"}
-    Q -- "Não" --> A
-    Q -- "Sim" --> R["Resultado final"]
-```
+<Diagram />
 
 Os agentes atualizam o mesmo resultado no estado da sessão a cada ciclo, até o limiar de qualidade ou o limite de iterações.
 

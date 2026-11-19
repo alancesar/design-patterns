@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://www.enterpriseintegrationpatterns.com/MessageChannel.html
 sidebar_label: "Message Channel"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/messaging-channels/message-channel.mdx';
 
 # Message Channel
 
@@ -52,11 +56,7 @@ Na prática, o canal é uma abstração oferecida pelo sistema de mensageria (fi
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    A["Aplicação remetente"] -->|"escreve"| C["Message Channel"]
-    C -->|"lê"| B["Aplicação receptora"]
-```
+<Diagram />
 
 A aplicação remetente escreve mensagens no canal e a receptora as lê, sem que uma conheça diretamente a outra.
 

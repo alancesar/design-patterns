@@ -1,0 +1,10 @@
+```mermaid
+stateDiagram-v2
+    [*] --> REQUESTED
+    REQUESTED --> APPROVED : approve
+    REQUESTED --> CANCELED : cancel
+    APPROVED --> DISBURSED : disburse
+    APPROVED --> CANCELED : cancel
+    DISBURSED --> [*]
+    CANCELED --> [*]
+```

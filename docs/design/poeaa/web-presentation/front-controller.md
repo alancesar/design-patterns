@@ -8,7 +8,11 @@ tags:
   - Decoupling
 source: https://martinfowler.com/eaaCatalog/frontController.html
 sidebar_label: "Front Controller"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/web-presentation/front-controller.mdx';
 
 # Front Controller
 
@@ -50,23 +54,7 @@ O handler decide qual command executar, normalmente com base em um mapeamento de
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class FrontController {
-        +processRequest(request)
-    }
-    class Command {
-        <<interface>>
-        +process(request)
-    }
-    class TransferCommand
-    class StatementCommand
-    class View
-    FrontController --> Command : seleciona e executa
-    Command <|.. TransferCommand
-    Command <|.. StatementCommand
-    Command --> View : escolhe
-```
+<Diagram />
 
 O `FrontController` recebe todas as requisições, escolhe o `Command` apropriado e delega. O command executa a lógica e seleciona a `View`.
 

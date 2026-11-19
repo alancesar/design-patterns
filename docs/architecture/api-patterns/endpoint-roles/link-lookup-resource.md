@@ -7,7 +7,11 @@ tags:
   - Evolvability
 source: https://api-patterns.org/
 sidebar_label: "Link Lookup Resource"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/endpoint-roles/link-lookup-resource.mdx';
 
 # Link Lookup Resource
 
@@ -61,16 +65,7 @@ O padrão reduz o acoplamento a URLs fixas e dá ao provedor liberdade para move
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant C as Cliente
-    participant L as Link Lookup Resource
-    participant R as Recurso de destino
-    C->>L: Onde está o contrato ln-300?
-    L-->>C: Link para o recurso atual
-    C->>R: GET no link recebido
-    R-->>C: Dados do contrato
-```
+<Diagram />
 
 O cliente primeiro consulta o lookup, recebe o endereço atual e só então acessa o recurso de destino.
 

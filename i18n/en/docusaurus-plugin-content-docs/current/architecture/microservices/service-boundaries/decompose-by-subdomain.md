@@ -7,7 +7,11 @@ tags:
   - Reliability
 source: https://microservices.io/patterns/decomposition/decompose-by-subdomain.html
 sidebar_label: "Decompose by Subdomain"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/service-boundaries/decompose-by-subdomain.mdx';
 
 # Decompose by Subdomain
 
@@ -47,15 +51,7 @@ Subdomains are classified into three types: core (the competitive differentiator
 
 ## Diagram
 
-```mermaid
-flowchart TB
-    D["Domain: digital bank"] --> CORE["Core: Credit Decision"]
-    D --> SUP["Supporting: Reconciliation"]
-    D --> GEN["Generic: Identity Verification"]
-    CORE --> S1["Credit Decision Service"]
-    SUP --> S2["Reconciliation Service"]
-    GEN --> S3["Off-the-shelf product or generic service"]
-```
+<Diagram />
 
 The domain is divided into subdomains of distinct types, each mapped to a suitable service or solution. The source illustrates the pattern with orders, delivery, and payments.
 

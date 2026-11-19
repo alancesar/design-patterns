@@ -7,7 +7,11 @@ tags:
   - Reliability
 source: https://www.enterpriseintegrationpatterns.com/SmartProxy.html
 sidebar_label: "Smart Proxy"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/system-management/smart-proxy.mdx';
 
 # Smart Proxy
 
@@ -48,16 +52,7 @@ When the reply arrives, the proxy looks up the stored address, uses a message ro
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant C as Client
-    participant P as Smart Proxy
-    participant S as Service
-    C->>P: request with the client's Return Address
-    P->>S: request with the proxy's Return Address
-    S->>P: response
-    P->>C: response to the original address
-```
+<Diagram />
 
 The proxy swaps the return address, receives the reply, and passes it on to the client, observing the full cycle.
 

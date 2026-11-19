@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://www.enterpriseintegrationpatterns.com/EnvelopeWrapper.html
 sidebar_label: "Envelope Wrapper"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-transformation/envelope-wrapper.mdx';
 
 # Envelope Wrapper
 
@@ -51,13 +55,7 @@ Em termos gerais, o fluxo tem duas etapas: um wrapper no lado do remetente, que 
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    A["Aplicação origem"] --> W["Wrapper"]
-    W -->|"Mensagem com envelope"| C["Canal de mensagens"]
-    C --> U["Unwrapper"]
-    U --> B["Aplicação destino"]
-```
+<Diagram />
 
 O wrapper adiciona o envelope exigido pela infraestrutura e o unwrapper o remove, de modo que as aplicações trabalham apenas com os dados originais.
 

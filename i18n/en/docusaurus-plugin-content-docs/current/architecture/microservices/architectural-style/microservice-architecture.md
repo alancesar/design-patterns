@@ -9,7 +9,11 @@ tags:
   - Security
 source: https://microservices.io/patterns/microservices.html
 sidebar_label: "Microservice Architecture"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/architectural-style/microservice-architecture.mdx';
 
 # Microservice Architecture
 
@@ -56,18 +60,7 @@ The style trades the simplicity of a single component for team autonomy and flex
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    C[Client] --> GW[API Gateway]
-    GW --> S1[Account Service]
-    GW --> S2[Pix Service]
-    GW --> S3[Card Service]
-    S1 --> DB1[(Accounts DB)]
-    S2 --> DB2[(Pix DB)]
-    S3 --> DB3[(Cards DB)]
-    S2 -. "messages / calls" .-> S1
-    S3 -. "messages / calls" .-> S1
-```
+<Diagram />
 
 Each service is deployed independently, owns its own database, and is accessed through an API Gateway; collaboration between services happens through messages or remote calls. The source illustrates the pattern with orders and deliveries.
 

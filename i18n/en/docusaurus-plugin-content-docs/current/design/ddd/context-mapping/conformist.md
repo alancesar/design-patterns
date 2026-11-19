@@ -7,7 +7,11 @@ tags:
   - Shared Understanding
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Conformist"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/context-mapping/conformist.mdx';
 
 # Conformist
 
@@ -51,10 +55,7 @@ It's similar to Shared Kernel in outcome, but the difference is political: here 
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    U["Pix scheme messages, in ISO 20022 (upstream)"] -->|"upstream model"| D["Pix Context (downstream, Conformist)"]
-```
+<Diagram />
 
 The Pix context directly adopts the concepts of the scheme's messages, with no translation layer.
 

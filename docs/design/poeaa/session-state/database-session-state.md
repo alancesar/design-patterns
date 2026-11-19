@@ -7,7 +7,11 @@ tags:
   - Decoupling
 source: https://martinfowler.com/eaaCatalog/databaseSessionState.html
 sidebar_label: "Database Session State"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/session-state/database-session-state.mdx';
 
 # Database Session State
 
@@ -55,20 +59,7 @@ Como o estado vive no banco, o servidor fica sem estado e qualquer instância po
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant Client
-    participant ServerA
-    participant ServerB
-    participant Database
-    Client->>ServerA: Requisicao 1
-    ServerA->>Database: Grava estado da sessao (commit)
-    ServerA-->>Client: Resposta + sessionId
-    Client->>ServerB: Requisicao 2 + sessionId
-    ServerB->>Database: Le estado da sessao
-    Database-->>ServerB: Estado persistido
-    ServerB-->>Client: Resposta
-```
+<Diagram />
 
 O `Client` mantém apenas o `sessionId`. Qualquer servidor lê e grava o estado no `Database`, que é a fonte única e durável da sessão.
 

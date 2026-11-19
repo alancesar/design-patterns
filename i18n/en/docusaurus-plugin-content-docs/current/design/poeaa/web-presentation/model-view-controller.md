@@ -8,7 +8,11 @@ tags:
   - Extensibility
 source: https://martinfowler.com/eaaCatalog/modelViewController.html
 sidebar_label: "Model View Controller"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/web-presentation/model-view-controller.mdx';
 
 # Model View Controller
 
@@ -53,22 +57,7 @@ On the web, MVC is usually realized by combining more specific patterns: a Page 
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Controller {
-        +handleInput()
-    }
-    class View {
-        +render()
-    }
-    class Model {
-        +getState()
-        +changeState()
-    }
-    Controller --> Model : updates
-    Controller --> View : selects
-    View --> Model : reads data
-```
+<Diagram />
 
 The `Controller` receives the input, changes the `Model`, and selects the `View`; the `View` reads the `Model`'s data to display it. The `Model` knows neither of them.
 

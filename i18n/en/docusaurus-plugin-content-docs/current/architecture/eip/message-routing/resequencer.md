@@ -6,7 +6,11 @@ tags:
   - Reliability
 source: https://www.enterpriseintegrationpatterns.com/Resequencer.html
 sidebar_label: "Resequencer"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-routing/resequencer.mdx';
 
 # Resequencer
 
@@ -49,12 +53,7 @@ The Resequencer doesn't change the content, only the order. For the order to hol
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    IN["Messages 3, 1, 2"] --> RS["Resequencer"]
-    RS --> B[("Buffer")]
-    RS --> OUT["Messages 1, 2, 3"]
-```
+<Diagram />
 
 Messages arrive out of order, are held in the buffer, and leave in sequence.
 

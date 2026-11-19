@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://www.enterpriseintegrationpatterns.com/TestMessage.html
 sidebar_label: "Test Message"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/system-management/test-message.mdx';
 
 # Test Message
 
@@ -48,15 +52,7 @@ O padrão tem quatro papéis: um gerador de dados de teste, um injetor que marca
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    G["Gerador de dados de teste"] --> I["Injetor"]
-    I --> C["Componente em teste"]
-    A["Mensagens reais"] --> C
-    C --> S{"Separador"}
-    S -- "mensagens reais" --> D["Destino"]
-    S -- "mensagens de teste" --> V["Verificador"]
-```
+<Diagram />
 
 O injetor insere mensagens marcadas no fluxo, o separador as desvia da saída e o verificador compara o resultado com o esperado.
 

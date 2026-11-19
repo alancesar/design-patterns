@@ -1,0 +1,12 @@
+```mermaid
+classDiagram
+    class Singleton {
+        -instance$ Singleton
+        -Singleton()
+        +getInstance()$ Singleton
+        +operation() void
+    }
+    class Client
+    Client --> Singleton : getInstance()
+    Singleton --> Singleton : instance
+```

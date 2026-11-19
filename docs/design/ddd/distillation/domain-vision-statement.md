@@ -7,7 +7,11 @@ tags:
   - Strategic Focus
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Domain Vision Statement"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/distillation/domain-vision-statement.mdx';
 
 # Domain Vision Statement
 
@@ -53,15 +57,7 @@ Quando há vários contextos ou times, o documento ajuda a manter todos alinhado
 
 ## Diagrama
 
-```mermaid
-flowchart TD
-    A["Domain Vision Statement"] --> B["Time de desenvolvimento"]
-    A --> C["Especialistas do domínio"]
-    A --> D["Gestão e patrocinadores"]
-    B --> E["Decisões de modelagem alinhadas"]
-    C --> E
-    D --> F["Priorização de investimento"]
-```
+<Diagram />
 
 O documento único alimenta diferentes públicos, que passam a decidir e priorizar com base na mesma descrição do valor do core.
 

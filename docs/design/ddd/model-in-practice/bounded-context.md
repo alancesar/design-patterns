@@ -8,7 +8,11 @@ tags:
   - Decoupling
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Bounded Context"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/model-in-practice/bounded-context.mdx';
 
 # Bounded Context
 
@@ -52,20 +56,7 @@ O Bounded Context é o alicerce do design estratégico: é nele que a Ubiquitous
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    subgraph Onboarding ["Contexto de Onboarding"]
-        O1["Cliente = proponente com dossiê de KYC e documentos"]
-    end
-    subgraph Credito ["Contexto de Crédito"]
-        R1["Cliente = tomador com score e limite"]
-    end
-    subgraph Cobranca ["Contexto de Cobrança"]
-        C1["Cliente = devedor com parcelas em atraso"]
-    end
-    Onboarding -->|"traduz"| Credito
-    Credito -->|"traduz"| Cobranca
-```
+<Diagram />
 
 O termo "Cliente" tem um modelo próprio em cada contexto, e as setas indicam pontos de tradução entre eles.
 

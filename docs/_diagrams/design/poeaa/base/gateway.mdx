@@ -1,0 +1,13 @@
+```mermaid
+classDiagram
+    class Client
+    class Gateway {
+        +fetchData()
+        +sendData()
+    }
+    class ExternalSystem {
+        +specializedCall()
+    }
+    Client --> Gateway
+    Gateway --> ExternalSystem
+```

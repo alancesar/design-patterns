@@ -7,7 +7,11 @@ tags:
   - Shared Understanding
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Continuous Integration"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/model-in-practice/continuous-integration.mdx';
 
 # Continuous Integration
 
@@ -51,15 +55,7 @@ The practice applies only within a Bounded Context; between contexts, integratio
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    A["Dev A: changes the model"] --> I["Frequent integration"]
-    B["Dev B: changes the model"] --> I
-    I --> T["Automated build and tests"]
-    I --> C["Conversation about the model"]
-    T --> M["Cohesive model within the Bounded Context"]
-    C --> M
-```
+<Diagram />
 
 Changes from several people go through frequent integration, validated by automated tests and by conversation about the model.
 

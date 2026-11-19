@@ -7,7 +7,11 @@ tags:
   - Shared Understanding
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Entity"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/building-blocks/entity.mdx';
 
 # Entity
 
@@ -50,26 +54,7 @@ Para manter o modelo simples, convém reduzir a entidade ao essencial: atributos
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Customer {
-        +CustomerId id
-        +Address address
-        +changeAddress(address)
-        +equals(other)
-    }
-    class CustomerId {
-        <<value object>>
-        +value
-    }
-    class Address {
-        <<value object>>
-        +street
-        +city
-    }
-    Customer --> CustomerId
-    Customer --> Address
-```
+<Diagram />
 
 `Customer` é identificado por `CustomerId`. O `Address` pode mudar sem alterar quem é o cliente.
 

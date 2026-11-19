@@ -6,7 +6,11 @@ tags:
   - Consistency
 source: https://martinfowler.com/eaaCatalog/pessimisticOfflineLock.html
 sidebar_label: "Pessimistic Offline Lock"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/offline-concurrency/pessimistic-offline-lock.mdx';
 
 # Pessimistic Offline Lock
 
@@ -51,22 +55,7 @@ O padrão é a opção mais segura quando perder o trabalho do usuário é inace
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant A as Sessao A
-    participant B as Sessao B
-    participant LM as Lock Manager
-    participant DB as Banco de dados
-    A->>LM: adquirir bloqueio (dossiê 8841)
-    LM-->>A: concedido
-    B->>LM: adquirir bloqueio (dossiê 8841)
-    LM-->>B: negado
-    A->>DB: le e edita dossiê 8841
-    A->>DB: grava alteracoes
-    A->>LM: liberar bloqueio
-    B->>LM: tentar novamente
-    LM-->>B: concedido
-```
+<Diagram />
 
 A sessão A obtém o bloqueio e trabalha sem concorrência. A sessão B é recusada até que A libere o recurso.
 

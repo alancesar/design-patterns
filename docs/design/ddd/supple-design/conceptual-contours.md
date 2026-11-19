@@ -7,7 +7,11 @@ tags:
   - Strategic Focus
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Conceptual Contours"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/supple-design/conceptual-contours.mdx';
 
 # Conceptual Contours
 
@@ -51,16 +55,7 @@ Os contornos raramente são encontrados na primeira tentativa. A equipe os desco
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    A["Antes: parcela com juros, IOF e seguro"] -->|"mudanca do IOF afeta tudo"| B["Refatoracao"]
-    B --> C["Interest"]
-    B --> D["Iof"]
-    B --> E["Insurance"]
-    C -.->|"mudam separados"| F["Mudancas localizadas"]
-    D -.-> F
-    E -.-> F
-```
+<Diagram />
 
 Ao separar juros, IOF e seguro em unidades que mudam de forma independente, cada mudança de requisito fica restrita a uma delas.
 

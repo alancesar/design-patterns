@@ -12,6 +12,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/structural/decorator.mdx';
+
 # Decorator
 
 ## Descrição
@@ -59,36 +61,7 @@ Decoradores podem ser empilhados: cada camada adiciona um comportamento, e a ord
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Component {
-        <<interface>>
-        +operation()
-    }
-    class ConcreteComponent {
-        +operation()
-    }
-    class Decorator {
-        <<abstract>>
-        -component: Component
-        +operation()
-    }
-    class ConcreteDecoratorA {
-        +operation()
-        +addedBehavior()
-    }
-    class ConcreteDecoratorB {
-        -addedState
-        +operation()
-    }
-    class Client
-    Component <|.. ConcreteComponent
-    Component <|.. Decorator
-    Decorator o-- Component : wraps
-    Decorator <|-- ConcreteDecoratorA
-    Decorator <|-- ConcreteDecoratorB
-    Client --> Component
-```
+<Diagram />
 
 `Component` define a interface comum; `ConcreteComponent` é o objeto base. `Decorator` implementa a mesma interface e guarda uma referência a um `Component`, delegando a ele as chamadas; `ConcreteDecoratorA` e `ConcreteDecoratorB` acrescentam comportamento antes ou depois dessa delegação. O `Client` trabalha apenas com `Component`.
 

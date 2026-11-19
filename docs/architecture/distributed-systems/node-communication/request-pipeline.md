@@ -7,7 +7,11 @@ tags:
   - Scalability
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/request-pipeline.html
 sidebar_label: "Request Pipeline"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/node-communication/request-pipeline.mdx';
 
 # Request Pipeline
 
@@ -52,17 +56,7 @@ O ganho aparece quando o servidor consegue processar algo enquanto outras requis
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant C as Cliente
-    participant S as Servidor
-    C->>S: Requisicao 1
-    C->>S: Requisicao 2
-    S-->>C: Resposta 1
-    C->>S: Requisicao 3
-    S-->>C: Resposta 2
-    S-->>C: Resposta 3
-```
+<Diagram />
 
 O cliente envia as requisições 2 e 3 sem esperar a resposta da requisição 1. As respostas chegam depois e são tratadas por uma linha de execução separada.
 

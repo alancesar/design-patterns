@@ -1,0 +1,6 @@
+```mermaid
+flowchart LR
+    A["Existing application"] <-->|"API or data"| AD["Channel Adapter"]
+    AD -->|"publishes"| C1["Output channel"]
+    C2["Input channel"] -->|"consumes"| AD
+```

@@ -7,7 +7,11 @@ tags:
   - Evolvability
 source: https://api-patterns.org/
 sidebar_label: "Link Lookup Resource"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/endpoint-roles/link-lookup-resource.mdx';
 
 # Link Lookup Resource
 
@@ -61,16 +65,7 @@ The pattern reduces coupling to fixed URLs and gives the provider freedom to mov
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant C as Client
-    participant L as Link Lookup Resource
-    participant R as Target resource
-    C->>L: Where is contract ln-300?
-    L-->>C: Link to the current resource
-    C->>R: GET on the received link
-    R-->>C: Contract data
-```
+<Diagram />
 
 The client first queries the lookup, receives the current address and only then accesses the target resource.
 

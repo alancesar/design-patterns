@@ -7,7 +7,11 @@ tags:
   - Durability
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/high-watermark.html
 sidebar_label: "High-Water Mark"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/data-replication/high-water-mark.mdx';
 
 # High-Water Mark
 
@@ -49,13 +53,7 @@ In Kafka, the partition's high-water mark defines what consumers can read; in Ra
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    E1["1"] --> E2["2"] --> E3["3"] --> E4["4"] --> E5["5"]
-    HW["High-Water Mark = 3"] -.-> E3
-    E3 --- V["Visible to clients: 1 to 3"]
-    E5 --- N["Not committed: 4 and 5"]
-```
+<Diagram />
 
 Entries 1 to 3 are already on a majority and visible; entries 4 and 5 can still be discarded.
 

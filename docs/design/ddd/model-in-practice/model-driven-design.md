@@ -7,7 +7,11 @@ tags:
   - Consistency
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Model-Driven Design"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/model-in-practice/model-driven-design.mdx';
 
 # Model-Driven Design
 
@@ -51,14 +55,7 @@ O padrão exige que quem modela se envolva com a implementação, o que dá orig
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    N["Negócio e especialistas"] --> M["Modelo de domínio"]
-    M <-->|"expresso por"| C["Código"]
-    C -->|"feedback"| M
-    L["Ubiquitous Language"] --- M
-    L --- C
-```
+<Diagram />
 
 O modelo e o código se influenciam mutuamente, ligados pela linguagem comum; o feedback da implementação volta para o modelo.
 

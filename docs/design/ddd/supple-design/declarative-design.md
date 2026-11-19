@@ -7,7 +7,11 @@ tags:
   - Shared Understanding
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Declarative Design"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/supple-design/declarative-design.mdx';
 
 # Declarative Design
 
@@ -52,22 +56,7 @@ O risco é a rigidez: uma linguagem declarativa limitada pode impedir o que o do
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Specification {
-        <<interface>>
-        +isSatisfiedBy(candidate) bool
-        +and(Specification other) Specification
-        +or(Specification other) Specification
-        +not() Specification
-    }
-    class OverdueInvoice
-    class HighValueInvoice
-    class AndSpecification
-    Specification <|.. OverdueInvoice
-    Specification <|.. HighValueInvoice
-    Specification <|.. AndSpecification
-```
+<Diagram />
 
 As regras são pequenas implementações de `Specification`, combinadas com `and`, `or` e `not` para formar regras maiores de modo declarativo.
 

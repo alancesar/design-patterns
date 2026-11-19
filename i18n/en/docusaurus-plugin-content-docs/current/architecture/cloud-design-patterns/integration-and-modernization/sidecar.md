@@ -9,7 +9,11 @@ also_in:
   - architecture/kubernetes-patterns/structural
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/sidecar
 sidebar_label: "Sidecar"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/integration-and-modernization/sidecar.mdx';
 
 # Sidecar
 
@@ -67,19 +71,7 @@ In Kubernetes, the sidecar is an additional container in the same Pod as the app
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    C[Client]
-    subgraph H["Host / deployment unit"]
-        A["Main application (business logic)"]
-        S["Sidecar (proxy, logs, configuration, security)"]
-        A <-->|"Local IPC"| S
-    end
-    C --> S
-    S --> R["Remote services"]
-    S --> M["Observability platform"]
-    S --> K["Configuration and secrets store"]
-```
+<Diagram />
 
 The main application and the sidecar run side by side on the same host, sharing lifecycle and resources. The sidecar mediates traffic and handles the cross-cutting concerns, such as calls to remote services, sending telemetry, and fetching configuration, without the application needing to know these details.
 

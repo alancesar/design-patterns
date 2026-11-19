@@ -7,7 +7,11 @@ tags:
   - Decoupling
 source: https://martinfowler.com/eaaCatalog/inheritanceMappers.html
 sidebar_label: "Inheritance Mappers"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/object-relational-structural/inheritance-mappers.mdx';
 
 # Inheritance Mappers
 
@@ -48,23 +52,7 @@ Tanto faz o esquema escolhido (Single Table, Class Table ou Concrete Table): a e
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class AbstractPaymentInstructionMapper {
-        +load(row) PaymentInstruction
-        #create() PaymentInstruction
-    }
-    class PixTransferMapper {
-        +load(row) PaymentInstruction
-        #create() PaymentInstruction
-    }
-    class TedTransferMapper {
-        +load(row) PaymentInstruction
-        #create() PaymentInstruction
-    }
-    AbstractPaymentInstructionMapper <|-- PixTransferMapper
-    AbstractPaymentInstructionMapper <|-- TedTransferMapper
-```
+<Diagram />
 
 O mapeador abstrato guarda o fluxo comum; cada mapeador concreto trata dos campos de sua classe e chama o da superclasse para os campos herdados. A fonte do Fowler ilustra o padrão com a hierarquia `Player`; aqui ela é substituída por `PaymentInstruction`, a mesma nos quatro padrões de herança.
 

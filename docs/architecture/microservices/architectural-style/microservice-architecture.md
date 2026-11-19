@@ -9,7 +9,11 @@ tags:
   - Security
 source: https://microservices.io/patterns/microservices.html
 sidebar_label: "Microservice Architecture"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/architectural-style/microservice-architecture.mdx';
 
 # Microservice Architecture
 
@@ -56,18 +60,7 @@ O estilo troca a simplicidade de um componente único por autonomia de equipes e
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    C[Cliente] --> GW[API Gateway]
-    GW --> S1[Serviço de Contas]
-    GW --> S2[Serviço de Pix]
-    GW --> S3[Serviço de Cartões]
-    S1 --> DB1[(Banco de Contas)]
-    S2 --> DB2[(Banco de Pix)]
-    S3 --> DB3[(Banco de Cartões)]
-    S2 -. "mensagens / chamadas" .-> S1
-    S3 -. "mensagens / chamadas" .-> S1
-```
+<Diagram />
 
 Cada serviço é implantado de forma independente, possui seu próprio banco e é acessado por um API Gateway; a colaboração entre serviços ocorre por mensagens ou chamadas remotas. A fonte ilustra o padrão com pedidos e entregas.
 

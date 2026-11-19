@@ -7,7 +7,11 @@ tags:
   - Decoupling
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Aggregate"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/building-blocks/aggregate.mdx';
 
 # Aggregate
 
@@ -51,28 +55,7 @@ References between aggregates should be made by identity rather than by direct o
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class CardAccount {
-        <<aggregate root>>
-        +String id
-        +authorize(merchant, amount) AuthorizationHold
-        +availableLimit() Money
-    }
-    class AuthorizationHold {
-        +Money amount
-        +String merchant
-    }
-    class Money {
-        <<value object>>
-    }
-    class Customer {
-        <<aggregate root>>
-    }
-    CardAccount "1" *-- "*" AuthorizationHold
-    CardAccount --> Money : limit
-    CardAccount ..> Customer : customerId
-```
+<Diagram />
 
 `CardAccount` is the root and controls `AuthorizationHold` and the limit (`Money`). The reference to `Customer`, another aggregate, is made by identity only.
 

@@ -8,7 +8,11 @@ tags:
   - Performance Efficiency
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/gateway-routing
 sidebar_label: "Gateway Routing"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/gateways-and-edge/gateway-routing.mdx';
 
 # Gateway Routing
 
@@ -63,17 +67,7 @@ Um proxy reverso comum, como o Nginx, já implementa o padrão. No Azure, por ex
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    C[Cliente] --> G["Gateway (endpoint único)"]
-    G -->|"/contas"| S1[Serviço de contas]
-    G -->|"/pix"| S2[Serviço de Pix]
-    G -->|"/cartoes"| S3[Serviço de cartões]
-    G -->|"90% do tráfego"| V1["Pix v1"]
-    G -->|"10% do tráfego (canary)"| V2["Pix v2"]
-    G -->|"região 1"| R1["Extrato - instância região 1"]
-    G -->|"região 2"| R2["Extrato - instância região 2"]
-```
+<Diagram />
 
 O cliente envia todas as requisições para o gateway, que as roteia por caminho para serviços distintos (contas, Pix e cartões), divide o tráfego do Pix entre a versão atual e uma versão canary e distribui a carga do extrato entre instâncias em regiões diferentes.
 

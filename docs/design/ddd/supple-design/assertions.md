@@ -7,7 +7,11 @@ tags:
   - Shared Understanding
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Assertions"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/supple-design/assertions.mdx';
 
 # Assertions
 
@@ -51,17 +55,7 @@ Combinado com Side-Effect-Free Functions, o padrão deixa visíveis os poucos co
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant C as Client
-    participant A as Account
-    C->>A: debit(amount)
-    Note over A: Pre: amount positivo e saldo não ultrapassa o limite do cheque especial
-    A->>A: atualiza balance
-    Note over A: Pos: balance = balance anterior - amount
-    A-->>C: concluido
-    Note over A: Invariante: balance + overdraftLimit nunca e negativo
-```
+<Diagram />
 
 A pré-condição, a pós-condição e o invariante são declarados em torno do comando `debit`. O livro ilustra o padrão com a mistura de tintas.
 

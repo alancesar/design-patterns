@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/behavioral/interpreter.mdx';
+
 # Interpreter
 
 ## Description
@@ -57,31 +59,7 @@ The pattern doesn't deal with parsing: it assumes the tree has already been buil
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Client
-    class Context {
-        +lookup(name) Object
-        +assign(name, value)
-    }
-    class AbstractExpression {
-        <<interface>>
-        +interpret(context) Object
-    }
-    class TerminalExpression {
-        +interpret(context) Object
-    }
-    class NonterminalExpression {
-        -children List~AbstractExpression~
-        +interpret(context) Object
-    }
-    Client --> AbstractExpression
-    Client --> Context
-    AbstractExpression <|.. TerminalExpression
-    AbstractExpression <|.. NonterminalExpression
-    NonterminalExpression o-- AbstractExpression
-    AbstractExpression ..> Context
-```
+<Diagram />
 
 The `Client` builds (or receives) the tree of `AbstractExpression` and calls `interpret`, passing a `Context`. `TerminalExpression` represents the leaves of the grammar and `NonterminalExpression` aggregates subexpressions, forming a recursive structure similar to Composite.
 

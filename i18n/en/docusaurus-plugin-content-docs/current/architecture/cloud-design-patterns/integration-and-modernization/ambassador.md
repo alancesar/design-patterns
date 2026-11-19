@@ -9,7 +9,11 @@ also_in:
   - architecture/kubernetes-patterns/structural
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/ambassador
 sidebar_label: "Ambassador"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/integration-and-modernization/ambassador.mdx';
 
 # Ambassador
 
@@ -63,19 +67,7 @@ In Kubernetes, the ambassador is a container in the same Pod that listens on a l
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    subgraph Host["Host / Pod"]
-        App["Client application"]
-        Amb["Ambassador (local proxy)"]
-    end
-    Remote["Remote service"]
-
-    App -->|"1. local request"| Amb
-    Amb -->|"2. routing, circuit breaker, mTLS, tracing"| Remote
-    Remote -->|"3. response"| Amb
-    Amb -->|"4. response + logs and metrics"| App
-```
+<Diagram />
 
 The application sends its requests to the ambassador colocated on the same host, which resolves the destination, applies resiliency and security, forwards the call to the remote service, and returns the response, recording metrics such as latency. As a specific example, on Azure Kubernetes Service the ambassador usually runs as a sidecar container in the same pod as the application.
 

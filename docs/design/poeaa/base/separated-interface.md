@@ -7,7 +7,11 @@ tags:
   - Testability
 source: https://martinfowler.com/eaaCatalog/separatedInterface.html
 sidebar_label: "Separated Interface"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/base/separated-interface.mdx';
 
 # Separated Interface
 
@@ -52,23 +56,7 @@ Equipes costumam organizar classes em pacotes ou módulos e definir regras de de
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    namespace DomainPackage {
-        class ForeignCurrencyConverter
-        class ExchangeRateProvider {
-            <<interface>>
-            +rate(from, to)
-        }
-    }
-    namespace InfrastructurePackage {
-        class HttpExchangeRateProvider {
-            +rate(from, to)
-        }
-    }
-    ForeignCurrencyConverter --> ExchangeRateProvider
-    ExchangeRateProvider <|.. HttpExchangeRateProvider
-```
+<Diagram />
 
 O `ForeignCurrencyConverter` e a interface `ExchangeRateProvider` ficam no pacote de domínio; a implementação `HttpExchangeRateProvider` fica no pacote de infraestrutura e depende da interface, invertendo a dependência.
 

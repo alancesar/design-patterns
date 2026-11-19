@@ -7,7 +7,11 @@ tags:
   - Cost Optimization
 source: https://k8spatterns.com/
 sidebar_label: "Batch Job"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/kubernetes-patterns/behavioral/batch-job.mdx';
 
 # Batch Job
 
@@ -56,17 +60,7 @@ Um Pod avulso não é recriado se o nó falhar. O Job assume essa responsabilida
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    J["Job: ledger-reconciliation"] --> P1["Pod 1"]
-    J --> P2["Pod 2"]
-    P1 -->|"Sucesso"| OK["Contagem de conclusões"]
-    P2 -->|"Falha"| R["Novo Pod criado"]
-    R -->|"Sucesso"| OK
-    OK --> D{"completions atingido?"}
-    D -->|"Sim"| F["Job concluído"]
-    D -->|"Não"| J
-```
+<Diagram />
 
 O Job cria Pods em paralelo, substitui os que falham e só é marcado como concluído quando o número de execuções bem-sucedidas chega ao valor de `completions`.
 

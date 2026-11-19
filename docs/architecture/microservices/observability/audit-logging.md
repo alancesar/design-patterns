@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://microservices.io/patterns/observability/audit-logging.html
 sidebar_label: "Audit Logging"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/observability/audit-logging.mdx';
 
 # Audit Logging
 
@@ -48,16 +52,7 @@ Uma forma confiável de implementar a auditoria é o Event Sourcing, em que cada
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant U as Usuário
-    participant S as Serviço
-    participant A as Armazenamento de auditoria
-    U->>S: executa ação
-    S->>S: aplica a regra de negócio
-    S->>A: grava registro (quem, o quê, quando)
-    S-->>U: resposta
-```
+<Diagram />
 
 O serviço executa a ação do usuário e grava um registro de auditoria em um armazenamento dedicado.
 

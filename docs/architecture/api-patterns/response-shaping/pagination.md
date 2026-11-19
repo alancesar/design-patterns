@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/response-shaping/pagination.mdx';
+
 # Pagination
 
 ## Descrição
@@ -57,22 +59,7 @@ O tamanho da página pode ser fixo no contrato ou escolhido pelo cliente com um 
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant C as Cliente
-    participant A as API de extrato
-    participant D as Fonte de dados
-    C->>A: GET /accounts/acc-123/entries?pageSize=2
-    A->>D: Busca 2 itens (+1 para saber se há mais)
-    D-->>A: Itens 1 e 2
-    A-->>C: Itens 1 e 2 + link next (cursor=2)
-    C->>A: GET ...entries?pageSize=2&cursor=2
-    A->>D: Itens após o id 2
-    D-->>A: Itens 3 e 4
-    A-->>C: Itens 3 e 4 + link next (cursor=4)
-    C->>A: GET ...entries?pageSize=2&cursor=4
-    A-->>C: Item 5, sem link next
-```
+<Diagram />
 
 O cliente segue o link `next` até ele deixar de aparecer. O cursor guarda o último item visto, então inserções no início do extrato não deslocam as páginas seguintes.
 

@@ -7,7 +7,11 @@ tags:
   - Simplicity
 source: https://martinfowler.com/eaaCatalog/clientSessionState.html
 sidebar_label: "Client Session State"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/session-state/client-session-state.mdx';
 
 # Client Session State
 
@@ -54,17 +58,7 @@ Hoje a forma mais comum é o JWT em cookie ou em header: o token carrega identid
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant Client
-    participant ServerA
-    participant ServerB
-    Client->>ServerA: Requisicao 1
-    ServerA-->>Client: Resposta + estado (token assinado)
-    Client->>ServerB: Requisicao 2 + estado
-    ServerB->>ServerB: Valida assinatura e le o estado
-    ServerB-->>Client: Resposta + estado atualizado
-```
+<Diagram />
 
 O `Client` guarda o estado e o reenvia a cada chamada. Qualquer servidor valida a assinatura e usa os dados, sem consultar armazenamento compartilhado.
 

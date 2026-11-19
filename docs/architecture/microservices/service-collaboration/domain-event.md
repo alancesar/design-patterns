@@ -9,7 +9,11 @@ also_in:
   - design/ddd/building-blocks
 source: https://microservices.io/patterns/data/domain-event.html
 sidebar_label: "Domain Event"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/service-collaboration/domain-event.mdx';
 
 # Domain Event
 
@@ -56,16 +60,7 @@ O padrão em si define o que publicar; a publicação confiável (atômica com a
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    A["Agregado (PixCharge)"] -->|"emite"| E["Evento: ChargePaid"]
-    S["Serviço de Pix"] --- A
-    S -->|"publica"| B["Mensageria"]
-    E -.-> B
-    B --> C1["Saga de conciliação"]
-    B --> C2["Visão de extrato"]
-    B --> C3["Réplica de outro serviço"]
-```
+<Diagram />
 
 O agregado emite o evento, o serviço o publica e diferentes consumidores reagem a ele, cada um à sua maneira. A fonte ilustra o padrão com pedidos.
 

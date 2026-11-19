@@ -6,7 +6,11 @@ tags:
   - Reliability
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/leader-election
 sidebar_label: "Leader Election"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/distributed-coordination/leader-election.mdx';
 
 # Leader Election
 
@@ -56,23 +60,7 @@ The follower instances monitor the leader through heartbeat, polling, or lease e
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant A as "Instance A"
-    participant B as "Instance B"
-    participant L as "Distributed lock service"
-    A->>L: Tries to acquire lease
-    L-->>A: Lease granted (leader)
-    B->>L: Tries to acquire lease
-    L-->>B: Denied (follower)
-    loop While leader
-        A->>L: Renews lease
-        A->>B: Coordinates work
-    end
-    Note over A: Instance A fails
-    B->>L: Tries to acquire lease after expiration
-    L-->>B: Lease granted (new leader)
-```
+<Diagram />
 
 Instances compete for a lease in a distributed lock service; whichever obtains it becomes the leader and renews it periodically. If the leader fails, the lease expires and another instance takes over leadership.
 

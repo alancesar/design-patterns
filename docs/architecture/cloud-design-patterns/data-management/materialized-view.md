@@ -6,7 +6,11 @@ tags:
   - Performance Efficiency
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/materialized-view
 sidebar_label: "Materialized View"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/data-management/materialized-view.mdx';
 
 # Materialized View
 
@@ -62,15 +66,7 @@ Quando os dados de origem mudam, a visão precisa ser atualizada, seja em respos
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    S1[("Armazenamento de origem A")] --> G["Processo de geração da visão"]
-    S2[("Armazenamento de origem B")] --> G
-    E["Eventos de alteração ou agendamento"] -.->|"dispara atualização"| G
-    G -->|"projeta, agrega e transforma"| V[("Visão materializada")]
-    App["Aplicação / Dashboard"] -->|"consulta somente leitura"| V
-    W["Escritas da aplicação"] --> S1
-```
+<Diagram />
 
 As escritas continuam indo para os armazenamentos de origem; um processo dedicado, acionado por eventos ou agendamento, gera a visão materializada já no formato da consulta, e as aplicações leem diretamente dela.
 
