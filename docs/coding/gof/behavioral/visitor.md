@@ -15,11 +15,15 @@ mdx:
 
 ## Descrição
 
-O Visitor representa uma operação a ser executada sobre os elementos de uma estrutura de objetos. Ele permite definir novas operações sem alterar as classes dos elementos sobre os quais opera, movendo cada operação para um objeto separado, o visitante.
+O Visitor permite adicionar novas operações a uma hierarquia de classes sem alterar essas classes, colocando cada operação em um objeto separado, o visitante.
 
-Cada elemento da estrutura expõe um método `accept(visitor)`, que apenas chama de volta o método do visitante correspondente ao seu tipo concreto (por exemplo, `visitor.visitCdb(this)`). Essa técnica, chamada de *double dispatch*, faz com que o código executado dependa tanto do tipo do visitante quanto do tipo do elemento, sem `instanceof` nem `switch` sobre tipos.
+Pense na carteira de investimentos do exemplo, com ativos dos tipos `Cdb`, `Stock` e `FundShare`. Ao longo do tempo surgem operações novas sobre a carteira inteira: calcular o imposto devido, gerar o informe de rendimentos, exportar para a contabilidade. Colocar cada operação como um método em cada classe de ativo incha essas classes com responsabilidades alheias a elas e obriga a mexer em todas a cada operação nova. Escrever a operação como uma função com `instanceof` ou `switch` sobre o tipo espalha checagens de tipo pelo código, e o compilador não avisa quando um tipo fica de fora.
 
-Assim, cada nova operação vira uma nova classe `ConcreteVisitor` que reúne, em um só lugar, o comportamento para todos os tipos de elemento. O padrão é especialmente útil em hierarquias estáveis, como árvores sintáticas (AST), documentos e modelos de domínio, sobre as quais muitas operações diferentes são aplicadas.
+O Visitor resolve isso em duas partes. A interface do visitante tem um método para cada tipo de elemento (`visitCdb`, `visitStock`, `visitFundShare`), e cada operação é uma classe que implementa essa interface, como `TaxCalculator`. Cada elemento, por sua vez, tem um único método `accept(visitor)`, cujo corpo só chama o método do visitante correspondente ao próprio tipo, passando a si mesmo: em `Cdb`, `accept` chama `visitor.visitCdb(this)`. O cliente percorre a carteira chamando `asset.accept(taxCalculator)` sem saber qual é o tipo concreto de cada ativo.
+
+Essa ida e volta é o que o padrão chama de *double dispatch*. A primeira chamada, `accept`, é resolvida pelo tipo concreto do elemento (um `Cdb` executa o `accept` de `Cdb`); a segunda, `visitCdb`, é resolvida pelo tipo concreto do visitante (`TaxCalculator` ou `IncomeReportExporter`). O código que roda no fim depende das duas coisas, de qual ativo e de qual operação, sem nenhuma checagem de tipo. Linguagens como Java, Python e Go escolhem o método a executar só pelo tipo do objeto que recebe a chamada; o Visitor encadeia duas chamadas para obter esse efeito.
+
+Cada nova operação vira, assim, uma nova classe `ConcreteVisitor`, que reúne em um só lugar o comportamento para todos os tipos de elemento. O custo aparece no sentido oposto: um novo tipo de elemento exige um método novo na interface do visitante e em todos os visitantes. Por isso o padrão rende mais em hierarquias estáveis, como árvores sintáticas (AST), documentos e modelos de domínio, sobre as quais muitas operações diferentes são aplicadas.
 
 ## Problemas que resolve
 
