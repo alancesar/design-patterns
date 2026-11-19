@@ -8,7 +8,11 @@ tags:
 origin: Google
 source: https://docs.cloud.google.com/architecture/choose-design-pattern-agentic-ai-system#human-in-the-loop-pattern
 sidebar_label: "Human-in-the-Loop"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/ai/agent-patterns/special-requirements/human-in-the-loop.mdx';
 
 # Human-in-the-Loop
 
@@ -52,19 +56,7 @@ O estado da execução é preservado durante a pausa. Quando o humano responde (
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant A1 as Agente de PLD
-    participant S as Sistema de revisão externo
-    actor H as Analista de PLD
-    participant A2 as Agente de registro
-    A1->>A1: Prepara a comunicação da operação suspeita
-    A1->>S: Pausa no checkpoint e solicita revisão
-    S->>H: Apresenta o resultado para validação
-    H->>S: Aprova, corrige ou rejeita
-    S->>A1: Retoma o fluxo com a decisão
-    A1->>A2: Segue para o registro, se aprovado
-```
+<Diagram />
 
 O fluxo roda até o checkpoint, entrega o trabalho a um sistema externo de revisão e só continua depois da resposta da pessoa. Exemplo: um agente prepara a comunicação de uma operação suspeita, um analista de PLD aprova e um agente registra.
 

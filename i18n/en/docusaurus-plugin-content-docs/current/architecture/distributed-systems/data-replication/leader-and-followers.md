@@ -7,7 +7,11 @@ tags:
   - Fault Tolerance
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/leader-follower.html
 sidebar_label: "Leader and Followers"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/data-replication/leader-and-followers.mdx';
 
 # Leader and Followers
 
@@ -52,21 +56,7 @@ The pattern is the foundation of systems such as ZooKeeper (ZAB), etcd (Raft), a
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant Cl as Client
-    participant L as Leader
-    participant F1 as Follower 1
-    participant F2 as Follower 2
-    Cl->>L: write
-    L->>F1: replicates entry
-    L->>F2: replicates entry
-    F1-->>L: ack
-    F2-->>L: ack
-    L-->>Cl: acknowledgment
-    L->>F1: HeartBeat
-    L->>F2: HeartBeat
-```
+<Diagram />
 
 The client writes to the leader, which replicates the entry to the followers and responds after the acknowledgments, sending a periodic HeartBeat to signal that it's alive.
 

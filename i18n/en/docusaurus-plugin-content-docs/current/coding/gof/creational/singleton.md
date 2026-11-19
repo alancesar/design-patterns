@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/creational/singleton.mdx';
+
 # Singleton
 
 ## Description
@@ -57,18 +59,7 @@ In concurrent environments, instance creation must be protected (synchronization
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Singleton {
-        -instance$ Singleton
-        -Singleton()
-        +getInstance()$ Singleton
-        +operation() void
-    }
-    class Client
-    Client --> Singleton : getInstance()
-    Singleton --> Singleton : instance
-```
+<Diagram />
 
 The `Singleton` class keeps a static reference to its own instance and a private constructor; the `Client` doesn't instantiate it directly, it just obtains the object through the static `getInstance()` method.
 

@@ -7,7 +7,11 @@ tags:
   - Simplicity
 source: https://martinfowler.com/eaaCatalog/concreteTableInheritance.html
 sidebar_label: "Concrete Table Inheritance"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/object-relational-structural/concrete-table-inheritance.mdx';
 
 # Concrete Table Inheritance
 
@@ -48,24 +52,7 @@ Keys must be unique across all the tables; otherwise references to the superclas
 
 ## Diagram
 
-```mermaid
-erDiagram
-    PIX_TRANSFER {
-        bigint id PK
-        bigint amount_cents
-        varchar status
-        varchar pix_key
-        varchar end_to_end_id
-    }
-    TED_TRANSFER {
-        bigint id PK
-        bigint amount_cents
-        varchar status
-        varchar bank_code
-        varchar branch
-        varchar account_number
-    }
-```
+<Diagram />
 
 Each table repeats `id`, `amount_cents`, and `status`, inherited from `PaymentInstruction`, and adds its own fields; there is no `PAYMENT_INSTRUCTION` table. Fowler's source illustrates the pattern with a `Player` hierarchy; here it is replaced by `PaymentInstruction`, the same one in all four inheritance patterns.
 

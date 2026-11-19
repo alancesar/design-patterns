@@ -8,7 +8,11 @@ tags:
   - Reliability
 source: https://microservices.io/patterns/observability/distributed-tracing.html
 sidebar_label: "Distributed Tracing"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/observability/distributed-tracing.mdx';
 
 # Distributed Tracing
 
@@ -50,20 +54,7 @@ This instrumentation usually comes from a microservice chassis or from standardi
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant C as Client
-    participant A as Service A
-    participant B as Service B
-    participant T as Tracing service
-    C->>A: request
-    Note over A: generates trace ID
-    A->>B: call with trace ID
-    B-->>A: response
-    A-->>C: response
-    A->>T: spans (timings)
-    B->>T: spans (timings)
-```
+<Diagram />
 
 The ID generated at the entry point is passed between the services, and each one sends its spans to the central tracing service.
 

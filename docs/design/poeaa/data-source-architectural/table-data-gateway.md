@@ -7,7 +7,11 @@ tags:
   - Simplicity
 source: https://martinfowler.com/eaaCatalog/tableDataGateway.html
 sidebar_label: "Table Data Gateway"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/data-source-architectural/table-data-gateway.mdx';
 
 # Table Data Gateway
 
@@ -54,19 +58,7 @@ Com isso, o SQL fica em um só lugar, facilitando o trabalho de quem não domina
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Client
-    class BoletoGateway {
-        +findById(id)
-        +findOverdue(today)
-        +insert(payerId, amountCents, dueDate)
-        +updateStatus(id, status)
-    }
-    class Database
-    Client --> BoletoGateway
-    BoletoGateway --> Database
-```
+<Diagram />
 
 O `Client` (por exemplo, um Transaction Script de cobrança) chama apenas métodos do `BoletoGateway`, que contém o SQL e conversa com o `Database`. Uma instância atende todas as linhas da tabela.
 

@@ -7,7 +7,11 @@ tags:
   - Performance
 source: https://martinfowler.com/eaaCatalog/serverSessionState.html
 sidebar_label: "Server Session State"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/session-state/server-session-state.mdx';
 
 # Server Session State
 
@@ -55,19 +59,7 @@ Em memória local, a abordagem é simples e rápida, mas prende o usuário a uma
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant Client
-    participant Server
-    participant SessionStore
-    Client->>Server: Requisicao 1
-    Server->>SessionStore: Cria sessao e grava estado
-    Server-->>Client: Resposta + cookie com sessionId
-    Client->>Server: Requisicao 2 + sessionId
-    Server->>SessionStore: Busca estado por sessionId
-    SessionStore-->>Server: Estado serializado
-    Server-->>Client: Resposta
-```
+<Diagram />
 
 O `Client` guarda apenas o `sessionId`. O `Server` consulta o `SessionStore` (memória local ou Redis) para recuperar o estado a cada requisição.
 

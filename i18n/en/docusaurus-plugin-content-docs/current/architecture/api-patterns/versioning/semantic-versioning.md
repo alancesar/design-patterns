@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/versioning/semantic-versioning.mdx';
+
 # Semantic Versioning
 
 ## Description
@@ -58,15 +60,7 @@ This way clients and provider compare two versions and immediately conclude whet
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    V["2.4.1"] --> Fix["2.4.2 (PATCH: compatible fix)"]
-    V --> Feat["2.5.0 (MINOR: compatible feature)"]
-    V --> Brk["3.0.0 (MAJOR: incompatible change)"]
-    Fix --> OkC["Client updates with no changes"]
-    Feat --> OkC
-    Brk --> Mig["Client plans a migration"]
-```
+<Diagram />
 
 Given the current version, the kind of increment already tells the client whether it can update directly or must plan a migration.
 

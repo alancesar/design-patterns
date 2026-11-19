@@ -12,6 +12,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/creational/factory.mdx';
+
 # Factory
 
 ## Descrição
@@ -59,35 +61,7 @@ A lógica de decisão normalmente é um `switch`/`if` ou um mapa de registro (ti
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Client
-    class PaymentMethodFactory {
-        +create(type) PaymentMethod
-    }
-    class PaymentMethod {
-        <<interface>>
-        +charge(amountCents)
-    }
-    class PixPayment {
-        +charge(amountCents)
-    }
-    class BoletoPayment {
-        +charge(amountCents)
-    }
-    class CardPayment {
-        +charge(amountCents)
-    }
-    Client --> PaymentMethodFactory : usa
-    Client --> PaymentMethod : usa
-    PaymentMethodFactory ..> PaymentMethod : cria
-    PaymentMethodFactory ..> PixPayment : instancia
-    PaymentMethodFactory ..> BoletoPayment : instancia
-    PaymentMethodFactory ..> CardPayment : instancia
-    PaymentMethod <|.. PixPayment
-    PaymentMethod <|.. BoletoPayment
-    PaymentMethod <|.. CardPayment
-```
+<Diagram />
 
 O `Client` solicita um objeto à `PaymentMethodFactory` informando o tipo desejado; a fábrica decide qual classe concreta (`PixPayment`, `BoletoPayment` ou `CardPayment`) instanciar e a devolve como `PaymentMethod`. O cliente trabalha apenas com a interface.
 

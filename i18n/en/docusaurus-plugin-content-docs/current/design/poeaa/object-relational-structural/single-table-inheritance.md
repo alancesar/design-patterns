@@ -7,7 +7,11 @@ tags:
   - Performance
 source: https://martinfowler.com/eaaCatalog/singleTableInheritance.html
 sidebar_label: "Single Table Inheritance"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/object-relational-structural/single-table-inheritance.mdx';
 
 # Single Table Inheritance
 
@@ -48,38 +52,7 @@ It's the simplest of the three inheritance schemas, and has the advantage of req
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class PaymentInstruction {
-        -Long id
-        -long amountCents
-        -String status
-    }
-    class PixTransfer {
-        -String pixKey
-        -String endToEndId
-    }
-    class TedTransfer {
-        -String bankCode
-        -String branch
-        -String accountNumber
-    }
-    class PaymentInstructionsTable {
-        <<table>>
-        id
-        type
-        amount_cents
-        status
-        pix_key
-        end_to_end_id
-        bank_code
-        branch
-        account_number
-    }
-    PaymentInstruction <|-- PixTransfer
-    PaymentInstruction <|-- TedTransfer
-    PaymentInstruction ..> PaymentInstructionsTable
-```
+<Diagram />
 
 The whole hierarchy lives in `PaymentInstructionsTable`; the `type` column identifies the subclass and the specific columns stay null in the others. Fowler's source illustrates the pattern with a `Player` hierarchy; here it is replaced by `PaymentInstruction`, the same one in all four inheritance patterns.
 

@@ -9,7 +9,11 @@ tags:
   - Performance Efficiency
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/gateway-aggregation
 sidebar_label: "Gateway Aggregation"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/gateways-and-edge/gateway-aggregation.mdx';
 
 # Gateway Aggregation
 
@@ -61,17 +65,7 @@ The aggregation can live in the gateway itself (lightweight composition, such as
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    C["App (home screen)"] -->|"1. Single request"| G["Aggregation gateway"]
-    G -->|"2. Parallel call"| S1["Account service (balance)"]
-    G -->|"2. Parallel call"| S2["Card service (open invoice)"]
-    G -->|"2. Parallel call"| S3["Investment service (position)"]
-    S1 -.->|"3. Response"| G
-    S2 -.->|"3. Response"| G
-    S3 -.->|"3. Response"| G
-    G -.->|"4. Aggregated response"| C
-```
+<Diagram />
 
 The app sends a single request to the gateway to build the home screen. The gateway fires parallel calls to the backend services (balance, open invoice, and investment position), combines the results, and returns a single response. The services stay hidden from the client and the multiple calls happen inside the low-latency network.
 

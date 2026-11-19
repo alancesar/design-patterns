@@ -7,7 +7,11 @@ tags:
   - Performance
 source: https://martinfowler.com/eaaCatalog/singleTableInheritance.html
 sidebar_label: "Single Table Inheritance"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/object-relational-structural/single-table-inheritance.mdx';
 
 # Single Table Inheritance
 
@@ -48,38 +52,7 @@ Os campos que não se aplicam a uma subclasse ficam nulos. Ao carregar, o mapead
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class PaymentInstruction {
-        -Long id
-        -long amountCents
-        -String status
-    }
-    class PixTransfer {
-        -String pixKey
-        -String endToEndId
-    }
-    class TedTransfer {
-        -String bankCode
-        -String branch
-        -String accountNumber
-    }
-    class PaymentInstructionsTable {
-        <<table>>
-        id
-        type
-        amount_cents
-        status
-        pix_key
-        end_to_end_id
-        bank_code
-        branch
-        account_number
-    }
-    PaymentInstruction <|-- PixTransfer
-    PaymentInstruction <|-- TedTransfer
-    PaymentInstruction ..> PaymentInstructionsTable
-```
+<Diagram />
 
 Toda a hierarquia fica em `PaymentInstructionsTable`; a coluna `type` identifica a subclasse e as colunas específicas ficam nulas nas demais. A fonte do Fowler ilustra o padrão com a hierarquia `Player`; aqui ela é substituída por `PaymentInstruction`, a mesma nos quatro padrões de herança.
 

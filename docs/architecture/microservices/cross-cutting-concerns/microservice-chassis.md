@@ -8,7 +8,11 @@ tags:
   - Security
 source: https://microservices.io/patterns/microservice-chassis.html
 sidebar_label: "Microservice Chassis"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/cross-cutting-concerns/microservice-chassis.mdx';
 
 # Microservice Chassis
 
@@ -52,19 +56,7 @@ Quando os requisitos transversais mudam, a equipe responsável publica uma nova 
 
 ## Diagrama
 
-```mermaid
-flowchart TB
-    subgraph Chassis["Microservice Chassis"]
-        B["Lógica de build"]
-        C1["Configuração externalizada"]
-        C2["Logging e métricas"]
-        C3["Health checks e tracing"]
-        C4["Segurança e circuit breaker"]
-    end
-    S1["Serviço A (lógica de negócio)"] --> Chassis
-    S2["Serviço B (lógica de negócio)"] --> Chassis
-    S3["Serviço C (lógica de negócio)"] --> Chassis
-```
+<Diagram />
 
 Os serviços contêm apenas lógica de negócio e dependem do chassis, que fornece build e preocupações transversais de forma compartilhada e versionada.
 

@@ -7,7 +7,11 @@ tags:
   - Shared Understanding
 source: https://api-patterns.org/
 sidebar_label: "Data Element"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/element-stereotypes/data-element.mdx';
 
 # Data Element
 
@@ -59,13 +63,7 @@ Há duas variantes dignas de nota: o **Entity Element**, que contém um identifi
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    C["Cliente"] -->|"Data Elements"| API["Endpoint da API"]
-    API --> M["Mapeamento"]
-    M --> D["Modelo interno: tabelas e entidades"]
-    D -.->|"não exposto"| C
-```
+<Diagram />
 
 O cliente troca apenas Data Elements com o endpoint; o mapeamento traduz esse vocabulário para o modelo interno, que permanece invisível.
 

@@ -7,7 +7,11 @@ tags:
   - Reliability
 source: https://microservices.io/patterns/data/command-side-replica.html
 sidebar_label: "Command-side Replica"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/service-collaboration/command-side-replica.mdx';
 
 # Command-side Replica
 
@@ -54,15 +58,7 @@ Structurally, it's the same mechanism as CQRS: a derived copy fed by events. The
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    P["Provider service (limits)"] --> PDB[("Provider database")]
-    P -->|"Domain events"| B["Messaging"]
-    B --> C["Command service (transfers)"]
-    C --> R[("Read-only replica")]
-    C --> CDB[("Command service database")]
-    CL["Client"] -->|"createTransfer()"| C
-```
+<Diagram />
 
 The command service subscribes to the provider's events to maintain the local replica, which it uses to validate the command without calling the provider. The source illustrates the pattern with orders and restaurants.
 

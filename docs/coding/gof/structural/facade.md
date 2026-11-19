@@ -12,6 +12,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/structural/facade.mdx';
+
 # Facade
 
 ## Descrição
@@ -58,26 +60,7 @@ O resultado é uma camada que reduz o acoplamento entre clientes e detalhes de i
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Client
-    class Facade {
-        +operation()
-    }
-    class SubsystemA {
-        +operationA()
-    }
-    class SubsystemB {
-        +operationB()
-    }
-    class SubsystemC {
-        +operationC()
-    }
-    Client --> Facade
-    Facade --> SubsystemA
-    Facade --> SubsystemB
-    Facade --> SubsystemC
-```
+<Diagram />
 
 O `Client` interage apenas com a `Facade`, que delega as chamadas para `SubsystemA`, `SubsystemB` e `SubsystemC` na ordem adequada. As classes do subsistema não conhecem a fachada.
 

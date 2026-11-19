@@ -8,7 +8,11 @@ tags:
 origin: Azure, Google
 source: https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns#sequential-orchestration
 sidebar_label: "Sequential Orchestration"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/ai/agent-patterns/deterministic-workflows/sequential-orchestration.mdx';
 
 # Sequential Orchestration
 
@@ -63,17 +67,7 @@ It's also known as *pipeline*, *prompt chaining*, *linear delegation* or, in Goo
 
 ## Diagram
 
-```mermaid
-%% Linear pipeline: each agent consumes the previous agent's output
-flowchart LR
-    E["Input"] --> A1["Agent 1"]
-    A1 --> A2["Agent 2"]
-    A2 --> A3["Agent 3"]
-    A3 --> R["Result"]
-    S[("Shared state")] -.- A1
-    S -.- A2
-    S -.- A3
-```
+<Diagram />
 
 The flow follows a fixed order: each agent transforms the previous one's output, and optional shared state accompanies the chain.
 

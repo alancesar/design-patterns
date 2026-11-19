@@ -8,7 +8,11 @@ tags:
 origin: Google
 source: https://docs.cloud.google.com/architecture/choose-design-pattern-agentic-ai-system#single-agent-system
 sidebar_label: "Single Agent"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/ai/agent-patterns/dynamic-orchestration/single-agent.mdx';
 
 # Single Agent
 
@@ -50,14 +54,7 @@ Um único modelo, um conjunto definido de ferramentas e um prompt de sistema det
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    U["Usuário"] --> A["Agente único"]
-    P["Prompt de sistema"] --> A
-    A <--> T1["Ferramenta: banco de dados"]
-    A <--> T2["Ferramenta: API"]
-    A --> R["Resposta"]
-```
+<Diagram />
 
 O agente único interpreta o pedido, escolhe entre as ferramentas disponíveis, itera conforme necessário e devolve a resposta.
 

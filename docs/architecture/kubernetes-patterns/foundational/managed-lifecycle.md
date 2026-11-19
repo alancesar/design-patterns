@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://k8spatterns.com/
 sidebar_label: "Managed Lifecycle"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/kubernetes-patterns/foundational/managed-lifecycle.mdx';
 
 # Managed Lifecycle
 
@@ -57,19 +61,7 @@ Há também hooks no nível do contêiner. O **postStart** roda logo após a cri
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant K as Kubernetes
-    participant S as Service
-    participant C as ledger-service
-    K->>S: Remove o Pod dos endpoints
-    K->>C: preStop (pausa curta)
-    K->>C: SIGTERM
-    C->>C: Para de aceitar novas requisições
-    C->>C: Conclui requisições em andamento
-    C-->>K: Processo encerra
-    Note over K,C: Se passar terminationGracePeriodSeconds, Kubernetes envia SIGKILL
-```
+<Diagram />
 
 O Pod sai do balanceamento, passa pelo `preStop` e recebe o SIGTERM; a aplicação conclui o trabalho em curso e encerra, sob pena de ser morta à força ao fim do período de carência.
 

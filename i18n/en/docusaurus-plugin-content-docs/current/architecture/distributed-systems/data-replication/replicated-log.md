@@ -8,7 +8,11 @@ tags:
   - Durability
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/replicated-log.html
 sidebar_label: "Replicated Log"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/data-replication/replicated-log.mdx';
 
 # Replicated Log
 
@@ -51,21 +55,7 @@ It's the heart of Raft, ZAB (ZooKeeper), etcd, and Kafka partition replicas.
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant Cl as Client
-    participant L as Leader
-    participant F1 as Follower 1
-    participant F2 as Follower 2
-    Cl->>L: request
-    L->>L: appends to the log
-    L->>F1: AppendEntries
-    L->>F2: AppendEntries
-    F1-->>L: ack
-    L->>L: advances High-Water Mark and applies
-    L-->>Cl: response
-    L->>F2: updated High-Water Mark
-```
+<Diagram />
 
 The leader appends the entry, replicates it, advances the High-Water Mark when a majority acknowledges, applies the entry, and responds to the client.
 

@@ -7,7 +7,11 @@ tags:
   - Performance
 source: https://martinfowler.com/eaaCatalog/transactionScript.html
 sidebar_label: "Transaction Script"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/domain-logic/transaction-script.mdx';
 
 # Transaction Script
 
@@ -52,24 +56,7 @@ It's the most direct way to structure domain logic and works well as long as the
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Presentation
-    class PaymentScripts {
-        +payBoleto(accountId, barcode, amountCents)
-        +reversePayment(paymentId)
-        +reconcileSettlements(fileId)
-    }
-    class Gateway {
-        +find(id)
-        +insert(row)
-        +update(row)
-    }
-    class Database
-    Presentation --> PaymentScripts
-    PaymentScripts --> Gateway
-    Gateway --> Database
-```
+<Diagram />
 
 The presentation layer calls one script per request. The scripts, grouped in `PaymentScripts`, use a thin gateway to access the `Database`.
 

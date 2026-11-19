@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://microservices.io/patterns/observability/exception-tracking.html
 sidebar_label: "Exception Tracking"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/observability/exception-tracking.mdx';
 
 # Exception Tracking
 
@@ -47,14 +51,7 @@ Exceptions should still be written to the logs, in addition to being reported to
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    S1["Service A"] -->|"exception"| E["Exception tracking service"]
-    S2["Service B"] -->|"exception"| E
-    S1 -->|"log"| L["Log Aggregation"]
-    E --> G["Grouping and de-duplication"]
-    G --> N["Developer notification"]
-```
+<Diagram />
 
 Each service reports exceptions to the central service, which groups them and notifies the team, while the logs continue on to aggregation.
 

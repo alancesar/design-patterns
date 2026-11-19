@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://www.enterpriseintegrationpatterns.com/MessageBus.html
 sidebar_label: "Message Bus"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/messaging-channels/message-bus.mdx';
 
 # Message Bus
 
@@ -53,15 +57,7 @@ The pattern combines three elements: a common communication infrastructure (chan
 
 ## Diagram
 
-```mermaid
-flowchart TD
-    A1["Application A"] --> AD1["Channel Adapter"]
-    A2["Application B"] --> AD2["Channel Adapter"]
-    A3["Application C"] --> AD3["Channel Adapter"]
-    AD1 <--> BUS["Message Bus (channels and routing)"]
-    AD2 <--> BUS
-    AD3 <--> BUS
-```
+<Diagram />
 
 Each application connects to the bus through an adapter, and the bus offers common channels and routing so they can collaborate without knowing each other.
 

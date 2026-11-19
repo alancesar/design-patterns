@@ -8,7 +8,11 @@ tags:
 origin: Google
 source: https://docs.cloud.google.com/architecture/choose-design-pattern-agentic-ai-system#custom-logic-pattern
 sidebar_label: "Custom Logic"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/ai/agent-patterns/special-requirements/custom-logic.mdx';
 
 # Custom Logic
 
@@ -50,19 +54,7 @@ Cada etapa pode ser um agente, uma ferramenta ou uma verificação em código, e
 
 ## Diagrama
 
-```mermaid
-flowchart TD
-    U["Contestação do cliente"] --> C["Agente coordenador"]
-    C --> P1["Verificador da transação"]
-    C --> P2["Agente de elegibilidade"]
-    P1 --> D{"Elegível?"}
-    P2 --> D
-    D -->|"Sim"| R["Agente de crédito provisório na fatura"]
-    D -->|"Não"| K["Agente de negativa"]
-    K --> K2["Agente de justificativa da negativa"]
-    R --> F["Agente de resposta final"]
-    K2 --> F
-```
+<Diagram />
 
 Exemplo de um agente de contestação de compra: uma verificação em paralelo alimenta um ramo condicional no código (crédito provisório na fatura ou negativa), e um agente final redige a resposta.
 

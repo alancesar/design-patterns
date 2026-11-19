@@ -7,7 +7,11 @@ tags:
   - Performance
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/hybrid-clock.html
 sidebar_label: "Hybrid Clock"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/distributed-time/hybrid-clock.mdx';
 
 # Hybrid Clock
 
@@ -51,18 +55,7 @@ The result behaves like a Lamport Clock, with ever-increasing versions consisten
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant C as Client
-    participant A as Node A
-    participant B as Node B
-    C->>A: write x
-    Note over A: clock 100, ticks 0
-    A-->>C: timestamp (100, 0)
-    C->>B: write y with (100, 0)
-    Note over B: local clock 99, keeps 100 and adds a tick
-    B-->>C: timestamp (100, 1)
-```
+<Diagram />
 
 Node B's physical clock is behind, but it keeps the highest known time and increments the ticks, so the second write comes after the first.
 

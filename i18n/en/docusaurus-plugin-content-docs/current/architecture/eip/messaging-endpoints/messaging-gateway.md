@@ -7,7 +7,11 @@ tags:
   - Reliability
 source: https://www.enterpriseintegrationpatterns.com/MessagingGateway.html
 sidebar_label: "Messaging Gateway"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/messaging-endpoints/messaging-gateway.mdx';
 
 # Messaging Gateway
 
@@ -48,15 +52,7 @@ Because the gateway is an ordinary interface, it's easy to swap it for a stub in
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    A["Business logic"] -->|"getScore(customer)"| G["Messaging Gateway"]
-    G -->|"message"| C[["Request channel"]]
-    C --> S["Remote service"]
-    S --> R[["Reply channel"]]
-    R --> G
-    G -->|"score"| A
-```
+<Diagram />
 
 The business logic calls a domain method; the gateway takes care of building the message, sending it, and correlating the reply.
 

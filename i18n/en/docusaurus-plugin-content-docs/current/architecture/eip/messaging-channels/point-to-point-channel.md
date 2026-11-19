@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://www.enterpriseintegrationpatterns.com/PointToPointChannel.html
 sidebar_label: "Point-to-Point Channel"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/messaging-channels/point-to-point-channel.mdx';
 
 # Point-to-Point Channel
 
@@ -50,13 +54,7 @@ Because the channel delivers each message to a single consumer, several receiver
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    S["Sender"] --> C["Point-to-Point Channel"]
-    C --> R1["Receiver 1"]
-    C --> R2["Receiver 2"]
-    C --> R3["Receiver 3"]
-```
+<Diagram />
 
 The sender publishes to the channel and each message is delivered to only one of the receivers attached to it.
 

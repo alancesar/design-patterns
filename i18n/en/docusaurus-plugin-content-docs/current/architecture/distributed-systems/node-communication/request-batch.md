@@ -7,7 +7,11 @@ tags:
   - Scalability
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/request-batch.html
 sidebar_label: "Request Batch"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/node-communication/request-batch.mdx';
 
 # Request Batch
 
@@ -52,18 +56,7 @@ The client usually closes the batch by size (bytes or item count) or by maximum 
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant C as Client
-    participant B as Batch buffer
-    participant N as Cluster node
-    C->>B: Request A
-    C->>B: Request B
-    C->>B: Request C
-    B->>N: Batch with A, B, and C (size or time reached)
-    N->>N: Processes each request
-    N-->>C: Batch of responses A, B, and C
-```
+<Diagram />
 
 The client accumulates requests in a buffer and sends them as a single batch when it reaches the size or time limit. The node processes all of them and also responds in a batch.
 

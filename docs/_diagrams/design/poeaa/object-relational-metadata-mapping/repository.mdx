@@ -1,0 +1,16 @@
+```mermaid
+classDiagram
+    class AccountService
+    class AccountRepository {
+        <<interface>>
+        +save(account)
+        +findByHolderCpf(cpf)
+    }
+    class JpaAccountRepository
+    class AccountMapper
+    class Account
+    AccountService --> AccountRepository
+    AccountRepository <|.. JpaAccountRepository
+    JpaAccountRepository --> AccountMapper
+    AccountRepository ..> Account
+```

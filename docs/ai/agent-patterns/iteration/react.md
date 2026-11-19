@@ -7,7 +7,11 @@ tags:
 origin: Google
 source: https://docs.cloud.google.com/architecture/choose-design-pattern-agentic-ai-system#react-pattern
 sidebar_label: "ReAct"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/ai/agent-patterns/iteration/react.mdx';
 
 # ReAct
 
@@ -49,15 +53,7 @@ Quem decide o próximo passo é o próprio modelo, em tempo de execução, por i
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    U["Usuário"] --> T["Raciocínio (thought)"]
-    T --> D{"Resposta final?"}
-    D -- "Não" --> A["Ação: chamar ferramenta"]
-    A --> O["Observação: resultado da ferramenta"]
-    O --> T
-    D -- "Sim" --> R["Resposta"]
-```
+<Diagram />
 
 O agente alterna raciocínio, ação e observação até decidir que já tem a resposta ou atingir o limite de iterações.
 

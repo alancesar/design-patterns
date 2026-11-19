@@ -1,0 +1,12 @@
+```mermaid
+sequenceDiagram
+    participant P as Publisher
+    participant B as Broker
+    participant S as Durable subscriber
+    S->>B: subscribes (durable name)
+    S--xB: disconnects
+    P->>B: publishes messages
+    Note over B: stores them for the subscription
+    S->>B: reconnects
+    B->>S: delivers accumulated messages
+```

@@ -10,7 +10,11 @@ also_in:
   - architecture/eip/integration-styles
 source: https://microservices.io/patterns/communication-style/rpi.html
 sidebar_label: "Remote Procedure Invocation"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/communication-styles/remote-procedure-invocation.mdx';
 
 # Remote Procedure Invocation
 
@@ -58,16 +62,7 @@ Considerações adicionais:
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant C as Cliente
-    participant S as Serviço
-    C->>S: Requisição
-    activate S
-    S-->>C: Resposta
-    deactivate S
-    Note over C,S: Ambos precisam estar disponíveis durante toda a chamada
-```
+<Diagram />
 
 O cliente envia a requisição diretamente ao serviço e permanece aguardando a resposta, o que caracteriza o acoplamento em tempo de execução.
 

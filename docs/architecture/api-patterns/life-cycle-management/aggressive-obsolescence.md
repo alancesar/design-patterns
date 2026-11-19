@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/life-cycle-management/aggressive-obsolescence.mdx';
+
 # Aggressive Obsolescence
 
 ## Descrição
@@ -65,13 +67,7 @@ O provedor deixa claro, desde o lançamento, que se reserva o direito de depreci
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    R["1. Liberar V1"] --> D["2. Depreciar V1 e anunciar a data de remoção"]
-    D -->|"Período de depreciação"| M["Clientes migram para V2"]
-    D --> X["3. Remover V1 na data anunciada"]
-    M --> X
-```
+<Diagram />
 
 A versão é liberada, depois depreciada com data fixa de remoção e retirada quando o prazo termina, quer os clientes tenham migrado ou não.
 

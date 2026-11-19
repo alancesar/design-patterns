@@ -7,7 +7,11 @@ tags:
   - Consistency
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Shared Kernel"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/context-mapping/shared-kernel.mdx';
 
 # Shared Kernel
 
@@ -52,18 +56,7 @@ It takes discipline: the kernel can't be changed unilaterally, and its existence
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    subgraph A["Digital Account Context"]
-        MA["Digital Account Model"]
-    end
-    subgraph B["Cards Context"]
-        MB["Cards Model"]
-    end
-    K(("Shared Kernel: Money, Cpf, BusinessCalendar"))
-    MA --- K
-    MB --- K
-```
+<Diagram />
 
 The two contexts keep their own models but share a delimited core, changed only by agreement between the teams.
 

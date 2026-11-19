@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/quarantine
 sidebar_label: "Quarantine"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/security-and-access/quarantine.mdx';
 
 # Quarantine
 
@@ -60,17 +64,7 @@ If all checks pass, the artifact is published to a trusted repository, with anno
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    C["Consumer (workload team)"] -->|"1. Requests artifact and blocks usage"| Q[Quarantine process]
-    Q -->|"2. Validates the request and fetches the artifact"| E["External source (untrusted)"]
-    E --> R[Isolated quarantine repository]
-    R -->|"3. Checks: vulnerabilities, malware, SBOM, signature"| V{Approved?}
-    V -->|Yes| T["Trusted repository (with report and expiration)"]
-    V -->|No| D[Artifact discarded and unavailable]
-    T -->|"4. Event with status and report"| C
-    D -->|"4. Event with status and report"| C
-```
+<Diagram />
 
 The consumer requests an external artifact, which is copied to an isolated repository and run through the checks. Only approved artifacts reach the trusted repository, and the consumer is notified of the outcome in both cases.
 

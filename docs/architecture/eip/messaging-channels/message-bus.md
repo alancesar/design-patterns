@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://www.enterpriseintegrationpatterns.com/MessageBus.html
 sidebar_label: "Message Bus"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/messaging-channels/message-bus.mdx';
 
 # Message Bus
 
@@ -53,15 +57,7 @@ O padrão combina três elementos: uma infraestrutura de comunicação comum (ca
 
 ## Diagrama
 
-```mermaid
-flowchart TD
-    A1["Aplicação A"] --> AD1["Channel Adapter"]
-    A2["Aplicação B"] --> AD2["Channel Adapter"]
-    A3["Aplicação C"] --> AD3["Channel Adapter"]
-    AD1 <--> BUS["Message Bus (canais e roteamento)"]
-    AD2 <--> BUS
-    AD3 <--> BUS
-```
+<Diagram />
 
 Cada aplicação se liga ao barramento por um adaptador, e o barramento oferece canais e roteamento comuns para que elas colaborem sem se conhecer.
 

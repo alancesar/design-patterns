@@ -7,7 +7,11 @@ tags:
   - Extensibility
 source: https://martinfowler.com/eaaCatalog/queryObject.html
 sidebar_label: "Query Object"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/object-relational-metadata-mapping/query-object.mdx';
 
 # Query Object
 
@@ -50,26 +54,7 @@ Na prática, é uma aplicação do padrão Interpreter: um conjunto de objetos c
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Query {
-        +targetClass
-        +addCriteria(criteria)
-        +execute(unitOfWork)
-    }
-    class Criteria {
-        +field
-        +operator
-        +value
-        +generateSql(classMap)
-    }
-    class ClassMap
-    class DomainObject
-    Query "1" --> "*" Criteria
-    Query ..> ClassMap
-    Criteria ..> ClassMap
-    Query ..> DomainObject
-```
+<Diagram />
 
 O `Query` agrega vários `Criteria`. Ao executar, usa o `ClassMap` do mapeamento para traduzir campos em colunas, gerar o SQL e devolver objetos de domínio.
 

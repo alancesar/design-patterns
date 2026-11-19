@@ -7,7 +7,11 @@ tags:
   - Reliability
 source: https://www.enterpriseintegrationpatterns.com/Detour.html
 sidebar_label: "Detour"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/system-management/detour.mdx';
 
 # Detour
 
@@ -48,15 +52,7 @@ A escolha da saída é controlada por fora, normalmente por mensagens enviadas p
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    A["Origem"] --> D{"Detour"}
-    CB["Control Bus"] -.-> D
-    D -- "desvio desligado" --> Z["Destino"]
-    D -- "desvio ligado" --> S1["Validação ou depuração"]
-    S1 --> S2["Registro detalhado"]
-    S2 --> Z
-```
+<Diagram />
 
 O roteador envia a mensagem direto ao destino ou pelas etapas intermediárias, conforme o comando recebido do Control Bus.
 

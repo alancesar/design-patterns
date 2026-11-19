@@ -7,7 +7,11 @@ tags:
   - Reliability
 source: https://www.enterpriseintegrationpatterns.com/Normalizer.html
 sidebar_label: "Normalizer"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-transformation/normalizer.mdx';
 
 # Normalizer
 
@@ -51,18 +55,7 @@ With the data normalized, all downstream processing works with a single structur
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    A["CNAB 240 statement"] --> R["Router: detects the format"]
-    B["OFX statement"] --> R
-    C["camt.053 statement"] --> R
-    R --> T1["Translator CNAB 240"]
-    R --> T2["Translator OFX"]
-    R --> T3["Translator camt.053"]
-    T1 --> N["Common reconciliation format"]
-    T2 --> N
-    T3 --> N
-```
+<Diagram />
 
 The router identifies the format of each message and sends it to the corresponding translator; all translators produce the same common format.
 

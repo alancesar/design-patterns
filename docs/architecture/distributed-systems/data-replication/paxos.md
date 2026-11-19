@@ -7,7 +7,11 @@ tags:
   - Fault Tolerance
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/paxos.html
 sidebar_label: "Paxos"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/data-replication/paxos.mdx';
 
 # Paxos
 
@@ -50,23 +54,7 @@ O Paxos básico decide um único valor; Multi-Paxos repete o processo para uma s
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant P as Proponente
-    participant A1 as Réplica 1
-    participant A2 as Réplica 2
-    participant A3 as Réplica 3
-    P->>A1: Prepare (geração 5)
-    P->>A2: Prepare (geração 5)
-    P->>A3: Prepare (geração 5)
-    A1-->>P: promessa e valor aceito anterior, se houver
-    A2-->>P: promessa
-    P->>A1: Accept (geração 5, valor v)
-    P->>A2: Accept (geração 5, valor v)
-    A1-->>P: aceito
-    A2-->>P: aceito
-    P->>A3: Commit (valor v)
-```
+<Diagram />
 
 O proponente obtém promessas de uma maioria na fase prepare, propõe o valor na fase accept e divulga o resultado na fase commit.
 

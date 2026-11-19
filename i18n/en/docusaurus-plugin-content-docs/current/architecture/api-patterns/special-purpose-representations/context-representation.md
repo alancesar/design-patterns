@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/special-purpose-representations/context-representation.mdx';
+
 # Context Representation
 
 ## Description
@@ -58,35 +60,7 @@ The pattern has two variants. The **global context** is valid for a whole conver
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class RequestMessage {
-        +context : Context
-        +payload
-    }
-    class ResponseMessage {
-        +context : Context
-        +payload
-    }
-    class Context {
-        <<pattern>>
-        +global : GlobalContext
-        +local : LocalContext
-    }
-    class GlobalContext {
-        +correlationId
-        +locale
-        +credentials
-    }
-    class LocalContext {
-        +messageId
-        +ttlSeconds
-    }
-    RequestMessage *-- Context
-    ResponseMessage *-- Context
-    Context *-- GlobalContext
-    Context *-- LocalContext
-```
+<Diagram />
 
 Request and response carry a context element in the body, split into a global part, which follows the conversation, and a local one, which is valid only for the message.
 

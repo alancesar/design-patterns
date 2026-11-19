@@ -7,7 +7,11 @@ tags:
   - Simplicity
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Open-host Service"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/context-mapping/open-host-service.mdx';
 
 # Open-host Service
 
@@ -53,14 +57,7 @@ Em geral o protocolo é descrito em uma Published Language, que serve de formato
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    U["Contexto de Conta Digital (upstream)"] --> OHS["Open-host Service: API de Contas"]
-    OHS --> C1["App"]
-    OHS --> C2["Internet banking"]
-    OHS --> C3["Backoffice"]
-    OHS --> C4["Parceiros de BaaS"]
-```
+<Diagram />
 
 O contexto de Conta Digital expõe um único protocolo aberto, consumido por vários canais e parceiros sem integrações sob medida.
 

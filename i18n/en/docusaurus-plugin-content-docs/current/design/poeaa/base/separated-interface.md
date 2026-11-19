@@ -7,7 +7,11 @@ tags:
   - Testability
 source: https://martinfowler.com/eaaCatalog/separatedInterface.html
 sidebar_label: "Separated Interface"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/base/separated-interface.mdx';
 
 # Separated Interface
 
@@ -52,23 +56,7 @@ It's the basis of the dependency inversion principle and the natural plug-in poi
 
 ## Diagram
 
-```mermaid
-classDiagram
-    namespace DomainPackage {
-        class ForeignCurrencyConverter
-        class ExchangeRateProvider {
-            <<interface>>
-            +rate(from, to)
-        }
-    }
-    namespace InfrastructurePackage {
-        class HttpExchangeRateProvider {
-            +rate(from, to)
-        }
-    }
-    ForeignCurrencyConverter --> ExchangeRateProvider
-    ExchangeRateProvider <|.. HttpExchangeRateProvider
-```
+<Diagram />
 
 The `ForeignCurrencyConverter` and the `ExchangeRateProvider` interface live in the domain package; the `HttpExchangeRateProvider` implementation lives in the infrastructure package and depends on the interface, inverting the dependency.
 

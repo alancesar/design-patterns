@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/special-purpose-representations/api-key.mdx';
+
 # API Key
 
 ## Description
@@ -58,20 +60,7 @@ Keeping the key apart from the customer's account credentials makes it possible 
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant Cliente as API client
-    participant Endpoint as Protected API
-    participant Registro as Key registry
-    Cliente->>Endpoint: GET /v1/accounts/{id}/balance (Authorization: Bearer key)
-    Endpoint->>Registro: look up by key hash
-    alt Known, active key
-        Registro-->>Endpoint: client + permissions + plan
-        Endpoint-->>Cliente: 200 OK
-    else Missing, unknown or revoked key
-        Endpoint-->>Cliente: 401 Unauthorized
-    end
-```
+<Diagram />
 
 The client sends the key on every call; the endpoint resolves it to a registered client, which determines permissions, limits and billing.
 

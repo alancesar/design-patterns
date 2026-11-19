@@ -7,7 +7,11 @@ tags:
   - Evolvability
 source: https://api-patterns.org/
 sidebar_label: "Metadata Element"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/element-stereotypes/metadata-element.mdx';
 
 # Metadata Element
 
@@ -60,18 +64,7 @@ Um mesmo elemento pode realizar mais de uma variante: um código de região, por
 
 ## Diagrama
 
-```mermaid
-flowchart TB
-    subgraph Mensagem
-        D["Data Elements: lançamentos"]
-        M1["Controle: nextPage"]
-        M2["Agregado: totalCount"]
-        M3["Proveniência: generatedAt, source"]
-    end
-    M1 -.-> D
-    M2 -.-> D
-    M3 -.-> D
-```
+<Diagram />
 
 Os três tipos de Metadata Elements acompanham os Data Elements na mesma mensagem e explicam seu conteúdo.
 

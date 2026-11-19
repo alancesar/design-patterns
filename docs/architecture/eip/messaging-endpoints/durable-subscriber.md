@@ -6,7 +6,11 @@ tags:
   - Reliability
 source: https://www.enterpriseintegrationpatterns.com/DurableSubscription.html
 sidebar_label: "Durable Subscriber"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/messaging-endpoints/durable-subscriber.mdx';
 
 # Durable Subscriber
 
@@ -45,18 +49,7 @@ Sem isso, um assinante que cai, é reiniciado ou está em manutenção perde tud
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant P as Publicador
-    participant B as Broker
-    participant S as Assinante durável
-    S->>B: assina (nome durável)
-    S--xB: desconecta
-    P->>B: publica mensagens
-    Note over B: armazena para a assinatura
-    S->>B: reconecta
-    B->>S: entrega mensagens acumuladas
-```
+<Diagram />
 
 O broker guarda as mensagens enquanto o assinante está ausente e as entrega quando ele volta.
 

@@ -1,0 +1,8 @@
+```mermaid
+flowchart LR
+    P["Producer"] --> C["Channel"]
+    C --> D["Consumer"]
+    C -. "copy" .-> S["Secondary channel"]
+    S --> M[("Message Store")]
+    M --> R["Reports and auditing"]
+```

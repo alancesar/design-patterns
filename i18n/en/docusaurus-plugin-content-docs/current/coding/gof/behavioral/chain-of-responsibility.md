@@ -12,6 +12,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/behavioral/chain-of-responsibility.mdx';
+
 # Chain of Responsibility
 
 ## Description
@@ -59,28 +61,7 @@ Because the chain is assembled at runtime, you can add, remove, or reorder handl
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Client
-    class Handler {
-        <<abstract>>
-        -Handler next
-        +setNext(Handler handler) Handler
-        +handle(Request request)
-    }
-    class ConcreteHandlerA {
-        +handle(Request request)
-    }
-    class ConcreteHandlerB {
-        +handle(Request request)
-    }
-    class Request
-    Client --> Handler : sends request
-    Handler o--> Handler : next
-    Handler <|-- ConcreteHandlerA
-    Handler <|-- ConcreteHandlerB
-    Handler ..> Request : processes
-```
+<Diagram />
 
 The `Client` sends the `Request` to the first `Handler` in the chain. Each `ConcreteHandler` decides whether to handle the request or pass it to the successor referenced by `next`, forming a linked list of handlers.
 

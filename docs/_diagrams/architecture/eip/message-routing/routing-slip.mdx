@@ -1,0 +1,8 @@
+```mermaid
+flowchart LR
+    IN["Message"] --> G["Attaches the slip"]
+    G --> E1["Step 1"]
+    E1 --> E3["Step 3"]
+    E3 --> OUT["Output"]
+    E1 -.->|"failure"| EX["Exception channel"]
+```

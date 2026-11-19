@@ -7,7 +7,11 @@ tags:
   - Availability
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/version-vector.html
 sidebar_label: "Version Vector"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/data-replication/version-vector.mdx';
 
 # Version Vector
 
@@ -48,18 +52,7 @@ A resolução pode ser feita pelo cliente, por uma regra como *last-write-wins* 
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant A as Nó A
-    participant B as Nó B
-    Note over A: x = 1 com vetor A1
-    A->>B: replica x = 1 (A1)
-    Note over B: x = 1 com vetor A1
-    Note over A: atualiza x = 2 com vetor A2
-    Note over B: atualiza x = 3 com vetor A1 B1
-    A->>B: sincroniza (A2)
-    Note over B: A2 e A1 B1 são concorrentes, conflito detectado
-```
+<Diagram />
 
 Dois nós atualizam a mesma chave sem conhecer a atualização do outro; ao sincronizar, a comparação dos vetores revela o conflito.
 

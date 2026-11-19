@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://microservices.io/patterns/service-registry.html
 sidebar_label: "Service Registry"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/service-discovery/service-registry.mdx';
 
 # Service Registry
 
@@ -48,13 +52,7 @@ Optionally, the registry calls each instance's health check API to confirm it ca
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    I["Service instances"] -->|"register / deregister"| R[("Service Registry")]
-    R -->|"health check"| I
-    C["Client or router"] -->|"queries"| R
-    C --> I
-```
+<Diagram />
 
 Instances keep the registry up to date and clients or routers query it.
 

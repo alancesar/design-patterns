@@ -7,7 +7,11 @@ tags:
   - Performance
 source: https://martinfowler.com/eaaCatalog/recordSet.html
 sidebar_label: "Record Set"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/base/record-set.mdx';
 
 # Record Set
 
@@ -51,22 +55,7 @@ Ferramentas de interface de usuário com vínculo a dados (data-aware UI) espera
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class UserInterface
-    class BusinessLogic {
-        +validate()
-        +calculate()
-    }
-    class RecordSet {
-        +rows
-        +columns
-    }
-    class Database
-    UserInterface --> RecordSet
-    BusinessLogic --> RecordSet
-    RecordSet ..> Database : carregado de
-```
+<Diagram />
 
 A interface e a lógica de negócio operam sobre o mesmo `RecordSet`, que é carregado do `Database`, mas existe em memória de forma independente.
 

@@ -7,7 +7,11 @@ tags:
   - Strategic Focus
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Context Map"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/context-mapping/context-map.mdx';
 
 # Context Map
 
@@ -52,16 +56,7 @@ Para Evans, o Context Map é o artefato central da modelagem estratégica: ele e
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    CD["Conta Digital"] -->|"Open-host Service + Published Language"| CR["Crédito"]
-    CD -->|"Customer/Supplier"| CA["Cartões"]
-    CD ---|"Shared Kernel"| CA
-    RP["Rede do Pix (SPI e DICT)"] -->|"Conformist"| PX["Pix"]
-    L["Core bancário legado"] -->|"Anticorruption Layer"| CR
-    L -->|"Anticorruption Layer"| CD
-    BU["Bureau de crédito (terceiro)"] -->|"Open-host Service"| CR
-```
+<Diagram />
 
 Cada aresta liga um contexto upstream ao seu downstream e é rotulada com o padrão de relacionamento que de fato vigora entre eles.
 

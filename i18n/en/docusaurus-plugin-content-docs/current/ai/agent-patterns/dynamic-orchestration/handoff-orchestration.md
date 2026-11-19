@@ -8,7 +8,11 @@ tags:
 origin: Azure
 source: https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns#handoff-orchestration
 sidebar_label: "Handoff Orchestration"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/ai/agent-patterns/dynamic-orchestration/handoff-orchestration.mdx';
 
 # Handoff Orchestration
 
@@ -58,21 +62,7 @@ It's also known as *routing*, *triage*, *transfer*, *dispatch*, or *delegation*.
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    actor U as Customer
-    participant T as Triage agent
-    participant I as Cards agent
-    participant F as Pix agent
-    actor H as Human agent
-    U->>T: Request
-    T->>T: Evaluates and tries to resolve
-    T->>I: Handoff (unrecognized purchase on the card bill)
-    I->>I: Analyzes the purchase
-    I->>F: Handoff (Pix sent to the wrong key)
-    F->>H: Handoff (no capable agent)
-    H->>U: Final response
-```
+<Diagram />
 
 Each agent decides whether to resolve or transfer control; only one is active at a time, and the chain ends in a single response, possibly from a human.
 

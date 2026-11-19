@@ -12,7 +12,11 @@ also_in:
   - architecture/eip/messaging-channels
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/publisher-subscriber
 sidebar_label: "Publisher-Subscriber"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/messaging/publisher-subscriber.mdx';
 
 # Publisher-Subscriber
 
@@ -75,18 +79,7 @@ In the vocabulary of Enterprise Integration Patterns (Hohpe and Woolf), the same
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    P["Publisher"] -->|"publishes event"| IN["Input channel"]
-    IN --> B["Message broker / event bus"]
-    B -->|"topic A"| O1["Output channel 1"]
-    B -->|"topic A"| O2["Output channel 2"]
-    B -->|"content filter"| O3["Output channel 3"]
-    O1 --> S1["Subscriber 1"]
-    O2 --> S2["Subscriber 2"]
-    O3 --> S3["Subscriber 3"]
-    B -.->|"failed messages"| DLQ["Dead-letter queue"]
-```
+<Diagram />
 
 The publisher sends each event once to the input channel; the broker copies the message to the output channel of each interested subscriber, according to topics or filters, and diverts messages that can't be processed to a dead-letter queue.
 

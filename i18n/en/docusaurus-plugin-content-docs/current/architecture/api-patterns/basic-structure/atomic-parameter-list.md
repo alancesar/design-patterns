@@ -7,7 +7,11 @@ tags:
   - Shared Understanding
 source: https://api-patterns.org/
 sidebar_label: "Atomic Parameter List"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/basic-structure/atomic-parameter-list.mdx';
 
 # Atomic Parameter List
 
@@ -51,13 +55,7 @@ Both the list and its elements can be optional or multi-valued, and this must ap
 
 ## Diagram
 
-```mermaid
-flowchart TB
-    M["Request message"] --> L["Atomic Parameter List: address"]
-    L --> A1["street: text"]
-    L --> A2["postalCode: optional text"]
-    L --> A3["city: text"]
-```
+<Diagram />
 
 The named list gathers three atoms; one of them is optional.
 

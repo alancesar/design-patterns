@@ -7,7 +7,11 @@ tags:
   - Shared Understanding
 source: https://api-patterns.org/
 sidebar_label: "Limited Lifetime Guarantee"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/life-cycle-management/limited-lifetime-guarantee.mdx';
 
 # Limited Lifetime Guarantee
 
@@ -60,12 +64,7 @@ The provider promises to keep the version usable, in a compatible way, for a lim
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    V1["V1: released Jan/2026"] -->|"18-month guarantee"| E1["V1 retired Jul/2027"]
-    V2["V2: released Jul/2026"] -->|"18-month guarantee"| E2["V2 retired Jan/2028"]
-    V3["V3: released Jan/2027"] -->|"18-month guarantee"| E3["V3 retired Jul/2028"]
-```
+<Diagram />
 
 Each version carries its own retirement date, set at publication and independent of the release of the others.
 

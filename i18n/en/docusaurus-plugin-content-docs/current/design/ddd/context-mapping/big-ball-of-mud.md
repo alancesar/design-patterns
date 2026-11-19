@@ -7,7 +7,11 @@ tags:
   - Strategic Focus
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Big Ball of Mud"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/context-mapping/big-ball-of-mud.mdx';
 
 # Big Ball of Mud
 
@@ -52,12 +56,7 @@ Recognizing a Big Ball of Mud is not approving of it; it's naming a reality so y
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    BBM["Big Ball of Mud (legacy core banking system)"] -->|"confusing model"| ACL["Anticorruption Layer"]
-    ACL -->|"translated model"| N1["New Digital Account context"]
-    ACL -->|"translated model"| N2["New Credit context"]
-```
+<Diagram />
 
 The tangled legacy system is surrounded by a boundary, and the new contexts access it only through a translation layer.
 

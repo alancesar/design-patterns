@@ -7,7 +7,11 @@ tags:
   - Cost Optimization
 source: https://www.enterpriseintegrationpatterns.com/EventDrivenConsumer.html
 sidebar_label: "Event-Driven Consumer"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/messaging-endpoints/event-driven-consumer.mdx';
 
 # Event-Driven Consumer
 
@@ -47,16 +51,7 @@ Atenção à confirmação: confirmar automaticamente na entrega, antes de proce
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant C as Canal
-    participant E as Event-Driven Consumer
-    participant A as Aplicação
-    C->>E: entrega mensagem (callback)
-    E->>A: repassa conteúdo
-    A-->>E: concluído
-    E-->>C: confirma
-```
+<Diagram />
 
 O canal aciona o consumidor, que repassa o conteúdo à aplicação e confirma ao final.
 

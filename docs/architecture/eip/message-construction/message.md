@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://www.enterpriseintegrationpatterns.com/Message.html
 sidebar_label: "Message"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-construction/message.mdx';
 
 # Message
 
@@ -46,16 +50,7 @@ Uma mensagem tem duas partes. O cabeçalho carrega metadados usados pela infraes
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    P["Produtor"] --> H
-    subgraph M["Mensagem"]
-        H["Cabeçalho (metadados)"]
-        B["Corpo (dados)"]
-    end
-    B --> C["Canal de mensagens"]
-    C --> R["Consumidor"]
-```
+<Diagram />
 
 O produtor empacota o dado em uma mensagem com cabeçalho e corpo e a envia por um canal até o consumidor.
 

@@ -7,7 +7,11 @@ tags:
   - Shared Understanding
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Partnership"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/context-mapping/partnership.mdx';
 
 # Partnership
 
@@ -51,10 +55,7 @@ O padrão não aparece no livro de 2003; foi incluído no DDD Reference como uma
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    A["Contexto de Pix"] <-->|"Partnership: planejamento e integração conjuntos"| B["Contexto de Antifraude"]
-```
+<Diagram />
 
 A seta bidirecional indica que não há upstream nem downstream: ambos os contextos coordenam mudanças e interfaces.
 

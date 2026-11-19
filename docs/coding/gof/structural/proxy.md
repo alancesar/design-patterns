@@ -12,6 +12,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/structural/proxy.mdx';
+
 # Proxy
 
 ## Descrição
@@ -61,26 +63,7 @@ A diferença em relação a outros wrappers está na intenção: o Proxy não ac
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Client
-    class Subject {
-        <<interface>>
-        +request()
-    }
-    class RealSubject {
-        +request()
-    }
-    class Proxy {
-        -realSubject RealSubject
-        +request()
-        -checkAccess() bool
-    }
-    Client --> Subject
-    Subject <|.. RealSubject
-    Subject <|.. Proxy
-    Proxy --> RealSubject : delega
-```
+<Diagram />
 
 O `Client` trabalha apenas com a interface `Subject`. Tanto `RealSubject` quanto `Proxy` a implementam; o `Proxy` mantém uma referência ao `RealSubject` e decide quando e se deve delegar a chamada, aplicando controle de acesso, lazy loading ou cache.
 

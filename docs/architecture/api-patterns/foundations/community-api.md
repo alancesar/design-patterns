@@ -7,7 +7,11 @@ tags:
   - Shared Understanding
 source: https://api-patterns.org/
 sidebar_label: "Community API"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/foundations/community-api.mdx';
 
 # Community API
 
@@ -55,20 +59,7 @@ O que a distingue é a governança coletiva: nomeia-se um responsável pela API 
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    subgraph Extranet
-        W["Aplicação web"]
-        M["Aplicativo móvel"]
-        C(["Community API"])
-    end
-    O["Instituições membros"] --> W
-    O --> M
-    W --> C
-    M --> C
-    C --> BL["Lógica de negócio"]
-    BL --> DB[("Banco de dados")]
-```
+<Diagram />
 
 Somente os membros da comunidade alcançam a API, que fica em uma rede de acesso restrito.
 

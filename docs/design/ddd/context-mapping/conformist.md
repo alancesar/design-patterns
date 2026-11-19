@@ -7,7 +7,11 @@ tags:
   - Shared Understanding
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Conformist"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/context-mapping/conformist.mdx';
 
 # Conformist
 
@@ -51,10 +55,7 @@ A decisão elimina a complexidade de traduzir entre modelos e dá ao downstream 
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    U["Mensagens do arranjo Pix, em ISO 20022 (upstream)"] -->|"modelo do upstream"| D["Contexto de Pix (downstream, Conformist)"]
-```
+<Diagram />
 
 O contexto de Pix adota diretamente os conceitos das mensagens do arranjo, sem camada de tradução.
 

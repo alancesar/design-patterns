@@ -7,7 +7,11 @@ tags:
   - Security
 source: https://k8spatterns.com/
 sidebar_label: "EnvVar Configuration"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/kubernetes-patterns/configuration/envvar-configuration.mdx';
 
 # EnvVar Configuration
 
@@ -56,13 +60,7 @@ Default values can be baked into the image and overridden at runtime, but they s
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    CM["ConfigMap pix-config"] -->|"configMapKeyRef"| ENV["Environment variables"]
-    SEC["Secret ledger-db-credentials"] -->|"secretKeyRef"| ENV
-    LIT["Literal value"] --> ENV
-    ENV --> APP["pix-service container"]
-```
+<Diagram />
 
 The container receives environment variables whose values come from literals, a ConfigMap or a Secret; the Pod must be recreated to reflect any change.
 

@@ -7,7 +7,11 @@ tags:
   - Testability
 source: https://martinfowler.com/eaaCatalog/rowDataGateway.html
 sidebar_label: "Row Data Gateway"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/data-source-architectural/row-data-gateway.mdx';
 
 # Row Data Gateway
 
@@ -53,28 +57,7 @@ This keeps persistence code out of the in-memory domain objects, simplifying the
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class PixKeyFinder {
-        +find(id)
-        +findByKeyValue(keyValue)
-    }
-    class PixKeyGateway {
-        +id
-        +accountId
-        +keyType
-        +keyValue
-        +insert()
-        +update()
-        +delete()
-    }
-    class TransactionScript
-    class Database
-    TransactionScript --> PixKeyFinder
-    TransactionScript --> PixKeyGateway
-    PixKeyFinder ..> PixKeyGateway : creates
-    PixKeyGateway --> Database
-```
+<Diagram />
 
 The `TransactionScript` uses the `PixKeyFinder` to get `PixKeyGateway` instances, each representing one registered Pix key, and persists them by calling their `insert`, `update`, and `delete` methods.
 

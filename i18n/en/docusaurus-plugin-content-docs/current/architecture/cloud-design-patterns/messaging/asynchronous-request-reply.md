@@ -6,7 +6,11 @@ tags:
   - Performance Efficiency
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/asynchronous-request-reply
 sidebar_label: "Asynchronous Request-Reply"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/messaging/asynchronous-request-reply.mdx';
 
 # Asynchronous Request-Reply
 
@@ -64,26 +68,7 @@ The pattern is mainly useful when the client can't receive callbacks (webhooks, 
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant C as Client
-    participant A as "API"
-    participant Q as "Work queue"
-    participant W as "Worker"
-    participant S as "Status endpoint"
-    participant R as "Result resource"
-    C->>A: "POST /operations"
-    A->>Q: "Enqueues the work"
-    A-->>C: "202 Accepted (Location, Retry-After)"
-    Q->>W: "Delivers the message"
-    C->>S: "GET status"
-    S-->>C: "200 OK (status: running)"
-    W->>R: "Writes the result"
-    C->>S: "GET status"
-    S-->>C: "303 See Other (result Location)"
-    C->>R: "GET result"
-    R-->>C: "200 OK"
-```
+<Diagram />
 
 The client receives a 202 as soon as the request is accepted and enqueued, polls the status endpoint while respecting `Retry-After`, and, once the work is complete, is redirected with a 303 to fetch the final result.
 

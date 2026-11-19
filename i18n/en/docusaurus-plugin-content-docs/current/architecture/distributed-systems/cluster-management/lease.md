@@ -7,7 +7,11 @@ tags:
   - Availability
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/lease.html
 sidebar_label: "Lease"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/cluster-management/lease.mdx';
 
 # Lease
 
@@ -53,23 +57,7 @@ Additional considerations:
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant C as Client
-    participant N as Consistent core
-    participant O as Another client
-    C->>N: Requests lease with 10s TTL
-    N-->>C: Lease granted
-    loop While using the resource
-        C->>N: Renews lease (heartbeat)
-        N-->>C: TTL reset
-    end
-    Note over C: Client fails or gets isolated
-    Note over N: TTL expires without renewal
-    N->>N: Removes keys attached to the lease
-    O->>N: Requests lease
-    N-->>O: Lease granted
-```
+<Diagram />
 
 The client keeps the lease as long as it renews. When it stops renewing, the core expires it and the resource can be granted to another client.
 

@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/behavioral/visitor.mdx';
+
 # Visitor
 
 ## Descrição
@@ -59,49 +61,7 @@ Assim, cada nova operação vira uma nova classe `ConcreteVisitor` que reúne, e
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Client
-    class ObjectStructure {
-        -List~Element~ elements
-        +accept(Visitor visitor)
-    }
-    class Visitor {
-        <<interface>>
-        +visitConcreteElementA(ConcreteElementA element)
-        +visitConcreteElementB(ConcreteElementB element)
-    }
-    class ConcreteVisitor1 {
-        +visitConcreteElementA(ConcreteElementA element)
-        +visitConcreteElementB(ConcreteElementB element)
-    }
-    class ConcreteVisitor2 {
-        +visitConcreteElementA(ConcreteElementA element)
-        +visitConcreteElementB(ConcreteElementB element)
-    }
-    class Element {
-        <<interface>>
-        +accept(Visitor visitor)
-    }
-    class ConcreteElementA {
-        +accept(Visitor visitor)
-        +operationA()
-    }
-    class ConcreteElementB {
-        +accept(Visitor visitor)
-        +operationB()
-    }
-    Client --> ObjectStructure
-    Client --> Visitor
-    ObjectStructure o--> Element : contem
-    Visitor <|.. ConcreteVisitor1
-    Visitor <|.. ConcreteVisitor2
-    Element <|.. ConcreteElementA
-    Element <|.. ConcreteElementB
-    Element ..> Visitor : accept
-    Visitor ..> ConcreteElementA : visita
-    Visitor ..> ConcreteElementB : visita
-```
+<Diagram />
 
 O `Client` aplica um `ConcreteVisitor` à `ObjectStructure`, que repassa o visitante a cada `Element`. Cada `ConcreteElement` implementa `accept` chamando o método `visit` correspondente ao seu tipo, de modo que a operação executada depende do par visitante/elemento (double dispatch).
 

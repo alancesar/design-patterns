@@ -7,7 +7,11 @@ tags:
   - Simplicity
 source: https://api-patterns.org/
 sidebar_label: "Operational Data Holder"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/endpoint-roles/operational-data-holder.mdx';
 
 # Operational Data Holder
 
@@ -61,13 +65,7 @@ Por serem alterados com frequência, esses dados são pouco indicados para cache
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    C["Cliente"] -->|"cria e atualiza"| OD["Operational Data Holder: /pix-charges"]
-    C -->|"consulta o estado"| OD
-    OD --> S[("Cobranças em andamento")]
-    S -->|"liquidada ou expirada"| A[("Arquivo")]
-```
+<Diagram />
 
 O cliente mantém as cobranças enquanto o processo está ativo; ao terminar, o dado sai do conjunto operacional.
 

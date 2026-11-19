@@ -7,7 +7,11 @@ tags:
   - Shared Understanding
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Module"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/building-blocks/module.mdx';
 
 # Module
 
@@ -49,18 +53,7 @@ When the model changes, modules should be refactored too, so they keep expressin
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    subgraph Payments["payments"]
-        P1["PixTransfer"]
-        P2["Boleto"]
-    end
-    subgraph Ledger["ledger"]
-        L1["Account"]
-        L2["LedgerEntry"]
-    end
-    Payments -->|"depends on"| Ledger
-```
+<Diagram />
 
 The `payments` and `ledger` modules group cohesive concepts, with an explicit, unidirectional dependency: payments depend on the ledger, and the ledger knows nothing about payments.
 

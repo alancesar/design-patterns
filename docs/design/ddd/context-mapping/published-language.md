@@ -7,7 +7,11 @@ tags:
   - Decoupling
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Published Language"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/context-mapping/published-language.mdx';
 
 # Published Language
 
@@ -53,12 +57,7 @@ Costuma andar junto ao Open-host Service: o serviço define o protocolo, e a Pub
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    A["Contexto de Pagamentos"] -->|"traduz para"| PL(("Published Language: PaymentSettled v1"))
-    PL -->|"traduzido por"| B["Contexto de Conciliação"]
-    PL -->|"traduzido por"| C["Contexto de Notificações"]
-```
+<Diagram />
 
 Cada contexto traduz entre seu modelo interno e a linguagem publicada, sem conhecer o modelo dos demais.
 

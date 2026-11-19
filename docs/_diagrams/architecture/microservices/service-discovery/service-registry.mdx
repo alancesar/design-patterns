@@ -1,0 +1,7 @@
+```mermaid
+flowchart LR
+    I["Service instances"] -->|"register / deregister"| R[("Service Registry")]
+    R -->|"health check"| I
+    C["Client or router"] -->|"queries"| R
+    C --> I
+```

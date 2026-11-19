@@ -8,7 +8,11 @@ tags:
   - Extensibility
 source: https://martinfowler.com/eaaCatalog/dataMapper.html
 sidebar_label: "Data Mapper"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/data-source-architectural/data-mapper.mdx';
 
 # Data Mapper
 
@@ -55,27 +59,7 @@ Modelos de objetos têm coleções, herança e associações que raramente casam
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Client
-    class Account {
-        +number
-        +balanceCents
-        +deposit(amountCents)
-        +withdraw(amountCents)
-    }
-    class AccountMapper {
-        +find(id)
-        +insert(account)
-        +update(account)
-        +delete(account)
-    }
-    class Database
-    Client --> AccountMapper
-    Client --> Account
-    AccountMapper ..> Account : maps
-    AccountMapper --> Database
-```
+<Diagram />
 
 O `Account` não conhece o banco nem o `AccountMapper`. O mapper lê e grava no `Database` e converte linhas de `contas_correntes` em objetos `Account`, e vice-versa.
 

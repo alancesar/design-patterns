@@ -7,7 +7,11 @@ tags:
   - Decoupling
 source: https://martinfowler.com/eaaCatalog/dataTransferObject.html
 sidebar_label: "Data Transfer Object"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/distribution/data-transfer-object.mdx';
 
 # Data Transfer Object
 
@@ -54,29 +58,7 @@ Um benefício secundário é encapsular a serialização: o formato de transmiss
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Client
-    class RemoteFacade {
-        +getAccountSummary(accountId) AccountSummaryDTO
-    }
-    class AccountSummaryAssembler {
-        +toDTO(account, entries) AccountSummaryDTO
-    }
-    class AccountSummaryDTO {
-        +accountId
-        +balanceCents
-        +limitCents
-        +recentEntries
-    }
-    class Account
-    class LedgerEntry
-    Client --> RemoteFacade
-    RemoteFacade --> AccountSummaryAssembler
-    AccountSummaryAssembler ..> AccountSummaryDTO : cria
-    AccountSummaryAssembler --> Account : lê
-    AccountSummaryAssembler --> LedgerEntry : lê
-```
+<Diagram />
 
 O `Client` recebe um `AccountSummaryDTO` da `RemoteFacade`. O `AccountSummaryAssembler` é o único que conhece tanto o DTO quanto os objetos de domínio `Account` e `LedgerEntry`.
 

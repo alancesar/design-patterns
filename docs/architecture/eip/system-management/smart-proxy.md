@@ -7,7 +7,11 @@ tags:
   - Reliability
 source: https://www.enterpriseintegrationpatterns.com/SmartProxy.html
 sidebar_label: "Smart Proxy"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/system-management/smart-proxy.mdx';
 
 # Smart Proxy
 
@@ -48,16 +52,7 @@ Quando a resposta chega, o proxy consulta o endereço guardado, usa um roteador 
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant C as Cliente
-    participant P as Smart Proxy
-    participant S as Servico
-    C->>P: requisicao com Return Address do cliente
-    P->>S: requisicao com Return Address do proxy
-    S->>P: resposta
-    P->>C: resposta ao endereço original
-```
+<Diagram />
 
 O proxy troca o endereço de retorno, recebe a resposta e a repassa ao cliente, observando o ciclo completo.
 

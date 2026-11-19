@@ -7,7 +7,11 @@ tags:
   - Simplicity
 source: https://martinfowler.com/eaaCatalog/coarseGrainedLock.html
 sidebar_label: "Coarse-Grained Lock"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/offline-concurrency/coarse-grained-lock.mdx';
 
 # Coarse-Grained Lock
 
@@ -52,27 +56,7 @@ O padrão alinha a granularidade do bloqueio com a fronteira de consistência do
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Version {
-        +id
-        +value
-    }
-    class LoanContract {
-        +id
-    }
-    class Installment {
-        +id
-    }
-    class Collateral {
-        +id
-    }
-    LoanContract --> Version : compartilha
-    Installment --> Version : compartilha
-    Collateral --> Version : compartilha
-    LoanContract "1" --> "*" Installment
-    LoanContract "1" --> "*" Collateral
-```
+<Diagram />
 
 `LoanContract`, `Installment` e `Collateral` referenciam o mesmo objeto `Version`. Qualquer alteração em um deles incrementa essa versão, e o conflito é detectado para o grupo todo.
 

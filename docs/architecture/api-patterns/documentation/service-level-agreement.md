@@ -7,7 +7,11 @@ tags:
   - Performance
 source: https://api-patterns.org/
 sidebar_label: "Service Level Agreement"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/documentation/service-level-agreement.mdx';
 
 # Service Level Agreement
 
@@ -55,16 +59,7 @@ Os SLOs derivam de requisitos de qualidade levantados na análise e no projeto, 
 
 ## Diagrama
 
-```mermaid
-flowchart TB
-    SLA["Service Level Agreement"] --> SLO["Service Level Objective (1..*)"]
-    SLO --> U["Unidade de medida"]
-    SLO --> T["Valor-limite"]
-    SLO --> G["Garantia: % do tempo"]
-    SLO --> P["Penalidade ou crédito"]
-    SLA --> R["Procedimentos de relato"]
-    SLA -.->|"refere-se a"| OP["Operações da API"]
-```
+<Diagram />
 
 O SLA agrega objetivos mensuráveis, cada um com limite, unidade, garantia e compensação, além das regras de relato.
 

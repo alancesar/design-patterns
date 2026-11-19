@@ -9,7 +9,11 @@ also_in:
   - design/ddd/building-blocks
 source: https://microservices.io/patterns/data/domain-event.html
 sidebar_label: "Domain Event"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/service-collaboration/domain-event.mdx';
 
 # Domain Event
 
@@ -56,16 +60,7 @@ The pattern itself defines what to publish; reliable publication (atomic with th
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    A["Aggregate (PixCharge)"] -->|"emits"| E["Event: ChargePaid"]
-    S["Pix service"] --- A
-    S -->|"publishes"| B["Messaging"]
-    E -.-> B
-    B --> C1["Reconciliation saga"]
-    B --> C2["Statement view"]
-    B --> C3["Another service's replica"]
-```
+<Diagram />
 
 The aggregate emits the event, the service publishes it, and different consumers react to it, each in its own way. The source illustrates the pattern with orders.
 

@@ -8,7 +8,11 @@ tags:
   - Availability
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/gossip-dissemination.html
 sidebar_label: "Gossip Dissemination"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/cluster-management/gossip-dissemination.mdx';
 
 # Gossip Dissemination
 
@@ -55,20 +59,7 @@ Considerações adicionais:
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant A as Nó A
-    participant B as Nó B
-    participant C as Nó C
-    participant D as Nó D
-    Note over A: Aprende que o Nó E entrou
-    A->>B: Gossip com estado atualizado
-    B-->>A: Resumo do que B conhece
-    B->>D: Gossip com estado atualizado
-    A->>C: Gossip com estado atualizado
-    C->>D: Gossip com estado atualizado
-    Note over A,D: Todos convergem para a mesma visão
-```
+<Diagram />
 
 A informação nasce em um nó e se espalha em rodadas, cada nó repassando a pares escolhidos aleatoriamente.
 

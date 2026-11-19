@@ -8,7 +8,11 @@ tags:
 origin: Google
 source: https://docs.cloud.google.com/architecture/choose-design-pattern-agentic-ai-system#single-agent-system
 sidebar_label: "Single Agent"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/ai/agent-patterns/dynamic-orchestration/single-agent.mdx';
 
 # Single Agent
 
@@ -50,14 +54,7 @@ It's the recommended starting point before any multi-agent architecture: it lets
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    U["User"] --> A["Single agent"]
-    P["System prompt"] --> A
-    A <--> T1["Tool: database"]
-    A <--> T2["Tool: API"]
-    A --> R["Response"]
-```
+<Diagram />
 
 The single agent interprets the request, chooses among the available tools, iterates as needed, and returns the response.
 

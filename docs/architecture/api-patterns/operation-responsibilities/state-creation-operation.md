@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/operation-responsibilities/state-creation-operation.mdx';
+
 # State Creation Operation
 
 ## Descrição
@@ -58,18 +60,7 @@ Uma variante comum é a Event Notification Operation, que só armazena o evento 
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant C as Cliente
-    participant A as API
-    participant S as Armazenamento
-    C->>A: Relata incidente (eventId, dados)
-    A->>S: Grava o relato
-    S-->>A: Gravado
-    A-->>C: Recebido (confirmação)
-    C->>A: Reenvia o mesmo eventId
-    A-->>C: Já recebido (sem novo registro)
-```
+<Diagram />
 
 O provedor só grava e confirma. Se o mesmo incidente chegar de novo, o identificador permite responder sem criar outro registro.
 

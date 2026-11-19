@@ -7,7 +7,11 @@ tags:
   - Consistency
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "System Metaphor"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/large-scale-structure/system-metaphor.mdx';
 
 # System Metaphor
 
@@ -52,15 +56,7 @@ Evans trata a metáfora com cautela. Ela é útil quando se ajusta naturalmente 
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    M["Metáfora do sistema"] --> A["Conceitos e nomes do modelo"]
-    M --> B["Responsabilidades das partes"]
-    M --> C["Linguagem da equipe"]
-    A --> D["Design consistente"]
-    B --> D
-    C --> D
-```
+<Diagram />
 
 A metáfora influencia conceitos, responsabilidades e linguagem, e esses três elementos convergem para um design mais consistente.
 

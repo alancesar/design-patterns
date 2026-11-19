@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://www.enterpriseintegrationpatterns.com/InvalidMessageChannel.html
 sidebar_label: "Invalid Message Channel"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/messaging-channels/invalid-message-channel.mdx';
 
 # Invalid Message Channel
 
@@ -50,14 +54,7 @@ A distinção importante é que a mensagem chegou ao destino, mas é inválida p
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    P["Produtor"] --> C["Canal de entrada"]
-    C --> R{"Receptor valida a mensagem"}
-    R -->|"válida"| OK["Processamento normal"]
-    R -->|"inválida"| I["Invalid Message Channel"]
-    I --> E["Tratamento de erros"]
-```
+<Diagram />
 
 O receptor valida cada mensagem; as válidas seguem o fluxo normal e as inválidas vão ao canal dedicado, onde um processo de erros as analisa.
 

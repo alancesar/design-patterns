@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/scheduler-agent-supervisor
 sidebar_label: "Scheduler Agent Supervisor"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/distributed-coordination/scheduler-agent-supervisor.mdx';
 
 # Scheduler Agent Supervisor
 
@@ -59,19 +63,7 @@ The roles are logical and can be implemented in several ways (for example, a dur
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    App["Application"] -->|"submits task"| S["Scheduler"]
-    S <-->|"records step state"| DB[("State store")]
-    S -->|"asynchronous request"| A1["Agent 1"]
-    S -->|"asynchronous request"| A2["Agent 2"]
-    A1 -->|"response"| S
-    A2 -->|"response"| S
-    A1 <-->|"call with retry"| R1["Remote service"]
-    A2 <-->|"access"| R2["Remote resource"]
-    SUP["Supervisor"] -->|"checks timed-out or failed steps"| DB
-    SUP -->|"requests retry or compensation"| S
-```
+<Diagram />
 
 The Scheduler runs the steps, delegates remote calls to the Agents, and writes progress to the state store. The Supervisor periodically scans that state and, on finding steps that have failed or exceeded their deadline, asks the Scheduler for a retry or for compensation of the task.
 

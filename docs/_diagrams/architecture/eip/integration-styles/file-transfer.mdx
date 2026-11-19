@@ -1,0 +1,6 @@
+```mermaid
+flowchart LR
+    A["Application A (producer)"] -->|"writes"| F["File in agreed format"]
+    F -->|"reads"| T["Format converter"]
+    T --> B["Application B (consumer)"]
+```

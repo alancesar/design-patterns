@@ -7,7 +7,11 @@ tags:
   - Strategic Focus
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Refactoring Toward Deeper Insight"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/model-in-practice/refactoring-toward-deeper-insight.mdx';
 
 # Refactoring Toward Deeper Insight
 
@@ -52,15 +56,7 @@ O esforço deve ser dirigido ao Core Domain, onde a diferença competitiva do ne
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    A["Código e linguagem atuais"] --> B["Sinal: termo desajeitado ou regra espalhada"]
-    B --> C["Conversa com especialistas"]
-    C --> D["Novo conceito explícito no modelo"]
-    D --> E["Refatoração do código"]
-    E --> F["Modelo mais profundo e simples"]
-    F --> A
-```
+<Diagram />
 
 Um ciclo contínuo: sinais na linguagem e no código levam à conversa, ao novo conceito explícito, à refatoração e a um modelo mais profundo.
 

@@ -7,7 +7,11 @@ tags:
   - Reliability
 source: https://microservices.io/patterns/data/command-side-replica.html
 sidebar_label: "Command-side Replica"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/service-collaboration/command-side-replica.mdx';
 
 # Command-side Replica
 
@@ -54,15 +58,7 @@ Estruturalmente, é o mesmo mecanismo do CQRS: uma cópia derivada alimentada po
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    P["Serviço provedor (limites)"] --> PDB[("Banco do provedor")]
-    P -->|"Eventos de domínio"| B["Mensageria"]
-    B --> C["Serviço de comando (transferências)"]
-    C --> R[("Réplica somente leitura")]
-    C --> CDB[("Banco do serviço de comando")]
-    CL["Cliente"] -->|"createTransfer()"| C
-```
+<Diagram />
 
 O serviço de comando assina os eventos do provedor para manter a réplica local, que usa para validar o comando sem chamar o provedor. A fonte ilustra o padrão com pedidos e restaurantes.
 

@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/message-granularity/embedded-entity.mdx';
+
 # Embedded Entity
 
 ## Description
@@ -58,16 +60,7 @@ The analysis is repeated transitively: for each newly included element, it is as
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant C as API Client
-    participant E as API Endpoint
-    participant D as Datasource
-    C->>E: GET /loan-contracts/loan-2041
-    E->>D: Fetch contract, account and installments
-    D-->>E: Related data
-    E-->>C: Contract with embedded account and installments
-```
+<Diagram />
 
 A single call returns the source element and the related elements, with no follow-up requests.
 

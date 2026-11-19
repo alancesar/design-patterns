@@ -8,7 +8,11 @@ tags:
   - Testability
 source: https://martinfowler.com/eaaCatalog/plugin.html
 sidebar_label: "Plugin"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/base/plugin.mdx';
 
 # Plugin
 
@@ -54,18 +58,7 @@ With Plugin, a single configuration file maps each interface to the environment'
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant Client
-    participant PluginFactory
-    participant Config as Configuration file
-    participant Impl as Implementation
-    Client->>PluginFactory: getPlugin(IdGenerator)
-    PluginFactory->>Config: read class for IdGenerator
-    Config-->>PluginFactory: SequenceIdGenerator
-    PluginFactory->>Impl: instantiate
-    PluginFactory-->>Client: IdGenerator
-```
+<Diagram />
 
 The `Client` asks the `PluginFactory` for an implementation of the interface. The factory consults the configuration, instantiates the indicated class, and returns the result, without the client knowing which one it is.
 

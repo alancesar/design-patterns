@@ -1,0 +1,7 @@
+```mermaid
+flowchart LR
+    IN["Message"] --> RL{"Recipient List"}
+    RL -->|"copy"| A["Recipient A"]
+    RL -->|"copy"| C["Recipient C"]
+    RL -.->|"not selected"| B["Recipient B"]
+```

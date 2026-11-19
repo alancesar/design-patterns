@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://www.enterpriseintegrationpatterns.com/Message.html
 sidebar_label: "Message"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-construction/message.mdx';
 
 # Message
 
@@ -46,16 +50,7 @@ A message has two parts. The header carries metadata used by the infrastructure,
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    P["Producer"] --> H
-    subgraph M["Message"]
-        H["Header (metadata)"]
-        B["Body (data)"]
-    end
-    B --> C["Message channel"]
-    C --> R["Consumer"]
-```
+<Diagram />
 
 The producer packages the data into a message with a header and a body and sends it over a channel to the consumer.
 

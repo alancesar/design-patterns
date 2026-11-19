@@ -9,7 +9,11 @@ tags:
   - Performance Efficiency
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/throttling
 sidebar_label: "Throttling"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/resiliency/throttling.mdx';
 
 # Throttling
 
@@ -71,18 +75,7 @@ Additional considerations:
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    TA["Tenant A (5 req/s)"] --> T
-    TB["Tenant B (10 req/s)"] --> T
-    TC["Tenant C (150 req/s)"] --> T
-    T{"Throttling: per-tenant metering and resource usage"}
-    T -->|"Within quota"| S["Service / application"]
-    T -->|"Over quota"| R["Rejects: HTTP 429 with Retry-After"]
-    T -->|"Overall overload"| D["Degrades non-essential features or queues low-priority work"]
-    M["Monitoring: CPU, memory, queue, p99 latency"] -.->|"Adjusts limits"| T
-    S -.->|"Metrics"| M
-```
+<Diagram />
 
 The service measures each tenant's consumption and overall resource usage. Requests within quota proceed to the application, those that exceed the limit receive a 429 with `Retry-After`, and, under general overload, non-essential features are degraded or low-priority work is deferred. Monitoring feeds back and continuously adjusts the limits.
 

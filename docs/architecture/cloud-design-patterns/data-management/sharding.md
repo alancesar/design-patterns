@@ -7,7 +7,11 @@ tags:
   - Cost Optimization
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/sharding
 sidebar_label: "Sharding"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/data-management/sharding.mdx';
 
 # Sharding
 
@@ -70,15 +74,7 @@ Também existe a estratégia **geográfica**, que coloca os dados perto dos usu�
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    App1["Instância da aplicação 1"] --> Logic["Lógica de sharding"]
-    App2["Instância da aplicação 2"] --> Logic
-    Logic -. "consulta (lookup)" .-> Map[("Mapa de shards")]
-    Logic -- "chave: tenant 1 a 100 (range)" --> ShardA[("Shard A")]
-    Logic -- "hash(chave) mod N" --> ShardB[("Shard B")]
-    Logic -- "chave mapeada no diretório" --> ShardC[("Shard C")]
-```
+<Diagram />
 
 As instâncias da aplicação enviam as requisições para a lógica de sharding, que usa a chave de shard para descobrir o destino. Ela pode consultar um mapa (lookup), comparar a chave com intervalos (range) ou calcular um hash. Cada shard guarda um subconjunto distinto dos dados, e todos usam o mesmo esquema.
 

@@ -6,7 +6,11 @@ tags:
   - Performance Efficiency
 source: https://microservices.io/patterns/data/api-composition.html
 sidebar_label: "API Composition"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/service-collaboration/api-composition.mdx';
 
 # API Composition
 
@@ -51,20 +55,7 @@ In general, the composer role is taken on by an API Gateway, but it can be a ded
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant C as Client
-    participant A as API Composer
-    participant ACC as Account service
-    participant CS as Card service
-    C->>A: Query overview
-    A->>ACC: Fetch balance
-    ACC-->>A: Account balance
-    A->>CS: Fetch open invoice
-    CS-->>A: Open invoice
-    A->>A: In-memory join
-    A-->>C: Combined response
-```
+<Diagram />
 
 The composer calls each service that owns the data, joins the results in memory, and returns a single response to the client. The source illustrates the pattern with customers and orders.
 

@@ -8,7 +8,11 @@ tags:
 origin: Google
 source: https://docs.cloud.google.com/architecture/choose-design-pattern-agentic-ai-system#swarm-pattern
 sidebar_label: "Multi-Agent Swarm"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/ai/agent-patterns/dynamic-orchestration/multi-agent-swarm.mdx';
 
 # Multi-Agent Swarm
 
@@ -52,18 +56,7 @@ Compared with [Group Chat Orchestration](/ai/agent-patterns/dynamic-orchestratio
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    U["User"] --> D["Dispatcher agent"]
-    D --> M["Risk agent"]
-    M <--> E["Sales agent"]
-    E <--> F["Compliance agent"]
-    F <--> M
-    M --> D
-    E --> D
-    F --> D
-    D --> R["Final opinion"]
-```
+<Diagram />
 
 The dispatcher hands the request to one agent; the agents debate among themselves, and the dispatcher returns the result once the exit condition is met.
 

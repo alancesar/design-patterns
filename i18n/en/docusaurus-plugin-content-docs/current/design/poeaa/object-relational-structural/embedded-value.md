@@ -7,7 +7,11 @@ tags:
   - Performance
 source: https://martinfowler.com/eaaCatalog/embeddedValue.html
 sidebar_label: "Embedded Value"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/object-relational-structural/embedded-value.mdx';
 
 # Embedded Value
 
@@ -47,26 +51,7 @@ It's often used with Value Object, Money, and other types without identity.
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class LedgerEntry {
-        -String description
-        -Money amount
-    }
-    class Money {
-        -long amountCents
-        -String currency
-    }
-    class LedgerEntryTable {
-        <<table>>
-        id
-        description
-        amount_cents
-        currency
-    }
-    LedgerEntry *-- Money
-    LedgerEntry ..> LedgerEntryTable : mapped to
-```
+<Diagram />
 
 `Money` has no table: its fields become columns of `LedgerEntryTable`.
 

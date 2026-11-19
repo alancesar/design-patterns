@@ -1,0 +1,13 @@
+```mermaid
+classDiagram
+    class DomainObject {
+        +id
+        +version
+    }
+    class Account
+    class Card
+    class LedgerEntry
+    DomainObject <|-- Account
+    DomainObject <|-- Card
+    DomainObject <|-- LedgerEntry
+```

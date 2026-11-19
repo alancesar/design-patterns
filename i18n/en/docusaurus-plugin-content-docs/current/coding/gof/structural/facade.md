@@ -12,6 +12,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/structural/facade.mdx';
+
 # Facade
 
 ## Description
@@ -58,26 +60,7 @@ The result is a layer that reduces the coupling between clients and implementati
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Client
-    class Facade {
-        +operation()
-    }
-    class SubsystemA {
-        +operationA()
-    }
-    class SubsystemB {
-        +operationB()
-    }
-    class SubsystemC {
-        +operationC()
-    }
-    Client --> Facade
-    Facade --> SubsystemA
-    Facade --> SubsystemB
-    Facade --> SubsystemC
-```
+<Diagram />
 
 The `Client` interacts only with the `Facade`, which delegates calls to `SubsystemA`, `SubsystemB`, and `SubsystemC` in the proper order. The subsystem classes don't know about the facade.
 

@@ -9,7 +9,11 @@ also_in:
   - design/ddd/context-mapping
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/anti-corruption-layer
 sidebar_label: "Anti-Corruption Layer"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/integration-and-modernization/anti-corruption-layer.mdx';
 
 # Anti-Corruption Layer
 
@@ -67,25 +71,7 @@ In the microservices context (microservices.io), the pattern answers the questio
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    subgraph A["Subsystem A (modern)"]
-        S1[Service 1]
-        S2[Service 2]
-        S3[Service 3]
-    end
-    ACL["Anti-Corruption Layer (model and protocol translation)"]
-    subgraph B["Subsystem B (legacy or external)"]
-        L[Legacy system]
-        DB[(Legacy database)]
-    end
-    S1 -->|"A's model"| ACL
-    S2 -->|"A's model"| ACL
-    S3 -->|"A's model"| ACL
-    ACL -->|"B's model and protocol"| L
-    L --> DB
-    ACL -.->|"responses translated to A's model"| S1
-```
+<Diagram />
 
 The services in subsystem A speak only their own model to the Anti-Corruption Layer, which translates the calls into subsystem B's model and protocol and converts the responses back. Neither side needs to know the other's internal structure.
 

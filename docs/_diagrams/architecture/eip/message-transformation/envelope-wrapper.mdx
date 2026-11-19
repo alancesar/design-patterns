@@ -1,0 +1,7 @@
+```mermaid
+flowchart LR
+    A["Source application"] --> W["Wrapper"]
+    W -->|"Message with envelope"| C["Message channel"]
+    C --> U["Unwrapper"]
+    U --> B["Target application"]
+```

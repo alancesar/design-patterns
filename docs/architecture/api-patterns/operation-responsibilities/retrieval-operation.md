@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/operation-responsibilities/retrieval-operation.mdx';
+
 # Retrieval Operation
 
 ## Descrição
@@ -56,17 +58,7 @@ A operação serve a necessidades de informação ad hoc ou periódicas, como o 
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant C as Cliente
-    participant A as API
-    participant S as Armazenamento
-    C->>A: Consulta (conta, período, limite)
-    A->>S: Lê o estado (somente leitura)
-    S-->>A: Registros
-    A-->>C: Relatório com os registros
-    Note over A,S: O estado do provedor não é alterado
-```
+<Diagram />
 
 A consulta chega com os critérios de busca, o provedor lê o estado sem escrever e devolve um relatório com o recorte pedido.
 

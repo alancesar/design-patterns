@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://k8spatterns.com/
 sidebar_label: "Service Discovery"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/kubernetes-patterns/behavioral/service-discovery.mdx';
 
 # Service Discovery
 
@@ -59,15 +63,7 @@ The Service selects Pods by labels and keeps the address list up to date, includ
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    C["credit-service"] -->|"DNS: pix-service.fintech"| S["Service: pix-service (ClusterIP)"]
-    S -->|"Ready Pod"| P1["Pod pix-service 1"]
-    S -->|"Ready Pod"| P2["Pod pix-service 2"]
-    S -.->|"Out of balancing"| P3["Pod pix-service 3 (not ready)"]
-    I["Ingress"] --> S
-    U["Mobile app"] --> I
-```
+<Diagram />
 
 Internal consumers call the Service name and traffic reaches only the ready Pods; the Ingress brings external traffic to the same Service.
 

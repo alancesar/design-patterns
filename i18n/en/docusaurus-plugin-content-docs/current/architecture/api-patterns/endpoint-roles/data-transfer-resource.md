@@ -7,7 +7,11 @@ tags:
   - Performance
 source: https://api-patterns.org/
 sidebar_label: "Data Transfer Resource"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/endpoint-roles/data-transfer-resource.mdx';
 
 # Data Transfer Resource
 
@@ -62,18 +66,7 @@ Data ownership should stay with the clients, not the provider. There are three v
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant P as Sender
-    participant T as Data Transfer Resource
-    participant R as Receiver
-    P->>T: Creates and writes the content
-    T-->>P: Transfer identifier
-    P-->>R: Announces the identifier
-    R->>T: Reads the content
-    T-->>R: Data
-    R->>T: Confirms and removes
-```
+<Diagram />
 
 The sender writes to the intermediate resource, the receiver picks it up later, and the two never need to be connected at the same time.
 

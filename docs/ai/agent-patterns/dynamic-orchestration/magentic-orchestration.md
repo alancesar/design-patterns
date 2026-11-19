@@ -8,7 +8,11 @@ tags:
 origin: Azure
 source: https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns#magentic-orchestration
 sidebar_label: "Magentic Orchestration"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/ai/agent-patterns/dynamic-orchestration/magentic-orchestration.mdx';
 
 # Magentic Orchestration
 
@@ -58,19 +62,7 @@ Também é conhecido como *dynamic orchestration*, *task-ledger-based orchestrat
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    U["Usuário"] --> M["Agente gerente"]
-    M <--> L["Task ledger"]
-    M <--> A1["Agente de transações"]
-    M <--> A2["Agente de cadastro"]
-    M <--> A3["Agente de comunicação"]
-    A1 --> S["Sistemas externos"]
-    A2 --> S
-    A3 --> S
-    M -->|"Estagnação, fora do escopo ou decisão de bloqueio"| H["Analista humano"]
-    M --> R["Resultado"]
-```
+<Diagram />
 
 O gerente constrói e atualiza o task ledger consultando os agentes especializados, que usam ferramentas em sistemas externos; ao travar ou exceder o escopo, escala para um humano.
 

@@ -12,6 +12,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/structural/proxy.mdx';
+
 # Proxy
 
 ## Description
@@ -61,26 +63,7 @@ The difference from other wrappers lies in the intent: the Proxy doesn't add bus
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Client
-    class Subject {
-        <<interface>>
-        +request()
-    }
-    class RealSubject {
-        +request()
-    }
-    class Proxy {
-        -realSubject RealSubject
-        +request()
-        -checkAccess() bool
-    }
-    Client --> Subject
-    Subject <|.. RealSubject
-    Subject <|.. Proxy
-    Proxy --> RealSubject : delegates
-```
+<Diagram />
 
 The `Client` works only with the `Subject` interface. Both `RealSubject` and `Proxy` implement it; the `Proxy` holds a reference to the `RealSubject` and decides when and whether to delegate the call, applying access control, lazy loading, or caching.
 

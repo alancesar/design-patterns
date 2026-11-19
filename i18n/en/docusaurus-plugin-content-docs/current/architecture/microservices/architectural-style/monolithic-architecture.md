@@ -8,7 +8,11 @@ tags:
   - Cost Optimization
 source: https://microservices.io/patterns/monolithic.html
 sidebar_label: "Monolithic Architecture"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/architectural-style/monolithic-architecture.mdx';
 
 # Monolithic Architecture
 
@@ -55,14 +59,7 @@ The pattern is the natural starting point for many applications and remains a go
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    C[Client] --> LB[Load balancer]
-    LB --> I1["Instance 1 (full application)"]
-    LB --> I2["Instance 2 (full application)"]
-    I1 --> DB[(Single database)]
-    I2 --> DB
-```
+<Diagram />
 
 All instances contain every subdomain and share a single database; scaling is achieved by replicating the entire application.
 

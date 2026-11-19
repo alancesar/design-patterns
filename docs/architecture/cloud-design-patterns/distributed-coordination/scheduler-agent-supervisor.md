@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/scheduler-agent-supervisor
 sidebar_label: "Scheduler Agent Supervisor"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/distributed-coordination/scheduler-agent-supervisor.mdx';
 
 # Scheduler Agent Supervisor
 
@@ -59,19 +63,7 @@ Os papéis são lógicos e podem ser implementados de várias formas (por exempl
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    App["Aplicação"] -->|"submete tarefa"| S["Scheduler"]
-    S <-->|"registra estado das etapas"| DB[("State store")]
-    S -->|"requisição assíncrona"| A1["Agent 1"]
-    S -->|"requisição assíncrona"| A2["Agent 2"]
-    A1 -->|"resposta"| S
-    A2 -->|"resposta"| S
-    A1 <-->|"chamada com retentativa"| R1["Serviço remoto"]
-    A2 <-->|"acesso"| R2["Recurso remoto"]
-    SUP["Supervisor"] -->|"verifica etapas expiradas ou com falha"| DB
-    SUP -->|"pede nova tentativa ou compensação"| S
-```
+<Diagram />
 
 O Scheduler executa as etapas, delega chamadas remotas aos Agents e grava o progresso no state store. O Supervisor varre periodicamente esse estado e, ao encontrar etapas que falharam ou excederam o prazo, solicita ao Scheduler uma nova tentativa ou a compensação da tarefa.
 

@@ -12,6 +12,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/creational/factory-method.mdx';
+
 # Factory Method
 
 ## Description
@@ -58,37 +60,7 @@ Unlike **Factory (Simple Factory)**, which is a single method/class with conditi
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Creator {
-        <<abstract>>
-        +someOperation()
-        +createProduct()* Product
-    }
-    class ConcreteCreatorA {
-        +createProduct() Product
-    }
-    class ConcreteCreatorB {
-        +createProduct() Product
-    }
-    class Product {
-        <<interface>>
-        +doStuff()
-    }
-    class ConcreteProductA {
-        +doStuff()
-    }
-    class ConcreteProductB {
-        +doStuff()
-    }
-    Creator <|-- ConcreteCreatorA
-    Creator <|-- ConcreteCreatorB
-    Product <|.. ConcreteProductA
-    Product <|.. ConcreteProductB
-    Creator ..> Product : uses
-    ConcreteCreatorA ..> ConcreteProductA : creates
-    ConcreteCreatorB ..> ConcreteProductB : creates
-```
+<Diagram />
 
 The `Creator` declares the abstract method `createProduct()` and uses the `Product` in `someOperation()`. Each `ConcreteCreator` overrides the factory method to instantiate its corresponding `ConcreteProduct`, without the Creator knowing the concrete class.
 

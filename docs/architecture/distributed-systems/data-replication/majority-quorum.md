@@ -8,7 +8,11 @@ tags:
   - Availability
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/majority-quorum.html
 sidebar_label: "Majority Quorum"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/data-replication/majority-quorum.mdx';
 
 # Majority Quorum
 
@@ -52,15 +56,7 @@ O padrão aparece em ZooKeeper, etcd, Raft e Paxos para confirmar escritas e ele
 
 ## Diagrama
 
-```mermaid
-flowchart TB
-    L["Líder"] --> A["Nó A: ack"]
-    L --> B["Nó B: ack"]
-    L --> C["Nó C: sem resposta"]
-    A --> Q{"Maioria (2 de 3)?"}
-    B --> Q
-    Q -->|"Sim"| OK["Atualização confirmada"]
-```
+<Diagram />
 
 Em um cluster de três nós, duas confirmações bastam para considerar a atualização aceita, mesmo com um nó sem resposta.
 

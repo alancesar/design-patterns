@@ -7,7 +7,11 @@ tags:
   - Decoupling
 source: https://martinfowler.com/eaaCatalog/serviceStub.html
 sidebar_label: "Service Stub"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/base/service-stub.mdx';
 
 # Service Stub
 
@@ -53,23 +57,7 @@ The pattern was proposed by David Rice in PoEAA and is the basis of what are now
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class CreditBureau {
-        <<interface>>
-        +scoreFor(cpf)
-    }
-    class RemoteCreditBureau {
-        +scoreFor(cpf)
-    }
-    class CreditBureauStub {
-        +scoreFor(cpf)
-    }
-    class CreditAnalysisService
-    CreditAnalysisService --> CreditBureau
-    CreditBureau <|.. RemoteCreditBureau
-    CreditBureau <|.. CreditBureauStub
-```
+<Diagram />
 
 The `CreditAnalysisService` depends on the `CreditBureau` interface. In production it uses `RemoteCreditBureau`; in tests, `CreditBureauStub`, which answers from memory.
 

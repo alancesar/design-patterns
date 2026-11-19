@@ -1,0 +1,12 @@
+```mermaid
+sequenceDiagram
+    participant Browser
+    participant PageController
+    participant Model
+    participant View
+    Browser->>PageController: page request
+    PageController->>Model: runs domain logic
+    Model-->>PageController: data
+    PageController->>View: selects and populates
+    View-->>Browser: HTML response
+```

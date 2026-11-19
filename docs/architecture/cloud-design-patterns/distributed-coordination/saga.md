@@ -8,7 +8,11 @@ also_in:
   - architecture/microservices/service-collaboration
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/saga
 sidebar_label: "Saga"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/distributed-coordination/saga.mdx';
 
 # Saga
 
@@ -67,24 +71,7 @@ Em microsserviços, a Saga é a consequência direta do padrão Database per Ser
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    subgraph Orquestracao["Orquestração"]
-        O["Orquestrador da saga"] -->|"1. Criar contrato"| P1["Serviço de contratos"]
-        O -->|"2. Reservar funding"| P2["Serviço de funding"]
-        O -->|"3. Desembolsar por Pix"| P3["Serviço de pagamentos"]
-        P3 -.->|"Falha"| O
-        O -.->|"Compensar: liberar funding"| P2
-        O -.->|"Compensar: cancelar contrato"| P1
-    end
-
-    subgraph Coreografia["Coreografia"]
-        C1["Serviço de contratos"] -->|"Evento: contrato criado"| C2["Serviço de funding"]
-        C2 -->|"Evento: funding reservado"| C3["Serviço de pagamentos"]
-        C3 -.->|"Evento: desembolso falhou"| C2
-        C2 -.->|"Evento: funding liberado"| C1
-    end
-```
+<Diagram />
 
 Na contratação de um empréstimo, a orquestração tem um componente central que envia comandos a cada participante e, quando um passo falha, dispara as compensações em ordem inversa. Na coreografia, os próprios serviços reagem aos eventos uns dos outros, e as compensações também se propagam por eventos (linhas tracejadas). Liberar o funding e cancelar o contrato são ações novas, que não apagam o registro original.
 

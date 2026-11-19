@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/creational/telescoping-constructor.mdx';
+
 # Telescoping Constructor
 
 ## Descrição
@@ -57,22 +59,7 @@ Ainda assim, a técnica tem méritos reais: produz objetos imutáveis e completa
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Client
-    class Boleto {
-        -long amountCents
-        -LocalDate dueDate
-        -double fine
-        -double dailyInterest
-        -double discount
-        +Boleto(amountCents, dueDate)
-        +Boleto(amountCents, dueDate, fine)
-        +Boleto(amountCents, dueDate, fine, dailyInterest)
-        +Boleto(amountCents, dueDate, fine, dailyInterest, discount)
-    }
-    Client ..> Boleto : new
-```
+<Diagram />
 
 O `Client` instancia `Boleto` escolhendo o construtor com a quantidade de argumentos de que precisa. Cada construtor menor delega (via `this(...)`) para o próximo, passando um valor padrão, até chegar ao construtor completo, que atribui todos os campos.
 

@@ -9,7 +9,11 @@ also_in:
   - architecture/microservices/service-collaboration
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/event-sourcing
 sidebar_label: "Event Sourcing"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/data-management/event-sourcing.mdx';
 
 # Event Sourcing
 
@@ -75,19 +79,7 @@ Em microsserviços, o Event Sourcing resolve um problema central: como atualizar
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    UI["Camada de apresentação"] -- "comandos" --> CH["Manipuladores de comando"]
-    CH -- "lê stream da entidade (rehidratação)" --> ES[("Event store (append-only)")]
-    CH -- "novos eventos" --> Q["Fila / tópico"]
-    Q --> H1["Handler: grava no event store"]
-    H1 --> ES
-    Q --> H2["Handler: atualiza projeções"]
-    H2 --> RS[("Store de leitura / visões materializadas")]
-    Q --> H3["Handler: integrações externas"]
-    H3 --> EXT["Sistemas externos"]
-    UI -- "consultas" --> RS
-```
+<Diagram />
 
 Os manipuladores de comando reconstroem a entidade a partir do seu stream de eventos, aplicam as regras de negócio e publicam novos eventos. Handlers independentes persistem os eventos, atualizam as visões de leitura consultadas pela UI e integram outros sistemas.
 

@@ -7,7 +7,11 @@ tags:
   - Shared Understanding
 source: https://api-patterns.org/
 sidebar_label: "Limited Lifetime Guarantee"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/life-cycle-management/limited-lifetime-guarantee.mdx';
 
 # Limited Lifetime Guarantee
 
@@ -60,12 +64,7 @@ O provedor promete manter a versão utilizável, de forma compatível, por um te
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    V1["V1: lançada em jan/2026"] -->|"Garantia de 18 meses"| E1["V1 retirada em jul/2027"]
-    V2["V2: lançada em jul/2026"] -->|"Garantia de 18 meses"| E2["V2 retirada em jan/2028"]
-    V3["V3: lançada em jan/2027"] -->|"Garantia de 18 meses"| E3["V3 retirada em jul/2028"]
-```
+<Diagram />
 
 Cada versão carrega sua própria data de retirada, definida na publicação e independente do lançamento das demais.
 

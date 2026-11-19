@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/structural/flyweight.mdx';
+
 # Flyweight
 
 ## Description
@@ -56,33 +58,7 @@ A `FlyweightFactory` controls the creation and reuse of instances: given a key, 
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Flyweight {
-        <<interface>>
-        +operation(extrinsicState)
-    }
-    class ConcreteFlyweight {
-        -intrinsicState
-        +operation(extrinsicState)
-    }
-    class UnsharedConcreteFlyweight {
-        -allState
-        +operation(extrinsicState)
-    }
-    class FlyweightFactory {
-        -flyweights Map
-        +getFlyweight(key) Flyweight
-    }
-    class Client {
-        -extrinsicState
-    }
-    Flyweight <|.. ConcreteFlyweight
-    Flyweight <|.. UnsharedConcreteFlyweight
-    FlyweightFactory o-- Flyweight : cache
-    Client --> FlyweightFactory : requests
-    Client --> Flyweight : uses
-```
+<Diagram />
 
 The `Client` obtains flyweights through the `FlyweightFactory`, which maintains a cache of shared `ConcreteFlyweight`s (holding intrinsic state). The client keeps the extrinsic state and passes it on each call to `operation`; `UnsharedConcreteFlyweight` represents implementations that don't need to be shared.
 

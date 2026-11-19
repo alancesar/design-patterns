@@ -8,7 +8,11 @@ tags:
   - Performance Efficiency
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/compute-resource-consolidation
 sidebar_label: "Compute Resource Consolidation"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/deployment-and-topology/compute-resource-consolidation.mdx';
 
 # Compute Resource Consolidation
 
@@ -64,28 +68,7 @@ The choice of what to group is the central point: tasks with similar scalability
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    subgraph Antes["Before: one unit per task"]
-        U1["Unit 1"] --- TA["Task A"]
-        U2["Unit 2"] --- TB["Task B"]
-        U3["Unit 3"] --- TC["Task C"]
-        U4["Unit 4"] --- TD["Task D"]
-    end
-
-    subgraph Depois["After: consolidated units"]
-        subgraph UX["Unit X (CPU + memory profile)"]
-            XA["Task A (CPU)"]
-            XB["Task B (memory)"]
-        end
-        subgraph UY["Unit Y (low load)"]
-            YC["Task C (idle)"]
-            YD["Task D (intermittent)"]
-        end
-    end
-
-    Antes -- "Consolidation by usage profile" --> Depois
-```
+<Diagram />
 
 Before, each task occupies its own compute unit, often idle. After consolidation, tasks with complementary profiles or low load share units, reducing the number of provisioned resources and increasing their utilization.
 

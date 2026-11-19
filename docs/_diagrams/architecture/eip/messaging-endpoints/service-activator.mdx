@@ -1,0 +1,7 @@
+```mermaid
+flowchart LR
+    C[["Request channel"]] --> A["Service Activator"]
+    A -->|"call"| S["Application service"]
+    S -->|"result"| A
+    A --> R[["Reply channel"]]
+```

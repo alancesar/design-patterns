@@ -6,7 +6,11 @@ tags:
   - Consistency
 source: https://martinfowler.com/eaaCatalog/associationTableMapping.html
 sidebar_label: "Association Table Mapping"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/object-relational-structural/association-table-mapping.mdx';
 
 # Association Table Mapping
 
@@ -46,15 +50,7 @@ Se a relação tiver atributos próprios (data, papel), a tabela de associação
 
 ## Diagrama
 
-```mermaid
-erDiagram
-    ACCOUNT ||--o{ ACCOUNT_HOLDER : tem
-    HOLDER ||--o{ ACCOUNT_HOLDER : tem
-    ACCOUNT_HOLDER {
-        bigint account_id PK
-        bigint holder_id PK
-    }
-```
+<Diagram />
 
 A tabela `ACCOUNT_HOLDER` liga `ACCOUNT` e `HOLDER`, com chave primária composta pelas duas chaves estrangeiras.
 

@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://www.enterpriseintegrationpatterns.com/MessageSequence.html
 sidebar_label: "Message Sequence"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-construction/message-sequence.mdx';
 
 # Message Sequence
 
@@ -47,16 +51,7 @@ Each message carries three fields: a sequence identifier, which groups the messa
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    D["Large data"] --> S["Splits"]
-    S --> M1["Msg 1 of 3"]
-    S --> M2["Msg 2 of 3"]
-    S --> M3["Msg 3 of 3"]
-    M1 --> R["Receiver (reassembles)"]
-    M2 --> R
-    M3 --> R
-```
+<Diagram />
 
 The data is split into numbered messages within the same sequence, and the receiver reassembles them.
 

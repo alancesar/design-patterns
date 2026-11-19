@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://microservices.io/patterns/decomposition/self-contained-service.html
 sidebar_label: "Self-contained Service"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/service-boundaries/self-contained-service.mdx';
 
 # Self-contained Service
 
@@ -47,19 +51,7 @@ There are two ways to achieve this: absorb the needed functionality as a module 
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant C as Client
-    participant P as Pix Service
-    participant R as Local replica of customer limits
-    participant S as Saga
-    C->>P: Create PixTransfer
-    P->>R: Validate the limit with local data
-    R-->>P: Customer limit
-    P-->>C: Transfer accepted (pending)
-    P->>S: Start settlement saga
-    S-->>P: Transfer settled or rejected
-```
+<Diagram />
 
 The service responds without calling other services; settlement completes asynchronously through the saga. The source illustrates the pattern with orders and restaurants.
 

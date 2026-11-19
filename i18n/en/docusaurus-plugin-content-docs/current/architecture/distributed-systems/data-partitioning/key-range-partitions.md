@@ -7,7 +7,11 @@ tags:
   - Performance
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/key-range-partitions.html
 sidebar_label: "Key-Range Partitions"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/data-partitioning/key-range-partitions.mdx';
 
 # Key-Range Partitions
 
@@ -53,16 +57,7 @@ Because key distribution isn't always uniform, systems that use this pattern oft
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    C["Client"] -->|"query a to f"| M["Range map"]
-    M --> P1["Partition a to f"]
-    M -.-> P2["Partition g to m"]
-    M -.-> P3["Partition n to z"]
-    P1 --> N1["Node 1"]
-    P2 --> N2["Node 2"]
-    P3 --> N3["Node 3"]
-```
+<Diagram />
 
 The query is routed only to the partition whose range covers the requested span; the other partitions are not accessed.
 

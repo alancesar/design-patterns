@@ -8,7 +8,11 @@ tags:
   - Decoupling
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Abstract Core"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/distillation/abstract-core.mdx';
 
 # Abstract Core
 
@@ -54,34 +58,7 @@ Os módulos especializados dependem do Abstract Core e implementam ou estendem s
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class CreditProduct {
-        <<interface>>
-        +monthlyRate() Rate
-    }
-    class Contract {
-        <<abstract>>
-        +installment() Money
-    }
-    class PersonalLoanContract {
-        +installment() Money
-    }
-    class PayrollLoanContract {
-        +installment() Money
-    }
-    class PersonalLoan {
-        +monthlyRate() Rate
-    }
-    class PayrollLoan {
-        +monthlyRate() Rate
-    }
-    Contract --> CreditProduct
-    Contract <|-- PersonalLoanContract
-    Contract <|-- PayrollLoanContract
-    CreditProduct <|.. PersonalLoan
-    CreditProduct <|.. PayrollLoan
-```
+<Diagram />
 
 `Contract` e `CreditProduct` formam o núcleo abstrato; os módulos de crédito pessoal e de consignado o especializam sem se conhecerem.
 

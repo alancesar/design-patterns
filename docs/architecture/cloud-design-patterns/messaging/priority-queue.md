@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/priority-queue
 sidebar_label: "Priority Queue"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/messaging/priority-queue.mdx';
 
 # Priority Queue
 
@@ -62,15 +66,7 @@ Considerações adicionais:
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    P["Aplicação (produtor)"] -->|"prioridade = alta"| QA["Fila de alta prioridade"]
-    P -->|"prioridade = baixa"| QB["Fila de baixa prioridade"]
-    QA --> CA["Pool de consumidores de alta prioridade (mais instâncias)"]
-    QB --> CB["Pool de consumidores de baixa prioridade (menos instâncias)"]
-    CA --> S["Serviço / processamento"]
-    CB --> S
-```
+<Diagram />
 
 O produtor atribui uma prioridade a cada mensagem e a envia para a fila correspondente; cada fila é atendida por um pool de consumidores dedicado, e o pool de alta prioridade dispõe de mais capacidade para processar o trabalho crítico com menor latência. Como exemplo pontual, no Azure isso pode ser feito com um tópico do Azure Service Bus com filtros por assinatura e consumidores no Azure Functions.
 

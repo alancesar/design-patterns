@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://microservices.io/patterns/self-registration.html
 sidebar_label: "Self Registration"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/service-discovery/self-registration.mdx';
 
 # Self Registration
 
@@ -44,16 +48,7 @@ Normalmente um microservice chassis ou biblioteca cliente (por exemplo, o client
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant I as Instância
-    participant R as Service Registry
-    I->>R: Registra host e IP (início)
-    loop Periodicamente
-        I->>R: Renova o registro (heartbeat)
-    end
-    I->>R: Remove o registro (desligamento)
-```
+<Diagram />
 
 A própria instância gerencia seu ciclo de vida no registro.
 

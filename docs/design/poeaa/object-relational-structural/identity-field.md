@@ -6,7 +6,11 @@ tags:
   - Consistency
 source: https://martinfowler.com/eaaCatalog/identityField.html
 sidebar_label: "Identity Field"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/object-relational-structural/identity-field.mdx';
 
 # Identity Field
 
@@ -48,23 +52,7 @@ As decisões principais são o tipo da chave (simples ou composta, significativa
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class DomainObject {
-        -Long id
-        +getId() Long
-    }
-    class Account {
-        -String holderName
-    }
-    class AccountTable {
-        <<table>>
-        id PK
-        holder_name
-    }
-    DomainObject <|-- Account
-    Account ..> AccountTable : mapeado para
-```
+<Diagram />
 
 O `DomainObject` guarda o campo `id`, que corresponde à chave primária da linha em `AccountTable`. Os objetos de domínio herdam o campo.
 

@@ -7,7 +7,11 @@ tags:
   - Simplicity
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Intention-Revealing Interfaces"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/supple-design/intention-revealing-interfaces.mdx';
 
 # Intention-Revealing Interfaces
 
@@ -51,18 +55,7 @@ O padrão é a base do Supple Design. Interfaces que revelam intenção tornam a
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class AccountBefore {
-        +process(Money amount)
-    }
-    class AccountAfter {
-        +placeHold(Money amount)
-        +availableBalance() Money
-    }
-    note for AccountBefore "Nome nao revela se debita, credita ou reserva"
-    note for AccountAfter "Nome revela o efeito: reserva saldo sem debitar"
-```
+<Diagram />
 
 Em `AccountBefore`, o método não diz o que acontece com o saldo; em `AccountAfter`, `placeHold` revela a intenção e o efeito. O livro ilustra o padrão com a mistura de tintas.
 

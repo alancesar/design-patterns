@@ -6,7 +6,11 @@ tags:
   - Performance Efficiency
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/materialized-view
 sidebar_label: "Materialized View"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/data-management/materialized-view.mdx';
 
 # Materialized View
 
@@ -62,15 +66,7 @@ When the source data changes, the view needs to be updated, whether in response 
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    S1[("Source store A")] --> G["View generation process"]
-    S2[("Source store B")] --> G
-    E["Change events or schedule"] -.->|"triggers update"| G
-    G -->|"projects, aggregates, and transforms"| V[("Materialized view")]
-    App["Application / Dashboard"] -->|"read-only query"| V
-    W["Application writes"] --> S1
-```
+<Diagram />
 
 Writes keep going to the source stores; a dedicated process, triggered by events or a schedule, generates the materialized view already in the query's shape, and applications read directly from it.
 

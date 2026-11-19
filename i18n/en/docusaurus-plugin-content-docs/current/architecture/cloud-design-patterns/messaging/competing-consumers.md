@@ -10,7 +10,11 @@ also_in:
   - architecture/eip/messaging-endpoints
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/competing-consumers
 sidebar_label: "Competing Consumers"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/messaging/competing-consumers.mdx';
 
 # Competing Consumers
 
@@ -68,21 +72,7 @@ When the messaging system offers transactional reads or temporary locking (for e
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    P1["Application (instance 1)"] --> Q[["Message queue"]]
-    P2["Application (instance 2)"] --> Q
-    P3["Application (instance N)"] --> Q
-    subgraph Pool["Consumer pool"]
-        C1["Consumer 1"]
-        C2["Consumer 2"]
-        C3["Consumer N"]
-    end
-    Q -->|"message A"| C1
-    Q -->|"message B"| C2
-    Q -->|"message C"| C3
-    Q -.->|"repeated failures"| DLQ[("Dead-letter queue")]
-```
+<Diagram />
 
 Multiple application instances publish messages to a single queue; each message is delivered to only one consumer in the pool, which can scale with queue depth. Messages that fail repeatedly are diverted to the *dead-letter queue* for analysis.
 

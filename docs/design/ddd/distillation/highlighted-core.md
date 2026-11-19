@@ -7,7 +7,11 @@ tags:
   - Strategic Focus
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Highlighted Core"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/distillation/highlighted-core.mdx';
 
 # Highlighted Core
 
@@ -53,13 +57,7 @@ A vantagem é a baixa intrusão: o núcleo ganha visibilidade imediata sem a nec
 
 ## Diagrama
 
-```mermaid
-flowchart TD
-    A["Modelo completo"] --> B["Conceitos do core"]
-    A --> C["Conceitos de suporte"]
-    D["Documento de destilação"] -.->|"descreve"| B
-    E["Marcações no código e nos diagramas"] -.->|"sinalizam"| B
-```
+<Diagram />
 
 O modelo permanece inteiro, mas o documento de destilação e as marcações apontam quais conceitos pertencem ao core.
 

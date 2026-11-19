@@ -7,7 +7,11 @@ tags:
   - Security
 source: https://www.enterpriseintegrationpatterns.com/MessageStore.html
 sidebar_label: "Message Store"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/system-management/message-store.mdx';
 
 # Message Store
 
@@ -48,14 +52,7 @@ O envio da cópia é fire-and-forget, para não atrasar o fluxo principal. Em ge
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    P["Produtor"] --> C["Canal"]
-    C --> D["Consumidor"]
-    C -. "cópia" .-> S["Canal secundário"]
-    S --> M[("Message Store")]
-    M --> R["Relatórios e auditoria"]
-```
+<Diagram />
 
 Cada mensagem segue ao consumidor e uma cópia chega ao repositório central, de onde saem relatórios.
 

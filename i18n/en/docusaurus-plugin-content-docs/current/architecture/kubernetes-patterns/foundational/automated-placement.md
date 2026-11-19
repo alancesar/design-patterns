@@ -8,7 +8,11 @@ tags:
   - Cost Optimization
 source: https://k8spatterns.com/
 sidebar_label: "Automated Placement"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/kubernetes-patterns/foundational/automated-placement.mdx';
 
 # Automated Placement
 
@@ -65,15 +69,7 @@ The scheduler itself is also configurable. In current versions, configuration is
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    P["Pod pix-service: no node assigned"] --> F["Filtering"]
-    F -->|"Removes nodes without capacity, with taints or outside the rules"| SC["Scoring"]
-    SC -->|"Ranks remaining nodes"| B["Chosen node"]
-    B --> K["kubelet runs the Pod"]
-    AF["nodeSelector, affinity, taints, spread, scheduler profile"] -.->|"Guide"| F
-    AF -.->|"Guide"| SC
-```
+<Diagram />
 
 The scheduler filters out ineligible nodes, scores the remaining ones and assigns the Pod to the best; the rules declared by the user and the scheduler profile plugins influence both stages.
 

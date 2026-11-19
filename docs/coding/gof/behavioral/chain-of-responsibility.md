@@ -12,6 +12,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/behavioral/chain-of-responsibility.mdx';
+
 # Chain of Responsibility
 
 ## Descrição
@@ -59,28 +61,7 @@ Como a cadeia é montada em tempo de execução, é possível adicionar, remover
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Client
-    class Handler {
-        <<abstract>>
-        -Handler next
-        +setNext(Handler handler) Handler
-        +handle(Request request)
-    }
-    class ConcreteHandlerA {
-        +handle(Request request)
-    }
-    class ConcreteHandlerB {
-        +handle(Request request)
-    }
-    class Request
-    Client --> Handler : envia requisicao
-    Handler o--> Handler : next
-    Handler <|-- ConcreteHandlerA
-    Handler <|-- ConcreteHandlerB
-    Handler ..> Request : processa
-```
+<Diagram />
 
 O `Client` envia a `Request` ao primeiro `Handler` da cadeia. Cada `ConcreteHandler` decide se trata a requisição ou a repassa ao sucessor referenciado por `next`, formando uma lista encadeada de tratadores.
 

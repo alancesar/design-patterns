@@ -7,7 +7,11 @@ tags:
   - Fault Tolerance
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/write-ahead-log.html
 sidebar_label: "Write-Ahead Log"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/data-replication/write-ahead-log.mdx';
 
 # Write-Ahead Log
 
@@ -53,14 +57,7 @@ The pattern is the foundation of several others in the catalog: the Segmented Lo
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    C["Client"] -->|"1. request"| S["Server"]
-    S -->|"2. appends command and flushes"| L[("On-disk log")]
-    S -->|"3. applies the change"| M["In-memory state"]
-    S -->|"4. responds"| C
-    L -.->|"after crash: replays"| M
-```
+<Diagram />
 
 The server writes the command to the log on disk before changing the in-memory state, and only then responds. After a failure, the state is rebuilt by replaying the log.
 

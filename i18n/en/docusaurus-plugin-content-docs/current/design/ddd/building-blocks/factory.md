@@ -7,7 +7,11 @@ tags:
   - Consistency
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Factory"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/building-blocks/factory.mdx';
 
 # Factory
 
@@ -50,20 +54,7 @@ Don't confuse it with the GoF Factory Method and Abstract Factory patterns, whic
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class LoanContractFactory {
-        +create(customer, proposal) LoanContract
-    }
-    class LoanContract {
-        <<aggregate root>>
-    }
-    class Installment
-    class Customer
-    LoanContractFactory ..> LoanContract : creates
-    LoanContractFactory ..> Customer
-    LoanContract "1" *-- "*" Installment
-```
+<Diagram />
 
 `LoanContractFactory` assembles the `LoanContract` with its `Installment` schedule and ensures the aggregate is valid when it's handed over.
 

@@ -1,0 +1,11 @@
+```mermaid
+classDiagram
+    class UserInterface
+    class Application
+    class Domain
+    class Infrastructure
+    UserInterface --> Application
+    Application --> Domain
+    Infrastructure --> Domain
+    Infrastructure ..> Application
+```

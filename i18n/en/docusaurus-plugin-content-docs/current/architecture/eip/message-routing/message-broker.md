@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://www.enterpriseintegrationpatterns.com/MessageBroker.html
 sidebar_label: "Message Broker"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-routing/message-broker.mdx';
 
 # Message Broker
 
@@ -50,14 +54,7 @@ To scale, a stateless broker can run as several instances, consuming from a Poin
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    A["Application A"] --> B{"Message Broker"}
-    C["Application C"] --> B
-    B --> D["Application D"]
-    B --> E["Application E"]
-    B --> F["Application F"]
-```
+<Diagram />
 
 Applications send messages to the broker, which decides the destination of each one.
 

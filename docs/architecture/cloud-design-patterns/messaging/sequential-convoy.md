@@ -6,7 +6,11 @@ tags:
   - Reliability
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/sequential-convoy
 sidebar_label: "Sequential Convoy"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/messaging/sequential-convoy.mdx';
 
 # Sequential Convoy
 
@@ -57,14 +61,7 @@ Muitos brokers oferecem esse comportamento nativamente, por meio de sessões, gr
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    P[Produtor] -->|"mensagens com chave de categoria"| Q[("Fila com sessões")]
-    Q -->|"Categoria A (FIFO)"| CA[Consumidor A]
-    Q -->|"Categoria B (FIFO)"| CB[Consumidor B]
-    Q -->|"Categoria C (FIFO)"| CC[Consumidor C]
-    Q -.->|"mensagens envenenadas"| DLQ[("Dead-letter queue")]
-```
+<Diagram />
 
 O produtor envia mensagens intercaladas de várias categorias para uma única fila; o broker entrega cada categoria com exclusividade a um consumidor, que a processa em ordem, enquanto categorias diferentes avançam em paralelo.
 

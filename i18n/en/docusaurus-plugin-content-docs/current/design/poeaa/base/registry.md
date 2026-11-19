@@ -7,7 +7,11 @@ tags:
   - Testability
 source: https://martinfowler.com/eaaCatalog/registry.html
 sidebar_label: "Registry"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/base/registry.mdx';
 
 # Registry
 
@@ -51,20 +55,7 @@ The Registry is a pattern of last resort: when possible, passing dependencies ex
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Registry {
-        +getInstance()$
-        +accountFinder()
-        +feeTable()
-    }
-    class AccountFinder
-    class FeeTable
-    class Client
-    Client --> Registry
-    Registry --> AccountFinder
-    Registry --> FeeTable
-```
+<Diagram />
 
 The `Client` asks the `Registry` for the `AccountFinder` or the `FeeTable` it needs, without having received either one as a parameter.
 

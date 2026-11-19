@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://www.enterpriseintegrationpatterns.com/FileTransferIntegration.html
 sidebar_label: "File Transfer"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/integration-styles/file-transfer.mdx';
 
 # File Transfer
 
@@ -54,12 +58,7 @@ Choosing the format (delimited text, fixed width, XML, JSON, legacy mainframe fo
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    A["Application A (producer)"] -->|"writes"| F["File in agreed format"]
-    F -->|"reads"| T["Format converter"]
-    T --> B["Application B (consumer)"]
-```
+<Diagram />
 
 The producing application writes a file periodically; a converter adapts the format, and the consuming application reads it at its own pace.
 

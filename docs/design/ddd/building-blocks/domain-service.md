@@ -7,7 +7,11 @@ tags:
   - Shared Understanding
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Domain Service"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/building-blocks/domain-service.mdx';
 
 # Domain Service
 
@@ -50,19 +54,7 @@ Não confundir com o Service Layer do PoEAA nem com serviços da camada de aplic
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class FundsTransferService {
-        +transfer(from, to, amount)
-    }
-    class Account {
-        +withdraw(amount)
-        +deposit(amount)
-    }
-    class Money
-    FundsTransferService --> Account
-    Account --> Money
-```
+<Diagram />
 
 `FundsTransferService` coordena duas contas em uma operação que não pertence a nenhuma delas.
 

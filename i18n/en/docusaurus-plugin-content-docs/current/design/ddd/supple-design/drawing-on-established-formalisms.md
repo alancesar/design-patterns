@@ -7,7 +7,11 @@ tags:
   - Consistency
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Drawing on Established Formalisms"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/supple-design/drawing-on-established-formalisms.mdx';
 
 # Drawing on Established Formalisms
 
@@ -52,23 +56,7 @@ The technique doesn't require applying the formalism in full. Often a part is en
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Account {
-        +post(Entry entry)
-        +balance() Money
-    }
-    class Entry {
-        +amount Money
-        +side Side
-    }
-    class Transaction {
-        +entries List
-        +isBalanced() bool
-    }
-    Account "1" --> "*" Entry
-    Transaction "1" *-- "2..*" Entry
-```
+<Diagram />
 
 The model adopts double-entry bookkeeping: a `Transaction` is only valid if its entries (`Entry`) balance out.
 

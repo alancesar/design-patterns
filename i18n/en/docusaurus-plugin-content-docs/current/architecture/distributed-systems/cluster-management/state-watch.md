@@ -7,7 +7,11 @@ tags:
   - Scalability
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/state-watch.html
 sidebar_label: "State Watch"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/cluster-management/state-watch.mdx';
 
 # State Watch
 
@@ -53,19 +57,7 @@ Additional considerations:
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant C as Client
-    participant S as Server
-    participant W as Writer
-    C->>S: Registers watch on key config
-    S-->>C: Watch registered
-    W->>S: Updates key config
-    S-->>W: Write acknowledged
-    S-->>C: Notifies change in config
-    C->>S: Reads new value of config
-    S-->>C: Updated value
-```
+<Diagram />
 
 The client registers its interest once, and the server notifies it when the value changes, avoiding repeated queries.
 

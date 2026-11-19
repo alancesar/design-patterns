@@ -8,7 +8,11 @@ tags:
   - Performance
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/single-socket-channel.html
 sidebar_label: "Single-Socket Channel"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/node-communication/single-socket-channel.mdx';
 
 # Single-Socket Channel
 
@@ -53,18 +57,7 @@ If the connection drops, the sender reopens it and resends whatever hasn't been 
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant L as Leader
-    participant F as Follower
-    participant Q as Singular update queue
-    L->>F: Opens TCP connection (once)
-    L->>F: Message 1
-    L->>F: Message 2
-    L->>F: Message 3
-    F->>Q: Delivers 1, 2, 3 in arrival order
-    Q-->>F: Applies one at a time
-```
+<Diagram />
 
 The leader opens a single connection to the follower and sends all messages over it. The follower receives them in order and hands them to a queue that applies them sequentially.
 

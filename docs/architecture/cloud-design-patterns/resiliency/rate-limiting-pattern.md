@@ -6,7 +6,11 @@ tags:
   - Reliability
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/rate-limiting-pattern
 sidebar_label: "Rate Limiting"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/resiliency/rate-limiting-pattern.mdx';
 
 # Rate Limiting
 
@@ -60,20 +64,7 @@ Uma implementação típica coloca as requisições em um sistema de mensageria 
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    U[Cliente] -->|"lote de 10.000 registros"| API[API]
-    API --> Q[("Fila durável")]
-    Q -->|"100/s"| P1[Processador 1]
-    Q -->|"100/s"| P2[Processador 2]
-    Q -->|"100/s"| P3[Processador 3]
-    L[("Coordenador de capacidade (leases)")] -.->|"concede cota"| P1
-    L -.->|"concede cota"| P2
-    L -.->|"concede cota"| P3
-    P1 --> S["Serviço limitado (300 registros/s)"]
-    P2 --> S
-    P3 --> S
-```
+<Diagram />
 
 A API aceita toda a carga e a grava em uma fila durável. Os processadores retiram itens em ritmo controlado, conforme a cota que obtiveram do coordenador, de modo que a soma das taxas nunca passe do limite do serviço de destino.
 

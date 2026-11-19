@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://www.enterpriseintegrationpatterns.com/DocumentMessage.html
 sidebar_label: "Document Message"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-construction/document-message.mdx';
 
 # Document Message
 
@@ -48,11 +52,7 @@ O documento é tratado como uma unidade, ainda que contenha partes menores. O qu
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    A["Aplicação A"] -->|"Document Message (dados)"| C["Canal"]
-    C --> B["Aplicação B (decide o uso)"]
-```
+<Diagram />
 
 A aplicação A envia os dados e a aplicação B decide o que fazer com eles.
 

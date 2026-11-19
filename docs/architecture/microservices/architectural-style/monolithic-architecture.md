@@ -8,7 +8,11 @@ tags:
   - Cost Optimization
 source: https://microservices.io/patterns/monolithic.html
 sidebar_label: "Monolithic Architecture"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/architectural-style/monolithic-architecture.mdx';
 
 # Monolithic Architecture
 
@@ -55,14 +59,7 @@ O padrão é o ponto de partida natural de muitas aplicações e continua sendo 
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    C[Cliente] --> LB[Balanceador de carga]
-    LB --> I1["Instância 1 (aplicação completa)"]
-    LB --> I2["Instância 2 (aplicação completa)"]
-    I1 --> DB[(Banco de dados único)]
-    I2 --> DB
-```
+<Diagram />
 
 Todas as instâncias contêm todos os subdomínios e compartilham um único banco de dados; a escala é obtida replicando a aplicação inteira.
 

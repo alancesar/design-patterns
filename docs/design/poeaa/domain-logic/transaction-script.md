@@ -7,7 +7,11 @@ tags:
   - Performance
 source: https://martinfowler.com/eaaCatalog/transactionScript.html
 sidebar_label: "Transaction Script"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/domain-logic/transaction-script.mdx';
 
 # Transaction Script
 
@@ -52,24 +56,7 @@ Uma aplicação corporativa pode ser vista como uma série de transações: algu
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Presentation
-    class PaymentScripts {
-        +payBoleto(accountId, barcode, amountCents)
-        +reversePayment(paymentId)
-        +reconcileSettlements(fileId)
-    }
-    class Gateway {
-        +find(id)
-        +insert(row)
-        +update(row)
-    }
-    class Database
-    Presentation --> PaymentScripts
-    PaymentScripts --> Gateway
-    Gateway --> Database
-```
+<Diagram />
 
 A camada de apresentação chama um script por requisição. Os scripts, agrupados em `PaymentScripts`, usam um gateway fino para acessar o `Database`.
 

@@ -1,0 +1,8 @@
+```mermaid
+flowchart LR
+    U["User"] --> A["Single agent"]
+    P["System prompt"] --> A
+    A <--> T1["Tool: database"]
+    A <--> T2["Tool: API"]
+    A --> R["Response"]
+```

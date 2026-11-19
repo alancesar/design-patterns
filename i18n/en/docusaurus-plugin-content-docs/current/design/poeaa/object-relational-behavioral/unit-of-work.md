@@ -7,7 +7,11 @@ tags:
   - Performance
 source: https://martinfowler.com/eaaCatalog/unitOfWork.html
 sidebar_label: "Unit of Work"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/object-relational-behavioral/unit-of-work.mdx';
 
 # Unit of Work
 
@@ -53,24 +57,7 @@ This way, domain code doesn't need to know when or how to persist: it just manip
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class UnitOfWork {
-        +registerNew(obj)
-        +registerDirty(obj)
-        +registerClean(obj)
-        +registerDeleted(obj)
-        +commit()
-    }
-    class DomainObject
-    class DataMapper {
-        +insert(obj)
-        +update(obj)
-        +delete(obj)
-    }
-    UnitOfWork o-- DomainObject : new, dirty, deleted
-    UnitOfWork --> DataMapper : commit
-```
+<Diagram />
 
 The `UnitOfWork` holds the lists of new, modified, and removed objects. On `commit()`, it delegates writing each one to the corresponding `DataMapper`, within a single transaction.
 

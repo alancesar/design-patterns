@@ -1,0 +1,16 @@
+```mermaid
+classDiagram
+    class UserInterface
+    class BusinessLogic {
+        +validate()
+        +calculate()
+    }
+    class RecordSet {
+        +rows
+        +columns
+    }
+    class Database
+    UserInterface --> RecordSet
+    BusinessLogic --> RecordSet
+    RecordSet ..> Database : loaded from
+```

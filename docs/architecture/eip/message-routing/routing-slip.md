@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://www.enterpriseintegrationpatterns.com/RoutingTable.html
 sidebar_label: "Routing Slip"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-routing/routing-slip.mdx';
 
 # Routing Slip
 
@@ -47,14 +51,7 @@ Cada componente de processamento é envolvido por um roteador que lê a ficha e 
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    IN["Mensagem"] --> G["Gera a ficha"]
-    G --> E1["Etapa 1"]
-    E1 --> E3["Etapa 3"]
-    E3 --> OUT["Saída"]
-    E1 -.->|"falha"| EX["Canal de exceção"]
-```
+<Diagram />
 
 A ficha lista as etapas 1 e 3 (a 2 é pulada) e a mensagem percorre apenas esse caminho.
 

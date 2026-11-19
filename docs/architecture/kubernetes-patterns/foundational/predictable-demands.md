@@ -8,7 +8,11 @@ tags:
   - Performance Efficiency
 source: https://k8spatterns.com/
 sidebar_label: "Predictable Demands"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/kubernetes-patterns/foundational/predictable-demands.mdx';
 
 # Predictable Demands
 
@@ -58,18 +62,7 @@ A combinação entre `requests` e `limits` define a classe de qualidade de servi
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    subgraph Pod["Pod pix-service"]
-        C["Container"] --> R["requests: 250m CPU, 256Mi"]
-        C --> L["limits: 500m CPU, 512Mi"]
-        C --> D["Dependências: ConfigMap, Secret, PVC"]
-    end
-    R -->|"Soma dos requests"| S["Scheduler"]
-    D -->|"Restringe nós elegíveis"| S
-    S -->|"Escolhe nó com capacidade"| N["Nó do cluster"]
-    L -->|"Memória acima do limite: container encerrado"| N
-```
+<Diagram />
 
 O scheduler usa os `requests` e as dependências declaradas para escolher um nó com capacidade; já os `limits` valem em tempo de execução, limitando a CPU e encerrando o contêiner que excede a memória.
 

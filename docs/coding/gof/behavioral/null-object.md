@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/behavioral/null-object.mdx';
+
 # Null Object
 
 ## Descrição
@@ -58,23 +60,7 @@ Na prática, o padrão troca o tratamento condicional espalhado pelo código (`i
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Client
-    class AbstractObject {
-        <<interface>>
-        +request()
-    }
-    class RealObject {
-        +request()
-    }
-    class NullObject {
-        +request()
-    }
-    Client --> AbstractObject : usa
-    AbstractObject <|.. RealObject
-    AbstractObject <|.. NullObject
-```
+<Diagram />
 
 `Client` depende apenas de `AbstractObject`. `RealObject` executa o comportamento de fato, enquanto `NullObject` implementa a mesma interface com um comportamento neutro, permitindo que o cliente o use sem verificar nulos.
 

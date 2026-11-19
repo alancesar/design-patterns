@@ -7,7 +7,11 @@ tags:
   - Strategic Focus
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Evolving Order"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/large-scale-structure/evolving-order.mdx';
 
 # Evolving Order
 
@@ -53,12 +57,7 @@ Na prática, isso significa começar sem estrutura (ou com uma muito leve), obse
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    A["Modelo e código sem estrutura global"] -->|"Padrões se repetem"| B["Estrutura leve adotada"]
-    B -->|"Entendimento do domínio cresce"| C["Estrutura revista ou substituída"]
-    C -->|"Refatoração contínua"| A
-```
+<Diagram />
 
 O sistema começa sem estrutura global, adota uma versão leve ao perceber padrões recorrentes e a revisa ou substitui conforme o conhecimento do domínio evolui, num ciclo contínuo.
 

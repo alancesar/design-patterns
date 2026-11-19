@@ -7,7 +7,11 @@ tags:
   - Cost Optimization
 source: https://www.enterpriseintegrationpatterns.com/EventDrivenConsumer.html
 sidebar_label: "Event-Driven Consumer"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/messaging-endpoints/event-driven-consumer.mdx';
 
 # Event-Driven Consumer
 
@@ -47,16 +51,7 @@ Watch out for acknowledgment: acknowledging automatically on delivery, before pr
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant C as Channel
-    participant E as Event-Driven Consumer
-    participant A as Application
-    C->>E: delivers message (callback)
-    E->>A: passes content along
-    A-->>E: done
-    E-->>C: acknowledges
-```
+<Diagram />
 
 The channel triggers the consumer, which passes the content to the application and acknowledges at the end.
 

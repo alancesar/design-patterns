@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://www.enterpriseintegrationpatterns.com/MessageRouter.html
 sidebar_label: "Message Router"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-routing/message-router.mdx';
 
 # Message Router
 
@@ -49,13 +53,7 @@ This is the base pattern of the router family (Content-Based Router, Message Fil
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    IN["Input channel"] --> R{"Message Router"}
-    R -->|"condition A"| A["Channel A"]
-    R -->|"condition B"| B["Channel B"]
-    R -->|"condition C"| C["Channel C"]
-```
+<Diagram />
 
 The router reads a message from the input channel and forwards it, unmodified, to the channel whose condition it satisfies.
 

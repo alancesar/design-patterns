@@ -7,7 +7,11 @@ tags:
   - Fault Tolerance
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/generation-clock.html
 sidebar_label: "Generation Clock"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/data-replication/generation-clock.mdx';
 
 # Generation Clock
 
@@ -50,17 +54,7 @@ Se um seguidor recebe uma mensagem com geração menor que a que já viu, sabe q
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant Old as Líder antigo (geração 1)
-    participant F as Seguidor
-    participant New as Novo líder (geração 2)
-    New->>F: replica entrada (geração 2)
-    F-->>New: ack
-    Old->>F: replica entrada (geração 1)
-    F-->>Old: rejeita, geração atual é 2
-    Note over Old: abdica da liderança
-```
+<Diagram />
 
 O seguidor já viu a geração 2 e rejeita a mensagem do líder antigo, que descobre que foi destituído.
 

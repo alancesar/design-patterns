@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/operation-responsibilities/computation-function.mdx';
+
 # Computation Function
 
 ## Description
@@ -58,14 +60,7 @@ There are three variants: the Transformation Service, which changes the represen
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant C as Client
-    participant A as API
-    C->>A: Input (principal, rate, term)
-    Note over A: Validates and computes, without reading or writing state
-    A-->>C: Result (installment, total)
-```
+<Diagram />
 
 The response depends only on the data sent in the request; the provider neither queries nor changes any storage.
 

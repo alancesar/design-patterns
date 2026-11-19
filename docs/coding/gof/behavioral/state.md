@@ -12,6 +12,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/behavioral/state.mdx';
+
 # State
 
 ## Descrição
@@ -57,29 +59,7 @@ Na prática, o padrão é uma forma orientada a objetos de implementar uma máqu
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Context {
-        -state: State
-        +setState(state: State)
-        +request()
-    }
-    class State {
-        <<interface>>
-        +handle(context: Context)
-    }
-    class ConcreteStateA {
-        +handle(context: Context)
-    }
-    class ConcreteStateB {
-        +handle(context: Context)
-    }
-    Context o--> State : estado atual
-    State <|.. ConcreteStateA
-    State <|.. ConcreteStateB
-    ConcreteStateA ..> ConcreteStateB : transita para
-    ConcreteStateB ..> ConcreteStateA : transita para
-```
+<Diagram />
 
 O `Context` delega `request()` ao `State` atual. Cada `ConcreteState` implementa o comportamento daquele estado e pode chamar `setState()` no contexto para provocar a transição para outro estado.
 

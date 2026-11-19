@@ -7,7 +7,11 @@ tags:
   - Shared Understanding
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Declarative Design"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/supple-design/declarative-design.mdx';
 
 # Declarative Design
 
@@ -52,22 +56,7 @@ The risk is rigidity: a limited declarative language can prevent what the domain
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Specification {
-        <<interface>>
-        +isSatisfiedBy(candidate) bool
-        +and(Specification other) Specification
-        +or(Specification other) Specification
-        +not() Specification
-    }
-    class OverdueInvoice
-    class HighValueInvoice
-    class AndSpecification
-    Specification <|.. OverdueInvoice
-    Specification <|.. HighValueInvoice
-    Specification <|.. AndSpecification
-```
+<Diagram />
 
 The rules are small implementations of `Specification`, combined with `and`, `or`, and `not` to form larger rules declaratively.
 

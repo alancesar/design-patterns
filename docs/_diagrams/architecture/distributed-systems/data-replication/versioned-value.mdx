@@ -1,0 +1,6 @@
+```mermaid
+flowchart LR
+    K1["key x, version 1: A"] --> K2["key x, version 2: B"] --> K3["key x, version 3: C"]
+    R1["Read of version 2"] -.-> K2
+    R2["Latest read"] -.-> K3
+```

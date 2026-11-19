@@ -7,7 +7,11 @@ tags:
   - Performance
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/key-range-partitions.html
 sidebar_label: "Key-Range Partitions"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/data-partitioning/key-range-partitions.mdx';
 
 # Key-Range Partitions
 
@@ -53,16 +57,7 @@ Como a distribuição das chaves nem sempre é uniforme, sistemas que usam esse 
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    C["Cliente"] -->|"consulta a até f"| M["Mapa de intervalos"]
-    M --> P1["Partição a até f"]
-    M -.-> P2["Partição g até m"]
-    M -.-> P3["Partição n até z"]
-    P1 --> N1["Nó 1"]
-    P2 --> N2["Nó 2"]
-    P3 --> N3["Nó 3"]
-```
+<Diagram />
 
 A consulta é roteada apenas à partição cujo intervalo cobre a faixa pedida; as demais partições não são acessadas.
 

@@ -7,7 +7,11 @@ tags:
   - Simplicity
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Generic Subdomains"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/distillation/generic-subdomains.mdx';
 
 # Generic Subdomains
 
@@ -53,15 +57,7 @@ Como o modelo é genérico, ele não deve conter conceitos do core, e o core nã
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    A["Core Domain"] -->|"Interface estreita"| B["Identidade e acesso"]
-    A -->|"Interface estreita"| C["Emissão de boletos"]
-    A -->|"Interface estreita"| D["Notificações"]
-    B --> E["Produto pronto ou biblioteca"]
-    C --> F["Provedor externo"]
-    D --> G["Serviço terceirizado"]
-```
+<Diagram />
 
 O core consome subdomínios genéricos por interfaces estreitas, e cada um deles é atendido por uma solução externa substituível.
 

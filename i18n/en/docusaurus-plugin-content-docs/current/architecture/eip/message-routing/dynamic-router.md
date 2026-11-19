@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://www.enterpriseintegrationpatterns.com/DynamicRouter.html
 sidebar_label: "Dynamic Router"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-routing/dynamic-router.mdx';
 
 # Dynamic Router
 
@@ -47,16 +51,7 @@ The router stores these conditions in a rule base. When a message arrives, it ev
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    IN["Messages"] --> R{"Dynamic Router"}
-    BR[("Rule base")] --- R
-    A["Recipient A"] -->|"registration"| C["Control channel"]
-    B["Recipient B"] -->|"registration"| C
-    C --> R
-    R --> A
-    R --> B
-```
+<Diagram />
 
 Recipients register their conditions on the control channel, and the router uses those rules to forward messages.
 

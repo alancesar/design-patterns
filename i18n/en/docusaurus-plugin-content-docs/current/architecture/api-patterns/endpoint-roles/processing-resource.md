@@ -7,7 +7,11 @@ tags:
   - Evolvability
 source: https://api-patterns.org/
 sidebar_label: "Processing Resource"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/endpoint-roles/processing-resource.mdx';
 
 # Processing Resource
 
@@ -62,14 +66,7 @@ The operations of a Processing Resource are usually state creation, state transi
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    C["Client"] -->|"executeTransfer(...)"| PR["Processing Resource: PixProcessor"]
-    C -->|"cancelTransfer(...)"| PR
-    PR --> L["Business rules"]
-    L --> A[("Accounts")]
-    L --> E[("Ledger")]
-```
+<Diagram />
 
 The client invokes operations named after activities; the endpoint applies the rules and changes the internal data, which does not appear in the contract.
 

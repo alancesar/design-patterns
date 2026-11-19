@@ -7,7 +7,11 @@ tags:
   - Reliability
 source: https://www.enterpriseintegrationpatterns.com/Normalizer.html
 sidebar_label: "Normalizer"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-transformation/normalizer.mdx';
 
 # Normalizer
 
@@ -51,18 +55,7 @@ Com os dados normalizados, todo o processamento posterior trabalha com uma estru
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    A["Extrato CNAB 240"] --> R["Roteador: detecta o formato"]
-    B["Extrato OFX"] --> R
-    C["Extrato camt.053"] --> R
-    R --> T1["Tradutor CNAB 240"]
-    R --> T2["Tradutor OFX"]
-    R --> T3["Tradutor camt.053"]
-    T1 --> N["Formato comum da conciliação"]
-    T2 --> N
-    T3 --> N
-```
+<Diagram />
 
 O roteador identifica o formato de cada mensagem e a envia ao tradutor correspondente; todos os tradutores produzem o mesmo formato comum.
 

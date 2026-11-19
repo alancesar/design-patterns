@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/special-purpose-representations/context-representation.mdx';
+
 # Context Representation
 
 ## Descrição
@@ -58,35 +60,7 @@ O padrão tem duas variantes. O **contexto global** vale por toda uma conversa (
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class RequestMessage {
-        +context : Context
-        +payload
-    }
-    class ResponseMessage {
-        +context : Context
-        +payload
-    }
-    class Context {
-        <<pattern>>
-        +global : GlobalContext
-        +local : LocalContext
-    }
-    class GlobalContext {
-        +correlationId
-        +locale
-        +credentials
-    }
-    class LocalContext {
-        +messageId
-        +ttlSeconds
-    }
-    RequestMessage *-- Context
-    ResponseMessage *-- Context
-    Context *-- GlobalContext
-    Context *-- LocalContext
-```
+<Diagram />
 
 Requisição e resposta carregam um elemento de contexto no corpo, dividido em uma parte global, que acompanha a conversa, e uma local, que vale só para a mensagem.
 

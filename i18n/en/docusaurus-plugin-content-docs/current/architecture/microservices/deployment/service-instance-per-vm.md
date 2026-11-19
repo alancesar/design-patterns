@@ -8,7 +8,11 @@ tags:
   - Operational Excellence
 source: https://microservices.io/patterns/deployment/service-per-vm.html
 sidebar_label: "Service Instance per VM"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/deployment/service-instance-per-vm.mdx';
 
 # Service Instance per VM
 
@@ -48,16 +52,7 @@ Scaling is done by increasing or decreasing the number of VMs, which IaaS platfo
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    Build["Build pipeline"] --> Img["VM image (AMI)"]
-    Img --> VM1["VM - instance 1"]
-    Img --> VM2["VM - instance 2"]
-    Img --> VM3["VM - instance 3"]
-    LB["Load balancer"] --> VM1
-    LB --> VM2
-    LB --> VM3
-```
+<Diagram />
 
 A single VM image produces several instances, behind a load balancer.
 

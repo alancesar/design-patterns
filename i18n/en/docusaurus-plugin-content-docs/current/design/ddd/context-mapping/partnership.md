@@ -7,7 +7,11 @@ tags:
   - Shared Understanding
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Partnership"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/context-mapping/partnership.mdx';
 
 # Partnership
 
@@ -51,10 +55,7 @@ The pattern doesn't appear in the 2003 book; it was added to the DDD Reference a
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    A["Pix Context"] <-->|"Partnership: joint planning and integration"| B["Anti-fraud Context"]
-```
+<Diagram />
 
 The bidirectional arrow indicates there's no upstream or downstream: both contexts coordinate changes and interfaces.
 

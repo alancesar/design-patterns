@@ -8,7 +8,11 @@ tags:
   - Performance Efficiency
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/valet-key
 sidebar_label: "Valet Key"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/security-and-access/valet-key.mdx';
 
 # Valet Key
 
@@ -64,16 +68,7 @@ Com isso, a aplicação mantém o controle de quem acessa o quê e por quanto te
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    C["Cliente"]
-    V["Serviço de chaves (aplicação)"]
-    S["Armazenamento de dados"]
-    C -->|"1. Solicita acesso (autenticado)"| V
-    V -->|"2. Valida e retorna chave restrita (recurso, permissão, prazo)"| C
-    C -->|"3. Upload/download direto com a chave"| S
-    S -.->|"4. Evento de conclusão (opcional)"| V
-```
+<Diagram />
 
 O cliente obtém da aplicação uma chave com escopo, permissões e prazo limitados e transfere os dados direto com o armazenamento, que valida a chave sozinho. A aplicação só participa da autorização e, se quiser, recebe eventos para auditoria ou revogação.
 

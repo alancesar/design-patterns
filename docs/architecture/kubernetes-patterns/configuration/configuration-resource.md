@@ -7,7 +7,11 @@ tags:
   - Security
 source: https://k8spatterns.com/
 sidebar_label: "Configuration Resource"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/kubernetes-patterns/configuration/configuration-resource.mdx';
 
 # Configuration Resource
 
@@ -57,15 +61,7 @@ Um Secret não é criptografia: Base64 equivale a texto puro. O que o torna mais
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    CM["ConfigMap statement-config"] -->|"volume"| FILE["Arquivo /config/app.properties"]
-    CM -->|"envFrom"| ENV["Variáveis de ambiente"]
-    SEC["Secret statement-db-credentials"] -->|"volume"| CRED["Arquivo /secrets/db-password"]
-    FILE --> APP["Container statement-service"]
-    ENV --> APP
-    CRED --> APP
-```
+<Diagram />
 
 O ConfigMap alimenta variáveis de ambiente e arquivos, e o Secret é montado como arquivo; apenas os arquivos montados são atualizados quando os recursos mudam.
 

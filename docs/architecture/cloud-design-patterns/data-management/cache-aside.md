@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside
 sidebar_label: "Cache-Aside"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/data-management/cache-aside.mdx';
 
 # Cache-Aside
 
@@ -62,19 +66,7 @@ O padrão serve para caches que não oferecem *read-through* ou *write-through* 
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    App["Aplicação"]
-    Cache[("Cache")]
-    Store[("Armazenamento de dados")]
-
-    App -->|"1. Buscar item pela chave"| Cache
-    Cache -.->|"Cache hit: devolve o item"| App
-    App -->|"2. Cache miss: ler da origem"| Store
-    App -->|"3. Gravar item no cache (com TTL)"| Cache
-    App -->|"4. Escrita: atualizar a origem"| Store
-    App -->|"5. Escrita: invalidar a chave"| Cache
-```
+<Diagram />
 
 Na leitura, a aplicação consulta o cache primeiro e, em caso de *miss*, busca o item na origem e o grava no cache. Na escrita, atualiza a origem antes de invalidar a entrada no cache, para que a próxima leitura traga o valor novo.
 

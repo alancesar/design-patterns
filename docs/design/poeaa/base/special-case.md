@@ -7,7 +7,11 @@ tags:
   - Testability
 source: https://martinfowler.com/eaaCatalog/specialCase.html
 sidebar_label: "Special Case"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/base/special-case.mdx';
 
 # Special Case
 
@@ -53,28 +57,7 @@ O Special Case é a generalização do [Null Object](/coding/gof/behavioral/null
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Merchant {
-        <<interface>>
-        +name()
-        +category()
-    }
-    class KnownMerchant {
-        +name()
-        +category()
-    }
-    class UnknownMerchant {
-        +name()
-        +category()
-    }
-    class MerchantFinder {
-        +find(id) Merchant
-    }
-    Merchant <|.. KnownMerchant
-    Merchant <|.. UnknownMerchant
-    MerchantFinder ..> Merchant
-```
+<Diagram />
 
 `UnknownMerchant` e `KnownMerchant` implementam `Merchant`. O `MerchantFinder` devolve o `UnknownMerchant` quando não encontra o estabelecimento, e o código cliente não precisa checar nulo.
 

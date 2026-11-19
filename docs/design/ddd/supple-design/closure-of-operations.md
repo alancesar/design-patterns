@@ -7,7 +7,11 @@ tags:
   - Decoupling
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Closure of Operations"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/supple-design/closure-of-operations.mdx';
 
 # Closure of Operations
 
@@ -51,18 +55,7 @@ O padrão é especialmente natural em Value Objects, que são imutáveis e podem
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Money {
-        +plus(Money other) Money
-    }
-    class DateRange {
-        +intersect(DateRange other) DateRange
-        +union(DateRange other) DateRange
-    }
-    Money ..> Money : retorna o mesmo tipo
-    DateRange ..> DateRange : retorna o mesmo tipo
-```
+<Diagram />
 
 Em ambas as classes, a operação recebe e devolve o mesmo tipo, de modo que os resultados podem ser encadeados.
 

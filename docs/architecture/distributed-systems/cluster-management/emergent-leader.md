@@ -7,7 +7,11 @@ tags:
   - Fault Tolerance
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/emergent-leader.html
 sidebar_label: "Emergent Leader"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/cluster-management/emergent-leader.mdx';
 
 # Emergent Leader
 
@@ -54,20 +58,7 @@ Considerações adicionais:
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    subgraph antes["Antes"]
-        A1["Nó 1 (mais antigo): coordenador"]
-        A2["Nó 2"]
-        A3["Nó 3"]
-    end
-    subgraph depois["Depois que o Nó 1 sai"]
-        B2["Nó 2 (mais antigo): novo coordenador"]
-        B3["Nó 3"]
-        B4["Nó 4 (novo membro)"]
-    end
-    antes -->|"Nó 1 falha"| depois
-```
+<Diagram />
 
 O coordenador é sempre o nó mais antigo da lista de membros; quando ele sai, o seguinte na ordem assume sem votação.
 

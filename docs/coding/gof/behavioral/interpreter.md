@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/behavioral/interpreter.mdx';
+
 # Interpreter
 
 ## Descrição
@@ -57,31 +59,7 @@ O padrão não trata da análise sintática (parsing): ele assume que a árvore 
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Client
-    class Context {
-        +lookup(name) Object
-        +assign(name, value)
-    }
-    class AbstractExpression {
-        <<interface>>
-        +interpret(context) Object
-    }
-    class TerminalExpression {
-        +interpret(context) Object
-    }
-    class NonterminalExpression {
-        -children List~AbstractExpression~
-        +interpret(context) Object
-    }
-    Client --> AbstractExpression
-    Client --> Context
-    AbstractExpression <|.. TerminalExpression
-    AbstractExpression <|.. NonterminalExpression
-    NonterminalExpression o-- AbstractExpression
-    AbstractExpression ..> Context
-```
+<Diagram />
 
 O `Client` monta (ou recebe) a árvore de `AbstractExpression` e chama `interpret` passando um `Context`. `TerminalExpression` representa as folhas da gramática e `NonterminalExpression` agrega subexpressões, formando uma estrutura recursiva semelhante ao Composite.
 

@@ -8,7 +8,11 @@ tags:
   - Performance Efficiency
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/federated-identity
 sidebar_label: "Federated Identity"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/security-and-access/federated-identity.mdx';
 
 # Federated Identity
 
@@ -58,17 +62,7 @@ As a result, authentication and authorization are separated: the IdP handles cre
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    C["Client (user or workload)"]
-    I["Identity provider / STS"]
-    S["Service"]
-    S -. "1. Trusts the IdP/STS" .-> I
-    C -- "2. Authenticates and requests token" --> I
-    I -- "3. Issues token with claims" --> C
-    C -- "4. Presents the token" --> S
-    S -- "5. Validates the token and authorizes based on claims" --> S
-```
+<Diagram />
 
 The service trusts the IdP/STS in advance; the client authenticates only with the IdP and receives a token with claims, which it presents to the service. The service validates the token and applies its authorization rules without ever handling the user's credentials. A concrete example is Microsoft Entra ID acting as the IdP with the OpenID Connect Authorization Code + PKCE flow.
 

@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://www.enterpriseintegrationpatterns.com/MessageTranslator.html
 sidebar_label: "Message Translator"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-transformation/message-translator.mdx';
 
 # Message Translator
 
@@ -52,11 +56,7 @@ A tradução pode atuar em vários níveis: estrutura de dados (campos, nomes, t
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    A["Aplicação A (formato A)"] --> T["Message Translator"]
-    T --> B["Aplicação B (formato B)"]
-```
+<Diagram />
 
 A mensagem sai da aplicação A no seu formato, é convertida pelo tradutor e chega à aplicação B no formato que ela entende.
 

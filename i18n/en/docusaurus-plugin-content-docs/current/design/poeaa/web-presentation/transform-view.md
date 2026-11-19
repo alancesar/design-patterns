@@ -7,7 +7,11 @@ tags:
   - Decoupling
 source: https://martinfowler.com/eaaCatalog/transformView.html
 sidebar_label: "Transform View"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/web-presentation/transform-view.mdx';
 
 # Transform View
 
@@ -50,23 +54,7 @@ The classic implementation uses XSLT: the model is produced (or converted) as XM
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Controller {
-        +handle(request)
-    }
-    class DomainData {
-        +toXml()
-    }
-    class Transformer {
-        +transform(data) String
-    }
-    class Stylesheet
-    Controller --> DomainData : gets
-    Controller --> Transformer : invokes
-    Transformer --> Stylesheet : applies rules
-    Transformer ..> DomainData : reads
-```
+<Diagram />
 
 The `Controller` gets the data and invokes the `Transformer`, which applies the `Stylesheet`'s rules to each element and returns the output.
 

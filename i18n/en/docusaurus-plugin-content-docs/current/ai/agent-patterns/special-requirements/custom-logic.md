@@ -8,7 +8,11 @@ tags:
 origin: Google
 source: https://docs.cloud.google.com/architecture/choose-design-pattern-agentic-ai-system#custom-logic-pattern
 sidebar_label: "Custom Logic"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/ai/agent-patterns/special-requirements/custom-logic.mdx';
 
 # Custom Logic
 
@@ -50,19 +54,7 @@ Each step can be an agent, a tool, or a check in code, and the code itself decid
 
 ## Diagram
 
-```mermaid
-flowchart TD
-    U["Customer dispute"] --> C["Coordinator agent"]
-    C --> P1["Transaction verifier"]
-    C --> P2["Eligibility agent"]
-    P1 --> D{"Eligible?"}
-    P2 --> D
-    D -->|"Yes"| R["Provisional invoice credit agent"]
-    D -->|"No"| K["Denial agent"]
-    K --> K2["Denial justification agent"]
-    R --> F["Final response agent"]
-    K2 --> F
-```
+<Diagram />
 
 Example of a purchase dispute agent: a parallel check feeds a conditional branch in code (provisional invoice credit or denial), and a final agent writes the response.
 

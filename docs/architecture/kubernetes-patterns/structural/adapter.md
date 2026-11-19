@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://k8spatterns.com/
 sidebar_label: "Adapter"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/kubernetes-patterns/structural/adapter.mdx';
 
 # Adapter
 
@@ -56,15 +60,7 @@ O mesmo raciocínio vale para logs: o adapter normaliza formatos e níveis de de
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    subgraph Pod["Pod card-service"]
-        direction LR
-        A["Contêiner card-service"] -->|"grava métricas"| V[("Volume compartilhado")]
-        V -->|"lê métricas"| AD["Adapter (exportador)"]
-    end
-    P["Prometheus"] -->|"coleta /metrics"| AD
-```
+<Diagram />
 
 A aplicação grava métricas no seu formato próprio em um volume compartilhado. O adapter as lê, converte para o formato que o Prometheus entende e as expõe por HTTP, sem que o `card-service` saiba da existência do monitoramento.
 

@@ -7,7 +7,11 @@ tags:
   - Decoupling
 source: https://api-patterns.org/
 sidebar_label: "Id Element"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/element-stereotypes/id-element.mdx';
 
 # Id Element
 
@@ -60,12 +64,7 @@ Os identificadores podem ser legíveis por pessoas e por máquinas: se usuários
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    A["Resposta: Account"] -->|"id: acc_7f3a91"| X["Id Element"]
-    L["Resposta: LedgerEntry"] -->|"accountId: acc_7f3a91"| X
-    X --> R["GET /accounts/acc_7f3a91"]
-```
+<Diagram />
 
 Duas mensagens distintas referenciam a mesma conta pelo mesmo Id Element, o que permite ao cliente relacioná-las e buscar os detalhes quando precisar.
 

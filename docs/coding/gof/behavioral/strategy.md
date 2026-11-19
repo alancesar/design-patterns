@@ -12,6 +12,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/behavioral/strategy.mdx';
+
 # Strategy
 
 ## Descrição
@@ -59,30 +61,7 @@ A estratégia normalmente é escolhida pelo cliente e injetada no contexto — v
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Client
-    class Context {
-        -Strategy strategy
-        +setStrategy(Strategy strategy)
-        +executeStrategy(Data data) Result
-    }
-    class Strategy {
-        <<interface>>
-        +execute(Data data) Result
-    }
-    class ConcreteStrategyA {
-        +execute(Data data) Result
-    }
-    class ConcreteStrategyB {
-        +execute(Data data) Result
-    }
-    Client --> Context : configura
-    Client ..> ConcreteStrategyA : escolhe
-    Context o--> Strategy : delega
-    Strategy <|.. ConcreteStrategyA
-    Strategy <|.. ConcreteStrategyB
-```
+<Diagram />
 
 O `Client` escolhe uma `ConcreteStrategy` e a entrega ao `Context`, que mantém uma referência à interface `Strategy` e delega a ela a execução do algoritmo. Novas estratégias podem ser adicionadas implementando a interface, sem alterar o `Context`.
 

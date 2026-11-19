@@ -1,0 +1,11 @@
+```mermaid
+sequenceDiagram
+    participant Req as Requestor
+    participant CReq as Request channel
+    participant CRep as Reply channel
+    participant Rep as Replier
+    Req->>CReq: Request
+    CReq->>Rep: Request
+    Rep->>CRep: Reply
+    CRep->>Req: Reply
+```

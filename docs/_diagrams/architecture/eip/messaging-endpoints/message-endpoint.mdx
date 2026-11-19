@@ -1,0 +1,7 @@
+```mermaid
+flowchart LR
+    A["Application"] --> E1["Message Endpoint (send)"]
+    E1 --> C[["Message Channel"]]
+    C --> E2["Message Endpoint (receive)"]
+    E2 --> B["Target application"]
+```

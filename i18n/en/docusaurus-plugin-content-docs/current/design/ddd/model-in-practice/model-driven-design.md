@@ -7,7 +7,11 @@ tags:
   - Consistency
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Model-Driven Design"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/model-in-practice/model-driven-design.mdx';
 
 # Model-Driven Design
 
@@ -51,14 +55,7 @@ The pattern requires that those who model be involved in the implementation, whi
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    N["Business and experts"] --> M["Domain model"]
-    M <-->|"expressed by"| C["Code"]
-    C -->|"feedback"| M
-    L["Ubiquitous Language"] --- M
-    L --- C
-```
+<Diagram />
 
 The model and the code influence each other, linked by the shared language; feedback from the implementation flows back to the model.
 

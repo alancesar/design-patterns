@@ -6,7 +6,11 @@ tags:
   - Security
 source: https://k8spatterns.com/
 sidebar_label: "Process Containment"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/kubernetes-patterns/security/process-containment.mdx';
 
 # Process Containment
 
@@ -55,13 +59,7 @@ Because configuring this Pod by Pod is error-prone, the cluster administrator en
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    NS["Namespace fintech with Pod Security labels"] --> PSA["Pod Security Admission"]
-    PSA -->|"Compliant Pod"| POD["Pod pix-service: non-root, no capabilities, read-only filesystem"]
-    PSA -->|"Pod violates the standard"| REJ["Pod rejected"]
-    POD -->|"process boundary"| NODE["Node (kernel)"]
-```
+<Diagram />
 
 The namespace declares the required security standard; the controller admits only compliant Pods, and each admitted Pod runs with minimum privileges, without reaching the node.
 

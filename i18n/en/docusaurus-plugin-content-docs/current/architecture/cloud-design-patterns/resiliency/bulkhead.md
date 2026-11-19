@@ -8,7 +8,11 @@ tags:
   - Performance Efficiency
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/bulkhead
 sidebar_label: "Bulkhead"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/resiliency/bulkhead.mdx';
 
 # Bulkhead
 
@@ -58,15 +62,7 @@ Partitions can be implemented with processes, threads, semaphores, containers, v
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    W1["Workload 1"] --> PA["Connection pool A"]
-    W2["Workload 2"] --> PB["Connection pool B"]
-    W2 --> PC["Connection pool C"]
-    PA -. "isolated failure" .-> SA["Service A (unavailable)"]
-    PB --> SB["Service B"]
-    PC --> SC["Service C"]
-```
+<Diagram />
 
 Each dependency gets its own resource pool. When Service A fails, only pool A is exhausted; Workload 2 keeps calling Services B and C normally.
 

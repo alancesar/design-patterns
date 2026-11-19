@@ -7,7 +7,11 @@ tags:
   - Testability
 source: https://martinfowler.com/eaaCatalog/domainModel.html
 sidebar_label: "Domain Model"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/domain-logic/domain-model.mdx';
 
 # Domain Model
 
@@ -53,24 +57,7 @@ O modelo deve ser independente de interface de usuário e de persistência; a li
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Customer {
-        +currentInvoice() CardInvoice
-    }
-    class CardInvoice {
-        +addEntry(merchant, amount)
-        +total() Money
-        +close()
-    }
-    class InvoiceEntry {
-        +amount() Money
-    }
-    class Merchant
-    Customer "1" --> "*" CardInvoice
-    CardInvoice "1" *-- "*" InvoiceEntry
-    InvoiceEntry --> Merchant
-```
+<Diagram />
 
 `Customer`, `CardInvoice`, `InvoiceEntry` e `Merchant` formam uma rede de objetos em que cada classe contém dados e as regras associadas, como `total()` e `close()`.
 

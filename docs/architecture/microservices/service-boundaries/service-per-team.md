@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://microservices.io/patterns/decomposition/service-per-team.html
 sidebar_label: "Service per Team"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/service-boundaries/service-per-team.mdx';
 
 # Service per Team
 
@@ -47,14 +51,7 @@ O padrão parte da lei de Conway: a arquitetura reflete a estrutura de comunica�
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    T1["Equipe de Pix"] --> S1["Serviço de Pix"]
-    T2["Equipe de Cartões"] --> S2["Serviço de Cartões"]
-    T3["Equipe de Crédito"] --> S3["Serviço de Crédito"]
-    S1 -->|"API"| S2
-    S1 -->|"API"| S3
-```
+<Diagram />
 
 Cada equipe é dona de um serviço e os serviços se comunicam por APIs, mantendo o acoplamento baixo. A fonte ilustra o padrão com equipes de pedidos, catálogo e entrega.
 

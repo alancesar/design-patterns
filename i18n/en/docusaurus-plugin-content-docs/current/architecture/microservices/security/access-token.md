@@ -7,7 +7,11 @@ tags:
   - Reliability
 source: https://microservices.io/patterns/security/access-token.html
 sidebar_label: "Access Token"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/security/access-token.mdx';
 
 # Access Token
 
@@ -51,22 +55,7 @@ This token accompanies the request to every service that processes it. When a se
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant C as Client
-    participant G as API Gateway
-    participant A as Service A
-    participant B as Service B
-    C->>G: Request with credentials
-    G->>G: Authenticates and issues the token (JWT)
-    G->>A: Request + token
-    A->>A: Validates the token and authorizes
-    A->>B: Call + same token
-    B->>B: Validates the token and authorizes
-    B-->>A: Response
-    A-->>G: Response
-    G-->>C: Response
-```
+<Diagram />
 
 The gateway authenticates the client once and issues the token; each service validates the token locally and passes it on in subsequent calls.
 

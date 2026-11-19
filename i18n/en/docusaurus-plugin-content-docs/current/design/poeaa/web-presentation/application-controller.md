@@ -8,7 +8,11 @@ tags:
   - Testability
 source: https://martinfowler.com/eaaCatalog/applicationController.html
 sidebar_label: "Application Controller"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/web-presentation/application-controller.mdx';
 
 # Application Controller
 
@@ -50,24 +54,7 @@ The pattern has two parts: one that maps the input to the appropriate domain log
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class InputController {
-        +handle(request)
-    }
-    class ApplicationController {
-        +getDomainCommand(request, state)
-        +getView(request, state)
-    }
-    class DomainCommand {
-        <<interface>>
-        +run()
-    }
-    class View
-    InputController --> ApplicationController : asks
-    ApplicationController --> DomainCommand : locates
-    ApplicationController --> View : chooses
-```
+<Diagram />
 
 The `InputController` consults the `ApplicationController`, which locates the `DomainCommand` to run and chooses the next `View` based on the result and the state.
 

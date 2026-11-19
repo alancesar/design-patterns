@@ -9,7 +9,11 @@ tags:
 origin: Azure
 source: https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns#group-chat-orchestration
 sidebar_label: "Group Chat Orchestration"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/ai/agent-patterns/dynamic-orchestration/group-chat-orchestration.mdx';
 
 # Group Chat Orchestration
 
@@ -61,25 +65,7 @@ It's also known as *roundtable*, *collaborative*, *multiagent debate*, or *counc
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    actor U as User
-    participant M as Chat manager
-    participant A1 as Agent 1
-    participant A2 as Agent 2
-    participant A3 as Agent 3
-    participant T as Accumulated thread
-    U->>M: Task or proposal
-    loop Until the termination condition
-        M->>A1: Grants the turn
-        A1->>T: Contribution
-        M->>A2: Grants the turn
-        A2->>T: Contribution
-        M->>A3: Grants the turn
-        A3->>T: Contribution
-    end
-    M->>U: Discussion result
-```
+<Diagram />
 
 The chat manager picks who speaks each turn; all contributions accumulate in the same thread, which feeds the following turns and produces the result.
 

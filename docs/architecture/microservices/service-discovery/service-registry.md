@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://microservices.io/patterns/service-registry.html
 sidebar_label: "Service Registry"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/service-discovery/service-registry.mdx';
 
 # Service Registry
 
@@ -48,13 +52,7 @@ Opcionalmente, o registro chama a API de health check de cada instância para co
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    I["Instâncias do serviço"] -->|"registram / removem"| R[("Service Registry")]
-    R -->|"health check"| I
-    C["Cliente ou roteador"] -->|"consulta"| R
-    C --> I
-```
+<Diagram />
 
 As instâncias mantêm o registro atualizado e clientes ou roteadores o consultam.
 

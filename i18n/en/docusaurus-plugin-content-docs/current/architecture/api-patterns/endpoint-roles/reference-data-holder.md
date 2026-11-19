@@ -7,7 +7,11 @@ tags:
   - Simplicity
 source: https://api-patterns.org/
 sidebar_label: "Reference Data Holder"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/endpoint-roles/reference-data-holder.mdx';
 
 # Reference Data Holder
 
@@ -59,13 +63,7 @@ Without a single point of reference, the temptation is to copy the values into e
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    C1["Client A"] -->|"cached GET"| RD["Reference Data Holder: /banks"]
-    C2["Client B"] -->|"cached GET"| RD
-    RD --> T[("Banks table")]
-    ADM["Administration"] -.->|"rarely updates"| T
-```
+<Diagram />
 
 Clients read and cache the reference list; only an administrative process, outside the contract, changes it.
 

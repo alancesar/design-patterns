@@ -7,7 +7,11 @@ tags:
   - Extensibility
 source: https://martinfowler.com/eaaCatalog/queryObject.html
 sidebar_label: "Query Object"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/object-relational-metadata-mapping/query-object.mdx';
 
 # Query Object
 
@@ -50,26 +54,7 @@ In practice, it is an application of the Interpreter pattern: a set of objects t
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Query {
-        +targetClass
-        +addCriteria(criteria)
-        +execute(unitOfWork)
-    }
-    class Criteria {
-        +field
-        +operator
-        +value
-        +generateSql(classMap)
-    }
-    class ClassMap
-    class DomainObject
-    Query "1" --> "*" Criteria
-    Query ..> ClassMap
-    Criteria ..> ClassMap
-    Query ..> DomainObject
-```
+<Diagram />
 
 The `Query` aggregates several `Criteria`. When executed, it uses the mapping's `ClassMap` to translate fields into columns, generate the SQL, and return domain objects.
 

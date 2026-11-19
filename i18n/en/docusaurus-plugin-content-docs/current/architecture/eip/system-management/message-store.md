@@ -7,7 +7,11 @@ tags:
   - Security
 source: https://www.enterpriseintegrationpatterns.com/MessageStore.html
 sidebar_label: "Message Store"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/system-management/message-store.mdx';
 
 # Message Store
 
@@ -48,14 +52,7 @@ Sending the copy is fire-and-forget, so it doesn't delay the main flow. Generall
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    P["Producer"] --> C["Channel"]
-    C --> D["Consumer"]
-    C -. "copy" .-> S["Secondary channel"]
-    S --> M[("Message Store")]
-    M --> R["Reports and auditing"]
-```
+<Diagram />
 
 Each message goes on to the consumer, and a copy reaches the central store, from which reports are produced.
 

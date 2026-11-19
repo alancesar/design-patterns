@@ -8,7 +8,11 @@ tags:
   - Cost Optimization
 source: https://microservices.io/patterns/testing/service-component-test.html
 sidebar_label: "Service Component Test"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/testing/service-component-test.mdx';
 
 # Service Component Test
 
@@ -47,13 +51,7 @@ This validates the service's behavior end to end within its boundary, faster and
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    T["Component test"] -->|"calls the API"| S["Service under test"]
-    S -->|"invokes"| D1["Service A test double"]
-    S -->|"publishes/consumes"| D2["Messaging test double"]
-    S -->|"persists"| B[("Test database")]
-```
+<Diagram />
 
 The service is exercised through its API and its remote dependencies are replaced by doubles.
 

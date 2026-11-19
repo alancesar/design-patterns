@@ -8,7 +8,11 @@ tags:
   - Operational Excellence
 source: https://microservices.io/patterns/data/database-per-service.html
 sidebar_label: "Database per Service"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/service-collaboration/database-per-service.mdx';
 
 # Database per Service
 
@@ -54,15 +58,7 @@ This pattern is the foundation of service autonomy, but it comes at the cost of 
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    C["Client"] --> ACC["Account service"]
-    C --> CS["Card service"]
-    ACC --> ADB[("Accounts database")]
-    CS --> CDB[("Cards database")]
-    CS -->|"API"| ACC
-    CS -.->|"direct access forbidden"| ADB
-```
+<Diagram />
 
 Each service accesses only its own database. When it needs data from another service, the Card service uses the Account service's API, never its database. The source illustrates the pattern with orders and customers.
 

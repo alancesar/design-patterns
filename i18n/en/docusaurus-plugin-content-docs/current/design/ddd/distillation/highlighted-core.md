@@ -7,7 +7,11 @@ tags:
   - Strategic Focus
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Highlighted Core"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/distillation/highlighted-core.mdx';
 
 # Highlighted Core
 
@@ -53,13 +57,7 @@ The advantage is low intrusiveness: the core gains immediate visibility without 
 
 ## Diagram
 
-```mermaid
-flowchart TD
-    A["Full model"] --> B["Core concepts"]
-    A --> C["Supporting concepts"]
-    D["Distillation document"] -.->|"describes"| B
-    E["Markers in code and diagrams"] -.->|"flag"| B
-```
+<Diagram />
 
 The model stays whole, but the distillation document and the markers point out which concepts belong to the core.
 

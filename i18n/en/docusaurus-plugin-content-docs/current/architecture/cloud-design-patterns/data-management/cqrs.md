@@ -8,7 +8,11 @@ also_in:
   - architecture/microservices/service-collaboration
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/cqrs
 sidebar_label: "CQRS"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/data-management/cqrs.mdx';
 
 # CQRS
 
@@ -67,18 +71,7 @@ In microservices with Database per Service, CQRS takes on an additional role: it
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    U["Client / UI"] -->|"Command"| CH["Command handler"]
-    CH --> WM["Write model (domain and validation)"]
-    WM --> WS[("Write store")]
-    WS -->|"Change events"| EB["Event bus"]
-    EB --> PR["Projector (idempotent consumer)"]
-    PR --> RS[("Read store (materialized views)")]
-    U -->|"Query"| QH["Query handler"]
-    QH --> RS
-    QH -->|"DTO"| U
-```
+<Diagram />
 
 The client sends *commands* to the write model, which validates them, applies the domain rules, and persists the data. The changes become events that asynchronously update the views in the read store, from which *queries* return DTOs ready for display.
 

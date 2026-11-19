@@ -6,7 +6,11 @@ tags:
   - Consistency
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/lamport-clock.html
 sidebar_label: "Lamport Clock"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/distributed-time/lamport-clock.mdx';
 
 # Lamport Clock
 
@@ -50,18 +54,7 @@ The node returns the timestamp to the client, and the client sends it on subsequ
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant C as Client
-    participant A as Node A
-    participant B as Node B
-    C->>A: write x (time 0)
-    Note over A: max(0, 0) + 1 = 1
-    A-->>C: version 1
-    C->>B: write y (time 1)
-    Note over B: max(0, 1) + 1 = 2
-    B-->>C: version 2
-```
+<Diagram />
 
 The client carries the timestamp returned by node A in its request to node B, and node B adopts the larger value and increments it, guaranteeing that the second write comes after the first.
 

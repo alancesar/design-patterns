@@ -10,6 +10,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/message-exchange-optimization/conditional-request.mdx';
+
 # Conditional Request
 
 ## Description
@@ -57,19 +59,7 @@ The number of messages does not go down; what shrinks is the size of repeated re
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant C as Client
-    participant P as Provider
-    C->>P: GET /accounts/acc-1/statement
-    P-->>C: 200 OK, ETag "ledger-2", full body
-    Note over C: stores the copy and the ETag
-    C->>P: GET ... with If-None-Match "ledger-2"
-    P-->>C: 304 Not Modified, no body
-    Note over C: reuses the local copy
-    C->>P: GET ... with If-None-Match "ledger-2"
-    P-->>C: 200 OK, ETag "ledger-3", new body
-```
+<Diagram />
 
 The first reply carries the body and the `ETag`. While the data does not change, the condition holds and the provider returns only the `304`; when a new entry alters the state, the `ETag` changes and the full response comes back.
 

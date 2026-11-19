@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://k8spatterns.com/
 sidebar_label: "Health Probe"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/kubernetes-patterns/foundational/health-probe.mdx';
 
 # Health Probe
 
@@ -60,15 +64,7 @@ O resultado das sondas alimenta outras automações: o rolling update só avanç
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    K["kubelet"] -->|"startupProbe"| A["Container card-service"]
-    K -->|"livenessProbe"| A
-    K -->|"readinessProbe"| A
-    A -->|"startup ou liveness falha"| R["Reinicia o container"]
-    A -->|"readiness falha"| E["Remove dos endpoints do Service"]
-    A -->|"readiness OK"| S["Recebe tráfego do Service"]
-```
+<Diagram />
 
 Falhas de liveness (e de startup, após esgotar as tentativas) levam ao reinício do contêiner; falhas de readiness apenas retiram o Pod do balanceamento até que ele volte a responder.
 

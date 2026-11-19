@@ -9,7 +9,11 @@ also_in:
   - architecture/microservices/reliability
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker
 sidebar_label: "Circuit Breaker"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/resiliency/circuit-breaker.mdx';
 
 # Circuit Breaker
 
@@ -69,17 +73,7 @@ In microservice architectures, this context is even more common: a service usual
 
 ## Diagram
 
-```mermaid
-stateDiagram-v2
-    state "Half-Open" as HalfOpen
-    [*] --> Closed
-    Closed --> Closed: "Success (resets failure counter)"
-    Closed --> Open: "Failure threshold reached within the window"
-    Open --> Open: "Request fails immediately or uses fallback"
-    Open --> HalfOpen: "Timeout expired"
-    HalfOpen --> Closed: "Success threshold reached"
-    HalfOpen --> Open: "Any failure (restarts timeout)"
-```
+<Diagram />
 
 The circuit starts in Closed and opens when failures exceed the threshold. In Open, calls fail fast until the timeout expires. In Half-Open, a few test calls decide whether the circuit closes again or opens once more.
 
