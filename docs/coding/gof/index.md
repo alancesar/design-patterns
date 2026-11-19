@@ -55,7 +55,7 @@ Total: 28 padrões em 3 grupos. Etiquetas: Objetivo de design.
 | [State](/coding/gof/behavioral/state) | O State permite que um objeto altere seu comportamento quando seu estado interno muda, dando a impressão de que o objeto mudou de classe. | [`Extensibility`](/tags/extensibility) [`Runtime Flexibility`](/tags/runtime-flexibility) | GoF |
 | [Strategy](/coding/gof/behavioral/strategy) | O Strategy (também conhecido como Policy) define uma família de algoritmos, encapsula cada um deles em um objeto próprio e os torna intercambiáveis. | [`Runtime Flexibility`](/tags/runtime-flexibility) [`Extensibility`](/tags/extensibility) | GoF |
 | [Template Method](/coding/gof/behavioral/template-method) | O Template Method define o esqueleto de um algoritmo em uma operação de uma classe base, delegando alguns passos para as subclasses. | [`Extensibility`](/tags/extensibility) | GoF |
-| [Visitor](/coding/gof/behavioral/visitor) | O Visitor representa uma operação a ser executada sobre os elementos de uma estrutura de objetos. | [`Extensibility`](/tags/extensibility) | GoF |
+| [Visitor](/coding/gof/behavioral/visitor) | O Visitor permite adicionar novas operações a uma hierarquia de classes sem alterar essas classes, colocando cada operação em um objeto separado, o visitante. | [`Extensibility`](/tags/extensibility) | GoF |
 | [Null Object](/coding/gof/behavioral/null-object) | O Null Object substitui referências nulas por um objeto que implementa a mesma interface esperada pelo cliente, mas cujo comportamento é neutro, ou seja, "não fazer nada". | [`Simplicity`](/tags/simplicity) | Classic |
 
 ## Por etiqueta
