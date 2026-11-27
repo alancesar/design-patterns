@@ -1,108 +1,108 @@
 ---
 name: pattern-catalog
-description: Incorpora um novo catálogo de design patterns ao site Docusaurus, em pt-BR e inglês (páginas por padrão, página do catálogo, sidebar, cards e home). Use quando o usuário pedir para adicionar, importar ou documentar um catálogo de padrões, ou para revisar a estrutura de um catálogo existente.
+description: Adds a new design-patterns catalog to the Docusaurus site, in pt-BR and English (one page per pattern, the catalog page, sidebar, home cards and home page). Use when the user asks to add, import or document a catalog of patterns, or to review the structure of an existing catalog.
 ---
 
-# Adicionar um catálogo de design patterns
+# Add a design-patterns catalog
 
-O site tem dois idiomas: **pt-BR** (padrão, servido em `/`) e **inglês** (servido em `/en/`). Todo catálogo novo é publicado nos dois idiomas no mesmo PR. Siga as etapas em ordem. Este fluxo tem passos que exigem decisão do usuário: não pule as perguntas da etapa 1.
+The site has two locales: **pt-BR** (the default, served at `/`) and **English** (served at `/en/`). Every new catalog is published in both locales in the same PR. Follow the steps in order. Some steps need the user's decision: don't skip the questions in step 1.
 
-A hierarquia é **domínio → catálogo → grupo → padrão**. Nos exemplos abaixo, `<dir>` é `<domínio>/<catálogo>`, por exemplo `design/poeaa`.
+The hierarchy is **domain → catalog → group → pattern**. In the examples below, `<dir>` is `<domain>/<catalog>`, for example `design/poeaa`.
 
-## Onde fica cada coisa
+## Where everything lives
 
-| O quê | pt-BR | Inglês |
+| What | pt-BR | English |
 | --- | --- | --- |
-| Página do padrão | `docs/<dir>/<grupo>/<slug>.md` | `i18n/en/docusaurus-plugin-content-docs/current/<dir>/<grupo>/<slug>.md` |
-| Página do catálogo | `docs/<dir>/index.md` | `i18n/en/.../current/<dir>/index.md` |
-| Página do domínio | `docs/<domínio>/index.md` | `i18n/en/.../current/<domínio>/index.md` |
-| Home (tabela de catálogos) | `docs/index.mdx` | `i18n/en/.../current/index.mdx` |
-| Estrutura: grupos, ordem, padrões compartilhados | `sidebars.ts` (vale para os dois idiomas) | — |
-| Cards da home | `src/data/catalogs.json` | título traduzido em `i18n/en/code.json` (`catalogCards.title.<href>`), se o título não for em inglês |
-| Rodapé e navbar | `docusaurus.config.ts` | `i18n/en/docusaurus-theme-classic/footer.json` e `navbar.json` |
-| Etiquetas (label, permalink, descrição) | `docs/tags.yml` | `i18n/en/docusaurus-plugin-content-docs/current/tags.yml` |
+| Pattern page | `docs/<dir>/<group>/<slug>.md` | `i18n/en/docusaurus-plugin-content-docs/current/<dir>/<group>/<slug>.md` |
+| Catalog page | `docs/<dir>/index.md` | `i18n/en/.../current/<dir>/index.md` |
+| Domain page | `docs/<domain>/index.md` | `i18n/en/.../current/<domain>/index.md` |
+| Home page (catalog table) | `docs/index.mdx` | `i18n/en/.../current/index.mdx` |
+| Structure: groups, order, shared patterns | `sidebars.ts` (shared by both locales) | — |
+| Home-page cards | `src/data/catalogs.json` | translated title in `i18n/en/code.json` (`catalogCards.title.<href>`), if the title isn't in English |
+| Footer and navbar | `docusaurus.config.ts` | `i18n/en/docusaurus-theme-classic/footer.json` and `navbar.json` |
+| Tags (label, permalink, description) | `docs/tags.yml` | `i18n/en/docusaurus-plugin-content-docs/current/tags.yml` |
 
-Script de apoio: `.claude/skills/pattern-catalog/scripts/catalog.py`. Rode a partir da raiz do repositório com `python3 -I`. Subcomandos:
+Helper script: `.claude/skills/pattern-catalog/scripts/catalog.py`. Run it from the repository root with `python3 -I`. Subcommands:
 
-- `validate <dir>`: confere arquivos, frontmatter, seções, etiquetas declaradas nos dois `tags.yml`, ordem das abas Java/Python/Go, diagrama compartilhado (existe, em inglês, importado igual nos dois idiomas), links, paridade pt-BR/inglês, sidebar e card da home.
-- `index <dir>`: regenera as tabelas das páginas de catálogo nos dois idiomas a partir do `sidebars.ts` e do frontmatter dos padrões.
+- `validate <dir>`: checks files, frontmatter, sections, tags declared in both `tags.yml` files, the Java/Python/Go tab order, the shared diagram (it exists, is in English and is imported the same way in both locales), links, pt-BR/English parity, the sidebar and the home-page card.
+- `index <dir>`: regenerates the catalog page tables in both locales from `sidebars.ts` and the patterns' frontmatter.
 
-O `sidebars.ts` é a fonte da verdade da estrutura e o script o lê como JSON: mantenha o objeto em JSON válido (aspas duplas, sem vírgula sobrando, sem comentários dentro dele).
+`sidebars.ts` is the source of truth for the structure, and the script reads it as JSON: keep the object valid JSON (double quotes, no trailing commas, no comments inside it).
 
-## 1. Levantamento e decisões (com o usuário)
+## 1. Survey and decisions (with the user)
 
-1. Leia a página índice da fonte (com WebFetch; se a sessão não tiver WebFetch direto, use o agente `web-fetch`) e liste todos os padrões, com o nome e a URL de cada um, agrupados como a fonte agrupa.
-2. Defina o **domínio** do catálogo pelo foco principal dele:
-   - `coding`: classes e objetos.
-   - `design`: modelagem de domínio e estrutura interna da aplicação.
-   - `architecture`: arquitetura de sistemas e nuvem (estilos arquiteturais, distribuição, integração, consistência, concorrência e operação em nuvem e contêineres).
-   - `ai`: sistemas com LLMs e agentes de IA.
-   - Crie um domínio novo só com a aprovação do usuário.
-3. Proponha uma **partição em grupos** em que cada padrão fique em exatamente um grupo. Prefira os grupos da própria fonte. Nomes dos grupos em inglês; slugs em kebab-case.
-4. Detecte **sobreposições** com os catálogos existentes, comparando com os títulos e `pattern_slug` em `docs/*/*/*/*.md` e com o `sidebars.ts`. Classifique cada caso:
-   - **mesmo padrão**: vira um link compartilhado no sidebar (★) e o arquivo existente é revisado;
-   - **parecido, mas distinto**: vira padrão novo, com link em "Padrões relacionados".
-5. Defina as **etiquetas**, que são multivaloradas e atravessam os grupos:
-   - Reaproveite um conjunto existente quando fizer sentido (veja os `tags` dos catálogos parecidos). Os pilares WAF (Reliability, Security, Cost Optimization, Operational Excellence, Performance Efficiency) servem para padrões de arquitetura e de serviços; os objetivos de design do GoF servem para padrões de código.
-   - Se nenhum servir, proponha um conjunto novo de 5 a 7 etiquetas, em inglês, com a distribuição prevista.
-   - Toda etiqueta precisa existir em `docs/tags.yml` e no `tags.yml` em inglês. Como o site usa `onInlineTags: 'ignore'`, o build não acusa uma etiqueta faltando: ela só aparece sem descrição.
-6. Use **AskUserQuestion** para confirmar o domínio (se houver dúvida), as etiquetas e os casos de sobreposição ambíguos. Recomende uma opção em cada pergunta.
-7. Para catálogos grandes, escreva um plano curto (domínio, grupos, contagem e sobreposições) e peça aprovação antes de criar arquivos.
+1. Read the source's index page (with WebFetch; if the session has no direct WebFetch, use the `web-fetch` agent) and list every pattern, with its name and URL, grouped the way the source groups them.
+2. Pick the catalog's **domain** by its main focus:
+   - `coding`: classes and objects.
+   - `design`: domain modeling and the application's internal structure.
+   - `architecture`: system and cloud architecture (architectural styles, distribution, integration, consistency, concurrency, and running on cloud and containers).
+   - `ai`: systems built on LLMs and AI agents.
+   - Create a new domain only with the user's approval.
+3. Propose a **partition into groups** where each pattern is in exactly one group. Prefer the source's own groups. Group names in English; slugs in kebab-case.
+4. Find **overlaps** with existing catalogs by comparing against the titles and `pattern_slug` in `docs/*/*/*/*.md` and against `sidebars.ts`. Classify each case:
+   - **same pattern**: it becomes a shared link in the sidebar (★), and the existing file is revised;
+   - **similar but distinct**: it becomes a new pattern, linked from "Related patterns".
+5. Define the **tags**, which are multi-valued and span groups:
+   - Reuse an existing set when it fits (see the `tags` of similar catalogs). The Well-Architected pillars (Reliability, Security, Cost Optimization, Operational Excellence, Performance Efficiency) fit architecture and service patterns; the GoF design goals fit code patterns.
+   - If none fits, propose a new set of 5 to 7 tags, in English, with the expected distribution.
+   - Every tag must exist in `docs/tags.yml` and in the English `tags.yml`. Because the site sets `onInlineTags: 'ignore'`, the build doesn't flag a missing tag: it just renders without a description.
+6. Use **AskUserQuestion** to confirm the domain (if in doubt), the tags and any ambiguous overlaps. Recommend one option in each question.
+7. For large catalogs, write a short plan (domain, groups, counts and overlaps) and get approval before creating files.
 
-## 2. Preparação (você, sem subagentes)
+## 2. Setup (you, no subagents)
 
-1. Crie um branch a partir do `main` atualizado. O PR vai direto para o `main`; não empilhe PRs sobre outros branches.
-2. Crie `docs/<dir>/<grupo>/` e `i18n/en/docusaurus-plugin-content-docs/current/<dir>/<grupo>/` para cada grupo.
-3. Escreva o **cabeçalho** da página do catálogo nos dois idiomas. O script `index` preenche o resto depois. Use uma página de catálogo existente como modelo (`docs/architecture/cloud-design-patterns/index.md` e a versão em inglês):
-   - frontmatter com `title` e `sidebar_label`;
-   - `# <Nome do catálogo>`;
-   - introdução: a fonte (com link), o que cada padrão traz e o que as etiquetas representam;
-   - se houver padrões compartilhados, a nota sobre ★ (copie a frase de um catálogo que já a tem);
-   - a linha `Total: 0 padrões em 0 grupos. Etiquetas: <rótulo>.` (em inglês: `Total: 0 patterns in 0 groups. Tags: <label>.`). O script corrige os números;
-   - por último, o título `## Grupos` (em inglês: `## Groups`), que marca o fim do cabeçalho.
-4. Adicione o catálogo ao **`sidebars.ts`**, dentro do domínio, seguindo o formato dos catálogos existentes:
-   - categoria do catálogo com `key: "<slug>"`, `label` curto e `link: {"type": "doc", "id": "<dir>/index"}`;
-   - uma categoria por grupo, com `label` (nome do grupo), `key: "<slug>-<grupo>"` e `collapsed: true`;
-   - cada padrão novo é o id do documento: `"<dir>/<grupo>/<slug>"`;
-   - cada padrão compartilhado é um link: `{"type": "link", "label": "<nome nesta fonte>", "href": "/<caminho do documento original>?catalog=<slug>", "className": "sidebar-shared", "key": "<slug>-<slug-do-padrão>"}`.
-5. Adicione o **card** em `src/data/catalogs.json` (`domain`, `domainLabel`, `title`, `href: "/<dir>"`, `source`, `patterns` = total do sidebar, incluindo os compartilhados, e `groups`). Se o `title` não estiver em inglês, adicione `catalogCards.title./<dir>` em `i18n/en/code.json`.
-6. Registre as **etiquetas novas** em `docs/tags.yml` (descrição em pt-BR) e em `i18n/en/docusaurus-plugin-content-docs/current/tags.yml` (descrição em inglês), com o mesmo `label` e `permalink` (`/<etiqueta-em-kebab-case>`) e na mesma ordem alfabética.
-7. Atualize nos dois idiomas a **página do domínio** (lista de catálogos) e a **home** (tabela de catálogos). Atualize o rodapé em `docusaurus.config.ts` (catálogos e fontes) e o `footer.json` em inglês. Domínio novo também precisa de item na navbar (`domains` no `docusaurus.config.ts`), da página do domínio nos dois idiomas e de entrada na lista de domínios da home.
+1. Create a branch from an up-to-date `main`. The PR goes straight to `main`; don't stack PRs on other branches.
+2. Create `docs/<dir>/<group>/` and `i18n/en/docusaurus-plugin-content-docs/current/<dir>/<group>/` for each group.
+3. Write the catalog page **header** in both locales. The `index` script fills in the rest later. Use an existing catalog page as the model (`docs/architecture/cloud-design-patterns/index.md` and its English version):
+   - frontmatter with `title` and `sidebar_label`;
+   - `# <Catalog name>`;
+   - an introduction: the source (with a link), what each pattern page covers and what the tags represent;
+   - if there are shared patterns, the note about ★ (copy the sentence from a catalog that already has it);
+   - the line `Total: 0 padrões em 0 grupos. Etiquetas: <rótulo>.` (in English: `Total: 0 patterns in 0 groups. Tags: <label>.`). The script fixes the numbers;
+   - last, the heading `## Grupos` (in English: `## Groups`), which marks the end of the header.
+4. Add the catalog to **`sidebars.ts`**, inside its domain, following the format of the existing catalogs:
+   - a catalog category with `key: "<slug>"`, a short `label` and `link: {"type": "doc", "id": "<dir>/index"}`;
+   - one category per group, with `label` (the group name), `key: "<slug>-<group>"` and `collapsed: true`;
+   - each new pattern is its document id: `"<dir>/<group>/<slug>"`;
+   - each shared pattern is a link: `{"type": "link", "label": "<name in this source>", "href": "/<path of the original document>?catalog=<slug>", "className": "sidebar-shared", "key": "<slug>-<pattern-slug>"}`.
+5. Add the **card** to `src/data/catalogs.json` (`domain`, `domainLabel`, `title`, `href: "/<dir>"`, `source`, `patterns` = the sidebar total, shared links included, and `groups`). If the `title` isn't in English, add `catalogCards.title./<dir>` to `i18n/en/code.json`.
+6. Register the **new tags** in `docs/tags.yml` (pt-BR description) and in `i18n/en/docusaurus-plugin-content-docs/current/tags.yml` (English description), with the same `label` and `permalink` (`/<tag-in-kebab-case>`) and in the same alphabetical order.
+7. Update the **domain page** (catalog list) and the **home page** (catalog table) in both locales. Update the footer in `docusaurus.config.ts` (catalogs and sources) and the English `footer.json`. A new domain also needs a navbar item (`domains` in `docusaurus.config.ts`), a domain page in both locales and an entry in the home page's domain list.
 
-## 3. Conteúdo: um subagente POR GRUPO, nos dois idiomas
+## 3. Content: one subagent PER GROUP, in both locales
 
-- Dispare **um subagente `general-purpose` por grupo**, todos na mesma mensagem, em paralelo, com **`model: "sonnet"`**.
-  - O Sonnet basta para escrita técnica estruturada e para tradução com formato fixo, e custa bem menos que o Opus. Use o Opus só se o usuário pedir.
-  - O limite é de 20 subagentes simultâneos. Se houver mais grupos, dispare os restantes conforme os primeiros terminarem.
-  - Não crie um subagente por padrão: isso estoura o limite de uso.
-  - Se o usuário pedir um número específico de subagentes, siga o pedido.
-- Cada subagente escreve primeiro a versão em pt-BR de cada padrão e depois a versão em inglês, gravando cada arquivo assim que terminar (se for interrompido, ele retoma dos arquivos que já existem).
-- O prompt de cada subagente deve trazer:
-  - o caminho do repositório e o branch, com a proibição de comandos git que mudam estado;
-  - a lista de padrões do grupo: caminho pt-BR, caminho em inglês, URL da fonte e se é NOVO ou EXISTENTE (com o caminho real do arquivo existente);
-  - um padrão já publicado como modelo, nos dois idiomas (ex.: `docs/architecture/cloud-design-patterns/resiliency/retry.md` e a versão em inglês; para exemplos com código, `docs/coding/gof/behavioral/strategy.md`);
-  - as etiquetas permitidas e o valor exato de `category` (o nome do grupo);
-  - a lista de URLs válidas para links (as páginas existentes mais as novas do catálogo).
-- Regras que o prompt deve passar:
-  - Carregar o WebFetch via `ToolSearch` (`select:WebFetch`) e ler a página de cada padrão.
-  - **Frontmatter**, idêntico nos dois idiomas: `title`, `pattern_slug`, `category`, `tags`, `source` e `sidebar_label` (entre aspas). `origin` e `also_in` quando se aplicarem. Não usar linhas `**Etiquetas:**` nem `**Categoria:**` no corpo: o site já mostra as etiquetas e o grupo.
-  - **Seções** em pt-BR: Descrição, Problemas que resolve, Quando usar, Quando evitar, Trade-offs (tabela `| Ganho | Custo / Risco |` e bullets em negrito), Diagrama, Exemplo (quando a fonte tiver código ou cenário), Padrões relacionados e Referência. Em inglês: Description, Problems it solves, When to use, When to avoid, Trade-offs (`| Benefit | Cost / Risk |`), Diagram, Example, Related patterns e Reference.
-  - pt-BR em português; nomes de padrões, categoria, etiquetas e identificadores de código ficam em inglês. A versão em inglês é tradução fiel da pt-BR, sem acrescentar nem omitir conteúdo, com as mesmas seções, links e blocos de código.
-  - **Diagrama Mermaid em inglês, fonte única**: grave o bloco ` ```mermaid ` em `docs/_diagrams/<dir>/<grupo>/<slug>.mdx` (um segundo diagrama na mesma página vai em `<slug>-2.mdx`). Rótulos, participantes, notas e comentários `%%` em inglês, sem acentos e sem HTML; em `flowchart`, rótulos com parênteses ou pontuação vão entre aspas duplas. As duas versões da página importam o mesmo arquivo logo depois do frontmatter (`import Diagram from '@site/docs/_diagrams/<dir>/<grupo>/<slug>.mdx';`) e o mostram com `<Diagram />` na seção Diagrama/Diagram. Nunca deixe bloco `mermaid` inline na página. O frontmatter precisa de `mdx:` / `  format: mdx`.
-  - **Links internos** sempre como URL absoluta da página, sem `.md`: `/<domínio>/<catálogo>/<grupo>/<slug>`. Nunca links relativos para arquivos `.md`: o Docusaurus não resolve um link `.md` entre uma página traduzida e uma não traduzida. A mesma URL serve aos dois idiomas, porque o Docusaurus acrescenta `/en` sozinho. Etiquetas: `/tags/<etiqueta-em-kebab-case>`.
-  - **Exemplo com código**: sempre em Java, Python e Go, em abas `<Tabs groupId="lang" queryString>` com um `<TabItem value="java|python|go" label="Java|Python|Go">` por linguagem, nessa ordem, cada um com um bloco de código cercado por linhas em branco. A página precisa de `mdx:` / `  format: mdx` no frontmatter (toda página de padrão já tem, por causa do diagrama importado); `Tabs` e `TabItem` são globais, sem import. As três versões mostram o mesmo cenário, valores e saída, cada uma idiomática (em Go: interfaces, composição e retorno de `error`, com um comentário de uma linha quando o padrão muda de forma). Todo trecho deve compilar e rodar (Python compatível com 3.9). Blocos SQL comuns às linguagens ficam fora das abas. Identificadores e estrutura iguais nos dois idiomas; traduza só comentários e strings exibidas ao usuário. Modelo: `docs/coding/gof/behavioral/strategy.md`.
-  - **Cenário da fintech**: o Exemplo e os diagramas que mostram uma implementação concreta usam a fintech brasileira fictícia do site (conta digital, Pix, boleto, cartões, crédito pessoal, renda fixa) e reaproveitam os nomes de classe já usados nas outras páginas (`Account`, `Money`, `LedgerEntry`, `PixCharge`, `LoanContract`, `Card`). Diagramas que mostram só os papéis do padrão continuam genéricos. Dinheiro nunca é float (use `Money` ou centavos inteiros), estorno é um novo lançamento no ledger, e taxas, limites e tarifas são ilustrativos.
-  - **Padrões EXISTENTES**:
-    - editar o arquivo real nos dois idiomas, revisando com a nova fonte, sem reescrever do zero;
-    - não mudar `title`, `pattern_slug`, `category` nem `tags`;
-    - adicionar `also_in:` com `- <dir>/<grupo>` antes de `source:`, nos dois idiomas;
-    - adicionar o link da fonte em "Referência" / "Reference".
-  - Editar apenas os arquivos do próprio grupo.
-  - Resposta final: uma linha `ok: <caminho>` por arquivo, mais um resumo da revisão para os existentes.
-- Enquanto os agentes rodam, informe o progresso em uma linha por grupo concluído.
-- Se o limite de uso for atingido, retome os agentes interrompidos com `SendMessage` em vez de criar novos. Eles devem reler os próprios arquivos e completar o que falta.
+- Launch **one `general-purpose` subagent per group**, all in the same message, in parallel, with **`model: "sonnet"`**.
+  - Sonnet is enough for structured technical writing and fixed-format translation, and costs much less than Opus. Use Opus only if the user asks.
+  - At most 20 subagents run at once. If there are more groups, launch the rest as the first ones finish.
+  - Don't create one subagent per pattern: that blows through the usage limit.
+  - If the user asks for a specific number of subagents, do as asked.
+- Each subagent writes the pt-BR version of each pattern first and then the English one, saving each file as soon as it's done (if interrupted, it resumes from the files that already exist).
+- Each subagent's prompt must include:
+  - the repository path and the branch, and a ban on git commands that change state;
+  - the group's pattern list: pt-BR path, English path, source URL, and whether it's NEW or EXISTING (with the existing file's real path);
+  - a published pattern as a model, in both locales (e.g. `docs/architecture/cloud-design-patterns/resiliency/retry.md` and its English version; for code examples, `docs/coding/gof/behavioral/strategy.md`);
+  - the allowed tags and the exact `category` value (the group name);
+  - the list of valid link URLs (the existing pages plus the catalog's new ones).
+- Rules the prompt must pass on:
+  - Load WebFetch through `ToolSearch` (`select:WebFetch`) and read each pattern's page.
+  - **Frontmatter**, identical in both locales: `title`, `pattern_slug`, `category`, `tags`, `source` and `sidebar_label` (quoted). `origin` and `also_in` when they apply. No `**Etiquetas:**` or `**Categoria:**` lines in the body: the site already shows the tags and the group.
+  - **Sections** in pt-BR: Descrição, Problemas que resolve, Quando usar, Quando evitar, Trade-offs (a `| Ganho | Custo / Risco |` table and bold bullets), Diagrama, Exemplo (when the source has code or a scenario), Padrões relacionados and Referência. In English: Description, Problems it solves, When to use, When to avoid, Trade-offs (`| Benefit | Cost / Risk |`), Diagram, Example, Related patterns and Reference.
+  - pt-BR text in Portuguese; pattern names, the category, tags and code identifiers stay in English. The English version is a faithful translation of the pt-BR one, adding and omitting nothing, with the same sections, links and code blocks.
+  - **Mermaid diagram in English, single source**: save the ` ```mermaid ` block to `docs/_diagrams/<dir>/<group>/<slug>.mdx` (a second diagram on the same page goes to `<slug>-2.mdx`). Labels, participants, notes and `%%` comments in English, with no accents and no HTML; in a `flowchart`, labels with parentheses or punctuation go in double quotes. Both versions of the page import the same file right after the frontmatter (`import Diagram from '@site/docs/_diagrams/<dir>/<group>/<slug>.mdx';`) and render it with `<Diagram />` in the Diagrama/Diagram section. Never leave an inline `mermaid` block on the page. The frontmatter needs `mdx:` / `  format: mdx`.
+  - **Internal links** are always the page's absolute URL, without `.md`: `/<domain>/<catalog>/<group>/<slug>`. Never relative links to `.md` files: Docusaurus can't resolve a `.md` link between a translated and an untranslated page. The same URL works in both locales, because Docusaurus adds `/en` on its own. Tags: `/tags/<tag-in-kebab-case>`.
+  - **Code examples**: always in Java, Python and Go, in `<Tabs groupId="lang" queryString>` with one `<TabItem value="java|python|go" label="Java|Python|Go">` per language, in that order, each wrapping a code block with blank lines around it. The page needs `mdx:` / `  format: mdx` in its frontmatter (every pattern page already has it, because of the imported diagram); `Tabs` and `TabItem` are global, with no import. All three versions show the same scenario, values and output, each one idiomatic (in Go: interfaces, composition and `error` returns, with a one-line comment when the pattern takes a different shape). Every snippet must compile and run (Python compatible with 3.9). SQL blocks shared by all languages stay outside the tabs. Identifiers and structure are the same in both locales; translate only comments and user-facing strings. Model: `docs/coding/gof/behavioral/strategy.md`.
+  - **Fintech scenario**: the Example and any diagram showing a concrete implementation use the site's fictional Brazilian fintech (digital account, Pix, boleto, cards, personal credit, fixed income) and reuse the class names from other pages (`Account`, `Money`, `LedgerEntry`, `PixCharge`, `LoanContract`, `Card`). Diagrams that show only the pattern's roles stay generic. Money is never a float (use `Money` or integer cents), a reversal is a new ledger entry, and rates, limits and fees are illustrative.
+  - **EXISTING patterns**:
+    - edit the real file in both locales, revising it against the new source, without rewriting it from scratch;
+    - don't change `title`, `pattern_slug`, `category` or `tags`;
+    - add `also_in:` with `- <dir>/<group>` before `source:`, in both locales;
+    - add the source link under "Referência" / "Reference".
+  - Edit only the group's own files.
+  - Final answer: one `ok: <path>` line per file, plus a summary of the revision for existing ones.
+- While the agents run, report progress in one line per finished group.
+- If the usage limit is hit, resume the interrupted agents with `SendMessage` instead of creating new ones. They should reread their own files and finish what's missing.
 
-## 4. Índices, validação e build
+## 4. Indexes, validation and build
 
 ```bash
 python3 -I .claude/skills/pattern-catalog/scripts/catalog.py index <dir>
@@ -110,18 +110,18 @@ python3 -I .claude/skills/pattern-catalog/scripts/catalog.py validate <dir>
 npm run build
 ```
 
-- `index` monta as tabelas por grupo (resumo = primeira frase da Descrição/Description de cada padrão) e a seção por etiqueta, e corrige a linha `Total`.
-- `validate` confere, entre outras coisas, se a versão em inglês tem o mesmo frontmatter, os mesmos links, o mesmo número de títulos e de blocos de código que a pt-BR, e se o texto em inglês não tem acentos. Também avisa quando o tamanho da tradução foge de 0,8–1,25x o original, sinal de trecho faltando: abra o arquivo e confira.
-- O build gera os dois idiomas e falha em link quebrado (`onBrokenLinks: 'throw'`).
-- Corrija os erros (por conta própria ou retomando o subagente do grupo) até tudo passar. Se algum arquivo existente foi revisado, rode `index` e `validate` também no catálogo dono desse arquivo.
+- `index` builds the per-group tables (summary = the first sentence of each pattern's Descrição/Description) and the by-tag section, and fixes the `Total` line.
+- `validate` checks, among other things, that the English version has the same frontmatter, links, number of headings and number of code blocks as the pt-BR one, and that the English text has no accents. It also warns when the translation's length falls outside 0.8–1.25x the original, a sign of a missing passage: open the file and check.
+- The build generates both locales and fails on broken links (`onBrokenLinks: 'throw'`).
+- Fix the errors (yourself, or by resuming the group's subagent) until everything passes. If an existing file was revised, also run `index` and `validate` on the catalog that owns it.
 
-## 5. Fechamento
+## 5. Wrap-up
 
-- Atualize o `README.md` da raiz, se mencionar os catálogos.
-- Commite só os arquivos do site. Esta skill é versionada, mas o resto de `.claude/` (`settings.local.json`, `launch.json` e outras skills) fica só local, via `.git/info/exclude`: confira no `git status` que nada disso entrou.
-- Commite seguindo o padrão do histórico (`git log`): um commit para o catálogo novo e outro para revisões em catálogos existentes, se houver.
-- Abra o PR contra o `main`.
-- Relate ao usuário:
-  - o que foi criado e revisado, nos dois idiomas;
-  - o resultado do `validate` e do build;
-  - que o conteúdo não foi lido por uma pessoa e vale uma revisão rápida nas páginas `/<dir>` e `/en/<dir>`.
+- Update the root `README.md` if it mentions the catalogs.
+- Commit only the site's files. The versioned skills live in `.claude/skills/`, but the rest of `.claude/` (`settings.local.json`, `launch.json` and other local skills) stays local through `.git/info/exclude`: check in `git status` that none of it got in.
+- Commit following the history's style (`git log`): one commit for the new catalog and another for revisions to existing catalogs, if any.
+- Open the PR against `main`.
+- Report to the user:
+  - what was created and revised, in both locales;
+  - the results of `validate` and the build;
+  - that no person has read the content yet, so a quick review of `/<dir>` and `/en/<dir>` is worth it.

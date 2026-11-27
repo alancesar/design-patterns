@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
-"""Ferramentas do acervo de design patterns (site Docusaurus em pt-BR e inglês).
+"""Tools for the design-patterns catalog (a Docusaurus site in pt-BR and English).
 
-Subcomandos (rode a partir da raiz do repositório):
-  validate <dir>   Valida um catálogo nos dois idiomas: arquivos, frontmatter, seções,
-                   etiquetas no tags.yml, abas Java/Python/Go, Mermaid, links,
-                   paridade pt-BR/en, sidebar e cards da home.
-  index <dir>      Regenera as tabelas das páginas de catálogo (pt-BR e en) a partir do
-                   sidebars.ts e do frontmatter dos padrões. Preserva o cabeçalho escrito
-                   à mão (frontmatter, título e introdução) e atualiza a linha "Total".
+Subcommands (run from the repository root):
+  validate <dir>   Validates a catalog in both locales: files, frontmatter, sections,
+                   tags declared in tags.yml, Java/Python/Go tabs, Mermaid, links,
+                   pt-BR/en parity, sidebar and home-page cards.
+  index <dir>      Regenerates the catalog page tables (pt-BR and en) from sidebars.ts
+                   and the patterns' frontmatter. Keeps the hand-written header
+                   (frontmatter, title and introduction) and updates the "Total" line.
 
-<dir> é o catálogo no formato <domínio>/<catálogo> (ex.: architecture/microservices).
+<dir> is the catalog as <domain>/<catalog> (e.g. architecture/microservices).
 
-Fonte da verdade da estrutura (grupos, ordem e padrões compartilhados): sidebars.ts,
-que precisa continuar com o objeto em JSON válido. Somente biblioteca padrão.
+Source of truth for the structure (groups, order and shared patterns): sidebars.ts,
+whose object must stay valid JSON. Standard library only.
 """
 import json
 import os
@@ -23,8 +23,8 @@ PT = "docs"
 EN = "i18n/en/docusaurus-plugin-content-docs/current"
 SIDEBARS = "sidebars.ts"
 CARDS = "src/data/catalogs.json"
-TAG_FILE = "tags.yml"  # em PT e em EN
-TAB_ORDER = ["java", "python", "go"]  # TypeScript/C# podem vir depois, como 4ª aba
+TAG_FILE = "tags.yml"  # in PT and in EN
+TAB_ORDER = ["java", "python", "go"]  # TypeScript/C# may follow as a 4th tab
 
 LANGS = {
     PT: {
@@ -100,7 +100,7 @@ def summary(root, url):
     if LANGS[root]["desc"] not in body:
         return None
     para = body.split(LANGS[root]["desc"], 1)[1].strip().split("\n\n")[0].replace("\n", " ")
-    para = re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", para)  # links viram texto, como nas tabelas originais
+    para = re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", para)  # links become plain text, as in the original tables
     m = re.match(r"(.+?[.!?])(\s|$)", para)
     return (m.group(1) if m else para).replace("|", "/")
 
@@ -111,36 +111,36 @@ def declared_tags(root):
 
 
 def tab_errors(f, t):
-    """Cada bloco <Tabs> deve abrir com java, python e go, nessa ordem."""
+    """Each <Tabs> block must start with java, python and go, in that order."""
     out = []
     for block in re.findall(r"<Tabs\b.*?</Tabs>", t, re.S):
         values = re.findall(r'<TabItem value="([^"]+)"', block)
         if values[:3] != TAB_ORDER:
-            out.append(f"{f}: abas {values}, esperado {TAB_ORDER} primeiro")
+            out.append(f"{f}: tabs {values}, expected {TAB_ORDER} first")
     if "<Tabs" in t and not re.search(r"^mdx:\s*\n\s+format:\s*mdx\s*$", split_fm(t)[0], re.M):
-        out.append(f"{f}: usa <Tabs> mas falta 'mdx: format: mdx' no frontmatter")
+        out.append(f"{f}: uses <Tabs> but the frontmatter lacks 'mdx: format: mdx'")
     return out
 
 
 def load_sidebar():
     m = re.search(r"=\s*(\{.*\});\s*\n\s*export", read(SIDEBARS), re.S)
     if not m:
-        sys.exit(f"{SIDEBARS}: objeto do sidebar não encontrado")
+        sys.exit(f"{SIDEBARS}: sidebar object not found")
     try:
         return json.loads(m.group(1))
     except json.JSONDecodeError as e:
-        sys.exit(f"{SIDEBARS}: o objeto precisa ser JSON válido ({e})")
+        sys.exit(f"{SIDEBARS}: the object must be valid JSON ({e})")
 
 
 def catalog_entry(d):
-    """Sidebar category of catalog d ('<domínio>/<catálogo>')."""
+    """Sidebar category of catalog d ('<domain>/<catalog>')."""
     for dom in load_sidebar()["catalog"]:
         if not isinstance(dom, dict):
             continue
         for cat in dom.get("items", []):
             if cat.get("link", {}).get("id") == f"{d}/index":
                 return cat
-    sys.exit(f"{d}: catálogo não encontrado no {SIDEBARS} (link.id = '{d}/index')")
+    sys.exit(f"{d}: catalog not found in {SIDEBARS} (link.id = '{d}/index')")
 
 
 def catalog_items(d):
@@ -167,16 +167,16 @@ def render_index(d, root):
     L = LANGS[root]
     path = f"{root}/{d}/index.md"
     if not os.path.exists(path):
-        sys.exit(f"{path}: escreva antes o cabeçalho (frontmatter, título, introdução e linha Total)")
+        sys.exit(f"{path}: write the header first (frontmatter, title, introduction and Total line)")
     current = read(path)
     if L["groups"] not in current:
-        sys.exit(f"{path}: falta a seção '{L['groups']}' que marca o fim do cabeçalho")
+        sys.exit(f"{path}: missing the '{L['groups']}' section that marks the end of the header")
     head = current.split("\n" + L["groups"], 1)[0].rstrip() + "\n"
     groups = catalog_items(d)
     n = sum(len(i) for _, _, i in groups)
     head, k = re.subn(L["total_re"], L["total"].format(n=n, g=len(groups)), head, count=1, flags=re.M)
     if not k:
-        sys.exit(f"{path}: falta a linha 'Total' no cabeçalho")
+        sys.exit(f"{path}: missing the 'Total' line in the header")
 
     texts = {}
     for _, _, items in groups:
@@ -211,7 +211,7 @@ def render_index(d, root):
         if items:
             out += [f"### {tag} ({len(items)})", "", ", ".join(f"[{a}]({b})" for a, b in items), ""]
     write(path, "\n".join(out).rstrip() + "\n")
-    print(f"{path} gerado")
+    print(f"{path} generated")
 
 
 def cmd_index(d):
@@ -229,106 +229,106 @@ def cmd_validate(d):
     tagsets = {root: declared_tags(root) for root in (PT, EN)}
     for root in (PT, EN):
         if not os.path.exists(f"{root}/{d}/index.md"):
-            errs.append(f"{root}/{d}/index.md: não existe")
+            errs.append(f"{root}/{d}/index.md: does not exist")
 
     for gslug, gname, items in groups:
         for it in items:
             if it["shared"]:
                 real = doc_file(PT, it["url"])
                 if not real:
-                    errs.append(f"sidebar {d}/{gslug}: padrão compartilhado aponta para {it['url']}, que não existe")
+                    errs.append(f"sidebar {d}/{gslug}: shared pattern points to {it['url']}, which does not exist")
                 elif f"{d}/{gslug}" not in fm_list(read(real), "also_in"):
-                    errs.append(f"{real}: falta also_in '{d}/{gslug}'")
+                    errs.append(f"{real}: missing also_in '{d}/{gslug}'")
                 continue
             for root in (PT, EN):
                 f = doc_file(root, it["url"])
                 if not f:
-                    errs.append(f"{root}{it['url']}.md: não existe")
+                    errs.append(f"{root}{it['url']}.md: does not exist")
                     continue
                 t = read(f)
                 if fm_field(t, "category") != gname:
                     errs.append(f"{f}: category != '{gname}'")
                 for key in ("title", "pattern_slug", "source", "sidebar_label"):
                     if not fm_field(t, key):
-                        errs.append(f"{f}: falta '{key}' no frontmatter")
+                        errs.append(f"{f}: missing '{key}' in the frontmatter")
                 if not fm_list(t, "tags"):
-                    errs.append(f"{f}: falta 'tags' no frontmatter")
+                    errs.append(f"{f}: missing 'tags' in the frontmatter")
                 for tag in fm_list(t, "tags"):
                     if tag not in tagsets[root]:
-                        errs.append(f"{f}: etiqueta '{tag}' não está em {root}/{TAG_FILE}")
+                        errs.append(f"{f}: tag '{tag}' is not in {root}/{TAG_FILE}")
                 errs += tab_errors(f, t)
                 for s in LANGS[root]["sections"]:
                     if not re.search("^" + re.escape(s) + r"\s*$", t, re.M):
-                        errs.append(f"{f}: falta seção '{s}'")
-                # Diagramas: um arquivo compartilhado em inglês por diagrama, em docs/_diagrams/,
-                # importado pelas duas versões da página. Nada de bloco mermaid inline.
+                        errs.append(f"{f}: missing section '{s}'")
+                # Diagrams: one shared English file per diagram, in docs/_diagrams/,
+                # imported by both versions of the page. No inline mermaid blocks.
                 if "```mermaid" in t:
-                    errs.append(f"{f}: bloco mermaid inline (mova para docs/_diagrams/ e importe)")
+                    errs.append(f"{f}: inline mermaid block (move it to docs/_diagrams/ and import it)")
                 diagrams = DIAGRAM_IMPORT.findall(t)
                 if not diagrams:
-                    errs.append(f"{f}: falta importar um diagrama de docs/_diagrams/")
+                    errs.append(f"{f}: does not import a diagram from docs/_diagrams/")
                 if diagrams and not re.search(r"^mdx:\s*\n\s+format:\s*mdx\s*$", split_fm(t)[0], re.M):
-                    errs.append(f"{f}: importa diagrama mas falta 'mdx: format: mdx' no frontmatter")
+                    errs.append(f"{f}: imports a diagram but the frontmatter lacks 'mdx: format: mdx'")
                 for name, path in diagrams:
                     if f"<{name} />" not in t:
-                        errs.append(f"{f}: importa {name} mas não usa <{name} />")
+                        errs.append(f"{f}: imports {name} but does not use <{name} />")
                     part = f"{PT}/_diagrams/{path}.mdx"
                     if not os.path.exists(part):
-                        errs.append(f"{f}: diagrama {part} não existe")
+                        errs.append(f"{f}: diagram {part} does not exist")
                     else:
                         pt_text = read(part)
                         if "```mermaid" not in pt_text:
-                            errs.append(f"{part}: falta bloco mermaid")
+                            errs.append(f"{part}: missing mermaid block")
                         if ACCENTS.search(pt_text):
-                            errs.append(f"{part}: caracteres acentuados (o diagrama deve ser em inglês)")
+                            errs.append(f"{part}: accented characters (the diagram must be in English)")
 
             pt_f, en_f = doc_file(PT, it["url"]), doc_file(EN, it["url"])
             if pt_f and en_f:
                 pt, en = read(pt_f), read(en_f)
                 if split_fm(pt)[0] != split_fm(en)[0]:
-                    errs.append(f"{en_f}: frontmatter diferente do pt-BR")
+                    errs.append(f"{en_f}: frontmatter differs from pt-BR")
                 links = lambda t: sorted(re.findall(r"\]\(([^)\s]+)\)", t))
                 if links(pt) != links(en):
-                    errs.append(f"{en_f}: links diferentes do pt-BR {sorted(set(links(pt)) ^ set(links(en)))}")
+                    errs.append(f"{en_f}: links differ from pt-BR {sorted(set(links(pt)) ^ set(links(en)))}")
                 heads = lambda t: len(re.findall(r"^#+ ", t, re.M))
                 if heads(pt) != heads(en):
-                    errs.append(f"{en_f}: {heads(en)} títulos, pt-BR tem {heads(pt)}")
+                    errs.append(f"{en_f}: {heads(en)} headings, pt-BR has {heads(pt)}")
                 if DIAGRAM_IMPORT.findall(pt) != DIAGRAM_IMPORT.findall(en):
-                    errs.append(f"{en_f}: importa diagramas diferentes do pt-BR")
+                    errs.append(f"{en_f}: imports different diagrams from pt-BR")
                 if pt.count("```") != en.count("```"):
-                    errs.append(f"{en_f}: número de blocos de código diferente do pt-BR")
+                    errs.append(f"{en_f}: number of code blocks differs from pt-BR")
                 ratio = len(en.split()) / max(1, len(pt.split()))
                 if not 0.8 <= ratio <= 1.25:
-                    warns.append(f"{en_f}: tamanho {ratio:.2f}x o pt-BR (trecho faltando ou sobrando?)")
+                    warns.append(f"{en_f}: length {ratio:.2f}x the pt-BR (missing or extra passage?)")
                 body = re.sub(r"\]\([^)]*\)|https?://\S+", "", split_fm(en)[1])
                 if ACCENTS.search(body):
-                    errs.append(f"{en_f}: caracteres acentuados (português no texto em inglês?)")
+                    errs.append(f"{en_f}: accented characters (Portuguese in the English text?)")
 
-    # arquivos fora do sidebar e links internos
+    # files missing from the sidebar, and internal links
     for root in (PT, EN):
         for f in sorted(p for p in (os.path.join(r, x) for r, _, fs in os.walk(f"{root}/{d}") for x in fs)
                         if p.endswith(".md")):
             rel = f[len(root) + 1:-3]
             if not rel.endswith("/index") and rel not in sidebar_docs:
-                errs.append(f"{f}: não está no {SIDEBARS}")
+                errs.append(f"{f}: not in {SIDEBARS}")
             for link in re.findall(r"\]\(([^)\s#]+)(?:#[^)]*)?\)", read(f)):
                 if link.endswith(".md") or link.endswith(".mdx"):
-                    errs.append(f"{f}: link relativo '{link}' (use a URL absoluta da página)")
+                    errs.append(f"{f}: relative link '{link}' (use the page's absolute URL)")
                 elif link.startswith("/") and not link.startswith("/tags/") and not doc_file(PT, link):
-                    errs.append(f"{f}: link quebrado '{link}'")
+                    errs.append(f"{f}: broken link '{link}'")
 
-    # card da home
+    # home-page card
     cards = [c for c in json.loads(read(CARDS))["catalogs"] if c["href"] == f"/{d}"]
     if not cards:
-        errs.append(f"{CARDS}: falta o card de /{d}")
+        errs.append(f"{CARDS}: missing the card for /{d}")
     elif (cards[0]["patterns"], cards[0]["groups"]) != (total, len(groups)):
-        errs.append(f"{CARDS}: card de /{d} diz {cards[0]['patterns']} padrões/{cards[0]['groups']} grupos; "
-                    f"o sidebar tem {total}/{len(groups)}")
+        errs.append(f"{CARDS}: card for /{d} says {cards[0]['patterns']} patterns/{cards[0]['groups']} groups; "
+                    f"the sidebar has {total}/{len(groups)}")
 
-    print(f"{d}: {total} padrões em {len(groups)} grupos")
+    print(f"{d}: {total} patterns in {len(groups)} groups")
     for w in warns:
-        print("aviso:", w)
-    print("\n".join(errs) if errs else "OK, nenhum erro")
+        print("warning:", w)
+    print("\n".join(errs) if errs else "OK, no errors")
     return 1 if errs else 0
 
 
