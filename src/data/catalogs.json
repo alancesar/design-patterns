@@ -82,8 +82,8 @@
       "title": "Microservices Patterns",
       "href": "/architecture/microservices",
       "source": "https://microservices.io/patterns/",
-      "patterns": 53,
-      "groups": 15
+      "patterns": 57,
+      "groups": 16
     },
     {
       "domain": "architecture",
