@@ -15,11 +15,15 @@ mdx:
 
 ## Description
 
-Visitor represents an operation to be performed on the elements of an object structure. It lets you define new operations without changing the classes of the elements they operate on, by moving each operation into a separate object, the visitor.
+Visitor lets you add new operations to a class hierarchy without changing those classes, by putting each operation in a separate object, the visitor.
 
-Each element in the structure exposes an `accept(visitor)` method, which simply calls back the visitor's method corresponding to its concrete type (for example, `visitor.visitCdb(this)`). This technique, called *double dispatch*, makes the code that runs depend on both the type of the visitor and the type of the element, without `instanceof` or a `switch` on types.
+Think of the investment portfolio in the example, with assets of types `Cdb`, `Stock` and `FundShare`. Over time, new operations on the whole portfolio come up: computing the tax due, generating the income report, exporting to accounting. Adding each operation as a method on every asset class bloats those classes with responsibilities that do not belong to them and forces you to touch all of them for every new operation. Writing the operation as a function with `instanceof` or a `switch` on the type spreads type checks across the code, and the compiler does not warn you when a type is left out.
 
-So each new operation becomes a new `ConcreteVisitor` class that gathers, in one place, the behavior for all element types. The pattern is especially useful in stable hierarchies, such as syntax trees (AST), documents, and domain models, on which many different operations are applied.
+Visitor solves this in two parts. The visitor interface has one method per element type (`visitCdb`, `visitStock`, `visitFundShare`), and each operation is a class that implements that interface, such as `TaxCalculator`. Each element, in turn, has a single `accept(visitor)` method whose body only calls the visitor method matching its own type, passing itself: in `Cdb`, `accept` calls `visitor.visitCdb(this)`. The client walks the portfolio calling `asset.accept(taxCalculator)` without knowing the concrete type of each asset.
+
+This round trip is what the pattern calls *double dispatch*. The first call, `accept`, is resolved by the concrete type of the element (a `Cdb` runs the `Cdb` version of `accept`); the second, `visitCdb`, is resolved by the concrete type of the visitor (`TaxCalculator` or `IncomeReportExporter`). The code that finally runs depends on both, which asset and which operation, without any type check. Languages such as Java, Python and Go pick the method to run only from the type of the object receiving the call; Visitor chains two calls to get this effect.
+
+Each new operation thus becomes a new `ConcreteVisitor` class that gathers in one place the behavior for all element types. The cost shows up in the opposite direction: a new element type requires a new method on the visitor interface and on every visitor. That is why the pattern pays off most in stable hierarchies, such as syntax trees (AST), documents and domain models, on which many different operations are applied.
 
 ## Problems it solves
 
