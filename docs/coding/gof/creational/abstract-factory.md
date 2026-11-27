@@ -64,13 +64,21 @@ classDiagram
         +createProductA() AbstractProductA
         +createProductB() AbstractProductB
     }
-    class ConcreteFactory1 {
-        +createProductA() AbstractProductA
-        +createProductB() AbstractProductB
+    namespace Family1["Família 1"] {
+        class ConcreteFactory1 {
+            +createProductA() AbstractProductA
+            +createProductB() AbstractProductB
+        }
+        class ProductA1
+        class ProductB1
     }
-    class ConcreteFactory2 {
-        +createProductA() AbstractProductA
-        +createProductB() AbstractProductB
+    namespace Family2["Família 2"] {
+        class ConcreteFactory2 {
+            +createProductA() AbstractProductA
+            +createProductB() AbstractProductB
+        }
+        class ProductA2
+        class ProductB2
     }
     class AbstractProductA {
         <<interface>>
@@ -78,28 +86,21 @@ classDiagram
     class AbstractProductB {
         <<interface>>
     }
-    class ProductA1
-    class ProductA2
-    class ProductB1
-    class ProductB2
-    class Client
 
-    AbstractFactory <|.. ConcreteFactory1
-    AbstractFactory <|.. ConcreteFactory2
-    AbstractProductA <|.. ProductA1
-    AbstractProductA <|.. ProductA2
-    AbstractProductB <|.. ProductB1
-    AbstractProductB <|.. ProductB2
-    ConcreteFactory1 ..> ProductA1 : creates
-    ConcreteFactory1 ..> ProductB1 : creates
-    ConcreteFactory2 ..> ProductA2 : creates
-    ConcreteFactory2 ..> ProductB2 : creates
-    Client --> AbstractFactory
-    Client --> AbstractProductA
-    Client --> AbstractProductB
+    Client --> AbstractFactory : usa
+    AbstractFactory <|.. ConcreteFactory1 : implementa
+    AbstractFactory <|.. ConcreteFactory2 : implementa
+    ConcreteFactory1 ..> ProductA1 : cria
+    ConcreteFactory1 ..> ProductB1 : cria
+    ConcreteFactory2 ..> ProductA2 : cria
+    ConcreteFactory2 ..> ProductB2 : cria
+    ProductA1 ..|> AbstractProductA : implementa
+    ProductA2 ..|> AbstractProductA : implementa
+    ProductB1 ..|> AbstractProductB : implementa
+    ProductB2 ..|> AbstractProductB : implementa
 ```
 
-O `Client` usa apenas `AbstractFactory` e as interfaces de produto. Cada fábrica concreta (`ConcreteFactory1`, `ConcreteFactory2`) cria uma família coerente de produtos (`ProductA1`/`ProductB1` ou `ProductA2`/`ProductB2`).
+Cada grupo (`Família 1`, `Família 2`) é uma família: uma fábrica concreta e os produtos que ela cria (`ConcreteFactory1` cria `ProductA1` e `ProductB1`; `ConcreteFactory2` cria `ProductA2` e `ProductB2`). As linhas tracejadas com triângulo vazio (**implementa**) ligam uma classe à interface que ela implementa, e as setas tracejadas (**cria**) mostram qual produto cada fábrica instancia. O `Client` só conhece `AbstractFactory` e as interfaces `AbstractProductA` e `AbstractProductB`; trocar a fábrica concreta troca a família inteira sem mudar o código do cliente.
 
 ## Exemplo
 

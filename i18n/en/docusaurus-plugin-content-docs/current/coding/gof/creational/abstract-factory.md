@@ -64,13 +64,21 @@ classDiagram
         +createProductA() AbstractProductA
         +createProductB() AbstractProductB
     }
-    class ConcreteFactory1 {
-        +createProductA() AbstractProductA
-        +createProductB() AbstractProductB
+    namespace Family1["Family 1"] {
+        class ConcreteFactory1 {
+            +createProductA() AbstractProductA
+            +createProductB() AbstractProductB
+        }
+        class ProductA1
+        class ProductB1
     }
-    class ConcreteFactory2 {
-        +createProductA() AbstractProductA
-        +createProductB() AbstractProductB
+    namespace Family2["Family 2"] {
+        class ConcreteFactory2 {
+            +createProductA() AbstractProductA
+            +createProductB() AbstractProductB
+        }
+        class ProductA2
+        class ProductB2
     }
     class AbstractProductA {
         <<interface>>
@@ -78,28 +86,21 @@ classDiagram
     class AbstractProductB {
         <<interface>>
     }
-    class ProductA1
-    class ProductA2
-    class ProductB1
-    class ProductB2
-    class Client
 
-    AbstractFactory <|.. ConcreteFactory1
-    AbstractFactory <|.. ConcreteFactory2
-    AbstractProductA <|.. ProductA1
-    AbstractProductA <|.. ProductA2
-    AbstractProductB <|.. ProductB1
-    AbstractProductB <|.. ProductB2
+    Client --> AbstractFactory : uses
+    AbstractFactory <|.. ConcreteFactory1 : implements
+    AbstractFactory <|.. ConcreteFactory2 : implements
     ConcreteFactory1 ..> ProductA1 : creates
     ConcreteFactory1 ..> ProductB1 : creates
     ConcreteFactory2 ..> ProductA2 : creates
     ConcreteFactory2 ..> ProductB2 : creates
-    Client --> AbstractFactory
-    Client --> AbstractProductA
-    Client --> AbstractProductB
+    ProductA1 ..|> AbstractProductA : implements
+    ProductA2 ..|> AbstractProductA : implements
+    ProductB1 ..|> AbstractProductB : implements
+    ProductB2 ..|> AbstractProductB : implements
 ```
 
-The `Client` uses only `AbstractFactory` and the product interfaces. Each concrete factory (`ConcreteFactory1`, `ConcreteFactory2`) creates a coherent family of products (`ProductA1`/`ProductB1` or `ProductA2`/`ProductB2`).
+Each group (`Family 1`, `Family 2`) is a family: a concrete factory and the products it creates (`ConcreteFactory1` creates `ProductA1` and `ProductB1`; `ConcreteFactory2` creates `ProductA2` and `ProductB2`). The dashed lines with a hollow triangle (**implements**) link a class to the interface it implements, and the dashed arrows (**creates**) show which product each factory instantiates. The `Client` knows only `AbstractFactory` and the `AbstractProductA` and `AbstractProductB` interfaces; swapping the concrete factory swaps the whole family without changing the client code.
 
 ## Example
 
