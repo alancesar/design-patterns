@@ -17,6 +17,13 @@ npm run typecheck      # tsc
 
 There are no tests or linters. `npm run build` is the verification step: it fails on broken links and broken Markdown links (`onBrokenLinks: 'throw'`), in both locales.
 
+The `pattern-catalog` skill ships a content checker that catches what the build doesn't (frontmatter, sections, pt-BR/English parity, tags declared in `tags.yml`, tab order, shared diagrams, sidebar and home cards). It needs only the Python standard library:
+
+```bash
+python3 -I .claude/skills/pattern-catalog/scripts/catalog.py validate <domain>/<catalog>
+python3 -I .claude/skills/pattern-catalog/scripts/catalog.py index <domain>/<catalog>   # regenerates the catalog page tables in both locales
+```
+
 ## Content model
 
 Hierarchy is **domain → catalog → group → pattern**: `docs/<domain>/<catalog>/<group>/<pattern>.md`. Domains are `coding`, `design`, `architecture`, `ai`.
@@ -48,4 +55,4 @@ pt-BR is the default locale (served at `/`), and English is served at `/en/`. Ev
 ## Workflow
 
 - Branch from an up-to-date `main` and open each PR directly against `main`. Don't stack PRs on other feature branches: stacked PRs have stranded content that never reached `main`.
-- The repo is public. `.claude/` (including the local `pattern-catalog` skill, which automates adding a catalog) is excluded locally through `.git/info/exclude`, not `.gitignore`. Never commit or push it.
+- The repo is public. Two skills are versioned: `.claude/skills/pattern-catalog/` (adds a catalog, with its `scripts/catalog.py`) and `.claude/skills/branch-cleanup/` (after a merge, updates `main` and deletes merged branches). Everything else in `.claude/` (`settings.local.json`, `launch.json`, other skills) is excluded locally through `.git/info/exclude`, not `.gitignore`. Never commit or push it.

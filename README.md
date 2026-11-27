@@ -16,6 +16,12 @@ The examples share one scenario: a fictional Brazilian fintech with a digital ac
 
 New catalogs are added in both languages in the same PR: each page in `docs/` gets its English version in `i18n/en/docusaurus-plugin-content-docs/current/`, and `npm run build` must pass for both locales. A page without an English version falls back to the Portuguese content under `/en/`.
 
+The [Claude Code](https://claude.com/claude-code) skill in `.claude/skills/pattern-catalog/` automates this flow, from listing the source's patterns to the build. Its `scripts/catalog.py` validates a catalog and regenerates its tables:
+
+```bash
+python3 -I .claude/skills/pattern-catalog/scripts/catalog.py validate architecture/microservices
+```
+
 ## Development
 
 ```bash
