@@ -33,6 +33,11 @@
   permalink: "/encapsulation"
   description: "Hiding internal details behind a stable interface, limiting what the rest of the code needs to know."
 
+"Evolvability":
+  label: "Evolvability"
+  permalink: "/evolvability"
+  description: "Letting an API and its contracts change over time without breaking existing clients."
+
 "Extensibility":
   label: "Extensibility"
   permalink: "/extensibility"
