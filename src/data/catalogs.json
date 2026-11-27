@@ -1,26 +1,4 @@
 {
-  "domains": [
-    {
-      "slug": "coding",
-      "label": "Coding",
-      "description": "Design de classes e objetos."
-    },
-    {
-      "slug": "design",
-      "label": "Design",
-      "description": "Modelagem de domínio e estrutura interna da aplicação (DDD, camadas, persistência)."
-    },
-    {
-      "slug": "architecture",
-      "label": "Architecture",
-      "description": "Arquitetura de sistemas e nuvem (estilos arquiteturais, distribuição, integração, consistência, concorrência e operação em nuvem e contêineres)."
-    },
-    {
-      "slug": "ai",
-      "label": "AI",
-      "description": "Sistemas com LLMs e agentes de IA."
-    }
-  ],
   "catalogs": [
     {
       "domain": "coding",

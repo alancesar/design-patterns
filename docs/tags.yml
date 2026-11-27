@@ -33,6 +33,11 @@
   permalink: "/encapsulation"
   description: "Esconder detalhes internos atrás de uma interface estável, limitando o que o restante do código precisa saber."
 
+"Evolvability":
+  label: "Evolvability"
+  permalink: "/evolvability"
+  description: "Permitir que a API e seus contratos mudem ao longo do tempo sem quebrar os clientes existentes."
+
 "Extensibility":
   label: "Extensibility"
   permalink: "/extensibility"

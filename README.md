@@ -6,7 +6,7 @@ Built with [Docusaurus](https://docusaurus.io). It uses the visual identity of [
 
 ## Content
 
-The patterns are Markdown files in `docs/`, organized as domain → catalog → group → pattern (`docs/<domain>/<catalog>/<group>/<pattern>.md`). Each pattern has a description, the problems it solves, when to use it and when to avoid it, trade-offs, tags, a Mermaid diagram and related patterns. Many also have a code example. `sidebars.ts` defines the navigation, and `src/data/catalogs.json` feeds the catalog cards on the home page.
+The patterns are Markdown files in `docs/`, organized as domain → catalog → group → pattern (`docs/<domain>/<catalog>/<group>/<pattern>.md`). Each pattern has a description, the problems it solves, when to use it and when to avoid it, trade-offs, tags, a Mermaid diagram and related patterns. Diagrams are written in English and live in `docs/_diagrams/`, so both locales share a single source. Many patterns also have a code example in Java, Python and Go, in language tabs. `sidebars.ts` defines the navigation, `src/data/catalogs.json` feeds the catalog cards on the home page, and `docs/tags.yml` (with its English counterpart) describes the tags.
 
 The site is bilingual. Portuguese (pt-BR) is the default locale, and English is served under `/en/`. English pages live in `i18n/en/docusaurus-plugin-content-docs/current/`, at the same paths as their counterparts under `docs/`, and English UI strings are in `i18n/en/` (`code.json`, `docusaurus-theme-classic/` and `docusaurus-plugin-content-docs/current.json`).
 
