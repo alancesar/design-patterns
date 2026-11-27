@@ -7,7 +7,11 @@ tags:
   - Reliability
 source: https://k8spatterns.com/
 sidebar_label: "Operator"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/kubernetes-patterns/advanced/operator.mdx';
 
 # Operator
 
@@ -58,16 +62,7 @@ CRDs are usually of two kinds: **installation** CRDs (install and operate an app
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    T["Platform team"] -->|"kubectl apply"| CR["LedgerDatabase ledger-db"]
-    CR -->|"Validated by the CRD schema"| API["API Server"]
-    API -->|"Events"| OP["Operator"]
-    OP -->|"Creates and updates"| STS["StatefulSet and Services"]
-    OP -->|"Schedules"| CJ["Backup CronJob"]
-    OP -->|"Writes result"| ST["resource status"]
-    ST --> CR
-```
+<Diagram />
 
 The team declares a `LedgerDatabase`; the Operator watches the resource, creates the necessary native resources, schedules the backups and updates the `status`, closing the reconciliation cycle.
 

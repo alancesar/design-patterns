@@ -7,7 +7,11 @@ tags:
   - Shared Understanding
 source: https://api-patterns.org/
 sidebar_label: "Atomic Parameter"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/basic-structure/atomic-parameter.mdx';
 
 # Atomic Parameter
 
@@ -51,11 +55,7 @@ O projetista escolhe o tipo, dá ao átomo um nome do vocabulário do domínio q
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    C["Cliente"] -->|"Atomic Parameter: accountId"| P["Provedor"]
-    P -->|"Atomic Parameter: balanceCents"| C
-```
+<Diagram />
 
 Uma única mensagem de requisição carrega um parâmetro e a resposta devolve outro, ambos de tipo básico.
 

@@ -8,7 +8,11 @@ tags:
   - Cost Optimization
 source: https://k8spatterns.com/
 sidebar_label: "Automated Placement"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/kubernetes-patterns/foundational/automated-placement.mdx';
 
 # Automated Placement
 
@@ -65,15 +69,7 @@ O próprio scheduler também é configurável. Nas versões atuais, a configura�
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    P["Pod pix-service: sem nó atribuído"] --> F["Filtragem"]
-    F -->|"Remove nós sem capacidade, com taints ou fora das regras"| SC["Pontuação"]
-    SC -->|"Ordena nós restantes"| B["Nó escolhido"]
-    B --> K["kubelet executa o Pod"]
-    AF["nodeSelector, affinity, taints, spread, perfil do scheduler"] -.->|"Orientam"| F
-    AF -.->|"Orientam"| SC
-```
+<Diagram />
 
 O scheduler filtra os nós inelegíveis, pontua os restantes e atribui o Pod ao melhor; as regras declaradas pelo usuário e os plugins do perfil do scheduler influenciam ambas as etapas.
 

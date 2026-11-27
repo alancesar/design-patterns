@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://www.enterpriseintegrationpatterns.com/DynamicRouter.html
 sidebar_label: "Dynamic Router"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-routing/dynamic-router.mdx';
 
 # Dynamic Router
 
@@ -47,16 +51,7 @@ O roteador guarda essas condições em uma base de regras. Ao chegar uma mensage
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    IN["Mensagens"] --> R{"Dynamic Router"}
-    BR[("Base de regras")] --- R
-    A["Destinatário A"] -->|"registro"| C["Canal de controle"]
-    B["Destinatário B"] -->|"registro"| C
-    C --> R
-    R --> A
-    R --> B
-```
+<Diagram />
 
 Os destinatários registram suas condições no canal de controle e o roteador usa essas regras para encaminhar as mensagens.
 

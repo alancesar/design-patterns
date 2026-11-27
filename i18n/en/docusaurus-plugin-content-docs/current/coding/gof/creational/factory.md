@@ -12,6 +12,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/creational/factory.mdx';
+
 # Factory
 
 ## Description
@@ -59,35 +61,7 @@ The decision logic is usually a `switch`/`if` or a registry map (type → constr
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Client
-    class PaymentMethodFactory {
-        +create(type) PaymentMethod
-    }
-    class PaymentMethod {
-        <<interface>>
-        +charge(amountCents)
-    }
-    class PixPayment {
-        +charge(amountCents)
-    }
-    class BoletoPayment {
-        +charge(amountCents)
-    }
-    class CardPayment {
-        +charge(amountCents)
-    }
-    Client --> PaymentMethodFactory : uses
-    Client --> PaymentMethod : uses
-    PaymentMethodFactory ..> PaymentMethod : creates
-    PaymentMethodFactory ..> PixPayment : instantiates
-    PaymentMethodFactory ..> BoletoPayment : instantiates
-    PaymentMethodFactory ..> CardPayment : instantiates
-    PaymentMethod <|.. PixPayment
-    PaymentMethod <|.. BoletoPayment
-    PaymentMethod <|.. CardPayment
-```
+<Diagram />
 
 The `Client` requests an object from the `PaymentMethodFactory`, specifying the desired type; the factory decides which concrete class (`PixPayment`, `BoletoPayment` or `CardPayment`) to instantiate and returns it as a `PaymentMethod`. The client works only with the interface.
 

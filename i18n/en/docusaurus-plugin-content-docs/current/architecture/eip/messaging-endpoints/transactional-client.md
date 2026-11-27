@@ -6,7 +6,11 @@ tags:
   - Reliability
 source: https://www.enterpriseintegrationpatterns.com/TransactionalClient.html
 sidebar_label: "Transactional Client"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/messaging-endpoints/transactional-client.mdx';
 
 # Transactional Client
 
@@ -47,19 +51,7 @@ In widely distributed systems, transactional semantics are expensive in performa
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant R as Receiver
-    participant C as Channel
-    participant S as Application
-    R->>C: begins transaction and receives message
-    R->>S: processes
-    alt success
-        R->>C: commit (message removed)
-    else failure
-        R->>C: rollback (message returns to the channel)
-    end
-```
+<Diagram />
 
 The message only leaves the channel on commit; on rollback it stays available for another attempt.
 

@@ -7,7 +7,11 @@ tags:
   - Availability
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/lease.html
 sidebar_label: "Lease"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/cluster-management/lease.mdx';
 
 # Lease
 
@@ -53,23 +57,7 @@ Considerações adicionais:
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant C as Cliente
-    participant N as Núcleo consistente
-    participant O as Outro cliente
-    C->>N: Solicita lease com TTL de 10s
-    N-->>C: Lease concedido
-    loop Enquanto usa o recurso
-        C->>N: Renova lease (heartbeat)
-        N-->>C: TTL reiniciado
-    end
-    Note over C: Cliente falha ou fica isolado
-    Note over N: TTL expira sem renovação
-    N->>N: Remove chaves ligadas ao lease
-    O->>N: Solicita lease
-    N-->>O: Lease concedido
-```
+<Diagram />
 
 O cliente mantém o lease enquanto renova. Quando para de renovar, o núcleo o expira e o recurso pode ser concedido a outro cliente.
 

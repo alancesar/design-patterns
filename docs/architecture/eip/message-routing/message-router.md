@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://www.enterpriseintegrationpatterns.com/MessageRouter.html
 sidebar_label: "Message Router"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-routing/message-router.mdx';
 
 # Message Router
 
@@ -49,13 +53,7 @@ Esse é o padrão-base da família de roteadores (Content-Based Router, Message 
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    IN["Canal de entrada"] --> R{"Message Router"}
-    R -->|"condição A"| A["Canal A"]
-    R -->|"condição B"| B["Canal B"]
-    R -->|"condição C"| C["Canal C"]
-```
+<Diagram />
 
 O roteador lê uma mensagem do canal de entrada e a encaminha, sem modificá-la, para o canal cuja condição ela satisfaz.
 

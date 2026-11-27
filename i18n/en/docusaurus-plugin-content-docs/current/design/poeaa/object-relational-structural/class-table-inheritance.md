@@ -7,7 +7,11 @@ tags:
   - Extensibility
 source: https://martinfowler.com/eaaCatalog/classTableInheritance.html
 sidebar_label: "Class Table Inheritance"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/object-relational-structural/class-table-inheritance.mdx';
 
 # Class Table Inheritance
 
@@ -49,27 +53,7 @@ The schema mirrors the object model, keeps the database normalized, and allows `
 
 ## Diagram
 
-```mermaid
-erDiagram
-    PAYMENT_INSTRUCTION ||--o| PIX_TRANSFER : is
-    PAYMENT_INSTRUCTION ||--o| TED_TRANSFER : is
-    PAYMENT_INSTRUCTION {
-        bigint id PK
-        bigint amount_cents
-        varchar status
-    }
-    PIX_TRANSFER {
-        bigint id PK
-        varchar pix_key
-        varchar end_to_end_id
-    }
-    TED_TRANSFER {
-        bigint id PK
-        varchar bank_code
-        varchar branch
-        varchar account_number
-    }
-```
+<Diagram />
 
 `PAYMENT_INSTRUCTION` holds the common fields; `PIX_TRANSFER` and `TED_TRANSFER` hold the specific ones, sharing the same primary key. Fowler's source illustrates the pattern with a `Player` hierarchy; here it is replaced by `PaymentInstruction`, the same one in all four inheritance patterns.
 

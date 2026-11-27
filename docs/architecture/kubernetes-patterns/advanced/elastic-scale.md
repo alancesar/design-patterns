@@ -8,7 +8,11 @@ tags:
   - Reliability
 source: https://k8spatterns.com/
 sidebar_label: "Elastic Scale"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/kubernetes-patterns/advanced/elastic-scale.mdx';
 
 # Elastic Scale
 
@@ -67,15 +71,7 @@ Os níveis são complementares e independentes: ajustar a própria aplicação, 
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    M["Metrics API"] -->|"CPU média dos Pods"| HPA["HorizontalPodAutoscaler pix-service"]
-    HPA -->|"Ajusta replicas"| D["Deployment pix-service"]
-    D --> P["Pods pix-service (3 a 20)"]
-    P -->|"Pod sem nó com capacidade"| CA["Cluster Autoscaler"]
-    CA -->|"Adiciona ou remove nós"| N["Nós do cluster"]
-    P -->|"Uso medido"| M
-```
+<Diagram />
 
 O HPA compara o uso medido com o alvo e ajusta as réplicas do Deployment; se faltar espaço para os novos Pods, o Cluster Autoscaler aumenta o número de nós.
 

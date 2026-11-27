@@ -6,7 +6,11 @@ tags:
   - Reliability
 source: https://www.enterpriseintegrationpatterns.com/DurableSubscription.html
 sidebar_label: "Durable Subscriber"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/messaging-endpoints/durable-subscriber.mdx';
 
 # Durable Subscriber
 
@@ -45,18 +49,7 @@ Without this, a subscriber that crashes, restarts, or is down for maintenance lo
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant P as Publisher
-    participant B as Broker
-    participant S as Durable subscriber
-    S->>B: subscribes (durable name)
-    S--xB: disconnects
-    P->>B: publishes messages
-    Note over B: stores them for the subscription
-    S->>B: reconnects
-    B->>S: delivers accumulated messages
-```
+<Diagram />
 
 The broker keeps the messages while the subscriber is away and delivers them when it comes back.
 

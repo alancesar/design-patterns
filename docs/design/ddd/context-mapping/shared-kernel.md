@@ -7,7 +7,11 @@ tags:
   - Consistency
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Shared Kernel"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/context-mapping/shared-kernel.mdx';
 
 # Shared Kernel
 
@@ -52,18 +56,7 @@ Exige disciplina: o kernel não pode ser alterado unilateralmente, e sua existê
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    subgraph A["Contexto de Conta Digital"]
-        MA["Modelo de Conta Digital"]
-    end
-    subgraph B["Contexto de Cartões"]
-        MB["Modelo de Cartões"]
-    end
-    K(("Shared Kernel: Money, Cpf, BusinessCalendar"))
-    MA --- K
-    MB --- K
-```
+<Diagram />
 
 Os dois contextos mantêm modelos próprios, mas compartilham um núcleo delimitado, alterado apenas por acordo entre os times.
 

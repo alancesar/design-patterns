@@ -7,7 +7,11 @@ tags:
   - Reliability
 source: https://microservices.io/patterns/decomposition/decompose-by-business-capability.html
 sidebar_label: "Decompose by Business Capability"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/service-boundaries/decompose-by-business-capability.mdx';
 
 # Decompose by Business Capability
 
@@ -47,17 +51,7 @@ Como as capacidades mudam lentamente, a arquitetura resultante é estável. Cada
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    N["Negócio (banco digital)"] --> C1["Capacidade: Onboarding"]
-    N --> C2["Capacidade: Contas"]
-    N --> C3["Capacidade: Pagamentos"]
-    N --> C4["Capacidade: Crédito"]
-    C1 --> S1["Serviço de Onboarding"]
-    C2 --> S2["Serviço de Contas"]
-    C3 --> S3["Serviço de Pagamentos"]
-    C4 --> S4["Serviço de Crédito"]
-```
+<Diagram />
 
 Cada capacidade de negócio dá origem a um serviço com responsabilidade própria. A fonte ilustra o padrão com uma loja online (catálogo, estoque, pedidos e entrega).
 

@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://microservices.io/patterns/deployment/multiple-services-per-host.html
 sidebar_label: "Multiple Service Instances per Host"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/deployment/multiple-service-instances-per-host.mdx';
 
 # Multiple Service Instances per Host
 
@@ -50,17 +54,7 @@ There are two common variations: each instance runs as an independent process (f
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    subgraph Host["Host (physical or virtual)"]
-        A["Service A - instance 1"]
-        B["Service B - instance 1"]
-        C["Service C - instance 1"]
-    end
-    LB["Load balancer"] --> A
-    LB --> B
-    LB --> C
-```
+<Diagram />
 
 Several different services share the resources of a single host.
 

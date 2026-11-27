@@ -6,7 +6,11 @@ tags:
   - Reliability
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/compensating-transaction
 sidebar_label: "Compensating Transaction"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/distributed-coordination/compensating-transaction.mdx';
 
 # Compensating Transaction
 
@@ -62,17 +66,7 @@ Considerações adicionais:
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    C["Cliente"] -->|"Solicita transferência"| O["Orquestrador"]
-    O -->|"Etapa 1: debitar conta de origem"| A["Ledger"]
-    O -->|"Grava etapa e ação de desfazer"| L[("Registro de compensação")]
-    O -->|"Etapa 2: enviar ao sistema de liquidação"| B["Conector de liquidação"]
-    B -->|"Falha após retries"| O
-    L -->|"Lê ações de compensação"| O
-    O -->|"Compensação: creditar a conta de volta"| A
-    O -->|"Operação compensada"| C
-```
+<Diagram />
 
 O orquestrador executa as etapas e registra, para cada etapa concluída, a ação que a desfaz. Quando o envio ao sistema de liquidação falha de forma irrecuperável, ele lê esse registro e aciona as compensações em ordem inversa: o ledger recebe um novo lançamento de crédito que devolve o valor à conta de origem, sem apagar o débito original. A fonte ilustra o padrão com a reserva de voo e hotel.
 

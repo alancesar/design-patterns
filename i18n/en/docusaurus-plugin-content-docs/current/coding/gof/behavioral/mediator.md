@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/behavioral/mediator.mdx';
+
 # Mediator
 
 ## Description
@@ -59,35 +61,7 @@ Since the collaborative behavior lives in a single place, you can change how the
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Mediator {
-        <<interface>>
-        +notify(Colleague sender, String event)
-    }
-    class ConcreteMediator {
-        -ConcreteColleagueA colleagueA
-        -ConcreteColleagueB colleagueB
-        +notify(Colleague sender, String event)
-    }
-    class Colleague {
-        <<abstract>>
-        #Mediator mediator
-        +setMediator(Mediator mediator)
-    }
-    class ConcreteColleagueA {
-        +operationA()
-    }
-    class ConcreteColleagueB {
-        +operationB()
-    }
-    Mediator <|.. ConcreteMediator
-    Colleague <|-- ConcreteColleagueA
-    Colleague <|-- ConcreteColleagueB
-    Colleague --> Mediator : notifies
-    ConcreteMediator --> ConcreteColleagueA : coordinates
-    ConcreteMediator --> ConcreteColleagueB : coordinates
-```
+<Diagram />
 
 The `Mediator` defines the communication interface used by the colleagues. The `ConcreteMediator` knows the concrete colleagues and implements the coordination between them. Each `Colleague` keeps a reference to the mediator and notifies it instead of talking directly to the others.
 

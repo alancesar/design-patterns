@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://microservices.io/patterns/server-side-discovery.html
 sidebar_label: "Server-side Discovery"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/service-discovery/server-side-discovery.mdx';
 
 # Server-side Discovery
 
@@ -47,18 +51,7 @@ Assim, a lógica de descoberta sai do cliente e fica na infraestrutura. Exemplos
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant C as Cliente
-    participant L as Roteador (load balancer)
-    participant R as Service Registry
-    participant I as Instância do serviço
-    C->>L: Requisição
-    L->>R: Consulta instâncias
-    R-->>L: Localizações
-    L->>I: Encaminha a requisição
-    I-->>C: Resposta (via roteador)
-```
+<Diagram />
 
 O cliente conhece apenas o roteador; ele consulta o registro e escolhe a instância.
 

@@ -7,7 +7,11 @@ tags:
   - Performance
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/versioned-value.html
 sidebar_label: "Versioned Value"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/data-replication/versioned-value.mdx';
 
 # Versioned Value
 
@@ -49,12 +53,7 @@ It appears in etcd (MVCC revisions), ZooKeeper (zxid and znode version), and Kaf
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    K1["key x, version 1: A"] --> K2["key x, version 2: B"] --> K3["key x, version 3: C"]
-    R1["Read of version 2"] -.-> K2
-    R2["Latest read"] -.-> K3
-```
+<Diagram />
 
 Each update creates a new version of the key, making it possible to read the latest value or a historical version.
 

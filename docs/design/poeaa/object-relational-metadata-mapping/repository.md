@@ -9,7 +9,11 @@ also_in:
   - design/ddd/building-blocks
 source: https://martinfowler.com/eaaCatalog/repository.html
 sidebar_label: "Repository"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/object-relational-metadata-mapping/repository.mdx';
 
 # Repository
 
@@ -55,22 +59,7 @@ No DDD (Domain-Driven Design), Evans define o Repository como o mecanismo que d�
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class AccountService
-    class AccountRepository {
-        <<interface>>
-        +save(account)
-        +findByHolderCpf(cpf)
-    }
-    class JpaAccountRepository
-    class AccountMapper
-    class Account
-    AccountService --> AccountRepository
-    AccountRepository <|.. JpaAccountRepository
-    JpaAccountRepository --> AccountMapper
-    AccountRepository ..> Account
-```
+<Diagram />
 
 O `AccountService` usa apenas a interface `AccountRepository`. A implementação `JpaAccountRepository` delega ao `AccountMapper` e devolve objetos `Account`.
 

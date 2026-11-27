@@ -1,0 +1,10 @@
+```mermaid
+flowchart LR
+    P["Producer"] --> H
+    subgraph M["Message"]
+        H["Header (metadata)"]
+        B["Body (data)"]
+    end
+    B --> C["Message channel"]
+    C --> R["Consumer"]
+```

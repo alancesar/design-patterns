@@ -1,0 +1,10 @@
+```mermaid
+sequenceDiagram
+    participant Controller
+    participant TemplateEngine
+    participant Template
+    Controller->>TemplateEngine: render(template, model)
+    TemplateEngine->>Template: loads page with markers
+    Template-->>TemplateEngine: HTML with placeholders
+    TemplateEngine-->>Controller: final HTML with data
+```

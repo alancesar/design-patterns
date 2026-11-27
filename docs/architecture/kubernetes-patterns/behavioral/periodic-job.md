@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://k8spatterns.com/
 sidebar_label: "Periodic Job"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/kubernetes-patterns/behavioral/periodic-job.mdx';
 
 # Periodic Job
 
@@ -55,14 +59,7 @@ Sem isso, agendar tarefas exige um cron em um único servidor, que é difícil d
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    C["CronJob: daily-statement-close"] -->|"Todo dia às 02h00"| J1["Job 1"]
-    C -->|"Dia seguinte"| J2["Job 2"]
-    J1 --> P1["Pod: fechamento de extratos"]
-    J2 --> P2["Pod: fechamento de extratos"]
-    C -.->|"Mantém histórico limitado"| H["Jobs anteriores"]
-```
+<Diagram />
 
 O CronJob cria um novo Job a cada disparo, e cada Job executa seus próprios Pods, seguindo as regras de tentativas e paralelismo do padrão Batch Job.
 

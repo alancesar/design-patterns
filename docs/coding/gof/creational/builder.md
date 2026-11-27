@@ -12,6 +12,9 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/creational/builder.mdx';
+import Diagram2 from '@site/docs/_diagrams/coding/gof/creational/builder-2.mdx';
+
 # Builder
 
 ## Descrição
@@ -60,31 +63,7 @@ Na prática moderna, a variante mais comum é o builder fluente (métodos encade
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Director {
-        -builder: Builder
-        +construct()
-    }
-    class Builder {
-        <<interface>>
-        +buildPartA()
-        +buildPartB()
-    }
-    class ConcreteBuilder {
-        -product: Product
-        +buildPartA()
-        +buildPartB()
-        +getResult() Product
-    }
-    class Product
-    class Client
-    Director o--> Builder
-    Builder <|.. ConcreteBuilder
-    ConcreteBuilder ..> Product : cria
-    Client --> Director
-    Client --> ConcreteBuilder
-```
+<Diagram />
 
 O `Client` cria um `ConcreteBuilder` e o entrega ao `Director`, que chama os passos de construção na ordem correta; ao final, o cliente obtém o `Product` montado a partir do próprio builder via `getResult()`. Esse método fica só no `ConcreteBuilder`, e não na interface `Builder`, porque builders diferentes podem produzir produtos sem um tipo em comum. O `Director` só conhece a interface e, por isso, não devolve o produto.
 
@@ -94,24 +73,7 @@ Uma cobrança Pix tem valor e chave do recebedor obrigatórios, e vencimento, mu
 
 O exemplo usa a variante fluente do Builder, popularizada por *Effective Java*: não há `Director` nem hierarquia de builders. O próprio cliente faz o papel do `Director`, encadeando os passos que quer, e `build()` substitui o `getResult()`, validando o conjunto antes de criar o produto imutável.
 
-```mermaid
-classDiagram
-    class PixChargeBuilder {
-        -amountCents
-        -receiverKey
-        +dueDate(d) PixChargeBuilder
-        +fineRate(r) PixChargeBuilder
-        +payerMessage(m) PixChargeBuilder
-        +build() PixCharge
-    }
-    class PixCharge {
-        <<immutable>>
-        +txid
-    }
-    class Client
-    Client --> PixChargeBuilder : encadeia os passos
-    PixChargeBuilder ..> PixCharge : cria
-```
+<Diagram2 />
 
 <Tabs groupId="lang" queryString>
 <TabItem value="java" label="Java">

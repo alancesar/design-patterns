@@ -7,7 +7,11 @@ tags:
   - Performance
 source: https://martinfowler.com/eaaCatalog/serializedLOB.html
 sidebar_label: "Serialized LOB"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/object-relational-structural/serialized-lob.mdx';
 
 # Serialized LOB
 
@@ -50,23 +54,7 @@ It's simple and fast for small graphs that are always read and written together,
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Consent {
-        -Long id
-        -List permissions
-    }
-    class Permission {
-        -String name
-    }
-    class ConsentTable {
-        <<table>>
-        id
-        permissions
-    }
-    Consent --> Permission
-    Consent ..> ConsentTable : serializes the list into permissions
-```
+<Diagram />
 
 The `Permission` list is serialized into a single `permissions` column of `ConsentTable`.
 

@@ -6,7 +6,11 @@ tags:
   - Shared Understanding
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Ubiquitous Language"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/model-in-practice/ubiquitous-language.mdx';
 
 # Ubiquitous Language
 
@@ -50,15 +54,7 @@ A linguagem é válida dentro de um Bounded Context; em contextos diferentes, os
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    E["Especialistas de negócio"] <-->|"conversa"| L(("Ubiquitous Language"))
-    D["Desenvolvedores"] <-->|"conversa"| L
-    L --> M["Modelo de domínio"]
-    L --> C["Código e testes"]
-    L --> Doc["Documentos"]
-    M -->|"refina"| L
-```
+<Diagram />
 
 A linguagem fica no centro, ligando pessoas, modelo, código e documentos; o uso refina o modelo, e o modelo refina a linguagem.
 

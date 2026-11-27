@@ -7,7 +7,11 @@ tags:
   - Testability
 source: https://martinfowler.com/eaaCatalog/registry.html
 sidebar_label: "Registry"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/base/registry.mdx';
 
 # Registry
 
@@ -51,20 +55,7 @@ O Registry é um padrão de último recurso: quando possível, passar as depend�
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Registry {
-        +getInstance()$
-        +accountFinder()
-        +feeTable()
-    }
-    class AccountFinder
-    class FeeTable
-    class Client
-    Client --> Registry
-    Registry --> AccountFinder
-    Registry --> FeeTable
-```
+<Diagram />
 
 O `Client` pede ao `Registry` o `AccountFinder` ou a `FeeTable` de que precisa, sem ter recebido nenhum deles por parâmetro.
 

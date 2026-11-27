@@ -7,7 +7,11 @@ tags:
   - Cost Optimization
 source: https://www.enterpriseintegrationpatterns.com/MessageSelector.html
 sidebar_label: "Selective Consumer"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/messaging-endpoints/selective-consumer.mdx';
 
 # Selective Consumer
 
@@ -47,12 +51,7 @@ Com isso, um único canal pode se comportar como vários Datatype Channels, o qu
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    P["Produtor (define valor de seleção)"] --> C[["Canal"]]
-    C -->|"tipo = A"| S1["Consumidor seletivo A"]
-    C -->|"tipo = B"| S2["Consumidor seletivo B"]
-```
+<Diagram />
 
 Cada consumidor recebe apenas as mensagens cujo valor de seleção atende a seu critério.
 

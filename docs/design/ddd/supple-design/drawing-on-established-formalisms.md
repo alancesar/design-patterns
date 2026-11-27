@@ -7,7 +7,11 @@ tags:
   - Consistency
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Drawing on Established Formalisms"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/supple-design/drawing-on-established-formalisms.mdx';
 
 # Drawing on Established Formalisms
 
@@ -52,23 +56,7 @@ A técnica não exige aplicar o formalismo por inteiro. Muitas vezes basta uma p
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Account {
-        +post(Entry entry)
-        +balance() Money
-    }
-    class Entry {
-        +amount Money
-        +side Side
-    }
-    class Transaction {
-        +entries List
-        +isBalanced() bool
-    }
-    Account "1" --> "*" Entry
-    Transaction "1" *-- "2..*" Entry
-```
+<Diagram />
 
 O modelo adota a contabilidade de partidas dobradas: uma `Transaction` só é válida se seus lançamentos (`Entry`) se equilibram.
 

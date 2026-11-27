@@ -8,7 +8,11 @@ tags:
   - Performance Efficiency
 source: https://www.enterpriseintegrationpatterns.com/MessageExpiration.html
 sidebar_label: "Message Expiration"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-construction/message-expiration.mdx';
 
 # Message Expiration
 
@@ -48,12 +52,7 @@ Muitos sistemas redirecionam mensagens expiradas para um Dead Letter Channel; ou
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    P["Emissor (define o prazo)"] --> Q["Canal"]
-    Q -->|"dentro do prazo"| C["Consumidor"]
-    Q -->|"prazo vencido"| D["Dead Letter Channel ou descarte"]
-```
+<Diagram />
 
 Mensagens dentro do prazo vão ao consumidor; as vencidas são descartadas ou desviadas.
 

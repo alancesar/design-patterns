@@ -8,7 +8,11 @@ also_in:
   - architecture/microservices/cross-cutting-concerns
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/external-configuration-store
 sidebar_label: "External Configuration Store"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/deployment-and-topology/external-configuration-store.mdx';
 
 # External Configuration Store
 
@@ -64,27 +68,7 @@ Como as configurações passam a alterar o comportamento das aplicações em tem
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    subgraph Apps["Aplicações"]
-        A1["Instância A"]
-        A2["Instância B"]
-        A3["Aplicação C"]
-    end
-    C["Cache local"]
-    S["Repositório externo de configuração"]
-    DB[("Armazenamento de apoio")]
-    K["Cofre de segredos"]
-    P["Pipeline de implantação"]
-
-    A1 --> C
-    A2 --> C
-    A3 --> C
-    C -- "lê e atualiza periodicamente" --> S
-    S --> DB
-    S -- "referências a segredos" --> K
-    P -- "publica configurações versionadas" --> S
-```
+<Diagram />
 
 As aplicações leem as configurações por meio de um cache local, que é atualizado a partir do repositório externo centralizado; o pipeline publica versões de configuração no repositório, e os segredos permanecem em um cofre dedicado, apenas referenciados.
 

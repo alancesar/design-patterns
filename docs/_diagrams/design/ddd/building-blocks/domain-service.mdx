@@ -1,0 +1,13 @@
+```mermaid
+classDiagram
+    class FundsTransferService {
+        +transfer(from, to, amount)
+    }
+    class Account {
+        +withdraw(amount)
+        +deposit(amount)
+    }
+    class Money
+    FundsTransferService --> Account
+    Account --> Money
+```

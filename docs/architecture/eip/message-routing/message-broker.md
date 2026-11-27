@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://www.enterpriseintegrationpatterns.com/MessageBroker.html
 sidebar_label: "Message Broker"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-routing/message-broker.mdx';
 
 # Message Broker
 
@@ -50,14 +54,7 @@ Para escalar, um broker sem estado pode rodar em várias instâncias, consumindo
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    A["Aplicação A"] --> B{"Message Broker"}
-    C["Aplicação C"] --> B
-    B --> D["Aplicação D"]
-    B --> E["Aplicação E"]
-    B --> F["Aplicação F"]
-```
+<Diagram />
 
 As aplicações enviam mensagens ao broker, que decide o destino de cada uma.
 

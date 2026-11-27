@@ -6,7 +6,11 @@ tags:
   - Security
 source: https://k8spatterns.com/
 sidebar_label: "Access Control"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/kubernetes-patterns/security/access-control.mdx';
 
 # Access Control
 
@@ -57,15 +61,7 @@ The strength of the pattern is least privilege: no wildcards (`*`), no `cluster-
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    REQ["Request to the API Server"] --> AUTHN["Authentication"]
-    AUTHN --> AUTHZ["RBAC authorization"]
-    AUTHZ --> ADM["Admission control"]
-    ADM --> OK["Resource processed"]
-    SA["ServiceAccount statement-service"] -->|"RoleBinding"| ROLE["Role statement-reader"]
-    ROLE -->|"allows get and list on ConfigMaps"| AUTHZ
-```
+<Diagram />
 
 Each request goes through authentication, authorization and admission; at the authorization stage, the `RoleBinding` connects the `ServiceAccount` to the `Role` that lists exactly what it can do.
 

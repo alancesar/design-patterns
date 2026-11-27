@@ -7,7 +7,11 @@ tags:
   - Reliability
 source: https://k8spatterns.com/
 sidebar_label: "Configuration Template"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/kubernetes-patterns/configuration/configuration-template.mdx';
 
 # Configuration Template
 
@@ -57,13 +61,7 @@ The main gain is maintenance without duplication: when the common configuration 
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    CM["ConfigMap boleto-params"] -->|"parameters in /params"| INIT["Init container render-config"]
-    TPL["Templates in the image"] --> INIT
-    INIT -->|"rendered files"| VOL[("emptyDir /config")]
-    VOL --> APP["boleto-service container"]
-```
+<Diagram />
 
 The init container combines the image templates with the ConfigMap parameters, writes the final configuration to a shared volume, and only then does the application start.
 

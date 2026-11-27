@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://microservices.io/patterns/data/polling-publisher.html
 sidebar_label: "Polling Publisher"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/transactional-messaging/polling-publisher.mdx';
 
 # Polling Publisher
 
@@ -48,20 +52,7 @@ O Polling Publisher é uma forma de implementar o message relay do Transactional
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant S as Serviço
-    participant DB as Banco de dados
-    participant P as Polling Publisher
-    participant B as Message broker
-    S->>DB: Grava dados e mensagem no outbox (mesma transação)
-    loop A cada intervalo
-        P->>DB: Consulta mensagens pendentes
-        DB-->>P: Mensagens
-        P->>B: Publica mensagens
-        P->>DB: Marca como enviadas ou remove
-    end
-```
+<Diagram />
 
 O publicador consulta o outbox periodicamente, envia as mensagens ao broker e atualiza o estado no banco.
 

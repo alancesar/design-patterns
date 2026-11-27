@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://microservices.io/patterns/decomposition/self-contained-service.html
 sidebar_label: "Self-contained Service"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/service-boundaries/self-contained-service.mdx';
 
 # Self-contained Service
 
@@ -47,19 +51,7 @@ Há duas formas de obter isso: absorver a funcionalidade necessária como um mó
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant C as Cliente
-    participant P as Serviço de Pix
-    participant R as Réplica local de limites do cliente
-    participant S as Saga
-    C->>P: Criar PixTransfer
-    P->>R: Validar o limite com dados locais
-    R-->>P: Limite do cliente
-    P-->>C: Transferência aceita (pendente)
-    P->>S: Iniciar saga de liquidação
-    S-->>P: Transferência liquidada ou rejeitada
-```
+<Diagram />
 
 O serviço responde sem chamar outros serviços; a liquidação termina de forma assíncrona por meio da saga. A fonte ilustra o padrão com pedidos e restaurantes.
 

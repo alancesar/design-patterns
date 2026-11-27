@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/creational/telescoping-constructor.mdx';
+
 # Telescoping Constructor
 
 ## Description
@@ -57,22 +59,7 @@ Still, the technique has real merits: it produces immutable, fully initialized o
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Client
-    class Boleto {
-        -long amountCents
-        -LocalDate dueDate
-        -double fine
-        -double dailyInterest
-        -double discount
-        +Boleto(amountCents, dueDate)
-        +Boleto(amountCents, dueDate, fine)
-        +Boleto(amountCents, dueDate, fine, dailyInterest)
-        +Boleto(amountCents, dueDate, fine, dailyInterest, discount)
-    }
-    Client ..> Boleto : new
-```
+<Diagram />
 
 The `Client` instantiates `Boleto` by choosing the constructor with the number of arguments it needs. Each smaller constructor delegates (via `this(...)`) to the next one, passing a default value, until reaching the full constructor, which assigns all the fields.
 

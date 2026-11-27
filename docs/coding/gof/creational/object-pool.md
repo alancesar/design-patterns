@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/creational/object-pool.mdx';
+
 # Object Pool
 
 ## Descrição
@@ -58,29 +60,7 @@ Não faz parte dos 23 padrões do livro do Gang of Four, mas é amplamente usado
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Client
-    class ObjectPool {
-        -available : List~Reusable~
-        -inUse : List~Reusable~
-        -maxSize : int
-        +acquire() Reusable
-        +release(obj : Reusable) void
-    }
-    class Reusable {
-        +reset() void
-        +isValid() bool
-    }
-    class ReusableFactory {
-        +create() Reusable
-    }
-    Client --> ObjectPool : acquire / release
-    Client ..> Reusable : usa
-    ObjectPool o-- Reusable : gerencia
-    ObjectPool --> ReusableFactory : cria quando vazio
-    ReusableFactory ..> Reusable : instancia
-```
+<Diagram />
 
 O `Client` obtém um `Reusable` do `ObjectPool` e o devolve ao terminar. O pool mantém as listas de objetos disponíveis e em uso, recorre à `ReusableFactory` quando precisa criar novas instâncias (até `maxSize`) e chama `reset()` ao receber um objeto de volta.
 

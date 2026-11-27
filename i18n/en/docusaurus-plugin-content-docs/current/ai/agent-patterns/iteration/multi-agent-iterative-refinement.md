@@ -8,7 +8,11 @@ tags:
 origin: Google
 source: https://docs.cloud.google.com/architecture/choose-design-pattern-agentic-ai-system#iterative-refinement-pattern
 sidebar_label: "Multi-Agent Iterative Refinement"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/ai/agent-patterns/iteration/multi-agent-iterative-refinement.mdx';
 
 # Multi-Agent Iterative Refinement
 
@@ -50,16 +54,7 @@ It's an implementation of the [Multi-Agent Loop](/ai/agent-patterns/iteration/mu
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    I["Task"] --> E[("Session state: result")]
-    E --> A["Agent: evaluate and critique"]
-    A --> B["Agent: rewrite"]
-    B --> E
-    E --> Q{"Quality threshold or iteration limit?"}
-    Q -- "No" --> A
-    Q -- "Yes" --> R["Final result"]
-```
+<Diagram />
 
 On each cycle the agents update the same result in the session state, until the quality threshold or the iteration limit is reached.
 

@@ -10,7 +10,11 @@ also_in:
   - design/ddd/building-blocks
 source: https://martinfowler.com/eaaCatalog/valueObject.html
 sidebar_label: "Value Object"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/base/value-object.mdx';
 
 # Value Object
 
@@ -57,18 +61,7 @@ Na prática, um bom Value Object é imutável, compara por valor (implementando 
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Account {
-        +id
-    }
-    class PixKey {
-        +keyType
-        +value
-        +equals(other)
-    }
-    Account --> PixKey
-```
+<Diagram />
 
 A entidade `Account` possui uma `PixKey`. A `PixKey` não tem identidade: é comparada e substituída por valor.
 

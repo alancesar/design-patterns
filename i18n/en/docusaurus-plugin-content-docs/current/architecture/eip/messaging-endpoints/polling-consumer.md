@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://www.enterpriseintegrationpatterns.com/PollingConsumer.html
 sidebar_label: "Polling Consumer"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/messaging-endpoints/polling-consumer.mdx';
 
 # Polling Consumer
 
@@ -47,16 +51,7 @@ It's the opposite of the Event-Driven Consumer, where the messaging system trigg
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant A as Application
-    participant C as Channel
-    loop while active
-        A->>C: receive
-        C-->>A: message or empty
-        A->>A: processes
-    end
-```
+<Diagram />
 
 The application asks for messages in a loop and processes each one that arrives.
 

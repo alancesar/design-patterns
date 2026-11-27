@@ -9,7 +9,11 @@ also_in:
   - architecture/eip/integration-styles
 source: https://microservices.io/patterns/data/shared-database.html
 sidebar_label: "Shared Database"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/service-collaboration/shared-database.mdx';
 
 # Shared Database
 
@@ -51,14 +55,7 @@ From the Enterprise Integration Patterns perspective (Hohpe and Woolf), Shared D
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    ACC["Account service"] --> DB[("Shared database")]
-    CS["Card service"] --> DB
-    LS["Credit service"] --> DB
-    DB --- T1["Account tables"]
-    DB --- T2["Card tables"]
-```
+<Diagram />
 
 All services read and write to the same database, which simplifies transactions and queries but creates strong coupling through the shared schema. The source illustrates the pattern with orders, customers, and payments.
 

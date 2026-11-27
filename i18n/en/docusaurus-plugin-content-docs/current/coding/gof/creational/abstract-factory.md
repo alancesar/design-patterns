@@ -12,6 +12,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/creational/abstract-factory.mdx';
+
 # Abstract Factory
 
 ## Description
@@ -57,48 +59,7 @@ In practice, the pattern works as a "factory of factories": it groups several re
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class AbstractFactory {
-        <<interface>>
-        +createProductA() AbstractProductA
-        +createProductB() AbstractProductB
-    }
-    namespace Family1["Family 1"] {
-        class ConcreteFactory1 {
-            +createProductA() AbstractProductA
-            +createProductB() AbstractProductB
-        }
-        class ProductA1
-        class ProductB1
-    }
-    namespace Family2["Family 2"] {
-        class ConcreteFactory2 {
-            +createProductA() AbstractProductA
-            +createProductB() AbstractProductB
-        }
-        class ProductA2
-        class ProductB2
-    }
-    class AbstractProductA {
-        <<interface>>
-    }
-    class AbstractProductB {
-        <<interface>>
-    }
-
-    Client --> AbstractFactory : uses
-    AbstractFactory <|.. ConcreteFactory1 : implements
-    AbstractFactory <|.. ConcreteFactory2 : implements
-    ConcreteFactory1 ..> ProductA1 : creates
-    ConcreteFactory1 ..> ProductB1 : creates
-    ConcreteFactory2 ..> ProductA2 : creates
-    ConcreteFactory2 ..> ProductB2 : creates
-    ProductA1 ..|> AbstractProductA : implements
-    ProductA2 ..|> AbstractProductA : implements
-    ProductB1 ..|> AbstractProductB : implements
-    ProductB2 ..|> AbstractProductB : implements
-```
+<Diagram />
 
 Each group (`Family 1`, `Family 2`) is a family: a concrete factory and the products it creates (`ConcreteFactory1` creates `ProductA1` and `ProductB1`; `ConcreteFactory2` creates `ProductA2` and `ProductB2`). The dashed lines with a hollow triangle (**implements**) link a class to the interface it implements, and the dashed arrows (**creates**) show which product each factory instantiates. The `Client` knows only `AbstractFactory` and the `AbstractProductA` and `AbstractProductB` interfaces; swapping the concrete factory swaps the whole family without changing the client code.
 

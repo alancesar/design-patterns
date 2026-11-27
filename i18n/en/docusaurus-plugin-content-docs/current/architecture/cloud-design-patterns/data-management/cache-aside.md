@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside
 sidebar_label: "Cache-Aside"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/data-management/cache-aside.mdx';
 
 # Cache-Aside
 
@@ -62,19 +66,7 @@ The pattern suits caches that don't offer native *read-through* or *write-throug
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    App["Application"]
-    Cache[("Cache")]
-    Store[("Data store")]
-
-    App -->|"1. Look up item by key"| Cache
-    Cache -.->|"Cache hit: returns the item"| App
-    App -->|"2. Cache miss: read from the source"| Store
-    App -->|"3. Write item to the cache (with TTL)"| Cache
-    App -->|"4. Write: update the source"| Store
-    App -->|"5. Write: invalidate the key"| Cache
-```
+<Diagram />
 
 On reads, the application checks the cache first and, on a *miss*, fetches the item from the source and writes it to the cache. On writes, it updates the source before invalidating the cache entry, so the next read brings the new value.
 

@@ -7,7 +7,11 @@ tags:
   - Shared Understanding
 source: https://api-patterns.org/
 sidebar_label: "Atomic Parameter"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/basic-structure/atomic-parameter.mdx';
 
 # Atomic Parameter
 
@@ -51,11 +55,7 @@ The designer picks the type, gives the atom a name from the domain vocabulary wh
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    C["Client"] -->|"Atomic Parameter: accountId"| P["Provider"]
-    P -->|"Atomic Parameter: balanceCents"| C
-```
+<Diagram />
 
 A single request message carries one parameter and the response returns another, both of a basic type.
 

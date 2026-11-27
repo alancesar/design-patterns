@@ -7,7 +7,11 @@ tags:
   - Decoupling
 source: https://martinfowler.com/eaaCatalog/dependentMapping.html
 sidebar_label: "Dependent Mapping"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/object-relational-structural/dependent-mapping.mdx';
 
 # Dependent Mapping
 
@@ -48,23 +52,7 @@ The lifecycle is controlled by the owner: when it's removed, its children are re
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class LoanContract {
-        +installments List
-    }
-    class Installment {
-        -LocalDate dueDate
-        -long amountCents
-    }
-    class LoanContractMapper {
-        +insert(contract)
-        +update(contract)
-    }
-    LoanContract "1" *-- "many" Installment
-    LoanContractMapper ..> LoanContract
-    LoanContractMapper ..> Installment
-```
+<Diagram />
 
 The `LoanContractMapper` saves and loads the `LoanContract` and its dependent `Installment` objects; `Installment` has no mapper of its own.
 

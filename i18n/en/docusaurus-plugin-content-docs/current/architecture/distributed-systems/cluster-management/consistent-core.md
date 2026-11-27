@@ -8,7 +8,11 @@ tags:
   - Scalability
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/consistent-core.html
 sidebar_label: "Consistent Core"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/cluster-management/consistent-core.mdx';
 
 # Consistent Core
 
@@ -56,27 +60,7 @@ Additional considerations:
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    subgraph core["Consistent core (3 to 5 nodes)"]
-        C1["Node 1 (leader)"]
-        C2["Node 2"]
-        C3["Node 3"]
-        C1 <--> C2
-        C1 <--> C3
-        C2 <--> C3
-    end
-    subgraph data["Data cluster (many nodes)"]
-        D1["Server A"]
-        D2["Server B"]
-        D3["Server C"]
-        D4["Server N"]
-    end
-    D1 --> core
-    D2 --> core
-    D3 --> core
-    D4 --> core
-```
+<Diagram />
 
 Consensus happens only among the few nodes of the core; the data servers are its clients and use its metadata and primitives to coordinate.
 

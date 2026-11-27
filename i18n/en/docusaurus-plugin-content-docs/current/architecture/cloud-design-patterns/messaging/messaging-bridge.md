@@ -9,7 +9,11 @@ also_in:
   - architecture/eip/messaging-channels
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/messaging-bridge
 sidebar_label: "Messaging Bridge"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/messaging/messaging-bridge.mdx';
 
 # Messaging Bridge
 
@@ -66,21 +70,7 @@ In the Enterprise Integration Patterns formulation (Hohpe and Woolf), the bridge
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    subgraph A["Messaging infrastructure A (on-premises)"]
-        S["Legacy system (sender)"] --> QA["Source queue"]
-        QA2["Return queue"] --> S
-    end
-    subgraph B["Messaging infrastructure B (cloud)"]
-        QB["Destination queue"] --> R["New component (receiver)"]
-        R --> QB2["Reply queue"]
-    end
-    QA --> BR["Messaging Bridge"]
-    BR --> QB
-    QB2 --> BR
-    BR --> QA2
-```
+<Diagram />
 
 The legacy system publishes messages to its native infrastructure; the bridge consumes them and relays them, without changing the payload, to the corresponding queue in the other infrastructure, and does the same in the opposite direction. Neither side needs to know there's a bridge between them (in Microsoft's example, on-premises MSMQ is connected to Azure Service Bus).
 

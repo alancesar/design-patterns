@@ -7,7 +7,11 @@ tags:
   - Performance
 source: https://api-patterns.org/
 sidebar_label: "Parameter Tree"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/basic-structure/parameter-tree.mdx';
 
 # Parameter Tree
 
@@ -53,13 +57,7 @@ A definição é recursiva. Em APIs HTTP, a árvore aparece como objetos JSON an
 
 ## Diagrama
 
-```mermaid
-flowchart TB
-    R["loanContract (raiz)"] --> I["contractId: átomo"]
-    R --> B["borrower: lista de átomos"]
-    R --> N["installments: árvores (zero ou mais)"]
-    N --> N1["number, dueDate, amountCents"]
-```
+<Diagram />
 
 A raiz mistura um átomo, uma lista e uma coleção de sub-árvores.
 

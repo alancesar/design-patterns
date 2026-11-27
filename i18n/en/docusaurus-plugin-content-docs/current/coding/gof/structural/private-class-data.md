@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/structural/private-class-data.mdx';
+
 # Private Class Data
 
 ## Description
@@ -56,24 +58,7 @@ It isn't one of the 23 patterns in the Gang of Four book. It appears in compleme
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Client
-    class MainClass {
-        -data: DataClass
-        +MainClass(attr1, attr2)
-        +operation()
-    }
-    class DataClass {
-        -attribute1
-        -attribute2
-        +DataClass(attr1, attr2)
-        +getAttribute1()
-        +getAttribute2()
-    }
-    Client --> MainClass
-    MainClass *-- DataClass
-```
+<Diagram />
 
 The `Client` uses the `MainClass`, which internally composes a `DataClass`. The `DataClass` receives the values in its constructor and exposes only read methods, so the `MainClass` uses the data without being able to reassign it.
 

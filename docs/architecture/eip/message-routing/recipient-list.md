@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://www.enterpriseintegrationpatterns.com/RecipientList.html
 sidebar_label: "Recipient List"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-routing/recipient-list.mdx';
 
 # Recipient List
 
@@ -50,13 +54,7 @@ Exemplos: um pedido pequeno consulta uma agência de crédito, mas um pedido gra
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    IN["Mensagem"] --> RL{"Recipient List"}
-    RL -->|"cópia"| A["Destinatário A"]
-    RL -->|"cópia"| C["Destinatário C"]
-    RL -.->|"não selecionado"| B["Destinatário B"]
-```
+<Diagram />
 
 A lista calculada para a mensagem inclui A e C, que recebem cópias; B não é selecionado.
 

@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://www.enterpriseintegrationpatterns.com/EventMessage.html
 sidebar_label: "Event Message"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-construction/event-message.mdx';
 
 # Event Message
 
@@ -48,12 +52,7 @@ The focus is on the fact that the event occurred, not on the volume of data. Man
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    S["Subject"] -->|"Event Message"| C["Publish-subscribe channel"]
-    C --> O1["Observer 1"]
-    C --> O2["Observer 2"]
-```
+<Diagram />
 
 The subject publishes the event once, and each observer receives it and reacts.
 

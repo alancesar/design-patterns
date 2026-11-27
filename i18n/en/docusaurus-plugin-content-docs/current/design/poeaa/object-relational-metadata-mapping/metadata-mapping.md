@@ -7,7 +7,11 @@ tags:
   - Extensibility
 source: https://martinfowler.com/eaaCatalog/metadataMapping.html
 sidebar_label: "Metadata Mapping"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/object-relational-metadata-mapping/metadata-mapping.mdx';
 
 # Metadata Mapping
 
@@ -52,29 +56,7 @@ It is the foundation of most ORM frameworks, which combine the pattern with [Dat
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class MetadataMapper {
-        +find(id)
-        +insert(obj)
-        +update(obj)
-    }
-    class ClassMap {
-        +tableName
-        +columnMaps
-    }
-    class ColumnMap {
-        +columnName
-        +fieldName
-        +getValue(obj)
-        +setValue(obj, value)
-    }
-    class DomainObject
-    MetadataMapper --> ClassMap
-    ClassMap "1" --> "*" ColumnMap
-    MetadataMapper ..> DomainObject
-    ColumnMap ..> DomainObject
-```
+<Diagram />
 
 The generic `MetadataMapper` looks up the class's `ClassMap`, which holds one `ColumnMap` per field, and uses that information to read and write the `DomainObject` without any class-specific code.
 

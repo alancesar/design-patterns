@@ -6,7 +6,11 @@ tags:
   - Consistency
 source: https://martinfowler.com/eaaCatalog/associationTableMapping.html
 sidebar_label: "Association Table Mapping"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/object-relational-structural/association-table-mapping.mdx';
 
 # Association Table Mapping
 
@@ -46,15 +50,7 @@ If the relationship has attributes of its own (date, role), the association tabl
 
 ## Diagram
 
-```mermaid
-erDiagram
-    ACCOUNT ||--o{ ACCOUNT_HOLDER : has
-    HOLDER ||--o{ ACCOUNT_HOLDER : has
-    ACCOUNT_HOLDER {
-        bigint account_id PK
-        bigint holder_id PK
-    }
-```
+<Diagram />
 
 The `ACCOUNT_HOLDER` table links `ACCOUNT` and `HOLDER`, with a primary key composed of the two foreign keys.
 

@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/versioning/version-identifier.mdx';
+
 # Version Identifier
 
 ## Descrição
@@ -58,17 +60,7 @@ Quem recebe uma mensagem com versão desconhecida ou incompatível pode abortar 
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant C as Client
-    participant A as API
-    C->>A: Request com Version Identifier = 2
-    alt Versão suportada
-        A-->>C: Response (contrato da v2)
-    else Versão desconhecida
-        A-->>C: Error Report (versão não suportada)
-    end
-```
+<Diagram />
 
 O cliente declara a versão que espera. O provedor atende se a conhece e, caso contrário, responde com um erro explícito, em vez de arriscar uma interpretação errada.
 

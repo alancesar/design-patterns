@@ -6,7 +6,11 @@ tags:
   - Reliability
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/retry
 sidebar_label: "Retry"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/resiliency/retry.mdx';
 
 # Retry
 
@@ -57,16 +61,7 @@ The retry logic is usually encapsulated in a reusable policy (maximum number of 
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    A["Application"] -->|"Request"| B["Remote service"]
-    B --> C{"Success?"}
-    C -->|"Yes"| D["Returns result"]
-    C -->|"No"| E{"Transient failure and retries left?"}
-    E -->|"Yes"| F["Waits for interval (backoff with jitter)"]
-    F -->|"Retry"| B
-    E -->|"No"| G["Handles as exception"]
-```
+<Diagram />
 
 The application repeats the request after increasing intervals as long as the failures are transient; if the attempt limit is exhausted, the failure is no longer masked and is handled as an exception.
 

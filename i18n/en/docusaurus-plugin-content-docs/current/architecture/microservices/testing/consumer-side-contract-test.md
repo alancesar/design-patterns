@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://microservices.io/patterns/testing/consumer-side-contract-test.html
 sidebar_label: "Consumer-side Contract Test"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/testing/consumer-side-contract-test.mdx';
 
 # Consumer-side Contract Test
 
@@ -47,18 +51,7 @@ It's the mirror image of [Consumer-driven Contract Test](/architecture/microserv
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant T as Consumer test
-    participant C as Consumer service
-    participant S as Provider stub
-    participant K as Contract
-    K->>S: generates the stub
-    T->>C: triggers the scenario
-    C->>S: request
-    S-->>C: response defined in the contract
-    C-->>T: verified result
-```
+<Diagram />
 
 The consumer is tested against a stub derived from the contract, without depending on the real provider.
 

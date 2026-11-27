@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://www.enterpriseintegrationpatterns.com/ChannelPurger.html
 sidebar_label: "Channel Purger"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/system-management/channel-purger.mdx';
 
 # Channel Purger
 
@@ -49,13 +53,7 @@ Persistent, asynchronous messaging can leave stray messages behind. They sit wai
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    P["Producer"] --> C["Channel"]
-    C --> D["Consumer"]
-    Op["Operator or test"] --> U["Channel Purger"]
-    U -- "removes messages" --> C
-```
+<Diagram />
 
 The purger acts directly on the channel, removing all messages or only those that match the criteria.
 

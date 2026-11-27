@@ -7,7 +7,11 @@ tags:
   - Security
 source: https://k8spatterns.com/
 sidebar_label: "Image Builder"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/kubernetes-patterns/advanced/image-builder.mdx';
 
 # Image Builder
 
@@ -69,14 +73,7 @@ Because the tooling landscape changes fast and projects can be discontinued, con
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    G["Source repository"] -->|"Push"| T["Build trigger"]
-    T --> B["Build Job (rootless, daemonless builder)"]
-    B -->|"Publishes image pix-service:1.4.2"| R["Registry"]
-    R -->|"New image"| D["Deployment pix-service"]
-    BI["Fixed base image"] -->|"Triggers a new build"| T
-```
+<Diagram />
 
 The build runs as a Job in the cluster itself; the published image feeds the Deployment, and the update of a base image triggers a new build.
 

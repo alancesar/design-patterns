@@ -7,7 +7,11 @@ tags:
   - Decoupling
 source: https://martinfowler.com/eaaCatalog/templateView.html
 sidebar_label: "Template View"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/web-presentation/template-view.mdx';
 
 # Template View
 
@@ -50,16 +54,7 @@ The markers can be custom tags, expressions, or, in the more problematic forms, 
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant Controller
-    participant TemplateEngine
-    participant Template
-    Controller->>TemplateEngine: render(template, model)
-    TemplateEngine->>Template: loads page with markers
-    Template-->>TemplateEngine: HTML with placeholders
-    TemplateEngine-->>Controller: final HTML with data
-```
+<Diagram />
 
 The controller hands the model to the template engine, which loads the page with markers and returns the HTML with the values substituted.
 

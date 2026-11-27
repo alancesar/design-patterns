@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://microservices.io/patterns/data/polling-publisher.html
 sidebar_label: "Polling Publisher"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/transactional-messaging/polling-publisher.mdx';
 
 # Polling Publisher
 
@@ -48,20 +52,7 @@ It's the simplest approach to adopt, since it uses only ordinary database querie
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant S as Service
-    participant DB as Database
-    participant P as Polling Publisher
-    participant B as Message broker
-    S->>DB: Writes data and message to the outbox (same transaction)
-    loop Every interval
-        P->>DB: Queries pending messages
-        DB-->>P: Messages
-        P->>B: Publishes messages
-        P->>DB: Marks as sent or deletes
-    end
-```
+<Diagram />
 
 The publisher queries the outbox periodically, sends the messages to the broker, and updates the state in the database.
 

@@ -8,7 +8,11 @@ tags:
   - Decoupling
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Bounded Context"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/model-in-practice/bounded-context.mdx';
 
 # Bounded Context
 
@@ -52,20 +56,7 @@ The Bounded Context is the foundation of strategic design: it's where the Ubiqui
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    subgraph Onboarding ["Onboarding Context"]
-        O1["Customer = applicant with KYC dossier and documents"]
-    end
-    subgraph Credito ["Credit Context"]
-        R1["Customer = borrower with score and limit"]
-    end
-    subgraph Cobranca ["Collections Context"]
-        C1["Customer = debtor with overdue installments"]
-    end
-    Onboarding -->|"translates"| Credito
-    Credito -->|"translates"| Cobranca
-```
+<Diagram />
 
 The term "Customer" has its own model in each context, and the arrows indicate translation points between them.
 

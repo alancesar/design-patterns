@@ -7,7 +7,11 @@ tags:
   - Decoupling
 source: https://martinfowler.com/eaaCatalog/templateView.html
 sidebar_label: "Template View"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/web-presentation/template-view.mdx';
 
 # Template View
 
@@ -50,16 +54,7 @@ Os marcadores podem ser tags customizadas, expressões ou, nas formas mais probl
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant Controller
-    participant TemplateEngine
-    participant Template
-    Controller->>TemplateEngine: render(template, model)
-    TemplateEngine->>Template: carrega pagina com marcadores
-    Template-->>TemplateEngine: HTML com placeholders
-    TemplateEngine-->>Controller: HTML final com dados
-```
+<Diagram />
 
 O controller entrega o model ao motor de templates, que carrega a página com marcadores e devolve o HTML com os valores substituídos.
 

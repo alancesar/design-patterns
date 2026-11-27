@@ -7,7 +7,11 @@ tags:
   - Testability
 source: https://martinfowler.com/eaaCatalog/gateway.html
 sidebar_label: "Gateway"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/base/gateway.mdx';
 
 # Gateway
 
@@ -54,19 +58,7 @@ Because the client depends only on the Gateway's interface, the resource can be 
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Client
-    class Gateway {
-        +fetchData()
-        +sendData()
-    }
-    class ExternalSystem {
-        +specializedCall()
-    }
-    Client --> Gateway
-    Gateway --> ExternalSystem
-```
+<Diagram />
 
 The `Client` uses only the `Gateway`, which translates its calls into specific operations on the `ExternalSystem`. The external system isn't visible to the rest of the application.
 

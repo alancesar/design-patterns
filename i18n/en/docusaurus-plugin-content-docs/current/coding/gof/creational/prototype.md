@@ -12,6 +12,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/creational/prototype.mdx';
+
 # Prototype
 
 ## Description
@@ -59,34 +61,7 @@ The central implementation decision is between a shallow copy, which shares inte
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Prototype {
-        <<interface>>
-        +clone() Prototype
-    }
-    class ConcretePrototypeA {
-        -field String
-        +clone() Prototype
-    }
-    class ConcretePrototypeB {
-        -field String
-        +clone() Prototype
-    }
-    class PrototypeRegistry {
-        -items Map
-        +register(key, prototype)
-        +get(key) Prototype
-    }
-    class Client {
-        +operation()
-    }
-    Prototype <|.. ConcretePrototypeA
-    Prototype <|.. ConcretePrototypeB
-    PrototypeRegistry o-- Prototype
-    Client --> Prototype : clones
-    Client --> PrototypeRegistry
-```
+<Diagram />
 
 `Prototype` declares the `clone()` operation, implemented by `ConcretePrototypeA` and `ConcretePrototypeB`, which copy their own state. The `Client` creates new objects by asking the prototypes for copies, optionally obtained from a `PrototypeRegistry` that keeps them indexed by key.
 

@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://www.enterpriseintegrationpatterns.com/FileTransferIntegration.html
 sidebar_label: "File Transfer"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/integration-styles/file-transfer.mdx';
 
 # File Transfer
 
@@ -54,12 +58,7 @@ A escolha do formato (texto delimitado, largura fixa, XML, JSON, formatos legado
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    A["Aplicação A (produtora)"] -->|"grava"| F["Arquivo em formato combinado"]
-    F -->|"lê"| T["Conversor de formato"]
-    T --> B["Aplicação B (consumidora)"]
-```
+<Diagram />
 
 A aplicação produtora grava um arquivo periodicamente; um conversor adapta o formato e a aplicação consumidora o lê no seu próprio ritmo.
 

@@ -10,7 +10,11 @@ also_in:
   - design/ddd/building-blocks
 source: https://martinfowler.com/eaaCatalog/valueObject.html
 sidebar_label: "Value Object"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/base/value-object.mdx';
 
 # Value Object
 
@@ -57,18 +61,7 @@ In practice, a good Value Object is immutable, compares by value (implementing e
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Account {
-        +id
-    }
-    class PixKey {
-        +keyType
-        +value
-        +equals(other)
-    }
-    Account --> PixKey
-```
+<Diagram />
 
 The `Account` entity owns a `PixKey`. The `PixKey` has no identity: it's compared and replaced by value.
 

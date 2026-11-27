@@ -7,7 +7,11 @@ tags:
   - Performance
 source: https://martinfowler.com/eaaCatalog/tableModule.html
 sidebar_label: "Table Module"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/domain-logic/table-module.mdx';
 
 # Table Module
 
@@ -52,23 +56,7 @@ The pattern works very well with Record Set, in-memory tabular structures provid
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Client
-    class Contracts {
-        +PayoffCents(contractId) long
-    }
-    class Installments {
-        +OutstandingBalanceCents(contractId) long
-    }
-    class RecordSet
-    class TableDataGateway
-    Client --> Contracts
-    Contracts --> Installments
-    Contracts --> RecordSet
-    Installments --> RecordSet
-    TableDataGateway --> RecordSet
-```
+<Diagram />
 
 Each table has a module (`Contracts`, `Installments`) that operates on a `RecordSet` loaded by a table gateway.
 

@@ -12,6 +12,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/behavioral/iterator.mdx';
+
 # Iterator
 
 ## Description
@@ -60,35 +62,7 @@ The aggregate acts as an iterator factory through a method such as `createIterat
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Iterator {
-        <<interface>>
-        +hasNext() bool
-        +next() Object
-    }
-    class Aggregate {
-        <<interface>>
-        +createIterator() Iterator
-    }
-    class ConcreteIterator {
-        -collection ConcreteAggregate
-        -position int
-        +hasNext() bool
-        +next() Object
-    }
-    class ConcreteAggregate {
-        -items List
-        +createIterator() Iterator
-    }
-    class Client
-    Iterator <|.. ConcreteIterator
-    Aggregate <|.. ConcreteAggregate
-    ConcreteAggregate ..> ConcreteIterator : creates
-    ConcreteIterator --> ConcreteAggregate : traverses
-    Client --> Aggregate
-    Client --> Iterator
-```
+<Diagram />
 
 The `Client` obtains an `Iterator` from the `Aggregate` and walks the elements without knowing the internal structure. The `ConcreteAggregate` creates the `ConcreteIterator`, which keeps the current traversal position over the collection.
 

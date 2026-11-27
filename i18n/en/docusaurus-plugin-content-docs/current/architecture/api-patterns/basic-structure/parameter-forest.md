@@ -7,7 +7,11 @@ tags:
   - Shared Understanding
 source: https://api-patterns.org/
 sidebar_label: "Parameter Forest"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/basic-structure/parameter-forest.mdx';
 
 # Parameter Forest
 
@@ -49,13 +53,7 @@ In most technology mappings, a forest is equivalent to a [Parameter Tree](/archi
 
 ## Diagram
 
-```mermaid
-flowchart TB
-    M["Response message"] --> T1["Tree: accounts"]
-    M --> T2["Tree: cards"]
-    T1 --> A1["Account with LedgerEntry"]
-    T2 --> C1["Card with limits"]
-```
+<Diagram />
 
 The message carries two trees at the top level, with no common root.
 

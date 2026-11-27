@@ -7,7 +7,11 @@ tags:
   - Fault Tolerance
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/generation-clock.html
 sidebar_label: "Generation Clock"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/data-replication/generation-clock.mdx';
 
 # Generation Clock
 
@@ -50,17 +54,7 @@ It's the idea behind Raft's *term*, ZooKeeper ZAB's *epoch*, and Kafka's *leader
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant Old as Old leader (generation 1)
-    participant F as Follower
-    participant New as New leader (generation 2)
-    New->>F: replicates entry (generation 2)
-    F-->>New: ack
-    Old->>F: replicates entry (generation 1)
-    F-->>Old: rejects, current generation is 2
-    Note over Old: steps down from leadership
-```
+<Diagram />
 
 The follower has already seen generation 2 and rejects the old leader's message, which learns that it has been deposed.
 

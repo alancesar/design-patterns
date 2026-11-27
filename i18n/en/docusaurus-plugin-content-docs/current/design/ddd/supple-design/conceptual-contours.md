@@ -7,7 +7,11 @@ tags:
   - Strategic Focus
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Conceptual Contours"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/supple-design/conceptual-contours.mdx';
 
 # Conceptual Contours
 
@@ -51,16 +55,7 @@ Contours are rarely found on the first attempt. The team discovers them by refac
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    A["Before: installment with interest, IOF, and insurance"] -->|"IOF change affects everything"| B["Refactoring"]
-    B --> C["Interest"]
-    B --> D["Iof"]
-    B --> E["Insurance"]
-    C -.->|"change independently"| F["Localized changes"]
-    D -.-> F
-    E -.-> F
-```
+<Diagram />
 
 By separating interest, IOF, and insurance into units that change independently, each requirement change is confined to one of them.
 

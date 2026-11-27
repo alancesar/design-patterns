@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/gatekeeper
 sidebar_label: "Gatekeeper"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/security-and-access/gatekeeper.mdx';
 
 # Gatekeeper
 
@@ -59,20 +63,7 @@ Unlike a traditional network firewall, the gatekeeper makes application-driven d
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    C["Clients (untrusted network)"] --> G
-    subgraph Publico["Public zone - least privilege"]
-        G["Gatekeeper: validates, sanitizes, authorizes, and rate-limits"]
-    end
-    G -- "Request rejected" --> X["Error response"]
-    G -- "Request approved" --> Q["Internal endpoint, queue, or broker"]
-    subgraph Privado["Private zone - full trust"]
-        Q --> T["Trusted host (business logic)"]
-        T --> S["Services"]
-        T --> D[("Data store")]
-    end
-```
+<Diagram />
 
 Clients only reach the gatekeeper, which runs with minimal privileges and discards invalid requests. Approved requests follow an internal channel to the trusted host, the only one that holds credentials to access services and data.
 

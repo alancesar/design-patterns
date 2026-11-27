@@ -9,7 +9,11 @@ tags:
 origin: Azure, Google
 source: https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns#concurrent-orchestration
 sidebar_label: "Concurrent Orchestration"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/ai/agent-patterns/deterministic-workflows/concurrent-orchestration.mdx';
 
 # Concurrent Orchestration
 
@@ -62,18 +66,7 @@ Também é conhecido como *parallel*, *fan-out/fan-in*, *scatter-gather*, *map-r
 
 ## Diagrama
 
-```mermaid
-%% Fan-out/fan-in: o orquestrador distribui a mesma entrada e agrega os resultados
-flowchart LR
-    E["Entrada"] --> O["Orquestrador (iniciador)"]
-    O --> A1["Agente 1"]
-    O --> A2["Agente 2"]
-    O --> A3["Agente n"]
-    A1 --> C["Coletor"]
-    A2 --> C
-    A3 --> C
-    C --> R["Resultado agregado"]
-```
+<Diagram />
 
 O orquestrador envia a mesma entrada a todos os agentes ao mesmo tempo, e o coletor combina, compara ou seleciona as saídas intermediárias.
 

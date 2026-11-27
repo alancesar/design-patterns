@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://www.enterpriseintegrationpatterns.com/PollingConsumer.html
 sidebar_label: "Polling Consumer"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/messaging-endpoints/polling-consumer.mdx';
 
 # Polling Consumer
 
@@ -47,16 +51,7 @@ As APIs de mensageria costumam oferecer receive bloqueante, que espera até cheg
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant A as Aplicação
-    participant C as Canal
-    loop enquanto ativo
-        A->>C: receive
-        C-->>A: mensagem ou vazio
-        A->>A: processa
-    end
-```
+<Diagram />
 
 A aplicação pede mensagens em laço e processa cada uma que chega.
 

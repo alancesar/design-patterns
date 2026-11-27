@@ -7,7 +7,11 @@ tags:
   - Consistency
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Side-Effect-Free Functions"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/supple-design/side-effect-free-functions.mdx';
 
 # Side-Effect-Free Functions
 
@@ -51,20 +55,7 @@ The effect is a strong reduction in mental load: the developer can call and comp
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Account {
-        -Money balance
-        +credit(Money amount)
-    }
-    class Money {
-        -long cents
-        +plus(Money other) Money
-        +times(BigDecimal rate) Money
-        +allocate(int[] ratios) List~Money~
-    }
-    Account --> Money : balance
-```
+<Diagram />
 
 `Account.credit` is a command that changes state, while `Money.times` and `Money.allocate` are pure functions that compute new values without altering any object. The book illustrates the pattern with paint mixing.
 

@@ -7,7 +7,11 @@ tags:
   - Cost Optimization
 source: https://www.enterpriseintegrationpatterns.com/GuaranteedMessaging.html
 sidebar_label: "Guaranteed Delivery"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/messaging-channels/guaranteed-delivery.mdx';
 
 # Guaranteed Delivery
 
@@ -51,20 +55,7 @@ The guarantee comes at the price of writing to disk at every hop, which increase
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant S as Sender
-    participant M1 as Local store A
-    participant M2 as Local store B
-    participant R as Receiver
-    S->>M1: sends message
-    M1-->>S: written to disk
-    M1->>M2: forwards message
-    M2-->>M1: written to disk
-    M1->>M1: discards the local copy
-    M2->>R: delivers message
-    R-->>M2: acknowledges receipt
-```
+<Diagram />
 
 Each hop writes the message to disk before acknowledging, and the copy is discarded only once the next store has taken over, until the receiver acknowledges.
 

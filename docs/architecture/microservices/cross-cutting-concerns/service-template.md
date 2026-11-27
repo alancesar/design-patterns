@@ -7,7 +7,11 @@ tags:
   - Security
 source: https://microservices.io/patterns/service-template.html
 sidebar_label: "Service Template"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/cross-cutting-concerns/service-template.mdx';
 
 # Service Template
 
@@ -50,13 +54,7 @@ O template costuma usar um Microservice Chassis para o código de framework comp
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    T["Service Template (build, preocupações transversais, exemplo)"] -- "cópia ou fork" --> A["Serviço A"]
-    T -- "cópia ou fork" --> B["Serviço B"]
-    T -- "cópia ou fork" --> C["Serviço C"]
-    CH["Microservice Chassis"] -. "dependência compartilhada" .-> T
-```
+<Diagram />
 
 Cada novo serviço nasce de uma cópia do template, que pode depender de um chassis para o código compartilhado.
 

@@ -7,7 +7,11 @@ tags:
   - Reliability
 source: https://www.enterpriseintegrationpatterns.com/BroadcastAggregate.html
 sidebar_label: "Scatter-Gather"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-routing/scatter-gather.mdx';
 
 # Scatter-Gather
 
@@ -48,17 +52,7 @@ There are two variants. In the **distribution** variant, a Recipient List sends 
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    Q["Exchange rate quote request"] --> RL{"Recipient List or Publish-Subscribe"}
-    RL --> F1["Liquidity provider 1"]
-    RL --> F2["Liquidity provider 2"]
-    RL --> F3["Liquidity provider 3"]
-    F1 --> AG["Aggregator"]
-    F2 --> AG
-    F3 --> AG
-    AG --> R["Best rate"]
-```
+<Diagram />
 
 The quote request is spread out to the liquidity providers and the rates are collected into the best offer. The source illustrates the pattern with a quote for an order item requested from several vendors.
 

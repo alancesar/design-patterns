@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/documentation/pricing-plan.mdx';
+
 # Pricing Plan
 
 ## Descrição
@@ -57,16 +59,7 @@ As variantes mais comuns são três. No **preço por assinatura**, o cliente pag
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    C["Cliente com API Key"] --> G["API Gateway"]
-    G --> A["API de Cobranças Pix"]
-    G -->|"evento de uso"| M["Medição"]
-    M --> B["Faturamento"]
-    P["Pricing Plan"] -.->|"regras de faixa"| B
-    P -.->|"limites por faixa"| G
-    B --> I["Fatura mensal"]
-```
+<Diagram />
 
 O gateway identifica o cliente, mede o uso e repassa os eventos para o faturamento, que aplica as faixas definidas no plano.
 

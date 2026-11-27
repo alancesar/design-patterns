@@ -10,7 +10,11 @@ also_in:
   - architecture/distributed-systems/data-replication
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/idempotent-consumer
 sidebar_label: "Idempotent Consumer"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/messaging/idempotent-consumer.mdx';
 
 # Idempotent Consumer
 
@@ -75,18 +79,7 @@ Additional considerations:
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    P["Producer"] -->|"publishes message with key K"| B["Broker (at-least-once)"]
-    B -->|"delivers or redelivers"| C["Consumer"]
-    C --> D{"Key K already processed?"}
-    D -->|"No"| T["Atomic transaction: records K + business effects"]
-    T --> S[("Key and data store")]
-    T --> A["Acknowledges message (ack)"]
-    D -->|"Yes"| X["Discards duplicate and acknowledges"]
-    X --> A
-    A --> B
-```
+<Diagram />
 
 The consumer checks the deduplication key and, if it's new, writes the key and the business effects in the same atomic transaction before acknowledging. When the same message arrives again, the key already exists (guaranteed by a uniqueness constraint in the store), and the consumer simply acknowledges and discards the duplicate without repeating the effects.
 

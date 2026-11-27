@@ -8,7 +8,11 @@ also_in:
   - architecture/microservices/service-collaboration
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/saga
 sidebar_label: "Saga"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/distributed-coordination/saga.mdx';
 
 # Saga
 
@@ -67,24 +71,7 @@ In microservices, the Saga is the direct consequence of the Database per Service
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    subgraph Orquestracao["Orchestration"]
-        O["Saga orchestrator"] -->|"1. Create contract"| P1["Contract service"]
-        O -->|"2. Reserve funding"| P2["Funding service"]
-        O -->|"3. Disburse via Pix"| P3["Payment service"]
-        P3 -.->|"Failure"| O
-        O -.->|"Compensate: release funding"| P2
-        O -.->|"Compensate: cancel contract"| P1
-    end
-
-    subgraph Coreografia["Choreography"]
-        C1["Contract service"] -->|"Event: contract created"| C2["Funding service"]
-        C2 -->|"Event: funding reserved"| C3["Payment service"]
-        C3 -.->|"Event: disbursement failed"| C2
-        C2 -.->|"Event: funding released"| C1
-    end
-```
+<Diagram />
 
 In a loan origination, orchestration has a central component that sends commands to each participant and, when a step fails, triggers the compensations in reverse order. In choreography, the services themselves react to each other's events, and the compensations also propagate through events (dashed lines). Releasing the funding and canceling the contract are new actions that do not erase the original record.
 

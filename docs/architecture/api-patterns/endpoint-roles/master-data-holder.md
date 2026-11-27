@@ -7,7 +7,11 @@ tags:
   - Evolvability
 source: https://api-patterns.org/
 sidebar_label: "Master Data Holder"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/endpoint-roles/master-data-holder.mdx';
 
 # Master Data Holder
 
@@ -60,13 +64,7 @@ As atualizações podem ser de granularidade grossa, que substituem a maior part
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    S1["Serviço de crédito"] -->|"referencia"| MD["Master Data Holder: /customers"]
-    S2["Serviço de cartões"] -->|"referencia"| MD
-    S3["Serviço de Pix"] -->|"consulta"| MD
-    MD --> DB[("Cadastro de clientes")]
-```
+<Diagram />
 
 Vários serviços referenciam e consultam a mesma fonte mestra, que concentra a validação e a manutenção.
 

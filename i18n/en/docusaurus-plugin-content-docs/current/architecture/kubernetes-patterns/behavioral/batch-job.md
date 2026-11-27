@@ -7,7 +7,11 @@ tags:
   - Cost Optimization
 source: https://k8spatterns.com/
 sidebar_label: "Batch Job"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/kubernetes-patterns/behavioral/batch-job.mdx';
 
 # Batch Job
 
@@ -56,17 +60,7 @@ A bare Pod is not recreated if its node fails. The Job takes over that responsib
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    J["Job: ledger-reconciliation"] --> P1["Pod 1"]
-    J --> P2["Pod 2"]
-    P1 -->|"Success"| OK["Completion count"]
-    P2 -->|"Failure"| R["New Pod created"]
-    R -->|"Success"| OK
-    OK --> D{"completions reached?"}
-    D -->|"Yes"| F["Job completed"]
-    D -->|"No"| J
-```
+<Diagram />
 
 The Job creates Pods in parallel, replaces the ones that fail and is only marked as complete when the number of successful executions reaches the value of `completions`.
 

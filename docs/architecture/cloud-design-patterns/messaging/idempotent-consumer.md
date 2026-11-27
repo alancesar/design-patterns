@@ -10,7 +10,11 @@ also_in:
   - architecture/distributed-systems/data-replication
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/idempotent-consumer
 sidebar_label: "Idempotent Consumer"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/messaging/idempotent-consumer.mdx';
 
 # Idempotent Consumer
 
@@ -75,18 +79,7 @@ Considerações adicionais:
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    P["Produtor"] -->|"publica mensagem com chave K"| B["Broker (at-least-once)"]
-    B -->|"entrega ou reentrega"| C["Consumidor"]
-    C --> D{"Chave K já processada?"}
-    D -->|"Não"| T["Transação atômica: registra K + efeitos de negócio"]
-    T --> S[("Armazenamento de chaves e dados")]
-    T --> A["Confirma mensagem (ack)"]
-    D -->|"Sim"| X["Descarta duplicata e confirma"]
-    X --> A
-    A --> B
-```
+<Diagram />
 
 O consumidor verifica a chave de deduplicação e, se ela for nova, grava a chave e os efeitos de negócio na mesma transação atômica antes de confirmar. Quando a mesma mensagem chega de novo, a chave já existe (garantido por restrição de unicidade no armazenamento) e o consumidor apenas confirma e descarta a duplicata, sem repetir os efeitos.
 

@@ -8,7 +8,11 @@ tags:
   - Performance Efficiency
 source: https://microservices.io/patterns/observability/application-metrics.html
 sidebar_label: "Application Metrics"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/observability/application-metrics.mdx';
 
 # Application Metrics
 
@@ -49,19 +53,7 @@ Metrics give a quantitative, low-cost view of system behavior over time, and are
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    S1["Service A (instrumented)"]
-    S2["Service B (instrumented)"]
-    M["Metrics service"]
-    D["Dashboards"]
-    AL["Alerts"]
-
-    S1 -->|"push"| M
-    M -->|"pull"| S2
-    M --> D
-    M --> AL
-```
+<Diagram />
 
 Services expose or send metrics to the central service, which feeds dashboards and alerts.
 

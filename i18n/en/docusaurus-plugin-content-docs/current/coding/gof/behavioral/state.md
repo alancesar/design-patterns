@@ -12,6 +12,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/behavioral/state.mdx';
+
 # State
 
 ## Description
@@ -57,29 +59,7 @@ In practice, the pattern is an object-oriented way to implement a finite state m
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Context {
-        -state: State
-        +setState(state: State)
-        +request()
-    }
-    class State {
-        <<interface>>
-        +handle(context: Context)
-    }
-    class ConcreteStateA {
-        +handle(context: Context)
-    }
-    class ConcreteStateB {
-        +handle(context: Context)
-    }
-    Context o--> State : current state
-    State <|.. ConcreteStateA
-    State <|.. ConcreteStateB
-    ConcreteStateA ..> ConcreteStateB : transitions to
-    ConcreteStateB ..> ConcreteStateA : transitions to
-```
+<Diagram />
 
 The `Context` delegates `request()` to the current `State`. Each `ConcreteState` implements that state's behavior and can call `setState()` on the context to trigger the transition to another state.
 

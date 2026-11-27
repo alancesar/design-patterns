@@ -7,7 +7,11 @@ tags:
   - Performance
 source: https://martinfowler.com/eaaCatalog/identityMap.html
 sidebar_label: "Identity Map"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/object-relational-behavioral/identity-map.mdx';
 
 # Identity Map
 
@@ -53,23 +57,7 @@ There is usually one map per class (or per table), and it lives within the scope
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant Client
-    participant Mapper
-    participant IdentityMap
-    participant Database
-    Client->>Mapper: find(42)
-    Mapper->>IdentityMap: get(42)
-    alt object in the map
-        IdentityMap-->>Mapper: existing object
-    else object missing
-        Mapper->>Database: SELECT ... WHERE id = 42
-        Database-->>Mapper: row
-        Mapper->>IdentityMap: put(42, object)
-    end
-    Mapper-->>Client: object
-```
+<Diagram />
 
 The `Mapper` checks the `IdentityMap` before going to the `Database`; if the object isn't there, it loads the row, registers it in the map, and returns it. Subsequent calls with the same id return the same instance.
 

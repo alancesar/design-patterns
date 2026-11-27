@@ -7,7 +7,11 @@ tags:
   - Reliability
 source: https://www.enterpriseintegrationpatterns.com/MessageHistory.html
 sidebar_label: "Message History"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/system-management/message-history.mdx';
 
 # Message History
 
@@ -48,16 +52,7 @@ A lista fica no cabeçalho, separada do payload de negócio, mantendo dados de c
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant A as App A
-    participant R as Roteador
-    participant T as Tradutor
-    participant B as App B
-    A->>R: msg com historico A
-    R->>T: msg com historico A, R
-    T->>B: msg com historico A, R, T
-```
+<Diagram />
 
 A cada componente a mensagem ganha uma entrada no histórico, de modo que o destino conhece todo o caminho percorrido.
 

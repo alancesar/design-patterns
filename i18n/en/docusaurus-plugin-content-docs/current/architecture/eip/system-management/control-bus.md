@@ -7,7 +7,11 @@ tags:
   - Reliability
 source: https://www.enterpriseintegrationpatterns.com/ControlBus.html
 sidebar_label: "Control Bus"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/system-management/control-bus.mdx';
 
 # Control Bus
 
@@ -50,16 +54,7 @@ Every component of the solution connects to two subsystems: the business message
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    Admin["Admin console"] --> CB["Control Bus"]
-    CB --> R["Router"]
-    CB --> F["Filter"]
-    CB --> T["Translator"]
-    R -. "metrics and heartbeat" .-> CB
-    F -. "metrics and heartbeat" .-> CB
-    T -. "metrics and heartbeat" .-> CB
-```
+<Diagram />
 
 The console sends commands to the components through the Control Bus, and they respond with metrics and heartbeats over the same channel, which is separate from the data flow.
 

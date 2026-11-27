@@ -7,7 +7,11 @@ tags:
   - Evolvability
 source: https://api-patterns.org/
 sidebar_label: "Link Element"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/element-stereotypes/link-element.mdx';
 
 # Link Element
 
@@ -60,13 +64,7 @@ Os tipos semânticos de link mais comuns são: **next** (próximo passo de um pr
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    C["Cliente"] -->|"1. GET boleto"| B["/boletos/bol_5521"]
-    B -->|"2. resposta com links"| C
-    C -->|"3. segue o link pay"| P["/boletos/bol_5521/payment"]
-    C -.->|"ou segue o link cancel"| X["/boletos/bol_5521/cancellation"]
-```
+<Diagram />
 
 A resposta do boleto traz links com as ações válidas, e o cliente escolhe um deles em vez de construir a URL por conta própria.
 

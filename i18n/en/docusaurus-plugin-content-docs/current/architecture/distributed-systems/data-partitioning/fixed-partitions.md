@@ -7,7 +7,11 @@ tags:
   - Performance
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/fixed-partitions.html
 sidebar_label: "Fixed Partitions"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/data-partitioning/fixed-partitions.mdx';
 
 # Fixed Partitions
 
@@ -53,14 +57,7 @@ The partition → node mapping must be known to the clients or to the nodes that
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    C["Client"] -->|"key hash"| P["Logical partition (1 of 1024)"]
-    P --> T["Partition-to-node table"]
-    T --> N1["Node 1"]
-    T --> N2["Node 2"]
-    T --> N3["Node 3 (new)"]
-```
+<Diagram />
 
 The key hash always yields the same partition; only the partition → node table changes when the cluster is resized, moving some partitions to the new node.
 

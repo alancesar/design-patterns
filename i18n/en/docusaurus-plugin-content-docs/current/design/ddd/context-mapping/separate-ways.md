@@ -7,7 +7,11 @@ tags:
   - Simplicity
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Separate Ways"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/context-mapping/separate-ways.mdx';
 
 # Separate Ways
 
@@ -51,12 +55,7 @@ As a strategic decision, it should appear in the Context Map so that nobody trie
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    A["Cashback Context"] ~~~ B["Foreign Exchange Context"]
-    A --- X["no integration"]
-    B --- X
-```
+<Diagram />
 
 The two contexts coexist in the same ecosystem, but with no integration relationship whatsoever.
 

@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://www.enterpriseintegrationpatterns.com/DataEnricher.html
 sidebar_label: "Content Enricher"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-transformation/content-enricher.mdx';
 
 # Content Enricher
 
@@ -52,13 +56,7 @@ Com isso, remetentes não precisam carregar todos os campos que qualquer destina
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    P["Produtor"] -->|"Mensagem incompleta"| E["Content Enricher"]
-    E -->|"Consulta por chave"| F[("Fonte de dados")]
-    F -->|"Dados adicionais"| E
-    E -->|"Mensagem enriquecida"| D["Destinatário"]
-```
+<Diagram />
 
 O enricher usa uma chave da mensagem para buscar os dados ausentes na fonte e entrega ao destinatário a mensagem completa.
 

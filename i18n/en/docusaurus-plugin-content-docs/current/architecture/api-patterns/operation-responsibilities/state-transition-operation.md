@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/operation-responsibilities/state-transition-operation.mdx';
+
 # State Transition Operation
 
 ## Description
@@ -59,16 +61,7 @@ The Business Activity Processor variant exposes the states and primitives of an 
 
 ## Diagram
 
-```mermaid
-stateDiagram-v2
-    [*] --> REQUESTED
-    REQUESTED --> APPROVED : approve
-    REQUESTED --> CANCELED : cancel
-    APPROVED --> DISBURSED : disburse
-    APPROVED --> CANCELED : cancel
-    DISBURSED --> [*]
-    CANCELED --> [*]
-```
+<Diagram />
 
 Each operation moves the contract from one state to another. Requests that do not follow one of the arrows, such as canceling an already disbursed contract, are rejected.
 

@@ -1,0 +1,6 @@
+```mermaid
+flowchart LR
+    IN["Input channel"] --> F{"Message Filter"}
+    F -->|"meets the criteria"| OUT["Output channel"]
+    F -->|"does not meet"| D["Discarded"]
+```

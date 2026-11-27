@@ -7,7 +7,11 @@ tags:
   - Performance
 source: https://martinfowler.com/eaaCatalog/recordSet.html
 sidebar_label: "Record Set"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/base/record-set.mdx';
 
 # Record Set
 
@@ -51,22 +55,7 @@ It's the pattern behind structures such as .NET's `DataSet` and `DataTable`, JDB
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class UserInterface
-    class BusinessLogic {
-        +validate()
-        +calculate()
-    }
-    class RecordSet {
-        +rows
-        +columns
-    }
-    class Database
-    UserInterface --> RecordSet
-    BusinessLogic --> RecordSet
-    RecordSet ..> Database : loaded from
-```
+<Diagram />
 
 The interface and the business logic operate on the same `RecordSet`, which is loaded from the `Database` but exists in memory independently.
 

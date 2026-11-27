@@ -7,7 +7,11 @@ tags:
   - Strategic Focus
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Segregated Core"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/distillation/segregated-core.mdx';
 
 # Segregated Core
 
@@ -53,20 +57,7 @@ O custo é uma refatoração significativa. Elementos que servem tanto ao core q
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    subgraph antes["Antes"]
-        A1["Core e suporte misturados"]
-    end
-    subgraph depois["Depois"]
-        C["Segregated Core"]
-        S1["Módulo de suporte"]
-        S2["Subdomínio genérico"]
-        S1 -->|"depende de"| C
-        S2 -->|"depende de"| C
-    end
-    A1 --> C
-```
+<Diagram />
 
 O core é extraído para um módulo próprio, e os módulos de suporte e genéricos passam a depender dele, e não o contrário.
 

@@ -7,7 +7,11 @@ tags:
   - Cost Optimization
 source: https://www.enterpriseintegrationpatterns.com/Filter.html
 sidebar_label: "Message Filter"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-routing/message-filter.mdx';
 
 # Message Filter
 
@@ -49,12 +53,7 @@ Many brokers implement the pattern through bindings between queues and routing k
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    IN["Input channel"] --> F{"Message Filter"}
-    F -->|"meets the criteria"| OUT["Output channel"]
-    F -->|"does not meet"| D["Discarded"]
-```
+<Diagram />
 
 The filter lets through only the messages that satisfy the criterion.
 

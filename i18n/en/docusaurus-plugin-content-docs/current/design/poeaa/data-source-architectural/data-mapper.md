@@ -8,7 +8,11 @@ tags:
   - Extensibility
 source: https://martinfowler.com/eaaCatalog/dataMapper.html
 sidebar_label: "Data Mapper"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/data-source-architectural/data-mapper.mdx';
 
 # Data Mapper
 
@@ -55,27 +59,7 @@ It's the foundation of ORMs such as Hibernate, Entity Framework, and SQLAlchemy,
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Client
-    class Account {
-        +number
-        +balanceCents
-        +deposit(amountCents)
-        +withdraw(amountCents)
-    }
-    class AccountMapper {
-        +find(id)
-        +insert(account)
-        +update(account)
-        +delete(account)
-    }
-    class Database
-    Client --> AccountMapper
-    Client --> Account
-    AccountMapper ..> Account : maps
-    AccountMapper --> Database
-```
+<Diagram />
 
 `Account` knows nothing about the database or the `AccountMapper`. The mapper reads from and writes to the `Database` and converts `contas_correntes` rows into `Account` objects, and vice versa.
 

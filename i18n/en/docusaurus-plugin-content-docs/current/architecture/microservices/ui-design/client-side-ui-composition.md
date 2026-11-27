@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://microservices.io/patterns/ui/client-side-ui-composition.html
 sidebar_label: "Client-side UI Composition"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/ui-design/client-side-ui-composition.mdx';
 
 # Client-side UI Composition
 
@@ -49,15 +53,7 @@ In this pattern, each team develops a client-side UI component, such as an Angul
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    N["Web app (home screen skeleton)"] --> C1[Balance component]
-    N --> C2[Card component]
-    N --> C3[Credit offers component]
-    C1 --> S1[Account service]
-    C2 --> S2[Card service]
-    C3 --> S3[Credit service]
-```
+<Diagram />
 
 The home screen skeleton in the web app composes UI components, and each one queries its corresponding service. The source illustrates the pattern with product and inventory components.
 

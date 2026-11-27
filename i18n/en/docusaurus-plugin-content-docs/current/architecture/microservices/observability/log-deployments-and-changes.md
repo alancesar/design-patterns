@@ -7,7 +7,11 @@ tags:
   - Reliability
 source: https://microservices.io/patterns/observability/log-deployments-and-changes.html
 sidebar_label: "Log Deployments and Changes"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/observability/log-deployments-and-changes.mdx';
 
 # Log Deployments and Changes
 
@@ -42,13 +46,7 @@ A common technique is for the deployment tool to publish a pseudo-metric each ti
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    P["Deployment pipeline"] -->|"deployment event"| M["Metrics service"]
-    I["Infrastructure changes"] -->|"audit trail"| M
-    S["Services"] -->|"metrics"| M
-    M --> D["Dashboard: deployments over metrics"]
-```
+<Diagram />
 
 Deployment and change events are published alongside the metrics, and the dashboard overlays both for correlation.
 

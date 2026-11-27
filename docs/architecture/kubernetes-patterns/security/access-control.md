@@ -6,7 +6,11 @@ tags:
   - Security
 source: https://k8spatterns.com/
 sidebar_label: "Access Control"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/kubernetes-patterns/security/access-control.mdx';
 
 # Access Control
 
@@ -57,15 +61,7 @@ A força do padrão está no menor privilégio: sem curingas (`*`), sem `cluster
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    REQ["Requisição ao API Server"] --> AUTHN["Autenticação"]
-    AUTHN --> AUTHZ["Autorização RBAC"]
-    AUTHZ --> ADM["Controle de admissão"]
-    ADM --> OK["Recurso processado"]
-    SA["ServiceAccount statement-service"] -->|"RoleBinding"| ROLE["Role statement-reader"]
-    ROLE -->|"permite get e list em ConfigMaps"| AUTHZ
-```
+<Diagram />
 
 Cada requisição passa por autenticação, autorização e admissão; no estágio de autorização, o `RoleBinding` conecta a `ServiceAccount` ao `Role` que lista exatamente o que ela pode fazer.
 

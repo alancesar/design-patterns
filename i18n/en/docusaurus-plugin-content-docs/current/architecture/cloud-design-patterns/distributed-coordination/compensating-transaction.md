@@ -6,7 +6,11 @@ tags:
   - Reliability
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/compensating-transaction
 sidebar_label: "Compensating Transaction"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/distributed-coordination/compensating-transaction.mdx';
 
 # Compensating Transaction
 
@@ -62,17 +66,7 @@ Additional considerations:
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    C["Client"] -->|"Requests transfer"| O["Orchestrator"]
-    O -->|"Step 1: debit source account"| A["Ledger"]
-    O -->|"Records step and undo action"| L[("Compensation log")]
-    O -->|"Step 2: send to settlement system"| B["Settlement connector"]
-    B -->|"Fails after retries"| O
-    L -->|"Reads compensation actions"| O
-    O -->|"Compensation: credit the account back"| A
-    O -->|"Operation compensated"| C
-```
+<Diagram />
 
 The orchestrator runs the steps and records, for each completed step, the action that undoes it. When sending to the settlement system fails unrecoverably, it reads this record and triggers the compensations in reverse order: the ledger receives a new credit entry that returns the amount to the source account, without erasing the original debit. The source illustrates the pattern with a flight and hotel booking.
 

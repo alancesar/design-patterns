@@ -7,7 +7,11 @@ tags:
   - Simplicity
 source: https://martinfowler.com/eaaCatalog/tableDataGateway.html
 sidebar_label: "Table Data Gateway"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/data-source-architectural/table-data-gateway.mdx';
 
 # Table Data Gateway
 
@@ -54,19 +58,7 @@ As a result, the SQL lives in one place, which helps people who aren't fluent in
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Client
-    class BoletoGateway {
-        +findById(id)
-        +findOverdue(today)
-        +insert(payerId, amountCents, dueDate)
-        +updateStatus(id, status)
-    }
-    class Database
-    Client --> BoletoGateway
-    BoletoGateway --> Database
-```
+<Diagram />
 
 The `Client` (for example, a billing Transaction Script) calls only methods of the `BoletoGateway`, which contains the SQL and talks to the `Database`. One instance serves all the rows in the table.
 

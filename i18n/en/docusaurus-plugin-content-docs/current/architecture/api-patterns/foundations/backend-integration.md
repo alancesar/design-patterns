@@ -7,7 +7,11 @@ tags:
   - Evolvability
 source: https://api-patterns.org/
 sidebar_label: "Backend Integration"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/foundations/backend-integration.mdx';
 
 # Backend Integration
 
@@ -54,16 +58,7 @@ Because the parts are independent, the integration must preserve the conceptual 
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    subgraph SystemA["System A"]
-        A1["Business logic"] --> A2[("Persistence")]
-    end
-    subgraph SystemB["System B"]
-        B1["Business logic"] --> B2[("Persistence")]
-    end
-    A1 -->|"Backend Integration API"| B1
-```
+<Diagram />
 
 Each backend exposes its own business logic through a remote API that only other backends consume.
 

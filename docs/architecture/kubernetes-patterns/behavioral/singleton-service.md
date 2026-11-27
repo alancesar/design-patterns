@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://k8spatterns.com/
 sidebar_label: "Singleton Service"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/kubernetes-patterns/behavioral/singleton-service.mdx';
 
 # Singleton Service
 
@@ -58,21 +62,7 @@ O PodDisruptionBudget é complementar: em vez de limitar quantas instâncias rod
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    subgraph EXT["Trava fora da aplicação"]
-        SS["StatefulSet: statement-scheduler (replicas: 1)"] --> P["Pod único"]
-    end
-    subgraph INT["Trava dentro da aplicação"]
-        L["Lock distribuído: statement-scheduler-leader"]
-        A["Pod A (líder)"]
-        B["Pod B (em espera)"]
-        C["Pod C (em espera)"]
-        A -->|"Renova"| L
-        B -.->|"Tenta assumir"| L
-        C -.->|"Tenta assumir"| L
-    end
-```
+<Diagram />
 
 À esquerda, a plataforma garante a unicidade com uma única réplica; à direita, várias réplicas disputam um lock e só a líder executa o trabalho.
 

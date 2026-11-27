@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://www.enterpriseintegrationpatterns.com/ContentFilter.html
 sidebar_label: "Content Filter"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-transformation/content-filter.mdx';
 
 # Content Filter
 
@@ -51,11 +55,7 @@ Mensagens vindas de sistemas externos ou pacotes costumam refletir estruturas no
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    O["Origem"] -->|"Mensagem completa"| F["Content Filter"]
-    F -->|"Mensagem reduzida"| D["Destinatário"]
-```
+<Diagram />
 
 O filtro recebe a mensagem completa, descarta os campos desnecessários e entrega uma versão simplificada ao destinatário.
 

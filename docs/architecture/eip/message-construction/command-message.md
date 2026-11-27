@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://www.enterpriseintegrationpatterns.com/CommandMessage.html
 sidebar_label: "Command Message"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-construction/command-message.mdx';
 
 # Command Message
 
@@ -48,11 +52,7 @@ Não existe um tipo especial de mensagem para isso. O comando pode ser um objeto
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    A["Aplicação A (emissor)"] -->|"Command Message"| C["Canal ponto a ponto"]
-    C --> B["Aplicação B (executa o procedimento)"]
-```
+<Diagram />
 
 A aplicação A envia um comando por um canal e a aplicação B o executa quando o recebe.
 

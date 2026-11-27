@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://k8spatterns.com/
 sidebar_label: "Stateful Service"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/kubernetes-patterns/behavioral/stateful-service.mdx';
 
 # Stateful Service
 
@@ -57,19 +61,7 @@ Em um ReplicaSet, os Pods são intercambiáveis e descartáveis, com nomes e dis
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    SS["StatefulSet: ledger-db"] --> P0["ledger-db-0"]
-    SS --> P1["ledger-db-1"]
-    SS --> P2["ledger-db-2"]
-    P0 --> V0[("PVC data-ledger-db-0")]
-    P1 --> V1[("PVC data-ledger-db-1")]
-    P2 --> V2[("PVC data-ledger-db-2")]
-    H["Service headless: ledger-db"] -.->|"DNS por Pod"| P0
-    H -.-> P1
-    H -.-> P2
-    L["ledger-service"] -->|"ledger-db-0.ledger-db"| P0
-```
+<Diagram />
 
 Cada Pod tem nome fixo, volume próprio e um registro DNS individual pelo Service headless, de modo que `ledger-service` e os próprios pares conseguem endereçar réplicas específicas.
 

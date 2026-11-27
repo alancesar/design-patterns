@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/behavioral/memento.mdx';
+
 # Memento
 
 ## Descrição
@@ -57,26 +59,7 @@ O ponto central é o encapsulamento: o Memento expõe uma interface "estreita" p
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Originator {
-        -state: String
-        +save() Memento
-        +restore(memento: Memento) void
-    }
-    class Memento {
-        -state: String
-        +getState() String
-    }
-    class Caretaker {
-        -history: List~Memento~
-        +backup() void
-        +undo() void
-    }
-    Originator ..> Memento : cria e restaura
-    Caretaker o-- Memento : armazena
-    Caretaker --> Originator : solicita snapshot
-```
+<Diagram />
 
 O Originator cria mementos com seu estado e os usa para se restaurar; o Caretaker mantém o histórico de mementos e aciona salvar/restaurar no Originator sem acessar o conteúdo dos snapshots.
 

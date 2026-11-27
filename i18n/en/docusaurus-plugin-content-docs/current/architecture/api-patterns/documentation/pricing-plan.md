@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/documentation/pricing-plan.mdx';
+
 # Pricing Plan
 
 ## Description
@@ -57,16 +59,7 @@ Three variants are the most common. With **subscription-based pricing**, the cli
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    C["Client with API Key"] --> G["API Gateway"]
-    G --> A["Pix Charges API"]
-    G -->|"usage event"| M["Metering"]
-    M --> B["Billing"]
-    P["Pricing Plan"] -.->|"tier rules"| B
-    P -.->|"limits per tier"| G
-    B --> I["Monthly invoice"]
-```
+<Diagram />
 
 The gateway identifies the client, meters usage and forwards the events to billing, which applies the tiers defined in the plan.
 

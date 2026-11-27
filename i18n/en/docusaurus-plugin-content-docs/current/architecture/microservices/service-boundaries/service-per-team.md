@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://microservices.io/patterns/decomposition/service-per-team.html
 sidebar_label: "Service per Team"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/service-boundaries/service-per-team.mdx';
 
 # Service per Team
 
@@ -47,14 +51,7 @@ The pattern starts from Conway's law: the architecture reflects the organization
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    T1["Pix Team"] --> S1["Pix Service"]
-    T2["Cards Team"] --> S2["Card Service"]
-    T3["Credit Team"] --> S3["Credit Service"]
-    S1 -->|"API"| S2
-    S1 -->|"API"| S3
-```
+<Diagram />
 
 Each team owns a service and the services communicate through APIs, keeping coupling low. The source illustrates the pattern with orders, catalog, and delivery teams.
 

@@ -7,7 +7,11 @@ tags:
   - Extensibility
 source: https://martinfowler.com/eaaCatalog/twoStepView.html
 sidebar_label: "Two Step View"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/web-presentation/two-step-view.mdx';
 
 # Two Step View
 
@@ -50,16 +54,7 @@ A vantagem é concentrar as decisões visuais na segunda etapa. Para mudar a apa
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant Controller
-    participant Step1 as LogicalView
-    participant Step2 as FinalRenderer
-    Controller->>Step1: dados de dominio
-    Step1-->>Controller: pagina logica generica
-    Controller->>Step2: pagina logica
-    Step2-->>Controller: HTML final com aparencia do site
-```
+<Diagram />
 
 A primeira etapa transforma os dados em uma estrutura lógica de apresentação; a segunda a converte em HTML com a aparência do site.
 

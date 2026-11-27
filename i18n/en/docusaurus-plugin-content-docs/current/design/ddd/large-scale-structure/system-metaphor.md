@@ -7,7 +7,11 @@ tags:
   - Consistency
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "System Metaphor"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/large-scale-structure/system-metaphor.mdx';
 
 # System Metaphor
 
@@ -52,15 +56,7 @@ Evans treats the metaphor with caution. It's useful when it fits the domain natu
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    M["System metaphor"] --> A["Model concepts and names"]
-    M --> B["Responsibilities of the parts"]
-    M --> C["Team language"]
-    A --> D["Consistent design"]
-    B --> D
-    C --> D
-```
+<Diagram />
 
 The metaphor influences concepts, responsibilities, and language, and these three elements converge into a more consistent design.
 

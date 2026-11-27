@@ -7,7 +7,11 @@ tags:
   - Simplicity
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Core Domain"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/distillation/core-domain.mdx';
 
 # Core Domain
 
@@ -53,15 +57,7 @@ Distillation is the process of separating the essential from what is merely supp
 
 ## Diagram
 
-```mermaid
-flowchart TD
-    A["System domain"] --> B["Core Domain"]
-    A --> C["Generic subdomains"]
-    A --> D["Supporting subdomains"]
-    B -->|"Best people and custom design"| E["Competitive advantage"]
-    C -->|"Buy or adopt an off-the-shelf solution"| F["Reduced cost"]
-    D -->|"Build simply or outsource"| F
-```
+<Diagram />
 
 The domain is divided by strategic value: the core gets the highest investment, while the other subdomains are handled at a contained cost.
 

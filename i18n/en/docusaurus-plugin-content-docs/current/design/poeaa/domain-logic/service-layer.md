@@ -8,7 +8,11 @@ tags:
   - Testability
 source: https://martinfowler.com/eaaCatalog/serviceLayer.html
 sidebar_label: "Service Layer"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/domain-logic/service-layer.mdx';
 
 # Service Layer
 
@@ -54,20 +58,7 @@ Service Layer encapsulates the coordination of the use case, controls transactio
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant UI as Client (app API, scheduled-transfers job)
-    participant S as PixTransferService
-    participant D as Domain Model
-    participant R as Repository
-    UI->>S: transfer(command)
-    S->>S: begins transaction
-    S->>R: loads Account
-    S->>D: account.sendPix(pixKey, amount)
-    S->>R: saves PixTransfer
-    S->>S: commits transaction
-    S-->>UI: result
-```
+<Diagram />
 
 The service begins the transaction, loads objects, delegates the rule to the domain, persists the result, and returns the response to the client.
 

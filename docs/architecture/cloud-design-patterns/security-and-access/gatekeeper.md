@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/gatekeeper
 sidebar_label: "Gatekeeper"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/security-and-access/gatekeeper.mdx';
 
 # Gatekeeper
 
@@ -59,20 +63,7 @@ Diferentemente de um firewall de rede tradicional, o gatekeeper toma decisões o
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    C["Clientes (rede não confiável)"] --> G
-    subgraph Publico["Zona pública - privilégio mínimo"]
-        G["Gatekeeper: valida, sanitiza, autoriza e limita taxa"]
-    end
-    G -- "Requisição rejeitada" --> X["Resposta de erro"]
-    G -- "Requisição aprovada" --> Q["Endpoint interno, fila ou broker"]
-    subgraph Privado["Zona privada - confiança total"]
-        Q --> T["Host confiável (lógica de negócio)"]
-        T --> S["Serviços"]
-        T --> D[("Armazenamento de dados")]
-    end
-```
+<Diagram />
 
 Os clientes só alcançam o gatekeeper, que roda com privilégios mínimos e descarta requisições inválidas. As requisições aprovadas seguem por um canal interno até o host confiável, o único que detém credenciais para acessar serviços e dados.
 

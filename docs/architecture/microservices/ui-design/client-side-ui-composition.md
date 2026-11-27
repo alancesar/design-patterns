@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://microservices.io/patterns/ui/client-side-ui-composition.html
 sidebar_label: "Client-side UI Composition"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/ui-design/client-side-ui-composition.mdx';
 
 # Client-side UI Composition
 
@@ -49,15 +53,7 @@ Neste padrão, cada equipe desenvolve um componente de UI no lado do cliente, co
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    N["App web (esqueleto da tela inicial)"] --> C1[Componente de saldo]
-    N --> C2[Componente de cartão]
-    N --> C3[Componente de ofertas de crédito]
-    C1 --> S1[Serviço de contas]
-    C2 --> S2[Serviço de cartões]
-    C3 --> S3[Serviço de crédito]
-```
+<Diagram />
 
 O esqueleto da tela no app web compõe componentes de UI, e cada um consulta o serviço correspondente. A fonte ilustra o padrão com componentes de produto e estoque.
 

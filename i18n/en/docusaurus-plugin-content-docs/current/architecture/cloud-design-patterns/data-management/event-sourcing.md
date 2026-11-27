@@ -9,7 +9,11 @@ also_in:
   - architecture/microservices/service-collaboration
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/event-sourcing
 sidebar_label: "Event Sourcing"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/data-management/event-sourcing.mdx';
 
 # Event Sourcing
 
@@ -75,19 +79,7 @@ In microservices, Event Sourcing solves a core problem: how to update the databa
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    UI["Presentation layer"] -- "commands" --> CH["Command handlers"]
-    CH -- "reads entity stream (rehydration)" --> ES[("Event store (append-only)")]
-    CH -- "new events" --> Q["Queue / topic"]
-    Q --> H1["Handler: writes to the event store"]
-    H1 --> ES
-    Q --> H2["Handler: updates projections"]
-    H2 --> RS[("Read store / materialized views")]
-    Q --> H3["Handler: external integrations"]
-    H3 --> EXT["External systems"]
-    UI -- "queries" --> RS
-```
+<Diagram />
 
 The command handlers rebuild the entity from its event stream, apply the business rules, and publish new events. Independent handlers persist the events, update the read views queried by the UI, and integrate other systems.
 

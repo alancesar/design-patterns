@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://microservices.io/patterns/communication-style/domain-specific.html
 sidebar_label: "Domain-specific Protocol"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/communication-styles/domain-specific-protocol.mdx';
 
 # Domain-specific Protocol
 
@@ -45,11 +49,7 @@ In the microservices context, it is a third option for interprocess communicatio
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    C["Card network"] -->|"domain protocol (e.g., ISO 8583)"| S["Card authorizer (issuer)"]
-    S -->|"responses and streams over the same protocol"| C
-```
+<Diagram />
 
 Client and service talk directly using a protocol established for the domain, with no generic RPI or messaging layer. The source illustrates the pattern with media and email protocols.
 

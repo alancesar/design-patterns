@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/structural/private-class-data.mdx';
+
 # Private Class Data
 
 ## Descrição
@@ -56,24 +58,7 @@ Não é um dos 23 padrões do livro do Gang of Four. Ele aparece em catálogos c
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Client
-    class MainClass {
-        -data: DataClass
-        +MainClass(attr1, attr2)
-        +operation()
-    }
-    class DataClass {
-        -attribute1
-        -attribute2
-        +DataClass(attr1, attr2)
-        +getAttribute1()
-        +getAttribute2()
-    }
-    Client --> MainClass
-    MainClass *-- DataClass
-```
+<Diagram />
 
 O `Client` usa a `MainClass`, que compõe internamente uma `DataClass`. A `DataClass` recebe os valores no construtor e expõe apenas métodos de leitura, de modo que a `MainClass` usa os dados sem poder reatribuí-los.
 

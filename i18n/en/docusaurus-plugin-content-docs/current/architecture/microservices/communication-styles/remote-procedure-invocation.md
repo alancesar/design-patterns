@@ -10,7 +10,11 @@ also_in:
   - architecture/eip/integration-styles
 source: https://microservices.io/patterns/communication-style/rpi.html
 sidebar_label: "Remote Procedure Invocation"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/communication-styles/remote-procedure-invocation.mdx';
 
 # Remote Procedure Invocation
 
@@ -58,16 +62,7 @@ Additional considerations:
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant C as Client
-    participant S as Service
-    C->>S: Request
-    activate S
-    S-->>C: Response
-    deactivate S
-    Note over C,S: Both must be available for the entire call
-```
+<Diagram />
 
 The client sends the request directly to the service and keeps waiting for the response, which is what characterizes the runtime coupling.
 

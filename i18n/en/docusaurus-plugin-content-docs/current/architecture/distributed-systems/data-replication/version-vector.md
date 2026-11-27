@@ -7,7 +7,11 @@ tags:
   - Availability
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/version-vector.html
 sidebar_label: "Version Vector"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/data-replication/version-vector.mdx';
 
 # Version Vector
 
@@ -48,18 +52,7 @@ It's used in Dynamo and Riak; Cassandra opted for timestamps (last-write-wins) i
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant A as Node A
-    participant B as Node B
-    Note over A: x = 1 with vector A1
-    A->>B: replicates x = 1 (A1)
-    Note over B: x = 1 with vector A1
-    Note over A: updates x = 2 with vector A2
-    Note over B: updates x = 3 with vector A1 B1
-    A->>B: syncs (A2)
-    Note over B: A2 and A1 B1 are concurrent, conflict detected
-```
+<Diagram />
 
 Two nodes update the same key without knowing about each other's update; on synchronization, comparing the vectors reveals the conflict.
 

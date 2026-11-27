@@ -8,7 +8,11 @@ tags:
   - Testability
 source: https://martinfowler.com/eaaCatalog/applicationController.html
 sidebar_label: "Application Controller"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/web-presentation/application-controller.mdx';
 
 # Application Controller
 
@@ -50,24 +54,7 @@ O padrão tem duas partes: uma que mapeia a entrada para a lógica de domínio a
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class InputController {
-        +handle(request)
-    }
-    class ApplicationController {
-        +getDomainCommand(request, state)
-        +getView(request, state)
-    }
-    class DomainCommand {
-        <<interface>>
-        +run()
-    }
-    class View
-    InputController --> ApplicationController : pergunta
-    ApplicationController --> DomainCommand : localiza
-    ApplicationController --> View : escolhe
-```
+<Diagram />
 
 O `InputController` consulta o `ApplicationController`, que localiza o `DomainCommand` a executar e escolhe a `View` seguinte conforme o resultado e o estado.
 

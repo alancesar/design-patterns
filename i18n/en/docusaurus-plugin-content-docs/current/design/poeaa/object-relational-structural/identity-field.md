@@ -6,7 +6,11 @@ tags:
   - Consistency
 source: https://martinfowler.com/eaaCatalog/identityField.html
 sidebar_label: "Identity Field"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/object-relational-structural/identity-field.mdx';
 
 # Identity Field
 
@@ -48,23 +52,7 @@ The main decisions are the key type (simple or composite, meaningful or surrogat
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class DomainObject {
-        -Long id
-        +getId() Long
-    }
-    class Account {
-        -String holderName
-    }
-    class AccountTable {
-        <<table>>
-        id PK
-        holder_name
-    }
-    DomainObject <|-- Account
-    Account ..> AccountTable : mapped to
-```
+<Diagram />
 
 The `DomainObject` holds the `id` field, which corresponds to the primary key of the row in `AccountTable`. Domain objects inherit the field.
 

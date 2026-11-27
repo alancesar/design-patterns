@@ -7,7 +7,11 @@ tags:
   - Consistency
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Hands-on Modelers"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/model-in-practice/hands-on-modelers.mdx';
 
 # Hands-on Modelers
 
@@ -51,15 +55,7 @@ Isso não significa que todo mundo faz tudo: arquitetos e analistas podem lidera
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    subgraph Separado ["Papéis separados"]
-        A1["Modelador"] -->|"entrega modelo"| B1["Programador"]
-    end
-    subgraph Hands ["Hands-on Modelers"]
-        A2["Modelador que programa"] <-->|"mesmo modelo e código"| B2["Programador que modela"]
-    end
-```
+<Diagram />
 
 No arranjo com papéis separados, o fluxo é de mão única; com Hands-on Modelers, modelo e código são trabalhados pelas mesmas pessoas e o feedback é contínuo.
 

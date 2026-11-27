@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://www.enterpriseintegrationpatterns.com/TestMessage.html
 sidebar_label: "Test Message"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/system-management/test-message.mdx';
 
 # Test Message
 
@@ -48,15 +52,7 @@ The pattern has four roles: a test data generator, an injector that marks the me
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    G["Test data generator"] --> I["Injector"]
-    I --> C["Component under test"]
-    A["Real messages"] --> C
-    C --> S{"Separator"}
-    S -- "real messages" --> D["Destination"]
-    S -- "test messages" --> V["Verifier"]
-```
+<Diagram />
 
 The injector inserts marked messages into the flow, the separator diverts them from the output, and the verifier compares the result with the expected one.
 

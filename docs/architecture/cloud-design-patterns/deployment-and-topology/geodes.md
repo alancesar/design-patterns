@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/geodes
 sidebar_label: "Geode"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/deployment-and-topology/geodes.mdx';
 
 # Geode
 
@@ -61,30 +65,7 @@ Considerações adicionais:
 
 ## Diagrama
 
-```mermaid
-flowchart TB
-    U1["Usuários na América"] --> LB["Balanceador de carga global"]
-    U2["Usuários na Europa"] --> LB
-    U3["Usuários na Ásia"] --> LB
-
-    LB --> G1
-    LB --> G2
-    LB --> G3
-
-    subgraph G1["Geode - Região A"]
-        A1["API / Computação"] --> D1[("Dados locais")]
-    end
-    subgraph G2["Geode - Região B"]
-        A2["API / Computação"] --> D2[("Dados locais")]
-    end
-    subgraph G3["Geode - Região C"]
-        A3["API / Computação"] --> D3[("Dados locais")]
-    end
-
-    D1 <-->|"Replicação"| D2
-    D2 <-->|"Replicação"| D3
-    D1 <-->|"Replicação"| D3
-```
+<Diagram />
 
 O balanceador de carga global encaminha cada usuário ao geode mais próximo ou disponível; cada geode é autocontido e processa a requisição com seus próprios dados, enquanto o backplane de replicação mantém os dados idênticos entre todas as regiões, permitindo que qualquer geode atenda qualquer requisição.
 

@@ -7,7 +7,11 @@ tags:
   - Decoupling
 source: https://martinfowler.com/eaaCatalog/inheritanceMappers.html
 sidebar_label: "Inheritance Mappers"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/object-relational-structural/inheritance-mappers.mdx';
 
 # Inheritance Mappers
 
@@ -48,23 +52,7 @@ It doesn't matter which schema is chosen (Single Table, Class Table, or Concrete
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class AbstractPaymentInstructionMapper {
-        +load(row) PaymentInstruction
-        #create() PaymentInstruction
-    }
-    class PixTransferMapper {
-        +load(row) PaymentInstruction
-        #create() PaymentInstruction
-    }
-    class TedTransferMapper {
-        +load(row) PaymentInstruction
-        #create() PaymentInstruction
-    }
-    AbstractPaymentInstructionMapper <|-- PixTransferMapper
-    AbstractPaymentInstructionMapper <|-- TedTransferMapper
-```
+<Diagram />
 
 The abstract mapper holds the common flow; each concrete mapper handles its class's fields and calls the superclass's for the inherited fields. Fowler's source illustrates the pattern with a `Player` hierarchy; here it is replaced by `PaymentInstruction`, the same one in all four inheritance patterns.
 

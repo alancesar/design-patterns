@@ -7,7 +7,11 @@ tags:
   - Decoupling
 source: https://martinfowler.com/eaaCatalog/databaseSessionState.html
 sidebar_label: "Database Session State"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/session-state/database-session-state.mdx';
 
 # Database Session State
 
@@ -55,20 +59,7 @@ Because the state lives in the database, the server stays stateless and any inst
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant Client
-    participant ServerA
-    participant ServerB
-    participant Database
-    Client->>ServerA: Request 1
-    ServerA->>Database: Writes session state (commit)
-    ServerA-->>Client: Response + sessionId
-    Client->>ServerB: Request 2 + sessionId
-    ServerB->>Database: Reads session state
-    Database-->>ServerB: Persisted state
-    ServerB-->>Client: Response
-```
+<Diagram />
 
 The `Client` keeps only the `sessionId`. Any server reads and writes the state in the `Database`, which is the single, durable source of the session.
 

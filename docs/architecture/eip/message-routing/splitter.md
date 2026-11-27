@@ -7,7 +7,11 @@ tags:
   - Reliability
 source: https://www.enterpriseintegrationpatterns.com/Sequencer.html
 sidebar_label: "Splitter"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-routing/splitter.mdx';
 
 # Splitter
 
@@ -49,13 +53,7 @@ Para que as partes possam ser recombinadas depois, é comum que cada mensagem ca
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    M["Lote de folha de pagamento"] --> S{"Splitter"}
-    S --> I1["Mensagem do pagamento 1"]
-    S --> I2["Mensagem do pagamento 2"]
-    S --> I3["Mensagem do pagamento 3"]
-```
+<Diagram />
 
 O lote é dividido em uma mensagem por pagamento, prontas para roteamento independente. A fonte ilustra o padrão com um pedido de vários itens.
 

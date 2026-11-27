@@ -7,7 +7,11 @@ tags:
   - Simplicity
 source: https://martinfowler.com/eaaCatalog/money.html
 sidebar_label: "Money"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/base/money.mdx';
 
 # Money
 
@@ -52,23 +56,7 @@ A key operation is allocation (`allocate`): splitting an amount into parts witho
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Money {
-        -amount
-        -currency
-        +add(other)
-        +subtract(other)
-        +multiply(factor)
-        +allocate(parts)
-        +equals(other)
-    }
-    class Currency {
-        +code
-        +fractionDigits
-    }
-    Money --> Currency
-```
+<Diagram />
 
 `Money` combines the amount and the `Currency`, and exposes operations that respect the currency and the rounding.
 

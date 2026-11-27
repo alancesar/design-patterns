@@ -6,7 +6,11 @@ tags:
   - Simplicity
 source: https://martinfowler.com/eaaCatalog/activeRecord.html
 sidebar_label: "Active Record"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/data-source-architectural/active-record.mdx';
 
 # Active Record
 
@@ -51,23 +55,7 @@ It works well as long as the domain model is similar to the database schema; whe
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Client
-    class Card {
-        +id
-        +accountId
-        +status
-        +expiresAt
-        +find(id)$
-        +save()
-        +block()
-        +isExpired()
-    }
-    class Database
-    Client --> Card
-    Card --> Database
-```
+<Diagram />
 
 The `Client` uses `Card` directly. `Card` holds the data of one row, contains the domain logic (`block` and `isExpired`), and accesses the `Database` through `save` and `find`.
 

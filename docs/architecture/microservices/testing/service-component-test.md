@@ -8,7 +8,11 @@ tags:
   - Cost Optimization
 source: https://microservices.io/patterns/testing/service-component-test.html
 sidebar_label: "Service Component Test"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/testing/service-component-test.mdx';
 
 # Service Component Test
 
@@ -47,13 +51,7 @@ Assim, valida-se o comportamento do serviço de ponta a ponta dentro de sua fron
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    T["Teste de componente"] -->|"chama a API"| S["Serviço sob teste"]
-    S -->|"invoca"| D1["Dublê do serviço A"]
-    S -->|"publica/consome"| D2["Dublê de mensageria"]
-    S -->|"persiste"| B[("Banco de teste")]
-```
+<Diagram />
 
 O serviço é exercitado pela sua API e suas dependências remotas são substituídas por dublês.
 

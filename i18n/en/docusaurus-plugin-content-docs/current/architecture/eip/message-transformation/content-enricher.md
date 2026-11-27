@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://www.enterpriseintegrationpatterns.com/DataEnricher.html
 sidebar_label: "Content Enricher"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-transformation/content-enricher.mdx';
 
 # Content Enricher
 
@@ -52,13 +56,7 @@ As a result, senders don't need to carry every field that any recipient might ev
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    P["Producer"] -->|"Incomplete message"| E["Content Enricher"]
-    E -->|"Lookup by key"| F[("Data source")]
-    F -->|"Additional data"| E
-    E -->|"Enriched message"| D["Recipient"]
-```
+<Diagram />
 
 The enricher uses a key from the message to fetch the missing data from the source and delivers the complete message to the recipient.
 

@@ -7,7 +7,11 @@ tags:
   - Extensibility
 source: https://martinfowler.com/eaaCatalog/mapper.html
 sidebar_label: "Mapper"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/base/mapper.mdx';
 
 # Mapper
 
@@ -52,20 +56,7 @@ No PoEAA, o Mapper é a forma geral. O [Data Mapper](/design/poeaa/data-source-a
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class SubsystemA {
-        +data
-    }
-    class SubsystemB {
-        +data
-    }
-    class Mapper {
-        +map()
-    }
-    Mapper --> SubsystemA
-    Mapper --> SubsystemB
-```
+<Diagram />
 
 O `Mapper` conhece o `SubsystemA` e o `SubsystemB`, mas eles não têm referência um para o outro nem para o Mapper.
 

@@ -7,7 +7,11 @@ tags:
   - Shared Understanding
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Customer/Supplier Development"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/context-mapping/customer-supplier-development.mdx';
 
 # Customer/Supplier Development
 
@@ -53,11 +57,7 @@ Without this agreement, the downstream is at the mercy of the upstream's priorit
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    U["Payments Context (upstream, supplier)"] -->|"interface + acceptance tests"| D["Reconciliation Context (downstream, customer)"]
-    D -.->|"needs and priorities"| U
-```
+<Diagram />
 
 The interface flows from the supplier to the customer, while the customer's needs flow back as input to the supplier's planning.
 

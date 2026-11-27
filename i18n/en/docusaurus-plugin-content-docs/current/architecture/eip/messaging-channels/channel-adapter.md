@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://www.enterpriseintegrationpatterns.com/ChannelAdapter.html
 sidebar_label: "Channel Adapter"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/messaging-channels/channel-adapter.mdx';
 
 # Channel Adapter
 
@@ -50,12 +54,7 @@ Where the adapter attaches depends on the application's architecture and on the 
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    A["Existing application"] <-->|"API or data"| AD["Channel Adapter"]
-    AD -->|"publishes"| C1["Output channel"]
-    C2["Input channel"] -->|"consumes"| AD
-```
+<Diagram />
 
 The adapter turns application data or calls into messages and messages into calls, connecting the application to the channels.
 

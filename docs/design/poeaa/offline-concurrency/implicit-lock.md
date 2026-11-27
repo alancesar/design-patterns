@@ -7,7 +7,11 @@ tags:
   - Decoupling
 source: https://martinfowler.com/eaaCatalog/implicitLock.html
 sidebar_label: "Implicit Lock"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/offline-concurrency/implicit-lock.mdx';
 
 # Implicit Lock
 
@@ -52,24 +56,7 @@ O padrão não é um tipo de bloqueio, e sim uma forma de aplicar os demais padr
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class BusinessLogic
-    class LayerSupertype {
-        +find(id)
-        +update(entity)
-    }
-    class LockManager {
-        +acquire(id, owner)
-        +release(owner)
-    }
-    class AccountMapper {
-        +find(id)
-    }
-    BusinessLogic --> AccountMapper : usa
-    AccountMapper --|> LayerSupertype
-    LayerSupertype --> LockManager : adquire automaticamente
-```
+<Diagram />
 
 O código de negócio usa apenas o `AccountMapper`. O `LayerSupertype`, do qual o mapper herda, adquire o bloqueio no `LockManager` sempre que um objeto é carregado ou alterado.
 

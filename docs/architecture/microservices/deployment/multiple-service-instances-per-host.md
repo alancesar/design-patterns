@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://microservices.io/patterns/deployment/multiple-services-per-host.html
 sidebar_label: "Multiple Service Instances per Host"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/deployment/multiple-service-instances-per-host.mdx';
 
 # Multiple Service Instances per Host
 
@@ -50,17 +54,7 @@ Há duas variações comuns: cada instância roda como um processo independente 
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    subgraph Host["Host (físico ou virtual)"]
-        A["Serviço A - instância 1"]
-        B["Serviço B - instância 1"]
-        C["Serviço C - instância 1"]
-    end
-    LB["Balanceador de carga"] --> A
-    LB --> B
-    LB --> C
-```
+<Diagram />
 
 Vários serviços diferentes dividem os mesmos recursos de um único host.
 

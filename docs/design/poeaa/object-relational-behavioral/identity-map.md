@@ -7,7 +7,11 @@ tags:
   - Performance
 source: https://martinfowler.com/eaaCatalog/identityMap.html
 sidebar_label: "Identity Map"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/object-relational-behavioral/identity-map.mdx';
 
 # Identity Map
 
@@ -53,23 +57,7 @@ Normalmente há um mapa por classe (ou por tabela) e ele vive no escopo de uma s
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant Client
-    participant Mapper
-    participant IdentityMap
-    participant Database
-    Client->>Mapper: find(42)
-    Mapper->>IdentityMap: get(42)
-    alt objeto no mapa
-        IdentityMap-->>Mapper: objeto existente
-    else objeto ausente
-        Mapper->>Database: SELECT ... WHERE id = 42
-        Database-->>Mapper: linha
-        Mapper->>IdentityMap: put(42, objeto)
-    end
-    Mapper-->>Client: objeto
-```
+<Diagram />
 
 O `Mapper` consulta o `IdentityMap` antes de ir ao `Database`; se o objeto não existir, carrega a linha, registra no mapa e o devolve. Chamadas seguintes com o mesmo id retornam a mesma instância.
 

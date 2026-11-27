@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://www.enterpriseintegrationpatterns.com/MessageEndpoint.html
 sidebar_label: "Message Endpoint"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/messaging-endpoints/message-endpoint.mdx';
 
 # Message Endpoint
 
@@ -48,13 +52,7 @@ In practice, the endpoint is an "umbrella" pattern: the other patterns in the gr
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    A["Application"] --> E1["Message Endpoint (send)"]
-    E1 --> C[["Message Channel"]]
-    C --> E2["Message Endpoint (receive)"]
-    E2 --> B["Target application"]
-```
+<Diagram />
 
 Each application accesses the channel through its endpoint, which translates between the application's world and the messaging world.
 

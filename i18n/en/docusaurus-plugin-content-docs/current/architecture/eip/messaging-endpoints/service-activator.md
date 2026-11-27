@@ -7,7 +7,11 @@ tags:
   - Reliability
 source: https://www.enterpriseintegrationpatterns.com/MessagingAdapter.html
 sidebar_label: "Service Activator"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/messaging-endpoints/service-activator.mdx';
 
 # Service Activator
 
@@ -46,13 +50,7 @@ Because the activator takes care of all the messaging details, the service is ca
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    C[["Request channel"]] --> A["Service Activator"]
-    A -->|"call"| S["Application service"]
-    S -->|"result"| A
-    A --> R[["Reply channel"]]
-```
+<Diagram />
 
 The activator translates the message into a service call and, if needed, returns the result over another channel.
 

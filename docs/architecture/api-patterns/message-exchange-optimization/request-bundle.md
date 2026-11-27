@@ -10,6 +10,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/message-exchange-optimization/request-bundle.mdx';
+
 # Request Bundle
 
 ## Descrição
@@ -57,18 +59,7 @@ O provedor precisa dividir o pacote e montar a resposta, e o cliente precisa sep
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    C["Cliente"] -->|"Request Bundle: A, B, C"| E["Endpoint"]
-    E --> S["Divisor de requisições"]
-    S --> A1["Elemento A"]
-    S --> B1["Elemento B"]
-    S --> C1["Elemento C"]
-    A1 --> M["Montador de resposta"]
-    B1 --> M
-    C1 --> M
-    M -->|"Resposta agrupada: A, B, C"| C
-```
+<Diagram />
 
 O endpoint divide o pacote em elementos independentes, processa cada um e monta uma única resposta que espelha o pacote. Na variante com várias respostas, o montador é substituído por envios individuais.
 

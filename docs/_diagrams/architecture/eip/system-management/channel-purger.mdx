@@ -1,0 +1,7 @@
+```mermaid
+flowchart LR
+    P["Producer"] --> C["Channel"]
+    C --> D["Consumer"]
+    Op["Operator or test"] --> U["Channel Purger"]
+    U -- "removes messages" --> C
+```

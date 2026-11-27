@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://learn.microsoft.com/en-us/azure/architecture/patterns/deployment-stamp
 sidebar_label: "Deployment Stamps"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/cloud-design-patterns/deployment-and-topology/deployment-stamp.mdx';
 
 # Deployment Stamps
 
@@ -65,27 +69,7 @@ Because the pattern relies on identical copies of the infrastructure, infrastruc
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    U[Clients] --> G["Global router (entry point)"]
-    G --> R[Routing service]
-    R <--> M[("Tenant → stamp catalog")]
-    subgraph S1["Stamp 1 - Region A (tenants A, B, C)"]
-        A1[Application] --> D1[(Database)]
-    end
-    subgraph S2["Stamp 2 - Region A (tenant D)"]
-        A2[Application] --> D2[(Database)]
-    end
-    subgraph S3["Stamp 3 - Region B (tenants E, F)"]
-        A3[Application] --> D3[(Database)]
-    end
-    R --> A1
-    R --> A2
-    R --> A3
-    P["IaC pipeline"] -.-> S1
-    P -.-> S2
-    P -.-> S3
-```
+<Diagram />
 
 Requests arrive through a global entry point, and the routing service consults the catalog to find out which stamp the tenant lives in. Each stamp is a complete, independent copy of the application and data, provisioned identically by an infrastructure-as-code pipeline.
 

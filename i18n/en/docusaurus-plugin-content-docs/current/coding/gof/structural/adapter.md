@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/structural/adapter.mdx';
+
 # Adapter
 
 ## Description
@@ -56,24 +58,7 @@ There are two variants: the *object adapter*, which uses composition and holds a
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Client
-    class Target {
-        <<interface>>
-        +request()
-    }
-    class Adapter {
-        -adaptee: Adaptee
-        +request()
-    }
-    class Adaptee {
-        +specificRequest()
-    }
-    Client --> Target
-    Target <|.. Adapter
-    Adapter --> Adaptee
-```
+<Diagram />
 
 The `Client` depends only on the `Target` interface. The `Adapter` implements `Target` and delegates each `request()` call to the `Adaptee`'s `specificRequest()`, making the necessary conversions (*object adapter* variant).
 

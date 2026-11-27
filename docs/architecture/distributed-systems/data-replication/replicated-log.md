@@ -8,7 +8,11 @@ tags:
   - Durability
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/replicated-log.html
 sidebar_label: "Replicated Log"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/data-replication/replicated-log.mdx';
 
 # Replicated Log
 
@@ -51,21 +55,7 @@ Na prática, o líder acrescenta a entrada ao seu log, a replica aos seguidores 
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant Cl as Cliente
-    participant L as Líder
-    participant F1 as Seguidor 1
-    participant F2 as Seguidor 2
-    Cl->>L: requisição
-    L->>L: acrescenta ao log
-    L->>F1: AppendEntries
-    L->>F2: AppendEntries
-    F1-->>L: ack
-    L->>L: avança High-Water Mark e aplica
-    L-->>Cl: resposta
-    L->>F2: High-Water Mark atualizado
-```
+<Diagram />
 
 O líder acrescenta a entrada, a replica, avança o High-Water Mark quando a maioria confirma, aplica a entrada e responde ao cliente.
 

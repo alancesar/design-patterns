@@ -7,7 +7,11 @@ tags:
   - Shared Understanding
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Assertions"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/supple-design/assertions.mdx';
 
 # Assertions
 
@@ -51,17 +55,7 @@ Combined with Side-Effect-Free Functions, the pattern makes the few commands tha
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant C as Client
-    participant A as Account
-    C->>A: debit(amount)
-    Note over A: Pre: amount is positive and the balance stays within the overdraft limit
-    A->>A: updates balance
-    Note over A: Post: balance = previous balance - amount
-    A-->>C: done
-    Note over A: Invariant: balance + overdraftLimit is never negative
-```
+<Diagram />
 
 The precondition, the postcondition, and the invariant are declared around the `debit` command. The book illustrates the pattern with paint mixing.
 

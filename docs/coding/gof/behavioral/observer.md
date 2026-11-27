@@ -12,6 +12,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/behavioral/observer.mdx';
+
 # Observer
 
 ## Descrição
@@ -58,37 +60,7 @@ A notificação pode seguir o modelo *push* (o subject envia os dados alterados 
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Subject {
-        <<interface>>
-        +attach(observer: Observer)
-        +detach(observer: Observer)
-        +notifyObservers()
-    }
-    class ConcreteSubject {
-        -state
-        -observers: List~Observer~
-        +getState()
-        +setState(state)
-    }
-    class Observer {
-        <<interface>>
-        +update(subject: Subject)
-    }
-    class ConcreteObserverA {
-        +update(subject: Subject)
-    }
-    class ConcreteObserverB {
-        +update(subject: Subject)
-    }
-    Subject <|.. ConcreteSubject
-    Observer <|.. ConcreteObserverA
-    Observer <|.. ConcreteObserverB
-    ConcreteSubject o-- "0..*" Observer : notifica
-    ConcreteObserverA ..> ConcreteSubject : consulta estado
-    ConcreteObserverB ..> ConcreteSubject : consulta estado
-```
+<Diagram />
 
 O `ConcreteSubject` guarda seu estado e a lista de `Observer`s registrados, notificando-os a cada mudança. Os observers concretos implementam `update` e, no modelo *pull*, consultam o estado do subject para reagir.
 

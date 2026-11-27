@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://k8spatterns.com/
 sidebar_label: "Self Awareness"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/kubernetes-patterns/behavioral/self-awareness.mdx';
 
 # Self Awareness
 
@@ -55,17 +59,7 @@ Mesmo aplicações sem estado e descartáveis às vezes precisam saber coisas qu
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    K["Kubernetes (kubelet)"] -->|"Injeta metadados"| E["Variáveis de ambiente"]
-    K -->|"Escreve e atualiza"| V["Volume downwardAPI"]
-    subgraph POD["Pod: card-service"]
-        E --> A["Aplicação"]
-        V --> A
-    end
-    A --> L["Logs e métricas com nome do Pod e do nó"]
-    A --> T["Pool de threads dimensionado pelo limit de CPU"]
-```
+<Diagram />
 
 O kubelet preenche variáveis e arquivos com os metadados do Pod, e a aplicação os usa para identificar a instância e ajustar seu comportamento sem consultar a API do Kubernetes.
 

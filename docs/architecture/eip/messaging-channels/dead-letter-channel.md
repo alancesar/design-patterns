@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://www.enterpriseintegrationpatterns.com/DeadLetterChannel.html
 sidebar_label: "Dead Letter Channel"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/messaging-channels/dead-letter-channel.mdx';
 
 # Dead Letter Channel
 
@@ -51,13 +55,7 @@ Em muitos produtos o mecanismo é automático: depois de um número configurado 
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    P["Produtor"] --> C["Canal de origem"]
-    C --> R["Consumidor"]
-    C -.->|"não entregue ou limite de tentativas"| D["Dead Letter Channel"]
-    D --> O["Operador / reprocessamento"]
-```
+<Diagram />
 
 Quando a mensagem não pode ser entregue ou excede as tentativas, ela é movida ao canal de mensagens mortas, onde um operador ou processo a analisa.
 

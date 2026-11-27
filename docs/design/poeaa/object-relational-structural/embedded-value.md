@@ -7,7 +7,11 @@ tags:
   - Performance
 source: https://martinfowler.com/eaaCatalog/embeddedValue.html
 sidebar_label: "Embedded Value"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/object-relational-structural/embedded-value.mdx';
 
 # Embedded Value
 
@@ -47,26 +51,7 @@ Costuma ser usado com Value Object, Money e outros tipos sem identidade.
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class LedgerEntry {
-        -String description
-        -Money amount
-    }
-    class Money {
-        -long amountCents
-        -String currency
-    }
-    class LedgerEntryTable {
-        <<table>>
-        id
-        description
-        amount_cents
-        currency
-    }
-    LedgerEntry *-- Money
-    LedgerEntry ..> LedgerEntryTable : mapeado para
-```
+<Diagram />
 
 `Money` não tem tabela: seus campos viram colunas de `LedgerEntryTable`.
 

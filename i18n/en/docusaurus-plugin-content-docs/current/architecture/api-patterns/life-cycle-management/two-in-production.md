@@ -7,7 +7,11 @@ tags:
   - Decoupling
 source: https://api-patterns.org/
 sidebar_label: "Two in Production"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/life-cycle-management/two-in-production.mdx';
 
 # Two in Production
 
@@ -59,19 +63,7 @@ When releasing a new version, the provider retires the oldest one still running 
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    subgraph T1["Before the release"]
-        A1["V1 (active)"]
-        A2["V2 (active)"]
-    end
-    subgraph T2["After V3 is released"]
-        B2["V2 (active)"]
-        B3["V3 (active)"]
-        B1["V1 (retired)"]
-    end
-    T1 -->|"Release V3, retire V1"| T2
-```
+<Diagram />
 
 The window slides with each release: always two active versions, and the oldest leaves when a new one comes in.
 

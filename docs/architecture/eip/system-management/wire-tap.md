@@ -7,7 +7,11 @@ tags:
   - Security
 source: https://www.enterpriseintegrationpatterns.com/WireTap.html
 sidebar_label: "Wire Tap"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/system-management/wire-tap.mdx';
 
 # Wire Tap
 
@@ -48,13 +52,7 @@ A lógica de análise (monitoramento, auditoria, depuração) fica em um compone
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    P["Produtor"] --> W{"Wire Tap"}
-    W --> C["Consumidor"]
-    W --> S["Canal secundário"]
-    S --> M["Monitoramento e auditoria"]
-```
+<Diagram />
 
 O tap entrega a mensagem ao consumidor e uma cópia idêntica ao canal secundário, onde um componente de análise a consome.
 

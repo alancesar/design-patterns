@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/response-shaping/pagination.mdx';
+
 # Pagination
 
 ## Description
@@ -57,22 +59,7 @@ The page size can be fixed in the contract or chosen by the client up to a limit
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant C as Client
-    participant A as Statement API
-    participant D as Data source
-    C->>A: GET /accounts/acc-123/entries?pageSize=2
-    A->>D: Fetch 2 items (+1 to know if there are more)
-    D-->>A: Items 1 and 2
-    A-->>C: Items 1 and 2 + next link (cursor=2)
-    C->>A: GET ...entries?pageSize=2&cursor=2
-    A->>D: Items after id 2
-    D-->>A: Items 3 and 4
-    A-->>C: Items 3 and 4 + next link (cursor=4)
-    C->>A: GET ...entries?pageSize=2&cursor=4
-    A-->>C: Item 5, no next link
-```
+<Diagram />
 
 The client follows the `next` link until it no longer appears. The cursor holds the last item seen, so inserts at the start of the statement do not shift the following pages.
 

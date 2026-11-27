@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://microservices.io/patterns/data/transactional-outbox.html
 sidebar_label: "Transactional Outbox"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/transactional-messaging/transactional-outbox.mdx';
 
 # Transactional Outbox
 
@@ -52,15 +56,7 @@ The relay's delivery is "at least once": it may publish the same message more th
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    S["Service"] -->|"1. Single transaction"| DB[("Database")]
-    DB --- T["Business tables"]
-    DB --- O["Outbox"]
-    R["Message relay"] -->|"2. Reads pending messages"| O
-    R -->|"3. Publishes"| B["Message broker"]
-    B --> C["Idempotent consumer"]
-```
+<Diagram />
 
 The service writes data and message in the same transaction; the relay reads the outbox and publishes to the broker, and the consumer handles possible duplicates.
 

@@ -12,6 +12,9 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/creational/builder.mdx';
+import Diagram2 from '@site/docs/_diagrams/coding/gof/creational/builder-2.mdx';
+
 # Builder
 
 ## Description
@@ -60,31 +63,7 @@ In modern practice, the most common variant is the fluent builder (chained metho
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class Director {
-        -builder: Builder
-        +construct()
-    }
-    class Builder {
-        <<interface>>
-        +buildPartA()
-        +buildPartB()
-    }
-    class ConcreteBuilder {
-        -product: Product
-        +buildPartA()
-        +buildPartB()
-        +getResult() Product
-    }
-    class Product
-    class Client
-    Director o--> Builder
-    Builder <|.. ConcreteBuilder
-    ConcreteBuilder ..> Product : creates
-    Client --> Director
-    Client --> ConcreteBuilder
-```
+<Diagram />
 
 The `Client` creates a `ConcreteBuilder` and hands it to the `Director`, which calls the construction steps in the correct order; at the end, the client gets the assembled `Product` from the builder itself via `getResult()`. That method lives only in `ConcreteBuilder`, not in the `Builder` interface, because different builders can produce products with no common type. The `Director` only knows the interface and therefore does not return the product.
 
@@ -94,24 +73,7 @@ A Pix charge requires an amount and the receiver's key, and has an optional due 
 
 The example uses the fluent variant of Builder, popularized by *Effective Java*: there is no `Director` and no builder hierarchy. The client itself plays the `Director`'s role, chaining the steps it wants, and `build()` replaces `getResult()`, validating the whole before creating the immutable product.
 
-```mermaid
-classDiagram
-    class PixChargeBuilder {
-        -amountCents
-        -receiverKey
-        +dueDate(d) PixChargeBuilder
-        +fineRate(r) PixChargeBuilder
-        +payerMessage(m) PixChargeBuilder
-        +build() PixCharge
-    }
-    class PixCharge {
-        <<immutable>>
-        +txid
-    }
-    class Client
-    Client --> PixChargeBuilder : chains the steps
-    PixChargeBuilder ..> PixCharge : creates
-```
+<Diagram2 />
 
 <Tabs groupId="lang" queryString>
 <TabItem value="java" label="Java">

@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/response-shaping/wish-template.mdx';
+
 # Wish Template
 
 ## Descrição
@@ -57,14 +59,7 @@ O modelo costuma ser uma [Parameter Tree](/architecture/api-patterns/basic-struc
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    C["Cliente"] -->|"Molde: balanceCents e holder.name"| E["Endpoint"]
-    E --> T["Processador do molde"]
-    T -->|"Consulta ou filtro"| D[("Fonte de dados")]
-    D --> T
-    T -->|"Molde preenchido"| C
-```
+<Diagram />
 
 O processador percorre o molde recebido, busca só o que foi marcado e devolve uma resposta com a mesma estrutura.
 

@@ -8,7 +8,11 @@ tags:
   - Scalability
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/consistent-core.html
 sidebar_label: "Consistent Core"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/cluster-management/consistent-core.mdx';
 
 # Consistent Core
 
@@ -56,27 +60,7 @@ Considerações adicionais:
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    subgraph core["Núcleo consistente (3 a 5 nós)"]
-        C1["Nó 1 (líder)"]
-        C2["Nó 2"]
-        C3["Nó 3"]
-        C1 <--> C2
-        C1 <--> C3
-        C2 <--> C3
-    end
-    subgraph data["Cluster de dados (muitos nós)"]
-        D1["Servidor A"]
-        D2["Servidor B"]
-        D3["Servidor C"]
-        D4["Servidor N"]
-    end
-    D1 --> core
-    D2 --> core
-    D3 --> core
-    D4 --> core
-```
+<Diagram />
 
 O consenso acontece apenas entre os poucos nós do núcleo; os servidores de dados são clientes dele e usam seus metadados e primitivas para coordenar-se.
 

@@ -7,7 +7,11 @@ tags:
   - Reliability
 source: https://k8spatterns.com/
 sidebar_label: "Controller"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/kubernetes-patterns/advanced/controller.mdx';
 
 # Controller
 
@@ -57,15 +61,7 @@ Um controller customizado é só uma aplicação que roda de forma permanente, e
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    U["Time de plataforma"] -->|"Altera ConfigMap"| API["API Server"]
-    API -->|"Evento MODIFIED"| C["Controller"]
-    C -->|"Observar e analisar"| C
-    C -->|"Agir: remove Pods app=pix-service"| API
-    API --> D["Deployment pix-service"]
-    D -->|"Recria Pods com a nova configuração"| P["Pods pix-service"]
-```
+<Diagram />
 
 O controller observa eventos de ConfigMap, identifica pela anotação quais Pods dependem dele e age pela API; o Deployment recria os Pods, que já sobem com a configuração nova.
 

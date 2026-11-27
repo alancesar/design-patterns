@@ -1,0 +1,7 @@
+```mermaid
+flowchart LR
+    A["Discardable entries"] --- B["Low-Water Mark"]
+    B --- C["Retained entries"]
+    C --- D["High-Water Mark"]
+    D --- E["Entries not yet committed"]
+```

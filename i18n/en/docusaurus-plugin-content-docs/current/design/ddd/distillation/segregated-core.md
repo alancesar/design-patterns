@@ -7,7 +7,11 @@ tags:
   - Strategic Focus
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Segregated Core"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/distillation/segregated-core.mdx';
 
 # Segregated Core
 
@@ -53,20 +57,7 @@ The cost is a significant refactoring. Elements that serve both the core and the
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    subgraph antes["Before"]
-        A1["Core and support mixed together"]
-    end
-    subgraph depois["After"]
-        C["Segregated Core"]
-        S1["Supporting module"]
-        S2["Generic subdomain"]
-        S1 -->|"depends on"| C
-        S2 -->|"depends on"| C
-    end
-    A1 --> C
-```
+<Diagram />
 
 The core is extracted into a module of its own, and the supporting and generic modules now depend on it, not the other way around.
 

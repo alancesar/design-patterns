@@ -12,6 +12,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/behavioral/command.mdx';
+
 # Command
 
 ## Descrição
@@ -60,34 +62,7 @@ Como os comandos são objetos de primeira classe, podem ser armazenados em hist�
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Command {
-        <<interface>>
-        +execute()
-        +undo()
-    }
-    class ConcreteCommand {
-        -receiver: Receiver
-        -state
-        +execute()
-        +undo()
-    }
-    class Receiver {
-        +action()
-    }
-    class Invoker {
-        -history: List~Command~
-        +setCommand(command: Command)
-        +executeCommand()
-    }
-    class Client
-    Command <|.. ConcreteCommand
-    ConcreteCommand --> Receiver
-    Invoker o-- Command
-    Client ..> ConcreteCommand : cria
-    Client ..> Receiver : configura
-```
+<Diagram />
 
 O `Client` cria o `ConcreteCommand` e o associa a um `Receiver`; o `Invoker` armazena comandos e chama `execute()` sem conhecer o receptor. O `ConcreteCommand` traduz a chamada em uma ou mais ações sobre o `Receiver` e pode guardar estado para `undo()`.
 

@@ -7,7 +7,11 @@ tags:
   - Performance
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/request-waiting-list.html
 sidebar_label: "Request Waiting List"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/data-replication/request-waiting-list.mdx';
 
 # Request Waiting List
 
@@ -49,19 +53,7 @@ It usually also has a timeout, to fail requests that don't reach the quorum.
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant Cl as Client
-    participant L as Leader
-    participant W as Waiting list
-    participant F as Followers
-    Cl->>L: request
-    L->>W: registers index and callback
-    L->>F: replicates
-    F-->>L: acknowledgments
-    L->>W: High-Water Mark advanced
-    W-->>Cl: callback responds
-```
+<Diagram />
 
 The leader registers a callback per index and fires it when replication reaches the quorum, responding to the client.
 

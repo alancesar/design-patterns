@@ -12,6 +12,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/creational/abstract-factory.mdx';
+
 # Abstract Factory
 
 ## Descrição
@@ -57,50 +59,9 @@ Na prática, o padrão funciona como uma "fábrica de fábricas": agrupa vários
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class AbstractFactory {
-        <<interface>>
-        +createProductA() AbstractProductA
-        +createProductB() AbstractProductB
-    }
-    namespace Family1["Família 1"] {
-        class ConcreteFactory1 {
-            +createProductA() AbstractProductA
-            +createProductB() AbstractProductB
-        }
-        class ProductA1
-        class ProductB1
-    }
-    namespace Family2["Família 2"] {
-        class ConcreteFactory2 {
-            +createProductA() AbstractProductA
-            +createProductB() AbstractProductB
-        }
-        class ProductA2
-        class ProductB2
-    }
-    class AbstractProductA {
-        <<interface>>
-    }
-    class AbstractProductB {
-        <<interface>>
-    }
+<Diagram />
 
-    Client --> AbstractFactory : usa
-    AbstractFactory <|.. ConcreteFactory1 : implementa
-    AbstractFactory <|.. ConcreteFactory2 : implementa
-    ConcreteFactory1 ..> ProductA1 : cria
-    ConcreteFactory1 ..> ProductB1 : cria
-    ConcreteFactory2 ..> ProductA2 : cria
-    ConcreteFactory2 ..> ProductB2 : cria
-    ProductA1 ..|> AbstractProductA : implementa
-    ProductA2 ..|> AbstractProductA : implementa
-    ProductB1 ..|> AbstractProductB : implementa
-    ProductB2 ..|> AbstractProductB : implementa
-```
-
-Cada grupo (`Família 1`, `Família 2`) é uma família: uma fábrica concreta e os produtos que ela cria (`ConcreteFactory1` cria `ProductA1` e `ProductB1`; `ConcreteFactory2` cria `ProductA2` e `ProductB2`). As linhas tracejadas com triângulo vazio (**implementa**) ligam uma classe à interface que ela implementa, e as setas tracejadas (**cria**) mostram qual produto cada fábrica instancia. O `Client` só conhece `AbstractFactory` e as interfaces `AbstractProductA` e `AbstractProductB`; trocar a fábrica concreta troca a família inteira sem mudar o código do cliente.
+Cada grupo (`Family 1`, `Family 2`) é uma família: uma fábrica concreta e os produtos que ela cria (`ConcreteFactory1` cria `ProductA1` e `ProductB1`; `ConcreteFactory2` cria `ProductA2` e `ProductB2`). As linhas tracejadas com triângulo vazio (**implements**) ligam uma classe à interface que ela implementa, e as setas tracejadas (**creates**) mostram qual produto cada fábrica instancia. O `Client` só conhece `AbstractFactory` e as interfaces `AbstractProductA` e `AbstractProductB`; trocar a fábrica concreta troca a família inteira sem mudar o código do cliente.
 
 ## Exemplo
 

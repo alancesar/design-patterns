@@ -7,7 +7,11 @@ tags:
   - Shared Understanding
 source: https://api-patterns.org/
 sidebar_label: "Parameter Forest"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/basic-structure/parameter-forest.mdx';
 
 # Parameter Forest
 
@@ -49,13 +53,7 @@ Na maioria dos mapeamentos tecnológicos, uma floresta equivale a uma [Parameter
 
 ## Diagrama
 
-```mermaid
-flowchart TB
-    M["Mensagem de resposta"] --> T1["Árvore: accounts"]
-    M --> T2["Árvore: cards"]
-    T1 --> A1["Account com LedgerEntry"]
-    T2 --> C1["Card com limites"]
-```
+<Diagram />
 
 A mensagem carrega duas árvores no nível superior, sem uma raiz comum.
 

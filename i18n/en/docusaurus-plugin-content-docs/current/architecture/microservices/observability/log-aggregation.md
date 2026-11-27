@@ -7,7 +7,11 @@ tags:
   - Reliability
 source: https://microservices.io/patterns/observability/application-logging.html
 sidebar_label: "Log Aggregation"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/observability/log-aggregation.mdx';
 
 # Log Aggregation
 
@@ -50,14 +54,7 @@ Collection agents should be lightweight so they don't penalize the services, and
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    A1["Service A (instance 1)"] -->|"logs"| C["Centralized logging service"]
-    A2["Service A (instance 2)"] -->|"logs"| C
-    B["Service B"] -->|"logs"| C
-    C --> S["Search and analysis"]
-    C --> AL["Alerts"]
-```
+<Diagram />
 
 All instances send their logs to a central service, which offers search, analysis, and alerts.
 

@@ -7,7 +7,11 @@ tags:
   - Simplicity
 source: https://martinfowler.com/eaaCatalog/clientSessionState.html
 sidebar_label: "Client Session State"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/session-state/client-session-state.mdx';
 
 # Client Session State
 
@@ -54,17 +58,7 @@ Today the most common form is the JWT in a cookie or header: the token carries i
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant Client
-    participant ServerA
-    participant ServerB
-    Client->>ServerA: Request 1
-    ServerA-->>Client: Response + state (signed token)
-    Client->>ServerB: Request 2 + state
-    ServerB->>ServerB: Validates signature and reads the state
-    ServerB-->>Client: Response + updated state
-```
+<Diagram />
 
 The `Client` holds the state and sends it back with every call. Any server validates the signature and uses the data, without querying a shared store.
 

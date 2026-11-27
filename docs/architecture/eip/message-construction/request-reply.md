@@ -7,7 +7,11 @@ tags:
   - Performance Efficiency
 source: https://www.enterpriseintegrationpatterns.com/RequestReply.html
 sidebar_label: "Request-Reply"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/message-construction/request-reply.mdx';
 
 # Request-Reply
 
@@ -50,17 +54,7 @@ Atenção: não confundir com o Asynchronous Request-Reply do Azure, que usa HTT
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant Req as Requestor
-    participant CReq as Canal de requisição
-    participant CRep as Canal de resposta
-    participant Rep as Replier
-    Req->>CReq: Request
-    CReq->>Rep: Request
-    Rep->>CRep: Reply
-    CRep->>Req: Reply
-```
+<Diagram />
 
 O requestor envia a requisição por um canal e recebe a resposta por outro.
 

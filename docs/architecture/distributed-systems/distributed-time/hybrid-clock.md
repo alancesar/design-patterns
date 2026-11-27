@@ -7,7 +7,11 @@ tags:
   - Performance
 source: https://martinfowler.com/articles/patterns-of-distributed-systems/hybrid-clock.html
 sidebar_label: "Hybrid Clock"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/distributed-systems/distributed-time/hybrid-clock.mdx';
 
 # Hybrid Clock
 
@@ -51,18 +55,7 @@ O resultado se comporta como um Lamport Clock, com versões sempre crescentes e 
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant C as Cliente
-    participant A as No A
-    participant B as No B
-    C->>A: escrever x
-    Note over A: relógio 100, ticks 0
-    A-->>C: timestamp (100, 0)
-    C->>B: escrever y com (100, 0)
-    Note over B: relógio local 99, mantém 100 e soma tick
-    B-->>C: timestamp (100, 1)
-```
+<Diagram />
 
 O nó B tem o relógio físico atrasado, mas mantém o maior tempo conhecido e incrementa os ticks, de modo que a segunda escrita fique depois da primeira.
 

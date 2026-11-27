@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://k8spatterns.com/
 sidebar_label: "Immutable Configuration"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/kubernetes-patterns/configuration/immutable-configuration.mdx';
 
 # Immutable Configuration
 
@@ -57,13 +61,7 @@ Trocar de ambiente passa a ser trocar a imagem do init container, o que pode ser
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    REG["Registry: ledger-config:2026.11.1"] -->|"pull"| INIT["Init container copy-config"]
-    INIT -->|"copia arquivos"| VOL[("emptyDir /config")]
-    VOL -->|"leitura"| APP["Container ledger-service"]
-    INIT -.->|"termina antes"| APP
-```
+<Diagram />
 
 O init container copia a configuração da imagem versionada para um volume compartilhado e termina; só então o contêiner da aplicação inicia e lê os arquivos.
 

@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://microservices.io/patterns/3rd-party-registration.html
 sidebar_label: "3rd Party Registration"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/service-discovery/3rd-party-registration.mdx';
 
 # 3rd Party Registration
 
@@ -45,18 +49,7 @@ O registrador pode observar a plataforma de implantação ou executar health che
 
 ## Diagrama
 
-```mermaid
-sequenceDiagram
-    participant P as Plataforma
-    participant G as Registrador
-    participant R as Service Registry
-    participant I as Instância
-    P->>I: Inicia a instância
-    G->>I: Detecta e verifica saúde
-    G->>R: Registra a instância
-    P->>I: Encerra a instância
-    G->>R: Remove a instância
-```
+<Diagram />
 
 Um registrador externo observa as instâncias e mantém o registro.
 

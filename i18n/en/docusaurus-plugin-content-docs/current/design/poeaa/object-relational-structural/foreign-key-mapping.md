@@ -7,7 +7,11 @@ tags:
   - Simplicity
 source: https://martinfowler.com/eaaCatalog/foreignKeyMapping.html
 sidebar_label: "Foreign Key Mapping"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/object-relational-structural/foreign-key-mapping.mdx';
 
 # Foreign Key Mapping
 
@@ -48,19 +52,7 @@ Loading of the referenced object is usually deferred with Lazy Load, to avoid lo
 
 ## Diagram
 
-```mermaid
-erDiagram
-    ACCOUNT ||--o{ CARD : has
-    ACCOUNT {
-        bigint id PK
-        varchar holder_name
-    }
-    CARD {
-        bigint id PK
-        bigint account_id FK
-        varchar last_digits
-    }
-```
+<Diagram />
 
 Each `CARD` holds `account_id`, the foreign key that points to the `ACCOUNT` it belongs to.
 

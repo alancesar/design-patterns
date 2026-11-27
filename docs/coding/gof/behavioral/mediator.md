@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/coding/gof/behavioral/mediator.mdx';
+
 # Mediator
 
 ## Descrição
@@ -59,35 +61,7 @@ Como o comportamento colaborativo fica em um único lugar, é possível alterar 
 
 ## Diagrama
 
-```mermaid
-classDiagram
-    class Mediator {
-        <<interface>>
-        +notify(Colleague sender, String event)
-    }
-    class ConcreteMediator {
-        -ConcreteColleagueA colleagueA
-        -ConcreteColleagueB colleagueB
-        +notify(Colleague sender, String event)
-    }
-    class Colleague {
-        <<abstract>>
-        #Mediator mediator
-        +setMediator(Mediator mediator)
-    }
-    class ConcreteColleagueA {
-        +operationA()
-    }
-    class ConcreteColleagueB {
-        +operationB()
-    }
-    Mediator <|.. ConcreteMediator
-    Colleague <|-- ConcreteColleagueA
-    Colleague <|-- ConcreteColleagueB
-    Colleague --> Mediator : notifica
-    ConcreteMediator --> ConcreteColleagueA : coordena
-    ConcreteMediator --> ConcreteColleagueB : coordena
-```
+<Diagram />
 
 O `Mediator` define a interface de comunicação usada pelos colleagues. O `ConcreteMediator` conhece os colleagues concretos e implementa a coordenação entre eles. Cada `Colleague` guarda uma referência ao mediador e o notifica em vez de falar diretamente com os demais.
 

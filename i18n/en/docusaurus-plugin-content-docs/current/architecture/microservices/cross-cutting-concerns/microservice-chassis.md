@@ -8,7 +8,11 @@ tags:
   - Security
 source: https://microservices.io/patterns/microservice-chassis.html
 sidebar_label: "Microservice Chassis"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/cross-cutting-concerns/microservice-chassis.mdx';
 
 # Microservice Chassis
 
@@ -52,19 +56,7 @@ When the cross-cutting requirements change, the owning team publishes a new vers
 
 ## Diagram
 
-```mermaid
-flowchart TB
-    subgraph Chassis["Microservice Chassis"]
-        B["Build logic"]
-        C1["Externalized configuration"]
-        C2["Logging and metrics"]
-        C3["Health checks and tracing"]
-        C4["Security and circuit breaker"]
-    end
-    S1["Service A (business logic)"] --> Chassis
-    S2["Service B (business logic)"] --> Chassis
-    S3["Service C (business logic)"] --> Chassis
-```
+<Diagram />
 
 The services contain only business logic and depend on the chassis, which provides build and cross-cutting concerns in a shared, versioned way.
 

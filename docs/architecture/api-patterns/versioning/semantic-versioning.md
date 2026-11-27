@@ -11,6 +11,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/versioning/semantic-versioning.mdx';
+
 # Semantic Versioning
 
 ## Descrição
@@ -58,15 +60,7 @@ Assim, clientes e provedor comparam duas versões e concluem imediatamente se po
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    V["2.4.1"] --> Fix["2.4.2 (PATCH: correção compatível)"]
-    V --> Feat["2.5.0 (MINOR: novidade compatível)"]
-    V --> Brk["3.0.0 (MAJOR: mudança incompatível)"]
-    Fix --> OkC["Cliente atualiza sem mudanças"]
-    Feat --> OkC
-    Brk --> Mig["Cliente planeja migração"]
-```
+<Diagram />
 
 Dada a versão atual, o tipo de incremento já diz ao cliente se ele pode atualizar direto ou se precisa planejar uma migração.
 

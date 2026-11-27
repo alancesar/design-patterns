@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://microservices.io/patterns/self-registration.html
 sidebar_label: "Self Registration"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/service-discovery/self-registration.mdx';
 
 # Self Registration
 
@@ -44,16 +48,7 @@ Normally a microservice chassis or client library (for example, the Netflix Eure
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant I as Instance
-    participant R as Service Registry
-    I->>R: Registers host and IP (startup)
-    loop Periodically
-        I->>R: Renews the registration (heartbeat)
-    end
-    I->>R: Deregisters (shutdown)
-```
+<Diagram />
 
 The instance itself manages its lifecycle in the registry.
 

@@ -7,7 +7,11 @@ tags:
   - Operational Excellence
 source: https://microservices.io/patterns/server-side-discovery.html
 sidebar_label: "Server-side Discovery"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/microservices/service-discovery/server-side-discovery.mdx';
 
 # Server-side Discovery
 
@@ -47,18 +51,7 @@ This way, the discovery logic moves out of the client and into the infrastructur
 
 ## Diagram
 
-```mermaid
-sequenceDiagram
-    participant C as Client
-    participant L as Router (load balancer)
-    participant R as Service Registry
-    participant I as Service instance
-    C->>L: Request
-    L->>R: Queries instances
-    R-->>L: Locations
-    L->>I: Forwards the request
-    I-->>C: Response (via router)
-```
+<Diagram />
 
 The client knows only the router; it queries the registry and picks the instance.
 

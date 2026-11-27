@@ -8,7 +8,11 @@ tags:
   - Simplicity
 source: https://martinfowler.com/eaaCatalog/remoteFacade.html
 sidebar_label: "Remote Facade"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/distribution/remote-facade.mdx';
 
 # Remote Facade
 
@@ -55,25 +59,7 @@ The facade contains no domain logic: it only translates, delegates, and usually 
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class RemoteClient
-    class InvoiceRemoteFacade {
-        +getInvoice(id) InvoiceDTO
-        +payInvoice(id, paymentCents)
-    }
-    class InvoiceAssembler {
-        +toDTO(invoice) InvoiceDTO
-    }
-    class CardInvoice
-    class InvoiceEntry
-    class InvoiceDTO
-    RemoteClient --> InvoiceRemoteFacade : remote call
-    InvoiceRemoteFacade --> InvoiceAssembler
-    InvoiceRemoteFacade --> CardInvoice
-    CardInvoice "1" --> "*" InvoiceEntry
-    InvoiceAssembler ..> InvoiceDTO
-```
+<Diagram />
 
 The `RemoteClient` makes a single call to the `InvoiceRemoteFacade`, which uses the `InvoiceAssembler` and the fine-grained objects (`CardInvoice`, `InvoiceEntry`) to build a complete `InvoiceDTO` or apply a payment.
 

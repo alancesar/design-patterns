@@ -7,7 +7,11 @@ tags:
   - Reliability
 source: https://www.enterpriseintegrationpatterns.com/MessageDispatcher.html
 sidebar_label: "Message Dispatcher"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/messaging-endpoints/message-dispatcher.mdx';
 
 # Message Dispatcher
 
@@ -47,13 +51,7 @@ Difere do Competing Consumers, em que cada consumidor tem sua própria conexão 
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    C[["Canal"]] --> D["Dispatcher"]
-    D --> P1["Performer 1"]
-    D --> P2["Performer 2"]
-    D --> P3["Performer N"]
-```
+<Diagram />
 
 O dispatcher lê do canal e distribui cada mensagem a um performer.
 

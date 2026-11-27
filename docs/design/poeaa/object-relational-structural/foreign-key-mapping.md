@@ -7,7 +7,11 @@ tags:
   - Simplicity
 source: https://martinfowler.com/eaaCatalog/foreignKeyMapping.html
 sidebar_label: "Foreign Key Mapping"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/poeaa/object-relational-structural/foreign-key-mapping.mdx';
 
 # Foreign Key Mapping
 
@@ -48,19 +52,7 @@ A carga do objeto referenciado costuma ser adiada com Lazy Load, para evitar car
 
 ## Diagrama
 
-```mermaid
-erDiagram
-    ACCOUNT ||--o{ CARD : possui
-    ACCOUNT {
-        bigint id PK
-        varchar holder_name
-    }
-    CARD {
-        bigint id PK
-        bigint account_id FK
-        varchar last_digits
-    }
-```
+<Diagram />
 
 Cada `CARD` guarda `account_id`, a chave estrangeira que aponta para a `ACCOUNT` à qual pertence.
 

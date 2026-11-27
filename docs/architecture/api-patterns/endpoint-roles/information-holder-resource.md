@@ -7,7 +7,11 @@ tags:
   - Decoupling
 source: https://api-patterns.org/
 sidebar_label: "Information Holder Resource"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/endpoint-roles/information-holder-resource.mdx';
 
 # Information Holder Resource
 
@@ -62,13 +66,7 @@ O padrão é o papel genérico para endpoints centrados em dados e tem cinco ref
 
 ## Diagrama
 
-```mermaid
-flowchart LR
-    C1["Cliente A"] -->|"consulta"| IH["Information Holder Resource: /accounts"]
-    C2["Cliente B"] -->|"atualiza"| IH
-    IH --> S[("Armazenamento interno")]
-    IH --> I["Identificador estável da conta"]
-```
+<Diagram />
 
 Vários clientes acessam a mesma entidade pelo contrato; o armazenamento e as chaves internas permanecem escondidos.
 

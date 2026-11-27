@@ -7,7 +7,11 @@ tags:
   - Consistency
 source: https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf
 sidebar_label: "Knowledge Level"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/design/ddd/large-scale-structure/knowledge-level.mdx';
 
 # Knowledge Level
 
@@ -53,21 +57,7 @@ Instead of scattering conditionals and subclasses for each variation, the variat
 
 ## Diagram
 
-```mermaid
-classDiagram
-    class AccountType {
-        +name
-        +minimumBalance
-        +allowsOverdraft
-    }
-    class Account {
-        +balance
-        +withdraw(amount)
-    }
-    Account "*" --> "1" AccountType : governed by
-    note for AccountType "Knowledge level"
-    note for Account "Operational level"
-```
+<Diagram />
 
 `Account` is the operational object; `AccountType` belongs to the knowledge level and defines the constraints each account must respect.
 

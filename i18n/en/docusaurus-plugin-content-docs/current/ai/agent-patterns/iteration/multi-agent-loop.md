@@ -8,7 +8,11 @@ tags:
 origin: Google
 source: https://docs.cloud.google.com/architecture/choose-design-pattern-agentic-ai-system#loop-pattern
 sidebar_label: "Multi-Agent Loop"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/ai/agent-patterns/iteration/multi-agent-loop.mdx';
 
 # Multi-Agent Loop
 
@@ -50,14 +54,7 @@ Shared state carries the result from one round to the next. The final result is 
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    S["Input"] --> A["Subagent 1"]
-    A --> B["Subagent 2"]
-    B --> C{"Exit condition met?"}
-    C -- "No" --> A
-    C -- "Yes" --> R["Result"]
-```
+<Diagram />
 
 The sequence of subagents repeats until the exit condition is satisfied or the iteration limit is reached.
 

@@ -10,6 +10,8 @@ mdx:
   format: mdx
 ---
 
+import Diagram from '@site/docs/_diagrams/architecture/api-patterns/message-exchange-optimization/request-bundle.mdx';
+
 # Request Bundle
 
 ## Description
@@ -57,18 +59,7 @@ The provider must split the bundle and assemble the response, and the client mus
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    C["Client"] -->|"Request Bundle: A, B, C"| E["Endpoint"]
-    E --> S["Request splitter"]
-    S --> A1["Element A"]
-    S --> B1["Element B"]
-    S --> C1["Element C"]
-    A1 --> M["Response assembler"]
-    B1 --> M
-    C1 --> M
-    M -->|"Bundled response: A, B, C"| C
-```
+<Diagram />
 
 The endpoint splits the bundle into independent elements, processes each one and assembles a single response that mirrors the bundle. In the multiple-responses variant, the assembler is replaced by individual replies.
 

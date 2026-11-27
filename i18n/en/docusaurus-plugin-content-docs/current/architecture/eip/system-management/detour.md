@@ -7,7 +7,11 @@ tags:
   - Reliability
 source: https://www.enterpriseintegrationpatterns.com/Detour.html
 sidebar_label: "Detour"
+mdx:
+  format: mdx
 ---
+
+import Diagram from '@site/docs/_diagrams/architecture/eip/system-management/detour.mdx';
 
 # Detour
 
@@ -48,15 +52,7 @@ The choice of output is controlled externally, usually by messages sent over the
 
 ## Diagram
 
-```mermaid
-flowchart LR
-    A["Source"] --> D{"Detour"}
-    CB["Control Bus"] -.-> D
-    D -- "detour off" --> Z["Destination"]
-    D -- "detour on" --> S1["Validation or debugging"]
-    S1 --> S2["Detailed logging"]
-    S2 --> Z
-```
+<Diagram />
 
 The router sends the message straight to the destination or through the intermediate steps, depending on the command received from the Control Bus.
 
