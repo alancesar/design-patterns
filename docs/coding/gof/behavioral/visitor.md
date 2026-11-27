@@ -17,11 +17,15 @@ import Diagram from '@site/docs/_diagrams/coding/gof/behavioral/visitor.mdx';
 
 ## Descrição
 
-O Visitor representa uma operação a ser executada sobre os elementos de uma estrutura de objetos. Ele permite definir novas operações sem alterar as classes dos elementos sobre os quais opera, movendo cada operação para um objeto separado, o visitante.
+O Visitor permite adicionar novas operações a uma hierarquia de classes sem alterar essas classes, colocando cada operação em um objeto separado, o visitante.
 
-Cada elemento da estrutura expõe um método `accept(visitor)`, que apenas chama de volta o método do visitante correspondente ao seu tipo concreto (por exemplo, `visitor.visitCdb(this)`). Essa técnica, chamada de *double dispatch*, faz com que o código executado dependa tanto do tipo do visitante quanto do tipo do elemento, sem `instanceof` nem `switch` sobre tipos.
+Pense na carteira de investimentos do exemplo, com ativos dos tipos `Cdb`, `Stock` e `FundShare`. Ao longo do tempo surgem operações novas sobre a carteira inteira: calcular o imposto devido, gerar o informe de rendimentos, exportar para a contabilidade. Colocar cada operação como um método em cada classe de ativo incha essas classes com responsabilidades alheias a elas e obriga a mexer em todas a cada operação nova. Escrever a operação como uma função com `instanceof` ou `switch` sobre o tipo espalha checagens de tipo pelo código, e o compilador não avisa quando um tipo fica de fora.
 
-Assim, cada nova operação vira uma nova classe `ConcreteVisitor` que reúne, em um só lugar, o comportamento para todos os tipos de elemento. O padrão é especialmente útil em hierarquias estáveis, como árvores sintáticas (AST), documentos e modelos de domínio, sobre as quais muitas operações diferentes são aplicadas.
+O Visitor resolve isso em duas partes. A interface do visitante tem um método para cada tipo de elemento (`visitCdb`, `visitStock`, `visitFundShare`), e cada operação é uma classe que implementa essa interface, como `TaxCalculator`. Cada elemento, por sua vez, tem um único método `accept(visitor)`, cujo corpo só chama o método do visitante correspondente ao próprio tipo, passando a si mesmo: em `Cdb`, `accept` chama `visitor.visitCdb(this)`. O cliente percorre a carteira chamando `asset.accept(taxCalculator)` sem saber qual é o tipo concreto de cada ativo.
+
+Essa ida e volta é o que o padrão chama de *double dispatch*. A primeira chamada, `accept`, é resolvida pelo tipo concreto do elemento (um `Cdb` executa o `accept` de `Cdb`); a segunda, `visitCdb`, é resolvida pelo tipo concreto do visitante (`TaxCalculator` ou `IncomeReportExporter`). O código que roda no fim depende das duas coisas, de qual ativo e de qual operação, sem nenhuma checagem de tipo. Linguagens como Java, Python e Go escolhem o método a executar só pelo tipo do objeto que recebe a chamada; o Visitor encadeia duas chamadas para obter esse efeito.
+
+Cada nova operação vira, assim, uma nova classe `ConcreteVisitor`, que reúne em um só lugar o comportamento para todos os tipos de elemento. O custo aparece no sentido oposto: um novo tipo de elemento exige um método novo na interface do visitante e em todos os visitantes. Por isso o padrão rende mais em hierarquias estáveis, como árvores sintáticas (AST), documentos e modelos de domínio, sobre as quais muitas operações diferentes são aplicadas.
 
 ## Problemas que resolve
 
@@ -184,69 +188,100 @@ report = [a.accept(IncomeReportExporter()) for a in assets]
 <TabItem value="go" label="Go">
 
 ```go
-// Go não tem métodos genéricos: o visitante acumula o resultado em vez de devolvê-lo.
-type AssetVisitor interface {
-	VisitCdb(cdb Cdb)
-	VisitStock(stock Stock)
-	VisitFundShare(share FundShare)
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+// Go tem generics (desde a 1.18), mas um método não pode ter parâmetros de tipo próprios,
+// como o `<R> R accept(...)` do Java. O visitante genérico AssetVisitor[R] devolve o resultado,
+// e a função genérica Visit faz a ponte entre ele e o Accept dos ativos.
+type AssetVisitor[R any] interface {
+	VisitCdb(cdb Cdb) R
+	VisitStock(stock Stock) R
+	VisitFundShare(share FundShare) R
 }
 
-type Asset interface{ Accept(v AssetVisitor) }
+// Accept recebe este despachante sem tipo de retorno; collector[R] o implementa para cada R.
+type assetDispatcher interface {
+	dispatchCdb(cdb Cdb)
+	dispatchStock(stock Stock)
+	dispatchFundShare(share FundShare)
+}
+
+type Asset interface{ Accept(d assetDispatcher) }
 
 type Cdb struct {
 	Issuer    string
 	GainCents int64
 }
 
-func (c Cdb) Accept(v AssetVisitor) { v.VisitCdb(c) }
+func (c Cdb) Accept(d assetDispatcher) { d.dispatchCdb(c) }
 
 type Stock struct {
 	Symbol    string
 	GainCents int64
 }
 
-func (s Stock) Accept(v AssetVisitor) { v.VisitStock(s) }
+func (s Stock) Accept(d assetDispatcher) { d.dispatchStock(s) }
 
 type FundShare struct {
 	Fund      string
 	GainCents int64
 }
 
-func (f FundShare) Accept(v AssetVisitor) { v.VisitFundShare(f) }
+func (f FundShare) Accept(d assetDispatcher) { d.dispatchFundShare(f) }
+
+type collector[R any] struct {
+	visitor AssetVisitor[R]
+	result  R
+}
+
+func (c *collector[R]) dispatchCdb(cdb Cdb)               { c.result = c.visitor.VisitCdb(cdb) }
+func (c *collector[R]) dispatchStock(stock Stock)         { c.result = c.visitor.VisitStock(stock) }
+func (c *collector[R]) dispatchFundShare(share FundShare) { c.result = c.visitor.VisitFundShare(share) }
+
+// Visit aplica o visitante ao ativo e devolve o resultado tipado (double dispatch via Accept).
+func Visit[R any](a Asset, v AssetVisitor[R]) R {
+	c := &collector[R]{visitor: v}
+	a.Accept(c)
+	return c.result
+}
 
 // alíquotas ilustrativas, não representam regra fiscal
-type TaxCalculator struct{ TotalCents int64 }
+type TaxCalculator struct{}
 
-func (t *TaxCalculator) add(gainCents int64, rate float64) {
-	t.TotalCents += int64(math.Round(float64(gainCents) * rate))
+func taxCents(gainCents int64, rate float64) int64 {
+	return int64(math.Round(float64(gainCents) * rate))
 }
 
-func (t *TaxCalculator) VisitCdb(cdb Cdb)               { t.add(cdb.GainCents, 0.15) }
-func (t *TaxCalculator) VisitStock(stock Stock)         { t.add(stock.GainCents, 0.15) }
-func (t *TaxCalculator) VisitFundShare(share FundShare) { t.add(share.GainCents, 0.20) }
+func (TaxCalculator) VisitCdb(cdb Cdb) int64               { return taxCents(cdb.GainCents, 0.15) }
+func (TaxCalculator) VisitStock(stock Stock) int64         { return taxCents(stock.GainCents, 0.15) }
+func (TaxCalculator) VisitFundShare(share FundShare) int64 { return taxCents(share.GainCents, 0.20) }
 
-type IncomeReportExporter struct{ Lines []string }
+type IncomeReportExporter struct{}
 
-func (e *IncomeReportExporter) add(kind, field, value string, gainCents int64) {
-	e.Lines = append(e.Lines, fmt.Sprintf(`{"type":%q,%q:%q,"gainCents":%d}`, kind, field, value, gainCents))
+func (IncomeReportExporter) VisitCdb(cdb Cdb) string {
+	return fmt.Sprintf(`{"type":"cdb","issuer":%q,"gainCents":%d}`, cdb.Issuer, cdb.GainCents)
 }
-
-func (e *IncomeReportExporter) VisitCdb(cdb Cdb) { e.add("cdb", "issuer", cdb.Issuer, cdb.GainCents) }
-func (e *IncomeReportExporter) VisitStock(stock Stock) {
-	e.add("stock", "symbol", stock.Symbol, stock.GainCents)
+func (IncomeReportExporter) VisitStock(stock Stock) string {
+	return fmt.Sprintf(`{"type":"stock","symbol":%q,"gainCents":%d}`, stock.Symbol, stock.GainCents)
 }
-func (e *IncomeReportExporter) VisitFundShare(share FundShare) {
-	e.add("fund", "fund", share.Fund, share.GainCents)
+func (IncomeReportExporter) VisitFundShare(share FundShare) string {
+	return fmt.Sprintf(`{"type":"fund","fund":%q,"gainCents":%d}`, share.Fund, share.GainCents)
 }
 
 func main() {
 	assets := []Asset{Cdb{"Banco Alfa", 100_000}, Stock{"ACME3", 50_000}, FundShare{"Fundo Beta", 200_000}}
-	tax, report := &TaxCalculator{}, &IncomeReportExporter{}
-	for _, asset := range assets {
-		asset.Accept(tax)
-		asset.Accept(report)
+	var totalTaxCents int64
+	report := []string{}
+	for _, a := range assets {
+		totalTaxCents += Visit[int64](a, TaxCalculator{})
+		report = append(report, Visit[string](a, IncomeReportExporter{}))
 	}
-	fmt.Println(tax.TotalCents) // 62500
+	fmt.Println(totalTaxCents) // 62500
 }
 ```
 

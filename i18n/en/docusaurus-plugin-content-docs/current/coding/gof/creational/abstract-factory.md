@@ -61,7 +61,7 @@ In practice, the pattern works as a "factory of factories": it groups several re
 
 <Diagram />
 
-The `Client` uses only `AbstractFactory` and the product interfaces. Each concrete factory (`ConcreteFactory1`, `ConcreteFactory2`) creates a coherent family of products (`ProductA1`/`ProductB1` or `ProductA2`/`ProductB2`).
+Each group (`Family 1`, `Family 2`) is a family: a concrete factory and the products it creates (`ConcreteFactory1` creates `ProductA1` and `ProductB1`; `ConcreteFactory2` creates `ProductA2` and `ProductB2`). The dashed lines with a hollow triangle (**implements**) link a class to the interface it implements, and the dashed arrows (**creates**) show which product each factory instantiates. The `Client` knows only `AbstractFactory` and the `AbstractProductA` and `AbstractProductB` interfaces; swapping the concrete factory swaps the whole family without changing the client code.
 
 ## Example
 

@@ -5,13 +5,21 @@ classDiagram
         +createProductA() AbstractProductA
         +createProductB() AbstractProductB
     }
-    class ConcreteFactory1 {
-        +createProductA() AbstractProductA
-        +createProductB() AbstractProductB
+    namespace Family1["Family 1"] {
+        class ConcreteFactory1 {
+            +createProductA() AbstractProductA
+            +createProductB() AbstractProductB
+        }
+        class ProductA1
+        class ProductB1
     }
-    class ConcreteFactory2 {
-        +createProductA() AbstractProductA
-        +createProductB() AbstractProductB
+    namespace Family2["Family 2"] {
+        class ConcreteFactory2 {
+            +createProductA() AbstractProductA
+            +createProductB() AbstractProductB
+        }
+        class ProductA2
+        class ProductB2
     }
     class AbstractProductA {
         <<interface>>
@@ -19,23 +27,16 @@ classDiagram
     class AbstractProductB {
         <<interface>>
     }
-    class ProductA1
-    class ProductA2
-    class ProductB1
-    class ProductB2
-    class Client
 
-    AbstractFactory <|.. ConcreteFactory1
-    AbstractFactory <|.. ConcreteFactory2
-    AbstractProductA <|.. ProductA1
-    AbstractProductA <|.. ProductA2
-    AbstractProductB <|.. ProductB1
-    AbstractProductB <|.. ProductB2
+    Client --> AbstractFactory : uses
+    AbstractFactory <|.. ConcreteFactory1 : implements
+    AbstractFactory <|.. ConcreteFactory2 : implements
     ConcreteFactory1 ..> ProductA1 : creates
     ConcreteFactory1 ..> ProductB1 : creates
     ConcreteFactory2 ..> ProductA2 : creates
     ConcreteFactory2 ..> ProductB2 : creates
-    Client --> AbstractFactory
-    Client --> AbstractProductA
-    Client --> AbstractProductB
+    ProductA1 ..|> AbstractProductA : implements
+    ProductA2 ..|> AbstractProductA : implements
+    ProductB1 ..|> AbstractProductB : implements
+    ProductB2 ..|> AbstractProductB : implements
 ```

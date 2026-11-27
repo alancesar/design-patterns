@@ -55,7 +55,7 @@ Total: 28 patterns in 3 groups. Tags: Design goal.
 | [State](/coding/gof/behavioral/state) | State lets an object alter its behavior when its internal state changes, giving the impression that the object changed class. | [`Extensibility`](/tags/extensibility) [`Runtime Flexibility`](/tags/runtime-flexibility) | GoF |
 | [Strategy](/coding/gof/behavioral/strategy) | Strategy (also known as Policy) defines a family of algorithms, encapsulates each one in its own object, and makes them interchangeable. | [`Runtime Flexibility`](/tags/runtime-flexibility) [`Extensibility`](/tags/extensibility) | GoF |
 | [Template Method](/coding/gof/behavioral/template-method) | Template Method defines the skeleton of an algorithm in an operation of a base class, deferring some steps to subclasses. | [`Extensibility`](/tags/extensibility) | GoF |
-| [Visitor](/coding/gof/behavioral/visitor) | Visitor represents an operation to be performed on the elements of an object structure. | [`Extensibility`](/tags/extensibility) | GoF |
+| [Visitor](/coding/gof/behavioral/visitor) | Visitor lets you add new operations to a class hierarchy without changing those classes, by putting each operation in a separate object, the visitor. | [`Extensibility`](/tags/extensibility) | GoF |
 | [Null Object](/coding/gof/behavioral/null-object) | Null Object replaces null references with an object that implements the same interface the client expects, but whose behavior is neutral, that is, "do nothing". | [`Simplicity`](/tags/simplicity) | Classic |
 
 ## By tag
