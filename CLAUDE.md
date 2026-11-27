@@ -55,4 +55,4 @@ pt-BR is the default locale (served at `/`), and English is served at `/en/`. Ev
 ## Workflow
 
 - Branch from an up-to-date `main` and open each PR directly against `main`. Don't stack PRs on other feature branches: stacked PRs have stranded content that never reached `main`.
-- The repo is public. `.claude/skills/pattern-catalog/` (the skill that adds a catalog, and its `scripts/catalog.py`) is versioned. Everything else in `.claude/` (`settings.local.json`, `launch.json`, other skills) is excluded locally through `.git/info/exclude`, not `.gitignore`. Never commit or push it.
+- The repo is public. Two skills are versioned: `.claude/skills/pattern-catalog/` (adds a catalog, with its `scripts/catalog.py`) and `.claude/skills/branch-cleanup/` (after a merge, updates `main` and deletes merged branches). Everything else in `.claude/` (`settings.local.json`, `launch.json`, other skills) is excluded locally through `.git/info/exclude`, not `.gitignore`. Never commit or push it.
